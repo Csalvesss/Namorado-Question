@@ -2,6 +2,14 @@
 export default {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
+    screens: {
+      xs: '380px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       fontFamily: {
         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
@@ -32,6 +40,15 @@ export default {
       },
       backgroundImage: {
         'paper-soft': 'linear-gradient(160deg, #ffffff, #fdf7f3)',
+      },
+      spacing: {
+        'safe-top': 'env(safe-area-inset-top)',
+        'safe-bottom': 'env(safe-area-inset-bottom)',
+        'safe-left': 'env(safe-area-inset-left)',
+        'safe-right': 'env(safe-area-inset-right)',
+      },
+      minHeight: {
+        touch: '44px',
       },
     },
   },

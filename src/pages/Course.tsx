@@ -56,9 +56,9 @@ export default function Course() {
         </div>
       </header>
 
-      <section className="card p-6">
+      <section className="card p-5 sm:p-6">
         <h2 className="mb-4 font-serif text-xl italic text-wine-deep">Modos de estudo</h2>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <ModeCard
             icon="📝"
             title="Prova padrão"
@@ -118,7 +118,7 @@ export default function Course() {
                 <button
                   key={topic}
                   onClick={() => toggleTopic(topic)}
-                  className={`rounded-full border px-3 py-1.5 text-xs uppercase tracking-wider transition ${
+                  className={`inline-flex min-h-[36px] items-center rounded-full border px-3.5 py-1.5 text-xs uppercase tracking-wider transition active:scale-[0.98] ${
                     active
                       ? 'border-wine bg-rose-soft text-wine-deep'
                       : 'border-line bg-paper text-ink-soft hover:border-rose'
@@ -149,17 +149,17 @@ function ModeCard({ icon, title, description, onClick, disabled, highlight }: Mo
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`group rounded-xl border p-4 text-left transition disabled:cursor-not-allowed disabled:opacity-50 ${
+      className={`group min-h-touch rounded-xl border p-5 text-left transition active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50 disabled:active:scale-100 ${
         highlight
           ? 'border-rose bg-rose-soft/30 hover:bg-rose-soft'
           : 'border-line bg-bg-soft hover:border-wine hover:bg-paper'
       }`}
     >
-      <div className="mb-1 flex items-center gap-2">
+      <div className="mb-1.5 flex items-center gap-2">
         <span className="text-2xl">{icon}</span>
         <h3 className="font-serif text-lg italic text-wine-deep">{title}</h3>
       </div>
-      <p className="text-sm text-ink-soft">{description}</p>
+      <p className="text-sm leading-relaxed text-ink-soft">{description}</p>
     </button>
   );
 }

@@ -125,10 +125,10 @@ export default function Quiz() {
   let wrongIdx = 0;
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 pb-28 md:pb-0">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <Link to={`/curso/${courseId}`} className="btn-ghost -ml-2 text-xs uppercase tracking-wider">
-          ← {course.title}
+          ← <span className="ml-1 max-w-[60vw] truncate sm:max-w-none">{course.title}</span>
         </Link>
         <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-muted">
           <span>{config.icon}</span>
@@ -137,7 +137,7 @@ export default function Quiz() {
         </div>
       </div>
 
-      <div className="card flex items-center gap-4 px-5 py-4">
+      <div className="card flex flex-col gap-2 px-5 py-4 sm:flex-row sm:items-center sm:gap-4">
         <div className="font-serif text-base text-ink-soft">
           Respondidas <strong className="font-serif text-xl text-wine-deep">{answeredCount}</strong> de{' '}
           <strong className="font-serif text-xl text-wine-deep">{questions.length}</strong>
@@ -175,21 +175,32 @@ export default function Quiz() {
         })}
       </div>
 
-      <div className="flex flex-wrap justify-center gap-3 pt-4">
-        {!submitted ? (
-          <button
-            onClick={submitQuiz}
-            disabled={answeredCount < questions.length && !config.timed}
-            className="btn-primary"
-          >
-            Ver gabarito
-          </button>
-        ) : (
-          <>
-            <button onClick={redoQuiz} className="btn-secondary">Refazer a prova</button>
-            <Link to={`/curso/${courseId}`} className="btn-primary">Outro modo de estudo</Link>
-          </>
-        )}
+      <div className="sticky-cta">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-3 pt-0 md:pt-4">
+          {!submitted ? (
+            <button
+              onClick={submitQuiz}
+              disabled={answeredCount < questions.length && !config.timed}
+              className="btn-primary w-full sm:w-auto"
+            >
+              Ver gabarito
+              {answeredCount < questions.length && !config.timed && (
+                <span className="ml-2 text-[10px] font-normal opacity-80">
+                  · faltam {questions.length - answeredCount}
+                </span>
+              )}
+            </button>
+          ) : (
+            <>
+              <button onClick={redoQuiz} className="btn-secondary flex-1 sm:flex-none">
+                Refazer
+              </button>
+              <Link to={`/curso/${courseId}`} className="btn-primary flex-1 sm:flex-none">
+                Outro modo
+              </Link>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -208,7 +219,7 @@ function QuestionCard({ question, index, submitted, phrase, onSelect }: Question
   const isRight = submitted && question.selected === question.correct;
 
   return (
-    <article className="card relative overflow-hidden p-7">
+    <article className="card relative overflow-hidden p-5 sm:p-7">
       <span
         className={`absolute left-0 top-0 bottom-0 w-[3px] ${isAnswered ? 'bg-wine' : 'bg-rose-soft'}`}
       />
@@ -216,13 +227,13 @@ function QuestionCard({ question, index, submitted, phrase, onSelect }: Question
         Questão {String(index + 1).padStart(2, '0')}
       </div>
       <span className="label-tag">{question.topic}</span>
-      <p className="mb-4 mt-3 text-base leading-relaxed text-ink">{question.q}</p>
+      <p className="mb-4 mt-3 text-[15px] leading-relaxed text-ink sm:text-base">{question.q}</p>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2.5">
         {question.options.map((opt, i) => {
           const isSelected = question.selected === i;
           const isCorrectOpt = i === question.correct;
-          let classes = 'border-line bg-bg-soft text-ink-soft hover:border-rose hover:bg-paper hover:text-ink';
+          let classes = 'border-line bg-bg-soft text-ink-soft hover:border-rose hover:bg-paper hover:text-ink active:bg-paper';
           if (!submitted && isSelected) classes = 'border-wine bg-rose-soft text-wine-deep font-medium';
           if (submitted && isCorrectOpt) classes = 'border-green bg-green-soft text-green';
           if (submitted && isSelected && !isCorrectOpt) classes = 'border-red bg-red-soft text-red';
@@ -235,10 +246,10 @@ function QuestionCard({ question, index, submitted, phrase, onSelect }: Question
               type="button"
               onClick={() => onSelect(i)}
               disabled={submitted}
-              className={`flex items-start gap-3 rounded-xl border px-4 py-3 text-left text-[15px] transition ${classes} disabled:cursor-default`}
+              className={`flex min-h-[56px] items-start gap-3 rounded-xl border px-4 py-3.5 text-left text-[15px] leading-snug transition ${classes} disabled:cursor-default`}
             >
-              <span className={`font-serif text-lg font-semibold ${letterClass}`}>{LETTERS[i]}</span>
-              <span className="flex-1">{opt}</span>
+              <span className={`font-serif text-lg font-semibold leading-6 ${letterClass}`}>{LETTERS[i]}</span>
+              <span className="flex-1 pt-[1px]">{opt}</span>
             </button>
           );
         })}

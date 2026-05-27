@@ -3,13 +3,22 @@
 @tailwind utilities;
 
 @layer base {
-  html,
-  body,
-  #root {
-    height: 100%;
+  :root {
+    --sa-top: env(safe-area-inset-top, 0px);
+    --sa-bottom: env(safe-area-inset-bottom, 0px);
+    --sa-left: env(safe-area-inset-left, 0px);
+    --sa-right: env(safe-area-inset-right, 0px);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overscroll-behavior-y: none;
   }
 
   body {
+    min-height: 100vh;
+    min-height: 100dvh;
     background:
       radial-gradient(900px 500px at 90% -10%, rgba(201, 123, 138, 0.10), transparent 60%),
       radial-gradient(700px 500px at -10% 100%, rgba(184, 137, 90, 0.08), transparent 60%),
@@ -17,18 +26,45 @@
     color: theme('colors.ink');
     font-family: theme('fontFamily.sans');
     -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #root {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  button,
+  a,
+  [role='button'] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  @media (min-width: 640px) {
+    input,
+    select,
+    textarea {
+      font-size: 15px;
+    }
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-wine px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-white shadow-wine transition hover:bg-wine-deep hover:shadow-wine-hover disabled:bg-muted disabled:shadow-none disabled:cursor-not-allowed;
+    @apply inline-flex min-h-touch items-center justify-center rounded-full bg-wine px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-white shadow-wine transition active:scale-[0.98] hover:bg-wine-deep hover:shadow-wine-hover disabled:bg-muted disabled:shadow-none disabled:cursor-not-allowed disabled:active:scale-100;
   }
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-wine bg-paper px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-wine-deep transition hover:bg-rose-soft;
+    @apply inline-flex min-h-touch items-center justify-center rounded-full border border-wine bg-paper px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-wine-deep transition active:scale-[0.98] hover:bg-rose-soft;
   }
   .btn-ghost {
-    @apply inline-flex items-center justify-center rounded-full px-5 py-2 text-sm font-medium text-ink-soft transition hover:text-wine-deep;
+    @apply inline-flex min-h-touch items-center justify-center rounded-full px-5 py-2 text-sm font-medium text-ink-soft transition active:text-wine hover:text-wine-deep;
   }
   .card {
     @apply rounded-2xl border border-line bg-paper shadow-soft;
@@ -41,6 +77,27 @@
   }
   .heading-serif {
     @apply font-serif italic text-wine-deep;
+  }
+
+  .safe-top {
+    padding-top: max(env(safe-area-inset-top), 0px);
+  }
+  .safe-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom), 0px);
+  }
+  .safe-x {
+    padding-left: max(env(safe-area-inset-left), 0px);
+    padding-right: max(env(safe-area-inset-right), 0px);
+  }
+
+  .sticky-cta {
+    @apply fixed inset-x-0 bottom-0 z-30 border-t border-line bg-paper/85 px-4 py-3 backdrop-blur-md md:static md:inset-auto md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none;
+    padding-bottom: max(env(safe-area-inset-bottom), 12px);
+  }
+  @media (min-width: 768px) {
+    .sticky-cta {
+      padding-bottom: 0;
+    }
   }
 }
 
