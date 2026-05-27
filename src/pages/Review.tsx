@@ -103,7 +103,7 @@ export default function Review() {
         <EmptyState
           illustration="spark"
           title="Você ainda não tem flashcards"
-          description="Vá em Autor, escolha o tipo Flashcard, gere com o Claude a partir de um PDF e importe. Os cards aparecem aqui para revisão com repetição espaçada."
+          description="Vá em Autor, escolha o tipo Flashcard e crie seus cards diretamente nos formulários. Eles aparecem aqui para revisão com repetição espaçada."
           action={
             <Link to="/autor" className="btn-primary">
               Criar flashcards
