@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
+import EmptyState from '../components/EmptyState';
 import { ResultPanel } from '../components/ResultPanel';
 import { getPhrases } from '../data/phrases';
 import { db } from '../lib/db';
@@ -69,14 +70,20 @@ export default function Quiz() {
 
   if (questions.length === 0) {
     return (
-      <div className="card p-10 text-center">
-        <p className="font-serif text-xl italic text-ink-soft">
-          {mode === 'mistakes'
-            ? 'Você ainda não tem questões erradas registradas. Faça uma prova primeiro.'
-            : 'Nenhuma questão disponível com esses filtros.'}
-        </p>
-        <Link to={`/curso/${courseId}`} className="btn-secondary mt-4 inline-block">Voltar ao curso</Link>
-      </div>
+      <EmptyState
+        illustration={mode === 'mistakes' ? 'spark' : 'petal'}
+        title={mode === 'mistakes' ? 'Nenhum erro pra revisar' : 'Sem questões pra esses filtros'}
+        description={
+          mode === 'mistakes'
+            ? 'Você ainda não tem questões erradas registradas. Faça uma prova primeiro pra alimentar o modo erro.'
+            : 'Nenhuma questão disponível com esses tópicos. Tenta limpar a seleção ou escolher outro modo.'
+        }
+        action={
+          <Link to={`/curso/${courseId}`} className="btn-secondary">
+            Voltar ao curso
+          </Link>
+        }
+      />
     );
   }
 

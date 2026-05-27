@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import EmptyState from '../components/EmptyState';
 import { db } from '../lib/db';
 import { modeConfig } from '../lib/quiz';
 import { useUser } from '../lib/useUser';
@@ -20,10 +21,16 @@ export default function History() {
       </header>
 
       {sessions.length === 0 ? (
-        <div className="card p-10 text-center">
-          <p className="font-serif text-xl italic text-ink-soft">Sem provas finalizadas ainda.</p>
-          <Link to="/app" className="btn-primary mt-4 inline-block">Estudar agora</Link>
-        </div>
+        <EmptyState
+          illustration="compass"
+          title="Sem provas finalizadas ainda"
+          description="O histórico aparece aqui depois da sua primeira prova. Cada uma marca o caminho."
+          action={
+            <Link to="/app" className="btn-primary">
+              Estudar agora
+            </Link>
+          }
+        />
       ) : (
         <ul className="space-y-3">
           {sessions.map((s) => {

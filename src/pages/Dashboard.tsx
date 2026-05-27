@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import EmptyState from '../components/EmptyState';
+import Onboarding from '../components/Onboarding';
 import { db } from '../lib/db';
 import { useUser } from '../lib/useUser';
 
@@ -15,6 +17,7 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-10">
+      <Onboarding />
       <section className="text-center">
         <div className="divider-dots mb-2">· · ·</div>
         <h1 className="display-title-sm">olá, {user?.name?.split(' ')[0] ?? 'doutora'}</h1>
@@ -37,7 +40,16 @@ export default function Dashboard() {
           </Link>
         </div>
         {courses.length === 0 ? (
-          <EmptyState />
+          <EmptyState
+            illustration="book"
+            title="Nenhum curso ainda"
+            description="Vá em Autor pra criar ou importar um banco de questões. É rápido e o Claude monta as 30 questões pra você."
+            action={
+              <Link to="/autor" className="btn-primary">
+                Criar primeiro curso
+              </Link>
+            }
+          />
         ) : (
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {courses.map((c) => (
@@ -74,12 +86,3 @@ function Stat({ label, value }: { label: string; value: string }) {
   );
 }
 
-function EmptyState() {
-  return (
-    <div className="card p-10 text-center">
-      <p className="font-serif text-xl italic text-ink-soft">Você ainda não tem cursos.</p>
-      <p className="mt-2 text-sm text-muted">Vá em Autor e crie ou importe um banco de questões.</p>
-      <Link to="/autor" className="btn-primary mt-4 inline-block">Criar primeiro curso</Link>
-    </div>
-  );
-}
