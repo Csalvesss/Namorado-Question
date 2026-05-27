@@ -1,4 +1,4 @@
-import type { Course, ImportPayload, Question } from '../types';
+import type { Course, ImportPayload, ImportQuestion, Question } from '../types';
 import { db } from './db';
 import hivAids from '../data/seeds/hiv-aids.json';
 import insuficienciaCardiaca from '../data/seeds/insuficiencia-cardiaca.json';
@@ -22,6 +22,37 @@ const SEEDS: ImportPayload[] = [
   oropouche as ImportPayload,
 ];
 
+function buildQuestion(q: ImportQuestion, courseId: string, now: number): Question {
+  if (q.type === 'ecg') {
+    return {
+      id: db.ids.question(),
+      courseId,
+      topic: q.topic,
+      type: 'ecg',
+      tracingId: q.tracingId,
+      context: q.context,
+      points: q.points,
+      diagnosis: q.diagnosis,
+      difficulty: q.difficulty,
+      tags: q.tags,
+      createdAt: now,
+    };
+  }
+  return {
+    id: db.ids.question(),
+    courseId,
+    topic: q.topic,
+    type: 'mc',
+    q: q.q,
+    options: q.options,
+    correct: q.correct,
+    expl: q.expl,
+    difficulty: q.difficulty,
+    tags: q.tags,
+    createdAt: now,
+  };
+}
+
 export function importCourse(payload: ImportPayload, opts: { createdBy?: string } = {}): Course {
   const courseId = db.ids.course();
   const topics = Array.from(new Set(payload.questions.map((q) => q.topic)));
@@ -40,18 +71,7 @@ export function importCourse(payload: ImportPayload, opts: { createdBy?: string 
     createdAt: now,
   };
 
-  const questions: Question[] = payload.questions.map((q) => ({
-    id: db.ids.question(),
-    courseId,
-    topic: q.topic,
-    q: q.q,
-    options: q.options,
-    correct: q.correct,
-    expl: q.expl,
-    difficulty: q.difficulty,
-    tags: q.tags,
-    createdAt: now,
-  }));
+  const questions: Question[] = payload.questions.map((q) => buildQuestion(q, courseId, now));
 
   db.courses.upsert(course);
   db.questions.addMany(questions);

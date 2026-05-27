@@ -7,14 +7,43 @@ import { ResultPanel } from '../components/ResultPanel';
 import { getPhrases } from '../data/phrases';
 import { db } from '../lib/db';
 import { duration, easeOutExpo, palette } from '../lib/motion';
-import { getMistakeQuestionIds, modeConfig, sampleQuestions, shuffleOptions, type PreparedQuestion } from '../lib/quiz';
+import {
+  getMistakeQuestionIds,
+  modeConfig,
+  prepareQuestion,
+  sampleQuestions,
+  type PreparedMCQuestion,
+  type PreparedQuestion,
+} from '../lib/quiz';
 import { useUser } from '../lib/useUser';
 import type { QuizMode, QuizSession } from '../types';
 
 const LETTERS = ['A', 'B', 'C', 'D'];
 
-interface QuestionState extends PreparedQuestion {
+type QuestionState = PreparedQuestion & {
   selected?: number;
+  pointAnswers?: Record<string, number>;
+  diagnosisSelected?: number;
+  completed?: boolean;
+};
+
+type MCQuestionState = PreparedMCQuestion & { selected?: number };
+
+function isAnswered(q: QuestionState): boolean {
+  if (q.type === 'mc') return q.selected !== undefined;
+  return Boolean(q.completed);
+}
+
+function questionIsRight(q: QuestionState): boolean {
+  if (q.type === 'mc') return q.selected === q.correct;
+  return q.diagnosisSelected === q.diagnosis.correct;
+}
+
+function questionAnswer(q: QuestionState): { selected: number; correct: number } {
+  if (q.type === 'mc') {
+    return { selected: q.selected ?? -1, correct: q.correct };
+  }
+  return { selected: q.diagnosisSelected ?? -1, correct: q.diagnosis.correct };
 }
 
 export default function Quiz() {
@@ -46,7 +75,7 @@ export default function Quiz() {
       topics,
       mistakeIds,
     });
-    setQuestions(raw.map(shuffleOptions));
+    setQuestions(raw.map(prepareQuestion));
     setSubmitted(false);
     setSession(null);
     setStartedAt(Date.now());
@@ -87,7 +116,7 @@ export default function Quiz() {
     );
   }
 
-  const answeredCount = questions.filter((q) => q.selected !== undefined).length;
+  const answeredCount = questions.filter(isAnswered).length;
   const progress = (answeredCount / questions.length) * 100;
   const elapsedSec = Math.floor((now - startedAt) / 1000);
   const displayMode = user?.displayMode ?? 'namorado';
@@ -95,19 +124,24 @@ export default function Quiz() {
 
   function selectOption(qIdx: number, optIdx: number) {
     if (submitted) return;
-    setQuestions((cur) => cur.map((q, i) => (i === qIdx ? { ...q, selected: optIdx } : q)));
+    setQuestions((cur) =>
+      cur.map((q, i) => (i === qIdx && q.type === 'mc' ? { ...q, selected: optIdx } : q)),
+    );
   }
 
   function submitQuiz() {
     if (submitted || !user || !course) return;
     setSubmitted(true);
     const completedAt = Date.now();
-    const answers = questions.map((q) => ({
-      questionId: q.id,
-      selected: q.selected ?? -1,
-      correct: q.correct,
-      isRight: q.selected === q.correct,
-    }));
+    const answers = questions.map((q) => {
+      const { selected, correct } = questionAnswer(q);
+      return {
+        questionId: q.id,
+        selected,
+        correct,
+        isRight: questionIsRight(q),
+      };
+    });
     const score = answers.filter((a) => a.isRight).length;
     const sess: QuizSession = {
       id: db.ids.session(),
@@ -174,7 +208,7 @@ export default function Quiz() {
         {questions.map((q, idx) => {
           let phrase = '';
           if (submitted) {
-            const isRight = q.selected === q.correct;
+            const isRight = questionIsRight(q);
             if (isRight) {
               phrase = phrases.right[rightIdx % phrases.right.length];
               rightIdx++;
@@ -183,15 +217,24 @@ export default function Quiz() {
               wrongIdx++;
             }
           }
+          if (q.type === 'mc') {
+            return (
+              <QuestionCard
+                key={q.id + '-' + idx}
+                question={q}
+                index={idx}
+                submitted={submitted}
+                phrase={phrase}
+                onSelect={(optIdx) => selectOption(idx, optIdx)}
+              />
+            );
+          }
           return (
-            <QuestionCard
-              key={q.id + '-' + idx}
-              question={q}
-              index={idx}
-              submitted={submitted}
-              phrase={phrase}
-              onSelect={(optIdx) => selectOption(idx, optIdx)}
-            />
+            <article key={q.id + '-' + idx} className="card p-6 text-center">
+              <div className="font-serif text-lg italic text-ink-soft">
+                Questão de ECG · em desenvolvimento
+              </div>
+            </article>
           );
         })}
       </div>
@@ -228,7 +271,7 @@ export default function Quiz() {
 }
 
 interface QuestionCardProps {
-  question: QuestionState;
+  question: MCQuestionState;
   index: number;
   submitted: boolean;
   phrase: string;

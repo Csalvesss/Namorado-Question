@@ -71,8 +71,32 @@ export default function Author() {
       return null;
     }
     for (let i = 0; i < obj.questions.length; i++) {
-      const q = obj.questions[i];
-      if (!q || typeof q.q !== 'string' || !q.q.trim()) {
+      const q = obj.questions[i] as unknown as Record<string, unknown> | undefined;
+      if (!q) {
+        setError(`Questão ${i + 1}: dado vazio.`);
+        return null;
+      }
+      if (typeof q.topic !== 'string' || !q.topic.trim()) {
+        setError(`Questão ${i + 1}: "topic" obrigatório.`);
+        return null;
+      }
+      const type = (q.type as string | undefined) ?? 'mc';
+      if (type === 'ecg') {
+        if (typeof q.tracingId !== 'string') {
+          setError(`Questão ${i + 1} (ECG): "tracingId" obrigatório.`);
+          return null;
+        }
+        if (!Array.isArray(q.points) || q.points.length < 1) {
+          setError(`Questão ${i + 1} (ECG): "points" precisa ser um array não vazio.`);
+          return null;
+        }
+        if (!q.diagnosis || typeof q.diagnosis !== 'object') {
+          setError(`Questão ${i + 1} (ECG): "diagnosis" obrigatório.`);
+          return null;
+        }
+        continue;
+      }
+      if (typeof q.q !== 'string' || !q.q.trim()) {
         setError(`Questão ${i + 1}: campo "q" obrigatório.`);
         return null;
       }
@@ -86,10 +110,6 @@ export default function Author() {
       }
       if (typeof q.expl !== 'string') {
         setError(`Questão ${i + 1}: "expl" obrigatório.`);
-        return null;
-      }
-      if (typeof q.topic !== 'string') {
-        setError(`Questão ${i + 1}: "topic" obrigatório.`);
         return null;
       }
     }
