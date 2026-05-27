@@ -12,6 +12,9 @@ import oropouche from '../data/seeds/oropouche.json';
 import eletroBasico from '../data/seeds/eletro-basico.json';
 import casosClinicos from '../data/seeds/casos-clinicos.json';
 import flashcardsAntibioticos from '../data/seeds/flashcards-antibioticos.json';
+import flashcardsHivAids from '../data/seeds/flashcards-hiv-aids.json';
+import flashcardsIc from '../data/seeds/flashcards-insuficiencia-cardiaca.json';
+import flashcardsMeningites from '../data/seeds/flashcards-meningites.json';
 
 const SEEDS: ImportPayload[] = [
   hivAids as ImportPayload,
@@ -26,6 +29,9 @@ const SEEDS: ImportPayload[] = [
   eletroBasico as ImportPayload,
   casosClinicos as ImportPayload,
   flashcardsAntibioticos as ImportPayload,
+  flashcardsHivAids as ImportPayload,
+  flashcardsIc as ImportPayload,
+  flashcardsMeningites as ImportPayload,
 ];
 
 function buildQuestion(q: ImportQuestion, courseId: string, now: number): Question {

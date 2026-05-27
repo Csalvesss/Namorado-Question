@@ -1,0 +1,152 @@
+{
+  "title": "Flashcards: HIV / AIDS",
+  "description": "Pontos-chave de virologia, diagnóstico, antirretrovirais e prevenção em formato de revisão espaçada.",
+  "icon": "",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "flashcard",
+      "topic": "Virologia",
+      "front": "Quantos genes tem o HIV e quais codificam proteínas estruturais?",
+      "back": "9 genes. Os 3 estruturais: gag, pol e env. Os outros 6 (tat, rev, nef, vif, vpr, vpu) controlam replicação e patogenicidade.",
+      "hint": "menos que uma bactéria",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Virologia",
+      "front": "Qual proteína forma o capsídeo do HIV e que enzimas estão dentro dele?",
+      "back": "p24. Dentro: transcriptase reversa, integrase e protease (além do RNA viral). A p17 é a matriz; gp120 e gp41 são do envelope.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Virologia",
+      "front": "Quais co-receptores o HIV-1 usa além do CD4?",
+      "back": "CCR5 e CXCR4, identificados em 1996. O tropismo (R5, X4 ou duplo) determina o uso de maraviroc (só ativo em R5).",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Clínica",
+      "front": "Quando começa e quanto dura a síndrome retroviral aguda do HIV?",
+      "back": "Começa 2 a 4 semanas após exposição e dura 7 a 10 dias. Quadro mono-like (febre, faringite, linfadenopatia) + rash em 40 a 60% dos casos. Viremia alta e queda transitória de CD4.",
+      "hint": "mono-like com rash",
+      "difficulty": "easy"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Clínica",
+      "front": "Tempo médio para desenvolver AIDS após soroconversão sem TARV?",
+      "back": "Cerca de 10 anos (Baccheti et al., 1989). 50 a 70% desenvolvem linfadenopatia após a infecção primária.",
+      "difficulty": "easy"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Diagnóstico",
+      "front": "Ordem temporal de detecção dos marcadores de HIV após infecção?",
+      "back": "HIV-RNA ~12 dias > antígeno p24 ~17 dias > anticorpos IgM ~22 dias. Imunoensaios de 3ª geração detectam anticorpos em 3 a 4 semanas.",
+      "hint": "RNA antes do p24 antes do anticorpo",
+      "difficulty": "hard"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Diagnóstico",
+      "front": "Critério para Western Blot reagente em HIV-1?",
+      "back": "Pelo menos 2 bandas dentre gp160/120, gp41 e p24.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Diagnóstico",
+      "front": "Causas de falso-positivo em sorologia para HIV?",
+      "back": "LES e outras autoimunes, artrite reumatoide, infecção viral aguda, múltiplas transfusões, neoplasias malignas, interferon em hemodialisados, Stevens-Johnson, anticorpos anti-HLA. Em crianças: anticorpos maternos.",
+      "difficulty": "hard"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Antirretrovirais",
+      "front": "Mecanismo dos ITRN (inibidores da transcriptase reversa análogos de nucleosídeos)?",
+      "back": "Precisam de fosforilação intracelular. Eliminação renal. Efeitos: acidose lática, esteatose hepática, lipodistrofia. Alta resistência cruzada entre eles.",
+      "hint": "fosforilam, competem com nucleosídeos",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Antirretrovirais",
+      "front": "Mecanismo dos ITRNN (não análogos de nucleosídeos)?",
+      "back": "NÃO precisam de fosforilação. Ligação não competitiva à transcriptase reversa, inativando o sítio. Baixa barreira genética (uma mutação já resiste a efavirenz/nevirapina).",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Antirretrovirais",
+      "front": "Efeitos adversos clássicos dos Inibidores de Protease?",
+      "back": "Lipodistrofia, dislipidemia, diarreia, resistência à insulina. Alta resistência cruzada entre IPs.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Antirretrovirais",
+      "front": "Qual antirretroviral deve ser evitado em mulheres em idade fértil?",
+      "back": "Efavirenz (EFV). Risco de teratogenicidade e efeitos em SNC (sonhos vívidos, tontura, alteração de humor).",
+      "difficulty": "easy"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Antirretrovirais",
+      "front": "Mecanismo de ação do Enfuvirtide (T20)?",
+      "back": "Peptídeo sintético que mimetiza o HR2 da gp41 e se liga irreversivelmente ao HR1, bloqueando a zipagem e a fusão vírus-célula. Potente, baixa barreira genética, injetável.",
+      "difficulty": "hard"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Antirretrovirais",
+      "front": "O que faz o Maraviroc e por que falha?",
+      "back": "Antagonista do CCR5, bloqueia a entrada do HIV no CD4. Ativo APENAS em vírus de tropismo R5. Falha por shift para X4 ou duplo. Mutações na região V3 da gp120.",
+      "difficulty": "hard"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Antirretrovirais",
+      "front": "Mecanismo do Raltegravir?",
+      "back": "Primeiro inibidor da integrase. Liga-se ao sítio catalítico e à porção C-terminal, impedindo a integração do pró-vírus no genoma celular. Sem resistência cruzada com outras classes.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Antirretrovirais",
+      "front": "Qual ITRN é o análogo nucleotídeo de guanina usado no Brasil?",
+      "back": "Tenofovir (TDF). Lamivudina = citidina; Abacavir = guanosina; AZT/D4T = timidina; Didanosina = guanina.",
+      "difficulty": "hard"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Epidemiologia",
+      "front": "Maiores fatores de risco de transmissão sexual do HIV?",
+      "back": "Úlceras genitais (outras IST), doença avançada do parceiro e relação anal desprotegida. Outras vias: gestação/parto/amamentação, transfusão, transplante, acidente biológico, tatuagem/piercing contaminado.",
+      "difficulty": "easy"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Prevenção",
+      "front": "Quanto a circuncisão reduz a transmissão do HIV?",
+      "back": "Cerca de 60% (OMS/UNAIDS 2007). Outras medidas: preservativo, tratar outras IST, testar gestantes e doadores, educação sexual.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "História",
+      "front": "O que aconteceu em 1996 no HIV?",
+      "back": "Início da HAART e acesso universal ao tratamento, aprovação da Nevirapina (1º ITRNN) e identificação dos co-receptores CCR5 e CXCR4. Antes: 1995 saquinavir (1º IP).",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "História",
+      "front": "Origens símias do HIV-1 e HIV-2?",
+      "back": "HIV-1 (mais virulento) vem do SIVcpz (chimpanzé). HIV-2 vem do SIVsm (sooty mangabey, África Ocidental). Teoria do Caçador: passagem ~1930.",
+      "difficulty": "hard"
+    }
+  ]
+}
