@@ -1,10 +1,12 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import EmptyState from '../components/EmptyState';
+import { topicAccuracyColor, weakestTopics } from '../lib/analytics';
 import { db } from '../lib/db';
 import { modeConfig } from '../lib/quiz';
 import { useUser } from '../lib/useUser';
-import type { QuizSession } from '../types';
+import type { Question, QuizSession } from '../types';
 
 const MONTHS_PT_SHORT = [
   'jan', 'fev', 'mar', 'abr', 'mai', 'jun',
@@ -116,6 +118,18 @@ export default function History() {
     return { totalQuestions, totalRight, accuracy, accuracies };
   }, [sessions]);
 
+  const weakSpots = useMemo(() => {
+    if (sessions.length === 0) return [];
+    const courses = db.courses.list();
+    const questionsByCourse: Record<string, Question[]> = {};
+    const courseTitles: Record<string, string> = {};
+    courses.forEach((c) => {
+      questionsByCourse[c.id] = db.questions.listByCourse(c.id);
+      courseTitles[c.id] = c.title;
+    });
+    return weakestTopics(sessions, questionsByCourse, courseTitles, 3).slice(0, 8);
+  }, [sessions]);
+
   return (
     <div className="space-y-10">
       <header>
@@ -153,11 +167,62 @@ export default function History() {
             )}
           </section>
 
+          {weakSpots.length > 0 && (
+            <section>
+              <div className="mb-5 flex items-baseline gap-3">
+                <span className="font-serif text-3xl italic leading-none text-gold opacity-60">
+                  II
+                </span>
+                <h2 className="font-serif text-2xl italic text-wine-deep">Pontos fracos</h2>
+                <span className="ml-auto text-[11px] uppercase tracking-[0.22em] text-muted">
+                  click leva ao modo erro do tópico
+                </span>
+              </div>
+              <p className="mb-4 text-sm leading-relaxed text-ink-soft">
+                Tópicos com menor acerto, ordenados pelo que mais precisa de revisão. Mínimo de 3
+                tentativas para entrar nessa lista.
+              </p>
+              <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                {weakSpots.map((w) => {
+                  const color = topicAccuracyColor(w.accuracy, w.attempts);
+                  return (
+                    <li key={`${w.courseId}-${w.topic}`}>
+                      <Link
+                        to={`/quiz/${w.courseId}?mode=mistakes&topics=${encodeURIComponent(w.topic)}`}
+                        className="card group flex items-center gap-4 p-4 transition active:scale-[0.99] hover:shadow-card-hover"
+                      >
+                        <span
+                          aria-hidden
+                          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-serif text-base font-semibold text-white"
+                          style={{ backgroundColor: color }}
+                        >
+                          {w.accuracy}%
+                        </span>
+                        <div className="min-w-0 flex-1">
+                          <div className="truncate font-serif text-base italic text-wine-deep">
+                            {w.topic}
+                          </div>
+                          <div className="mt-0.5 truncate text-[11px] uppercase tracking-[0.18em] text-muted">
+                            {w.courseTitle} · {w.attempts} tentativas
+                          </div>
+                        </div>
+                        <ArrowRight
+                          className="h-4 w-4 shrink-0 text-muted transition group-hover:translate-x-1 group-hover:text-wine"
+                          strokeWidth={1.75}
+                        />
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+          )}
+
           <section>
             <div className="mb-5 flex items-baseline justify-between">
               <div className="flex items-baseline gap-3">
                 <span className="font-serif text-3xl italic leading-none text-gold opacity-60">
-                  II
+                  {weakSpots.length > 0 ? 'III' : 'II'}
                 </span>
                 <h2 className="font-serif text-2xl italic text-wine-deep">Suas provas</h2>
               </div>

@@ -1,6 +1,6 @@
 export type Difficulty = 'easy' | 'medium' | 'hard';
 
-export type QuestionType = 'mc' | 'ecg' | 'case';
+export type QuestionType = 'mc' | 'ecg' | 'case' | 'flashcard' | 'match';
 
 interface BaseQuestion {
   id: string;
@@ -71,7 +71,34 @@ export interface CaseQuestion extends BaseQuestion {
   steps: CaseStep[];
 }
 
-export type Question = MultipleChoiceQuestion | ECGQuestion | CaseQuestion;
+export interface FlashcardQuestion extends BaseQuestion {
+  type: 'flashcard';
+  front: string;
+  back: string;
+  hint?: string;
+}
+
+export interface MatchPair {
+  id: string;
+  left: string;
+  right: string;
+}
+
+export interface MatchQuestion extends BaseQuestion {
+  type: 'match';
+  prompt: string;
+  leftLabel?: string;
+  rightLabel?: string;
+  pairs: MatchPair[];
+  expl?: string;
+}
+
+export type Question =
+  | MultipleChoiceQuestion
+  | ECGQuestion
+  | CaseQuestion
+  | FlashcardQuestion
+  | MatchQuestion;
 
 export interface Course {
   id: string;
@@ -150,7 +177,34 @@ export interface ImportCaseQuestion {
   tags?: string[];
 }
 
-export type ImportQuestion = ImportMCQuestion | ImportECGQuestion | ImportCaseQuestion;
+export interface ImportFlashcardQuestion {
+  type: 'flashcard';
+  topic: string;
+  front: string;
+  back: string;
+  hint?: string;
+  difficulty?: Difficulty;
+  tags?: string[];
+}
+
+export interface ImportMatchQuestion {
+  type: 'match';
+  topic: string;
+  prompt: string;
+  leftLabel?: string;
+  rightLabel?: string;
+  pairs: MatchPair[];
+  expl?: string;
+  difficulty?: Difficulty;
+  tags?: string[];
+}
+
+export type ImportQuestion =
+  | ImportMCQuestion
+  | ImportECGQuestion
+  | ImportCaseQuestion
+  | ImportFlashcardQuestion
+  | ImportMatchQuestion;
 
 export interface ImportPayload {
   title: string;

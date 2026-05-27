@@ -11,6 +11,7 @@ import zika from '../data/seeds/zika.json';
 import oropouche from '../data/seeds/oropouche.json';
 import eletroBasico from '../data/seeds/eletro-basico.json';
 import casosClinicos from '../data/seeds/casos-clinicos.json';
+import flashcardsAntibioticos from '../data/seeds/flashcards-antibioticos.json';
 
 const SEEDS: ImportPayload[] = [
   hivAids as ImportPayload,
@@ -24,6 +25,7 @@ const SEEDS: ImportPayload[] = [
   oropouche as ImportPayload,
   eletroBasico as ImportPayload,
   casosClinicos as ImportPayload,
+  flashcardsAntibioticos as ImportPayload,
 ];
 
 function buildQuestion(q: ImportQuestion, courseId: string, now: number): Question {
@@ -50,6 +52,36 @@ function buildQuestion(q: ImportQuestion, courseId: string, now: number): Questi
       type: 'case',
       vignette: q.vignette,
       steps: q.steps,
+      difficulty: q.difficulty,
+      tags: q.tags,
+      createdAt: now,
+    };
+  }
+  if (q.type === 'flashcard') {
+    return {
+      id: db.ids.question(),
+      courseId,
+      topic: q.topic,
+      type: 'flashcard',
+      front: q.front,
+      back: q.back,
+      hint: q.hint,
+      difficulty: q.difficulty,
+      tags: q.tags,
+      createdAt: now,
+    };
+  }
+  if (q.type === 'match') {
+    return {
+      id: db.ids.question(),
+      courseId,
+      topic: q.topic,
+      type: 'match',
+      prompt: q.prompt,
+      leftLabel: q.leftLabel,
+      rightLabel: q.rightLabel,
+      pairs: q.pairs,
+      expl: q.expl,
       difficulty: q.difficulty,
       tags: q.tags,
       createdAt: now,

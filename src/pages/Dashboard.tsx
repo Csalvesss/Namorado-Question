@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Flame } from 'lucide-react';
+import { ArrowRight, Flame, Layers } from 'lucide-react';
 import DailyGoalRing from '../components/DailyGoalRing';
 import EmptyState from '../components/EmptyState';
 import Onboarding from '../components/Onboarding';
@@ -11,8 +11,9 @@ import {
   studyByDay,
 } from '../lib/analytics';
 import { db } from '../lib/db';
+import { listDueCards } from '../lib/srs';
 import { useUser } from '../lib/useUser';
-import type { Course, QuizSession } from '../types';
+import type { Course, FlashcardQuestion, QuizSession } from '../types';
 
 const MONTHS_PT = [
   'JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN',
@@ -83,6 +84,22 @@ export default function Dashboard() {
   const todayQuestions = useMemo(() => questionsAnsweredToday(studyMap), [studyMap]);
   const dailyGoal = user?.dailyGoal ?? 15;
 
+  const flashcardIds = useMemo(() => {
+    const all: string[] = [];
+    courses.forEach((c) => {
+      db.questions
+        .listByCourse(c.id)
+        .filter((q): q is FlashcardQuestion => q.type === 'flashcard')
+        .forEach((q) => all.push(q.id));
+    });
+    return all;
+  }, [courses]);
+
+  const dueCardCount = useMemo(() => {
+    if (!user || flashcardIds.length === 0) return 0;
+    return listDueCards(user.uid, flashcardIds).length;
+  }, [user, flashcardIds]);
+
   return (
     <div className="space-y-12">
       <Onboarding />
@@ -100,12 +117,18 @@ export default function Dashboard() {
             o que você quer estudar hoje. cada questão é um passo a mais para a prova.
           </p>
 
-          {(lastCourse || completed.length > 0) && (
+          {(lastCourse || completed.length > 0 || dueCardCount > 0) && (
             <div className="mt-5 flex flex-wrap items-center gap-3">
               {lastCourse && (
                 <Link to={`/curso/${lastCourse.id}`} className="btn-primary">
                   Continuar {lastCourse.title}
                   <ArrowRight className="ml-2 h-4 w-4" strokeWidth={2} />
+                </Link>
+              )}
+              {dueCardCount > 0 && (
+                <Link to="/revisar" className="btn-secondary">
+                  <Layers className="mr-2 h-4 w-4" strokeWidth={1.75} />
+                  Revisar {dueCardCount} {dueCardCount === 1 ? 'card' : 'cards'}
                 </Link>
               )}
               {completed.length > 0 && (

@@ -8,6 +8,7 @@ import History from './pages/History';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Quiz from './pages/Quiz';
+import Review from './pages/Review';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/curso/:id" element={<Course />} />
         <Route path="/quiz/:courseId" element={<Quiz />} />
         <Route path="/historico" element={<History />} />
+        <Route path="/revisar" element={<Review />} />
         <Route path="/autor" element={<Author />} />
         <Route path="/perfil" element={<Profile />} />
       </Route>

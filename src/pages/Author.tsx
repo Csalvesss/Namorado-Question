@@ -1,12 +1,12 @@
 import { useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Activity, BookOpenCheck, FileText } from 'lucide-react';
+import { Activity, BookOpenCheck, FileText, Layers, Link2 } from 'lucide-react';
 import { db } from '../lib/db';
 import { importCourse } from '../lib/seed';
 import { useUser } from '../lib/useUser';
 import type { ImportPayload } from '../types';
 
-type AuthorKind = 'mc' | 'ecg' | 'case';
+type AuthorKind = 'mc' | 'ecg' | 'case' | 'flashcard' | 'match';
 
 const EXAMPLE_MC = `{
   "title": "Nome da matéria",
@@ -164,6 +164,100 @@ Saída: APENAS o JSON válido, sem texto antes ou depois.
 Formato:
 ${EXAMPLE_ECG}`;
 
+const EXAMPLE_FLASHCARD = `{
+  "title": "Farmacologia: Antibióticos",
+  "description": "Mecanismo, espectro e efeitos colaterais em flashcards",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "flashcard",
+      "topic": "Betalactâmicos",
+      "front": "Qual o mecanismo de ação dos betalactâmicos?",
+      "back": "Inibem a transpeptidase (PBP), impedindo a formação da ligação cruzada do peptidoglicano. Ação bactericida.",
+      "hint": "pense na parede celular",
+      "difficulty": "easy"
+    }
+  ]
+}`;
+
+const PROMPT_FLASHCARD = `Você é uma professora sênior de medicina ajudando uma aluna a memorizar com repetição espaçada.
+
+Vou te enviar um PDF (ou material de estudo). Leia com atenção e gere 20 flashcards em português brasileiro, no formato JSON exato abaixo.
+
+Princípios para bons flashcards:
+- UM conceito por card (mínimo de informação por unidade)
+- pergunta direta no front, resposta completa mas concisa no back
+- foco em fatos memorizáveis (doses, mecanismos, valores de referência, sinais, classificações, listas-chave)
+- evite cards muito abertos ("explique tudo sobre X") — divida em vários cards menores
+- use "hint" para uma dica curta que ajude a recuperação sem entregar a resposta
+- agrupe por "topic" (subtópico)
+
+Cada flashcard tem:
+- type: "flashcard"
+- topic: subtópico
+- front: pergunta (string)
+- back: resposta (string, pode incluir lista curta)
+- hint? (opcional): pista curta
+- difficulty?: "easy" | "medium" | "hard"
+
+A plataforma usa SM-2 (repetição espaçada) para reapresentar os cards conforme a aluna marca "errei / difícil / bom / fácil". A rodada de revisão fica na página /revisar.
+
+Saída: APENAS o JSON válido, sem texto antes ou depois.
+
+Formato:
+${EXAMPLE_FLASHCARD}`;
+
+const EXAMPLE_MATCH = `{
+  "title": "Antibióticos: Mecanismos",
+  "description": "Associe a droga ao seu mecanismo de ação",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "match",
+      "topic": "Mecanismos de ação",
+      "prompt": "Associe cada antibiótico ao seu mecanismo de ação predominante.",
+      "leftLabel": "Antibiótico",
+      "rightLabel": "Mecanismo",
+      "pairs": [
+        { "id": "vanco", "left": "Vancomicina", "right": "Liga-se ao D-Ala-D-Ala, bloqueando síntese de parede" },
+        { "id": "azitro", "left": "Azitromicina", "right": "Liga subunidade 50S, bloqueia translocação" },
+        { "id": "cipro", "left": "Ciprofloxacino", "right": "Inibe DNA girase e topoisomerase IV" },
+        { "id": "smxtmp", "left": "SMX-TMP", "right": "Bloqueia síntese de folato (dihidropteroato + dihidrofolato redutase)" }
+      ],
+      "expl": "Cada classe ataca um alvo molecular específico, ajudando a prever espectro e resistência.",
+      "difficulty": "medium"
+    }
+  ]
+}`;
+
+const PROMPT_MATCH = `Você é uma professora de medicina criando exercícios de pareamento para fixação rápida.
+
+Vou te enviar um PDF (ou material de estudo). Leia com atenção e gere 8 questões de pareamento em português brasileiro, no formato JSON exato abaixo.
+
+Princípios:
+- cada questão tem 4 a 6 pares (não mais que isso, fica confuso)
+- coluna ESQUERDA: itens curtos (nome, classe, achado)
+- coluna DIREITA: descrições/definições/mecanismos/critérios (mais longas)
+- USE temas onde associação é natural: droga ↔ mecanismo, doença ↔ achado patognomônico, classificação ↔ critério, antibiótico ↔ espectro, sinal ↔ síndrome, escala ↔ aplicação
+- evite pares óbvios que não testam raciocínio
+- "expl" opcional: nota didática curta sobre o tema
+
+A plataforma renderiza as duas colunas lado a lado. A aluna toca um item da esquerda, depois o da direita correspondente. Mobile-friendly, sem drag-drop.
+
+Cada questão tem:
+- type: "match"
+- topic: subtópico
+- prompt: enunciado curto (1 frase)
+- leftLabel? rightLabel?: labels das colunas (ex: "Antibiótico" / "Mecanismo")
+- pairs: array com { id, left, right } — id é slug único usado para checar acerto
+- expl?: explicação opcional
+- difficulty?: "easy" | "medium" | "hard"
+
+Saída: APENAS o JSON válido, sem texto antes ou depois.
+
+Formato:
+${EXAMPLE_MATCH}`;
+
 export default function Author() {
   const { user } = useUser();
   const [raw, setRaw] = useState('');
@@ -175,9 +269,25 @@ export default function Author() {
   const courses = useMemo(() => db.courses.list(), [success]);
 
   const promptTemplate =
-    kind === 'ecg' ? PROMPT_ECG : kind === 'case' ? PROMPT_CASE : PROMPT_MC;
+    kind === 'ecg'
+      ? PROMPT_ECG
+      : kind === 'case'
+        ? PROMPT_CASE
+        : kind === 'flashcard'
+          ? PROMPT_FLASHCARD
+          : kind === 'match'
+            ? PROMPT_MATCH
+            : PROMPT_MC;
   const exampleJson =
-    kind === 'ecg' ? EXAMPLE_ECG : kind === 'case' ? EXAMPLE_CASE : EXAMPLE_MC;
+    kind === 'ecg'
+      ? EXAMPLE_ECG
+      : kind === 'case'
+        ? EXAMPLE_CASE
+        : kind === 'flashcard'
+          ? EXAMPLE_FLASHCARD
+          : kind === 'match'
+            ? EXAMPLE_MATCH
+            : EXAMPLE_MC;
 
   function parseAndValidate(text: string): ImportPayload | null {
     let data: unknown;
@@ -233,6 +343,28 @@ export default function Author() {
         }
         if (!Array.isArray(q.steps) || q.steps.length < 1) {
           setError(`Questão ${i + 1} (caso): "steps" precisa ser um array não vazio.`);
+          return null;
+        }
+        continue;
+      }
+      if (type === 'flashcard') {
+        if (typeof q.front !== 'string' || !q.front.trim()) {
+          setError(`Questão ${i + 1} (flashcard): "front" obrigatório.`);
+          return null;
+        }
+        if (typeof q.back !== 'string' || !q.back.trim()) {
+          setError(`Questão ${i + 1} (flashcard): "back" obrigatório.`);
+          return null;
+        }
+        continue;
+      }
+      if (type === 'match') {
+        if (typeof q.prompt !== 'string' || !q.prompt.trim()) {
+          setError(`Questão ${i + 1} (pareamento): "prompt" obrigatório.`);
+          return null;
+        }
+        if (!Array.isArray(q.pairs) || q.pairs.length < 2) {
+          setError(`Questão ${i + 1} (pareamento): "pairs" precisa ter pelo menos 2 itens.`);
           return null;
         }
         continue;
@@ -306,27 +438,41 @@ export default function Author() {
           junto com o material. Ele devolve um JSON pronto para importar.
         </p>
 
-        <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+        <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
           <KindCard
             active={kind === 'mc'}
             onClick={() => setKind('mc')}
             Icon={BookOpenCheck}
             title="Múltipla escolha"
-            description="4 alternativas + explicação. Para qualquer matéria a partir de um PDF/resumo."
+            description="4 alternativas + explicação."
           />
           <KindCard
             active={kind === 'ecg'}
             onClick={() => setKind('ecg')}
             Icon={Activity}
             title="Eletrocardiograma"
-            description="Análise ponto a ponto + diagnóstico. Escolhe um dos 9 traçados disponíveis."
+            description="Análise ponto a ponto + diagnóstico."
           />
           <KindCard
             active={kind === 'case'}
             onClick={() => setKind('case')}
             Icon={FileText}
             title="Modo clínico"
-            description="5 casos clínicos a partir de um PDF, com vinheta longa e decisões encadeadas. Ideal para simular plantão."
+            description="5 casos a partir do PDF, com decisões encadeadas."
+          />
+          <KindCard
+            active={kind === 'flashcard'}
+            onClick={() => setKind('flashcard')}
+            Icon={Layers}
+            title="Flashcards"
+            description="Frente / verso com repetição espaçada (SM-2)."
+          />
+          <KindCard
+            active={kind === 'match'}
+            onClick={() => setKind('match')}
+            Icon={Link2}
+            title="Pareamento"
+            description="Associa duas colunas, como droga e mecanismo."
           />
         </div>
 
