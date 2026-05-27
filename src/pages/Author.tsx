@@ -1,12 +1,12 @@
 import { useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Activity, BookOpenCheck } from 'lucide-react';
+import { Activity, BookOpenCheck, FileText } from 'lucide-react';
 import { db } from '../lib/db';
 import { importCourse } from '../lib/seed';
 import { useUser } from '../lib/useUser';
 import type { ImportPayload } from '../types';
 
-type AuthorKind = 'mc' | 'ecg';
+type AuthorKind = 'mc' | 'ecg' | 'case';
 
 const EXAMPLE_MC = `{
   "title": "Nome da matéria",
@@ -76,6 +76,60 @@ const EXAMPLE_ECG = `{
   ]
 }`;
 
+const EXAMPLE_CASE = `{
+  "title": "Casos Clínicos — Cardiologia",
+  "description": "Vinhetas com decisões encadeadas",
+  "icon": "🩺",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "case",
+      "topic": "Síndrome coronariana aguda",
+      "vignette": "Homem, 58a, dor torácica retroesternal há 2h, sudorese, irradia pra braço esquerdo. PA 150x95, FC 92, ECG com supra ST em DII/DIII/aVF.",
+      "steps": [
+        {
+          "id": "diag",
+          "question": "Diagnóstico mais provável?",
+          "options": ["IAM inferior com supra ST", "Angina estável", "Pericardite aguda", "Dissecção de aorta"],
+          "correct": 0,
+          "expl": "Quadro clássico de SCAcSST inferior — supra de ST em parede inferior."
+        },
+        {
+          "id": "conduta",
+          "prompt": "Diagnóstico definido. Tempo de início: 2h.",
+          "question": "Conduta imediata?",
+          "options": [
+            "Angioplastia primária se disponível em até 120min, AAS + clopidogrel/ticagrelor + anticoagulação",
+            "Trombolítico apenas",
+            "Cinemcardio eletiva",
+            "Cateterismo apenas após estabilização ambulatorial"
+          ],
+          "correct": 0,
+          "expl": "Janela ouro pra angioplastia primária. ATC se disponível < 120min, senão trombólise."
+        }
+      ],
+      "difficulty": "medium"
+    }
+  ]
+}`;
+
+const PROMPT_CASE = `Você é um preceptor de residência médica gerando casos clínicos encadeados pra simular plantão.
+
+Gere 4 casos em português brasileiro, no formato JSON exato abaixo. Cada caso tem:
+- vignette: vinheta clínica longa (3-6 linhas), com idade, sexo, queixa, antecedentes, exame físico, exames laboratoriais relevantes. Pode usar \\n pra quebrar parágrafos.
+- steps: 3 a 5 sub-questões em sequência lógica de raciocínio (diagnóstico → exames → conduta → seguimento). Cada step:
+  - id: slug curto (diag, conduta, atb, alta, etc.)
+  - prompt? (opcional): nova informação revelada antes dessa pergunta ("Após pedir hemograma, você recebe Hb 7,2...")
+  - question: a pergunta da etapa
+  - options: 4 alternativas, com distratores realistas
+  - correct: 0-3
+  - expl: ensina raciocínio, cita guideline quando fizer sentido (Sepsis-3, ACC/AHA, BTS, etc.)
+
+Saída: APENAS o JSON válido, sem texto antes ou depois.
+
+Formato:
+${EXAMPLE_CASE}`;
+
 const PROMPT_ECG = `Você é um cardiologista experiente e vai gerar questões interativas de interpretação de ECG.
 
 A nossa plataforma renderiza os traçados dinamicamente a partir de um id. Os ids disponíveis são:
@@ -114,8 +168,10 @@ export default function Author() {
   const fileRef = useRef<HTMLInputElement>(null);
   const courses = useMemo(() => db.courses.list(), [success]);
 
-  const promptTemplate = kind === 'ecg' ? PROMPT_ECG : PROMPT_MC;
-  const exampleJson = kind === 'ecg' ? EXAMPLE_ECG : EXAMPLE_MC;
+  const promptTemplate =
+    kind === 'ecg' ? PROMPT_ECG : kind === 'case' ? PROMPT_CASE : PROMPT_MC;
+  const exampleJson =
+    kind === 'ecg' ? EXAMPLE_ECG : kind === 'case' ? EXAMPLE_CASE : EXAMPLE_MC;
 
   function parseAndValidate(text: string): ImportPayload | null {
     let data: unknown;
@@ -160,6 +216,17 @@ export default function Author() {
         }
         if (!q.diagnosis || typeof q.diagnosis !== 'object') {
           setError(`Questão ${i + 1} (ECG): "diagnosis" obrigatório.`);
+          return null;
+        }
+        continue;
+      }
+      if (type === 'case') {
+        if (typeof q.vignette !== 'string' || !q.vignette.trim()) {
+          setError(`Questão ${i + 1} (caso): "vignette" obrigatória.`);
+          return null;
+        }
+        if (!Array.isArray(q.steps) || q.steps.length < 1) {
+          setError(`Questão ${i + 1} (caso): "steps" precisa ser um array não vazio.`);
           return null;
         }
         continue;
@@ -233,7 +300,7 @@ export default function Author() {
           junto com o material. Ele devolve um JSON pronto pra importar.
         </p>
 
-        <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
           <KindCard
             active={kind === 'mc'}
             onClick={() => setKind('mc')}
@@ -247,6 +314,13 @@ export default function Author() {
             Icon={Activity}
             title="Eletrocardiograma"
             description="Análise ponto a ponto + diagnóstico. Escolhe um dos 9 traçados disponíveis."
+          />
+          <KindCard
+            active={kind === 'case'}
+            onClick={() => setKind('case')}
+            Icon={FileText}
+            title="Caso clínico"
+            description="Vinheta longa + 3-5 decisões encadeadas. Ideal pra simular plantão."
           />
         </div>
 

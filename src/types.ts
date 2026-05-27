@@ -1,6 +1,6 @@
 export type Difficulty = 'easy' | 'medium' | 'hard';
 
-export type QuestionType = 'mc' | 'ecg';
+export type QuestionType = 'mc' | 'ecg' | 'case';
 
 interface BaseQuestion {
   id: string;
@@ -56,7 +56,22 @@ export interface ECGQuestion extends BaseQuestion {
   diagnosis: ECGDiagnosis;
 }
 
-export type Question = MultipleChoiceQuestion | ECGQuestion;
+export interface CaseStep {
+  id: string;
+  prompt?: string;
+  question: string;
+  options: string[];
+  correct: number;
+  expl: string;
+}
+
+export interface CaseQuestion extends BaseQuestion {
+  type: 'case';
+  vignette: string;
+  steps: CaseStep[];
+}
+
+export type Question = MultipleChoiceQuestion | ECGQuestion | CaseQuestion;
 
 export interface Course {
   id: string;
@@ -125,7 +140,16 @@ export interface ImportECGQuestion {
   tags?: string[];
 }
 
-export type ImportQuestion = ImportMCQuestion | ImportECGQuestion;
+export interface ImportCaseQuestion {
+  type: 'case';
+  topic: string;
+  vignette: string;
+  steps: CaseStep[];
+  difficulty?: Difficulty;
+  tags?: string[];
+}
+
+export type ImportQuestion = ImportMCQuestion | ImportECGQuestion | ImportCaseQuestion;
 
 export interface ImportPayload {
   title: string;

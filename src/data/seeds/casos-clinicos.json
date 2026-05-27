@@ -1,0 +1,124 @@
+{
+  "title": "Casos Clínicos — Urgência",
+  "description": "Vinhetas com decisões encadeadas: você lê o caso e vai conduzindo passo a passo, como no plantão.",
+  "icon": "🩺",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "case",
+      "topic": "Sepse urinária",
+      "vignette": "Mulher, 68 anos, trazida ao PS por familiares.\n\nHistória: febre há 3 dias (Tax até 39,2°C), dor lombar direita, calafrios. Hoje começou a ficar 'meio confusa' segundo a filha. HAS e DM2 conhecidos.\n\nExame físico: regular estado geral, sonolenta mas responsiva. T=38,7°C · FC=118 · FR=26 · PA=86x52 mmHg · SpO₂=94% em ar ambiente. Mucosas hipocoradas, extremidades frias. Punho-percussão lombar direita positiva.\n\nGasometria arterial: pH 7,30 · lactato 4,2 mmol/L · BE -8.",
+      "steps": [
+        {
+          "id": "diag",
+          "question": "Considerando o quadro, qual a hipótese mais provável?",
+          "options": [
+            "Pielonefrite com choque séptico",
+            "Cólica nefrética complicada",
+            "Crise hipertensiva com encefalopatia",
+            "AVC isquêmico"
+          ],
+          "correct": 0,
+          "expl": "Tríade urinária + SIRS + hipoperfusão + lactato 4,2 + alteração de consciência = choque séptico de foco urinário até prova em contrário. Critérios de Sepsis-3: qSOFA ≥ 2 (FR ≥ 22, alteração mental, PAS < 100)."
+        },
+        {
+          "id": "conduta1",
+          "prompt": "Você define o diagnóstico e abre o protocolo de sepse. O que faz nos próximos 30 minutos?",
+          "question": "Qual conduta inicial mais correta?",
+          "options": [
+            "Ressuscitação volêmica 30 mL/kg de cristaloide, hemoculturas antes de iniciar ATB, ATB empírico de amplo espectro em até 1h",
+            "Solicitar TC de abdome com contraste antes de iniciar ATB",
+            "Aguardar resultado de urocultura antes de prescrever ATB",
+            "Iniciar noradrenalina antes da expansão volêmica"
+          ],
+          "correct": 0,
+          "expl": "Bundle de 1 hora: cultura → ATB amplo → volume 30 mL/kg → lactato seriado → vasopressor se PAM < 65 após volume. Imagem fica pra depois da estabilização."
+        },
+        {
+          "id": "atb",
+          "prompt": "Você expandiu 2L de SF, colheu hemoculturas e urocultura. PAS subiu pra 95.",
+          "question": "Qual antibiótico empírico mais apropriado para foco urinário comunitário em paciente idosa, com sepse?",
+          "options": [
+            "Ceftriaxone 2g EV",
+            "Vancomicina + meropenem (apenas se sinais de gravidade extrema ou MR documentado)",
+            "Nitrofurantoína VO",
+            "Azitromicina + amoxicilina"
+          ],
+          "correct": 0,
+          "expl": "ITU comunitária complicada/pielonefrite: ceftriaxone EV é a 1ª linha. Carbapenêmico fica reservado pra paciente colonizado por BLEE ou sem resposta. Nitro não cobre ITU alta."
+        },
+        {
+          "id": "vasopressor",
+          "prompt": "Após 30 mL/kg de cristaloide, PAM = 60 mmHg. Lactato repetido = 3,8.",
+          "question": "Qual o próximo passo?",
+          "options": [
+            "Iniciar noradrenalina em BIC para PAM ≥ 65 e considerar UTI",
+            "Repetir mais 2L de cristaloide",
+            "Iniciar dobutamina como primeira escolha",
+            "Trocar SF por ringer e aguardar"
+          ],
+          "correct": 0,
+          "expl": "Sepse refratária à volume (PAM < 65 apesar de 30 mL/kg) = noradrenalina como vasopressor de 1ª escolha. UTI obrigatória. Dobutamina entra se houver disfunção miocárdica documentada."
+        }
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "type": "case",
+      "topic": "AVC isquêmico",
+      "vignette": "Homem, 62 anos, levado ao PS pela esposa.\n\nHistória: a esposa relata que ele estava bem ao acordar às 7h. Às 10h30 ela percebeu que ele 'falava enrolado e o braço direito caiu'. Hora atual: 11h45.\n\nAntecedentes: HAS, FA paroxística (não anticoagulado), dislipidemia.\n\nExame: PA 178x102 · FC 92 irregular · glicemia capilar 124. NIHSS: disartria (1), hemiparesia braquial direita grau 3 (3), apagamento sulco nasolabial direito (1) = total 5.",
+      "steps": [
+        {
+          "id": "tempo",
+          "question": "Qual o 'time of onset' que você considera pra cálculo da janela?",
+          "options": [
+            "10h30 (quando os sintomas foram percebidos)",
+            "7h (último horário em que estava comprovadamente bem)",
+            "11h45 (chegada ao PS)",
+            "Não é possível definir"
+          ],
+          "correct": 1,
+          "expl": "Quando o início NÃO é testemunhado, usa-se o 'last seen well' como tempo zero. Convenção fundamental no AVC."
+        },
+        {
+          "id": "exame",
+          "question": "Qual exame de imagem você pede com prioridade?",
+          "options": [
+            "TC de crânio sem contraste",
+            "RNM com difusão (DWI)",
+            "Angio-TC arterial cerebral",
+            "Doppler de carótidas"
+          ],
+          "correct": 0,
+          "expl": "TC sem contraste é o exame inicial obrigatório no AVC agudo: rápido, disponível e exclui hemorragia (que muda completamente a conduta). RNM e angio-TC podem complementar depois."
+        },
+        {
+          "id": "tromb",
+          "prompt": "TC sem contraste: sem sangramento, sem grandes áreas hipodensas. Última vez bem há 4h45min.",
+          "question": "Está dentro da janela para qual conduta?",
+          "options": [
+            "Trombólise EV com alteplase (janela até 4,5h)",
+            "Trombectomia mecânica (até 6h ou estendida até 24h em casos selecionados)",
+            "Apenas controle de PA e AAS",
+            "Anticoagulação plena imediata pela FA"
+          ],
+          "correct": 1,
+          "expl": "4h45 = passou da janela de 4,5h pra alteplase. Mas trombectomia mecânica pode ser feita até 6h (ou 24h em casos selecionados com mismatch perfusão-difusão). Angio-TC pra ver se há oclusão de grande vaso é o próximo passo. NIHSS 5 pode não justificar trombectomia — discutir com neuro."
+        },
+        {
+          "id": "pa",
+          "question": "PA está 178x102. Qual conduta de pressão?",
+          "options": [
+            "Não tratar — permitir PA até 220x120 se NÃO for elegível pra trombólise",
+            "Reduzir agressivamente pra < 140x90 imediatamente",
+            "Iniciar IECA VO",
+            "Captopril SL 25mg"
+          ],
+          "correct": 0,
+          "expl": "AVC isquêmico NÃO candidato a trombólise: tolera PA até 220x120. Redução agressiva piora perfusão da penumbra. Se trombolisado, manter PA < 180x105."
+        }
+      ],
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -71,7 +71,15 @@ export interface PreparedECGQuestion {
   diagnosis: import('../types').ECGDiagnosis;
 }
 
-export type PreparedQuestion = PreparedMCQuestion | PreparedECGQuestion;
+export interface PreparedCaseQuestion {
+  type: 'case';
+  id: string;
+  topic: string;
+  vignette: string;
+  steps: import('../types').CaseStep[];
+}
+
+export type PreparedQuestion = PreparedMCQuestion | PreparedECGQuestion | PreparedCaseQuestion;
 
 export function prepareQuestion(question: Question): PreparedQuestion {
   if (question.type === 'ecg') {
@@ -83,6 +91,15 @@ export function prepareQuestion(question: Question): PreparedQuestion {
       context: question.context,
       points: question.points,
       diagnosis: question.diagnosis,
+    };
+  }
+  if (question.type === 'case') {
+    return {
+      type: 'case',
+      id: question.id,
+      topic: question.topic,
+      vignette: question.vignette,
+      steps: question.steps,
     };
   }
   const tagged = question.options.map((opt, i) => ({ opt, isCorrect: i === question.correct }));

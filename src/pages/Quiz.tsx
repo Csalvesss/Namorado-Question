@@ -3,6 +3,7 @@ import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import EmptyState from '../components/EmptyState';
+import CaseClinical, { type CaseState } from '../components/questions/CaseClinical';
 import EcgInterpret, { type EcgState } from '../components/questions/EcgInterpret';
 import { ResultPanel } from '../components/ResultPanel';
 import { getPhrases } from '../data/phrases';
@@ -26,25 +27,34 @@ type QuestionState = PreparedQuestion & {
   pointAnswers?: Record<string, number>;
   diagnosisSelected?: number;
   completed?: boolean;
+  stepAnswers?: Record<string, number>;
 };
 
 type MCQuestionState = PreparedMCQuestion & { selected?: number };
 
 function isAnswered(q: QuestionState): boolean {
   if (q.type === 'mc') return q.selected !== undefined;
-  return Boolean(q.completed);
+  if (q.type === 'ecg') return Boolean(q.completed);
+  return Object.keys(q.stepAnswers ?? {}).length === q.steps.length;
 }
 
 function questionIsRight(q: QuestionState): boolean {
   if (q.type === 'mc') return q.selected === q.correct;
-  return q.diagnosisSelected === q.diagnosis.correct;
+  if (q.type === 'ecg') return q.diagnosisSelected === q.diagnosis.correct;
+  const last = q.steps[q.steps.length - 1];
+  return last !== undefined && q.stepAnswers?.[last.id] === last.correct;
 }
 
 function questionAnswer(q: QuestionState): { selected: number; correct: number } {
   if (q.type === 'mc') {
     return { selected: q.selected ?? -1, correct: q.correct };
   }
-  return { selected: q.diagnosisSelected ?? -1, correct: q.diagnosis.correct };
+  if (q.type === 'ecg') {
+    return { selected: q.diagnosisSelected ?? -1, correct: q.diagnosis.correct };
+  }
+  const last = q.steps[q.steps.length - 1];
+  if (!last) return { selected: -1, correct: -1 };
+  return { selected: q.stepAnswers?.[last.id] ?? -1, correct: last.correct };
 }
 
 export default function Quiz() {
@@ -137,6 +147,15 @@ export default function Quiz() {
         i === qIdx && q.type === 'ecg'
           ? { ...q, pointAnswers: next.pointAnswers, diagnosisSelected: next.diagnosisSelected, completed: next.completed }
           : q,
+      ),
+    );
+  }
+
+  function updateCaseState(qIdx: number, next: CaseState) {
+    if (submitted) return;
+    setQuestions((cur) =>
+      cur.map((q, i) =>
+        i === qIdx && q.type === 'case' ? { ...q, stepAnswers: next.stepAnswers } : q,
       ),
     );
   }
@@ -241,18 +260,30 @@ export default function Quiz() {
               />
             );
           }
+          if (q.type === 'ecg') {
+            return (
+              <EcgInterpret
+                key={q.id + '-' + idx}
+                question={q}
+                index={idx}
+                submitted={submitted}
+                state={{
+                  pointAnswers: q.pointAnswers ?? {},
+                  diagnosisSelected: q.diagnosisSelected,
+                  completed: q.completed,
+                }}
+                onUpdate={(next) => updateEcgState(idx, next)}
+              />
+            );
+          }
           return (
-            <EcgInterpret
+            <CaseClinical
               key={q.id + '-' + idx}
               question={q}
               index={idx}
               submitted={submitted}
-              state={{
-                pointAnswers: q.pointAnswers ?? {},
-                diagnosisSelected: q.diagnosisSelected,
-                completed: q.completed,
-              }}
-              onUpdate={(next) => updateEcgState(idx, next)}
+              state={{ stepAnswers: q.stepAnswers ?? {} }}
+              onUpdate={(next) => updateCaseState(idx, next)}
             />
           );
         })}
