@@ -1,5 +1,15 @@
+import { cloudSrs } from './cloud-db';
+
 const DAY_MS = 24 * 60 * 60 * 1000;
 const STORAGE_PREFIX = 'guava.srs.';
+
+export const SRS_CHANGE_EVENT = 'guava:srs-change';
+
+function emitSrsChange() {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent(SRS_CHANGE_EVENT));
+  }
+}
 
 export type Grade = 'again' | 'hard' | 'good' | 'easy';
 
@@ -42,7 +52,31 @@ export function reviewCard(userId: string, cardId: string, grade: Grade): CardSt
   const next = applyGrade(data[cardId] ?? defaultState(cardId), grade);
   data[cardId] = next;
   save(userId, data);
+  emitSrsChange();
+  void cloudSrs
+    .save({
+      cardId: next.cardId,
+      ease: next.ease,
+      interval: next.interval,
+      reps: next.reps,
+      due: next.due,
+      lapses: next.lapses,
+      lastReviewed: next.lastReviewed,
+    })
+    .catch(() => {
+      // best-effort sync; local cache holds the truth offline
+    });
   return next;
+}
+
+export async function hydrateSrsFromCloud(userId: string): Promise<void> {
+  try {
+    const all = await cloudSrs.getAll(userId);
+    save(userId, all);
+    emitSrsChange();
+  } catch {
+    // ignore — local cache continues working offline
+  }
 }
 
 export function applyGrade(state: CardState, grade: Grade): CardState {

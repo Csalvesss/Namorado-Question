@@ -1,0 +1,117 @@
+{
+  "title": "Flashcards: Insuficiência Cardíaca",
+  "description": "Classificação por FE, NYHA, estágios AHA, pilares do tratamento da ICFER e armadilhas da ICFEP.",
+  "icon": "",
+  "color": "red",
+  "questions": [
+    {
+      "type": "flashcard",
+      "topic": "Definição",
+      "front": "Como definir Insuficiência Cardíaca?",
+      "back": "Síndrome clínica com sinais e sintomas resultantes de comprometimento estrutural ou funcional do enchimento ventricular ou da ejeção de sangue. Não se restringe à disfunção sistólica (inclui ICFEP por disfunção diastólica).",
+      "difficulty": "easy"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Classificação",
+      "front": "Pontos de corte da FEVE na classificação atual da IC?",
+      "back": "ICFER: FEVE ≤ 40%. ICFEi (intermediária): FEVE 41-49%. ICFEP: FEVE ≥ 50%. Existe ainda a IC com FE melhorada (era ≤40% e melhorou): manter o tratamento.",
+      "hint": "40 / 41-49 / 50",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Etiologia",
+      "front": "Causa mais comum de Insuficiência Cardíaca?",
+      "back": "Doença isquêmica do coração. Outras: HAS, valvares, infecciosa (Chagas no Brasil), tóxica (álcool/drogas), arritmias, congênitas/genéticas, infiltrativas (amiloidose), metabólicas (obesidade).",
+      "difficulty": "easy"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Diagnóstico",
+      "front": "Pontos de corte de BNP e NT-proBNP para normalidade em cenário não agudo?",
+      "back": "BNP ≤ 35 pg/mL e NT-proBNP ≤ 125 pg/mL. Acima disso, suspeita de IC. Interpretar sempre com clínica + eco.",
+      "hint": "35 e 125",
+      "difficulty": "hard"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Diagnóstico",
+      "front": "Causas não cardíacas de elevação de BNP/NT-proBNP?",
+      "back": "Insuficiência renal, AVC, sepse/críticos, DPOC grave, tireotoxicose. Por isso a interpretação é sempre contextual.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Classificação",
+      "front": "Definição de NYHA III?",
+      "back": "Dispneia com atividades MAIS LEVES que a habitual (pequenos esforços). I: sintomas a grandes esforços; II: dispneia leve em atividades habituais; IV: sintomas em repouso.",
+      "difficulty": "easy"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Classificação",
+      "front": "Estadiamento AHA/ACC: o que é Estágio B?",
+      "back": "Alterações cardíacas estruturais/funcionais/bioquímicas SEM clínica. A: só fatores de risco. C: alterações + clínica atual ou pregressa. D: sintomas recorrentes com hospitalizações.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tratamento ICFER",
+      "front": "Quais são os 4 pilares atuais do tratamento da ICFER?",
+      "back": "1) IECA ou Sacubitril/Valsartana (BRA se intolerante). 2) Betabloqueador (carvedilol, metoprolol ou bisoprolol). 3) Antagonista da aldosterona (espironolactona/eplerenona). 4) iSGLT-2 (dapa ou empa) independente de DM.",
+      "hint": "IECA/ARNI, BB, anti-aldo, iSGLT-2",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tratamento ICFER",
+      "front": "Quais betabloqueadores são indicados em ICFER e qual o alvo de FC?",
+      "back": "Carvedilol (não seletivo, α1/β1/β2), metoprolol (β1) e bisoprolol (β1). Alvo de FC em repouso: 60-70 bpm. Iniciar em baixa dose e titular.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tratamento ICFER",
+      "front": "Cuidado essencial ao trocar IECA por Sacubitril/Valsartana (ou vice-versa)?",
+      "back": "Aguardar 36 horas de washout. Risco de angioedema pelo acúmulo de bradicininas (sacubitril inibe neprilisina; IECA inibe ECA). Nunca associar.",
+      "hint": "36h",
+      "difficulty": "hard"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tratamento ICFER",
+      "front": "Quando indicar iSGLT-2 (dapagliflozina, empagliflozina) na IC?",
+      "back": "Em ICFER independentemente da presença de DM. Evitar se ClCr < 20 mL/min/1,73m². Orientar higiene pelo risco de infecções genitais.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tratamento",
+      "front": "Diuréticos na IC reduzem mortalidade?",
+      "back": "NÃO (exceto antagonistas da aldosterona, que reduzem). Reduzem hospitalização e melhoram qualidade de vida. Usar a MENOR dose para manter euvolemia.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tratamento ICFEP",
+      "front": "O que funciona em ICFEP?",
+      "back": "iSGLT-2: reduzem hospitalização e benefício marginal em mortalidade. IECA/BRA/Sac-Val/BB: NEUTROS. Anti-aldo: resultados conflitantes (tendência a reduzir hospitalização). Tratamento personalizado por comorbidades.",
+      "difficulty": "hard"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tratamento",
+      "front": "Qual antagonista da aldosterona causa ginecomastia e qual usar como alternativa?",
+      "back": "Espironolactona (afinidade por receptores androgênicos e progesterônicos) → trocar por eplerenona (menor efeito antiandrogênico, mas indisponível no SUS). Ambos: monitorar K+.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Medidas gerais",
+      "front": "Alvos de medidas gerais no manejo da IC?",
+      "back": "Sódio < 2300 mg/dia. IMC < 25 kg/m². PA < 130/80. CESSAR álcool e tabagismo. Reabilitação cardiovascular indicada. Vacinas: influenza, COVID-19, pneumococo.",
+      "difficulty": "easy"
+    }
+  ]
+}

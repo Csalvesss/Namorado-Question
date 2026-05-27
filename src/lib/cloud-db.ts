@@ -1,0 +1,87 @@
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  orderBy,
+  query,
+  setDoc,
+} from 'firebase/firestore';
+import { firebaseAuth, firestore } from './firebase';
+import type { QuizSession } from '../types';
+
+function requireUid(): string {
+  const uid = firebaseAuth.currentUser?.uid;
+  if (!uid) throw new Error('Sem usuário autenticado.');
+  return uid;
+}
+
+export const cloudSessions = {
+  collectionRef(uid?: string) {
+    return collection(firestore, 'users', uid ?? requireUid(), 'sessions');
+  },
+
+  async list(uid?: string): Promise<QuizSession[]> {
+    const targetUid = uid ?? requireUid();
+    const q = query(
+      collection(firestore, 'users', targetUid, 'sessions'),
+      orderBy('startedAt', 'desc'),
+    );
+    const snap = await getDocs(q);
+    return snap.docs.map((d) => d.data() as QuizSession);
+  },
+
+  async save(session: QuizSession) {
+    const uid = requireUid();
+    const ref = doc(firestore, 'users', uid, 'sessions', session.id);
+    await setDoc(ref, session);
+  },
+
+  async clearAll(uid?: string) {
+    const targetUid = uid ?? requireUid();
+    const snap = await getDocs(collection(firestore, 'users', targetUid, 'sessions'));
+    await Promise.all(snap.docs.map((d) => deleteDoc(d.ref)));
+  },
+};
+
+export interface CloudCardState {
+  cardId: string;
+  ease: number;
+  interval: number;
+  reps: number;
+  due: number;
+  lapses: number;
+  lastReviewed?: number;
+}
+
+export const cloudSrs = {
+  async getAll(uid?: string): Promise<Record<string, CloudCardState>> {
+    const targetUid = uid ?? requireUid();
+    const snap = await getDocs(collection(firestore, 'users', targetUid, 'srs'));
+    const out: Record<string, CloudCardState> = {};
+    snap.docs.forEach((d) => {
+      out[d.id] = d.data() as CloudCardState;
+    });
+    return out;
+  },
+
+  async get(cardId: string): Promise<CloudCardState | null> {
+    const uid = requireUid();
+    const ref = doc(firestore, 'users', uid, 'srs', cardId);
+    const snap = await getDoc(ref);
+    return snap.exists() ? (snap.data() as CloudCardState) : null;
+  },
+
+  async save(state: CloudCardState) {
+    const uid = requireUid();
+    const ref = doc(firestore, 'users', uid, 'srs', state.cardId);
+    await setDoc(ref, state);
+  },
+
+  async clearAll(uid?: string) {
+    const targetUid = uid ?? requireUid();
+    const snap = await getDocs(collection(firestore, 'users', targetUid, 'srs'));
+    await Promise.all(snap.docs.map((d) => deleteDoc(d.ref)));
+  },
+};

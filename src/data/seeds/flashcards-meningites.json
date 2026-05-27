@@ -1,0 +1,137 @@
+{
+  "title": "Flashcards: Meningites",
+  "description": "LCR, esquemas empíricos por faixa etária, quimioprofilaxia, criptococose e armadilhas.",
+  "icon": "",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "flashcard",
+      "topic": "Avaliação inicial",
+      "front": "Red flags na síndrome meníngea?",
+      "back": "Sinais focais, crise convulsiva, papiledema, imunossupressão, exantema petequial/púrpura (sugere meningococcemia), instabilidade hemodinâmica. Modificam o algoritmo de abordagem.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Diagnóstico",
+      "front": "Quando fazer TC antes da punção lombar?",
+      "back": "Imunodepressão, doença prévia do SNC, convulsão recente, alteração do nível de consciência, déficit focal, papiledema, sinais de herniação. REGRA DE OURO: NÃO atrasar antibiótico. Hemocultura + ATB empírico primeiro.",
+      "hint": "não atrasar antibiótico",
+      "difficulty": "hard"
+    },
+    {
+      "type": "flashcard",
+      "topic": "LCR",
+      "front": "Padrão liquórico de meningite BACTERIANA?",
+      "back": "1000-5000 células com predomínio PMN. Proteína 100-500 mg/dL. Glicose < 40 mg/dL (ou < 40% da sérica). Pressão de abertura > 20 cmH2O. Lactato > 3,5 mmol/L.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "LCR",
+      "front": "Padrão liquórico de meningite por TB ou fúngica?",
+      "back": "Pleocitose LINFOCITÁRIA, proteína MUITO aumentada, glicose BAIXA, pressão de abertura frequentemente ELEVADA. Em criptococo: pode ser muito alta (punções seriadas ou derivação). Em imunodeprimidos LCR pode ser pobre, não descartar.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tratamento empírico",
+      "front": "Esquema empírico para meningite bacteriana em adulto 18-50a imunocompetente?",
+      "back": "Ceftriaxona 2g 12/12h (ou cefotaxima 2g 4-6/6h) + vancomicina 15-20 mg/kg IV 8-12/12h, com ou sem dexametasona. Em >50a, gestante ou risco de Listeria, adicionar ampicilina.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tratamento empírico",
+      "front": "Quando adicionar AMPICILINA ao esquema e em que dose?",
+      "back": "Risco de Listeria: > 50 anos, gestantes, imunodeprimidos, neonatos. Dose: 2g IV de 4/4h por ~21 dias.",
+      "difficulty": "hard"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tratamento empírico",
+      "front": "Cobertura empírica em meningite pós-neurocirurgia ou DVP?",
+      "back": "Vancomicina + cefepime/ceftazidima/meropenem. Risco aumentado de Staphylococcus (MRSA) e Gram-negativos incluindo Pseudomonas.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tratamento",
+      "front": "Dose e timing da DEXAMETASONA em meningite bacteriana?",
+      "back": "0,15 mg/kg de 6/6h por 4 dias. Administrar ANTES ou JUNTO com a primeira dose do antibiótico (principalmente em pneumocócica). Depois do ATB iniciado, perde a maior parte do benefício.",
+      "hint": "antes ou junto do ATB",
+      "difficulty": "hard"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Quimioprofilaxia",
+      "front": "Esquema clássico de quimioprofilaxia para meningococo em adultos?",
+      "back": "Rifampicina 600 mg VO 12/12h por 2 dias (4 doses). Alternativas: ciprofloxacino 500 mg VO dose única; ceftriaxona 250 mg IM dose única (preferida em gestantes — rifampicina é contraindicada e reduz eficácia de ACO).",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Quimioprofilaxia",
+      "front": "Quem deve receber quimioprofilaxia para meningococo?",
+      "back": "Moradores da mesma casa, parceiros íntimos, contato direto com secreções orais, profissionais de saúde expostos sem EPI adequado (intubação, aspiração, exame oral próximo). Contatos casuais NÃO.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Casos complicados",
+      "front": "Síndrome adrenal a investigar na meningococcemia grave?",
+      "back": "Waterhouse-Friderichsen: hemorragia bilateral de suprarrenais com insuficiência adrenal aguda. Se suspeita: hidrocortisona 100 mg IV 8/8h. Manejo: cristaloide 30 mL/kg em 3h, noradrenalina se PAM < 65, plaquetas se < 50k com sangramento, crioprecipitado se fibrinogênio < 150.",
+      "hint": "WF e hidrocortisona",
+      "difficulty": "hard"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Etiologia",
+      "front": "Agentes mais comuns por faixa etária em meningite?",
+      "back": "Neonato: E. coli, S. agalactiae (grupo B), Listeria. Criança/adolescente: meningococo, pneumococo. Adulto: pneumococo, meningococo. Idoso/gestante/etilismo: + Listeria. Pós-neurocirurgia/derivação: Staph (MRSA) + Gram-neg (Pseudomonas).",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Encefalite",
+      "front": "Quando pensar em encefalite herpética e como tratar?",
+      "back": "Crise focal + confusão → envolvimento parenquimatoso, herpética até prova em contrário. Aciclovir 10 mg/kg EV 8/8h por 10-14 dias. Solicitar neuroimagem (preferir RM) e EEG. Manter ATB empírico se dúvida bacteriana.",
+      "difficulty": "hard"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Meningite viral",
+      "front": "Agente mais comum de meningite viral?",
+      "back": "Enterovírus (curso geralmente benigno). HSV-2 é mais associado a meningite (incluindo recorrente — Mollaret); HSV-1 mais a encefalite. VZV pode ocorrer sem lesões cutâneas. HIV agudo causa meningite asséptica.",
+      "difficulty": "easy"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Imunodeprimidos",
+      "front": "Exames liquóricos prioritários em HIV+ sem TARV com cefaleia subaguda?",
+      "back": "Tinta da China (criptococo), antígeno criptocócico em soro e LCR, cultura, BAAR, PCR para TB. MEDIR pressão de abertura (criptococo costuma ter PA muito elevada).",
+      "difficulty": "hard"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Imunodeprimidos",
+      "front": "Esquema de indução para meningite criptocócica em HIV?",
+      "back": "Indução: anfotericina + flucitosina por 14 dias. Consolidação: fluconazol 400-800 mg por 8 semanas. Manutenção: fluconazol 200 mg por ≥ 1 ano. Manejar HIC com punções seriadas. Avaliar momento de iniciar TARV (evitar IRIS).",
+      "difficulty": "hard"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Isolamento",
+      "front": "Duração do isolamento respiratório na meningococcemia?",
+      "back": "24 horas após início de antibiótico EFETIVO. Após isso, paciente não transmite mais. Contatos próximos seguem recebendo quimioprofilaxia.",
+      "difficulty": "easy"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Clínica",
+      "front": "Clínica típica da síndrome meníngea?",
+      "back": "Cefaleia intensa, febre, rigidez de nuca, fotofobia, náuseas, vômitos. Kernig e Brudzinski úteis (boa especificidade) mas ausência NÃO exclui. Qualquer um deles + clínica motiva investigação liquórica.",
+      "difficulty": "easy"
+    }
+  ]
+}

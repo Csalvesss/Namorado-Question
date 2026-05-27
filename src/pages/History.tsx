@@ -5,7 +5,7 @@ import EmptyState from '../components/EmptyState';
 import { topicAccuracyColor, weakestTopics } from '../lib/analytics';
 import { db } from '../lib/db';
 import { modeConfig } from '../lib/quiz';
-import { useUser } from '../lib/useUser';
+import { useSessions } from '../lib/useSessions';
 import type { Question, QuizSession } from '../types';
 
 const MONTHS_PT_SHORT = [
@@ -99,10 +99,10 @@ function formatDay(d: Date): { day: string; month: string } {
 }
 
 export default function History() {
-  const { user } = useUser();
+  const { sessions: allSessions } = useSessions();
   const sessions = useMemo(
-    () => (user ? db.sessions.list(user.uid).filter((s) => s.completedAt) : []),
-    [user],
+    () => allSessions.filter((s) => s.completedAt),
+    [allSessions],
   );
 
   const stats = useMemo(() => {

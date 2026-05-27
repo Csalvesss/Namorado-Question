@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { Plus } from 'lucide-react';
+import AIFlashcardPanel from './AIFlashcardPanel';
 import type { Difficulty, ImportFlashcardQuestion } from '../../types';
 
 interface Props {
   onAdd: (q: ImportFlashcardQuestion) => void;
+  onAddMany?: (qs: ImportFlashcardQuestion[]) => void;
   defaultTopic?: string;
 }
 
-export default function FlashcardForm({ onAdd, defaultTopic = '' }: Props) {
+export default function FlashcardForm({ onAdd, onAddMany, defaultTopic = '' }: Props) {
   const [topic, setTopic] = useState(defaultTopic);
   const [front, setFront] = useState('');
   const [back, setBack] = useState('');
@@ -31,8 +33,26 @@ export default function FlashcardForm({ onAdd, defaultTopic = '' }: Props) {
     setHint('');
   }
 
+  function handleGenerated(cards: ImportFlashcardQuestion[]) {
+    if (onAddMany) {
+      onAddMany(cards);
+    } else {
+      cards.forEach((c) => onAdd(c));
+    }
+  }
+
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
+      <AIFlashcardPanel onGenerated={handleGenerated} defaultTopic={topic} />
+
+      <div className="relative flex items-center gap-3">
+        <span className="h-px flex-1 bg-line" />
+        <span className="text-[10px] uppercase tracking-[0.28em] text-muted">
+          ou monte manualmente
+        </span>
+        <span className="h-px flex-1 bg-line" />
+      </div>
+
       <FieldRow
         label="Tópico"
         hint="grupo do card (ex: Betalactâmicos, Onda P)"

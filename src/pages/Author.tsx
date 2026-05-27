@@ -32,6 +32,12 @@ export default function Author() {
     setError(null);
   }
 
+  function handleAddMany(qs: ImportQuestion[]) {
+    setItems((prev) => [...prev, ...qs]);
+    setSuccess(null);
+    setError(null);
+  }
+
   function handleRemove(idx: number) {
     setItems((prev) => prev.filter((_, i) => i !== idx));
   }
@@ -146,7 +152,9 @@ export default function Author() {
         </div>
 
         <div className="rounded-2xl border border-line bg-bg-soft p-4 sm:p-6">
-          {kind === 'flashcard' && <FlashcardForm onAdd={handleAdd} />}
+          {kind === 'flashcard' && (
+            <FlashcardForm onAdd={handleAdd} onAddMany={handleAddMany} />
+          )}
           {kind === 'mc' && <MCForm onAdd={handleAdd} />}
           {kind === 'match' && <MatchForm onAdd={handleAdd} />}
           {kind === 'case' && <CaseForm onAdd={handleAdd} />}

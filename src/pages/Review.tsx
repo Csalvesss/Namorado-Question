@@ -11,6 +11,7 @@ import {
   listDueCards,
   previewIntervals,
   reviewCard,
+  SRS_CHANGE_EVENT,
   srsStats,
   type Grade,
 } from '../lib/srs';
@@ -81,6 +82,14 @@ export default function Review() {
   const [flipped, setFlipped] = useState(false);
   const [doneCount, setDoneCount] = useState(0);
   const [, forceRender] = useState(0);
+
+  useEffect(() => {
+    function bump() {
+      forceRender((n) => n + 1);
+    }
+    window.addEventListener(SRS_CHANGE_EVENT, bump);
+    return () => window.removeEventListener(SRS_CHANGE_EVENT, bump);
+  }, []);
 
   useEffect(() => {
     setOrder(dueQueue.map((i) => i.card.id));

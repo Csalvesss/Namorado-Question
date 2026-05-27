@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { ArrowRight, type LucideIcon } from 'lucide-react';
 import { db } from '../lib/db';
 import { getMistakeQuestionIds, modeConfig } from '../lib/quiz';
+import { useSessions } from '../lib/useSessions';
 import { useUser } from '../lib/useUser';
 import type { QuizMode } from '../types';
 
@@ -27,9 +28,9 @@ export default function Course() {
   const featuredModes: QuizMode[] = hasCases ? ['standard', 'clinical'] : FEATURED_BASE;
   const compactModes: QuizMode[] = hasCases ? ['quick', 'marathon', 'timed'] : COMPACT_BASE;
 
+  const { sessions: allSessions } = useSessions();
   const courseStats = useMemo(() => {
-    if (!user) return { attempts: 0, accuracy: 0 };
-    const sessions = db.sessions.list(user.uid).filter((s) => s.courseId === id && s.completedAt);
+    const sessions = allSessions.filter((s) => s.courseId === id && s.completedAt);
     const totalQ = sessions.reduce((acc, s) => acc + s.answers.length, 0);
     const totalRight = sessions.reduce(
       (acc, s) => acc + s.answers.filter((a) => a.isRight).length,
@@ -39,7 +40,7 @@ export default function Course() {
       attempts: sessions.length,
       accuracy: totalQ > 0 ? Math.round((totalRight / totalQ) * 100) : 0,
     };
-  }, [user, id]);
+  }, [allSessions, id]);
 
   if (!course) {
     return (
