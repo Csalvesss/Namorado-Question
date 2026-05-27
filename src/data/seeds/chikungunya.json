@@ -1,0 +1,216 @@
+{
+  "title": "Chikungunya",
+  "description": "Arbovirose com artralgia incapacitante: fase aguda, pós-aguda e crônica, laboratório e tratamento da fase aguda e crônica.",
+  "icon": "🦴",
+  "color": "wine",
+  "questions": [
+    {
+      "topic": "Fase aguda",
+      "q": "Sobre o QUADRO AGUDO da Chikungunya, qual é a duração e qual achado articular é mais característico?",
+      "options": [
+        "Duração de até 60 dias, com artralgia assimétrica em grandes articulações axiais",
+        "Duração de até 14 dias, com artralgia/artrite de predomínio SIMÉTRICO em punhos e tornozelos, frequentemente LIMITANTE",
+        "Duração de algumas horas, sem artralgia",
+        "Duração de 6 meses na fase aguda"
+      ],
+      "correct": 1,
+      "expl": "O quadro AGUDO da Chikungunya dura até 14 dias e cursa com artralgia/artrite de predomínio SIMÉTRICO, classicamente em punhos e tornozelos, e tipicamente LIMITANTE (incapacitante). Esse padrão articular é central na diferenciação clínica com Dengue (mialgia predomina) e Zika (artralgia leve). Pode ocorrer Sinal de Faget (bradicardia relativa).",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Fase aguda",
+      "q": "Sobre as manifestações de PELE e MUCOSAS na fase aguda da Chikungunya, qual a apresentação típica?",
+      "options": [
+        "Exantema raro, sem prurido",
+        "Exantema entre o 2º e 5º dia do quadro, com prurido em até 25% dos casos",
+        "Lesões vesiculares disseminadas com sinal de Nikolsky",
+        "Eritema malar permanente"
+      ],
+      "correct": 1,
+      "expl": "Na fase aguda da Chikungunya, é comum o aparecimento de exantema entre o 2º e o 5º dia do quadro. Prurido pode estar presente em até 25% dos casos. O exantema é tipicamente maculopapular, geralmente em tronco e membros, e diferentemente de outras arboviroses não tem padrão patognomônico.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Fase aguda - lab",
+      "q": "Sobre os ACHADOS LABORATORIAIS típicos da fase aguda da Chikungunya, qual padrão é esperado?",
+      "options": [
+        "Plaquetose maciça com leucocitose neutrofílica",
+        "Plaquetopenia leve, leucopenia e AST/ALT pouco elevadas",
+        "Trombocitopenia abaixo de 20.000 em todos os pacientes",
+        "Eosinofilia importante com IgE elevada"
+      ],
+      "correct": 1,
+      "expl": "Na fase aguda da Chikungunya, o laboratório tipicamente mostra plaquetopenia LEVE (raramente atinge os níveis críticos da dengue hemorrágica), leucopenia e elevação POUCO importante de AST e ALT. Esse padrão laboratorial discreto, combinado com a artralgia limitante simétrica em punhos/tornozelos, ajuda no diagnóstico diferencial com Dengue.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Fase pós-aguda",
+      "q": "Sobre a FASE PÓS-AGUDA da Chikungunya, qual a duração e quais achados são característicos?",
+      "options": [
+        "Duração de 1 dia, sem novos achados",
+        "Duração entre 10 a 14 dias até 3 meses, com possível recorrência da febre, persistência ou agravamento da artralgia, poliartrite distal, tenossinovite, fenômeno de Raynaud, síndrome do túnel do carpo, astenia e sintomas depressivos",
+        "Duração de 10 anos, com cura espontânea",
+        "Apenas hepatomegalia isolada por 5 anos"
+      ],
+      "correct": 1,
+      "expl": "A fase PÓS-AGUDA da Chikungunya estende-se de 10-14 dias até 3 meses após o início. Pode haver recorrência da febre, persistência ou agravamento da artralgia, poliartrite distal, tenossinovite, fenômeno de Raynaud, síndrome do túnel do carpo, astenia, exantema, prurido e sintomas depressivos. Essa fase é frequentemente subdiagnosticada e impacta de forma importante a qualidade de vida.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Fase crônica",
+      "q": "Sobre a FASE CRÔNICA da Chikungunya, qual a duração e qual é a prevalência aproximada?",
+      "options": [
+        "Duração de 1 semana, prevalência menor que 1%",
+        "Duração de mais de 3 meses até 3 anos, com comportamento flutuante; prevalência variável (até 50% em alguns estudos)",
+        "Sempre permanente e em 100% dos casos",
+        "Apenas 0,001% dos pacientes desenvolvem essa fase"
+      ],
+      "correct": 1,
+      "expl": "A fase CRÔNICA da Chikungunya começa após 3 meses e pode durar até 3 anos. Apresenta comportamento flutuante (períodos de melhora e piora) e a prevalência é variável, podendo chegar a até 50% em alguns estudos. Pode evoluir com sequelas funcionais importantes, especialmente articulares.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Fase crônica",
+      "q": "Quais são os FATORES de risco para evolução para a fase CRÔNICA da Chikungunya?",
+      "options": [
+        "Sexo masculino, idade menor que 20 anos e ausência de comorbidades",
+        "Sexo feminino, idade maior que 45 anos, intensidade da dor inicial e artropatia prévia",
+        "Tabagismo isolado",
+        "Apenas vacinação prévia contra dengue"
+      ],
+      "correct": 1,
+      "expl": "Os fatores de risco para evolução crônica da Chikungunya incluem: sexo feminino, idade maior que 45 anos, intensidade da dor na fase aguda e artropatia prévia (especialmente doenças reumáticas pré-existentes). Esses fatores devem orientar o acompanhamento mais cuidadoso desses pacientes.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Diagnóstico diferencial",
+      "q": "Quais os principais DIAGNÓSTICOS DIFERENCIAIS da fase CRÔNICA da Chikungunya?",
+      "options": [
+        "Apenas osteoartrose primária",
+        "Artrite Reumatoide, espondiloartropatias soronegativas, artrite psoriásica, LES, gota e artrite séptica",
+        "Apenas tendinite do supraespinhoso",
+        "Apenas fibromialgia"
+      ],
+      "correct": 1,
+      "expl": "Os principais diagnósticos diferenciais da Chikungunya crônica são: Artrite Reumatoide (a mais frequente armadilha clínica), espondiloartropatias soronegativas, artrite psoriásica, LES, gota e artrite séptica. A diferenciação requer anamnese cuidadosa (história prévia de Chikungunya aguda), exame articular, exames laboratoriais (fator reumatoide, anti-CCP, ANA, ácido úrico, sorologia para Chikungunya) e às vezes imagem.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Diagnóstico",
+      "q": "Sobre o DIAGNÓSTICO LABORATORIAL específico da Chikungunya, qual a estratégia correta?",
+      "options": [
+        "Sempre sorologia IgM no 1º dia de doença",
+        "RT-PCR é útil em menos de 5 dias de doença; sorologia (IgM e IgG) é útil após 5 dias do início dos sintomas",
+        "Apenas cultura de líquor",
+        "Apenas radiografia das articulações"
+      ],
+      "correct": 1,
+      "expl": "O diagnóstico laboratorial específico da Chikungunya depende do tempo de evolução: RT-PCR é o método de escolha em menos de 5 dias de doença (fase virêmica); sorologia (IgM e IgG) é útil a partir de 5 dias do início dos sintomas. Em fase crônica, a IgG positiva associada à clínica articular sustenta o diagnóstico.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Tratamento agudo",
+      "q": "Sobre o TRATAMENTO da DOENÇA AGUDA de Chikungunya, qual conjunto de medidas é apropriado?",
+      "options": [
+        "Antiviral específico oral por 14 dias e antibiótico de amplo espectro",
+        "Repouso, hidratação oral, compressas frias, analgésicos simples; evitar AAS; em casos refratários: AINH, opióides, corticóides",
+        "Apenas corticoide intra-articular em todos os casos desde o 1º dia",
+        "Cirurgia de descompressão precoce"
+      ],
+      "correct": 1,
+      "expl": "O tratamento da fase AGUDA da Chikungunya inclui: repouso, hidratação oral, compressas frias e analgésicos simples (paracetamol, dipirona). Deve-se EVITAR AAS (risco de sangramento). Em casos refratários, podem ser usados AINH, opióides e corticoides. Antivirais específicos não são disponíveis.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Tratamento agudo",
+      "q": "Por que se deve EVITAR o uso de ÁCIDO ACETILSALICÍLICO (AAS) na fase aguda da Chikungunya?",
+      "options": [
+        "Porque não tem efeito analgésico",
+        "Pelo risco de sangramento, devido à plaquetopenia que pode estar presente e ao efeito antiplaquetário do AAS",
+        "Porque pode causar artralgia",
+        "Porque interfere no teste sorológico"
+      ],
+      "correct": 1,
+      "expl": "O AAS deve ser EVITADO na fase aguda da Chikungunya (assim como em outras arboviroses) pelo risco de sangramento: a Chikungunya cursa com plaquetopenia leve, e o AAS tem efeito antiplaquetário irreversível, aumentando o risco hemorrágico. Em fase aguda, prefere-se paracetamol e dipirona.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Tratamento crônico",
+      "q": "Quais medicações fazem parte do TRATAMENTO da fase SUBAGUDA ou CRÔNICA da Chikungunya?",
+      "options": [
+        "Apenas paracetamol em monoterapia eterna",
+        "AINH, corticóides, opióides, amitriptilina ou nortriptilina, gabapentina ou pregabalina (modulação da dor neuropática), hidroxicloroquina e, como opção, corticóide intra-articular",
+        "Apenas insulina e estatina",
+        "Apenas antibióticos profiláticos por 1 ano"
+      ],
+      "correct": 1,
+      "expl": "No tratamento da Chikungunya subaguda/crônica utilizam-se: AINH, corticóides (sistêmicos), opióides para dor refratária, antidepressivos tricíclicos (amitriptilina, nortriptilina) e anticonvulsivantes (gabapentina, pregabalina) para modulação da dor neuropática, hidroxicloroquina e, como opção, corticóide intra-articular em articulações específicas. A fisioterapia motora é fundamental NA AUSÊNCIA de flogose ativa.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Tratamento crônico",
+      "q": "Sobre a indicação de FISIOTERAPIA na Chikungunya crônica, qual a recomendação?",
+      "options": [
+        "Iniciar fisioterapia agressiva apenas em fase aguda com flogose",
+        "Fisioterapia motora indicada na AUSÊNCIA de flogose ativa, como complemento ao tratamento medicamentoso",
+        "Fisioterapia está contraindicada em todas as fases",
+        "Apenas fisioterapia respiratória, sem foco articular"
+      ],
+      "correct": 1,
+      "expl": "A fisioterapia MOTORA é recomendada na fase crônica/subaguda da Chikungunya, na AUSÊNCIA de flogose ativa (articulações sem sinais inflamatórios em atividade). Tem papel fundamental na recuperação funcional e prevenção de sequelas, complementando o tratamento medicamentoso. Em fase aguda com inflamação importante, prioriza-se repouso.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Diagnóstico diferencial",
+      "q": "Em uma paciente jovem com febre súbita, mialgia, artralgia INTENSA SIMÉTRICA em punhos e tornozelos e exantema discreto, com plaquetas em 130.000 e transaminases discretamente elevadas, qual a hipótese MAIS PROVÁVEL?",
+      "options": [
+        "Dengue hemorrágica grau IV",
+        "Chikungunya em fase aguda",
+        "Febre tifoide com salmonelose intestinal",
+        "Brucelose crônica"
+      ],
+      "correct": 1,
+      "expl": "O quadro descrito é típico de Chikungunya em fase aguda: artralgia INTENSA e SIMÉTRICA em punhos e tornozelos (incapacitante), febre súbita, exantema, plaquetopenia LEVE (não atingindo os níveis críticos da dengue hemorrágica) e transaminases pouco elevadas. A artralgia simétrica e limitante em pequenas articulações distais é o achado clínico mais discriminatório frente à Dengue.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Sinal de Faget",
+      "q": "Qual destas arboviroses NÃO costuma cursar com Sinal de Faget (bradicardia relativa)?",
+      "options": [
+        "Febre Amarela",
+        "Chikungunya na fase aguda",
+        "Dengue clássica",
+        "Esquistossomose aguda"
+      ],
+      "correct": 3,
+      "expl": "O Sinal de Faget (bradicardia relativa) é descrito principalmente na Febre Amarela (forma leve e período de infecção da forma grave), Dengue clássica e pode ocorrer na fase aguda da Chikungunya. A esquistossomose aguda (febre de Katayama) tem outra apresentação clínica, com eosinofilia importante. Em quadros febris agudos com bradicardia relativa, lembrar também de febre tifoide.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Diagnóstico",
+      "q": "Sobre o Chikungunya ATÍPICO, qual conduta é apropriada?",
+      "options": [
+        "Sempre internar em UTI ao primeiro sinal",
+        "Reconhecer apresentações neurológicas, cutâneas graves, cardiovasculares ou renais como possíveis, especialmente em comorbidades, e individualizar o manejo",
+        "Apenas dar alta com analgésico em todos os casos",
+        "Iniciar quimioterapia"
+      ],
+      "correct": 1,
+      "expl": "O Chikungunya ATÍPICO descreve apresentações não-clássicas: manifestações neurológicas (encefalite, Guillain-Barré), cutâneas graves (síndrome de Stevens-Johnson-like), cardiovasculares (miocardite) e renais. Ocorrem mais em pacientes com comorbidades (idosos, diabéticos, cardiopatas, imunossuprimidos). O manejo é individualizado conforme o órgão acometido.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Manejo",
+      "q": "Sobre a abordagem INICIAL de uma paciente com suspeita de arbovirose em região endêmica (febre, mialgia, exantema), qual a conduta correta?",
+      "options": [
+        "Iniciar antiviral específico imediatamente",
+        "Seguir protocolo de Dengue até prova em contrário, fazer hidratação, evitar salicilatos/AINEs na fase precoce, solicitar exames específicos conforme tempo de evolução (RT-PCR <5 dias, sorologia >5 dias) e notificação compulsória",
+        "Apenas observação em casa, sem exames",
+        "Realizar punção lombar de rotina"
+      ],
+      "correct": 1,
+      "expl": "Em qualquer suspeita de arbovirose em área endêmica, segue-se o protocolo de Dengue até prova em contrário (mais grave e prevalente). A conduta inclui: hidratação, evitar salicilatos e AINEs na fase precoce (pelo risco de sangramento), solicitar exames específicos conforme tempo de evolução (RT-PCR nos primeiros 5 dias, sorologia após), monitorizar hematócrito e plaquetas e fazer notificação compulsória. O diagnóstico diferencial específico (Dengue, Chikungunya, Zika, Oropouche) orienta seguimento.",
+      "difficulty": "medium"
+    }
+  ]
+}

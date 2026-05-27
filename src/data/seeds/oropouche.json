@@ -1,0 +1,190 @@
+{
+  "title": "Oropouche",
+  "description": "Arbovirose por Orthobunyavirus, vetor Culicoides paraensis, quadro 'Dengue-like' com recorrência, manejo sintomático.",
+  "icon": "🦟",
+  "color": "rose",
+  "questions": [
+    {
+      "topic": "Agente etiológico",
+      "q": "Qual é o agente etiológico da febre Oropouche e a qual família/gênero pertence?",
+      "options": [
+        "Flavivírus da família Flaviviridae",
+        "Orthobunyavirus oropoucheense (OROV), família Peribunyaviridae, gênero Orthobunyavirus",
+        "Togavírus da família Togaviridae",
+        "Coronavírus da família Coronaviridae"
+      ],
+      "correct": 1,
+      "expl": "O vírus Oropouche é o Orthobunyavirus oropoucheense (OROV), pertencente à família Peribunyaviridae e ao gênero Orthobunyavirus. Diferentemente da Dengue, Zika e Febre Amarela (todos Flavivírus) e da Chikungunya (Togavírus), o Oropouche tem identidade taxonômica distinta, o que explica diferenças no padrão clínico e epidemiológico.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Epidemiologia",
+      "q": "Sobre a EPIDEMIOLOGIA da Oropouche no Brasil, qual mudança importante ocorreu a partir de 2023?",
+      "options": [
+        "A doença foi erradicada do Brasil",
+        "Aumento expressivo de casos FORA da região Amazônica, ampliando o espectro epidemiológico",
+        "Doença restrita a apenas um município do Acre",
+        "Casos passaram a ser apenas em imunodeprimidos"
+      ],
+      "correct": 1,
+      "expl": "A partir de 2023, o Brasil registrou um aumento expressivo de casos de Oropouche FORA da região Amazônica (que era a região tradicionalmente endêmica). Esse fenômeno mudou o cenário epidemiológico, exigindo maior atenção dos serviços de saúde de outras regiões e tornando o Oropouche mais um diagnóstico diferencial obrigatório de arboviroses.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Vetor",
+      "q": "Qual é o PRINCIPAL VETOR da febre Oropouche?",
+      "options": [
+        "Aedes aegypti, o mesmo da Dengue",
+        "Culicoides paraensis (maruim/mosquito-pólvora)",
+        "Anopheles darlingi",
+        "Lutzomyia longipalpis"
+      ],
+      "correct": 1,
+      "expl": "O principal vetor da febre Oropouche é o Culicoides paraensis, popularmente conhecido como MARUIM ou MOSQUITO-PÓLVORA. É um inseto muito pequeno (1-3 mm), distinto dos mosquitos clássicos do gênero Aedes. Sua identificação é importante para medidas de controle vetorial específicas, diferentes das adotadas para Aedes aegypti.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Vetor",
+      "q": "A qual ORDEM e FAMÍLIA pertence o Culicoides paraensis, e qual a diferença em relação ao Aedes aegypti?",
+      "options": [
+        "Ordem Lepidoptera, mesma família do Aedes",
+        "Ordem Diptera, família Ceratopogonidae; portanto NÃO é um mosquito clássico (Aedes aegypti pertence à família Culicidae)",
+        "Ordem Hymenoptera, sem relação com mosquitos",
+        "Ordem Coleoptera, exclusivo de florestas"
+      ],
+      "correct": 1,
+      "expl": "O Culicoides paraensis pertence à ordem Diptera, família Ceratopogonidae. NÃO é um mosquito 'clássico' — os mosquitos verdadeiros (como o Aedes aegypti) pertencem à família Culicidae. Essa distinção taxonômica é importante porque os Ceratopogonidae têm biologia, habitats e comportamento distintos, exigindo estratégias de controle diferentes.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Vetor - biologia",
+      "q": "Sobre o COMPORTAMENTO de picada do Culicoides paraensis comparado ao do Aedes aegypti, qual afirmação está CORRETA?",
+      "options": [
+        "Culicoides pica de dia e o Aedes à noite",
+        "Culicoides tem hábito CREPUSCULAR/NOTURNO, é silencioso e a picada é dolorida; Aedes aegypti pica de dia (início da manhã e fim da tarde), com picada quase imperceptível",
+        "Ambos picam apenas em altitudes superiores a 2000 metros",
+        "Nenhum dos dois pica seres humanos"
+      ],
+      "correct": 1,
+      "expl": "O Culicoides paraensis tem hábito CREPUSCULAR e NOTURNO, é silencioso (em vez do zumbido típico dos mosquitos) e sua picada é DOLORIDA. Já o Aedes aegypti tem hábito DIURNO (principalmente início da manhã e fim da tarde), com picada quase imperceptível. Essa diferença orienta medidas de proteção individual conforme o vetor.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Vetor - biologia",
+      "q": "Sobre os CRIADOUROS do Culicoides paraensis e do Aedes aegypti, qual afirmação está CORRETA?",
+      "options": [
+        "Ambos usam recipientes artificiais com água parada",
+        "Culicoides paraensis cresce em matéria orgânica úmida (solo encharcado, áreas alagadas, folhas em decomposição); Aedes aegypti em água parada limpa ou pouco poluída (caixas d'água, pneus, vasos)",
+        "Ambos preferem água do mar",
+        "O Culicoides não tem criadouro definido"
+      ],
+      "correct": 1,
+      "expl": "Os criadouros são diferentes: o Culicoides paraensis se desenvolve em MATÉRIA ORGÂNICA ÚMIDA (solo encharcado, áreas alagadas, folhas em decomposição), enquanto o Aedes aegypti utiliza ÁGUA PARADA LIMPA ou pouco poluída em recipientes artificiais (caixas d'água, pneus, vasos, garrafas). Essa diferença determina estratégias distintas de controle ambiental.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Vetor - importância",
+      "q": "Sobre a IMPORTÂNCIA EPIDEMIOLÓGICA do Culicoides paraensis no Brasil, qual afirmação é correta?",
+      "options": [
+        "É o principal vetor de Dengue, Zika e Chikungunya",
+        "É um vetor historicamente NEGLIGENCIADO, mas associado a SURTOS GRANDES de Oropouche, especialmente em fase de expansão para fora da Amazônia",
+        "Não tem relevância em saúde pública",
+        "Transmite apenas doença a animais, não a humanos"
+      ],
+      "correct": 1,
+      "expl": "O Culicoides paraensis é historicamente um vetor NEGLIGENCIADO em saúde pública (em comparação ao Aedes), mas tem sido associado a SURTOS GRANDES de Oropouche, especialmente em fase de expansão da doença para fora da Amazônia desde 2023. O Aedes aegypti, em contrapartida, é o principal vetor de Dengue, Zika, Chikungunya e Febre Amarela urbana no Brasil.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Quadro clínico",
+      "q": "Sobre o QUADRO CLÍNICO da febre Oropouche, qual descrição é mais característica?",
+      "options": [
+        "Quadro exclusivamente respiratório com tosse e dispneia",
+        "Síndrome de arbovirose 'Dengue-like': febre de início súbito, cefaleia, mialgia e artralgia, com possíveis tontura, calafrios, fotofobia, dor retro-orbital, náuseas e vômitos",
+        "Quadro apenas dermatológico, sem febre",
+        "Doença assintomática em 100% dos casos"
+      ],
+      "correct": 1,
+      "expl": "A febre Oropouche cursa com síndrome de arbovirose 'Dengue-like': febre de início súbito, cefaleia, mialgia e artralgia. Pode ocorrer tontura, calafrios, fotofobia, dor retro-orbital, náuseas e vômitos. Esse quadro sobreposto com Dengue, Zika e Chikungunya torna o diagnóstico clínico isolado pouco específico, exigindo confirmação laboratorial.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Quadro clínico",
+      "q": "Quais manifestações são consideradas MENOS comuns mas possíveis na Oropouche?",
+      "options": [
+        "Apenas exantema",
+        "Fenômenos hemorrágicos e acometimento do sistema nervoso central (SNC)",
+        "Apenas plaquetose",
+        "Apenas linfadenopatia inguinal isolada"
+      ],
+      "correct": 1,
+      "expl": "Menos comumente, a Oropouche pode cursar com fenômenos hemorrágicos e acometimento do sistema nervoso central (SNC). Embora não sejam a apresentação típica, esses achados aumentam a gravidade e exigem reconhecimento precoce. Por isso, a vigilância de sinais de agravamento é parte integrante da conduta.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Quadro clínico - evolução",
+      "q": "Sobre a RECORRÊNCIA de sintomas na Oropouche, qual é a frequência e o intervalo característicos?",
+      "options": [
+        "Rara, em menos de 1% dos casos, e apenas após 6 meses",
+        "Comum (mais de 50% dos casos), ocorrendo 1 a 2 semanas após o início do quadro",
+        "Sempre antes de completar 24h",
+        "Apenas em pacientes vacinados contra Febre Amarela"
+      ],
+      "correct": 1,
+      "expl": "A recorrência dos sintomas na febre Oropouche é COMUM, acontecendo em mais de 50% dos casos, tipicamente 1 a 2 semanas após o início do quadro inicial. Essa característica é relevante na anamnese e diferencia o Oropouche de outras arboviroses. Os pacientes devem ser orientados sobre essa possibilidade para evitar pânico ou exames desnecessários nessa recidiva.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Conduta",
+      "q": "Sobre a CONDUTA inicial na suspeita de Oropouche, qual conjunto de medidas é correto?",
+      "options": [
+        "Iniciar antiviral específico endovenoso e isolar em pressão negativa",
+        "Notificação compulsória, tratamento sintomático, seguir protocolo de dengue até prova em contrário, vigilância de sinais de agravamento e confirmação por teste molecular",
+        "Quarentena por 60 dias para todos os contatos",
+        "Apenas dar alta sem reavaliação"
+      ],
+      "correct": 1,
+      "expl": "Na suspeita de Oropouche, a conduta inclui: notificação compulsória (importante para vigilância epidemiológica, especialmente fora da Amazônia), tratamento sintomático (não há antiviral específico), seguir protocolo de Dengue até prova em contrário (a Dengue é mais grave e prevalente), vigilância de sinais de agravamento (hemorragia, acometimento SNC) e confirmação por teste molecular (RT-PCR específica).",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Diagnóstico",
+      "q": "Sobre a CONFIRMAÇÃO diagnóstica do Oropouche, qual o método de eleição?",
+      "options": [
+        "Apenas clínica, sem necessidade de exame específico",
+        "Teste molecular (RT-PCR) específico para detecção do RNA viral do OROV",
+        "Cultura em meio de Lowenstein-Jensen",
+        "Apenas sorologia para Dengue"
+      ],
+      "correct": 1,
+      "expl": "A confirmação diagnóstica do Oropouche é feita por teste molecular (RT-PCR) específico para detecção do RNA viral do OROV. Como a clínica é sobreponível à de outras arboviroses, o RT-PCR é fundamental. A sorologia para Oropouche pode ser usada conforme disponibilidade, mas a especificidade do PCR molecular é maior, especialmente em surtos.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Diagnóstico diferencial",
+      "q": "Em paciente com febre súbita, cefaleia, mialgia e artralgia, vivendo em região onde houve surto recente de Oropouche FORA da Amazônia, qual a melhor abordagem?",
+      "options": [
+        "Descartar Oropouche apenas pela região não amazônica",
+        "Considerar Oropouche no diagnóstico diferencial, ao lado de Dengue/Zika/Chikungunya; seguir protocolo de Dengue, fazer notificação compulsória e solicitar RT-PCR específico se disponível",
+        "Iniciar imediatamente antibiótico para sepse",
+        "Internar em UTI sem mais avaliação"
+      ],
+      "correct": 1,
+      "expl": "A partir de 2023, com expansão expressiva de Oropouche para fora da Amazônia, a doença passou a ser obrigatoriamente considerada no diagnóstico diferencial de arboviroses em todo o Brasil. A conduta inclui considerar Oropouche junto com Dengue/Zika/Chikungunya, seguir o protocolo de Dengue até prova em contrário, notificar compulsoriamente e solicitar RT-PCR específico para Oropouche quando disponível.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Vigilância",
+      "q": "Quais SINAIS de agravamento devem ser monitorados na Oropouche?",
+      "options": [
+        "Apenas perda de peso lenta",
+        "Fenômenos hemorrágicos, sinais de acometimento neurológico (rebaixamento, sinais focais, convulsão), instabilidade hemodinâmica e desidratação",
+        "Apenas perda de apetite isolada",
+        "Apenas constipação intestinal"
+      ],
+      "correct": 1,
+      "expl": "Os sinais de agravamento na Oropouche que demandam vigilância ativa são: fenômenos hemorrágicos (gengivais, gastrointestinais, hematúria), sinais de acometimento neurológico (rebaixamento do nível de consciência, sinais focais, convulsão, sugerindo meningoencefalite), instabilidade hemodinâmica e desidratação importante por vômitos. A detecção precoce permite manejo direcionado e melhor desfecho.",
+      "difficulty": "medium"
+    }
+  ]
+}
