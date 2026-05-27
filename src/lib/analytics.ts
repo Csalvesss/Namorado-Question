@@ -1,4 +1,4 @@
-import type { QuizSession } from '../types';
+import type { QuizSession, Question } from '../types';
 
 export function isoDay(d: Date): string {
   const year = d.getFullYear();
@@ -115,4 +115,71 @@ export function intensityColor(count: number): string {
   if (count <= 15) return '#c97b8a';
   if (count <= 30) return '#7a1f3d';
   return '#5a1530';
+}
+
+export interface TopicWeakness {
+  topic: string;
+  courseId: string;
+  courseTitle: string;
+  attempts: number;
+  right: number;
+  total: number;
+  accuracy: number;
+  weight: number;
+}
+
+export function weakestTopics(
+  sessions: QuizSession[],
+  questionsByCourse: Record<string, Question[]>,
+  courseTitles: Record<string, string>,
+  minAttempts: number = 3,
+): TopicWeakness[] {
+  const byKey = new Map<string, TopicWeakness>();
+
+  sessions
+    .filter((s) => s.completedAt)
+    .forEach((s) => {
+      const pool = questionsByCourse[s.courseId] ?? [];
+      const topicByQuestion = new Map(pool.map((q) => [q.id, q.topic]));
+      s.answers.forEach((a) => {
+        const topic = topicByQuestion.get(a.questionId);
+        if (!topic) return;
+        const key = `${s.courseId}::${topic}`;
+        const cur = byKey.get(key) ?? {
+          topic,
+          courseId: s.courseId,
+          courseTitle: courseTitles[s.courseId] ?? s.courseTitle,
+          attempts: 0,
+          right: 0,
+          total: 0,
+          accuracy: 0,
+          weight: 0,
+        };
+        cur.total += 1;
+        cur.attempts += 1;
+        if (a.isRight) cur.right += 1;
+        byKey.set(key, cur);
+      });
+    });
+
+  const list = Array.from(byKey.values())
+    .map((entry) => ({
+      ...entry,
+      accuracy: entry.total > 0 ? Math.round((entry.right / entry.total) * 100) : 0,
+      weight: entry.total > 0 ? entry.total * (1 - entry.right / entry.total) : 0,
+    }))
+    .filter((entry) => entry.attempts >= minAttempts);
+
+  return list.sort((a, b) => {
+    if (a.accuracy !== b.accuracy) return a.accuracy - b.accuracy;
+    return b.weight - a.weight;
+  });
+}
+
+export function topicAccuracyColor(accuracy: number, attempts: number): string {
+  if (attempts === 0) return '#f7ebe7';
+  if (accuracy < 50) return '#9a3a3a';
+  if (accuracy < 70) return '#c97b8a';
+  if (accuracy < 85) return '#b8895a';
+  return '#4f6b4a';
 }
