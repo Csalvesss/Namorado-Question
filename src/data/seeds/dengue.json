@@ -1,0 +1,294 @@
+{
+  "title": "Dengue",
+  "description": "Arbovirose por Flavivírus com 4 sorotipos: histórico, ciclos, dengue clássica, dengue hemorrágica, diagnóstico, manejo e vacinação Qdenga.",
+  "icon": "🩸",
+  "color": "red",
+  "questions": [
+    {
+      "topic": "Agente etiológico",
+      "q": "Sobre o agente etiológico da Dengue, qual afirmação está CORRETA?",
+      "options": [
+        "DNA vírus da família Herpesviridae, com 8 sorotipos",
+        "Arbovírus de 40-50 nm, fita única de RNA, família Flaviviridae, gênero Flavivirus, com 4 sorotipos (DEN-1, DEN-2, DEN-3 e DEN-4)",
+        "Bactéria intracelular do gênero Rickettsia, sem sorotipos",
+        "Vírus RNA da família Togaviridae, com 1 único sorotipo"
+      ],
+      "correct": 1,
+      "expl": "A Dengue é causada por um arbovírus de 40-50 nm, com fita única de RNA, da família Flaviviridae e gênero Flavivirus. Apresenta 4 sorotipos: DEN-1, DEN-2, DEN-3 e DEN-4. A existência de múltiplos sorotipos é central na patogênese: a infecção por um sorotipo confere imunidade duradoura apenas a ele, e uma 2ª infecção por sorotipo diferente é o principal fator de risco para dengue hemorrágica.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Vetor",
+      "q": "Qual é o principal vetor da Dengue em áreas urbanas?",
+      "options": [
+        "Anopheles darlingi",
+        "Lutzomyia longipalpis",
+        "Aedes aegypti",
+        "Triatoma infestans"
+      ],
+      "correct": 2,
+      "expl": "O Aedes aegypti é o principal vetor da Dengue em áreas urbanas, sendo também responsável pela transmissão de Zika, Chikungunya e Febre Amarela urbana. Tem hábitos diurnos (especialmente início da manhã e fim da tarde), e seus criadouros são recipientes artificiais com água parada limpa ou pouco poluída (caixas d'água, pneus, vasos).",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Ciclos",
+      "q": "Sobre os ciclos de transmissão da Dengue, qual afirmação está CORRETA?",
+      "options": [
+        "Apenas o ciclo silvestre tem relevância epidemiológica no Brasil",
+        "Existem três ciclos: enzoótico (Aedes-primatas), rural/epidêmico (Aedes-humanos) e urbano/endêmico/epidêmico (Aedes-humanos)",
+        "A transmissão é exclusivamente vertical (mãe-filho)",
+        "O ciclo é sempre via mosquito Anopheles"
+      ],
+      "correct": 1,
+      "expl": "Existem 3 ciclos de transmissão da Dengue: enzoótico (Aedes → primatas), rural/epidêmico (Aedes → humanos, em áreas rurais) e urbano/endêmico/epidêmico (Aedes → humanos, em áreas urbanas). No Brasil, o ciclo URBANO é o mais relevante epidemiologicamente, com epidemias anuais desde a década de 1990.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Epidemiologia",
+      "q": "Sobre a epidemiologia mundial da Dengue, qual a estimativa correta?",
+      "options": [
+        "Cerca de 10 mil casos por ano no mundo",
+        "Cerca de 2,5 bilhões de pessoas vivem em áreas endêmicas, com estimativa anual de 50 a 100 milhões de casos",
+        "Doença restrita à Ásia, ausente nas Américas",
+        "Doença erradicada do hemisfério ocidental desde 1990"
+      ],
+      "correct": 1,
+      "expl": "Cerca de 2,5 bilhões de pessoas vivem em áreas endêmicas para Dengue, com estimativa anual de 50 a 100 milhões de casos no mundo. Até a década de 70, o Aedes aegypti foi considerado erradicado da América do Sul e Central, mas a reinfestação nos anos 80 determinou as maiores epidemias na América Latina.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "História",
+      "q": "Em que ano e onde ocorreu o primeiro caso documentado de Dengue no estado de São Paulo, no período recente?",
+      "options": [
+        "1950, em Santos",
+        "1987, nos municípios de Guararapes e Araçatuba",
+        "2001, em São Paulo capital",
+        "2015, em Campinas"
+      ],
+      "correct": 1,
+      "expl": "Em 1987, foi registrado o 1º caso de Dengue no estado de São Paulo, nos municípios de Guararapes e Araçatuba. A partir de 1990 começaram as epidemias anuais no estado. Historicamente, o primeiro relato de epidemia ocorreu em 1779 em Jacarta (Indonésia) e Egito, com 1780 na Filadélfia (EUA).",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Quadro clínico",
+      "q": "Qual é o período de incubação típico da Dengue?",
+      "options": [
+        "1 a 2 horas",
+        "3 a 7 dias",
+        "21 a 30 dias",
+        "Mais de 90 dias"
+      ],
+      "correct": 1,
+      "expl": "O período de incubação da Dengue é de 3 a 7 dias após a picada do mosquito infectado. Após esse período, a paciente desenvolve quadro clínico característico, podendo evoluir para forma clássica ou para dengue hemorrágica, dependendo de fatores como sorotipo (DEN-2 e DEN-3 são mais severos), resposta imune do hospedeiro e idade (<15 anos é fator de severidade).",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Fatores de risco",
+      "q": "Quais são os principais fatores DETERMINANTES de doença severa na Dengue?",
+      "options": [
+        "Sexo masculino, tabagismo e dislipidemia",
+        "Sorotipo do vírus infectante (DEN-2 e DEN-3), resposta imune do hospedeiro e idade menor que 15 anos",
+        "Apenas o sorotipo DEN-1",
+        "Apenas a coinfecção com COVID-19"
+      ],
+      "correct": 1,
+      "expl": "Os fatores determinantes de doença severa na Dengue são: sorotipo do vírus infectante (DEN-2 e DEN-3 são associados a quadros mais graves), resposta imune do hospedeiro (uma 2ª infecção por sorotipo diferente é o principal fator de risco para dengue hemorrágica, por fenômeno de amplificação dependente de anticorpos) e idade menor que 15 anos.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Dengue clássica",
+      "q": "Sobre a DENGUE CLÁSSICA, qual afirmação está CORRETA?",
+      "options": [
+        "Acomete exclusivamente idosos, com mortalidade superior a 50%",
+        "Compromete principalmente crianças menores que 5 anos e adultos, é autolimitada, fase aguda 3-7 dias e convalescença 3-4 semanas",
+        "Sempre cursa com choque hipovolêmico",
+        "Duração característica de 6 meses"
+      ],
+      "correct": 1,
+      "expl": "A Dengue Clássica compromete principalmente crianças menores que 5 anos e adultos, sendo geralmente AUTOLIMITADA. A fase aguda dura 3 a 7 dias e a convalescença, 3 a 4 semanas. Caracteriza-se pelo início súbito de febre associado a sintomas inespecíficos (cefaleia frontal, dor retro-orbitária, mialgia, artralgia, rash, náuseas) e manifestações hemorrágicas (petéquias, epistaxe, hemorragia GI).",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Dengue clássica",
+      "q": "Sobre os SINTOMAS INESPECÍFICOS da Dengue Clássica, qual conjunto é mais característico?",
+      "options": [
+        "Apenas tosse seca e dispneia progressiva",
+        "Cefaleia frontal, dor retro-orbitária, dores musculares e articulares, náuseas/vômitos, rash cutâneo, congestão conjuntival, bradicardia, linfadenopatias e anorexia",
+        "Apenas dor abdominal isolada sem febre",
+        "Apenas hematúria sem outros sintomas"
+      ],
+      "correct": 1,
+      "expl": "Os sintomas inespecíficos típicos da Dengue Clássica são: cefaleia frontal, dor retro-orbitária, dores musculares (mialgia) e articulares (artralgia), náuseas e vômitos, rash cutâneo, congestão conjuntival, bradicardia, linfadenopatias e anorexia. Esses sintomas se sobrepõem com outras arboviroses, exigindo diagnóstico diferencial cuidadoso com Zika, Chikungunya e Febre Amarela.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Dengue clássica",
+      "q": "Quais são as MANIFESTAÇÕES HEMORRÁGICAS típicas da Dengue Clássica?",
+      "options": [
+        "Hemoptise maciça e sangramento alveolar bilateral",
+        "Hemorragias cutâneas (petéquias e púrpuras), epistaxe, menorragia, hemorragia gastrointestinal e hematúria",
+        "Apenas hemorragia subaracnóidea",
+        "Hemorragia retiniana exclusiva"
+      ],
+      "correct": 1,
+      "expl": "As manifestações hemorrágicas típicas da Dengue Clássica são: hemorragias cutâneas (petéquias e púrpuras), epistaxe, menorragia, hemorragia gastrointestinal e hematúria. A 'prova do laço positiva' é um sinal clínico clássico de fragilidade capilar e pode estar presente. Sangramentos importantes, no entanto, sugerem evolução para Dengue Hemorrágica.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Dengue hemorrágica",
+      "q": "Qual a frequência aproximada de DOENÇA SEVERA (Dengue Hemorrágica) em indivíduos com INFECÇÃO SECUNDÁRIA por Dengue, e qual a distribuição etária bimodal?",
+      "options": [
+        "100% das infecções secundárias evoluem para forma hemorrágica",
+        "2 a 4% dos indivíduos com infecção secundária; incidência bimodal aos 7 meses (anticorpos maternos) e 3-5 anos (2ª infecção após primeiro episódio)",
+        "0,001% das infecções, sem padrão etário",
+        "50% dos casos, exclusivamente em idosos"
+      ],
+      "correct": 1,
+      "expl": "A Dengue Hemorrágica ocorre em 2 a 4% dos indivíduos com infecção SECUNDÁRIA por sorotipo diferente do primeiro. A incidência é bimodal: aos 7 meses (em lactentes que adquiriram anticorpos maternos e tiveram infecção subsequente) e entre 3-5 anos (segunda infecção após um primeiro episódio de Dengue). É mais frequente em brancos do que em negros. Acomete crianças menores que 15 anos e adultos.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Dengue hemorrágica",
+      "q": "Quais são os QUATRO critérios necessários para definição de DENGUE HEMORRÁGICA?",
+      "options": [
+        "Febre, tosse, dispneia e cefaleia",
+        "Febre, manifestações hemorrágicas, plaquetopenia ≤ 100.000/mL e evidência objetiva de transudação capilar (aumento do hematócrito ≥ 20%, hipoalbuminemia ou derrame pleural)",
+        "Apenas plaquetopenia isolada",
+        "Apenas febre por mais de 21 dias"
+      ],
+      "correct": 1,
+      "expl": "A definição de Dengue Hemorrágica requer os 4 critérios: 1) febre; 2) manifestações hemorrágicas; 3) plaquetopenia ≤ 100.000/mL; 4) evidência objetiva de transudação capilar (aumento do hematócrito ≥ 20%, hipoalbuminemia ou derrame pleural/ascite). É o aumento da permeabilidade vascular o que diferencia Dengue Hemorrágica da Dengue Clássica.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Dengue hemorrágica",
+      "q": "Sobre os SINAIS E SINTOMAS da Dengue Hemorrágica, qual conjunto está presente em mais de 90% dos casos?",
+      "options": [
+        "Apenas rash cutâneo isolado",
+        "Febre, vômitos, choque, manifestações hemorrágicas (todos próximos a 100%) e ascite/hemoconcentração (92%)",
+        "Apenas linfadenopatia cervical",
+        "Tosse seca persistente em todos os casos"
+      ],
+      "correct": 1,
+      "expl": "Na Dengue Hemorrágica, a febre, vômitos, choque e manifestações hemorrágicas estão presentes em praticamente 100% dos casos. Ascite e hemoconcentração aparecem em 92%, dor abdominal e trombocitopenia em 83%, hepatomegalia em 66%, derrame pleural e hematêmese em 58%. Petéquias ocorrem em 42%, sangramento vaginal em 43% e melena em 25%.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Diagnóstico",
+      "q": "Quais são os MÉTODOS DIAGNÓSTICOS específicos para Dengue?",
+      "options": [
+        "Apenas radiografia de tórax",
+        "Isolamento do vírus, detecção de antígenos ou RNA em soro ou tecidos, e detecção de anticorpos",
+        "Apenas teste de Mantoux",
+        "Cultura de líquor"
+      ],
+      "correct": 1,
+      "expl": "O diagnóstico específico de Dengue é feito por: 1) isolamento do vírus; 2) detecção de antígenos virais (como NS1) ou RNA em soro ou tecidos (RT-PCR é útil em fases precoces, primeiros 5 dias); 3) detecção de anticorpos (sorologia IgM, geralmente a partir do 6º dia de doença). A escolha do método depende do tempo de evolução.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Diagnóstico",
+      "q": "Sobre o HEMOGRAMA na Dengue, qual padrão é característico?",
+      "options": [
+        "Leucocitose com neutrofilia e plaquetose",
+        "Aumento do hematócrito em 20%, neutropenia, linfocitose com linfócitos atípicos e trombocitopenia (cerca de 34% têm plaquetas < 100.000/mL)",
+        "Anemia macrocítica isolada",
+        "Eosinofilia com bandemia"
+      ],
+      "correct": 1,
+      "expl": "O hemograma típico da Dengue mostra: aumento do hematócrito em até 20% (refletindo hemoconcentração por extravasamento plasmático), neutropenia, linfocitose com linfócitos atípicos e trombocitopenia (cerca de 34% dos casos têm plaquetas < 100.000/mL). O acompanhamento seriado do hematócrito e das plaquetas é fundamental no manejo.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Diagnóstico",
+      "q": "Sobre as PROVAS DE FUNÇÃO HEPÁTICA na Dengue, qual padrão é característico?",
+      "options": [
+        "TGO/TGP, GGT e bilirrubinas todas DIMINUÍDAS",
+        "Aumento de TGO/TGP, aumento de GGT, aumento de bilirrubinas totais e frações (com predomínio de BI), e TAP prolongado",
+        "Apenas elevação isolada de fosfatase alcalina",
+        "Função hepática inalterada na Dengue"
+      ],
+      "correct": 1,
+      "expl": "Nas provas de função hepática da Dengue, observam-se: aumento de TGO/TGP (transaminases), aumento de GGT, aumento de bilirrubinas totais e frações (com predomínio de bilirrubina indireta/BI) e TAP prolongado. O acometimento hepático reflete a disfunção orgânica e pode ser marcador de gravidade.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Sobre o tratamento da Dengue, qual MEDICAÇÃO deve ser EVITADA pelo risco de sangramento?",
+      "options": [
+        "Paracetamol",
+        "Salicilatos (AAS / ácido acetilsalicílico)",
+        "Dipirona em dose habitual",
+        "Solução salina endovenosa"
+      ],
+      "correct": 1,
+      "expl": "NÃO se deve prescrever salicilatos (AAS / ácido acetilsalicílico) nem outros AINEs em pacientes com Dengue, pelo risco aumentado de sangramentos devido à plaquetopenia e à inibição da função plaquetária. Usar paracetamol e dipirona para controle da febre e dor. O AAS também é contraindicado em outras arboviroses por motivo semelhante.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Qual a base do tratamento de suporte na Dengue?",
+      "options": [
+        "Antiviral específico oral por 21 dias",
+        "Hidratação (oral com solução caseira de hidratação ou venosa nos casos mais graves), monitorização do hematócrito e plaquetas, evitando salicilatos",
+        "Antibiótico de amplo espectro intravenoso",
+        "Plasma fresco em todos os pacientes"
+      ],
+      "correct": 1,
+      "expl": "Não há antiviral específico para Dengue. O tratamento é de suporte com HIDRATAÇÃO, oral (solução caseira de hidratação) nos casos leves, e venosa nos casos mais graves ou com sinais de alarme. A monitorização laboratorial do hematócrito e plaquetas é essencial, e a sorologia pode ser solicitada a partir do 6º dia de doença. Salicilatos são contraindicados.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Vacinação Qdenga",
+      "q": "Sobre a vacina QDENGA contra Dengue, qual afirmação está CORRETA?",
+      "options": [
+        "Vacina inativada de dose única indicada para todos a partir dos 6 meses",
+        "Vacina de vírus DENV-2 atenuado com expressão dos epítopos de DENV-1, DENV-3 e DENV-4; 2 doses com intervalo mínimo de 3 meses",
+        "Vacina de mRNA com proteção apenas contra DEN-1",
+        "Vacina contraindicada em todos os adultos"
+      ],
+      "correct": 1,
+      "expl": "A vacina Qdenga utiliza vírus DENV-2 atenuado com expressão dos epítopos dos demais sorotipos (DENV-1, DENV-3 e DENV-4). É aplicada em 2 doses com intervalo MÍNIMO de 3 meses. A indicação pelo PNI é para 10 a 14 anos em áreas de maior transmissão. Já a SBIm recomenda dos 4 aos 60 anos. Contraindicações: gestantes, lactantes e imunossupressão.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Vacinação Qdenga",
+      "q": "Quais são as CONTRAINDICAÇÕES para a vacina Qdenga?",
+      "options": [
+        "Idade acima de 18 anos e residência em zona rural",
+        "Gestantes, lactantes e imunossupressão",
+        "Apenas alergia ao látex",
+        "Não há contraindicações conhecidas"
+      ],
+      "correct": 1,
+      "expl": "As contraindicações da vacina Qdenga (vírus vivos atenuados) são: gestantes, lactantes e pacientes em imunossupressão (qualquer tipo: HIV com CD4 baixo, transplantados, uso de imunobiológicos, corticoide em alta dose, neoplasias hematológicas em atividade). A indicação PNI é restrita a 10-14 anos em áreas de maior transmissão; a SBIm amplia para 4-60 anos.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Manifestações graves",
+      "q": "Sobre as ALTERAÇÕES de função renal e equilíbrio ácido-básico na Dengue Hemorrágica com choque, qual padrão é esperado?",
+      "options": [
+        "Função renal sempre normal, sem distúrbios ácido-básicos",
+        "Aumento de ureia e creatinina (refletindo choque hipovolêmico) e acidose metabólica em gasometria",
+        "Alcalose respiratória isolada",
+        "Função renal melhorada pela hidratação espontânea"
+      ],
+      "correct": 1,
+      "expl": "Na Dengue Hemorrágica com choque, observa-se aumento de ureia e creatinina (refletindo o choque hipovolêmico por extravasamento plasmático) e acidose metabólica na gasometria (por má perfusão tecidual). O Rx de tórax pode mostrar derrame pleural, e a presença de ascite em ultrassom abdominal completa o quadro de transudação capilar generalizada.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Diagnóstico diferencial",
+      "q": "Em uma paciente com febre, mialgia, cefaleia, dor retro-orbitária, exantema e plaquetopenia leve, sem manifestações hemorrágicas importantes, qual a hipótese diagnóstica MAIS PROVÁVEL e a conduta?",
+      "options": [
+        "Hipótese de meningite bacteriana; iniciar ceftriaxona + vancomicina imediatamente",
+        "Hipótese de Dengue Clássica (também considerar Chikungunya, Zika); fazer hidratação oral, evitar salicilatos, monitorar hematócrito e plaquetas, e seguir o protocolo nacional de Dengue até prova em contrário",
+        "Hipótese de pneumonia bacteriana; iniciar amoxicilina oral",
+        "Hipótese de tuberculose miliar; iniciar esquema RIPE"
+      ],
+      "correct": 1,
+      "expl": "O quadro descrito é compatível com Dengue Clássica (cefaleia, dor retro-orbitária, mialgia, exantema, plaquetopenia leve são clássicos). Diagnóstico diferencial deve incluir Chikungunya (artralgia mais limitante e simétrica) e Zika (exantema pruriginoso, conjuntivite, sintomas mais leves). A conduta é hidratação oral, evitar salicilatos/AINEs, monitorar hematócrito/plaquetas e seguir o protocolo nacional, com sorologia/PCR conforme tempo de evolução. Em qualquer arbovirose nova, segue-se protocolo de Dengue até prova em contrário.",
+      "difficulty": "medium"
+    }
+  ]
+}

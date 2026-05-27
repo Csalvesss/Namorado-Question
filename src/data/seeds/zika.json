@@ -1,0 +1,138 @@
+{
+  "title": "Zika",
+  "description": "Arbovirose por Flavivírus com clínica frustra: diagnóstico por RT-PCR (sangue/urina), sorologia e tratamento sintomático.",
+  "icon": "🦟",
+  "color": "gold",
+  "questions": [
+    {
+      "topic": "Diagnóstico",
+      "q": "Sobre o RT-PCR para Zika, qual a JANELA de detecção no SANGUE e na URINA?",
+      "options": [
+        "Sangue até 24h e urina por algumas horas",
+        "Sangue até 7 dias e urina até 3 semanas",
+        "Sangue até 6 meses e urina até 1 ano",
+        "Não é possível fazer RT-PCR para Zika"
+      ],
+      "correct": 1,
+      "expl": "O RT-PCR para Zika pode ser realizado em SANGUE até 7 dias do início dos sintomas e em URINA até 3 semanas. A urina mantém viremia detectável por mais tempo que o sangue, o que torna esse material valioso quando o paciente é avaliado tardiamente. Isso é diferente de outras arboviroses (na Dengue e Chikungunya, o RT-PCR é usado em janelas mais curtas, geralmente <5 dias).",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Diagnóstico",
+      "q": "Em uma gestante com suspeita de Zika há 10 dias do início dos sintomas, qual o MELHOR material para RT-PCR?",
+      "options": [
+        "Sangue, pois a viremia é persistente por meses",
+        "Urina, pois o RT-PCR permanece útil até cerca de 3 semanas, enquanto no sangue a janela vai até 7 dias",
+        "Líquor obrigatoriamente",
+        "Apenas tecido placentário"
+      ],
+      "correct": 1,
+      "expl": "Após 7 dias do início dos sintomas, o RT-PCR em sangue tende a se negativar (a janela é de até 7 dias). A URINA, entretanto, mantém-se útil até cerca de 3 semanas. Por isso, em pacientes (especialmente gestantes) com diagnóstico tardio, a urina é o material preferencial para detecção molecular do Zika.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Diagnóstico",
+      "q": "Sobre a SOROLOGIA para Zika, quando começam a ser detectáveis IgM e IgG?",
+      "options": [
+        "IgM detectável apenas após 60 dias",
+        "IgM detectável após 5 dias do início dos sintomas; IgG presente na fase aguda e na convalescência",
+        "IgG apenas após 1 ano da infecção",
+        "Só é possível dosar anticorpos por imunofluorescência direta em saliva"
+      ],
+      "correct": 1,
+      "expl": "Na sorologia para Zika, a IgM torna-se detectável a partir de mais de 5 dias do início dos sintomas. A IgG é detectada na fase aguda e na convalescência. Uma limitação importante é a reatividade cruzada entre Flavivírus (Dengue, Febre Amarela, Zika), o que pode gerar falsos-positivos, especialmente em pacientes previamente expostos ou vacinados.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Sobre o TRATAMENTO da infecção aguda por Zika, qual conjunto de medidas é apropriado?",
+      "options": [
+        "Antiviral específico oral por 21 dias",
+        "Analgésico simples, anti-histamínico, evitar AAS, repouso e cuidados locais com a pele",
+        "Quimioterapia citotóxica",
+        "Apenas corticoide intra-articular"
+      ],
+      "correct": 1,
+      "expl": "O tratamento da infecção aguda por Zika é SINTOMÁTICO: analgésico simples (paracetamol, dipirona) para febre/dor, anti-histamínico para o prurido e exantema, EVITAR AAS (risco de sangramento — mesma lógica das demais arboviroses), repouso e cuidados locais com a pele. Não existe antiviral específico.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Por que se utiliza ANTI-HISTAMÍNICO no manejo sintomático da Zika?",
+      "options": [
+        "Para tratar artralgia",
+        "Para o controle do prurido associado ao exantema cutâneo",
+        "Para reduzir a viremia",
+        "Para baixar a febre rapidamente"
+      ],
+      "correct": 1,
+      "expl": "O anti-histamínico tem papel importante no manejo sintomático da Zika devido ao prurido associado ao exantema cutâneo, que pode ser intenso e incomodativo. Diferentemente da febre/dor (controladas com analgésicos simples) e da artralgia, o prurido é especialmente característico nessa arbovirose e responde bem ao anti-histamínico.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Diagnóstico diferencial",
+      "q": "Em paciente com febre baixa, exantema maculopapular pruriginoso, conjuntivite não purulenta e artralgia LEVE, em região endêmica, qual a hipótese diagnóstica MAIS PROVÁVEL?",
+      "options": [
+        "Chikungunya em fase crônica avançada",
+        "Zika",
+        "Febre Amarela em forma maligna",
+        "Sarampo em fase prodrômica"
+      ],
+      "correct": 1,
+      "expl": "O quadro de febre baixa, exantema maculopapular PRURIGINOSO, conjuntivite não purulenta e artralgia leve é típico de Zika. Diferencia-se da Dengue (febre alta, dor retroorbital e mialgia mais intensa, plaquetopenia mais marcada) e da Chikungunya (artralgia simétrica INCAPACITANTE em punhos/tornozelos). A confirmação é por RT-PCR ou sorologia.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Por que se deve EVITAR AAS no tratamento da Zika?",
+      "options": [
+        "Porque o AAS é teratogênico apenas na Zika",
+        "Pelo risco de sangramento, devido à possível plaquetopenia das arboviroses e ao efeito antiplaquetário do AAS",
+        "Porque o AAS reduz a sorologia",
+        "Porque o AAS está contraindicado por interferir no anti-histamínico"
+      ],
+      "correct": 1,
+      "expl": "Evita-se AAS no tratamento da Zika pelo risco de sangramento, devido à possível plaquetopenia leve associada às arboviroses e ao efeito antiplaquetário irreversível do AAS. Essa contraindicação é compartilhada com Dengue, Chikungunya e Febre Amarela. Em fase aguda, prefere-se paracetamol e dipirona.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Diagnóstico - cuidados",
+      "q": "Em paciente com história de vacinação prévia contra Febre Amarela e suspeita de Zika, qual o cuidado em relação à SOROLOGIA?",
+      "options": [
+        "A sorologia sempre é negativa em vacinados",
+        "Pode haver reatividade cruzada entre Flavivírus, exigindo correlação clínica e idealmente confirmação por RT-PCR em fase precoce",
+        "A vacinação invalida totalmente qualquer teste para Zika",
+        "Não há interferência da vacinação na sorologia"
+      ],
+      "correct": 1,
+      "expl": "Há reatividade sorológica cruzada entre Flavivírus (Dengue, Zika, Febre Amarela). Pacientes previamente expostos ou vacinados contra Febre Amarela podem ter sorologia positiva por reação cruzada, o que pode dificultar o diagnóstico específico de Zika. Por isso, a confirmação ideal em fase precoce é por RT-PCR (sangue até 7 dias, urina até 3 semanas), método mais específico.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Cuidados locais",
+      "q": "Sobre os CUIDADOS locais com a pele recomendados no manejo da Zika, o objetivo principal é:",
+      "options": [
+        "Combater o vírus topicamente",
+        "Manter hidratação cutânea, aliviar o prurido e prevenir lesões por coceira (escoriação, infecção secundária)",
+        "Aplicar antibiótico tópico de rotina",
+        "Usar corticoide tópico potente em toda a pele"
+      ],
+      "correct": 1,
+      "expl": "Os cuidados locais com a pele na Zika visam manter a hidratação cutânea, aliviar o prurido e prevenir lesões por coceira (escoriações que podem evoluir com infecção secundária). Incluem o uso de hidratantes, compressas frias e, se necessário, anti-histamínico oral. Corticoide tópico raramente é necessário, e antibiótico só está indicado se houver infecção secundária estabelecida.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Síntese",
+      "q": "Comparando ZIKA, DENGUE e CHIKUNGUNYA, qual descrição NÃO está correta?",
+      "options": [
+        "Dengue: febre alta, mialgia, dor retro-orbital, plaquetopenia mais marcada, risco de doença hemorrágica",
+        "Chikungunya: artralgia simétrica e limitante em punhos/tornozelos, com fase pós-aguda e crônica de meses a anos",
+        "Zika: exantema pruriginoso, conjuntivite não purulenta, artralgia leve, com risco em gestantes",
+        "Zika: cursa sempre com choque hemorrágico em 100% dos casos"
+      ],
+      "correct": 3,
+      "expl": "A afirmação INCORRETA é que 'Zika cursa sempre com choque hemorrágico em 100% dos casos' — a Zika tem quadro frustro, geralmente leve, e o choque hemorrágico não é característico dela (é mais associado à Dengue Hemorrágica). As outras descrições estão corretas: Dengue tem febre alta com plaquetopenia mais marcada e risco hemorrágico; Chikungunya tem artralgia limitante simétrica com fases crônicas; Zika tem clínica leve com exantema pruriginoso e conjuntivite não purulenta.",
+      "difficulty": "hard"
+    }
+  ]
+}

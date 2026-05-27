@@ -1,0 +1,268 @@
+{
+  "title": "Febre Amarela",
+  "description": "Arbovirose por Flavivírus: etiologia, ciclos de transmissão, quadro clínico em 4 graus, diagnóstico e vacinação.",
+  "icon": "🦟",
+  "color": "gold",
+  "questions": [
+    {
+      "topic": "Etiologia",
+      "q": "Sobre o agente etiológico da Febre Amarela, qual afirmação está CORRETA?",
+      "options": [
+        "É um vírus DNA da família Picornaviridae, com 4 sorotipos distintos",
+        "É um vírus RNA da família Flaviviridae, sem sorotipos definidos (apenas 3 a 4 genótipos)",
+        "É uma bactéria intracelular obrigatória transmitida por carrapatos",
+        "É um arbovírus da família Togaviridae com 8 sorotipos"
+      ],
+      "correct": 1,
+      "expl": "A Febre Amarela é causada por um vírus RNA da família Flaviviridae. Não existem sorotipos do vírus (apenas 3 a 4 genótipos), o que é diferente do Dengue (4 sorotipos). A família Flaviviridae conta com 68 vírus diferentes, dos quais 29 causam doença no homem.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Transmissão",
+      "q": "Sobre a transmissão da Febre Amarela, qual afirmação está CORRETA?",
+      "options": [
+        "Há transmissão direta de pessoa a pessoa por gotículas",
+        "A transmissão é exclusivamente vetorial, por mosquitos, sem transmissão pessoa a pessoa",
+        "A transmissão se dá principalmente por via fecal-oral",
+        "A principal via é parenteral, por compartilhamento de seringas"
+      ],
+      "correct": 1,
+      "expl": "A transmissão da Febre Amarela é sempre vetorial, ou seja, depende da picada de mosquitos. NÃO há transmissão pessoa a pessoa. A fêmea do mosquito ingere sangue infectado, o vírus invade o epitélio intestinal, atinge a hemolinfa, depois as glândulas salivares e o sistema reprodutivo (permitindo transmissão pela saliva ou congênita pelos ovos).",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Vetores",
+      "q": "Qual é o vetor URBANO da Febre Amarela, sendo o mesmo da dengue, e qual é o principal vetor SILVESTRE?",
+      "options": [
+        "Urbano: Anopheles; Silvestre: Haemagogus",
+        "Urbano: Culex; Silvestre: Aedes albopictus",
+        "Urbano: Aedes aegypti; Silvestre: Haemagogus (entre outros)",
+        "Urbano: Lutzomyia; Silvestre: Culicoides"
+      ],
+      "correct": 2,
+      "expl": "O vetor URBANO da Febre Amarela é o Aedes aegypti, o mesmo da dengue, Zika e chikungunya. Os vetores SILVESTRES são variados, sendo o Haemagogus o principal. A diferenciação entre ciclos urbano e silvestre é central na epidemiologia: no ciclo silvestre, humanos são acometidos acidentalmente; no ciclo urbano, humanos são os próprios reservatórios.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Epidemiologia",
+      "q": "Sobre a epidemiologia mundial da Febre Amarela segundo a OMS, qual a estimativa correta?",
+      "options": [
+        "Cerca de 2 milhões de casos/ano com 300 mil óbitos",
+        "Cerca de 200 mil casos/ano no mundo com 30 mil óbitos, endêmica em 34 países da África e América do Sul",
+        "Cerca de 5 milhões de casos/ano apenas no Brasil",
+        "Doença erradicada globalmente desde 1980"
+      ],
+      "correct": 1,
+      "expl": "A OMS estima cerca de 200 mil casos/ano de Febre Amarela no mundo, com 30 mil óbitos. A doença é endêmica em 34 países da África e América do Sul (incluindo Brasil e Peru). É uma zoonose de macacos, transmitida por mosquitos culicídeos.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Patologia",
+      "q": "Qual achado histopatológico hepático é CLÁSSICO da Febre Amarela?",
+      "options": [
+        "Granulomas caseosos",
+        "Corpúsculos de Councilman (degeneração eosinofílica de hepatócitos)",
+        "Inclusões de Negri",
+        "Corpúsculos de Mallory"
+      ],
+      "correct": 1,
+      "expl": "Os corpúsculos de Councilman são o achado clássico da Febre Amarela no fígado. Trata-se de degeneração eosinofílica dos hepatócitos por apoptose, característica de hepatite aguda (que pode ser fulminante). Inclusões de Negri são típicas de raiva, corpúsculos de Mallory aparecem em hepatopatia alcoólica e granulomas caseosos sugerem tuberculose.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Patogenia",
+      "q": "Quais são os órgãos MAIS acometidos na Febre Amarela?",
+      "options": [
+        "Apenas o trato gastrointestinal",
+        "Pulmões e medula óssea exclusivamente",
+        "Vasos sanguíneos, fígado, coração, rins e encéfalo",
+        "Apenas as articulações e a pele"
+      ],
+      "correct": 2,
+      "expl": "A Febre Amarela acomete principalmente vasos sanguíneos (CIVD, plaquetopenia, manifestações hemorrágicas), fígado (hepatite aguda, corpúsculos de Councilman), rins (necrose tubular aguda, IRA), coração (miocardite, choque, falência de múltiplos órgãos) e encéfalo (encefalite com hemorragia e edema). A lesão celular ocorre por lise direta.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Imunidade",
+      "q": "Sobre a imunidade adquirida após infecção por Febre Amarela, qual afirmação está CORRETA?",
+      "options": [
+        "Imunidade transitória, com perda dos anticorpos em 6 meses",
+        "Imunidade permanente, mediada por anticorpos citolíticos e neutralizantes (parece ser apenas humoral)",
+        "Não há imunidade adquirida, sendo possível reinfecção a cada estação",
+        "Imunidade exclusivamente celular, sem produção de anticorpos"
+      ],
+      "correct": 1,
+      "expl": "A imunidade contra a Febre Amarela é PERMANENTE, com presença de anticorpos citolíticos e neutralizantes. A imunidade parece ser apenas humoral. Isso justifica que a vacinação confira proteção duradoura, com imunidade estimada em pelo menos 10 anos.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Quadro clínico",
+      "q": "Sobre o período de incubação da Febre Amarela no ser humano, qual é o intervalo correto?",
+      "options": [
+        "Algumas horas a 24 horas",
+        "3 a 6 dias",
+        "30 dias",
+        "Mais de 60 dias"
+      ],
+      "correct": 1,
+      "expl": "O período de incubação da Febre Amarela no humano é de 3 a 6 dias após a picada do mosquito. O período de incubação extrínseco (no mosquito) é de 7 a 11 dias, sendo que o mosquito vive de 30 a 60 dias. A transmissão transovariana, característica do Aedes, dispensa o ser humano no ciclo viral.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Quadro clínico",
+      "q": "Qual a TRÍADE característica da forma grave de Febre Amarela?",
+      "options": [
+        "Febre, artralgia e rash maculopapular",
+        "Icterícia, hemorragia (vômito negro) e insuficiência renal aguda com albuminúria intensa",
+        "Cefaleia, fotofobia e rigidez de nuca",
+        "Dispneia, tosse seca e dor torácica"
+      ],
+      "correct": 1,
+      "expl": "A tríade característica da forma grave de Febre Amarela é: icterícia, hemorragia (notadamente o vômito negro / hematêmese) e insuficiência renal aguda com albuminúria intensa. Reflete o acometimento dos três órgãos mais afetados na forma severa: fígado, vasos/coagulação e rins.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Quadro clínico",
+      "q": "Quais são os 4 graus de severidade clínica da Febre Amarela?",
+      "options": [
+        "Subclínica, manifesta, complicada e fatal",
+        "Forma muito leve, leve, severa (grave) e maligna",
+        "Aguda, subaguda, crônica e residual",
+        "Estágio I, II, III e IV de Ann Arbor"
+      ],
+      "correct": 1,
+      "expl": "A Febre Amarela tem 4 graus de severidade clínica: muito leve (febre e cefaleia por horas a 2 dias, comum em crianças com imunidade passiva materna), leve (cefaleia/febre mais intensas, mal-estar, dor retroorbital, fotofobia, náuseas, vômitos, sub-icterícia, Sinal de Faget), severa/grave (15% dos casos, com 3 fases) e maligna (fulminante, sem fase de remissão).",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Quadro clínico",
+      "q": "O que é o SINAL DE FAGET, frequentemente descrito na Febre Amarela?",
+      "options": [
+        "Petéquias palpáveis nos membros inferiores",
+        "Bradicardia relativa em relação à temperatura corporal elevada",
+        "Sinal de irritação meníngea com flexão involuntária",
+        "Adenomegalia retroauricular"
+      ],
+      "correct": 1,
+      "expl": "O Sinal de Faget é a bradicardia relativa, ou seja, uma frequência cardíaca proporcionalmente baixa para o nível de febre apresentado. Pode ocorrer na forma leve e na forma grave (período de infecção) da Febre Amarela. Também é descrito em algumas outras arboviroses (como dengue) e na febre tifoide.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Quadro clínico",
+      "q": "Sobre a FORMA GRAVE da Febre Amarela, em qual proporção dos casos ela ocorre e em quantas fases evolutivas se divide?",
+      "options": [
+        "50% dos casos, com 5 fases",
+        "15% dos casos, divididos em 3 fases: período de infecção, remissão e intoxicação",
+        "90% dos casos, sem fases distintas",
+        "1% dos casos, apenas com a fase de remissão"
+      ],
+      "correct": 1,
+      "expl": "A forma grave ocorre em cerca de 15% dos casos de Febre Amarela. Tem 3 fases evolutivas: período de infecção (3 dias, com febre alta, calafrios, cefaleia, lombossacralgia, mialgia, congestão facial, hemorragias gengivais leves), período de remissão (algumas horas a 2 dias, com melhora aparente; ausente nas formas malignas/fulminantes) e período de intoxicação (agravamento com icterícia, diátese hemorrágica, albuminúria, oligúria).",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Quadro clínico",
+      "q": "No período de INTOXICAÇÃO da forma grave da Febre Amarela, qual achado hemorrágico é CLÁSSICO e indica gravidade?",
+      "options": [
+        "Hemorragia conjuntival isolada e autolimitada",
+        "Hematêmese com vômito negro (associada a melena, metrorragia, hemorragias escrotais, petéquias e equimoses)",
+        "Otorragia sem outros sinais associados",
+        "Apenas sangramentos cutâneos circunscritos"
+      ],
+      "correct": 1,
+      "expl": "No período de intoxicação, ocorre a diátese hemorrágica por 5 a 7 dias, sendo a hematêmese com VÔMITO NEGRO o achado clássico (origina o nome popular 'yellow fever' / 'vômito negro'). Acompanha-se de melena, metrorragias, hemorragias escrotais, petéquias, equimoses e sangramentos difusos pelas mucosas, refletindo CIVD e plaquetopenia.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Prognóstico",
+      "q": "Qual a letalidade aproximada da FORMA GRAVE da Febre Amarela, e em que momento ocorre o óbito tipicamente?",
+      "options": [
+        "Cerca de 5%, ocorrendo no 1º dia de doença",
+        "Cerca de 20 a 50%, em geral entre o 7º e o 10º dia de doença, precedido por piora da icterícia, hemorragias, taquicardia e oligúria",
+        "Cerca de 90%, no momento da admissão hospitalar",
+        "Cerca de 0,1%, sempre após 30 dias da alta"
+      ],
+      "correct": 1,
+      "expl": "A letalidade da forma grave de Febre Amarela é de 20 a 50%, com óbito tipicamente entre o 7º e o 10º dia de doença. É precedido por piora da icterícia, hemorragias, taquicardia, hipotensão, oligúria e azotemia. Sinais prenunciadores de êxito letal incluem hipotermia, agitação, delírios, soluços intratáveis, hipoglicemia, anúria, estupor e coma.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Quadro clínico",
+      "q": "Sobre o tempo TOTAL de duração da Febre Amarela e a convalescença da forma grave, qual afirmação está CORRETA?",
+      "options": [
+        "Duração total de 2 a 3 dias, com convalescença em horas",
+        "Duração total de 15 a 20 dias; convalescença frequentemente prolongada com astenia que pode durar até 2 semanas; transaminases elevadas por até 2 meses",
+        "Duração total de 6 meses, sempre com sequelas neurológicas",
+        "Duração indefinida, com cronificação em 100% dos casos"
+      ],
+      "correct": 1,
+      "expl": "O tempo total de duração da Febre Amarela é de 15 a 20 dias. Na forma grave, a convalescença é frequentemente prolongada com astenia profunda que pode durar até 2 semanas. As transaminases hepáticas podem permanecer elevadas por pelo menos 2 meses. Nesse período, o óbito é raro, ocorrendo por complicações cardíacas ou IRA. A recuperação é completa, exceto quando houve complicações hemorrágicas.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Diagnóstico",
+      "q": "Sobre os exames LABORATORIAIS na Febre Amarela, qual padrão é mais característico?",
+      "options": [
+        "Leucocitose com neutrofilia importante e plaquetose",
+        "Leucopenia com neutropenia; AST e ALT elevadas na fase ictérica (AST>ALT por lesão miocárdica e muscular esquelética); bilirrubinas aumentadas; albuminúria, ureia e creatinina elevadas",
+        "Eosinofilia maciça com anemia microcítica",
+        "Apenas hipoglicemia, sem outras alterações"
+      ],
+      "correct": 1,
+      "expl": "Na Febre Amarela, o padrão laboratorial inclui: leucopenia com neutropenia no hemograma, AST/ALT elevadas na fase ictérica (AST > ALT, refletindo lesão de miocárdio e músculo esquelético além do fígado), bilirrubinas aumentadas, fosfatase alcalina e γGT pouco elevadas, albuminúria, ureia e creatinina aumentadas (refletindo IRA). O diagnóstico específico é por sorologia com pesquisa de IgM.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Diagnóstico",
+      "q": "Qual o exame ESPECÍFICO para confirmação diagnóstica da Febre Amarela?",
+      "options": [
+        "Cultura de sangue convencional para bactérias",
+        "Sorologia com pesquisa de IgM (e PCR/isolamento viral em fases mais precoces)",
+        "Apenas radiografia de tórax",
+        "Reação de Mantoux"
+      ],
+      "correct": 1,
+      "expl": "A confirmação diagnóstica específica da Febre Amarela é feita por sorologia com pesquisa de IgM. Em fases mais precoces da doença, podem-se utilizar técnicas de detecção do RNA viral (RT-PCR) ou isolamento viral. Esses métodos diferenciam a Febre Amarela de outras arboviroses com clínica semelhante (dengue, chikungunya, Zika).",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Sobre o tratamento da Febre Amarela, qual conduta é CORRETA?",
+      "options": [
+        "Antiviral específico oral por 14 dias para todos os casos",
+        "Não há tratamento antiviral específico; formas ictéricas (15%) requerem internação, repouso e observação; formas graves exigem internação em UTI",
+        "Aciclovir intravenoso em altas doses por 21 dias",
+        "Apenas antibiótico de amplo espectro"
+      ],
+      "correct": 1,
+      "expl": "NÃO existe tratamento antiviral específico para Febre Amarela. O manejo é de suporte: formas ictéricas (cerca de 15% dos casos) requerem internação, repouso e observação. Formas graves exigem internação em regime de terapia intensiva (UTI), com suporte hemodinâmico, manejo da IRA, da CIVD e das complicações hepáticas.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Profilaxia",
+      "q": "Sobre a VACINAÇÃO contra a Febre Amarela, qual afirmação está CORRETA?",
+      "options": [
+        "Vacina inativada, dose única dos 18 anos, eficácia 50%",
+        "Vacina de vírus atenuados, a partir dos 9 meses, introduzida no Brasil em 1937, eficácia acima de 95%, imunidade de pelo menos 10 anos; contraindicada em gestantes, HIV e imunodeprimidos",
+        "Vacina de mRNA, indicada apenas após exposição",
+        "Vacina não está disponível no Brasil"
+      ],
+      "correct": 1,
+      "expl": "A vacina da Febre Amarela é produzida a partir de vírus atenuados, indicada a partir dos 9 meses de idade. Foi introduzida no Brasil em 1937, é eficaz e segura, com eficácia acima de 95% e imunidade por pelo menos 10 anos. Deve ser administrada pelo menos 10 dias antes de viagem para área endêmica. Efeitos colaterais comuns: dor local, mialgia, febre e cefaleia. Contraindicações: gravidez, HIV e imunodeprimidos.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Profilaxia",
+      "q": "Sobre as MEDIDAS de controle da Febre Amarela em ciclo urbano, qual a intervenção mais importante?",
+      "options": [
+        "Quarentena de 40 dias para todos os contatos",
+        "Combate ao vetor Aedes aegypti (eliminação de criadouros, controle entomológico) e vacinação da população suscetível",
+        "Uso de máscara N95 em ambientes domiciliares",
+        "Lavagem das mãos com clorexidina apenas"
+      ],
+      "correct": 1,
+      "expl": "O controle do ciclo URBANO da Febre Amarela depende do combate ao vetor Aedes aegypti (eliminação de criadouros, controle larvário e entomológico) e da vacinação da população suscetível. No ciclo silvestre, o controle é mais difícil e centra-se na vacinação de pessoas que entram em áreas de mata e na vigilância epizoótica em primatas.",
+      "difficulty": "easy"
+    }
+  ]
+}

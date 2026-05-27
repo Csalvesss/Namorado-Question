@@ -4,16 +4,23 @@ import hivAids from '../data/seeds/hiv-aids.json';
 import insuficienciaCardiaca from '../data/seeds/insuficiencia-cardiaca.json';
 import meningites from '../data/seeds/meningites.json';
 import hipertensaoArterial from '../data/seeds/hipertensao-arterial.json';
+import febreAmarela from '../data/seeds/febre-amarela.json';
+import dengue from '../data/seeds/dengue.json';
+import chikungunya from '../data/seeds/chikungunya.json';
+import zika from '../data/seeds/zika.json';
+import oropouche from '../data/seeds/oropouche.json';
 
 const SEEDS: ImportPayload[] = [
   hivAids as ImportPayload,
   insuficienciaCardiaca as ImportPayload,
   meningites as ImportPayload,
   hipertensaoArterial as ImportPayload,
+  febreAmarela as ImportPayload,
+  dengue as ImportPayload,
+  chikungunya as ImportPayload,
+  zika as ImportPayload,
+  oropouche as ImportPayload,
 ];
-
-const SEED_KEY = 'guava.seedVersion';
-const CURRENT_SEED_VERSION = 1;
 
 export function importCourse(payload: ImportPayload, opts: { createdBy?: string } = {}): Course {
   const courseId = db.ids.course();
@@ -53,12 +60,10 @@ export function importCourse(payload: ImportPayload, opts: { createdBy?: string 
 }
 
 export function ensureSeed() {
-  const current = localStorage.getItem(SEED_KEY);
-  if (current && Number(current) >= CURRENT_SEED_VERSION) return;
-
-  if (db.courses.list().length === 0) {
-    SEEDS.forEach((seed) => importCourse(seed));
-  }
-
-  localStorage.setItem(SEED_KEY, String(CURRENT_SEED_VERSION));
+  const existing = new Set(db.courses.list().map((c) => c.title));
+  SEEDS.forEach((seed) => {
+    if (!existing.has(seed.title)) {
+      importCourse(seed);
+    }
+  });
 }
