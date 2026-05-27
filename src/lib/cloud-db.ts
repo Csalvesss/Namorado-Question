@@ -9,7 +9,7 @@ import {
   setDoc,
 } from 'firebase/firestore';
 import { firebaseAuth, firestore } from './firebase';
-import type { QuizSession } from '../types';
+import type { Course, Question, QuizSession } from '../types';
 
 function requireUid(): string {
   const uid = firebaseAuth.currentUser?.uid;
@@ -83,5 +83,26 @@ export const cloudSrs = {
     const targetUid = uid ?? requireUid();
     const snap = await getDocs(collection(firestore, 'users', targetUid, 'srs'));
     await Promise.all(snap.docs.map((d) => deleteDoc(d.ref)));
+  },
+};
+
+export type CloudCustomCourse = Course & { questions: Question[] };
+
+export const cloudCourses = {
+  async list(uid?: string): Promise<CloudCustomCourse[]> {
+    const targetUid = uid ?? requireUid();
+    const snap = await getDocs(collection(firestore, 'users', targetUid, 'customCourses'));
+    return snap.docs.map((d) => d.data() as CloudCustomCourse);
+  },
+
+  async save(uid: string, course: Course, questions: Question[]) {
+    const ref = doc(firestore, 'users', uid, 'customCourses', course.id);
+    const payload: CloudCustomCourse = { ...course, questions };
+    await setDoc(ref, payload);
+  },
+
+  async remove(uid: string, courseId: string) {
+    const ref = doc(firestore, 'users', uid, 'customCourses', courseId);
+    await deleteDoc(ref);
   },
 };

@@ -1,4 +1,4 @@
-import { cloudSessions } from './cloud-db';
+import { cloudCourses, cloudSessions } from './cloud-db';
 import type { Course, Question, QuizSession } from '../types';
 
 const PREFIX = 'guava.';
@@ -51,6 +51,47 @@ export function hydrateSessionsFromCloud(uid: string): Promise<void> {
     });
 }
 
+export const COURSES_CHANGE_EVENT = 'guava:courses-change';
+
+function emitCoursesChange() {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent(COURSES_CHANGE_EVENT));
+  }
+}
+
+export function clearUserCustomData(uid: string) {
+  const all = read<Course[]>('courses', []);
+  const remaining = all.filter((c) => c.createdBy !== uid);
+  const removedIds = all.filter((c) => c.createdBy === uid).map((c) => c.id);
+  write('courses', remaining);
+  if (removedIds.length > 0) {
+    const allQs = read<Question[]>('questions', []);
+    write('questions', allQs.filter((q) => !removedIds.includes(q.courseId)));
+  }
+  emitCoursesChange();
+}
+
+export async function hydrateCoursesFromCloud(uid: string): Promise<void> {
+  try {
+    const cloudList = await cloudCourses.list(uid);
+    clearUserCustomData(uid);
+    const courses = read<Course[]>('courses', []);
+    const questions = read<Question[]>('questions', []);
+    for (const item of cloudList) {
+      const { questions: qs, ...course } = item;
+      const idx = courses.findIndex((c) => c.id === course.id);
+      if (idx >= 0) courses[idx] = course;
+      else courses.push(course);
+      for (const q of qs) questions.push(q);
+    }
+    write('courses', courses);
+    write('questions', questions);
+    emitCoursesChange();
+  } catch {
+    // ignore — local cache continues working offline
+  }
+}
+
 export const db = {
   courses: {
     list(): Course[] {
@@ -65,8 +106,10 @@ export const db = {
       if (idx >= 0) list[idx] = course;
       else list.push(course);
       write('courses', list);
+      emitCoursesChange();
     },
     remove(id: string) {
+      const course = this.get(id);
       write(
         'courses',
         this.list().filter((c) => c.id !== id),
@@ -76,6 +119,12 @@ export const db = {
         'questions',
         all.filter((q) => q.courseId !== id),
       );
+      emitCoursesChange();
+      if (course && course.createdBy && course.createdBy !== 'system') {
+        void cloudCourses.remove(course.createdBy, id).catch(() => {
+          // best-effort
+        });
+      }
     },
   },
 

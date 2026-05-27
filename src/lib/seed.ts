@@ -1,4 +1,5 @@
 import type { Course, ImportPayload, ImportQuestion, Question } from '../types';
+import { cloudCourses } from './cloud-db';
 import { db } from './db';
 import hivAids from '../data/seeds/hiv-aids.json';
 import insuficienciaCardiaca from '../data/seeds/insuficiencia-cardiaca.json';
@@ -130,6 +131,12 @@ export function importCourse(payload: ImportPayload, opts: { createdBy?: string 
 
   db.courses.upsert(course);
   db.questions.addMany(questions);
+
+  if (course.createdBy && course.createdBy !== 'system') {
+    void cloudCourses.save(course.createdBy, course, questions).catch(() => {
+      // best-effort sync; local cache holds the truth
+    });
+  }
 
   return course;
 }

@@ -13,7 +13,7 @@ import {
   updateDoc,
 } from 'firebase/firestore';
 import { firebaseAuth, firestore } from './firebase';
-import { hydrateSessionsFromCloud } from './db';
+import { clearUserCustomData, hydrateCoursesFromCloud, hydrateSessionsFromCloud } from './db';
 import { hydrateSrsFromCloud } from './srs';
 import type { UserProfile } from '../types';
 
@@ -168,15 +168,24 @@ let hydratedFor: string | null = null;
 async function hydrateUserData(uid: string) {
   if (hydratedFor === uid) return;
   hydratedFor = uid;
-  await Promise.all([hydrateSessionsFromCloud(uid), hydrateSrsFromCloud(uid)]);
+  await Promise.all([
+    hydrateSessionsFromCloud(uid),
+    hydrateSrsFromCloud(uid),
+    hydrateCoursesFromCloud(uid),
+  ]);
 }
 
 export function onAuthChange(callback: (user: UserProfile | null) => void) {
   return onAuthStateChanged(firebaseAuth, async (fbUser) => {
     if (!fbUser) {
+      if (hydratedFor) clearUserCustomData(hydratedFor);
       hydratedFor = null;
       callback(null);
       return;
+    }
+    if (hydratedFor && hydratedFor !== fbUser.uid) {
+      clearUserCustomData(hydratedFor);
+      hydratedFor = null;
     }
     const profile = await ensureProfile(fbUser);
     callback(profile);

@@ -10,7 +10,7 @@ import {
   questionsAnsweredToday,
   studyByDay,
 } from '../lib/analytics';
-import { db } from '../lib/db';
+import { COURSES_CHANGE_EVENT, db } from '../lib/db';
 import { listDueCards, SRS_CHANGE_EVENT } from '../lib/srs';
 import { useSessions } from '../lib/useSessions';
 import { useUser } from '../lib/useUser';
@@ -47,16 +47,24 @@ function lastCourseFromSessions(sessions: QuizSession[], courses: Course[]): Cou
 
 export default function Dashboard() {
   const { user } = useUser();
-  const courses = useMemo(() => db.courses.list(), []);
+  const [coursesTick, setCoursesTick] = useState(0);
+  const courses = useMemo(() => db.courses.list(), [coursesTick]);
   const { sessions } = useSessions();
   const [srsTick, setSrsTick] = useState(0);
 
   useEffect(() => {
-    function bump() {
+    function bumpSrs() {
       setSrsTick((t) => t + 1);
     }
-    window.addEventListener(SRS_CHANGE_EVENT, bump);
-    return () => window.removeEventListener(SRS_CHANGE_EVENT, bump);
+    function bumpCourses() {
+      setCoursesTick((t) => t + 1);
+    }
+    window.addEventListener(SRS_CHANGE_EVENT, bumpSrs);
+    window.addEventListener(COURSES_CHANGE_EVENT, bumpCourses);
+    return () => {
+      window.removeEventListener(SRS_CHANGE_EVENT, bumpSrs);
+      window.removeEventListener(COURSES_CHANGE_EVENT, bumpCourses);
+    };
   }, []);
 
   const completed = sessions.filter((s) => s.completedAt);
