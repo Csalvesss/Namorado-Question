@@ -1,7 +1,8 @@
-import { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
+import { ResultPanel } from '../components/ResultPanel';
 import { getPhrases } from '../data/phrases';
 import { db } from '../lib/db';
 import { duration, easeOutExpo, palette } from '../lib/motion';
@@ -153,7 +154,14 @@ export default function Quiz() {
         </div>
       </div>
 
-      {session && submitted && <ResultPanel ref={resultRef} session={session} displayMode={displayMode} />}
+      {session && submitted && (
+        <ResultPanel
+          ref={resultRef}
+          session={session}
+          questions={questions}
+          displayMode={displayMode}
+        />
+      )}
 
       <div className="space-y-4">
         {questions.map((q, idx) => {
@@ -289,39 +297,6 @@ function QuestionCard({ question, index, submitted, phrase, onSelect }: Question
     </article>
   );
 }
-
-interface ResultPanelProps {
-  session: QuizSession;
-  displayMode: 'namorado' | 'doutora';
-}
-
-const ResultPanel = forwardRef<HTMLDivElement, ResultPanelProps>(function ResultPanel(
-  { session, displayMode },
-  ref,
-) {
-  const pct = Math.round((session.score / session.total) * 100);
-  const phrases = getPhrases(displayMode);
-  const list = pct >= 80 ? phrases.finalHigh : pct >= 50 ? phrases.finalMed : phrases.finalLow;
-  const praise = useMemo(() => list[Math.floor(Math.random() * list.length)], [list]);
-
-  return (
-    <div
-      ref={ref}
-      className="animate-slide-in overflow-hidden rounded-2xl border border-line bg-paper-soft px-6 py-8 text-center shadow-soft"
-    >
-      <div className="mb-1 font-serif text-xs uppercase tracking-[0.4em] text-gold">Resultado da prova</div>
-      <div className="font-serif text-7xl font-semibold leading-none text-wine-deep">
-        {session.score}
-        <span className="text-3xl font-normal text-muted"> / {session.total}</span>
-      </div>
-      <div className="mt-1 font-serif text-xl italic text-ink-soft">{pct} por cento de acerto</div>
-      <p className="mx-auto mt-5 max-w-md font-serif text-2xl italic leading-snug text-wine-deep">{praise}</p>
-      <p className="mx-auto mt-3 max-w-md text-sm italic text-ink-soft">
-        Olha a explicação de cada questão logo abaixo. Quando quiser, refaz a prova que eu sorteio outras questões.
-      </p>
-    </div>
-  );
-});
 
 function formatTime(sec: number) {
   const m = Math.floor(sec / 60);
