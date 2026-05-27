@@ -139,7 +139,25 @@ export async function signUp({ email, password, name }: AuthInput): Promise<Auth
   }
   try {
     const cred = await createUserWithEmailAndPassword(firebaseAuth, cleanEmail, password);
-    const profile = await ensureProfile(cred.user, cleanName);
+    await setDoc(
+      userDocRef(cred.user.uid),
+      {
+        uid: cred.user.uid,
+        email: cleanEmail,
+        name: cleanName,
+        displayMode: 'namorado',
+        createdAt: Date.now(),
+        createdAtServer: serverTimestamp(),
+      },
+      { merge: true },
+    );
+    const profile = (await fetchProfile(cred.user.uid)) ?? {
+      uid: cred.user.uid,
+      email: cleanEmail,
+      name: cleanName,
+      displayMode: 'namorado',
+      createdAt: Date.now(),
+    };
     emitChange();
     return { ok: true, user: profile };
   } catch (e) {
@@ -176,10 +194,13 @@ async function hydrateUserData(uid: string) {
 }
 
 export function onAuthChange(callback: (user: UserProfile | null) => void) {
-  return onAuthStateChanged(firebaseAuth, async (fbUser) => {
+  let lastUid: string | null = null;
+
+  const unsubAuth = onAuthStateChanged(firebaseAuth, async (fbUser) => {
     if (!fbUser) {
       if (hydratedFor) clearUserCustomData(hydratedFor);
       hydratedFor = null;
+      lastUid = null;
       callback(null);
       return;
     }
@@ -187,10 +208,28 @@ export function onAuthChange(callback: (user: UserProfile | null) => void) {
       clearUserCustomData(hydratedFor);
       hydratedFor = null;
     }
+    lastUid = fbUser.uid;
     const profile = await ensureProfile(fbUser);
     callback(profile);
     void hydrateUserData(fbUser.uid);
   });
+
+  async function handleManualChange() {
+    if (!lastUid) return;
+    const profile = await fetchProfile(lastUid);
+    if (profile) callback(profile);
+  }
+
+  if (typeof window !== 'undefined') {
+    window.addEventListener(USER_CHANGE_EVENT, handleManualChange);
+  }
+
+  return () => {
+    unsubAuth();
+    if (typeof window !== 'undefined') {
+      window.removeEventListener(USER_CHANGE_EVENT, handleManualChange);
+    }
+  };
 }
 
 export async function patchProfile(patch: Partial<UserProfile>) {
