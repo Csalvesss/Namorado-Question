@@ -48,9 +48,10 @@ export default function Profile() {
     navigate('/login');
   }
 
-  function resetEverything() {
+  async function resetEverything() {
     if (!confirm('Isso apaga TUDO (cursos, questões, histórico, login). Tem certeza?')) return;
     db.reset();
+    logout();
     refresh();
     navigate('/login');
   }
