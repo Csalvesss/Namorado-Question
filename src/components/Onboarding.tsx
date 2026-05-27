@@ -20,7 +20,7 @@ const slides: Slide[] = [
   {
     Icon: Target,
     title: 'modo erro',
-    body: 'sempre que você errar uma questão, ela vai pro modo erro. é o jeito mais rápido de fechar os pontos fracos sem precisar refazer prova inteira.',
+    body: 'sempre que você errar uma questão, ela vai para o modo erro. é o jeito mais rápido de fechar os pontos fracos sem precisar refazer prova inteira.',
   },
   {
     Icon: Heart,

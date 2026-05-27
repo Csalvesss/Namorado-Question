@@ -86,7 +86,7 @@ export interface Course {
   createdAt: number;
 }
 
-export type QuizMode = 'standard' | 'quick' | 'marathon' | 'mistakes' | 'timed';
+export type QuizMode = 'standard' | 'quick' | 'marathon' | 'mistakes' | 'timed' | 'clinical';
 
 export interface QuizAnswer {
   questionId: string;

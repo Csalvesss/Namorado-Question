@@ -110,17 +110,26 @@ const EXAMPLE_CASE = `{
   ]
 }`;
 
-const PROMPT_CASE = `Você é um preceptor de residência médica gerando casos clínicos encadeados para simular plantão.
+const PROMPT_CASE = `Você é um preceptor de residência médica e vai montar uma rodada de plantão para a aluna estudar.
 
-Gere 4 casos em português brasileiro, no formato JSON exato abaixo. Cada caso tem:
-- vignette: vinheta clínica longa (3-6 linhas), com idade, sexo, queixa, antecedentes, exame físico, exames laboratoriais relevantes. Pode usar \\n para quebrar parágrafos.
-- steps: 3 a 5 sub-questões em sequência lógica de raciocínio (diagnóstico → exames → conduta → seguimento). Cada step:
+Vou te enviar um PDF (ou material de estudo) sobre um tema médico. Leia com atenção e gere 5 casos clínicos em português brasileiro, no formato JSON exato abaixo. A plataforma exibe esses casos sequencialmente no "Modo clínico" — a aluna lê a vinheta, decide passo a passo, e no fim revisa o gabarito.
+
+Os 5 casos devem cobrir cenários DIFERENTES do mesmo tema, por exemplo:
+1. apresentação clássica/típica
+2. apresentação atípica ou em paciente idoso/imunossuprimido
+3. complicação ou caso grave (UTI / urgência)
+4. caso pediátrico ou gestante (quando aplicável) ou diagnóstico diferencial
+5. caso ambulatorial ou seguimento pós-alta
+
+Cada caso tem:
+- vignette: vinheta longa (3-6 linhas) com idade, sexo, queixa, antecedentes, exame físico, exames laboratoriais. Use \\n para quebrar parágrafos. Dados clínicos suficientes para tomada de decisão.
+- steps: 3 a 5 sub-questões em sequência lógica (diagnóstico → exames → conduta inicial → ajuste de tratamento → seguimento). Cada step:
   - id: slug curto (diag, conduta, atb, alta, etc.)
   - prompt? (opcional): nova informação revelada antes dessa pergunta ("Após pedir hemograma, você recebe Hb 7,2...")
   - question: a pergunta da etapa
-  - options: 4 alternativas, com distratores realistas
+  - options: 4 alternativas, com distratores REALISTAS (que a aluna poderia genuinamente cogitar)
   - correct: 0-3
-  - expl: ensina raciocínio, cita guideline quando fizer sentido (Sepsis-3, ACC/AHA, BTS, etc.)
+  - expl: ensina o raciocínio, cita guideline quando fizer sentido (Sepsis-3, ACC/AHA, BTS, GOLD, etc.)
 
 Saída: APENAS o JSON válido, sem texto antes ou depois.
 
@@ -135,7 +144,7 @@ A nossa plataforma renderiza os traçados dinamicamente a partir de um id. Os id
 - stemi-inferior, stemi-anterior
 - lbbb (BRE), rbbb (BRD)
 
-Gere 5 questões em português brasileiro, escolhendo o tracingId mais adequado ao caso clínico. Cada questão tem 4-7 pontos de análise (ondas P, intervalo PR, QRS, segmento ST, onda T, ritmo, FC, eixo, escolha o que faz sentido pro caso) e termina com um diagnóstico final.
+Gere 5 questões em português brasileiro, escolhendo o tracingId mais adequado ao caso clínico. Cada questão tem 4-7 pontos de análise (ondas P, intervalo PR, QRS, segmento ST, onda T, ritmo, FC, eixo, escolha o que faz sentido para o caso) e termina com um diagnóstico final.
 
 Cada PONTO tem:
 - id (slug curto: ritmo, fc, ondaP, intervaloPr, qrs, st, t, eixo)
@@ -316,8 +325,8 @@ export default function Author() {
             active={kind === 'case'}
             onClick={() => setKind('case')}
             Icon={FileText}
-            title="Caso clínico"
-            description="Vinheta longa + 3-5 decisões encadeadas. Ideal para simular plantão."
+            title="Modo clínico"
+            description="5 casos clínicos a partir de um PDF, com vinheta longa e decisões encadeadas. Ideal para simular plantão."
           />
         </div>
 

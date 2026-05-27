@@ -85,6 +85,7 @@ export default function Quiz() {
       count: config.count,
       topics,
       mistakeIds,
+      typeFilter: mode === 'clinical' ? 'case' : undefined,
     });
     setQuestions(raw.map(prepareQuestion));
     setSubmitted(false);

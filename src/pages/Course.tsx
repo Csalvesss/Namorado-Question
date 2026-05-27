@@ -6,8 +6,8 @@ import { getMistakeQuestionIds, modeConfig } from '../lib/quiz';
 import { useUser } from '../lib/useUser';
 import type { QuizMode } from '../types';
 
-const FEATURED_MODES: QuizMode[] = ['standard', 'quick'];
-const COMPACT_MODES: QuizMode[] = ['marathon', 'timed'];
+const FEATURED_BASE: QuizMode[] = ['standard', 'quick'];
+const COMPACT_BASE: QuizMode[] = ['marathon', 'timed'];
 
 export default function Course() {
   const { id = '' } = useParams();
@@ -22,6 +22,10 @@ export default function Course() {
   }, [questions]);
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const mistakeIds = useMemo(() => (user ? getMistakeQuestionIds(user.uid, id) : []), [user, id]);
+  const caseCount = useMemo(() => questions.filter((q) => q.type === 'case').length, [questions]);
+  const hasCases = caseCount > 0;
+  const featuredModes: QuizMode[] = hasCases ? ['standard', 'clinical'] : FEATURED_BASE;
+  const compactModes: QuizMode[] = hasCases ? ['quick', 'marathon', 'timed'] : COMPACT_BASE;
 
   const courseStats = useMemo(() => {
     if (!user) return { attempts: 0, accuracy: 0 };
@@ -97,24 +101,32 @@ export default function Course() {
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {FEATURED_MODES.map((m) => {
+          {featuredModes.map((m) => {
             const cfg = modeConfig(m);
+            const isClinical = m === 'clinical';
+            const displayCount = isClinical
+              ? `${Math.min(cfg.count, caseCount)} casos`
+              : `${cfg.count} questões`;
+            const description = isClinical
+              ? `${cfg.description} ${caseCount} caso${caseCount > 1 ? 's' : ''} no banco.`
+              : cfg.description;
             return (
               <FeaturedModeCard
                 key={m}
                 Icon={cfg.Icon}
                 title={cfg.label}
-                description={cfg.description}
-                count={`${cfg.count} questões`}
+                description={description}
+                count={displayCount}
                 onClick={() => startQuiz(m)}
-                disabled={questions.length < 1}
+                disabled={isClinical ? caseCount < 1 : questions.length < 1}
+                eyebrow={isClinical ? 'Casos clínicos' : 'Recomendado'}
               />
             );
           })}
         </div>
 
         <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
-          {COMPACT_MODES.map((m) => {
+          {compactModes.map((m) => {
             const cfg = modeConfig(m);
             return (
               <CompactModeCard
@@ -194,9 +206,18 @@ interface FeaturedModeCardProps {
   count: string;
   onClick: () => void;
   disabled?: boolean;
+  eyebrow?: string;
 }
 
-function FeaturedModeCard({ Icon, title, description, count, onClick, disabled }: FeaturedModeCardProps) {
+function FeaturedModeCard({
+  Icon,
+  title,
+  description,
+  count,
+  onClick,
+  disabled,
+  eyebrow = 'Recomendado',
+}: FeaturedModeCardProps) {
   return (
     <button
       onClick={onClick}
@@ -206,7 +227,7 @@ function FeaturedModeCard({ Icon, title, description, count, onClick, disabled }
       <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-rose-soft transition group-hover:bg-wine" />
       <div className="flex items-start justify-between gap-3">
         <div>
-          <div className="eyebrow-gold mb-2">Recomendado</div>
+          <div className="eyebrow-gold mb-2">{eyebrow}</div>
           <h3 className="font-serif text-2xl italic leading-tight text-wine-deep">{title}</h3>
         </div>
         <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-rose-soft text-wine-deep">
