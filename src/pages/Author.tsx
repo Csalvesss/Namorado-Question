@@ -1,11 +1,14 @@
 import { useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Activity, BookOpenCheck } from 'lucide-react';
 import { db } from '../lib/db';
 import { importCourse } from '../lib/seed';
 import { useUser } from '../lib/useUser';
 import type { ImportPayload } from '../types';
 
-const EXAMPLE = `{
+type AuthorKind = 'mc' | 'ecg';
+
+const EXAMPLE_MC = `{
   "title": "Nome da matéria",
   "description": "Resumo do conteúdo",
   "icon": "📘",
@@ -22,7 +25,7 @@ const EXAMPLE = `{
   ]
 }`;
 
-const PROMPT_TEMPLATE = `Você é um professor sênior de medicina e especialista em criar questões de múltipla escolha em alto nível.
+const PROMPT_MC = `Você é um professor sênior de medicina e especialista em criar questões de múltipla escolha em alto nível.
 
 Leia o PDF que vou enviar e gere 30 questões de múltipla escolha em português brasileiro, no formato JSON exato abaixo.
 
@@ -38,16 +41,81 @@ Requisitos de qualidade:
 Saída: APENAS o JSON válido, sem texto antes ou depois.
 
 Formato:
-${EXAMPLE}`;
+${EXAMPLE_MC}`;
+
+const EXAMPLE_ECG = `{
+  "title": "Eletrocardiograma — Avançado",
+  "description": "Casos clínicos com interpretação ponto a ponto",
+  "icon": "❤️",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "ecg",
+      "topic": "Arritmias supraventriculares",
+      "tracingId": "af",
+      "context": "Mulher, 70a, palpitação irregular há 1 dia. PA 130x80.",
+      "points": [
+        {
+          "id": "ritmo",
+          "label": "Ritmo",
+          "hint": "olhe R-R e onda P",
+          "question": "Como descreve o ritmo?",
+          "options": ["Sinusal", "FA", "Flutter", "TV"],
+          "correct": 1,
+          "expl": "R-R irregular sem onda P organizada."
+        }
+      ],
+      "diagnosis": {
+        "question": "Diagnóstico mais provável?",
+        "options": ["RS normal", "FA com resposta ventricular elevada", "Flutter atrial", "TPSV"],
+        "correct": 1,
+        "expl": "FA recém-diagnosticada, anticoagular conforme CHA2DS2-VASc."
+      },
+      "difficulty": "medium"
+    }
+  ]
+}`;
+
+const PROMPT_ECG = `Você é um cardiologista experiente e vai gerar questões interativas de interpretação de ECG.
+
+A nossa plataforma renderiza os traçados dinamicamente a partir de um id. Os ids disponíveis são:
+- normal-sinus, sinus-brady, sinus-tachy
+- af (fibrilação atrial), flutter
+- stemi-inferior, stemi-anterior
+- lbbb (BRE), rbbb (BRD)
+
+Gere 5 questões em português brasileiro, escolhendo o tracingId mais adequado ao caso clínico. Cada questão tem 4-7 pontos de análise (ondas P, intervalo PR, QRS, segmento ST, onda T, ritmo, FC, eixo — escolha o que faz sentido pro caso) e termina com um diagnóstico final.
+
+Cada PONTO tem:
+- id (slug curto: ritmo, fc, ondaP, intervaloPr, qrs, st, t, eixo)
+- label (rótulo bonito: "Ritmo", "Frequência cardíaca", etc.)
+- hint? (uma dica curta, opcional)
+- region? (opcional: { x, y, w, h } com valores 0-1 normalizados pra destacar a parte do traçado)
+- question (a pergunta dessa etapa)
+- options (4 alternativas)
+- correct (0-3)
+- expl (ensina o que olhar)
+
+DIAGNÓSTICO final:
+- question, options (4), correct (0-3), expl (justifica e dá conduta clínica resumida quando fizer sentido)
+
+Saída: APENAS o JSON válido, sem texto antes ou depois.
+
+Formato:
+${EXAMPLE_ECG}`;
 
 export default function Author() {
   const { user } = useUser();
   const [raw, setRaw] = useState('');
+  const [kind, setKind] = useState<AuthorKind>('mc');
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [showPrompt, setShowPrompt] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
   const courses = useMemo(() => db.courses.list(), [success]);
+
+  const promptTemplate = kind === 'ecg' ? PROMPT_ECG : PROMPT_MC;
+  const exampleJson = kind === 'ecg' ? EXAMPLE_ECG : EXAMPLE_MC;
 
   function parseAndValidate(text: string): ImportPayload | null {
     let data: unknown;
@@ -139,7 +207,7 @@ export default function Author() {
   }
 
   function copyPrompt() {
-    navigator.clipboard.writeText(PROMPT_TEMPLATE);
+    navigator.clipboard.writeText(promptTemplate);
     setSuccess('Prompt copiado. Cole no Claude junto com o PDF.');
     setTimeout(() => setSuccess(null), 2500);
   }
@@ -160,10 +228,28 @@ export default function Author() {
 
       <section className="card p-6">
         <h2 className="mb-3 font-serif text-2xl italic text-wine-deep">1. Gere o JSON com o Claude</h2>
-        <p className="mb-4 text-sm text-ink-soft">
-          Cole o prompt abaixo numa conversa nova com o Claude, junto com o PDF dela. Ele devolve
-          um JSON pronto pra importar.
+        <p className="mb-4 text-sm leading-relaxed text-ink-soft">
+          Escolha o tipo de questão, copie o prompt e cole numa conversa nova com o Claude,
+          junto com o material. Ele devolve um JSON pronto pra importar.
         </p>
+
+        <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <KindCard
+            active={kind === 'mc'}
+            onClick={() => setKind('mc')}
+            Icon={BookOpenCheck}
+            title="Múltipla escolha"
+            description="4 alternativas + explicação. Para qualquer matéria a partir de um PDF/resumo."
+          />
+          <KindCard
+            active={kind === 'ecg'}
+            onClick={() => setKind('ecg')}
+            Icon={Activity}
+            title="Eletrocardiograma"
+            description="Análise ponto a ponto + diagnóstico. Escolhe um dos 9 traçados disponíveis."
+          />
+        </div>
+
         <div className="flex flex-wrap gap-3">
           <button onClick={() => setShowPrompt((s) => !s)} className="btn-secondary">
             {showPrompt ? 'Esconder prompt' : 'Ver prompt completo'}
@@ -172,7 +258,7 @@ export default function Author() {
         </div>
         {showPrompt && (
           <pre className="mt-4 max-h-96 overflow-auto rounded-xl border border-line bg-bg-soft p-4 text-xs text-ink">
-            {PROMPT_TEMPLATE}
+            {promptTemplate}
           </pre>
         )}
       </section>
@@ -189,7 +275,7 @@ export default function Author() {
           <input ref={fileRef} type="file" accept=".json,application/json" className="hidden" onChange={handleFile} />
           <button
             onClick={() => {
-              setRaw(EXAMPLE);
+              setRaw(exampleJson);
               setError(null);
             }}
             className="btn-ghost text-xs uppercase tracking-wider"
@@ -248,5 +334,39 @@ export default function Author() {
         )}
       </section>
     </div>
+  );
+}
+
+interface KindCardProps {
+  active: boolean;
+  onClick: () => void;
+  Icon: typeof Activity;
+  title: string;
+  description: string;
+}
+
+function KindCard({ active, onClick, Icon, title, description }: KindCardProps) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`group min-h-touch rounded-xl border p-4 text-left transition active:scale-[0.99] ${
+        active
+          ? 'border-wine bg-rose-soft/40 shadow-soft'
+          : 'border-line bg-bg-soft hover:border-wine hover:bg-paper'
+      }`}
+    >
+      <div className="mb-1.5 flex items-center gap-2.5">
+        <span
+          className={`inline-flex h-9 w-9 items-center justify-center rounded-full transition ${
+            active ? 'bg-wine text-white' : 'bg-paper text-wine'
+          }`}
+        >
+          <Icon className="h-[18px] w-[18px]" strokeWidth={1.75} />
+        </span>
+        <h3 className="font-serif text-lg italic text-wine-deep">{title}</h3>
+      </div>
+      <p className="text-sm leading-relaxed text-ink-soft">{description}</p>
+    </button>
   );
 }
