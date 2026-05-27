@@ -1,0 +1,34 @@
+{
+  "title": "Nome da matéria",
+  "description": "Resumo do conteúdo coberto",
+  "icon": "📘",
+  "color": "wine",
+  "questions": [
+    {
+      "topic": "Subtópico A",
+      "q": "Enunciado da primeira questão...",
+      "options": [
+        "Alternativa A",
+        "Alternativa B",
+        "Alternativa C",
+        "Alternativa D"
+      ],
+      "correct": 1,
+      "expl": "Explicação detalhada de por que a alternativa B é a correta, citando dados do material.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Subtópico B",
+      "q": "Enunciado da segunda questão...",
+      "options": [
+        "Alternativa A",
+        "Alternativa B",
+        "Alternativa C",
+        "Alternativa D"
+      ],
+      "correct": 0,
+      "expl": "Explicação detalhada de por que a alternativa A é a correta.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,359 @@
+{
+  "title": "Hipertensão Arterial",
+  "description": "Diagnóstico (consultório, MAPA, MRPA), fenótipos, classes terapêuticas, HAS resistente e emergências hipertensivas.",
+  "icon": "💗",
+  "color": "rose",
+  "questions": [
+    {
+      "topic": "Diagnóstico",
+      "q": "Sobre o diagnóstico da HAS pela Sociedade Brasileira de Cardiologia (SBC) com base na PA de CONSULTÓRIO, qual o critério atual?",
+      "options": [
+        "PAS >= 120 e/ou PAD >= 70 mmHg em uma única visita",
+        "PAS >= 140 e/ou PAD >= 90 mmHg em pelo menos 2 visitas, com técnica correta e sem uso de anti-hipertensivos",
+        "PAS >= 130 e/ou PAD >= 80 mmHg em uma única visita",
+        "PAS >= 160 e/ou PAD >= 100 mmHg em qualquer medida isolada"
+      ],
+      "correct": 1,
+      "expl": "Pela SBC e pela ESC, o diagnóstico de HAS por PA de consultório requer PAS >= 140 e/ou PAD >= 90 mmHg em pelo menos 2 visitas, com técnica correta e sem uso de anti-hipertensivos. A AHA adota critério mais estrito (130/80). Também fecham diagnóstico: PA >= 180/110 mmHg (SBC) ou >= 160/100 (AHA) e PA elevada associada a lesão de órgão alvo ou doença cardiovascular.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Diagnóstico",
+      "q": "Quais são as duas situações em que NÃO é necessário solicitar MAPA ou MRPA para CONFIRMAR o diagnóstico de HAS, de acordo com a SBC?",
+      "options": [
+        "Qualquer medida isolada em consultório acima de 130/80 mmHg",
+        "PA >= 180/110 mmHg (SBC) ou 160/100 (AHA), OU presença de lesão de órgão alvo / doença cardiovascular associada à PA elevada",
+        "Apenas dor torácica e dispneia em consulta de rotina",
+        "Apenas em pacientes com mais de 80 anos"
+      ],
+      "correct": 1,
+      "expl": "Duas situações fecham diagnóstico de HAS sem necessidade de MAPA ou MRPA: PA muito elevada (>= 180/110 mmHg pela SBC ou >= 160/100 pela AHA) ou PA elevada associada a lesão de órgão alvo ou doença cardiovascular já estabelecida. Nessas situações, ainda assim, a MAPA ou MRPA podem ser úteis posteriormente para avaliar eficácia das medicações.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "MAPA",
+      "q": "Sobre os pontos de corte da MAPA de 24h, qual a correspondência correta?",
+      "options": [
+        "SBC: >= 130/80 mmHg na média de 24h; AHA: >= 125/75 mmHg na média de 24h",
+        "SBC: >= 140/90 mmHg; AHA: >= 135/85 mmHg",
+        "SBC: >= 150/95 mmHg; AHA: >= 140/90 mmHg",
+        "Não há cutoff específico para MAPA"
+      ],
+      "correct": 0,
+      "expl": "Os pontos de corte para MAPA de 24h são: SBC adota >= 130/80 mmHg como média de 24h, e a AHA adota >= 125/75 mmHg como média. A MAPA é fundamental para diagnóstico de hipertensão do avental branco e hipertensão mascarada, e para avaliar o descenso noturno.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "MRPA",
+      "q": "Como deve ser realizada a MRPA conforme as diretrizes?",
+      "options": [
+        "Apenas 1 medida ao acordar por 2 dias seguidos",
+        "Por 4 a 7 dias, com 2 a 3 medidas pela manhã (em jejum e antes da medicação) e 2 a 3 antes de dormir; média de todas as aferições EXCLUINDO as do 1º dia, com cutoff de 130/80 mmHg pela SBC e AHA",
+        "Apenas durante consulta médica, em pé",
+        "Por 30 dias seguidos, sempre ao meio-dia"
+      ],
+      "correct": 1,
+      "expl": "A MRPA (Monitorização Residencial da PA) deve ser feita por 4 a 7 dias, com 2 a 3 aferições pela manhã (em jejum e antes da medicação) e 2 a 3 antes de dormir. Faz-se a média de todas as aferições, EXCLUINDO as do primeiro dia (que servem para adaptação). O ponto de corte para diagnóstico é >= 130/80 mmHg, tanto pela SBC quanto pela AHA.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Fenótipos",
+      "q": "Sobre os FENÓTIPOS de PA, qual descreve corretamente a HIPERTENSÃO DO AVENTAL BRANCO e a HIPERTENSÃO MASCARADA?",
+      "options": [
+        "Avental branco: PA normal em consultório e alta em MAPA. Mascarada: PA alta em consultório e normal em MAPA",
+        "Avental branco: PA alta em consultório e normal em MAPA. Mascarada: PA normal em consultório e alta em MAPA",
+        "Ambas têm PA alta em todas as medidas",
+        "Ambas têm PA normal em todas as medidas"
+      ],
+      "correct": 1,
+      "expl": "Na HIPERTENSÃO DO AVENTAL BRANCO, a PA está alta no consultório, mas normal fora dele (MAPA/MRPA). Por exemplo: consultório 146/94 mmHg, MAPA 118/77 mmHg. Na HIPERTENSÃO MASCARADA, a PA é normal no consultório, mas elevada fora (MAPA/MRPA). Por exemplo: consultório 130/80 mmHg, MAPA 144/96 mmHg. Ambos justificam o uso de MAPA/MRPA na investigação.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Avaliação vascular",
+      "q": "Sobre o Índice Tornozelo-Braquial (ITB), qual a classificação correta?",
+      "options": [
+        "Normal > 1,4; obstrução leve 1,0 a 1,4; obstrução grave < 1,0",
+        "Normal > 0,90; obstrução leve 0,71 a 0,90; obstrução moderada 0,41 a 0,70; obstrução grave <= 0,40",
+        "Normal > 0,40; obstrução grave > 0,90",
+        "Não há valores definidos para ITB"
+      ],
+      "correct": 1,
+      "expl": "Os valores de ITB são: normal > 0,90, obstrução leve 0,71 a 0,90, obstrução moderada 0,41 a 0,70, obstrução grave <= 0,40. O ITB é importante para investigar doença arterial periférica em pacientes hipertensos, especialmente quando há sintomas de claudicação intermitente.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Sobre a META de pressão arterial recomendada para o tratamento, qual está correta?",
+      "options": [
+        "PA < 160/100 mmHg para todos",
+        "PA < 130/80 mmHg para todos, conforme estratificação de risco",
+        "PA < 110/70 mmHg em todos os idosos",
+        "Não há meta definida"
+      ],
+      "correct": 1,
+      "expl": "A meta atual de PA é < 130/80 mmHg para todos os pacientes hipertensos, conforme estratificação de risco. Nas Emergências Hipertensivas, a redução deve ser cuidadosa: cerca de 10 a 20 por cento da PAM na primeira hora, e mais 5 a 15 por cento nas próximas 23 horas, para evitar hipoperfusão de órgãos com autorregulação comprometida.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Qual destas combinações é PREFERENCIAL como tratamento inicial da HAS?",
+      "options": [
+        "Apenas betabloqueador isolado para todos",
+        "IECA de longa ação OU BRA mais bloqueador de canal de cálcio de longa ação diidropiridínico (em diabéticos e portadores de DRC, preferir IECA ou BRA)",
+        "Espironolactona como monoterapia inicial",
+        "Hidralazina mais clonidina como esquema inicial"
+      ],
+      "correct": 1,
+      "expl": "A combinação preferencial inicial é IECA de longa ação OU BRA mais bloqueador de canal de cálcio diidropiridínico de longa ação OU tiazídico. Em idosos e negros, prefere-se bloqueador de canal de cálcio e tiazídicos. Em DRC e DM, prefere-se IECA ou BRA. NÃO se associam IECA e BRA. As classes têm eficácia anti-hipertensiva semelhante.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "HAS resistente",
+      "q": "Qual a definição de HAS RESISTENTE segundo as diretrizes brasileiras?",
+      "options": [
+        "PA não controlada com 2 anti-hipertensivos",
+        "PA de consultório não controlada apesar do uso de 3 ou mais anti-hipertensivos em doses adequadas (incluindo preferencialmente um diurético), OU paciente em uso de 4 ou mais medicamentos com controle pressórico",
+        "PA elevada apenas em casa",
+        "PA controlada apenas com mudanças de estilo de vida"
+      ],
+      "correct": 1,
+      "expl": "HAS RESISTENTE é definida como PA de consultório não controlada apesar do uso de 3 ou mais anti-hipertensivos em doses adequadas (incluindo preferencialmente um diurético), OU paciente em uso de 4 ou mais medicamentos com controle pressórico. Representa cerca de 12 por cento dos hipertensos. HAS REFRATÁRIA é PA não controlada com 5 ou mais anti-hipertensivos (3,6 por cento).",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "HAS resistente",
+      "q": "Qual é a 4ª droga de escolha para HAS RESISTENTE verdadeira?",
+      "options": [
+        "Hidralazina",
+        "Espironolactona, antagonista da aldosterona",
+        "Metildopa",
+        "Clonidina"
+      ],
+      "correct": 1,
+      "expl": "A espironolactona, antagonista da aldosterona, é a medicação de escolha como 4ª droga em HAS resistente verdadeira. Após esquema inicial de IECA/BRA mais tiazídico mais bloqueador de canal de cálcio sem controle, adiciona-se espironolactona. A 5ª droga é o betabloqueador, e nas linhas seguintes vêm alfa agonistas centrais (metildopa, clonidina) e vasodilatadores diretos (hidralazina).",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "HAS secundária",
+      "q": "Quais são as causas mais frequentes de HAS SECUNDÁRIA em pacientes com HAS resistente?",
+      "options": [
+        "Hipotireoidismo e anemia ferropriva",
+        "Apneia obstrutiva do sono, hiperaldosteronismo primário e estenose de artéria renal",
+        "Tabagismo e etilismo isolados",
+        "Cefaleia tensional e ansiedade"
+      ],
+      "correct": 1,
+      "expl": "Em HAS resistente verdadeira, deve-se investigar as causas mais frequentes de HAS secundária: apneia obstrutiva do sono (25-50% dos casos), hiperaldosteronismo primário (5-25%) e estenose de artéria renal (geralmente aterosclerótica, 0,1-5%, ou displasia fibromuscular). Outras causas (hipotireoidismo, feocromocitoma, Cushing) são investigadas quando o quadro clínico for sugestivo.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "HAS resistente",
+      "q": "Sobre HAS PSEUDO-RESISTENTE, qual a principal causa?",
+      "options": [
+        "Apenas má técnica de aferição da PA",
+        "Má adesão medicamentosa (50 a 80 por cento dos pacientes não aderem total ou parcialmente), má técnica de medição da PA e esquema terapêutico inadequado",
+        "Resistência verdadeira a todas as drogas",
+        "Síndrome de Cushing oculta"
+      ],
+      "correct": 1,
+      "expl": "A pseudo-resistência tem três causas principais: má adesão medicamentosa (estimada em 50 a 80 por cento dos pacientes que não aderem total ou parcialmente), má técnica de medição da PA (efeito do avental branco, aparelho inadequado) e esquema terapêutico inadequado (subdoses, combinação não otimizada). Antes de classificar como HAS resistente verdadeira, sempre excluir pseudo-resistência.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Emergências",
+      "q": "Qual a definição de EMERGÊNCIA HIPERTENSIVA, e qual o manejo geral?",
+      "options": [
+        "PA elevada qualquer, sem importância clínica, tratada apenas em casa",
+        "PA elevada (geralmente PAS >= 180 ou PAD >= 110 mmHg) ASSOCIADA a lesão AGUDA de órgão alvo, requer internação e tratamento PARENTERAL",
+        "PA leve com cefaleia, tratada com captopril sublingual",
+        "PA elevada assintomática sem necessidade de hospitalização"
+      ],
+      "correct": 1,
+      "expl": "EMERGÊNCIA HIPERTENSIVA é PA elevada (geralmente PAS >= 180 ou PAD >= 110 mmHg) ASSOCIADA a lesão AGUDA de órgão alvo (cérebro, coração, rins, retina, vasos), requerendo internação e tratamento PARENTERAL. A redução deve ser de cerca de 10 a 20 por cento da PAM na primeira hora e mais 5 a 15 por cento nas próximas 23 horas, para evitar hipoperfusão.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Pseudocrise",
+      "q": "Sobre a PSEUDOCRISE HIPERTENSIVA, qual conduta é correta?",
+      "options": [
+        "Internação imediata e tratamento parenteral agressivo",
+        "Identificar o fator desencadeante (dor, ansiedade, enxaqueca, doença febril aguda), tratar a causa de base e tranquilizar o paciente; não é necessário reduzir a PA agressivamente",
+        "Sempre prescrever captopril sublingual em alta dose",
+        "Indicar PL imediata"
+      ],
+      "correct": 1,
+      "expl": "PSEUDOCRISE HIPERTENSIVA é elevação aguda da PA (geralmente < 180/110) associada a fatores como dor, ansiedade, enxaqueca, cefaleia tensional, labirintopatia aguda e doença febril. A conduta é tratar a causa de base e tranquilizar o paciente, NÃO se deve reduzir a PA agressivamente. Em repouso, a PA frequentemente cai >= 20/10 mmHg em cerca de 1/3 desses pacientes.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Urgências",
+      "q": "Em HIPERTENSÃO GRAVE ASSINTOMÁTICA (PA >= 180/110, sem lesão aguda de órgão alvo), qual a abordagem?",
+      "options": [
+        "Internação em UTI e drogas EV agressivas",
+        "Abaixar a PA em HORAS A DIAS para < 160/100 mmHg ou em 25-30 por cento do valor inicial, com acompanhamento ambulatorial regular até ajuste",
+        "Não tratar, pois é apenas variação fisiológica",
+        "Punção lombar imediata para descartar HIC"
+      ],
+      "correct": 1,
+      "expl": "Na hipertensão grave assintomática (sem lesão aguda), reduzir rapidamente pode SUPERAR a autorregulação dos órgãos, aumentando risco de infarto e AVC. A abordagem é abaixar a PA em horas a dias para < 160/100 ou em 25 a 30 por cento do valor inicial. Em horas, alguns usam clonidina ou captopril oral; em dias, iniciar ou reiniciar tratamento anti-hipertensivo ambulatorial.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Emergências",
+      "q": "No tratamento da DISSECÇÃO AGUDA DE AORTA, qual a estratégia de redução da PA?",
+      "options": [
+        "Reduzir PA lentamente em 24 horas para 160/100 mmHg",
+        "Tentar baixar a PA RAPIDAMENTE em cerca de 20 minutos, com alvos de PAS 120 mmHg e FC 55-60 bpm, baixando FC ANTES do início de vasodilatadores",
+        "Apenas usar diurético oral",
+        "Manter PA elevada para perfundir o falso lúmen"
+      ],
+      "correct": 1,
+      "expl": "Na dissecção aguda de aorta, deve-se baixar a PA RAPIDAMENTE, em cerca de 20 minutos. Alvos: PAS 120 mmHg e FC 55-60 bpm. É fundamental baixar a FC ANTES do início de vasodilatadores, pelo risco de taquicardia reflexa e piora da dissecção. Tipicamente usa-se um betabloqueador EV antes do nitroprussiato.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Emergências",
+      "q": "No EDEMA AGUDO DE PULMÃO HIPERTENSIVO, qual a combinação medicamentosa de escolha?",
+      "options": [
+        "Apenas furosemida oral",
+        "Nitroprussiato (ou nitroglicerina se o paciente for coronariopata) associado à furosemida",
+        "Hidralazina mais propranolol",
+        "Captopril sublingual mais espironolactona"
+      ],
+      "correct": 1,
+      "expl": "No edema agudo de pulmão hipertensivo, as drogas de escolha são nitroprussiato (vasodilatador potente que reduz pré e pós-carga), ou nitroglicerina se o paciente for coronariopata (efeito predominante venoso e coronariodilatação), associados à furosemida EV para reduzir congestão. O suporte ventilatório (VNI) também é importante.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Emergências",
+      "q": "No AVC ISQUÊMICO, candidato à trombólise, em que valor de PA se inicia tratamento anti-hipertensivo, e qual a meta de redução?",
+      "options": [
+        "Iniciar se PA > 130/80 mmHg, reduzindo para 90/60 mmHg",
+        "Iniciar se PA > 185/110 mmHg, para possibilitar trombólise; reduzir 10 a 15 por cento da PAM em 24 horas",
+        "Iniciar apenas se PA > 250/150 mmHg",
+        "Não tratar a PA nunca"
+      ],
+      "correct": 1,
+      "expl": "No AVC isquêmico, paciente CANDIDATO à trombólise, inicia-se anti-hipertensivo se PA > 185/110 mmHg, para possibilitar a trombólise. Reduzir 10 a 15 por cento da PAM em 24 horas. Em paciente NÃO candidato à trombólise, inicia-se apenas se > 220/120 mmHg, com mesma meta de redução. Manter PA mais elevada preserva perfusão da área de penumbra.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Emergências",
+      "q": "No AVC HEMORRÁGICO, qual o limiar para iniciar anti-hipertensivos e qual o alvo de PA?",
+      "options": [
+        "Iniciar se PAS > 250 mmHg, alvo de PAS 90 mmHg",
+        "Iniciar se PAS > 180 mmHg e/ou PAD > 105 mmHg; alvo 140/90 mmHg, EVITANDO PAS abaixo de 130 mmHg (pior desfecho neurológico)",
+        "Iniciar se PAS > 140 mmHg, alvo de PAS 100 mmHg",
+        "Não tratar nunca"
+      ],
+      "correct": 1,
+      "expl": "No AVC hemorrágico, iniciar anti-hipertensivos se PAS > 180 mmHg e/ou PAD > 105 mmHg. O alvo é 140/90 mmHg, EVITANDO PAS abaixo de 130 mmHg, que pode piorar desfechos neurológicos por redução excessiva da perfusão cerebral em áreas com autorregulação comprometida.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Crises adrenérgicas",
+      "q": "Em CRISES ADRENÉRGICAS GRAVES, como a crise do feocromocitoma ou dose excessiva de simpatomiméticos, qual classe NÃO deve ser usada isoladamente?",
+      "options": [
+        "Alfabloqueador",
+        "Nitroprussiato",
+        "Betabloqueador isoladamente (bloqueia beta, predomina vasoconstrição alfa), com piora do quadro",
+        "Diurético de alça"
+      ],
+      "correct": 2,
+      "expl": "Em crises adrenérgicas graves (feocromocitoma, abuso de simpatomiméticos como cocaína), NÃO se deve usar betabloqueador isoladamente: ao bloquear o estímulo beta vasodilatador, predomina a vasoconstrição alfa, agravando a hipertensão. Trata-se primeiro com alfabloqueador (fentolamina) ou vasodilatador (nitroprussiato), e só depois, se necessário, se adiciona betabloqueador.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "HAS acelerada-maligna",
+      "q": "Sobre a HIPERTENSÃO ACELERADA-MALIGNA, qual achado clínico-laboratorial é típico?",
+      "options": [
+        "Mortalidade muito baixa, mesmo sem tratamento",
+        "Lesão endotelial com anemia hemolítica microangiopática, comprometimento de retina (exsudatos na acelerada, edema de papila na maligna), cérebro, coração, rins e sistema vascular; mortalidade de 90 por cento sem tratamento",
+        "Sem comprometimento renal nunca",
+        "Sempre cursa com PA normal"
+      ],
+      "correct": 1,
+      "expl": "A hipertensão acelerada-maligna acomete retina, cérebro, coração, rins e sistema vascular. Cursa com lesão endotelial, que pode causar anemia hemolítica microangiopática. Os achados de fundo de olho diferenciam: exsudatos na forma acelerada e edema de papila na maligna. Sem tratamento, a mortalidade chega a 90 por cento. É emergência hipertensiva e exige tratamento parenteral imediato.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Fisiopatologia",
+      "q": "Sobre a fisiopatologia da HAS, qual mecanismo é DIRETAMENTE responsável pelo aumento da pós-carga por vasoconstrição?",
+      "options": [
+        "Diminuição da atividade simpática",
+        "Aumento da atividade simpática (vasoconstrição), aumento da atividade do SRAA (retenção de Na e H2O) e diminuição da elasticidade arterial",
+        "Diminuição da ingesta de sódio",
+        "Aumento da elasticidade arterial"
+      ],
+      "correct": 1,
+      "expl": "Os mecanismos fisiopatológicos clássicos da HAS são: diminuição da elasticidade arterial (que leva à hipertensão sistólica isolada do idoso), aumento da atividade simpática (causando vasoconstrição e aumento da pós-carga), aumento da atividade do SRAA (com retenção de sódio e água) e aumento da ingesta de sódio (com retenção de água). Esses fatores se combinam em proporções variáveis em cada paciente.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Emergências",
+      "q": "Sobre o tratamento das EMERGÊNCIAS HIPERTENSIVAS, qual a estratégia geral de redução da PAM?",
+      "options": [
+        "Reduzir a PAM em 100 por cento na primeira hora",
+        "Reduzir a PAM em 10 a 20 por cento na primeira hora, e 5 a 15 por cento adicionais nas próximas 23 horas",
+        "Reduzir a PAM em 80 por cento na primeira hora",
+        "Não reduzir a PAM, apenas tratar sintomas"
+      ],
+      "correct": 1,
+      "expl": "Como regra geral em Emergências Hipertensivas, a PAM (calculada por (PAS + 2 x PAD) / 3) deve ser reduzida gradualmente em cerca de 10 a 20 por cento na primeira hora, e mais 5 a 15 por cento nas próximas 23 horas. Reduções mais agressivas podem causar hipoperfusão de órgãos com autorregulação comprometida (cérebro, coração, rins). Exceções: dissecção de aorta (reduzir mais rápido) e AVC (alvos específicos).",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Caso clínico",
+      "q": "Em paciente com IECA + tiazídico + bloqueador de canal de cálcio em doses otimizadas, com MRPA mantendo PA acima da meta e em uso correto das medicações, qual o diagnóstico e a conduta?",
+      "options": [
+        "HAS controlada, manter tratamento",
+        "HAS pseudo-resistente, suspender medicações",
+        "HAS resistente; investigar causas secundárias (apneia do sono, hiperaldo, estenose A. renal) e adicionar espironolactona como 4ª droga",
+        "Hipertensão do avental branco, suspender drogas"
+      ],
+      "correct": 2,
+      "expl": "Paciente com 3 drogas em doses otimizadas (incluindo um diurético) e PA fora da meta documentada por MRPA (afastando avental branco), com adesão e técnica adequadas, configura HAS RESISTENTE VERDADEIRA. A conduta é investigar causas secundárias (apneia do sono, hiperaldosteronismo primário, estenose de artéria renal) e adicionar espironolactona como 4ª droga.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Sobre o uso de IECA e BRA na HAS, qual associação está CONTRAINDICADA?",
+      "options": [
+        "IECA + bloqueador de canal de cálcio",
+        "BRA + tiazídico",
+        "IECA + BRA (não devem ser usados juntos)",
+        "IECA + diurético tiazídico"
+      ],
+      "correct": 2,
+      "expl": "IECA e BRA NÃO devem ser usados juntos: a associação aumenta o risco de hipercalemia, hipotensão e disfunção renal, sem ganho clínico relevante. Ambos podem ser combinados com diuréticos, bloqueadores de canal de cálcio e outras classes. O sacubitril-valsartan, que contém BRA, também não pode ser associado a IECA, exigindo washout de 36 horas na troca.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Diuréticos",
+      "q": "Qual a indicação preferencial de DIURÉTICOS DE ALÇA (ex.: furosemida) na HAS?",
+      "options": [
+        "Primeira linha em todo paciente hipertenso",
+        "Estados edematosos: insuficiência cardíaca descompensada e síndrome nefrótica",
+        "Pacientes com hipocalemia",
+        "Pacientes assintomáticos em consulta de rotina"
+      ],
+      "correct": 1,
+      "expl": "Os diuréticos de alça (furosemida, bumetanida, torsemida) são indicados em estados edematosos: insuficiência cardíaca descompensada e síndrome nefrótica. Não são primeira linha em HAS não complicada (tiazídicos são preferidos em HAS). Também são úteis em DRC avançada. Espironolactona é a escolha em HAS resistente (4ª droga), ICFER, hiperaldosteronismo e cirrose com ascite.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "HAS refratária",
+      "q": "Sobre a HAS REFRATÁRIA, qual a definição e a frequência aproximada?",
+      "options": [
+        "PA não controlada com 5 ou mais anti-hipertensivos; cerca de 3,6 por cento dos hipertensos",
+        "PA não controlada com 1 droga; 50 por cento dos hipertensos",
+        "PA elevada por estresse no consultório apenas",
+        "PA elevada por má técnica de medição"
+      ],
+      "correct": 0,
+      "expl": "HAS REFRATÁRIA é definida como PA não controlada sob uso de 5 ou mais anti-hipertensivos, representando cerca de 3,6 por cento dos hipertensos. É uma forma ainda mais grave que a HAS resistente (que afeta 12 por cento dos hipertensos). Nesses casos, considera-se 6ª a 7ª linha com alfa agonistas centrais (metildopa, clonidina) e vasodilatadores diretos (hidralazina).",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "title": "Meningites",
+  "description": "Síndrome meníngea, LCR, esquemas empíricos, quimioprofilaxia e armadilhas clínicas.",
+  "icon": "🧠",
+  "color": "wine",
+  "questions": [
+    {
+      "topic": "Avaliação inicial",
+      "q": "Quais são os red flags em um paciente com síndrome meníngea que aumentam a gravidade e exigem investigação imediata?",
+      "options": [
+        "Cefaleia leve isolada e fotofobia discreta",
+        "Sinais focais, crise convulsiva, papiledema, imunossupressão, exantema petequial ou púrpura, e instabilidade hemodinâmica",
+        "Mialgia generalizada e febre baixa",
+        "Náusea pós-prandial e tontura postural"
+      ],
+      "correct": 1,
+      "expl": "Os red flags na síndrome meníngea incluem sinais focais, crise convulsiva, papiledema, imunossupressão (transplante, corticoide, biológicos), idade avançada/alcoolismo/gravidez, exantema petequial ou púrpura (sugere meningococcemia) e instabilidade hemodinâmica/sepse. Esses achados modificam o algoritmo e a urgência da abordagem.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Diagnóstico",
+      "q": "Sobre a indicação de TC de crânio ANTES da punção lombar (PL) em meningite, qual conduta é correta?",
+      "options": [
+        "Indicar TC para todos os pacientes com cefaleia e febre, independentemente do exame",
+        "Realizar TC antes da PL em casos selecionados (imunodepressão, história de doença do SNC, convulsão recente, alteração do nível de consciência, déficit focal, papiledema, sinais de herniação), porém SEM atrasar o antibiótico",
+        "Sempre fazer TC antes da PL em qualquer suspeita, mesmo que isso atrase o antibiótico em horas",
+        "Nunca indicar TC, pois a PL é segura em todos os contextos"
+      ],
+      "correct": 1,
+      "expl": "A TC antes da PL é indicada em situações de risco para hipertensão intracraniana ou lesão expansiva: imunodepressão, história prévia de doença do SNC (tumor, AVC, abscesso), convulsão recente, alteração do nível de consciência, déficit neurológico focal, papiledema e sinais de herniação. Regra de ouro: NÃO atrasar o antibiótico. Hemoculturas e antibiótico empírico vêm primeiro se a TC vai demorar.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "LCR",
+      "q": "Quais achados liquóricos são MAIS sugestivos de meningite BACTERIANA?",
+      "options": [
+        "100 a 1000 células com predomínio linfocitário, proteína 50 a 150 mg/dL, glicose normal e lactato normal",
+        "1000 a 5000 células com predomínio de neutrófilos (PMN), proteína 100 a 500 mg/dL, glicose menor que 40 mg/dL ou menor que 40 por cento da sérica, e lactato maior que 3,5 mmol/L",
+        "Pleocitose ausente, proteína normal e glicose elevada",
+        "Líquor xantocrômico com poucas células e glicose normal"
+      ],
+      "correct": 1,
+      "expl": "O padrão liquórico clássico da meningite bacteriana é: 1000 a 5000 células com predomínio de neutrófilos (PMN), proteína entre 100 e 500 mg/dL, glicose abaixo de 40 mg/dL ou menor que 40 por cento da sérica, pressão de abertura acima de 20 cmH2O e lactato acima de 3,5 mmol/L. A meningite viral cursa com pleocitose linfocitária, proteína menos elevada e glicose normal.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "LCR",
+      "q": "Em meningites por TB ou fúngicas, qual padrão liquórico é tipicamente encontrado?",
+      "options": [
+        "Predomínio neutrofílico com glicose elevada",
+        "Predomínio linfocitário, proteína muito aumentada, glicose baixa e pressão de abertura frequentemente elevada",
+        "Líquor totalmente normal",
+        "Hemorragia subaracnoidea com xantocromia"
+      ],
+      "correct": 1,
+      "expl": "Meningites por TB ou fúngicas (especialmente criptocócica) cursam com pleocitose de predomínio linfocitário, proteína muito aumentada e glicose diminuída, com pressão de abertura frequentemente elevada (no criptococo pode ser muito alta, demandando punções seriadas ou derivação). Em imunodeprimidos o LCR pode ser pouco inflamatório, e não se deve descartar meningite por LCR pobre.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Tratamento empírico",
+      "q": "Qual é o esquema empírico adequado para meningite bacteriana em ADULTO IMUNOCOMPETENTE entre 18 e 50 anos, em cenário comunitário?",
+      "options": [
+        "Apenas amoxicilina oral em alta dose",
+        "Ceftriaxona ou cefotaxima associada à vancomicina, com ou sem dexametasona",
+        "Penicilina cristalina como monoterapia",
+        "Meropenem isolado em todos os casos"
+      ],
+      "correct": 1,
+      "expl": "Para adulto entre 18 e 50 anos, em cenário comunitário e imunocompetente, o esquema empírico é ceftriaxona 2 g 12/12h (ou cefotaxima 2 g 4/4 a 6/6h) associada à vancomicina (15 a 20 mg/kg IV 8/8 a 12/12h, até sair o antibiograma), com ou sem dexametasona. Em maiores de 50 anos, gestantes ou risco de Listeria, adiciona-se ampicilina.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Tratamento empírico",
+      "q": "Em qual situação clínica deve-se adicionar AMPICILINA ao esquema empírico inicial da meningite bacteriana, e em que dose?",
+      "options": [
+        "Apenas em recém-nascidos, na dose de 50 mg/kg em dose única",
+        "Em pacientes acima de 50 anos, gestantes ou outras situações de risco para Listeria, na dose de 2 g IV de 4 em 4 horas por 21 dias",
+        "Em adultos jovens hígidos, na dose de 1 g de 12 em 12 horas por 7 dias",
+        "Nunca, pois a ampicilina não tem indicação em meningites"
+      ],
+      "correct": 1,
+      "expl": "A ampicilina deve ser adicionada ao esquema quando há risco para Listeria monocytogenes: pacientes acima de 50 anos, gestantes, imunodeprimidos e neonatos. A dose é 2 g IV de 4 em 4 horas por cerca de 21 dias. Outras situações exigem ajustes: pós-neurocirurgia/derivação requer cobertura para MRSA e Pseudomonas (vancomicina mais cefepime ou ceftazidima ou meropenem).",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Sobre o uso da DEXAMETASONA na meningite bacteriana, qual a posologia correta?",
+      "options": [
+        "1 mg/kg em dose única apenas",
+        "0,15 mg/kg a cada 6 horas por 4 dias, ANTES ou JUNTO com a primeira dose do antibiótico",
+        "10 mg em dose única após 48 horas do antibiótico",
+        "Não há indicação de dexametasona em meningite bacteriana"
+      ],
+      "correct": 1,
+      "expl": "A dexametasona é indicada na meningite bacteriana (principalmente pneumocócica), na dose de 0,15 mg/kg a cada 6 horas por 4 dias, devendo ser administrada ANTES ou JUNTO com a primeira dose do antibiótico para reduzir resposta inflamatória e melhorar desfechos. Após o início do antibiótico ela perde a maior parte do benefício.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Quimioprofilaxia",
+      "q": "Sobre a quimioprofilaxia para contatos próximos de meningite meningocócica, qual a recomendação clássica de primeira linha?",
+      "options": [
+        "Amoxicilina 500 mg por 10 dias",
+        "Rifampicina 600 mg de 12 em 12 horas por 2 dias (total 4 doses) em adultos",
+        "Penicilina benzatina em dose única",
+        "Não há indicação de quimioprofilaxia"
+      ],
+      "correct": 1,
+      "expl": "O esquema clássico de quimioprofilaxia para meningococo é rifampicina 600 mg VO de 12 em 12 horas por 2 dias (4 doses totais) em adultos. Alternativas: ciprofloxacino 500 mg VO em dose única; ceftriaxona 250 mg IM dose única (preferida em gestantes, pois a rifampicina é contraindicada e pode reduzir eficácia de anticoncepcionais orais). Em crianças as doses são ajustadas pelo peso.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Quimioprofilaxia",
+      "q": "Quais contatos do paciente com meningite meningocócica devem receber QUIMIOPROFILAXIA?",
+      "options": [
+        "Apenas colegas de trabalho casuais",
+        "Moradores da mesma casa, parceiros íntimos, pessoas com contato direto com secreções orais e profissionais de saúde expostos sem EPI adequado",
+        "Toda a comunidade onde o paciente estuda ou trabalha",
+        "Somente a pessoa que diagnosticou o caso"
+      ],
+      "correct": 1,
+      "expl": "Recebem quimioprofilaxia para meningococo: moradores da mesma casa, parceiros íntimos, pessoas com contato direto com secreções orais e profissionais de saúde expostos sem EPI adequado (durante manobras como intubação, aspiração ou exame oral próximo). Contatos casuais não são alvo. O isolamento respiratório do paciente é por 24 horas após antibiótico efetivo.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Casos complicados",
+      "q": "Em paciente com meningococcemia e hipotensão, sinais de coagulação intravascular disseminada e exantema petequial extenso, qual síndrome adrenal deve ser ativamente investigada e tratada?",
+      "options": [
+        "Síndrome de Sheehan",
+        "Síndrome de Waterhouse-Friderichsen, com hidrocortisona 100 mg IV de 8 em 8 horas em caso de suspeita de insuficiência adrenal",
+        "Síndrome de Addison clássica",
+        "Síndrome de Conn"
+      ],
+      "correct": 1,
+      "expl": "Na meningococcemia grave deve-se avaliar a Síndrome de Waterhouse-Friderichsen, que é hemorragia bilateral das suprarrenais com insuficiência adrenal aguda. Se houver suspeita, indica-se hidrocortisona 100 mg IV de 8 em 8 horas. O manejo inclui ainda suporte hemodinâmico (cristaloide 30 mL/kg em 3 horas, noradrenalina se PAM abaixo de 65) e manejo da CIVD (plaquetas se abaixo de 50.000 com sangramento, crioprecipitado se fibrinogênio abaixo de 150).",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Etiologia",
+      "q": "Sobre meningites por agentes etiológicos por faixa etária, qual a correspondência CORRETA?",
+      "options": [
+        "Recém-nascido: principalmente pneumococo isolado",
+        "Recém-nascido: E. coli, Streptococcus do grupo B e Listeria; criança/adolescente: meningococo e pneumococo; adulto: pneumococo e meningococo; idoso/gestante/etilismo: incluir Listeria",
+        "Pós-neurocirurgia: somente Haemophilus influenzae",
+        "Adultos: exclusivamente vírus, sem agentes bacterianos"
+      ],
+      "correct": 1,
+      "expl": "Os padrões clássicos são: neonato (E. coli, Streptococcus do grupo B, Listeria), criança/adolescente (N. meningitidis, S. pneumoniae), adulto (S. pneumoniae, N. meningitidis), idoso/gestante/etilismo (incluir Listeria), pós-neurocirurgia ou derivação (Staphylococcus incluindo MRSA, Gram-negativos incluindo Pseudomonas), trauma/otite/sinusite (pneumococo, H. influenzae se não vacinado).",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Encefalite",
+      "q": "Em paciente com 2 dias de cefaleia, febre baixa, fotofobia, confusão leve e crise focal breve, qual conduta é mais adequada?",
+      "options": [
+        "Apenas tratar como meningite viral benigna",
+        "Tratar como encefalite herpética, iniciar ACICLOVIR 10 mg/kg EV imediatamente (por 10 a 14 dias), solicitar neuroimagem (preferencialmente RM) e EEG, manter cobertura empírica para meningite se houver dúvida bacteriana",
+        "Apenas observar por 48 horas",
+        "Iniciar somente corticoide e dispensar antibiótico"
+      ],
+      "correct": 1,
+      "expl": "Crise focal mais confusão indica envolvimento parenquimatoso, ou seja, encefalite até prova em contrário, e deve ser tratada como herpética enquanto se aguarda PCR para HSV/VZV no LCR. O aciclovir é 10 mg/kg EV de 8 em 8 horas por 10 a 14 dias. Solicita-se neuroimagem (preferencialmente RM) e EEG, mantendo abordagem sindrômica com antibiótico empírico se houver dúvida bacteriana.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Meningite viral",
+      "q": "Qual é o agente mais comum de MENINGITE VIRAL?",
+      "options": [
+        "Citomegalovírus (CMV)",
+        "Enterovírus",
+        "Vírus Epstein-Barr (EBV)",
+        "HSV-1"
+      ],
+      "correct": 1,
+      "expl": "Os enterovírus são os agentes mais comuns de meningite viral, geralmente com curso benigno. HSV-2 é mais associado a meningite (inclusive recorrente, dita meningite de Mollaret), enquanto HSV-1 está mais ligado a encefalite. VZV pode ocorrer sem lesões cutâneas. HIV agudo pode causar meningite asséptica, e arboviroses devem ser consideradas conforme contexto epidemiológico.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Imunodeprimidos",
+      "q": "Em paciente HIV positivo sem TARV, com cefaleia progressiva há 3 semanas, febre baixa e visão turva, qual conduta liquórica deve ter PRIORIDADE?",
+      "options": [
+        "Apenas dosagem de glicose",
+        "Tinta da China, antígeno criptocócico (soro e LCR), cultura, BAAR e PCR para TB; medir pressão de abertura",
+        "Apenas culturas para Gram positivos",
+        "Apenas pesquisa de PCR para enterovírus"
+      ],
+      "correct": 1,
+      "expl": "Em paciente HIV positivo sem TARV com sintomas subagudos, devem-se priorizar: tinta da China (criptococo), antígeno criptocócico em soro e LCR (alta sensibilidade), cultura, BAAR e PCR para TB. A pressão de abertura é frequentemente muito elevada no criptococo, e o controle se faz com punções seriadas ou derivação. A pleocitose pode ser baixa em imunodeprimidos.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Imunodeprimidos",
+      "q": "Sobre o tratamento da meningite criptocócica, qual é o esquema de INDUÇÃO recomendado?",
+      "options": [
+        "Fluconazol 200 mg em monoterapia por 14 dias",
+        "Anfotericina associada à flucitosina por 14 dias",
+        "Apenas voriconazol por 7 dias",
+        "Apenas anfotericina lipossomal por 3 dias"
+      ],
+      "correct": 1,
+      "expl": "O tratamento da meningite criptocócica em pacientes com HIV se divide em três fases: indução com anfotericina associada à flucitosina por 14 dias, consolidação com fluconazol 400 a 800 mg por 8 semanas, e manutenção com fluconazol 200 mg por pelo menos 1 ano. Manejo da hipertensão intracraniana com punções seriadas é fundamental, e o início ou retomada da TARV deve ser avaliado para evitar IRIS.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Tratamento empírico",
+      "q": "Em paciente PÓS-NEUROCIRURGIA ou com derivação ventrículo-peritoneal apresentando meningite, qual cobertura empírica deve ser priorizada?",
+      "options": [
+        "Apenas ceftriaxona em monoterapia",
+        "Cobertura para MRSA mais Pseudomonas, com vancomicina mais cefepime, ceftazidima ou meropenem",
+        "Apenas penicilina cristalina",
+        "Antibiótico oral em dose única"
+      ],
+      "correct": 1,
+      "expl": "Pacientes pós-neurocirúrgicos ou com derivação ventrículo-peritoneal têm risco aumentado por Staphylococcus (incluindo MRSA) e Gram-negativos, incluindo Pseudomonas aeruginosa. A cobertura empírica recomendada é vancomicina mais cefepime, ceftazidima ou meropenem. O ajuste posterior segue cultura e antibiograma.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Isolamento",
+      "q": "Sobre o ISOLAMENTO do paciente com meningite meningocócica, qual a duração recomendada?",
+      "options": [
+        "24 horas após início de antibiótico EFETIVO",
+        "Não há indicação de isolamento",
+        "30 dias após alta hospitalar",
+        "Apenas até a desfervescência completa"
+      ],
+      "correct": 0,
+      "expl": "O isolamento respiratório (gotículas) do paciente com meningite meningocócica deve ser mantido nas primeiras 24 horas após o início de antibiótico efetivo. Após este período, considera-se que o paciente já não transmite a doença. Os contatos próximos devem receber quimioprofilaxia conforme critérios estabelecidos.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Clínica",
+      "q": "Sobre a clínica típica da síndrome meníngea, qual conjunto de sinais e sintomas é mais característico?",
+      "options": [
+        "Apenas dor abdominal e diarreia aquosa",
+        "Cefaleia intensa, febre, rigidez de nuca, fotofobia, náuseas e vômitos, com sinais de irritação meníngea (Kernig e Brudzinski) úteis, mas que não excluem",
+        "Hemiparesia isolada com paciente afebril",
+        "Tosse seca e dispneia"
+      ],
+      "correct": 1,
+      "expl": "A clínica típica é cefaleia intensa, febre, rigidez de nuca, fotofobia, náuseas e vômitos. Os sinais clássicos de Kernig e Brudzinski são úteis, mas não excluem a doença quando ausentes (têm boa especificidade, mas sensibilidade limitada). A presença de qualquer um deles, somada à clínica, deve motivar investigação liquórica.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Armadilhas",
+      "q": "Sobre as armadilhas frequentes no manejo das meningites, qual conduta é CORRETA?",
+      "options": [
+        "Atrasar antibiótico para esperar TC e PL mesmo em paciente grave",
+        "Interpretar todo LCR misto como não bacteriano",
+        "Não esquecer da Listeria em idosos, gestantes e imunodeprimidos; medir pressão de abertura (criptococo e TB); reavaliar com cultura e PCR e ajustar terapia",
+        "Dar alta precoce em meningite viral sem avaliar red flags de encefalite"
+      ],
+      "correct": 2,
+      "expl": "Armadilhas comuns que devem ser EVITADAS: atrasar antibiótico por TC/PL em paciente grave, interpretar LCR misto inicial como não bacteriano (pode ser fase precoce), esquecer da Listeria em idosos/gestantes/imunodeprimidos, ignorar pressão de abertura (importante em criptococo e TB), dar alta precoce em meningite viral sem avaliar red flags para encefalite, esquecer profilaxia de contatos em meningococo e não reavaliar conforme cultura e PCR.",
+      "difficulty": "medium"
+    }
+  ]
+}

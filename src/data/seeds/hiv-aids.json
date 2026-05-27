@@ -1,0 +1,268 @@
+{
+  "title": "HIV / AIDS",
+  "description": "Retrovírus, ciclo viral, diagnóstico sorológico, antirretrovirais e prevenção.",
+  "icon": "🧬",
+  "color": "wine",
+  "questions": [
+    {
+      "topic": "Virologia",
+      "q": "O HIV é um retrovírus com material genético em RNA. Quantos genes ele possui em seu genoma e quais três deles codificam as proteínas estruturais virais?",
+      "options": [
+        "12 genes, sendo env, tat e nef os estruturais",
+        "9 genes, sendo gag, pol e env os estruturais",
+        "20 genes, sendo gag, vif e vpu os estruturais",
+        "9 genes, sendo gag, rev e nef os estruturais"
+      ],
+      "correct": 1,
+      "expl": "O HIV tem apenas 9 genes (uma bactéria tem mais de 500 e o humano cerca de 20.000 a 25.000). Os três que codificam as proteínas estruturais para novas partículas virais são gag, pol e env. Os outros seis (tat, rev, nef, vif, vpr, vpu) controlam infecção celular, replicação e patogenicidade.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Virologia",
+      "q": "Sobre a estrutura macromolecular do HIV, qual proteína forma o capsídeo (core viral) e quais três enzimas estão contidas dentro dele?",
+      "options": [
+        "p17, contendo transcriptase reversa, protease e neuraminidase",
+        "gp120, contendo integrase, protease e helicase",
+        "p24, contendo transcriptase reversa, integrase e protease",
+        "gp41, contendo transcriptase reversa, polimerase e protease"
+      ],
+      "correct": 2,
+      "expl": "O core viral (capsídeo) é formado pela proteína p24. Dentro dele estão as três enzimas necessárias para replicação: transcriptase reversa, integrase e protease, além do RNA viral. A p17 forma a matriz logo abaixo do envelope, e gp120 e gp41 são as glicoproteínas do envelope.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Virologia",
+      "q": "Quais co-receptores além do CD4 são utilizados pelo HIV-1 para entrar nas células, e em que ano foram identificados?",
+      "options": [
+        "CCR5 e CXCR4, identificados em 1996",
+        "CCR2 e CXCR2, identificados em 1985",
+        "HLA-DR e CD8, identificados em 1986",
+        "CCR1 e CXCR5, identificados em 1997"
+      ],
+      "correct": 0,
+      "expl": "Em 1996, o mesmo ano da introdução da HAART, foram identificados o CCR5 e o CXCR4 como co-receptores do HIV-1. O CD4 foi identificado como receptor principal em 1984. O tropismo (R5, X4 ou duplo) determina a suscetibilidade celular e a escolha do maraviroc, que atua apenas em vírus R5.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Clínica",
+      "q": "A síndrome retroviral aguda do HIV cursa com qual padrão temporal e clínico característicos?",
+      "options": [
+        "Início após 6 meses da exposição, com duração de 60 dias e quadro de pancitopenia",
+        "Início entre 2 e 4 semanas após a exposição, durando 7 a 10 dias, com quadro mono-like e rash em 40 a 60 por cento",
+        "Início após 1 ano, durando 30 dias, com sintomas exclusivamente respiratórios",
+        "Início entre 24 e 48 horas, sem manifestações clínicas em mais de 90 por cento dos casos"
+      ],
+      "correct": 1,
+      "expl": "A síndrome retroviral aguda começa entre 2 e 4 semanas após a exposição e dura 7 a 10 dias (raramente 14). O quadro é mono-like, com linfadenopatia, febre, faringite, cefaleia e fadiga, e rash cutâneo em 40 a 60 por cento dos casos. Cursa com viremia elevada e queda transitória mas significativa de CD4.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Diagnóstico",
+      "q": "Na janela imunológica para o diagnóstico do HIV por imunoensaios de terceira geração, qual marcador é detectável mais precocemente?",
+      "options": [
+        "Anticorpos IgG, em torno de 7 dias",
+        "HIV-RNA, em torno de 12 dias",
+        "Antígeno p24, em torno de 30 dias",
+        "Anticorpos IgM, em torno de 5 dias"
+      ],
+      "correct": 1,
+      "expl": "A ordem de detecção é HIV-RNA com cerca de 12 dias, antígeno p24 com 17 dias e anticorpos IgM com 22 dias. Ensaios de terceira geração detectam anticorpos cerca de 3 a 4 semanas após a infecção, por isso o RNA viral é o marcador mais precoce disponível.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Diagnóstico",
+      "q": "Para que o teste de Western Blot (WB/HIV-1) seja considerado reagente na confirmação sorológica, é necessária a presença de no mínimo:",
+      "options": [
+        "Uma banda dentre gp160, gp41 ou p24",
+        "Três bandas obrigatórias: gp160, gp120 e p17",
+        "Duas bandas dentre gp160/120, gp41 e p24",
+        "Quatro bandas, sendo obrigatória a p17"
+      ],
+      "correct": 2,
+      "expl": "No fluxograma de diagnóstico em indivíduos com mais de 18 meses, a etapa de confirmação pelo Western Blot considera reagente quando há presença de pelo menos duas bandas dentre gp160/120, gp41 e p24. As gp são do envelope e a p24 é do capsídeo.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Qual o mecanismo de ação do Enfuvirtide (T20), primeiro inibidor de entrada aprovado para o tratamento do HIV?",
+      "options": [
+        "Bloqueia o co-receptor CCR5 dentro do linfócito",
+        "Inibe a transcriptase reversa por análogo de nucleosídeo",
+        "Mimetiza o domínio HR2 da gp41 e liga-se irreversivelmente ao HR1, impedindo a fusão",
+        "Inibe a protease viral por competição com poliproteínas"
+      ],
+      "correct": 2,
+      "expl": "O Enfuvirtide é um peptídeo sintético que imita os aminoácidos 127 a 162 da gp41 do HIV-1. Ele mimetiza o HR2 e se liga irreversivelmente ao HR1, impedindo a zipagem HR2 a HR1, o que bloqueia a aproximação e a fusão entre vírus e célula. É potente, mas tem baixa barreira genética e é injetável.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Sobre o Maraviroc, antagonista do co-receptor CCR5, é correto afirmar:",
+      "options": [
+        "É ativo contra todos os tropismos do HIV-1, incluindo X4 e duplo",
+        "Tem atividade apenas contra HIV-1 com tropismo R5; em falha, ocorre shift para tropismo duplo X4 ou X4 puro",
+        "Atua dentro do núcleo celular bloqueando a integrase",
+        "Mutações de resistência ocorrem na p24"
+      ],
+      "correct": 1,
+      "expl": "O Maraviroc atua fora da célula, bloqueando a entrada do HIV no linfócito CD4 ainda não infectado. Tem atividade apenas contra vírus de tropismo R5. A falha terapêutica está associada à mudança para tropismo duplo X4/R5 ou X4 puro, e as mutações de resistência ocorrem na região V3 da gp120.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Sobre os inibidores da transcriptase reversa não análogos de nucleosídeos (ITRNN), qual afirmação está correta?",
+      "options": [
+        "Necessitam de fosforilação intracelular para se tornarem ativos",
+        "Ligam-se de forma competitiva ao sítio ativo da transcriptase reversa",
+        "Não requerem fosforilação intracelular e ligam-se de forma não competitiva à enzima, inativando o sítio de ligação, com baixa barreira genética",
+        "São eliminados exclusivamente por excreção renal e têm alta barreira genética"
+      ],
+      "correct": 2,
+      "expl": "Os ITRNN (como efavirenz, nevirapina, etravirina) atuam sobre a transcriptase reversa sem precisar de fosforilação intracelular. Ligam-se diretamente e de forma não competitiva à enzima, causando alteração de forma que inativa o sítio de ligação. Têm baixa barreira genética, e apenas uma mutação já confere resistência a efavirenz e nevirapina.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Qual efeito adverso é característico dos Inibidores de Protease (IP) usados na terapia antirretroviral?",
+      "options": [
+        "Hipouricemia e bradicardia",
+        "Lipodistrofia, dislipidemia, diarreia e resistência à insulina",
+        "Teratogenicidade e neurotoxicidade central",
+        "Anemia hemolítica autoimune"
+      ],
+      "correct": 1,
+      "expl": "Os Inibidores de Protease causam, como eventos adversos, lipodistrofia, dislipidemia, diarreia e resistência à insulina, além de possuírem alto grau de resistência cruzada entre eles. Teratogenicidade e efeitos no SNC são mais associados ao efavirenz (ITRNN), e a lipodistrofia também aparece com ITRN.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Qual antirretroviral deve ser evitado em mulheres em idade fértil pelo risco de teratogenicidade e por seus efeitos no sistema nervoso central?",
+      "options": [
+        "Lamivudina (3TC)",
+        "Tenofovir (TDF)",
+        "Efavirenz (EFV)",
+        "Raltegravir (RAL)"
+      ],
+      "correct": 2,
+      "expl": "O Efavirenz, um ITRNN, é associado a vários efeitos em sistema nervoso central (sonhos vívidos, tontura, alterações de humor) e a teratogenicidade, por isso deve ser evitado em mulheres na idade fértil. Lamivudina e tenofovir são ITRN com bom perfil de segurança, e raltegravir é inibidor da integrase.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Epidemiologia",
+      "q": "Sobre a transmissão do HIV, qual fator é classificado como de maior risco?",
+      "options": [
+        "Tatuagem com material esterilizado",
+        "Beijo na boca sem feridas",
+        "Úlceras genitais por outras IST associadas e relação anal desprotegida",
+        "Compartilhamento de talheres"
+      ],
+      "correct": 2,
+      "expl": "Os fatores de maior risco de transmissão sexual do HIV incluem a presença de úlceras genitais (outras IST associadas), doença avançada do parceiro e relação anal desprotegida. Outras vias são gestação/parto/amamentação, transfusão, transplante, acidente com material biológico, tatuagem e piercing com material contaminado.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Sobre o Raltegravir, qual o mecanismo de ação principal?",
+      "options": [
+        "Bloqueia a integração do DNA viral ao DNA celular ligando-se ao sítio catalítico e à porção C-terminal da integrase",
+        "Inibe a fusão do envelope viral à membrana celular",
+        "Compete com nucleosídeos naturais no sítio da transcriptase reversa",
+        "Cliva poliproteínas virais para impedir maturação"
+      ],
+      "correct": 0,
+      "expl": "O Raltegravir foi o primeiro inibidor da integrase. Liga-se ao sítio catalítico (que corta o DNA da célula) e à porção C-terminal da enzima (que carreia e liga o DNA viral), impedindo a integração do pró-vírus no genoma da célula hospedeira. Não tem resistência cruzada com outras classes.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Diagnóstico",
+      "q": "Qual destas condições é uma causa reconhecida de resultado FALSO-POSITIVO em testes sorológicos para HIV?",
+      "options": [
+        "Hipertensão arterial sistêmica isolada",
+        "Diabetes mellitus tipo 2 bem controlado",
+        "Lúpus eritematoso sistêmico e múltiplas transfusões de sangue",
+        "Gripe sazonal recente"
+      ],
+      "correct": 2,
+      "expl": "Doenças autoimunes (LES, esclerodermia, doenças do tecido conectivo), artrite reumatoide, infecção viral aguda, múltiplas transfusões, neoplasias malignas, terapia com interferon em hemodialisados, síndrome de Stevens-Johnson, anticorpos antimicrossomal e anti HLA são causas clássicas de falso-positivo. Aquisição passiva de anticorpos maternos é causa em crianças.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "História",
+      "q": "Em qual ano foi iniciado o acesso universal ao tratamento antirretroviral, marco histórico no enfrentamento do HIV?",
+      "options": [
+        "1987, com a introdução do AZT",
+        "1996, no mesmo ano da HAART e da aprovação da Nevirapina",
+        "2003, com a aprovação do Enfuvirtide",
+        "2006, com a aprovação do Atripla"
+      ],
+      "correct": 1,
+      "expl": "Em 1996 surgiram a HAART (highly active antiretroviral therapy) e o acesso universal ao tratamento antirretroviral. No mesmo ano foi aprovada a Nevirapina (primeiro ITRNN) e foram identificados os co-receptores CCR5 e CXCR4. Antes disso (1995) tinha sido aprovado o saquinavir, primeiro inibidor de protease.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Prevenção",
+      "q": "Sobre a circuncisão como estratégia preventiva contra o HIV, qual a redução de transmissão estimada pela OMS/UNAIDS?",
+      "options": [
+        "Cerca de 10 por cento",
+        "Cerca de 30 por cento",
+        "Cerca de 60 por cento",
+        "Mais de 90 por cento"
+      ],
+      "correct": 2,
+      "expl": "Segundo a OMS/UNAIDS de 2007, a circuncisão reduz a transmissão do HIV em cerca de 60 por cento. Em 2006 já se documentava que ela diminuía em torno de 50 por cento a transmissão de mulheres infectadas para homens. Outras medidas preventivas incluem preservativo, tratamento de outras IST, teste em gestantes e doadores, e educação sexual.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Clínica",
+      "q": "Sobre a fase de latência clínica do HIV, qual o tempo médio para desenvolvimento de AIDS após a soroconversão sem tratamento?",
+      "options": [
+        "Em torno de 1 ano",
+        "Cerca de 3 anos",
+        "Em média 10 anos (Baccheti et al., 1989)",
+        "Em torno de 25 anos"
+      ],
+      "correct": 2,
+      "expl": "Após a soroconversão, o tempo médio para desenvolvimento de AIDS é de cerca de 10 anos (Baccheti et al., 1989), na ausência de TARV. Entre 50 e 70 por cento dos indivíduos desenvolvem linfadenopatia após a infecção primária. Fora isso, o exame físico costuma ser normal nesta fase.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "História",
+      "q": "Sobre as origens filogenéticas do HIV, qual a correspondência correta entre as cepas humanas e suas origens símias?",
+      "options": [
+        "HIV-1 origina-se do SIVsm (sooty mangabey) e HIV-2 do SIVcpz (chimpanzé)",
+        "HIV-1 e HIV-2 originam-se ambos do SIVgor (gorila)",
+        "HIV-1 origina-se do SIVcpz (chimpanzé) e HIV-2 do SIVsm, variante encontrada na África Ocidental",
+        "HIV-1 e HIV-2 não têm relação filogenética com SIV"
+      ],
+      "correct": 2,
+      "expl": "Segundo a Teoria do Caçador (a mais aceita), o HIV-1, mais virulento, tem características genéticas próximas do SIVcpz, encontrado em chimpanzés. O HIV-2 é uma variante do SIVsm, originário da África Ocidental. A passagem do retrovírus do chimpanzé para o homem é datada por volta de 1930.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Sobre os Inibidores da Transcriptase Reversa Análogos de Nucleosídeos (ITRN), qual afirmação é correta?",
+      "options": [
+        "Não precisam de fosforilação intracelular",
+        "Necessitam de fosforilação intracelular, são eliminados principalmente por excreção renal e podem causar acidose lática e esteatose hepática",
+        "Têm absorção oral lenta e baixa toxicidade",
+        "Têm baixa resistência cruzada entre si"
+      ],
+      "correct": 1,
+      "expl": "Os ITRN necessitam de fosforilação intracelular, são componentes de quase todas as combinações terapêuticas, têm rápida absorção oral e são eliminados principalmente por excreção renal. Apresentam grande espectro de efeitos colaterais, incluindo acidose lática (fadiga, dispneia, taquipneia, náusea, perda de peso), esteatose hepática, lipodistrofia, alterações renais e ósseas. Há elevado grau de resistência cruzada entre eles.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Qual destes ITRN é o análogo nucleotídeo de guanina (difosforilado) utilizado no Brasil?",
+      "options": [
+        "Lamivudina (3TC)",
+        "Abacavir (ABC)",
+        "Tenofovir (TDF)",
+        "Estavudina (D4T)"
+      ],
+      "correct": 2,
+      "expl": "O Tenofovir (TDF) é o análogo nucleotídeo de guanina (difosforilado). A Lamivudina é análogo da citidina/citosina, o Abacavir é análogo da guanosina, e a Estavudina é análoga da timidina (assim como a Zidovudina/AZT). A Didanosina é análogo da guanina.",
+      "difficulty": "hard"
+    }
+  ]
+}

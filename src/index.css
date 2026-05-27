@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    background:
+      radial-gradient(900px 500px at 90% -10%, rgba(201, 123, 138, 0.10), transparent 60%),
+      radial-gradient(700px 500px at -10% 100%, rgba(184, 137, 90, 0.08), transparent 60%),
+      theme('colors.bg');
+    color: theme('colors.ink');
+    font-family: theme('fontFamily.sans');
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-wine px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-white shadow-wine transition hover:bg-wine-deep hover:shadow-wine-hover disabled:bg-muted disabled:shadow-none disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-wine bg-paper px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-wine-deep transition hover:bg-rose-soft;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-full px-5 py-2 text-sm font-medium text-ink-soft transition hover:text-wine-deep;
+  }
+  .card {
+    @apply rounded-2xl border border-line bg-paper shadow-soft;
+  }
+  .label-tag {
+    @apply inline-block rounded-full bg-bg-soft px-2.5 py-1 text-[11px] uppercase tracking-[0.2em] text-muted;
+  }
+  .input-elegant {
+    @apply w-full rounded-xl border border-line bg-paper px-4 py-3 font-sans text-base text-ink outline-none transition focus:border-wine focus:ring-2 focus:ring-rose-soft;
+  }
+  .heading-serif {
+    @apply font-serif italic text-wine-deep;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.45s ease;
+}

@@ -1,0 +1,203 @@
+{
+  "title": "Insuficiência Cardíaca",
+  "description": "Definição, classificação por FE, peptídeos natriuréticos, NYHA, pilares do tratamento da ICFER e manejo da ICFEP.",
+  "icon": "❤️",
+  "color": "red",
+  "questions": [
+    {
+      "topic": "Definição",
+      "q": "Segundo a definição clássica, a Insuficiência Cardíaca (IC) é caracterizada como:",
+      "options": [
+        "Doença exclusivamente decorrente de disfunção sistólica do ventrículo esquerdo",
+        "Síndrome clínica com sinais e sintomas resultantes de comprometimento estrutural ou funcional do enchimento ventricular ou da ejeção de sangue",
+        "Distúrbio metabólico causado por desequilíbrio hidroeletrolítico",
+        "Arritmia secundária a doença coronariana isolada"
+      ],
+      "correct": 1,
+      "expl": "A IC é definida como síndrome clínica, com sinais e sintomas resultantes de qualquer comprometimento estrutural ou funcional do enchimento ventricular ou da ejeção de sangue. Não se restringe à disfunção sistólica, abrangendo também a IC com fração de ejeção preservada (ICFEP) por disfunção diastólica.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Classificação",
+      "q": "Sobre a classificação da IC pela Fração de Ejeção do Ventrículo Esquerdo (FEVE), qual associação está CORRETA?",
+      "options": [
+        "ICFER: FEVE <= 50%; ICFEP: FEVE > 50%",
+        "ICFER: FEVE <= 40%; ICFEi: FEVE 41-49%; ICFEP: FEVE >= 50%",
+        "ICFER: FEVE < 30%; ICFEi: FEVE 30-49%; ICFEP: FEVE >= 50%",
+        "ICFER: FEVE <= 60%; ICFEi: FEVE 61-69%; ICFEP: FEVE >= 70%"
+      ],
+      "correct": 1,
+      "expl": "Pela classificação atual, ICFER (FE reduzida) é definida por FEVE <= 40%, com tratamento bem estabelecido. ICFEi (FE intermediária) tem FEVE entre 41 e 49% e muitos pacientes respondem às terapias da ICFER. ICFEP (FE preservada) tem FEVE >= 50%. Existe ainda a categoria de IC com FE melhorada, para pacientes que tinham FEVE <= 40% e melhoraram após terapia, devendo manter o tratamento.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Etiologia",
+      "q": "Qual é a causa mais comum de Insuficiência Cardíaca?",
+      "options": [
+        "Doença de Chagas",
+        "Hipertensão arterial sistêmica isolada",
+        "Doença isquêmica do coração",
+        "Doenças valvares reumáticas"
+      ],
+      "correct": 2,
+      "expl": "A doença isquêmica do coração é a causa mais comum de IC. Outras causas relevantes incluem HAS, doenças valvares, infecciosas (com destaque para a doença de Chagas no Brasil), tóxicas (álcool e drogas), arritmias como causa, congênitas/genéticas, infiltrativas (amiloidose, glicogenoses) e metabólicas (com destaque para obesidade).",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Diagnóstico",
+      "q": "Sobre os peptídeos natriuréticos no diagnóstico de IC em cenário NÃO agudo, quais são os valores de corte aproximados de normalidade?",
+      "options": [
+        "BNP <= 350 pg/mL e NT-proBNP <= 1250 pg/mL",
+        "BNP <= 35 pg/mL e NT-proBNP <= 125 pg/mL",
+        "BNP <= 100 pg/mL e NT-proBNP <= 200 pg/mL",
+        "BNP <= 5 pg/mL e NT-proBNP <= 10 pg/mL"
+      ],
+      "correct": 1,
+      "expl": "No cenário não agudo, considera-se BNP até 35 pg/mL e NT-proBNP até 125 pg/mL como valores normais. Valores acima desses pontos de corte elevam a suspeita de IC. Existem causas não cardíacas de elevação (insuficiência renal, AVC, sepse, DPOC grave, tireotoxicose), por isso a interpretação deve ser conjunta com clínica e ecocardiograma.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Diagnóstico",
+      "q": "Quais são CAUSAS NÃO CARDÍACAS de elevação dos peptídeos natriuréticos (BNP/NT-proBNP)?",
+      "options": [
+        "Hipotireoidismo, hipoglicemia e anemia ferropriva leve",
+        "Insuficiência renal, AVC, sepse, DPOC grave e tireotoxicose",
+        "Asma intermitente e rinite alérgica",
+        "Pré-hipertensão e dislipidemia"
+      ],
+      "correct": 1,
+      "expl": "Causas não cardíacas reconhecidas de elevação dos peptídeos natriuréticos incluem insuficiência renal, AVC, sepse/pacientes críticos, DPOC grave, tireotoxicose, entre muitas outras. Por isso, a interpretação dos peptídeos deve ser sempre integrada à clínica, exames complementares e contexto do paciente.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Classificação",
+      "q": "Sobre a Classe Funcional pela NYHA, qual classificação descreve corretamente a NYHA III?",
+      "options": [
+        "Sem limitação para atividades habituais; sintomas só a grandes esforços",
+        "Dispneia leve com atividades habituais",
+        "Dispneia com atividades mais leves que a habitual ou pequenos esforços",
+        "Sintomas mesmo no repouso"
+      ],
+      "correct": 2,
+      "expl": "A classificação NYHA é dividida em: I (sem limitação para atividades habituais; sintomas a grandes esforços), II (dispneia leve com atividades habituais), III (dispneia com atividades mais leves que a habitual ou pequenos esforços) e IV (sintomas mesmo em repouso). É baseada em sintomas e capacidade funcional.",
+      "difficulty": "easy"
+    },
+    {
+      "topic": "Classificação",
+      "q": "Sobre o estadiamento da IC (AHA/ACC/HFSA), qual descrição corresponde ao Estágio B?",
+      "options": [
+        "Apenas fatores de risco, sem clínica nem alterações cardíacas estruturais",
+        "Presença de alterações cardíacas estruturais, funcionais ou bioquímicas, mas SEM clínica",
+        "Alterações cardíacas e clínica atual ou pregressa de IC",
+        "Sintomas recorrentes que requerem hospitalização frequente"
+      ],
+      "correct": 1,
+      "expl": "No estadiamento da IC, o Estágio A tem apenas fatores de risco sem clínica ou alterações cardíacas estruturais. O Estágio B já tem alterações cardíacas estruturais, funcionais ou bioquímicas, mas SEM clínica. O Estágio C tem alterações cardíacas mais clínica de IC, atual ou pregressa. O Estágio D corresponde a sintomas recorrentes que requerem hospitalização.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Tratamento ICFER",
+      "q": "Quais são os quatro pilares atuais do tratamento medicamentoso da ICFER, válidos a partir do estágio B?",
+      "options": [
+        "Diurético de alça, digoxina, AAS e estatina",
+        "IECA ou Sacubitril/Valsartana, betabloqueador, antagonista da aldosterona e iSGLT-2",
+        "Nitrato, hidralazina, clonidina e amiodarona",
+        "BRA, bloqueador de canal de cálcio, diurético tiazídico e estatina"
+      ],
+      "correct": 1,
+      "expl": "Os quatro pilares atuais do tratamento da ICFER são: IECA ou Sacubitril/Valsartana (BRA em intolerantes ao IECA), betabloqueador (carvedilol, metoprolol ou bisoprolol), antagonista da aldosterona (espironolactona ou eplerenona) e inibidor do SGLT-2 (dapagliflozina ou empagliflozina), este último independente da presença de DM.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Tratamento ICFER",
+      "q": "Sobre o uso de betabloqueadores em ICFER, qual afirmação é correta?",
+      "options": [
+        "Atenolol e propranolol são os primeiros de escolha",
+        "Carvedilol (alfa-1, beta-1 e beta-2), metoprolol (beta-1) e bisoprolol (beta-1) são os estudados, com alvo de FC de 60 a 70 bpm em repouso",
+        "Devem ser iniciados em altas doses para acelerar a resposta",
+        "São contraindicados em pacientes com FE menor que 40 por cento"
+      ],
+      "correct": 1,
+      "expl": "Os betabloqueadores estudados e indicados em ICFER são carvedilol (não seletivo, com bloqueio alfa-1, beta-1 e beta-2), metoprolol (beta-1) e bisoprolol (beta-1). O alvo de frequência cardíaca em repouso é 60 a 70 bpm. Devem ser iniciados em baixas doses e ajustados gradualmente. São cautelares em bradicardia, BAV avançado e instabilidade hemodinâmica.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Tratamento ICFER",
+      "q": "Sobre o Sacubitril/Valsartana (Entresto), qual cuidado é fundamental ao TROCAR um IECA por essa medicação ou vice-versa?",
+      "options": [
+        "Suspender o IECA e iniciar o Sacubitril/Valsartana imediatamente, sem intervalo",
+        "Aguardar 36 horas de washout entre as drogas, pelo risco de angioedema por acúmulo de bradicininas",
+        "Manter ambas as drogas simultaneamente por 7 dias",
+        "Trocar apenas em ambiente hospitalar de UTI"
+      ],
+      "correct": 1,
+      "expl": "Ao trocar IECA por Sacubitril/Valsartana ou vice-versa, deve-se aguardar 36 horas de washout. Isso é necessário porque o sacubitril inibe a neprilisina, que degrada bradicininas; somado ao IECA, há acúmulo de bradicininas e risco aumentado de angioedema. Também não se associa IECA com BRA, nem IECA com Sac-Val.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Tratamento ICFER",
+      "q": "Sobre os inibidores do SGLT-2 (dapagliflozina, empagliflozina) no tratamento da IC, é correto afirmar:",
+      "options": [
+        "Só devem ser usados em pacientes com diabetes mellitus tipo 2 associado",
+        "Estão indicados independentemente da presença de DM e devem ser evitados se ClCr < 20 mL/min/1,73m2",
+        "Atuam diretamente bloqueando a aldosterona",
+        "Aumentam a mortalidade na ICFER"
+      ],
+      "correct": 1,
+      "expl": "Os iSGLT-2 (dapagliflozina e empagliflozina) são indicados em ICFER INDEPENDENTEMENTE da presença de DM. Devem ser evitados quando o ClCr está abaixo de 20 mL/min/1,73m2. Risco de infecções genitais não é contraindicação, mas requer orientação de higiene cuidadosa. Compõem um dos quatro pilares atuais do tratamento da ICFER.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Sobre os diuréticos na IC, qual afirmação está correta?",
+      "options": [
+        "Reduzem mortalidade em qualquer fração de ejeção",
+        "Não reduzem mortalidade (exceto antagonistas da aldosterona), mas reduzem hospitalizações e melhoram qualidade de vida; usar a menor dose para manter euvolemia",
+        "Devem ser usados em altas doses fixas independentemente do quadro clínico",
+        "Estão contraindicados em ICFEP"
+      ],
+      "correct": 1,
+      "expl": "Os diuréticos (de alça e tiazídicos) NÃO reduzem mortalidade na IC. Reduzem hospitalizações e melhoram qualidade de vida. Devem ser usados na menor dose possível para manter euvolemia, atentando a distúrbios hidroeletrolíticos e desidratação com lesão renal pré-renal. Exceção: antagonistas da aldosterona reduzem mortalidade e fibrose miocárdica.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Tratamento ICFEP",
+      "q": "Sobre o tratamento medicamentoso da ICFEP, qual afirmação é correta com base nas evidências atuais?",
+      "options": [
+        "IECA, BRA e betabloqueadores reduzem fortemente mortalidade na ICFEP",
+        "Os iSGLT-2 reduzem hospitalização e mostram benefício marginal na mortalidade na ICFEP, enquanto IECA, BRA, Sac-Val e betabloqueadores têm resultados neutros",
+        "A espironolactona é considerada padrão-ouro na ICFEP com forte redução de mortalidade",
+        "Não há nenhuma classe medicamentosa com benefício em ICFEP"
+      ],
+      "correct": 1,
+      "expl": "Na ICFEP, IECA/BRA/Sacubitril-Valsartana e betabloqueadores têm resultados neutros em relação a placebo. Os iSGLT-2 reduzem hospitalização com benefício marginal em mortalidade. Os inibidores da aldosterona têm resultados conflitantes, com tendência a reduzir hospitalização. O tratamento deve ser personalizado conforme comorbidades.",
+      "difficulty": "hard"
+    },
+    {
+      "topic": "Tratamento",
+      "q": "Qual antagonista da aldosterona é classicamente associado ao efeito adverso de ginecomastia, sendo necessária troca para eplerenona quando isso ocorre?",
+      "options": [
+        "Espironolactona",
+        "Eplerenona",
+        "Amilorida",
+        "Furosemida"
+      ],
+      "correct": 0,
+      "expl": "A espironolactona é o antagonista da aldosterona mais usado em IC, mas pode causar ginecomastia (afinidade por receptores androgênicos e progesterônicos). Nesses casos, troca-se por eplerenona, que tem menor efeito antiandrogênico (porém não está disponível no SUS). Ambos requerem monitoramento de potássio.",
+      "difficulty": "medium"
+    },
+    {
+      "topic": "Medidas gerais",
+      "q": "Sobre as medidas gerais no manejo da IC, qual alvo NÃO está correto?",
+      "options": [
+        "Sódio na dieta abaixo de 2300 mg/dia",
+        "Alvo de IMC abaixo de 25 kg/m2",
+        "Alvo de PA abaixo de 130/80 mmHg",
+        "Manter consumo regular de álcool, pois reduz risco cardiovascular"
+      ],
+      "correct": 3,
+      "expl": "O álcool é cardiotóxico e a recomendação é CESSAR o consumo (assim como o tabagismo). Os demais alvos estão corretos: sódio abaixo de 2300 mg/dia, ingesta hídrica controversa, IMC abaixo de 25 kg/m2 e PA abaixo de 130/80 mmHg. Reabilitação cardiovascular melhora capacidade funcional e qualidade de vida, e a vacinação (influenza, COVID-19, pneumococo) é recomendada.",
+      "difficulty": "easy"
+    }
+  ]
+}
