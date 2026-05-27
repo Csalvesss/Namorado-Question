@@ -1,444 +1,120 @@
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Activity, BookOpenCheck, FileText, Layers, Link2 } from 'lucide-react';
+import { Activity, BookOpenCheck, FileText, Layers, Link2, Save } from 'lucide-react';
+import CaseForm from '../components/author/CaseForm';
+import ECGForm from '../components/author/ECGForm';
+import FlashcardForm, { FieldRow } from '../components/author/FlashcardForm';
+import ItemsList from '../components/author/ItemsList';
+import MCForm from '../components/author/MCForm';
+import MatchForm from '../components/author/MatchForm';
 import { db } from '../lib/db';
 import { importCourse } from '../lib/seed';
 import { useUser } from '../lib/useUser';
-import type { ImportPayload } from '../types';
+import type { ImportPayload, ImportQuestion } from '../types';
 
-type AuthorKind = 'mc' | 'ecg' | 'case' | 'flashcard' | 'match';
-
-const EXAMPLE_MC = `{
-  "title": "Nome da matéria",
-  "description": "Resumo do conteúdo",
-  "color": "wine",
-  "questions": [
-    {
-      "topic": "Subtópico",
-      "q": "Enunciado da questão...",
-      "options": ["Alternativa A", "Alternativa B", "Alternativa C", "Alternativa D"],
-      "correct": 1,
-      "expl": "Explicação detalhada da resposta correta.",
-      "difficulty": "medium"
-    }
-  ]
-}`;
-
-const PROMPT_MC = `Você é um professor sênior de medicina e especialista em criar questões de múltipla escolha em alto nível.
-
-Leia o PDF que vou enviar e gere 30 questões de múltipla escolha em português brasileiro, no formato JSON exato abaixo.
-
-Requisitos de qualidade:
-- 4 alternativas por questão (A, B, C, D)
-- 1 alternativa correta + 3 distratores PLAUSÍVEIS (não absurdos)
-- A explicação deve ensinar o conceito, citando dados do material
-- Varie a dificuldade (use "easy", "medium", "hard")
-- Inclua raciocínio clínico quando o conteúdo permitir, não só decoreba
-- Cubra os principais conceitos do PDF
-- Use o campo "topic" para agrupar por subtópico
-
-Saída: APENAS o JSON válido, sem texto antes ou depois.
-
-Formato:
-${EXAMPLE_MC}`;
-
-const EXAMPLE_ECG = `{
-  "title": "Eletrocardiograma: Avançado",
-  "description": "Casos clínicos com interpretação ponto a ponto",
-  "color": "wine",
-  "questions": [
-    {
-      "type": "ecg",
-      "topic": "Arritmias supraventriculares",
-      "tracingId": "af",
-      "context": "Mulher, 70a, palpitação irregular há 1 dia. PA 130x80.",
-      "points": [
-        {
-          "id": "ritmo",
-          "label": "Ritmo",
-          "hint": "olhe R-R e onda P",
-          "question": "Como descreve o ritmo?",
-          "options": ["Sinusal", "FA", "Flutter", "TV"],
-          "correct": 1,
-          "expl": "R-R irregular sem onda P organizada."
-        }
-      ],
-      "diagnosis": {
-        "question": "Diagnóstico mais provável?",
-        "options": ["RS normal", "FA com resposta ventricular elevada", "Flutter atrial", "TPSV"],
-        "correct": 1,
-        "expl": "FA recém-diagnosticada, anticoagular conforme CHA2DS2-VASc."
-      },
-      "difficulty": "medium"
-    }
-  ]
-}`;
-
-const EXAMPLE_CASE = `{
-  "title": "Casos Clínicos: Cardiologia",
-  "description": "Vinhetas com decisões encadeadas",
-  "color": "wine",
-  "questions": [
-    {
-      "type": "case",
-      "topic": "Síndrome coronariana aguda",
-      "vignette": "Homem, 58a, dor torácica retroesternal há 2h, sudorese, irradia para braço esquerdo. PA 150x95, FC 92, ECG com supra ST em DII/DIII/aVF.",
-      "steps": [
-        {
-          "id": "diag",
-          "question": "Diagnóstico mais provável?",
-          "options": ["IAM inferior com supra ST", "Angina estável", "Pericardite aguda", "Dissecção de aorta"],
-          "correct": 0,
-          "expl": "Quadro clássico de SCAcSST inferior, supra de ST em parede inferior."
-        },
-        {
-          "id": "conduta",
-          "prompt": "Diagnóstico definido. Tempo de início: 2h.",
-          "question": "Conduta imediata?",
-          "options": [
-            "Angioplastia primária se disponível em até 120min, AAS + clopidogrel/ticagrelor + anticoagulação",
-            "Trombolítico apenas",
-            "Cinemcardio eletiva",
-            "Cateterismo apenas após estabilização ambulatorial"
-          ],
-          "correct": 0,
-          "expl": "Janela ouro para angioplastia primária. ATC se disponível < 120min, senão trombólise."
-        }
-      ],
-      "difficulty": "medium"
-    }
-  ]
-}`;
-
-const PROMPT_CASE = `Você é um preceptor de residência médica e vai montar uma rodada de plantão para a aluna estudar.
-
-Vou te enviar um PDF (ou material de estudo) sobre um tema médico. Leia com atenção e gere 5 casos clínicos em português brasileiro, no formato JSON exato abaixo. A plataforma exibe esses casos sequencialmente no "Modo clínico" — a aluna lê a vinheta, decide passo a passo, e no fim revisa o gabarito.
-
-Os 5 casos devem cobrir cenários DIFERENTES do mesmo tema, por exemplo:
-1. apresentação clássica/típica
-2. apresentação atípica ou em paciente idoso/imunossuprimido
-3. complicação ou caso grave (UTI / urgência)
-4. caso pediátrico ou gestante (quando aplicável) ou diagnóstico diferencial
-5. caso ambulatorial ou seguimento pós-alta
-
-Cada caso tem:
-- vignette: vinheta longa (3-6 linhas) com idade, sexo, queixa, antecedentes, exame físico, exames laboratoriais. Use \\n para quebrar parágrafos. Dados clínicos suficientes para tomada de decisão.
-- steps: 3 a 5 sub-questões em sequência lógica (diagnóstico → exames → conduta inicial → ajuste de tratamento → seguimento). Cada step:
-  - id: slug curto (diag, conduta, atb, alta, etc.)
-  - prompt? (opcional): nova informação revelada antes dessa pergunta ("Após pedir hemograma, você recebe Hb 7,2...")
-  - question: a pergunta da etapa
-  - options: 4 alternativas, com distratores REALISTAS (que a aluna poderia genuinamente cogitar)
-  - correct: 0-3
-  - expl: ensina o raciocínio, cita guideline quando fizer sentido (Sepsis-3, ACC/AHA, BTS, GOLD, etc.)
-
-Saída: APENAS o JSON válido, sem texto antes ou depois.
-
-Formato:
-${EXAMPLE_CASE}`;
-
-const PROMPT_ECG = `Você é um cardiologista experiente e vai gerar questões interativas de interpretação de ECG.
-
-A nossa plataforma renderiza os traçados dinamicamente a partir de um id. Os ids disponíveis são:
-- normal-sinus, sinus-brady, sinus-tachy
-- af (fibrilação atrial), flutter
-- stemi-inferior, stemi-anterior
-- lbbb (BRE), rbbb (BRD)
-
-Gere 5 questões em português brasileiro, escolhendo o tracingId mais adequado ao caso clínico. Cada questão tem 4-7 pontos de análise (ondas P, intervalo PR, QRS, segmento ST, onda T, ritmo, FC, eixo, escolha o que faz sentido para o caso) e termina com um diagnóstico final.
-
-Cada PONTO tem:
-- id (slug curto: ritmo, fc, ondaP, intervaloPr, qrs, st, t, eixo)
-- label (rótulo bonito: "Ritmo", "Frequência cardíaca", etc.)
-- hint? (uma dica curta, opcional)
-- region? (opcional: { x, y, w, h } com valores 0-1 normalizados para destacar a parte do traçado)
-- question (a pergunta dessa etapa)
-- options (4 alternativas)
-- correct (0-3)
-- expl (ensina o que olhar)
-
-DIAGNÓSTICO final:
-- question, options (4), correct (0-3), expl (justifica e dá conduta clínica resumida quando fizer sentido)
-
-Saída: APENAS o JSON válido, sem texto antes ou depois.
-
-Formato:
-${EXAMPLE_ECG}`;
-
-const EXAMPLE_FLASHCARD = `{
-  "title": "Farmacologia: Antibióticos",
-  "description": "Mecanismo, espectro e efeitos colaterais em flashcards",
-  "color": "wine",
-  "questions": [
-    {
-      "type": "flashcard",
-      "topic": "Betalactâmicos",
-      "front": "Qual o mecanismo de ação dos betalactâmicos?",
-      "back": "Inibem a transpeptidase (PBP), impedindo a formação da ligação cruzada do peptidoglicano. Ação bactericida.",
-      "hint": "pense na parede celular",
-      "difficulty": "easy"
-    }
-  ]
-}`;
-
-const PROMPT_FLASHCARD = `Você é uma professora sênior de medicina ajudando uma aluna a memorizar com repetição espaçada.
-
-Vou te enviar um PDF (ou material de estudo). Leia com atenção e gere 20 flashcards em português brasileiro, no formato JSON exato abaixo.
-
-Princípios para bons flashcards:
-- UM conceito por card (mínimo de informação por unidade)
-- pergunta direta no front, resposta completa mas concisa no back
-- foco em fatos memorizáveis (doses, mecanismos, valores de referência, sinais, classificações, listas-chave)
-- evite cards muito abertos ("explique tudo sobre X") — divida em vários cards menores
-- use "hint" para uma dica curta que ajude a recuperação sem entregar a resposta
-- agrupe por "topic" (subtópico)
-
-Cada flashcard tem:
-- type: "flashcard"
-- topic: subtópico
-- front: pergunta (string)
-- back: resposta (string, pode incluir lista curta)
-- hint? (opcional): pista curta
-- difficulty?: "easy" | "medium" | "hard"
-
-A plataforma usa SM-2 (repetição espaçada) para reapresentar os cards conforme a aluna marca "errei / difícil / bom / fácil". A rodada de revisão fica na página /revisar.
-
-Saída: APENAS o JSON válido, sem texto antes ou depois.
-
-Formato:
-${EXAMPLE_FLASHCARD}`;
-
-const EXAMPLE_MATCH = `{
-  "title": "Antibióticos: Mecanismos",
-  "description": "Associe a droga ao seu mecanismo de ação",
-  "color": "wine",
-  "questions": [
-    {
-      "type": "match",
-      "topic": "Mecanismos de ação",
-      "prompt": "Associe cada antibiótico ao seu mecanismo de ação predominante.",
-      "leftLabel": "Antibiótico",
-      "rightLabel": "Mecanismo",
-      "pairs": [
-        { "id": "vanco", "left": "Vancomicina", "right": "Liga-se ao D-Ala-D-Ala, bloqueando síntese de parede" },
-        { "id": "azitro", "left": "Azitromicina", "right": "Liga subunidade 50S, bloqueia translocação" },
-        { "id": "cipro", "left": "Ciprofloxacino", "right": "Inibe DNA girase e topoisomerase IV" },
-        { "id": "smxtmp", "left": "SMX-TMP", "right": "Bloqueia síntese de folato (dihidropteroato + dihidrofolato redutase)" }
-      ],
-      "expl": "Cada classe ataca um alvo molecular específico, ajudando a prever espectro e resistência.",
-      "difficulty": "medium"
-    }
-  ]
-}`;
-
-const PROMPT_MATCH = `Você é uma professora de medicina criando exercícios de pareamento para fixação rápida.
-
-Vou te enviar um PDF (ou material de estudo). Leia com atenção e gere 8 questões de pareamento em português brasileiro, no formato JSON exato abaixo.
-
-Princípios:
-- cada questão tem 4 a 6 pares (não mais que isso, fica confuso)
-- coluna ESQUERDA: itens curtos (nome, classe, achado)
-- coluna DIREITA: descrições/definições/mecanismos/critérios (mais longas)
-- USE temas onde associação é natural: droga ↔ mecanismo, doença ↔ achado patognomônico, classificação ↔ critério, antibiótico ↔ espectro, sinal ↔ síndrome, escala ↔ aplicação
-- evite pares óbvios que não testam raciocínio
-- "expl" opcional: nota didática curta sobre o tema
-
-A plataforma renderiza as duas colunas lado a lado. A aluna toca um item da esquerda, depois o da direita correspondente. Mobile-friendly, sem drag-drop.
-
-Cada questão tem:
-- type: "match"
-- topic: subtópico
-- prompt: enunciado curto (1 frase)
-- leftLabel? rightLabel?: labels das colunas (ex: "Antibiótico" / "Mecanismo")
-- pairs: array com { id, left, right } — id é slug único usado para checar acerto
-- expl?: explicação opcional
-- difficulty?: "easy" | "medium" | "hard"
-
-Saída: APENAS o JSON válido, sem texto antes ou depois.
-
-Formato:
-${EXAMPLE_MATCH}`;
+type AuthorKind = 'mc' | 'flashcard' | 'match' | 'case' | 'ecg';
 
 export default function Author() {
   const { user } = useUser();
-  const [raw, setRaw] = useState('');
-  const [kind, setKind] = useState<AuthorKind>('mc');
-  const [error, setError] = useState<string | null>(null);
+  const [kind, setKind] = useState<AuthorKind>('flashcard');
+  const [courseTitle, setCourseTitle] = useState('');
+  const [courseDescription, setCourseDescription] = useState('');
+  const [items, setItems] = useState<ImportQuestion[]>([]);
   const [success, setSuccess] = useState<string | null>(null);
-  const [showPrompt, setShowPrompt] = useState(false);
-  const fileRef = useRef<HTMLInputElement>(null);
+  const [error, setError] = useState<string | null>(null);
+
   const courses = useMemo(() => db.courses.list(), [success]);
+  const ready = courseTitle.trim() && items.length > 0;
 
-  const promptTemplate =
-    kind === 'ecg'
-      ? PROMPT_ECG
-      : kind === 'case'
-        ? PROMPT_CASE
-        : kind === 'flashcard'
-          ? PROMPT_FLASHCARD
-          : kind === 'match'
-            ? PROMPT_MATCH
-            : PROMPT_MC;
-  const exampleJson =
-    kind === 'ecg'
-      ? EXAMPLE_ECG
-      : kind === 'case'
-        ? EXAMPLE_CASE
-        : kind === 'flashcard'
-          ? EXAMPLE_FLASHCARD
-          : kind === 'match'
-            ? EXAMPLE_MATCH
-            : EXAMPLE_MC;
-
-  function parseAndValidate(text: string): ImportPayload | null {
-    let data: unknown;
-    try {
-      data = JSON.parse(text);
-    } catch (e) {
-      setError('JSON inválido. Confere a vírgula ou aspas faltando.');
-      return null;
-    }
-    if (!data || typeof data !== 'object') {
-      setError('JSON precisa ser um objeto.');
-      return null;
-    }
-    const obj = data as Partial<ImportPayload>;
-    if (typeof obj.title !== 'string' || !obj.title.trim()) {
-      setError('Campo "title" obrigatório (string).');
-      return null;
-    }
-    if (!Array.isArray(obj.questions) || obj.questions.length === 0) {
-      setError('Campo "questions" precisa ser um array não vazio.');
-      return null;
-    }
-    for (let i = 0; i < obj.questions.length; i++) {
-      const q = obj.questions[i] as unknown as Record<string, unknown> | undefined;
-      if (!q) {
-        setError(`Questão ${i + 1}: dado vazio.`);
-        return null;
-      }
-      if (typeof q.topic !== 'string' || !q.topic.trim()) {
-        setError(`Questão ${i + 1}: "topic" obrigatório.`);
-        return null;
-      }
-      const type = (q.type as string | undefined) ?? 'mc';
-      if (type === 'ecg') {
-        if (typeof q.tracingId !== 'string') {
-          setError(`Questão ${i + 1} (ECG): "tracingId" obrigatório.`);
-          return null;
-        }
-        if (!Array.isArray(q.points) || q.points.length < 1) {
-          setError(`Questão ${i + 1} (ECG): "points" precisa ser um array não vazio.`);
-          return null;
-        }
-        if (!q.diagnosis || typeof q.diagnosis !== 'object') {
-          setError(`Questão ${i + 1} (ECG): "diagnosis" obrigatório.`);
-          return null;
-        }
-        continue;
-      }
-      if (type === 'case') {
-        if (typeof q.vignette !== 'string' || !q.vignette.trim()) {
-          setError(`Questão ${i + 1} (caso): "vignette" obrigatória.`);
-          return null;
-        }
-        if (!Array.isArray(q.steps) || q.steps.length < 1) {
-          setError(`Questão ${i + 1} (caso): "steps" precisa ser um array não vazio.`);
-          return null;
-        }
-        continue;
-      }
-      if (type === 'flashcard') {
-        if (typeof q.front !== 'string' || !q.front.trim()) {
-          setError(`Questão ${i + 1} (flashcard): "front" obrigatório.`);
-          return null;
-        }
-        if (typeof q.back !== 'string' || !q.back.trim()) {
-          setError(`Questão ${i + 1} (flashcard): "back" obrigatório.`);
-          return null;
-        }
-        continue;
-      }
-      if (type === 'match') {
-        if (typeof q.prompt !== 'string' || !q.prompt.trim()) {
-          setError(`Questão ${i + 1} (pareamento): "prompt" obrigatório.`);
-          return null;
-        }
-        if (!Array.isArray(q.pairs) || q.pairs.length < 2) {
-          setError(`Questão ${i + 1} (pareamento): "pairs" precisa ter pelo menos 2 itens.`);
-          return null;
-        }
-        continue;
-      }
-      if (typeof q.q !== 'string' || !q.q.trim()) {
-        setError(`Questão ${i + 1}: campo "q" obrigatório.`);
-        return null;
-      }
-      if (!Array.isArray(q.options) || q.options.length !== 4) {
-        setError(`Questão ${i + 1}: precisa de exatamente 4 alternativas.`);
-        return null;
-      }
-      if (typeof q.correct !== 'number' || q.correct < 0 || q.correct > 3) {
-        setError(`Questão ${i + 1}: "correct" precisa ser 0, 1, 2 ou 3.`);
-        return null;
-      }
-      if (typeof q.expl !== 'string') {
-        setError(`Questão ${i + 1}: "expl" obrigatório.`);
-        return null;
-      }
-    }
-    return obj as ImportPayload;
-  }
-
-  function handleImport() {
-    setError(null);
+  function handleAdd(q: ImportQuestion) {
+    setItems((prev) => [...prev, q]);
     setSuccess(null);
-    const payload = parseAndValidate(raw);
-    if (!payload) return;
-    const course = importCourse(payload, { createdBy: user?.uid ?? 'system' });
-    setSuccess(`Curso "${course.title}" importado com ${payload.questions.length} questões.`);
-    setRaw('');
+    setError(null);
   }
 
-  function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => {
-      setRaw(String(reader.result ?? ''));
-      setError(null);
-      setSuccess(null);
+  function handleRemove(idx: number) {
+    setItems((prev) => prev.filter((_, i) => i !== idx));
+  }
+
+  function handleSaveCourse() {
+    if (!ready) return;
+    const payload: ImportPayload = {
+      title: courseTitle.trim(),
+      description: courseDescription.trim(),
+      color: 'wine',
+      questions: items,
     };
-    reader.readAsText(file);
-  }
-
-  function copyPrompt() {
-    navigator.clipboard.writeText(promptTemplate);
-    setSuccess('Prompt copiado. Cole no Claude junto com o PDF.');
-    setTimeout(() => setSuccess(null), 2500);
+    try {
+      const course = importCourse(payload, { createdBy: user?.uid ?? 'system' });
+      setSuccess(`Curso "${course.title}" salvo com ${items.length} questões.`);
+      setError(null);
+      setCourseTitle('');
+      setCourseDescription('');
+      setItems([]);
+      setTimeout(() => setSuccess(null), 4000);
+    } catch (e) {
+      const message = e instanceof Error ? e.message : 'Falha ao salvar curso.';
+      setError(message);
+    }
   }
 
   function deleteCourse(id: string, title: string) {
     if (!confirm(`Apagar o curso "${title}" e todas as questões dele?`)) return;
     db.courses.remove(id);
     setSuccess(`Curso "${title}" apagado.`);
+    setTimeout(() => setSuccess(null), 2500);
   }
 
   return (
     <div className="space-y-10">
-      <header className="text-center">
-        <div className="divider-dots mb-2">· · ·</div>
+      <header>
+        <div className="eyebrow-gold mb-3">criar conteúdo</div>
         <h1 className="display-title-sm">Modo Autor</h1>
-        <p className="mt-3 font-serif text-lg italic text-ink-soft">monte e gerencie os bancos de questão</p>
+        <p className="mt-3 max-w-xl font-serif text-lg italic leading-relaxed text-ink-soft">
+          monte seus bancos de questão, flashcards e casos clínicos diretamente aqui. Cada curso
+          pode misturar tipos diferentes.
+        </p>
       </header>
 
-      <section className="card p-6">
-        <h2 className="mb-3 font-serif text-2xl italic text-wine-deep">1. Gere o JSON com o Claude</h2>
-        <p className="mb-4 text-sm leading-relaxed text-ink-soft">
-          Escolha o tipo de questão, copie o prompt e cole numa conversa nova com o Claude,
-          junto com o material. Ele devolve um JSON pronto para importar.
-        </p>
+      <section className="card space-y-5 p-5 sm:p-7">
+        <div className="flex items-baseline gap-3">
+          <span className="font-serif text-2xl italic leading-none text-gold opacity-60">I</span>
+          <h2 className="font-serif text-xl italic text-wine-deep">Dados do curso</h2>
+        </div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-[1fr_2fr]">
+          <FieldRow label="Título" hint="ex: HIV/AIDS">
+            <input
+              value={courseTitle}
+              onChange={(e) => setCourseTitle(e.target.value)}
+              className="input-elegant"
+              placeholder="Nome do curso"
+            />
+          </FieldRow>
+          <FieldRow label="Descrição" hint="aparece no card do curso">
+            <input
+              value={courseDescription}
+              onChange={(e) => setCourseDescription(e.target.value)}
+              className="input-elegant"
+              placeholder="Resumo curto do conteúdo"
+            />
+          </FieldRow>
+        </div>
+      </section>
 
-        <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
+      <section className="card space-y-5 p-5 sm:p-7">
+        <div className="flex items-baseline gap-3">
+          <span className="font-serif text-2xl italic leading-none text-gold opacity-60">II</span>
+          <h2 className="font-serif text-xl italic text-wine-deep">Tipo de questão</h2>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-5">
+          <KindCard
+            active={kind === 'flashcard'}
+            onClick={() => setKind('flashcard')}
+            Icon={Layers}
+            title="Flashcard"
+            description="Frente / verso para revisão espaçada."
+          />
           <KindCard
             active={kind === 'mc'}
             onClick={() => setKind('mc')}
@@ -447,100 +123,97 @@ export default function Author() {
             description="4 alternativas + explicação."
           />
           <KindCard
-            active={kind === 'ecg'}
-            onClick={() => setKind('ecg')}
-            Icon={Activity}
-            title="Eletrocardiograma"
-            description="Análise ponto a ponto + diagnóstico."
+            active={kind === 'match'}
+            onClick={() => setKind('match')}
+            Icon={Link2}
+            title="Pareamento"
+            description="Duas colunas, associa por toque."
           />
           <KindCard
             active={kind === 'case'}
             onClick={() => setKind('case')}
             Icon={FileText}
-            title="Modo clínico"
-            description="5 casos a partir do PDF, com decisões encadeadas."
+            title="Caso clínico"
+            description="Vinheta + decisões encadeadas."
           />
           <KindCard
-            active={kind === 'flashcard'}
-            onClick={() => setKind('flashcard')}
-            Icon={Layers}
-            title="Flashcards"
-            description="Frente / verso com repetição espaçada (SM-2)."
-          />
-          <KindCard
-            active={kind === 'match'}
-            onClick={() => setKind('match')}
-            Icon={Link2}
-            title="Pareamento"
-            description="Associa duas colunas, como droga e mecanismo."
+            active={kind === 'ecg'}
+            onClick={() => setKind('ecg')}
+            Icon={Activity}
+            title="ECG"
+            description="Análise ponto a ponto + diagnóstico."
           />
         </div>
 
-        <div className="flex flex-wrap gap-3">
-          <button onClick={() => setShowPrompt((s) => !s)} className="btn-secondary">
-            {showPrompt ? 'Esconder prompt' : 'Ver prompt completo'}
-          </button>
-          <button onClick={copyPrompt} className="btn-primary">Copiar prompt</button>
+        <div className="rounded-2xl border border-line bg-bg-soft p-4 sm:p-6">
+          {kind === 'flashcard' && <FlashcardForm onAdd={handleAdd} />}
+          {kind === 'mc' && <MCForm onAdd={handleAdd} />}
+          {kind === 'match' && <MatchForm onAdd={handleAdd} />}
+          {kind === 'case' && <CaseForm onAdd={handleAdd} />}
+          {kind === 'ecg' && <ECGForm onAdd={handleAdd} />}
         </div>
-        {showPrompt && (
-          <pre className="mt-4 max-h-96 overflow-auto rounded-xl border border-line bg-bg-soft p-4 text-xs text-ink">
-            {promptTemplate}
-          </pre>
-        )}
       </section>
 
-      <section className="card p-6">
-        <h2 className="mb-3 font-serif text-2xl italic text-wine-deep">2. Importe o JSON aqui</h2>
-        <p className="mb-4 text-sm text-ink-soft">
-          Cole o JSON gerado abaixo ou suba um arquivo .json.
-        </p>
-        <div className="mb-3 flex gap-3">
-          <button onClick={() => fileRef.current?.click()} className="btn-secondary">
-            Subir arquivo .json
-          </button>
-          <input ref={fileRef} type="file" accept=".json,application/json" className="hidden" onChange={handleFile} />
-          <button
-            onClick={() => {
-              setRaw(exampleJson);
-              setError(null);
-            }}
-            className="btn-ghost text-xs uppercase tracking-wider"
-          >
-            Carregar exemplo
-          </button>
+      <section className="card space-y-5 p-5 sm:p-7">
+        <div className="flex items-baseline justify-between gap-3">
+          <div className="flex items-baseline gap-3">
+            <span className="font-serif text-2xl italic leading-none text-gold opacity-60">
+              III
+            </span>
+            <h2 className="font-serif text-xl italic text-wine-deep">
+              Questões adicionadas
+            </h2>
+          </div>
+          <span className="text-[11px] uppercase tracking-[0.22em] text-muted">
+            {items.length} {items.length === 1 ? 'item' : 'itens'}
+          </span>
         </div>
-        <textarea
-          value={raw}
-          onChange={(e) => setRaw(e.target.value)}
-          rows={14}
-          className="input-elegant font-mono text-xs"
-          placeholder='Cole o JSON aqui…'
-        />
+
+        <ItemsList items={items} onRemove={handleRemove} />
+
         {error && (
-          <div className="mt-3 rounded-xl border-l-2 border-red bg-red-soft px-4 py-3 text-sm text-ink">
+          <div className="rounded-xl border-l-2 border-red bg-red-soft px-4 py-3 text-sm text-ink">
             {error}
           </div>
         )}
         {success && (
-          <div className="mt-3 rounded-xl border-l-2 border-green bg-green-soft px-4 py-3 text-sm text-ink">
+          <div className="rounded-xl border-l-2 border-green bg-green-soft px-4 py-3 text-sm text-ink">
             {success}
           </div>
         )}
-        <div className="mt-4 flex justify-end">
-          <button onClick={handleImport} disabled={!raw.trim()} className="btn-primary">
-            Importar curso
+
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <p className="text-sm italic text-ink-soft">
+            {ready
+              ? 'Pronto para salvar como curso.'
+              : 'Preencha título e adicione pelo menos uma questão.'}
+          </p>
+          <button
+            type="button"
+            onClick={handleSaveCourse}
+            disabled={!ready}
+            className="btn-primary disabled:cursor-not-allowed"
+          >
+            <Save className="mr-2 h-4 w-4" strokeWidth={2} />
+            Salvar curso
           </button>
         </div>
       </section>
 
-      <section className="card p-6">
-        <h2 className="mb-4 font-serif text-2xl italic text-wine-deep">Cursos no banco</h2>
+      <section className="card space-y-4 p-5 sm:p-7">
+        <div className="flex items-baseline gap-3">
+          <span className="font-serif text-2xl italic leading-none text-gold opacity-60">IV</span>
+          <h2 className="font-serif text-xl italic text-wine-deep">Cursos no banco</h2>
+        </div>
         {courses.length === 0 ? (
-          <p className="text-sm text-muted">Nenhum curso ainda.</p>
+          <p className="font-serif italic text-ink-soft">Nenhum curso ainda.</p>
         ) : (
           <ul className="space-y-2">
             {courses.map((c) => (
-              <li key={c.id} className="flex items-center justify-between gap-3 rounded-xl bg-bg-soft px-4 py-3">
+              <li
+                key={c.id}
+                className="flex items-center justify-between gap-3 rounded-xl bg-bg-soft px-4 py-3"
+              >
                 <Link to={`/curso/${c.id}`} className="flex items-center gap-3 text-left">
                   <span
                     aria-hidden
@@ -550,7 +223,9 @@ export default function Author() {
                   </span>
                   <div>
                     <div className="font-serif text-lg italic text-wine-deep">{c.title}</div>
-                    <div className="text-xs text-muted">{c.questionCount} questões · {c.topics.length} tópicos</div>
+                    <div className="text-xs text-muted">
+                      {c.questionCount} questões · {c.topics.length} tópicos
+                    </div>
                   </div>
                 </Link>
                 <button
@@ -595,9 +270,9 @@ function KindCard({ active, onClick, Icon, title, description }: KindCardProps) 
         >
           <Icon className="h-[18px] w-[18px]" strokeWidth={1.75} />
         </span>
-        <h3 className="font-serif text-lg italic text-wine-deep">{title}</h3>
+        <h3 className="font-serif text-base italic text-wine-deep">{title}</h3>
       </div>
-      <p className="text-sm leading-relaxed text-ink-soft">{description}</p>
+      <p className="text-xs leading-relaxed text-ink-soft">{description}</p>
     </button>
   );
 }
