@@ -25,8 +25,13 @@
       theme('colors.bg');
     color: theme('colors.ink');
     font-family: theme('fontFamily.sans');
+    font-feature-settings: 'ss01', 'ss02', 'liga', 'calt';
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
+  }
+
+  .font-serif {
+    font-feature-settings: 'liga', 'calt', 'dlig', 'ss01';
   }
 
   #root {
@@ -67,7 +72,28 @@
     @apply inline-flex min-h-touch items-center justify-center rounded-full px-5 py-2 text-sm font-medium text-ink-soft transition active:text-wine hover:text-wine-deep;
   }
   .card {
-    @apply rounded-2xl border border-line bg-paper shadow-soft;
+    @apply rounded-2xl border border-line bg-paper shadow-card;
+  }
+  .card-elevated {
+    @apply card relative overflow-hidden;
+    background-image: theme('backgroundImage.paper-grain'), theme('backgroundImage.paper-soft');
+    background-size: 160px 160px, 100% 100%;
+    background-repeat: repeat, no-repeat;
+  }
+  .eyebrow {
+    @apply text-eyebrow font-sans uppercase text-muted;
+  }
+  .eyebrow-gold {
+    @apply eyebrow text-gold;
+  }
+  .display-title {
+    @apply font-serif text-display italic text-wine-deep;
+  }
+  .display-title-sm {
+    @apply font-serif text-display-sm italic text-wine-deep;
+  }
+  .divider-dots {
+    @apply font-serif text-2xl tracking-[0.5em] text-rose opacity-70;
   }
   .label-tag {
     @apply inline-block rounded-full bg-bg-soft px-2.5 py-1 text-[11px] uppercase tracking-[0.2em] text-muted;

@@ -16,10 +16,8 @@ export default function Dashboard() {
   return (
     <div className="space-y-10">
       <section className="text-center">
-        <div className="mb-2 font-serif text-2xl tracking-[0.5em] text-rose opacity-70">· · ·</div>
-        <h1 className="font-serif text-4xl italic text-wine-deep sm:text-5xl">
-          olá, {user?.name?.split(' ')[0] ?? 'doutora'}
-        </h1>
+        <div className="divider-dots mb-2">· · ·</div>
+        <h1 className="display-title-sm">olá, {user?.name?.split(' ')[0] ?? 'doutora'}</h1>
         <p className="mt-3 font-serif text-lg italic text-ink-soft">o que você quer estudar hoje</p>
       </section>
 

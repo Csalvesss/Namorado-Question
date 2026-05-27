@@ -48,9 +48,11 @@ export default function Course() {
       </Link>
 
       <header className="text-center">
-        <div className="mb-3 text-5xl">{course.icon}</div>
-        <h1 className="font-serif text-4xl italic text-wine-deep sm:text-5xl">{course.title}</h1>
-        <p className="mt-3 mx-auto max-w-xl font-serif italic text-ink-soft">{course.description}</p>
+        <div className="mb-3 text-5xl sm:text-6xl">{course.icon}</div>
+        <h1 className="display-title-sm">{course.title}</h1>
+        <p className="mt-3 mx-auto max-w-xl font-serif text-lg italic leading-relaxed text-ink-soft">
+          {course.description}
+        </p>
         <div className="mt-4 flex justify-center gap-2">
           <span className="label-tag">{course.questionCount} questões no banco</span>
         </div>

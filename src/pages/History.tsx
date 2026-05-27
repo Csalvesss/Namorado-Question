@@ -14,9 +14,9 @@ export default function History() {
   return (
     <div className="space-y-8">
       <header className="text-center">
-        <div className="mb-2 font-serif text-2xl tracking-[0.5em] text-rose opacity-70">· · ·</div>
-        <h1 className="font-serif text-4xl italic text-wine-deep sm:text-5xl">Histórico</h1>
-        <p className="mt-3 font-serif italic text-ink-soft">cada prova é um passo</p>
+        <div className="divider-dots mb-2">· · ·</div>
+        <h1 className="display-title-sm">Histórico</h1>
+        <p className="mt-3 font-serif text-lg italic text-ink-soft">cada prova é um passo</p>
       </header>
 
       {sessions.length === 0 ? (
