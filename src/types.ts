@@ -115,6 +115,7 @@ export interface UserProfile {
   email: string;
   name: string;
   displayMode: 'namorado' | 'doutora';
+  dailyGoal?: number;
   createdAt: number;
 }
 
