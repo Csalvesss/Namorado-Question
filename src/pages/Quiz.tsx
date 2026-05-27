@@ -1,7 +1,10 @@
 import { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+import confetti from 'canvas-confetti';
 import { getPhrases } from '../data/phrases';
 import { db } from '../lib/db';
+import { duration, easeOutExpo, palette } from '../lib/motion';
 import { getMistakeQuestionIds, modeConfig, sampleQuestions, shuffleOptions, type PreparedQuestion } from '../lib/quiz';
 import { useUser } from '../lib/useUser';
 import type { QuizMode, QuizSession } from '../types';
@@ -115,6 +118,9 @@ export default function Quiz() {
     db.sessions.save(sess);
     setSession(sess);
     setTimeout(() => resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 200);
+
+    const pct = (score / questions.length) * 100;
+    if (pct >= 80) celebrate(pct);
   }
 
   function redoQuiz() {
@@ -130,8 +136,8 @@ export default function Quiz() {
         <Link to={`/curso/${courseId}`} className="btn-ghost -ml-2 text-xs uppercase tracking-wider">
           ← <span className="ml-1 max-w-[60vw] truncate sm:max-w-none">{course.title}</span>
         </Link>
-        <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-muted">
-          <span>{config.icon}</span>
+        <div className="flex items-center gap-1.5 text-xs uppercase tracking-wider text-muted">
+          <config.Icon className="h-4 w-4 text-wine" strokeWidth={1.75} />
           <span>{config.label}</span>
           {config.timed && !submitted && <span>· {formatTime(elapsedSec)}</span>}
         </div>
@@ -255,20 +261,31 @@ function QuestionCard({ question, index, submitted, phrase, onSelect }: Question
         })}
       </div>
 
-      {submitted && (
-        <div
-          className={`mt-4 rounded-xl p-4 text-sm ${
-            isRight ? 'border-l-[3px] border-green bg-green-soft' : 'border-l-[3px] border-red bg-red-soft'
-          }`}
-        >
-          <div className={`mb-1 font-serif text-base font-semibold italic ${isRight ? 'text-green' : 'text-red'}`}>
-            {phrase}
-          </div>
-          <div className="text-sm text-ink-soft">
-            <strong className="text-ink">Resposta correta: {LETTERS[question.correct]}.</strong> {question.expl}
-          </div>
-        </div>
-      )}
+      <AnimatePresence initial={false}>
+        {submitted && (
+          <motion.div
+            key="expl"
+            initial={{ opacity: 0, y: -6, height: 0 }}
+            animate={{ opacity: 1, y: 0, height: 'auto' }}
+            exit={{ opacity: 0, y: -6, height: 0 }}
+            transition={{ duration: duration.base, ease: easeOutExpo, delay: index * 0.04 }}
+            className="overflow-hidden"
+          >
+            <div
+              className={`mt-4 rounded-xl p-4 text-sm ${
+                isRight ? 'border-l-[3px] border-green bg-green-soft' : 'border-l-[3px] border-red bg-red-soft'
+              }`}
+            >
+              <div className={`mb-1 font-serif text-base font-semibold italic ${isRight ? 'text-green' : 'text-red'}`}>
+                {phrase}
+              </div>
+              <div className="text-sm leading-relaxed text-ink-soft">
+                <strong className="text-ink">Resposta correta: {LETTERS[question.correct]}.</strong> {question.expl}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </article>
   );
 }
@@ -310,4 +327,26 @@ function formatTime(sec: number) {
   const m = Math.floor(sec / 60);
   const s = sec % 60;
   return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+}
+
+function celebrate(pct: number) {
+  if (typeof window === 'undefined') return;
+  const colors = [palette.wine, palette.wineDeep, palette.rose, palette.gold];
+  const intensity = pct >= 95 ? 1 : pct >= 90 ? 0.8 : 0.6;
+  const fire = (origin: { x: number; y: number }, particleCount: number) => {
+    confetti({
+      particleCount: Math.round(particleCount * intensity),
+      spread: 70,
+      startVelocity: 38,
+      origin,
+      colors,
+      ticks: 220,
+      scalar: 0.85,
+      gravity: 1.1,
+      decay: 0.92,
+    });
+  };
+  fire({ x: 0.18, y: 0.85 }, 35);
+  fire({ x: 0.82, y: 0.85 }, 35);
+  setTimeout(() => fire({ x: 0.5, y: 0.75 }, 40), 160);
 }
