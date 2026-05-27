@@ -27,8 +27,19 @@ export function useUser(): UseUserState {
   }, []);
 
   const updateUser = useCallback(async (patch: Partial<UserProfile>) => {
-    await patchProfile(patch);
-    setUser((prev) => (prev ? { ...prev, ...patch } : prev));
+    try {
+      await patchProfile(patch);
+      setUser((prev) => (prev ? { ...prev, ...patch } : prev));
+    } catch (e) {
+      const message =
+        e && typeof e === 'object' && 'code' in e
+          ? `Firestore: ${(e as { code: string }).code}`
+          : e instanceof Error
+            ? e.message
+            : 'Falha ao salvar no Firestore.';
+      console.error('patchProfile falhou:', e);
+      throw new Error(message);
+    }
   }, []);
 
   return { user, loading, refresh, updateUser };

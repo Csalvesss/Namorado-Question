@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, Heart, Sparkles, Stethoscope } from 'lucide-react';
 import { getAnthropicKey, setAnthropicKey } from '../lib/ai-client';
@@ -13,27 +13,53 @@ export default function Profile() {
   const { user, refresh, updateUser } = useUser();
   const [name, setName] = useState(user?.name ?? '');
   const [saved, setSaved] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const [savingName, setSavingName] = useState(false);
   const [aiKey, setAiKey] = useState(getAnthropicKey() ?? '');
   const [aiKeyVisible, setAiKeyVisible] = useState(false);
   const [aiKeySaved, setAiKeySaved] = useState(false);
 
+  useEffect(() => {
+    if (user?.name) setName(user.name);
+  }, [user?.name]);
+
   if (!user) return null;
 
-  function saveName() {
+  async function saveName() {
     if (!name.trim()) return;
-    updateUser({ name: name.trim() });
-    setSaved(true);
-    setTimeout(() => setSaved(false), 1500);
+    setSaveError(null);
+    setSavingName(true);
+    try {
+      await updateUser({ name: name.trim() });
+      setSaved(true);
+      setTimeout(() => setSaved(false), 1500);
+    } catch (e) {
+      const message = e instanceof Error ? e.message : 'Falha ao salvar.';
+      setSaveError(message);
+      console.error('saveName falhou:', e);
+    } finally {
+      setSavingName(false);
+    }
   }
 
-  function setDisplayMode(mode: 'namorado' | 'doutora') {
+  async function setDisplayMode(mode: 'namorado' | 'doutora') {
     if (!user || user.displayMode === mode) return;
-    updateUser({ displayMode: mode });
+    try {
+      await updateUser({ displayMode: mode });
+    } catch (e) {
+      setSaveError(e instanceof Error ? e.message : 'Falha ao trocar o modo.');
+      console.error('setDisplayMode falhou:', e);
+    }
   }
 
-  function setDailyGoal(goal: number) {
+  async function setDailyGoal(goal: number) {
     if (!user || user.dailyGoal === goal) return;
-    updateUser({ dailyGoal: goal });
+    try {
+      await updateUser({ dailyGoal: goal });
+    } catch (e) {
+      setSaveError(e instanceof Error ? e.message : 'Falha ao salvar a meta.');
+      console.error('setDailyGoal falhou:', e);
+    }
   }
 
   function saveAiKey() {
@@ -85,10 +111,19 @@ export default function Profile() {
           <label className="mb-1 block text-[11px] uppercase tracking-[0.22em] text-muted">E-mail</label>
           <div className="text-base text-ink">{user.email}</div>
         </div>
+        {saveError && (
+          <div className="rounded-xl border-l-2 border-red bg-red-soft px-4 py-3 text-sm text-ink">
+            {saveError}
+          </div>
+        )}
         <div className="flex justify-end gap-3">
           {saved && <span className="self-center text-xs italic text-green">salvo</span>}
-          <button onClick={saveName} className="btn-primary">
-            Salvar
+          <button
+            onClick={saveName}
+            disabled={savingName || !name.trim() || name.trim() === user.name}
+            className="btn-primary disabled:cursor-not-allowed"
+          >
+            {savingName ? 'Salvando...' : 'Salvar'}
           </button>
         </div>
       </section>
