@@ -1,5 +1,5 @@
-import { BookOpenCheck, Flame, Target, Timer, Zap, type LucideIcon } from 'lucide-react';
-import type { Question, QuizMode } from '../types';
+import { BookOpenCheck, Flame, Stethoscope, Target, Timer, Zap, type LucideIcon } from 'lucide-react';
+import type { Question, QuestionType, QuizMode } from '../types';
 import { db } from './db';
 
 export function shuffle<T>(arr: T[]): T[] {
@@ -16,10 +16,20 @@ export interface SampleOptions {
   count: number;
   topics?: string[];
   mistakeIds?: string[];
+  typeFilter?: QuestionType;
 }
 
-export function sampleQuestions({ courseId, count, topics, mistakeIds }: SampleOptions): Question[] {
+export function sampleQuestions({
+  courseId,
+  count,
+  topics,
+  mistakeIds,
+  typeFilter,
+}: SampleOptions): Question[] {
   let pool = db.questions.listByCourse(courseId);
+  if (typeFilter) {
+    pool = pool.filter((q) => q.type === typeFilter);
+  }
   if (topics && topics.length > 0) {
     pool = pool.filter((q) => topics.includes(q.topic));
   }
@@ -131,7 +141,7 @@ export function modeConfig(mode: QuizMode): ModeConfig {
         label: 'Revisão rápida',
         Icon: Zap,
         timed: false,
-        description: '5 questões em poucos minutos. Pra estudar nos intervalos.',
+        description: '5 questões em poucos minutos. Para estudar nos intervalos.',
       };
     case 'marathon':
       return {
@@ -139,7 +149,7 @@ export function modeConfig(mode: QuizMode): ModeConfig {
         label: 'Maratona',
         Icon: Flame,
         timed: false,
-        description: '50 questões. Pra um treino longo antes da prova.',
+        description: '50 questões. Para um treino longo antes da prova.',
       };
     case 'mistakes':
       return {
@@ -156,6 +166,14 @@ export function modeConfig(mode: QuizMode): ModeConfig {
         Icon: Timer,
         timed: true,
         description: '20 questões com tempo. Gabarito só ao fim.',
+      };
+    case 'clinical':
+      return {
+        count: 5,
+        label: 'Modo clínico',
+        Icon: Stethoscope,
+        timed: false,
+        description: 'Casos clínicos encadeados, como uma rodada de plantão.',
       };
     case 'standard':
     default:

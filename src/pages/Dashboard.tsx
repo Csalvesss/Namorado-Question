@@ -1,8 +1,15 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Flame } from 'lucide-react';
+import DailyGoalRing from '../components/DailyGoalRing';
 import EmptyState from '../components/EmptyState';
 import Onboarding from '../components/Onboarding';
+import StudyHeatmap from '../components/StudyHeatmap';
+import {
+  calculateStreak,
+  questionsAnsweredToday,
+  studyByDay,
+} from '../lib/analytics';
 import { db } from '../lib/db';
 import { useUser } from '../lib/useUser';
 import type { Course, QuizSession } from '../types';
@@ -71,6 +78,11 @@ export default function Dashboard() {
     return map;
   }, [completed]);
 
+  const studyMap = useMemo(() => studyByDay(completed), [completed]);
+  const streak = useMemo(() => calculateStreak(studyMap), [studyMap]);
+  const todayQuestions = useMemo(() => questionsAnsweredToday(studyMap), [studyMap]);
+  const dailyGoal = user?.dailyGoal ?? 15;
+
   return (
     <div className="space-y-12">
       <Onboarding />
@@ -117,10 +129,79 @@ export default function Dashboard() {
         )}
       </section>
 
+      {completed.length > 0 && (
+        <section>
+          <div className="mb-5 flex items-baseline gap-3">
+            <span className="font-serif text-3xl italic leading-none text-gold opacity-60">I</span>
+            <h2 className="font-serif text-2xl italic text-wine-deep">Ritmo de estudo</h2>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_auto] md:items-stretch">
+            <div className="card flex flex-col gap-5 p-5 sm:p-6">
+              <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
+                <div className="flex items-baseline gap-2">
+                  <Flame className="h-5 w-5 self-center text-wine" strokeWidth={1.75} />
+                  <span className="font-serif text-3xl font-semibold leading-none text-wine-deep sm:text-4xl">
+                    {streak.current}
+                  </span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-muted">
+                    {streak.current === 1 ? 'dia seguido' : 'dias seguidos'}
+                  </span>
+                </div>
+                {streak.longest > streak.current && (
+                  <div className="flex items-baseline gap-2">
+                    <span className="font-serif text-lg italic text-ink-soft">recorde:</span>
+                    <span className="font-serif text-xl font-semibold text-wine-deep">
+                      {streak.longest}
+                    </span>
+                    <span className="text-[11px] uppercase tracking-[0.22em] text-muted">
+                      dias
+                    </span>
+                  </div>
+                )}
+                <div className="flex items-baseline gap-2">
+                  <span className="font-serif text-lg italic text-ink-soft">total:</span>
+                  <span className="font-serif text-xl font-semibold text-wine-deep">
+                    {streak.studyDaysTotal}
+                  </span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-muted">
+                    dias estudados
+                  </span>
+                </div>
+              </div>
+
+              <StudyHeatmap sessions={completed} />
+            </div>
+
+            <div className="card flex flex-col items-center justify-center gap-3 p-5 sm:p-6 md:min-w-[200px]">
+              <span className="text-[11px] uppercase tracking-[0.22em] text-muted">
+                meta de hoje
+              </span>
+              <DailyGoalRing done={todayQuestions} goal={dailyGoal} />
+              <p className="text-center font-serif text-sm italic leading-snug text-ink-soft">
+                {todayQuestions >= dailyGoal
+                  ? 'meta batida. orgulho de você.'
+                  : todayQuestions > 0
+                    ? `faltam ${dailyGoal - todayQuestions} para fechar o dia`
+                    : 'comece com uma revisão rápida'}
+              </p>
+              <Link
+                to="/perfil"
+                className="text-[11px] uppercase tracking-[0.18em] text-muted transition hover:text-wine"
+              >
+                ajustar meta
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
       <section>
         <div className="mb-5 flex items-baseline justify-between">
           <div className="flex items-baseline gap-3">
-            <span className="font-serif text-3xl italic leading-none text-gold opacity-60">I</span>
+            <span className="font-serif text-3xl italic leading-none text-gold opacity-60">
+              {completed.length > 0 ? 'II' : 'I'}
+            </span>
             <h2 className="font-serif text-2xl italic text-wine-deep">Cursos</h2>
           </div>
           <Link to="/autor" className="btn-ghost text-xs uppercase tracking-wider">

@@ -5,6 +5,8 @@ import { logout } from '../lib/auth';
 import { db } from '../lib/db';
 import { useUser } from '../lib/useUser';
 
+const GOAL_PRESETS = [5, 10, 15, 20, 30, 50];
+
 export default function Profile() {
   const navigate = useNavigate();
   const { user, refresh, updateUser } = useUser();
@@ -23,6 +25,11 @@ export default function Profile() {
   function setDisplayMode(mode: 'namorado' | 'doutora') {
     if (!user || user.displayMode === mode) return;
     updateUser({ displayMode: mode });
+  }
+
+  function setDailyGoal(goal: number) {
+    if (!user || user.dailyGoal === goal) return;
+    updateUser({ dailyGoal: goal });
   }
 
   function handleLogout() {
@@ -119,6 +126,38 @@ export default function Profile() {
       <section className="card space-y-4 p-6 sm:p-7">
         <div className="flex items-baseline gap-3">
           <span className="font-serif text-2xl italic leading-none text-gold opacity-60">III</span>
+          <h2 className="font-serif text-xl italic text-wine-deep">Meta diária</h2>
+        </div>
+        <p className="text-sm leading-relaxed text-ink-soft">
+          Quantas questões você quer responder por dia. A meta aparece no Dashboard com um anel
+          de progresso e marca a sequência de dias seguidos.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {GOAL_PRESETS.map((n) => {
+            const active = (user.dailyGoal ?? 15) === n;
+            return (
+              <button
+                key={n}
+                onClick={() => setDailyGoal(n)}
+                className={`inline-flex min-h-touch items-center gap-1.5 rounded-full border px-4 py-1.5 text-sm transition active:scale-[0.98] ${
+                  active
+                    ? 'border-wine bg-wine text-white'
+                    : 'border-line bg-paper text-ink-soft hover:border-rose'
+                }`}
+              >
+                <span className="font-serif font-semibold">{n}</span>
+                <span className="text-[11px] uppercase tracking-[0.18em]">
+                  {active ? 'questões/dia' : '/dia'}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="card space-y-4 p-6 sm:p-7">
+        <div className="flex items-baseline gap-3">
+          <span className="font-serif text-2xl italic leading-none text-gold opacity-60">IV</span>
           <h2 className="font-serif text-xl italic text-wine-deep">Sessão</h2>
         </div>
         <div className="flex flex-wrap gap-3">
