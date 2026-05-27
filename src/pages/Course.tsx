@@ -1,10 +1,13 @@
 import { useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import type { LucideIcon } from 'lucide-react';
+import { ArrowRight, type LucideIcon } from 'lucide-react';
 import { db } from '../lib/db';
 import { getMistakeQuestionIds, modeConfig } from '../lib/quiz';
 import { useUser } from '../lib/useUser';
 import type { QuizMode } from '../types';
+
+const FEATURED_MODES: QuizMode[] = ['standard', 'quick'];
+const COMPACT_MODES: QuizMode[] = ['marathon', 'timed'];
 
 export default function Course() {
   const { id = '' } = useParams();
@@ -20,11 +23,27 @@ export default function Course() {
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const mistakeIds = useMemo(() => (user ? getMistakeQuestionIds(user.uid, id) : []), [user, id]);
 
+  const courseStats = useMemo(() => {
+    if (!user) return { attempts: 0, accuracy: 0 };
+    const sessions = db.sessions.list(user.uid).filter((s) => s.courseId === id && s.completedAt);
+    const totalQ = sessions.reduce((acc, s) => acc + s.answers.length, 0);
+    const totalRight = sessions.reduce(
+      (acc, s) => acc + s.answers.filter((a) => a.isRight).length,
+      0,
+    );
+    return {
+      attempts: sessions.length,
+      accuracy: totalQ > 0 ? Math.round((totalRight / totalQ) * 100) : 0,
+    };
+  }, [user, id]);
+
   if (!course) {
     return (
       <div className="card p-10 text-center">
         <p className="font-serif text-xl italic text-ink-soft">Curso não encontrado.</p>
-        <Link to="/app" className="btn-secondary mt-4 inline-block">Voltar</Link>
+        <Link to="/app" className="btn-secondary mt-4 inline-block">
+          Voltar
+        </Link>
       </div>
     );
   }
@@ -43,34 +62,67 @@ export default function Course() {
   }
 
   return (
-    <div className="space-y-8">
-      <Link to="/app" className="btn-ghost -ml-2 text-xs uppercase tracking-wider">
-        ← Voltar
+    <div className="space-y-10">
+      <Link
+        to="/app"
+        className="inline-flex items-center text-[11px] uppercase tracking-[0.22em] text-muted transition hover:text-wine"
+      >
+        ← Voltar aos cursos
       </Link>
 
-      <header className="text-center">
+      <header>
         <div className="eyebrow-gold mb-3">Módulo de estudo</div>
         <h1 className="display-title-sm">{course.title}</h1>
-        <p className="mt-3 mx-auto max-w-xl font-serif text-lg italic leading-relaxed text-ink-soft">
+        <p className="mt-4 max-w-2xl font-serif text-lg italic leading-relaxed text-ink-soft">
           {course.description}
         </p>
-        <div className="mt-4 flex justify-center gap-2">
+        <div className="mt-5 flex flex-wrap gap-1.5">
           <span className="label-tag">{course.questionCount} questões no banco</span>
           <span className="label-tag">{course.topics.length} tópicos</span>
+          {courseStats.attempts > 0 && (
+            <>
+              <span className="label-tag">{courseStats.accuracy}% acerto</span>
+              <span className="label-tag">
+                {courseStats.attempts} tentativa{courseStats.attempts > 1 ? 's' : ''}
+              </span>
+            </>
+          )}
         </div>
       </header>
 
-      <section className="card p-5 sm:p-6">
-        <h2 className="mb-4 font-serif text-xl italic text-wine-deep">Modos de estudo</h2>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {(['standard', 'quick', 'marathon', 'timed'] as QuizMode[]).map((m) => {
+      <section>
+        <div className="mb-5 flex items-baseline gap-3">
+          <span className="font-serif text-3xl italic leading-none text-gold opacity-60">II</span>
+          <h2 className="font-serif text-2xl italic text-wine-deep">Modos de estudo</h2>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {FEATURED_MODES.map((m) => {
             const cfg = modeConfig(m);
             return (
-              <ModeCard
+              <FeaturedModeCard
                 key={m}
                 Icon={cfg.Icon}
                 title={cfg.label}
                 description={cfg.description}
+                count={`${cfg.count} questões`}
+                onClick={() => startQuiz(m)}
+                disabled={questions.length < 1}
+              />
+            );
+          })}
+        </div>
+
+        <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          {COMPACT_MODES.map((m) => {
+            const cfg = modeConfig(m);
+            return (
+              <CompactModeCard
+                key={m}
+                Icon={cfg.Icon}
+                title={cfg.label}
+                description={cfg.description}
+                count={`${cfg.count}`}
                 onClick={() => startQuiz(m)}
                 disabled={questions.length < 1}
               />
@@ -79,10 +131,11 @@ export default function Course() {
           {(() => {
             const cfg = modeConfig('mistakes');
             return (
-              <ModeCard
+              <CompactModeCard
                 Icon={cfg.Icon}
                 title={cfg.label}
                 description={`Só as questões que você errou (${mistakeIds.length} disponíveis).`}
+                count={String(mistakeIds.length)}
                 onClick={() => startQuiz('mistakes')}
                 disabled={mistakeIds.length < 1}
                 highlight
@@ -94,16 +147,20 @@ export default function Course() {
 
       {topics.length > 1 && (
         <section className="card p-6">
-          <div className="mb-3 flex items-center justify-between">
-            <h2 className="font-serif text-xl italic text-wine-deep">Filtrar por tópico</h2>
+          <div className="mb-3 flex items-baseline gap-3">
+            <span className="font-serif text-2xl italic leading-none text-gold opacity-60">III</span>
+            <h2 className="font-serif text-2xl italic text-wine-deep">Filtrar por tópico</h2>
             {selectedTopics.length > 0 && (
-              <button onClick={() => setSelectedTopics([])} className="btn-ghost text-xs uppercase tracking-wider">
+              <button
+                onClick={() => setSelectedTopics([])}
+                className="ml-auto btn-ghost text-xs uppercase tracking-wider"
+              >
                 Limpar
               </button>
             )}
           </div>
-          <p className="mb-4 text-sm text-ink-soft">
-            Selecione um ou mais tópicos. Se nada estiver selecionado, sorteio de todos.
+          <p className="mb-4 text-sm leading-relaxed text-ink-soft">
+            Selecione um ou mais tópicos. Sem seleção, sorteio de todos.
           </p>
           <div className="flex flex-wrap gap-2">
             {topics.map(({ topic, count }) => {
@@ -112,13 +169,14 @@ export default function Course() {
                 <button
                   key={topic}
                   onClick={() => toggleTopic(topic)}
-                  className={`inline-flex min-h-[36px] items-center rounded-full border px-3.5 py-1.5 text-xs uppercase tracking-wider transition active:scale-[0.98] ${
+                  className={`inline-flex min-h-[36px] items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-xs uppercase tracking-wider transition active:scale-[0.98] ${
                     active
-                      ? 'border-wine bg-rose-soft text-wine-deep'
+                      ? 'border-wine bg-wine text-white'
                       : 'border-line bg-paper text-ink-soft hover:border-rose'
                   }`}
                 >
-                  {topic} · {count}
+                  {topic}
+                  <span className={active ? 'text-rose-soft' : 'text-muted'}>· {count}</span>
                 </button>
               );
             })}
@@ -129,37 +187,85 @@ export default function Course() {
   );
 }
 
-interface ModeCardProps {
+interface FeaturedModeCardProps {
   Icon: LucideIcon;
   title: string;
   description: string;
+  count: string;
+  onClick: () => void;
+  disabled?: boolean;
+}
+
+function FeaturedModeCard({ Icon, title, description, count, onClick, disabled }: FeaturedModeCardProps) {
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className="card group relative flex min-h-[180px] flex-col justify-between overflow-hidden p-6 text-left transition active:scale-[0.99] hover:shadow-card-hover disabled:cursor-not-allowed disabled:opacity-50 disabled:active:scale-100"
+    >
+      <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-rose-soft transition group-hover:bg-wine" />
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <div className="eyebrow-gold mb-2">Recomendado</div>
+          <h3 className="font-serif text-2xl italic leading-tight text-wine-deep">{title}</h3>
+        </div>
+        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-rose-soft text-wine-deep">
+          <Icon className="h-5 w-5" strokeWidth={1.5} />
+        </span>
+      </div>
+      <p className="text-sm leading-relaxed text-ink-soft">{description}</p>
+      <div className="flex items-center justify-between border-t border-line pt-3">
+        <span className="text-[11px] uppercase tracking-[0.22em] text-muted">{count}</span>
+        <ArrowRight
+          className="h-4 w-4 translate-x-0 text-wine transition group-hover:translate-x-1"
+          strokeWidth={2}
+        />
+      </div>
+    </button>
+  );
+}
+
+interface CompactModeCardProps {
+  Icon: LucideIcon;
+  title: string;
+  description: string;
+  count: string;
   onClick: () => void;
   disabled?: boolean;
   highlight?: boolean;
 }
 
-function ModeCard({ Icon, title, description, onClick, disabled, highlight }: ModeCardProps) {
+function CompactModeCard({
+  Icon,
+  title,
+  description,
+  count,
+  onClick,
+  disabled,
+  highlight,
+}: CompactModeCardProps) {
   return (
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`group min-h-touch rounded-xl border p-5 text-left transition active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50 disabled:active:scale-100 ${
+      className={`group min-h-touch rounded-xl border p-4 text-left transition active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50 disabled:active:scale-100 ${
         highlight
-          ? 'border-rose bg-rose-soft/30 hover:bg-rose-soft'
+          ? 'border-rose bg-rose-soft/40 hover:bg-rose-soft'
           : 'border-line bg-bg-soft hover:border-wine hover:bg-paper'
       }`}
     >
-      <div className="mb-2 flex items-center gap-2.5">
+      <div className="mb-2 flex items-center justify-between">
         <span
-          className={`inline-flex h-9 w-9 items-center justify-center rounded-full transition ${
-            highlight ? 'bg-rose-soft text-wine-deep' : 'bg-paper text-wine group-hover:bg-rose-soft'
+          className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${
+            highlight ? 'bg-paper text-wine-deep' : 'bg-paper text-wine'
           }`}
         >
-          <Icon className="h-[18px] w-[18px]" strokeWidth={1.75} />
+          <Icon className="h-4 w-4" strokeWidth={1.75} />
         </span>
-        <h3 className="font-serif text-lg italic text-wine-deep">{title}</h3>
+        <span className="text-[11px] uppercase tracking-[0.18em] text-muted">{count}</span>
       </div>
-      <p className="text-sm leading-relaxed text-ink-soft">{description}</p>
+      <h3 className="mb-1 font-serif text-lg italic leading-tight text-wine-deep">{title}</h3>
+      <p className="text-[13px] leading-relaxed text-ink-soft">{description}</p>
     </button>
   );
 }
