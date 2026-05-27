@@ -1,9 +1,13 @@
-import type { Course, Question, QuizSession, UserProfile } from '../types';
+import { cloudSessions } from './cloud-db';
+import type { Course, Question, QuizSession } from '../types';
 
 const PREFIX = 'guava.';
 
 function normalizeQuestion(q: Question & { type?: string }): Question {
   if (q.type === 'ecg') return q as Question;
+  if (q.type === 'case') return q as Question;
+  if (q.type === 'flashcard') return q as Question;
+  if (q.type === 'match') return q as Question;
   return { ...q, type: 'mc' } as Question;
 }
 
@@ -25,19 +29,29 @@ function genId(prefix: string) {
   return `${prefix}_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
 }
 
-export const db = {
-  user: {
-    get(): UserProfile | null {
-      return read<UserProfile | null>('user', null);
-    },
-    save(user: UserProfile) {
-      write('user', user);
-    },
-    clear() {
-      localStorage.removeItem(PREFIX + 'user');
-    },
-  },
+const sessionsKey = (uid: string) => `sessions.${uid}`;
 
+export const SESSIONS_CHANGE_EVENT = 'guava:sessions-change';
+
+function emitSessionsChange() {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent(SESSIONS_CHANGE_EVENT));
+  }
+}
+
+export function hydrateSessionsFromCloud(uid: string): Promise<void> {
+  return cloudSessions
+    .list(uid)
+    .then((list) => {
+      write(sessionsKey(uid), list);
+      emitSessionsChange();
+    })
+    .catch(() => {
+      // ignore — local cache continues working offline
+    });
+}
+
+export const db = {
   courses: {
     list(): Course[] {
       return read<Course[]>('courses', []);
@@ -88,20 +102,27 @@ export const db = {
   },
 
   sessions: {
-    list(userId?: string): QuizSession[] {
-      const all = read<QuizSession[]>('sessions', []);
-      const sorted = [...all].sort((a, b) => (b.completedAt ?? b.startedAt) - (a.completedAt ?? a.startedAt));
-      return userId ? sorted.filter((s) => s.userId === userId) : sorted;
+    list(userId: string): QuizSession[] {
+      const all = read<QuizSession[]>(sessionsKey(userId), []);
+      return [...all].sort(
+        (a, b) => (b.completedAt ?? b.startedAt) - (a.completedAt ?? a.startedAt),
+      );
     },
-    get(id: string): QuizSession | undefined {
-      return this.list().find((s) => s.id === id);
+    get(userId: string, id: string): QuizSession | undefined {
+      return this.list(userId).find((s) => s.id === id);
     },
     save(session: QuizSession) {
-      const all = read<QuizSession[]>('sessions', []);
+      const uid = session.userId;
+      const key = sessionsKey(uid);
+      const all = read<QuizSession[]>(key, []);
       const idx = all.findIndex((s) => s.id === session.id);
       if (idx >= 0) all[idx] = session;
       else all.push(session);
-      write('sessions', all);
+      write(key, all);
+      emitSessionsChange();
+      void cloudSessions.save(session).catch(() => {
+        // best-effort sync; local cache holds the truth offline
+      });
     },
   },
 

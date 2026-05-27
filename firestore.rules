@@ -1,0 +1,26 @@
+// Regras de seguranca do Firestore para Guava Education.
+// Aplicar no Firebase Console -> Firestore -> Regras.
+//
+// Como funciona:
+// - /users/{uid}             : doc do perfil. So o dono le e escreve.
+// - /users/{uid}/sessions/*  : sessoes de prova. So o dono.
+// - /users/{uid}/srs/*       : estado de repeticao espacada por card. So o dono.
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Usuaria autenticada le e escreve apenas o proprio perfil
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+
+      // Subcolecoes: sessions e srs sao dados de progresso por usuaria
+      match /sessions/{sessionId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+      match /srs/{cardId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Flame, Layers } from 'lucide-react';
 import DailyGoalRing from '../components/DailyGoalRing';
@@ -11,7 +11,8 @@ import {
   studyByDay,
 } from '../lib/analytics';
 import { db } from '../lib/db';
-import { listDueCards } from '../lib/srs';
+import { listDueCards, SRS_CHANGE_EVENT } from '../lib/srs';
+import { useSessions } from '../lib/useSessions';
 import { useUser } from '../lib/useUser';
 import type { Course, FlashcardQuestion, QuizSession } from '../types';
 
@@ -47,7 +48,16 @@ function lastCourseFromSessions(sessions: QuizSession[], courses: Course[]): Cou
 export default function Dashboard() {
   const { user } = useUser();
   const courses = useMemo(() => db.courses.list(), []);
-  const sessions = useMemo(() => (user ? db.sessions.list(user.uid) : []), [user]);
+  const { sessions } = useSessions();
+  const [srsTick, setSrsTick] = useState(0);
+
+  useEffect(() => {
+    function bump() {
+      setSrsTick((t) => t + 1);
+    }
+    window.addEventListener(SRS_CHANGE_EVENT, bump);
+    return () => window.removeEventListener(SRS_CHANGE_EVENT, bump);
+  }, []);
 
   const completed = sessions.filter((s) => s.completedAt);
   const totalQuestions = completed.reduce((acc, s) => acc + s.answers.length, 0);
@@ -98,7 +108,7 @@ export default function Dashboard() {
   const dueCardCount = useMemo(() => {
     if (!user || flashcardIds.length === 0) return 0;
     return listDueCards(user.uid, flashcardIds).length;
-  }, [user, flashcardIds]);
+  }, [user, flashcardIds, srsTick]);
 
   return (
     <div className="space-y-12">

@@ -13,6 +13,8 @@ import {
   updateDoc,
 } from 'firebase/firestore';
 import { firebaseAuth, firestore } from './firebase';
+import { hydrateSessionsFromCloud } from './db';
+import { hydrateSrsFromCloud } from './srs';
 import type { UserProfile } from '../types';
 
 export const USER_CHANGE_EVENT = 'guava:user-change';
@@ -161,14 +163,24 @@ export async function getCurrentProfile(): Promise<UserProfile | null> {
   return fetchProfile(fb.uid);
 }
 
+let hydratedFor: string | null = null;
+
+async function hydrateUserData(uid: string) {
+  if (hydratedFor === uid) return;
+  hydratedFor = uid;
+  await Promise.all([hydrateSessionsFromCloud(uid), hydrateSrsFromCloud(uid)]);
+}
+
 export function onAuthChange(callback: (user: UserProfile | null) => void) {
   return onAuthStateChanged(firebaseAuth, async (fbUser) => {
     if (!fbUser) {
+      hydratedFor = null;
       callback(null);
       return;
     }
     const profile = await ensureProfile(fbUser);
     callback(profile);
+    void hydrateUserData(fbUser.uid);
   });
 }
 
