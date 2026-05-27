@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import EmptyState from '../components/EmptyState';
 import { db } from '../lib/db';
 import { modeConfig } from '../lib/quiz';
 import { useUser } from '../lib/useUser';
@@ -14,16 +15,22 @@ export default function History() {
   return (
     <div className="space-y-8">
       <header className="text-center">
-        <div className="mb-2 font-serif text-2xl tracking-[0.5em] text-rose opacity-70">· · ·</div>
-        <h1 className="font-serif text-4xl italic text-wine-deep sm:text-5xl">Histórico</h1>
-        <p className="mt-3 font-serif italic text-ink-soft">cada prova é um passo</p>
+        <div className="divider-dots mb-2">· · ·</div>
+        <h1 className="display-title-sm">Histórico</h1>
+        <p className="mt-3 font-serif text-lg italic text-ink-soft">cada prova é um passo</p>
       </header>
 
       {sessions.length === 0 ? (
-        <div className="card p-10 text-center">
-          <p className="font-serif text-xl italic text-ink-soft">Sem provas finalizadas ainda.</p>
-          <Link to="/app" className="btn-primary mt-4 inline-block">Estudar agora</Link>
-        </div>
+        <EmptyState
+          illustration="compass"
+          title="Sem provas finalizadas ainda"
+          description="O histórico aparece aqui depois da sua primeira prova. Cada uma marca o caminho."
+          action={
+            <Link to="/app" className="btn-primary">
+              Estudar agora
+            </Link>
+          }
+        />
       ) : (
         <ul className="space-y-3">
           {sessions.map((s) => {
@@ -33,10 +40,13 @@ export default function History() {
             const duration = s.durationMs ? Math.round(s.durationMs / 60000) : null;
             return (
               <li key={s.id} className="card flex flex-wrap items-center justify-between gap-4 p-5">
-                <div>
-                  <div className="font-serif text-lg italic text-wine-deep">{s.courseTitle}</div>
-                  <div className="mt-1 flex flex-wrap gap-2 text-xs uppercase tracking-wider text-muted">
-                    <span>{cfg.icon} {cfg.label}</span>
+                <div className="min-w-0">
+                  <div className="truncate font-serif text-lg italic text-wine-deep">{s.courseTitle}</div>
+                  <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs uppercase tracking-wider text-muted">
+                    <span className="inline-flex items-center gap-1">
+                      <cfg.Icon className="h-3.5 w-3.5 text-wine" strokeWidth={1.75} />
+                      {cfg.label}
+                    </span>
                     <span>·</span>
                     <span>{date.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
                     <span>·</span>

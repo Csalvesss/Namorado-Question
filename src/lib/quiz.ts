@@ -1,3 +1,4 @@
+import { BookOpenCheck, Flame, Target, Timer, Zap, type LucideIcon } from 'lucide-react';
 import type { Question, QuizMode } from '../types';
 import { db } from './db';
 
@@ -72,19 +73,57 @@ export function shuffleOptions(question: Question): PreparedQuestion {
   };
 }
 
-export function modeConfig(mode: QuizMode) {
+export interface ModeConfig {
+  count: number;
+  label: string;
+  Icon: LucideIcon;
+  timed: boolean;
+  description: string;
+}
+
+export function modeConfig(mode: QuizMode): ModeConfig {
   switch (mode) {
     case 'quick':
-      return { count: 5, label: 'Revisão rápida', icon: '⚡', timed: false };
+      return {
+        count: 5,
+        label: 'Revisão rápida',
+        Icon: Zap,
+        timed: false,
+        description: '5 questões em poucos minutos. Pra estudar nos intervalos.',
+      };
     case 'marathon':
-      return { count: 50, label: 'Maratona', icon: '🏃‍♀️', timed: false };
+      return {
+        count: 50,
+        label: 'Maratona',
+        Icon: Flame,
+        timed: false,
+        description: '50 questões. Pra um treino longo antes da prova.',
+      };
     case 'mistakes':
-      return { count: 20, label: 'Modo erro', icon: '🎯', timed: false };
+      return {
+        count: 20,
+        label: 'Modo erro',
+        Icon: Target,
+        timed: false,
+        description: 'Só as questões que você errou.',
+      };
     case 'timed':
-      return { count: 20, label: 'Simulado cronometrado', icon: '⏱️', timed: true };
+      return {
+        count: 20,
+        label: 'Simulado cronometrado',
+        Icon: Timer,
+        timed: true,
+        description: '20 questões com tempo. Gabarito só ao fim.',
+      };
     case 'standard':
     default:
-      return { count: 20, label: 'Prova padrão', icon: '📝', timed: false };
+      return {
+        count: 20,
+        label: 'Prova padrão',
+        Icon: BookOpenCheck,
+        timed: false,
+        description: '20 questões aleatórias, balanceadas por tópico. Gabarito ao fim.',
+      };
   }
 }
 

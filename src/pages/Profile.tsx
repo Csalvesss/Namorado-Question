@@ -39,8 +39,8 @@ export default function Profile() {
   return (
     <div className="mx-auto max-w-2xl space-y-8">
       <header className="text-center">
-        <div className="mb-2 font-serif text-2xl tracking-[0.5em] text-rose opacity-70">· · ·</div>
-        <h1 className="font-serif text-4xl italic text-wine-deep sm:text-5xl">Perfil</h1>
+        <div className="divider-dots mb-2">· · ·</div>
+        <h1 className="display-title-sm">Perfil</h1>
       </header>
 
       <section className="card space-y-4 p-6">
