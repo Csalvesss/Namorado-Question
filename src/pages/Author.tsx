@@ -1,12 +1,12 @@
 import { useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Activity, BookOpenCheck, FileText } from 'lucide-react';
+import { Activity, BookOpenCheck, FileText, Layers } from 'lucide-react';
 import { db } from '../lib/db';
 import { importCourse } from '../lib/seed';
 import { useUser } from '../lib/useUser';
 import type { ImportPayload } from '../types';
 
-type AuthorKind = 'mc' | 'ecg' | 'case';
+type AuthorKind = 'mc' | 'ecg' | 'case' | 'flashcard';
 
 const EXAMPLE_MC = `{
   "title": "Nome da matéria",
@@ -164,6 +164,49 @@ Saída: APENAS o JSON válido, sem texto antes ou depois.
 Formato:
 ${EXAMPLE_ECG}`;
 
+const EXAMPLE_FLASHCARD = `{
+  "title": "Farmacologia: Antibióticos",
+  "description": "Mecanismo, espectro e efeitos colaterais em flashcards",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "flashcard",
+      "topic": "Betalactâmicos",
+      "front": "Qual o mecanismo de ação dos betalactâmicos?",
+      "back": "Inibem a transpeptidase (PBP), impedindo a formação da ligação cruzada do peptidoglicano. Ação bactericida.",
+      "hint": "pense na parede celular",
+      "difficulty": "easy"
+    }
+  ]
+}`;
+
+const PROMPT_FLASHCARD = `Você é uma professora sênior de medicina ajudando uma aluna a memorizar com repetição espaçada.
+
+Vou te enviar um PDF (ou material de estudo). Leia com atenção e gere 20 flashcards em português brasileiro, no formato JSON exato abaixo.
+
+Princípios para bons flashcards:
+- UM conceito por card (mínimo de informação por unidade)
+- pergunta direta no front, resposta completa mas concisa no back
+- foco em fatos memorizáveis (doses, mecanismos, valores de referência, sinais, classificações, listas-chave)
+- evite cards muito abertos ("explique tudo sobre X") — divida em vários cards menores
+- use "hint" para uma dica curta que ajude a recuperação sem entregar a resposta
+- agrupe por "topic" (subtópico)
+
+Cada flashcard tem:
+- type: "flashcard"
+- topic: subtópico
+- front: pergunta (string)
+- back: resposta (string, pode incluir lista curta)
+- hint? (opcional): pista curta
+- difficulty?: "easy" | "medium" | "hard"
+
+A plataforma usa SM-2 (repetição espaçada) para reapresentar os cards conforme a aluna marca "errei / difícil / bom / fácil". A rodada de revisão fica na página /revisar.
+
+Saída: APENAS o JSON válido, sem texto antes ou depois.
+
+Formato:
+${EXAMPLE_FLASHCARD}`;
+
 export default function Author() {
   const { user } = useUser();
   const [raw, setRaw] = useState('');
@@ -175,9 +218,21 @@ export default function Author() {
   const courses = useMemo(() => db.courses.list(), [success]);
 
   const promptTemplate =
-    kind === 'ecg' ? PROMPT_ECG : kind === 'case' ? PROMPT_CASE : PROMPT_MC;
+    kind === 'ecg'
+      ? PROMPT_ECG
+      : kind === 'case'
+        ? PROMPT_CASE
+        : kind === 'flashcard'
+          ? PROMPT_FLASHCARD
+          : PROMPT_MC;
   const exampleJson =
-    kind === 'ecg' ? EXAMPLE_ECG : kind === 'case' ? EXAMPLE_CASE : EXAMPLE_MC;
+    kind === 'ecg'
+      ? EXAMPLE_ECG
+      : kind === 'case'
+        ? EXAMPLE_CASE
+        : kind === 'flashcard'
+          ? EXAMPLE_FLASHCARD
+          : EXAMPLE_MC;
 
   function parseAndValidate(text: string): ImportPayload | null {
     let data: unknown;
@@ -233,6 +288,17 @@ export default function Author() {
         }
         if (!Array.isArray(q.steps) || q.steps.length < 1) {
           setError(`Questão ${i + 1} (caso): "steps" precisa ser um array não vazio.`);
+          return null;
+        }
+        continue;
+      }
+      if (type === 'flashcard') {
+        if (typeof q.front !== 'string' || !q.front.trim()) {
+          setError(`Questão ${i + 1} (flashcard): "front" obrigatório.`);
+          return null;
+        }
+        if (typeof q.back !== 'string' || !q.back.trim()) {
+          setError(`Questão ${i + 1} (flashcard): "back" obrigatório.`);
           return null;
         }
         continue;
@@ -306,27 +372,34 @@ export default function Author() {
           junto com o material. Ele devolve um JSON pronto para importar.
         </p>
 
-        <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+        <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <KindCard
             active={kind === 'mc'}
             onClick={() => setKind('mc')}
             Icon={BookOpenCheck}
             title="Múltipla escolha"
-            description="4 alternativas + explicação. Para qualquer matéria a partir de um PDF/resumo."
+            description="4 alternativas + explicação."
           />
           <KindCard
             active={kind === 'ecg'}
             onClick={() => setKind('ecg')}
             Icon={Activity}
             title="Eletrocardiograma"
-            description="Análise ponto a ponto + diagnóstico. Escolhe um dos 9 traçados disponíveis."
+            description="Análise ponto a ponto + diagnóstico."
           />
           <KindCard
             active={kind === 'case'}
             onClick={() => setKind('case')}
             Icon={FileText}
             title="Modo clínico"
-            description="5 casos clínicos a partir de um PDF, com vinheta longa e decisões encadeadas. Ideal para simular plantão."
+            description="5 casos a partir do PDF, com decisões encadeadas."
+          />
+          <KindCard
+            active={kind === 'flashcard'}
+            onClick={() => setKind('flashcard')}
+            Icon={Layers}
+            title="Flashcards"
+            description="Frente / verso com repetição espaçada (SM-2)."
           />
         </div>
 

@@ -1,0 +1,117 @@
+{
+  "title": "Flashcards: Antibióticos",
+  "description": "Mecanismo, espectro e armadilhas dos antibióticos mais cobrados em prova. Repetição espaçada.",
+  "icon": "",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "flashcard",
+      "topic": "Betalactâmicos",
+      "front": "Qual o mecanismo de ação dos betalactâmicos?",
+      "back": "Inibem a transpeptidase (PBP) e bloqueiam a ligação cruzada do peptidoglicano. Bactericidas, dependentes de tempo acima da CIM.",
+      "hint": "pense na parede celular",
+      "difficulty": "easy"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Betalactâmicos",
+      "front": "Ceftriaxone cobre Pseudomonas?",
+      "back": "NÃO. Para Pseudomonas use ceftazidima, cefepime, piperacilina-tazobactam, carbapenêmicos (exceto ertapenem) ou aztreonam.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Betalactâmicos",
+      "front": "Qual carbapenêmico NÃO cobre Pseudomonas?",
+      "back": "Ertapenem. Os outros (imipenem, meropenem, doripenem) cobrem.",
+      "hint": "ert-",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Glicopeptídeos",
+      "front": "Vancomicina cobre gram-negativos?",
+      "back": "NÃO. Vancomicina é restrita a gram-positivos (incluindo MRSA, enterococos sensíveis, C. difficile via oral).",
+      "difficulty": "easy"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Glicopeptídeos",
+      "front": "Alvo de vale (trough) da vancomicina em infecção grave",
+      "back": "15-20 mg/L (ou AUC/MIC 400-600). Tradicional: 10-15 para infecção não complicada.",
+      "difficulty": "hard"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Aminoglicosídeos",
+      "front": "Mecanismo dos aminoglicosídeos",
+      "back": "Ligam-se à subunidade 30S do ribossomo, causando leitura errada do mRNA. Bactericidas, dependentes de concentração.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Aminoglicosídeos",
+      "front": "Principais efeitos adversos dos aminoglicosídeos",
+      "back": "Nefrotoxicidade (reversível, dose-dependente), ototoxicidade (vestibular e coclear, pode ser irreversível) e bloqueio neuromuscular.",
+      "hint": "ouvido e rim",
+      "difficulty": "easy"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Macrolídeos",
+      "front": "Macrolídeos atuam em qual subunidade ribossomal?",
+      "back": "50S. Eles bloqueiam a translocação durante a síntese proteica. Bacteriostáticos (predominantemente).",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Macrolídeos",
+      "front": "Azitromicina prolonga qual intervalo no ECG?",
+      "back": "QT. Risco de torsades de pointes, especialmente com hipocalemia, hipomagnesemia, ou associação com outros prolongadores de QT.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Quinolonas",
+      "front": "Alvo molecular das quinolonas",
+      "back": "DNA girase (topoisomerase II) e topoisomerase IV. Impedem o superenrolamento e a separação do DNA na replicação.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Quinolonas",
+      "front": "Principais riscos das quinolonas",
+      "back": "Tendinopatia (Aquiles), ruptura tendínea, aneurisma/dissecção aórtica, prolongamento de QT, hipoglicemia, neuropatia periférica. Evitar em < 18 anos, gestantes e idosos quando possível.",
+      "hint": "tendão e aorta",
+      "difficulty": "hard"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Sulfas",
+      "front": "Mecanismo de SMX-TMP",
+      "back": "Inibição sequencial da síntese de folato: SMX inibe a dihidropteroato sintase, TMP inibe a dihidrofolato redutase. Sinergia bactericida.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Sulfas",
+      "front": "Por que evitar SMX-TMP no 3º trimestre da gestação?",
+      "back": "Risco de kernicterus no recém-nascido (desloca a bilirrubina da albumina). No 1º trimestre, risco de defeitos do tubo neural por antagonismo do folato.",
+      "difficulty": "hard"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Nitroimidazóis",
+      "front": "Metronidazol cobre o que?",
+      "back": "Anaeróbios (incluindo Bacteroides fragilis, Clostridioides difficile) e protozoários (Giardia, Trichomonas, Entamoeba). NÃO cobre aeróbios.",
+      "difficulty": "easy"
+    },
+    {
+      "type": "flashcard",
+      "topic": "Nitroimidazóis",
+      "front": "Por que NÃO ingerir álcool com metronidazol?",
+      "back": "Efeito dissulfiram-like (acúmulo de acetaldeído) com náusea, vômito, flushing, cefaleia, taquicardia. Evitar até 72h após a última dose.",
+      "difficulty": "medium"
+    }
+  ]
+}
