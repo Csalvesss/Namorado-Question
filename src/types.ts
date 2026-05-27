@@ -1,17 +1,77 @@
 export type Difficulty = 'easy' | 'medium' | 'hard';
 
-export interface Question {
+export type QuestionType = 'mc' | 'ecg' | 'case';
+
+interface BaseQuestion {
   id: string;
   courseId: string;
   topic: string;
-  q: string;
-  options: string[];
-  correct: number;
-  expl: string;
   difficulty?: Difficulty;
   tags?: string[];
   createdAt?: number;
 }
+
+export interface MultipleChoiceQuestion extends BaseQuestion {
+  type: 'mc';
+  q: string;
+  options: string[];
+  correct: number;
+  expl: string;
+}
+
+export interface ECGPoint {
+  id: string;
+  label: string;
+  hint?: string;
+  region?: { x: number; y: number; w: number; h: number };
+  question: string;
+  options: string[];
+  correct: number;
+  expl: string;
+}
+
+export interface ECGDiagnosis {
+  question: string;
+  options: string[];
+  correct: number;
+  expl: string;
+}
+
+export type ECGTracingId =
+  | 'normal-sinus'
+  | 'sinus-brady'
+  | 'sinus-tachy'
+  | 'af'
+  | 'flutter'
+  | 'stemi-inferior'
+  | 'stemi-anterior'
+  | 'lbbb'
+  | 'rbbb';
+
+export interface ECGQuestion extends BaseQuestion {
+  type: 'ecg';
+  tracingId: ECGTracingId;
+  context?: string;
+  points: ECGPoint[];
+  diagnosis: ECGDiagnosis;
+}
+
+export interface CaseStep {
+  id: string;
+  prompt?: string;
+  question: string;
+  options: string[];
+  correct: number;
+  expl: string;
+}
+
+export interface CaseQuestion extends BaseQuestion {
+  type: 'case';
+  vignette: string;
+  steps: CaseStep[];
+}
+
+export type Question = MultipleChoiceQuestion | ECGQuestion | CaseQuestion;
 
 export interface Course {
   id: string;
@@ -58,18 +118,43 @@ export interface UserProfile {
   createdAt: number;
 }
 
+export interface ImportMCQuestion {
+  type?: 'mc';
+  topic: string;
+  q: string;
+  options: string[];
+  correct: number;
+  expl: string;
+  difficulty?: Difficulty;
+  tags?: string[];
+}
+
+export interface ImportECGQuestion {
+  type: 'ecg';
+  topic: string;
+  tracingId: ECGTracingId;
+  context?: string;
+  points: ECGPoint[];
+  diagnosis: ECGDiagnosis;
+  difficulty?: Difficulty;
+  tags?: string[];
+}
+
+export interface ImportCaseQuestion {
+  type: 'case';
+  topic: string;
+  vignette: string;
+  steps: CaseStep[];
+  difficulty?: Difficulty;
+  tags?: string[];
+}
+
+export type ImportQuestion = ImportMCQuestion | ImportECGQuestion | ImportCaseQuestion;
+
 export interface ImportPayload {
   title: string;
   description?: string;
   icon?: string;
   color?: string;
-  questions: Array<{
-    topic: string;
-    q: string;
-    options: string[];
-    correct: number;
-    expl: string;
-    difficulty?: Difficulty;
-    tags?: string[];
-  }>;
+  questions: ImportQuestion[];
 }

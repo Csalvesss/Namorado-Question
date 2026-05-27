@@ -51,7 +51,8 @@ export function sampleQuestions({ courseId, count, topics, mistakeIds }: SampleO
   return shuffle(pool).slice(0, count);
 }
 
-export interface PreparedQuestion {
+export interface PreparedMCQuestion {
+  type: 'mc';
   id: string;
   topic: string;
   q: string;
@@ -60,10 +61,51 @@ export interface PreparedQuestion {
   correct: number;
 }
 
-export function shuffleOptions(question: Question): PreparedQuestion {
+export interface PreparedECGQuestion {
+  type: 'ecg';
+  id: string;
+  topic: string;
+  tracingId: import('../types').ECGTracingId;
+  context?: string;
+  points: import('../types').ECGPoint[];
+  diagnosis: import('../types').ECGDiagnosis;
+}
+
+export interface PreparedCaseQuestion {
+  type: 'case';
+  id: string;
+  topic: string;
+  vignette: string;
+  steps: import('../types').CaseStep[];
+}
+
+export type PreparedQuestion = PreparedMCQuestion | PreparedECGQuestion | PreparedCaseQuestion;
+
+export function prepareQuestion(question: Question): PreparedQuestion {
+  if (question.type === 'ecg') {
+    return {
+      type: 'ecg',
+      id: question.id,
+      topic: question.topic,
+      tracingId: question.tracingId,
+      context: question.context,
+      points: question.points,
+      diagnosis: question.diagnosis,
+    };
+  }
+  if (question.type === 'case') {
+    return {
+      type: 'case',
+      id: question.id,
+      topic: question.topic,
+      vignette: question.vignette,
+      steps: question.steps,
+    };
+  }
   const tagged = question.options.map((opt, i) => ({ opt, isCorrect: i === question.correct }));
   const shuffled = shuffle(tagged);
   return {
+    type: 'mc',
     id: question.id,
     topic: question.topic,
     q: question.q,

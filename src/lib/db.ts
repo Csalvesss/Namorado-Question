@@ -2,6 +2,11 @@ import type { Course, Question, QuizSession, UserProfile } from '../types';
 
 const PREFIX = 'guava.';
 
+function normalizeQuestion(q: Question & { type?: string }): Question {
+  if (q.type === 'ecg') return q as Question;
+  return { ...q, type: 'mc' } as Question;
+}
+
 function read<T>(key: string, fallback: T): T {
   try {
     const raw = localStorage.getItem(PREFIX + key);
@@ -62,7 +67,8 @@ export const db = {
 
   questions: {
     _raw(): Question[] {
-      return read<Question[]>('questions', []);
+      const stored = read<Array<Question & { type?: string }>>('questions', []);
+      return stored.map(normalizeQuestion);
     },
     listByCourse(courseId: string): Question[] {
       return this._raw().filter((q) => q.courseId === courseId);

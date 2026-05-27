@@ -3,18 +3,58 @@ import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import EmptyState from '../components/EmptyState';
+import CaseClinical, { type CaseState } from '../components/questions/CaseClinical';
+import EcgInterpret, { type EcgState } from '../components/questions/EcgInterpret';
 import { ResultPanel } from '../components/ResultPanel';
 import { getPhrases } from '../data/phrases';
 import { db } from '../lib/db';
 import { duration, easeOutExpo, palette } from '../lib/motion';
-import { getMistakeQuestionIds, modeConfig, sampleQuestions, shuffleOptions, type PreparedQuestion } from '../lib/quiz';
+import {
+  getMistakeQuestionIds,
+  modeConfig,
+  prepareQuestion,
+  sampleQuestions,
+  type PreparedMCQuestion,
+  type PreparedQuestion,
+} from '../lib/quiz';
 import { useUser } from '../lib/useUser';
 import type { QuizMode, QuizSession } from '../types';
 
 const LETTERS = ['A', 'B', 'C', 'D'];
 
-interface QuestionState extends PreparedQuestion {
+type QuestionState = PreparedQuestion & {
   selected?: number;
+  pointAnswers?: Record<string, number>;
+  diagnosisSelected?: number;
+  completed?: boolean;
+  stepAnswers?: Record<string, number>;
+};
+
+type MCQuestionState = PreparedMCQuestion & { selected?: number };
+
+function isAnswered(q: QuestionState): boolean {
+  if (q.type === 'mc') return q.selected !== undefined;
+  if (q.type === 'ecg') return Boolean(q.completed);
+  return Object.keys(q.stepAnswers ?? {}).length === q.steps.length;
+}
+
+function questionIsRight(q: QuestionState): boolean {
+  if (q.type === 'mc') return q.selected === q.correct;
+  if (q.type === 'ecg') return q.diagnosisSelected === q.diagnosis.correct;
+  const last = q.steps[q.steps.length - 1];
+  return last !== undefined && q.stepAnswers?.[last.id] === last.correct;
+}
+
+function questionAnswer(q: QuestionState): { selected: number; correct: number } {
+  if (q.type === 'mc') {
+    return { selected: q.selected ?? -1, correct: q.correct };
+  }
+  if (q.type === 'ecg') {
+    return { selected: q.diagnosisSelected ?? -1, correct: q.diagnosis.correct };
+  }
+  const last = q.steps[q.steps.length - 1];
+  if (!last) return { selected: -1, correct: -1 };
+  return { selected: q.stepAnswers?.[last.id] ?? -1, correct: last.correct };
 }
 
 export default function Quiz() {
@@ -46,7 +86,7 @@ export default function Quiz() {
       topics,
       mistakeIds,
     });
-    setQuestions(raw.map(shuffleOptions));
+    setQuestions(raw.map(prepareQuestion));
     setSubmitted(false);
     setSession(null);
     setStartedAt(Date.now());
@@ -72,10 +112,10 @@ export default function Quiz() {
     return (
       <EmptyState
         illustration={mode === 'mistakes' ? 'spark' : 'petal'}
-        title={mode === 'mistakes' ? 'Nenhum erro pra revisar' : 'Sem questões pra esses filtros'}
+        title={mode === 'mistakes' ? 'Nenhum erro para revisar' : 'Sem questões para esses filtros'}
         description={
           mode === 'mistakes'
-            ? 'Você ainda não tem questões erradas registradas. Faça uma prova primeiro pra alimentar o modo erro.'
+            ? 'Você ainda não tem questões erradas registradas. Faça uma prova primeiro para alimentar o modo erro.'
             : 'Nenhuma questão disponível com esses tópicos. Tenta limpar a seleção ou escolher outro modo.'
         }
         action={
@@ -87,7 +127,7 @@ export default function Quiz() {
     );
   }
 
-  const answeredCount = questions.filter((q) => q.selected !== undefined).length;
+  const answeredCount = questions.filter(isAnswered).length;
   const progress = (answeredCount / questions.length) * 100;
   const elapsedSec = Math.floor((now - startedAt) / 1000);
   const displayMode = user?.displayMode ?? 'namorado';
@@ -95,19 +135,44 @@ export default function Quiz() {
 
   function selectOption(qIdx: number, optIdx: number) {
     if (submitted) return;
-    setQuestions((cur) => cur.map((q, i) => (i === qIdx ? { ...q, selected: optIdx } : q)));
+    setQuestions((cur) =>
+      cur.map((q, i) => (i === qIdx && q.type === 'mc' ? { ...q, selected: optIdx } : q)),
+    );
+  }
+
+  function updateEcgState(qIdx: number, next: EcgState) {
+    if (submitted) return;
+    setQuestions((cur) =>
+      cur.map((q, i) =>
+        i === qIdx && q.type === 'ecg'
+          ? { ...q, pointAnswers: next.pointAnswers, diagnosisSelected: next.diagnosisSelected, completed: next.completed }
+          : q,
+      ),
+    );
+  }
+
+  function updateCaseState(qIdx: number, next: CaseState) {
+    if (submitted) return;
+    setQuestions((cur) =>
+      cur.map((q, i) =>
+        i === qIdx && q.type === 'case' ? { ...q, stepAnswers: next.stepAnswers } : q,
+      ),
+    );
   }
 
   function submitQuiz() {
     if (submitted || !user || !course) return;
     setSubmitted(true);
     const completedAt = Date.now();
-    const answers = questions.map((q) => ({
-      questionId: q.id,
-      selected: q.selected ?? -1,
-      correct: q.correct,
-      isRight: q.selected === q.correct,
-    }));
+    const answers = questions.map((q) => {
+      const { selected, correct } = questionAnswer(q);
+      return {
+        questionId: q.id,
+        selected,
+        correct,
+        isRight: questionIsRight(q),
+      };
+    });
     const score = answers.filter((a) => a.isRight).length;
     const sess: QuizSession = {
       id: db.ids.session(),
@@ -139,25 +204,49 @@ export default function Quiz() {
   let wrongIdx = 0;
 
   return (
-    <div className="space-y-4 pb-28 md:pb-0">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <Link to={`/curso/${courseId}`} className="btn-ghost -ml-2 text-xs uppercase tracking-wider">
-          ← <span className="ml-1 max-w-[60vw] truncate sm:max-w-none">{course.title}</span>
+    <div className="space-y-6 pb-28 md:pb-0">
+      <header className="space-y-3">
+        <Link
+          to={`/curso/${courseId}`}
+          className="inline-flex items-center text-[11px] uppercase tracking-[0.22em] text-muted transition hover:text-wine"
+        >
+          ← Voltar ao curso
         </Link>
-        <div className="flex items-center gap-1.5 text-xs uppercase tracking-wider text-muted">
-          <config.Icon className="h-4 w-4 text-wine" strokeWidth={1.75} />
-          <span>{config.label}</span>
-          {config.timed && !submitted && <span>· {formatTime(elapsedSec)}</span>}
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div className="min-w-0 flex-1">
+            <div className="eyebrow-gold mb-2 flex items-center gap-2">
+              <config.Icon className="h-3.5 w-3.5 text-wine" strokeWidth={1.75} />
+              <span>Modo {config.label}</span>
+            </div>
+            <h1 className="display-title-sm leading-tight">{course.title}</h1>
+            <div className="mt-2 text-[11px] uppercase tracking-[0.22em] text-muted">
+              {questions.length} questões · balanceado por tópico
+            </div>
+          </div>
+          {config.timed && !submitted && (
+            <div className="card flex flex-col items-center px-5 py-3 text-center">
+              <div className="font-serif text-3xl font-semibold leading-none text-wine-deep">
+                {formatTime(elapsedSec)}
+              </div>
+              <div className="mt-1 text-[10px] uppercase tracking-[0.18em] text-muted">
+                tempo decorrido
+              </div>
+            </div>
+          )}
         </div>
-      </div>
+      </header>
 
-      <div className="card flex flex-col gap-2 px-5 py-4 sm:flex-row sm:items-center sm:gap-4">
+      <div className="card flex flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:gap-5">
         <div className="font-serif text-base text-ink-soft">
-          Respondidas <strong className="font-serif text-xl text-wine-deep">{answeredCount}</strong> de{' '}
+          Respondidas{' '}
+          <strong className="font-serif text-xl text-wine-deep">{answeredCount}</strong> de{' '}
           <strong className="font-serif text-xl text-wine-deep">{questions.length}</strong>
         </div>
         <div className="flex-1 overflow-hidden rounded-full bg-rose-soft">
-          <div className="h-1.5 bg-gradient-to-r from-rose to-wine transition-all" style={{ width: `${progress}%` }} />
+          <div
+            className="h-1.5 bg-gradient-to-r from-rose to-wine transition-all"
+            style={{ width: `${progress}%` }}
+          />
         </div>
       </div>
 
@@ -174,7 +263,7 @@ export default function Quiz() {
         {questions.map((q, idx) => {
           let phrase = '';
           if (submitted) {
-            const isRight = q.selected === q.correct;
+            const isRight = questionIsRight(q);
             if (isRight) {
               phrase = phrases.right[rightIdx % phrases.right.length];
               rightIdx++;
@@ -183,14 +272,42 @@ export default function Quiz() {
               wrongIdx++;
             }
           }
+          if (q.type === 'mc') {
+            return (
+              <QuestionCard
+                key={q.id + '-' + idx}
+                question={q}
+                index={idx}
+                submitted={submitted}
+                phrase={phrase}
+                onSelect={(optIdx) => selectOption(idx, optIdx)}
+              />
+            );
+          }
+          if (q.type === 'ecg') {
+            return (
+              <EcgInterpret
+                key={q.id + '-' + idx}
+                question={q}
+                index={idx}
+                submitted={submitted}
+                state={{
+                  pointAnswers: q.pointAnswers ?? {},
+                  diagnosisSelected: q.diagnosisSelected,
+                  completed: q.completed,
+                }}
+                onUpdate={(next) => updateEcgState(idx, next)}
+              />
+            );
+          }
           return (
-            <QuestionCard
+            <CaseClinical
               key={q.id + '-' + idx}
               question={q}
               index={idx}
               submitted={submitted}
-              phrase={phrase}
-              onSelect={(optIdx) => selectOption(idx, optIdx)}
+              state={{ stepAnswers: q.stepAnswers ?? {} }}
+              onUpdate={(next) => updateCaseState(idx, next)}
             />
           );
         })}
@@ -228,7 +345,7 @@ export default function Quiz() {
 }
 
 interface QuestionCardProps {
-  question: QuestionState;
+  question: MCQuestionState;
   index: number;
   submitted: boolean;
   phrase: string;
@@ -238,69 +355,96 @@ interface QuestionCardProps {
 function QuestionCard({ question, index, submitted, phrase, onSelect }: QuestionCardProps) {
   const isAnswered = question.selected !== undefined;
   const isRight = submitted && question.selected === question.correct;
+  const numberClass = submitted
+    ? isRight
+      ? 'text-green'
+      : 'text-red'
+    : isAnswered
+      ? 'text-wine'
+      : 'text-rose-soft';
 
   return (
-    <article className="card relative overflow-hidden p-5 sm:p-7">
+    <article className="card relative overflow-hidden p-5 sm:p-8">
       <span
         className={`absolute left-0 top-0 bottom-0 w-[3px] ${isAnswered ? 'bg-wine' : 'bg-rose-soft'}`}
       />
-      <div className="mb-1 font-serif text-xs uppercase tracking-[0.3em] text-gold">
-        Questão {String(index + 1).padStart(2, '0')}
-      </div>
-      <span className="label-tag">{question.topic}</span>
-      <p className="mb-4 mt-3 text-[15px] leading-relaxed text-ink sm:text-base">{question.q}</p>
 
-      <div className="flex flex-col gap-2.5">
-        {question.options.map((opt, i) => {
-          const isSelected = question.selected === i;
-          const isCorrectOpt = i === question.correct;
-          let classes = 'border-line bg-bg-soft text-ink-soft hover:border-rose hover:bg-paper hover:text-ink active:bg-paper';
-          if (!submitted && isSelected) classes = 'border-wine bg-rose-soft text-wine-deep font-medium';
-          if (submitted && isCorrectOpt) classes = 'border-green bg-green-soft text-green';
-          if (submitted && isSelected && !isCorrectOpt) classes = 'border-red bg-red-soft text-red';
-          let letterClass = 'text-wine';
-          if (submitted && isCorrectOpt) letterClass = 'text-green';
-          if (submitted && isSelected && !isCorrectOpt) letterClass = 'text-red';
-          return (
-            <button
-              key={i}
-              type="button"
-              onClick={() => onSelect(i)}
-              disabled={submitted}
-              className={`flex min-h-[56px] items-start gap-3 rounded-xl border px-4 py-3.5 text-left text-[15px] leading-snug transition ${classes} disabled:cursor-default`}
-            >
-              <span className={`font-serif text-lg font-semibold leading-6 ${letterClass}`}>{LETTERS[i]}</span>
-              <span className="flex-1 pt-[1px]">{opt}</span>
-            </button>
-          );
-        })}
-      </div>
-
-      <AnimatePresence initial={false}>
-        {submitted && (
-          <motion.div
-            key="expl"
-            initial={{ opacity: 0, y: -6, height: 0 }}
-            animate={{ opacity: 1, y: 0, height: 'auto' }}
-            exit={{ opacity: 0, y: -6, height: 0 }}
-            transition={{ duration: duration.base, ease: easeOutExpo, delay: index * 0.04 }}
-            className="overflow-hidden"
+      <div className="flex flex-col gap-4 sm:flex-row sm:gap-7">
+        <div className="flex shrink-0 items-baseline gap-3 sm:flex-col sm:items-start sm:gap-1">
+          <span
+            className={`font-serif text-[3.5rem] font-semibold italic leading-none transition-colors sm:text-[5rem] ${numberClass}`}
           >
-            <div
-              className={`mt-4 rounded-xl p-4 text-sm ${
-                isRight ? 'border-l-[3px] border-green bg-green-soft' : 'border-l-[3px] border-red bg-red-soft'
-              }`}
-            >
-              <div className={`mb-1 font-serif text-base font-semibold italic ${isRight ? 'text-green' : 'text-red'}`}>
-                {phrase}
-              </div>
-              <div className="text-sm leading-relaxed text-ink-soft">
-                <strong className="text-ink">Resposta correta: {LETTERS[question.correct]}.</strong> {question.expl}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <span className="eyebrow-gold">{question.topic}</span>
+        </div>
+
+        <div className="min-w-0 flex-1">
+          <p className="text-[15px] leading-relaxed text-ink sm:text-[17px]">{question.q}</p>
+
+          <div className="mt-5 flex flex-col gap-2.5">
+            {question.options.map((opt, i) => {
+              const isSelected = question.selected === i;
+              const isCorrectOpt = i === question.correct;
+              let classes =
+                'border-line bg-bg-soft text-ink-soft hover:border-rose hover:bg-paper hover:text-ink active:bg-paper';
+              if (!submitted && isSelected) classes = 'border-wine bg-rose-soft text-wine-deep font-medium';
+              if (submitted && isCorrectOpt) classes = 'border-green bg-green-soft text-green';
+              if (submitted && isSelected && !isCorrectOpt) classes = 'border-red bg-red-soft text-red';
+              let letterClass = 'text-wine';
+              if (submitted && isCorrectOpt) letterClass = 'text-green';
+              if (submitted && isSelected && !isCorrectOpt) letterClass = 'text-red';
+              return (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => onSelect(i)}
+                  disabled={submitted}
+                  className={`flex min-h-[56px] items-start gap-3 rounded-xl border px-4 py-3.5 text-left text-[15px] leading-snug transition ${classes} disabled:cursor-default`}
+                >
+                  <span className={`font-serif text-lg font-semibold leading-6 ${letterClass}`}>
+                    {LETTERS[i]}
+                  </span>
+                  <span className="flex-1 pt-[1px]">{opt}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          <AnimatePresence initial={false}>
+            {submitted && (
+              <motion.div
+                key="expl"
+                initial={{ opacity: 0, y: -6, height: 0 }}
+                animate={{ opacity: 1, y: 0, height: 'auto' }}
+                exit={{ opacity: 0, y: -6, height: 0 }}
+                transition={{ duration: duration.base, ease: easeOutExpo, delay: index * 0.04 }}
+                className="overflow-hidden"
+              >
+                <div
+                  className={`mt-5 rounded-xl p-4 text-sm ${
+                    isRight
+                      ? 'border-l-[3px] border-green bg-green-soft'
+                      : 'border-l-[3px] border-red bg-red-soft'
+                  }`}
+                >
+                  <div
+                    className={`mb-1 font-serif text-base font-semibold italic ${isRight ? 'text-green' : 'text-red'}`}
+                  >
+                    {phrase}
+                  </div>
+                  <div className="text-sm leading-relaxed text-ink-soft">
+                    <strong className="text-ink">
+                      Resposta correta: {LETTERS[question.correct]}.
+                    </strong>{' '}
+                    {question.expl}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
     </article>
   );
 }

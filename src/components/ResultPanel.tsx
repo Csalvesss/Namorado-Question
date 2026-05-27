@@ -36,7 +36,7 @@ export const ResultPanel = forwardRef<HTMLDivElement, ResultPanelProps>(function
 
     const topicStats = new Map<string, { right: number; total: number }>();
     session.answers.forEach((a, i) => {
-      const topic = questions[i]?.topic ?? '—';
+      const topic = questions[i]?.topic ?? '·';
       const t = topicStats.get(topic) ?? { right: 0, total: 0 };
       t.total += 1;
       if (a.isRight) t.right += 1;
@@ -117,12 +117,12 @@ export const ResultPanel = forwardRef<HTMLDivElement, ResultPanelProps>(function
           <MiniStat
             Icon={Flame}
             label="melhor sequência"
-            value={bestStreak > 0 ? `${bestStreak}` : '—'}
+            value={bestStreak > 0 ? `${bestStreak}` : '·'}
           />
           <MiniStat
             Icon={Sparkles}
             label="mais forte"
-            value={bestTopic ? `${bestTopic.pct}%` : '—'}
+            value={bestTopic ? `${bestTopic.pct}%` : '·'}
             sub={bestTopic?.topic}
           />
         </motion.div>

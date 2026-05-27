@@ -18,7 +18,12 @@ export default function Header() {
     >
       <div className="mx-auto flex max-w-5xl items-center justify-between gap-2 px-4 py-3 sm:px-6">
         <Link to="/app" className="flex min-w-0 items-center gap-2">
-          <span className="text-2xl">🌸</span>
+          <span
+            aria-hidden
+            className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-wine font-serif text-base italic text-wine-deep"
+          >
+            G
+          </span>
           <span className="truncate font-serif text-xl italic text-wine-deep sm:text-2xl">
             Guava Education
           </span>

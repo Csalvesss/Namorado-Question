@@ -1,0 +1,262 @@
+{
+  "title": "Eletrocardiograma: Fundamentos",
+  "description": "Análise ponto a ponto: ritmo, FC, ondas e segmentos. Você marca cada componente e fecha o diagnóstico.",
+  "icon": "",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "ecg",
+      "topic": "Ritmo sinusal",
+      "tracingId": "normal-sinus",
+      "context": "Mulher, 32 anos, assintomática, ECG de rotina antes de cirurgia eletiva.",
+      "points": [
+        {
+          "id": "ritmo",
+          "label": "Ritmo",
+          "hint": "regular? cada QRS precedido por onda P?",
+          "question": "Como você descreve o ritmo deste traçado?",
+          "options": [
+            "Sinusal, regular, cada QRS precedido por onda P",
+            "Fibrilação atrial, irregularmente irregular, sem onda P",
+            "Flutter atrial, ondas F em dente de serra",
+            "Taquicardia ventricular, QRS largo e regular"
+          ],
+          "correct": 0,
+          "expl": "Onda P precede cada QRS, intervalo R-R regular e P positiva em DII. É sinusal."
+        },
+        {
+          "id": "fc",
+          "label": "Frequência cardíaca",
+          "hint": "conte ciclos em 6 segundos × 10, ou use 300/quadrados grandes entre R-R",
+          "question": "Qual a frequência aproximada?",
+          "options": ["< 60 bpm (bradicardia)", "60–100 bpm (normal)", "100–150 bpm (taquicardia)", "> 150 bpm"],
+          "correct": 1,
+          "expl": "R-R consistente em torno de 4 quadrados grandes (~800ms) = 75 bpm. Dentro do normal."
+        },
+        {
+          "id": "ondaP",
+          "label": "Onda P",
+          "hint": "amplitude, duração, eixo",
+          "region": { "x": 0.02, "y": 0.35, "w": 0.06, "h": 0.25 },
+          "question": "Como você descreve a onda P?",
+          "options": [
+            "Presente, positiva em DII, < 0,12s e < 2,5mm, normal",
+            "Apiculada e alta, sobrecarga atrial direita",
+            "Bífida e larga, sobrecarga atrial esquerda",
+            "Ausente"
+          ],
+          "correct": 0,
+          "expl": "P arredondada, positiva em DII, duração e amplitude dentro do normal. Sem sobrecarga atrial."
+        },
+        {
+          "id": "intervaloPr",
+          "label": "Intervalo PR",
+          "hint": "início da P até início do QRS · normal 120-200ms",
+          "region": { "x": 0.06, "y": 0.40, "w": 0.05, "h": 0.25 },
+          "question": "Como está o intervalo PR?",
+          "options": [
+            "Normal (120–200ms)",
+            "Curto (< 120ms), pré-excitação",
+            "Longo (> 200ms), bloqueio AV de 1º grau",
+            "Variável, bloqueio AV de 2º grau"
+          ],
+          "correct": 0,
+          "expl": "PR mede aproximadamente 4 quadradinhos pequenos (160ms). Dentro da faixa normal."
+        },
+        {
+          "id": "qrs",
+          "label": "Complexo QRS",
+          "hint": "duração < 120ms, morfologia, voltagem",
+          "region": { "x": 0.115, "y": 0.1, "w": 0.05, "h": 0.75 },
+          "question": "Como está o QRS?",
+          "options": [
+            "Estreito (< 120ms), morfologia normal",
+            "Largo (> 120ms) com padrão de BRE",
+            "Largo (> 120ms) com padrão de BRD",
+            "QRS com onda Q patológica"
+          ],
+          "correct": 0,
+          "expl": "QRS estreito, R bem definida, sem onda Q significativa. Condução intraventricular normal."
+        },
+        {
+          "id": "st",
+          "label": "Segmento ST",
+          "hint": "isoelétrico em relação ao ponto J",
+          "region": { "x": 0.17, "y": 0.45, "w": 0.05, "h": 0.2 },
+          "question": "Como está o segmento ST?",
+          "options": [
+            "Isoelétrico, normal",
+            "Supradesnivelado, possível IAM com supra",
+            "Infradesnivelado, isquemia subendocárdica",
+            "Em concavidade superior, pericardite"
+          ],
+          "correct": 0,
+          "expl": "ST volta à linha de base após o QRS, sem desvio significativo. Normal."
+        },
+        {
+          "id": "t",
+          "label": "Onda T",
+          "hint": "positiva em DII na maioria dos casos, simétrica é suspeita",
+          "region": { "x": 0.22, "y": 0.35, "w": 0.06, "h": 0.25 },
+          "question": "Como está a onda T?",
+          "options": [
+            "Positiva, assimétrica e arredondada, normal em DII",
+            "Apiculada e simétrica, hipercalemia",
+            "Invertida, isquemia ou sobrecarga",
+            "Achatada, hipocalemia"
+          ],
+          "correct": 0,
+          "expl": "T positiva e arredondada acompanhando a polaridade do QRS. Normal."
+        }
+      ],
+      "diagnosis": {
+        "question": "Considerando tudo, qual o laudo?",
+        "options": [
+          "Ritmo sinusal normal, sem alterações isquêmicas ou de condução",
+          "Bradicardia sinusal",
+          "Fibrilação atrial com resposta ventricular controlada",
+          "IAM com supra de ST"
+        ],
+        "correct": 0,
+        "expl": "Tudo dentro da normalidade: sinusal, 75 bpm, P normal, PR normal, QRS estreito, ST isoelétrico, T positiva. Laudo: ECG normal.",
+        "difficulty": "easy"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "type": "ecg",
+      "topic": "Fibrilação atrial",
+      "tracingId": "af",
+      "context": "Homem, 68 anos, hipertenso, com palpitações irregulares há 2 dias. Pulso radial irregular ao exame.",
+      "points": [
+        {
+          "id": "ritmo",
+          "label": "Ritmo",
+          "hint": "olhe o intervalo R-R e a presença de onda P",
+          "question": "Como descreve o ritmo?",
+          "options": [
+            "Sinusal regular",
+            "Sinusal com extrassístoles",
+            "Irregularmente irregular sem onda P, fibrilação atrial",
+            "Flutter atrial 2:1"
+          ],
+          "correct": 2,
+          "expl": "Intervalo R-R varia entre cada batimento e não se identifica onda P organizada, é fibrilação atrial."
+        },
+        {
+          "id": "fc",
+          "label": "Frequência cardíaca",
+          "hint": "média dos R-R numa tira de 6s",
+          "question": "FC aproximada?",
+          "options": ["< 60 bpm", "60–100 bpm", "100–150 bpm", "> 150 bpm"],
+          "correct": 2,
+          "expl": "Média em torno de 110 bpm, FA com resposta ventricular elevada."
+        },
+        {
+          "id": "ondaP",
+          "label": "Onda P",
+          "question": "Presença de onda P?",
+          "options": [
+            "Presente, normal",
+            "Apiculada (sobrecarga atrial direita)",
+            "Bífida (sobrecarga atrial esquerda)",
+            "Ausente, com ondas f finas na linha de base"
+          ],
+          "correct": 3,
+          "expl": "Não há onda P organizada. Há ondulações finas e irregulares (ondas f) entre os QRS."
+        },
+        {
+          "id": "qrs",
+          "label": "QRS",
+          "question": "Largura do QRS?",
+          "options": [
+            "Estreito (< 120ms)",
+            "Largo com BRE",
+            "Largo com BRD",
+            "Largo polimorfo"
+          ],
+          "correct": 0,
+          "expl": "QRS estreito, condução AV intacta apesar da arritmia supraventricular."
+        }
+      ],
+      "diagnosis": {
+        "question": "Qual o laudo?",
+        "options": [
+          "Ritmo sinusal normal",
+          "Fibrilação atrial com resposta ventricular elevada",
+          "Flutter atrial com condução variável",
+          "Taquicardia supraventricular paroxística"
+        ],
+        "correct": 1,
+        "expl": "FA com FC ~110 bpm. Conduta: controle de FC (betabloqueador), anticoagulação conforme CHA₂DS₂-VASc, considerar reversão.",
+        "difficulty": "medium"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "type": "ecg",
+      "topic": "IAM com supra de ST",
+      "tracingId": "stemi-inferior",
+      "context": "Homem, 58 anos, dor torácica retroesternal há 40 minutos, sudorese, náusea. Tabagista.",
+      "points": [
+        {
+          "id": "ritmo",
+          "label": "Ritmo",
+          "question": "Ritmo?",
+          "options": ["Sinusal", "FA", "Flutter", "TV"],
+          "correct": 0,
+          "expl": "Cada QRS precedido por onda P, intervalo R-R regular."
+        },
+        {
+          "id": "fc",
+          "label": "Frequência cardíaca",
+          "question": "FC?",
+          "options": ["< 60 bpm", "60–100 bpm", "100–150 bpm", "> 150 bpm"],
+          "correct": 1,
+          "expl": "FC ~78 bpm, dentro do normal."
+        },
+        {
+          "id": "st",
+          "label": "Segmento ST",
+          "hint": "OLHE com atenção, é o ponto-chave aqui",
+          "region": { "x": 0.16, "y": 0.55, "w": 0.06, "h": 0.25 },
+          "question": "Como está o segmento ST?",
+          "options": [
+            "Isoelétrico",
+            "Supradesnivelado em DII, DIII, aVF, IAM inferior",
+            "Infradesnivelado difuso",
+            "Em concavidade superior em todas as derivações"
+          ],
+          "correct": 1,
+          "expl": "Supra de ST significativo (> 1 mm) em parede inferior, IAM com supra inferior."
+        },
+        {
+          "id": "ondaQ",
+          "label": "Onda Q",
+          "question": "Onda Q patológica?",
+          "options": [
+            "Ausente",
+            "Presente em DI, aVL",
+            "Presente em DII, DIII, aVF, sugere IAM antigo inferior",
+            "QS em V1-V3, IAM antigo anterior"
+          ],
+          "correct": 0,
+          "expl": "Onda Q ainda não evidente, fase aguda do IAM, Q se desenvolve em horas a dias."
+        }
+      ],
+      "diagnosis": {
+        "question": "Qual a conduta imediata?",
+        "options": [
+          "Internar em enfermaria para observação",
+          "AAS, clopidogrel/ticagrelor, anticoagulação e ATIVAR HEMODINÂMICA para angioplastia primária em até 120min",
+          "Cintilografia miocárdica eletiva",
+          "Trombolítico apenas se sintomas há mais de 12h"
+        ],
+        "correct": 1,
+        "expl": "IAM com supra inferior, < 12h de evolução. Angioplastia primária é o padrão-ouro se disponível em até 120min. Antiagregação dupla + anticoagulação + estatina alta potência + considerar betabloqueador se sem contraindicação.",
+        "difficulty": "hard"
+      },
+      "difficulty": "hard"
+    }
+  ]
+}
