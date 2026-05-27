@@ -3,6 +3,7 @@ import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import EmptyState from '../components/EmptyState';
+import EcgInterpret, { type EcgState } from '../components/questions/EcgInterpret';
 import { ResultPanel } from '../components/ResultPanel';
 import { getPhrases } from '../data/phrases';
 import { db } from '../lib/db';
@@ -129,6 +130,17 @@ export default function Quiz() {
     );
   }
 
+  function updateEcgState(qIdx: number, next: EcgState) {
+    if (submitted) return;
+    setQuestions((cur) =>
+      cur.map((q, i) =>
+        i === qIdx && q.type === 'ecg'
+          ? { ...q, pointAnswers: next.pointAnswers, diagnosisSelected: next.diagnosisSelected, completed: next.completed }
+          : q,
+      ),
+    );
+  }
+
   function submitQuiz() {
     if (submitted || !user || !course) return;
     setSubmitted(true);
@@ -230,11 +242,18 @@ export default function Quiz() {
             );
           }
           return (
-            <article key={q.id + '-' + idx} className="card p-6 text-center">
-              <div className="font-serif text-lg italic text-ink-soft">
-                Questão de ECG · em desenvolvimento
-              </div>
-            </article>
+            <EcgInterpret
+              key={q.id + '-' + idx}
+              question={q}
+              index={idx}
+              submitted={submitted}
+              state={{
+                pointAnswers: q.pointAnswers ?? {},
+                diagnosisSelected: q.diagnosisSelected,
+                completed: q.completed,
+              }}
+              onUpdate={(next) => updateEcgState(idx, next)}
+            />
           );
         })}
       </div>

@@ -9,6 +9,7 @@ import dengue from '../data/seeds/dengue.json';
 import chikungunya from '../data/seeds/chikungunya.json';
 import zika from '../data/seeds/zika.json';
 import oropouche from '../data/seeds/oropouche.json';
+import eletroBasico from '../data/seeds/eletro-basico.json';
 
 const SEEDS: ImportPayload[] = [
   hivAids as ImportPayload,
@@ -20,6 +21,7 @@ const SEEDS: ImportPayload[] = [
   chikungunya as ImportPayload,
   zika as ImportPayload,
   oropouche as ImportPayload,
+  eletroBasico as ImportPayload,
 ];
 
 function buildQuestion(q: ImportQuestion, courseId: string, now: number): Question {
