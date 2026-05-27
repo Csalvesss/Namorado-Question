@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Activity, BookOpenCheck, FileText, Layers, Link2, Save } from 'lucide-react';
-import CaseForm from '../components/author/CaseForm';
+import { Activity, BookOpenCheck, Layers, Link2, Save } from 'lucide-react';
 import ECGForm from '../components/author/ECGForm';
 import FlashcardForm, { FieldRow } from '../components/author/FlashcardForm';
 import ItemsList from '../components/author/ItemsList';
@@ -12,7 +11,7 @@ import { importCourse } from '../lib/seed';
 import { useUser } from '../lib/useUser';
 import type { ImportPayload, ImportQuestion } from '../types';
 
-type AuthorKind = 'mc' | 'flashcard' | 'match' | 'case' | 'ecg';
+type AuthorKind = 'mc' | 'flashcard' | 'match' | 'ecg';
 
 export default function Author() {
   const { user } = useUser();
@@ -136,13 +135,6 @@ export default function Author() {
             description="Duas colunas, associa por toque."
           />
           <KindCard
-            active={kind === 'case'}
-            onClick={() => setKind('case')}
-            Icon={FileText}
-            title="Caso clínico"
-            description="Vinheta + decisões encadeadas."
-          />
-          <KindCard
             active={kind === 'ecg'}
             onClick={() => setKind('ecg')}
             Icon={Activity}
@@ -157,7 +149,6 @@ export default function Author() {
           )}
           {kind === 'mc' && <MCForm onAdd={handleAdd} />}
           {kind === 'match' && <MatchForm onAdd={handleAdd} />}
-          {kind === 'case' && <CaseForm onAdd={handleAdd} />}
           {kind === 'ecg' && <ECGForm onAdd={handleAdd} />}
         </div>
       </section>

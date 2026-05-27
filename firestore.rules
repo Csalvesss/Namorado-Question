@@ -21,6 +21,11 @@ service cloud.firestore {
       match /srs/{cardId} {
         allow read, write: if request.auth != null && request.auth.uid == userId;
       }
+
+      // Cursos criados pela usuaria (com flashcards/questoes embarcados)
+      match /customCourses/{courseId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
     }
   }
 }
