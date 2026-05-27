@@ -1,7 +1,7 @@
 {
-  "title": "Eletrocardiograma — Fundamentos",
+  "title": "Eletrocardiograma: Fundamentos",
   "description": "Análise ponto a ponto: ritmo, FC, ondas e segmentos. Você marca cada componente e fecha o diagnóstico.",
-  "icon": "❤️",
+  "icon": "",
   "color": "wine",
   "questions": [
     {
@@ -16,10 +16,10 @@
           "hint": "regular? cada QRS precedido por onda P?",
           "question": "Como você descreve o ritmo deste traçado?",
           "options": [
-            "Sinusal — regular, cada QRS precedido por onda P",
-            "Fibrilação atrial — irregularmente irregular, sem onda P",
-            "Flutter atrial — ondas F em dente de serra",
-            "Taquicardia ventricular — QRS largo e regular"
+            "Sinusal, regular, cada QRS precedido por onda P",
+            "Fibrilação atrial, irregularmente irregular, sem onda P",
+            "Flutter atrial, ondas F em dente de serra",
+            "Taquicardia ventricular, QRS largo e regular"
           ],
           "correct": 0,
           "expl": "Onda P precede cada QRS, intervalo R-R regular e P positiva em DII. É sinusal."
@@ -40,9 +40,9 @@
           "region": { "x": 0.02, "y": 0.35, "w": 0.06, "h": 0.25 },
           "question": "Como você descreve a onda P?",
           "options": [
-            "Presente, positiva em DII, < 0,12s e < 2,5mm — normal",
-            "Apiculada e alta — sobrecarga atrial direita",
-            "Bífida e larga — sobrecarga atrial esquerda",
+            "Presente, positiva em DII, < 0,12s e < 2,5mm, normal",
+            "Apiculada e alta, sobrecarga atrial direita",
+            "Bífida e larga, sobrecarga atrial esquerda",
             "Ausente"
           ],
           "correct": 0,
@@ -56,9 +56,9 @@
           "question": "Como está o intervalo PR?",
           "options": [
             "Normal (120–200ms)",
-            "Curto (< 120ms) — pré-excitação",
-            "Longo (> 200ms) — bloqueio AV de 1º grau",
-            "Variável — bloqueio AV de 2º grau"
+            "Curto (< 120ms), pré-excitação",
+            "Longo (> 200ms), bloqueio AV de 1º grau",
+            "Variável, bloqueio AV de 2º grau"
           ],
           "correct": 0,
           "expl": "PR mede aproximadamente 4 quadradinhos pequenos (160ms). Dentro da faixa normal."
@@ -85,10 +85,10 @@
           "region": { "x": 0.17, "y": 0.45, "w": 0.05, "h": 0.2 },
           "question": "Como está o segmento ST?",
           "options": [
-            "Isoelétrico — normal",
-            "Supradesnivelado — possível IAM com supra",
-            "Infradesnivelado — isquemia subendocárdica",
-            "Em concavidade superior — pericardite"
+            "Isoelétrico, normal",
+            "Supradesnivelado, possível IAM com supra",
+            "Infradesnivelado, isquemia subendocárdica",
+            "Em concavidade superior, pericardite"
           ],
           "correct": 0,
           "expl": "ST volta à linha de base após o QRS, sem desvio significativo. Normal."
@@ -100,10 +100,10 @@
           "region": { "x": 0.22, "y": 0.35, "w": 0.06, "h": 0.25 },
           "question": "Como está a onda T?",
           "options": [
-            "Positiva, assimétrica e arredondada — normal em DII",
-            "Apiculada e simétrica — hipercalemia",
-            "Invertida — isquemia ou sobrecarga",
-            "Achatada — hipocalemia"
+            "Positiva, assimétrica e arredondada, normal em DII",
+            "Apiculada e simétrica, hipercalemia",
+            "Invertida, isquemia ou sobrecarga",
+            "Achatada, hipocalemia"
           ],
           "correct": 0,
           "expl": "T positiva e arredondada acompanhando a polaridade do QRS. Normal."
@@ -137,11 +137,11 @@
           "options": [
             "Sinusal regular",
             "Sinusal com extrassístoles",
-            "Irregularmente irregular sem onda P — fibrilação atrial",
+            "Irregularmente irregular sem onda P, fibrilação atrial",
             "Flutter atrial 2:1"
           ],
           "correct": 2,
-          "expl": "Intervalo R-R varia entre cada batimento e não se identifica onda P organizada — é fibrilação atrial."
+          "expl": "Intervalo R-R varia entre cada batimento e não se identifica onda P organizada, é fibrilação atrial."
         },
         {
           "id": "fc",
@@ -150,7 +150,7 @@
           "question": "FC aproximada?",
           "options": ["< 60 bpm", "60–100 bpm", "100–150 bpm", "> 150 bpm"],
           "correct": 2,
-          "expl": "Média em torno de 110 bpm — FA com resposta ventricular elevada."
+          "expl": "Média em torno de 110 bpm, FA com resposta ventricular elevada."
         },
         {
           "id": "ondaP",
@@ -176,7 +176,7 @@
             "Largo polimorfo"
           ],
           "correct": 0,
-          "expl": "QRS estreito — condução AV intacta apesar da arritmia supraventricular."
+          "expl": "QRS estreito, condução AV intacta apesar da arritmia supraventricular."
         }
       ],
       "diagnosis": {
@@ -218,17 +218,17 @@
         {
           "id": "st",
           "label": "Segmento ST",
-          "hint": "OLHE com atenção — é o ponto-chave aqui",
+          "hint": "OLHE com atenção, é o ponto-chave aqui",
           "region": { "x": 0.16, "y": 0.55, "w": 0.06, "h": 0.25 },
           "question": "Como está o segmento ST?",
           "options": [
             "Isoelétrico",
-            "Supradesnivelado em DII, DIII, aVF — IAM inferior",
+            "Supradesnivelado em DII, DIII, aVF, IAM inferior",
             "Infradesnivelado difuso",
             "Em concavidade superior em todas as derivações"
           ],
           "correct": 1,
-          "expl": "Supra de ST significativo (> 1 mm) em parede inferior — IAM com supra inferior."
+          "expl": "Supra de ST significativo (> 1 mm) em parede inferior, IAM com supra inferior."
         },
         {
           "id": "ondaQ",
@@ -237,18 +237,18 @@
           "options": [
             "Ausente",
             "Presente em DI, aVL",
-            "Presente em DII, DIII, aVF — sugere IAM antigo inferior",
-            "QS em V1-V3 — IAM antigo anterior"
+            "Presente em DII, DIII, aVF, sugere IAM antigo inferior",
+            "QS em V1-V3, IAM antigo anterior"
           ],
           "correct": 0,
-          "expl": "Onda Q ainda não evidente — fase aguda do IAM, Q se desenvolve em horas a dias."
+          "expl": "Onda Q ainda não evidente, fase aguda do IAM, Q se desenvolve em horas a dias."
         }
       ],
       "diagnosis": {
         "question": "Qual a conduta imediata?",
         "options": [
-          "Internar em enfermaria pra observação",
-          "AAS, clopidogrel/ticagrelor, anticoagulação e ATIVAR HEMODINÂMICA pra angioplastia primária em até 120min",
+          "Internar em enfermaria para observação",
+          "AAS, clopidogrel/ticagrelor, anticoagulação e ATIVAR HEMODINÂMICA para angioplastia primária em até 120min",
           "Cintilografia miocárdica eletiva",
           "Trombolítico apenas se sintomas há mais de 12h"
         ],

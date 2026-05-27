@@ -15,7 +15,7 @@ const slides: Slide[] = [
   {
     Icon: Sparkles,
     title: 'bem-vinda',
-    body: 'esta plataforma é o seu espaço de estudo. cada matéria tem um banco próprio de questões, com vários modos pra você escolher: revisão rápida, simulado cronometrado, maratona.',
+    body: 'esta plataforma é o seu espaço de estudo. cada matéria tem um banco próprio de questões, com vários modos para você escolher: revisão rápida, simulado cronometrado, maratona.',
   },
   {
     Icon: Target,
@@ -25,7 +25,7 @@ const slides: Slide[] = [
   {
     Icon: Heart,
     title: 'modo namorado · modo doutora',
-    body: 'no perfil você troca o tom das mensagens. modo namorado tem as frases carinhosas. modo doutora deixa tudo neutro pra estudar em público sem chamar atenção.',
+    body: 'no perfil você troca o tom das mensagens. modo namorado tem as frases carinhosas. modo doutora deixa tudo neutro para estudar em público sem chamar atenção.',
   },
 ];
 

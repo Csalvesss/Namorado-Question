@@ -49,13 +49,14 @@ export default function Course() {
       </Link>
 
       <header className="text-center">
-        <div className="mb-3 text-5xl sm:text-6xl">{course.icon}</div>
+        <div className="eyebrow-gold mb-3">Módulo de estudo</div>
         <h1 className="display-title-sm">{course.title}</h1>
         <p className="mt-3 mx-auto max-w-xl font-serif text-lg italic leading-relaxed text-ink-soft">
           {course.description}
         </p>
         <div className="mt-4 flex justify-center gap-2">
           <span className="label-tag">{course.questionCount} questões no banco</span>
+          <span className="label-tag">{course.topics.length} tópicos</span>
         </div>
       </header>
 

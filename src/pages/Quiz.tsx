@@ -112,10 +112,10 @@ export default function Quiz() {
     return (
       <EmptyState
         illustration={mode === 'mistakes' ? 'spark' : 'petal'}
-        title={mode === 'mistakes' ? 'Nenhum erro pra revisar' : 'Sem questões pra esses filtros'}
+        title={mode === 'mistakes' ? 'Nenhum erro para revisar' : 'Sem questões para esses filtros'}
         description={
           mode === 'mistakes'
-            ? 'Você ainda não tem questões erradas registradas. Faça uma prova primeiro pra alimentar o modo erro.'
+            ? 'Você ainda não tem questões erradas registradas. Faça uma prova primeiro para alimentar o modo erro.'
             : 'Nenhuma questão disponível com esses tópicos. Tenta limpar a seleção ou escolher outro modo.'
         }
         action={

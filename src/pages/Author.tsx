@@ -11,7 +11,6 @@ type AuthorKind = 'mc' | 'ecg' | 'case';
 const EXAMPLE_MC = `{
   "title": "Nome da matéria",
   "description": "Resumo do conteúdo",
-  "icon": "📘",
   "color": "wine",
   "questions": [
     {
@@ -36,7 +35,7 @@ Requisitos de qualidade:
 - Varie a dificuldade (use "easy", "medium", "hard")
 - Inclua raciocínio clínico quando o conteúdo permitir, não só decoreba
 - Cubra os principais conceitos do PDF
-- Use o campo "topic" pra agrupar por subtópico
+- Use o campo "topic" para agrupar por subtópico
 
 Saída: APENAS o JSON válido, sem texto antes ou depois.
 
@@ -44,9 +43,8 @@ Formato:
 ${EXAMPLE_MC}`;
 
 const EXAMPLE_ECG = `{
-  "title": "Eletrocardiograma — Avançado",
+  "title": "Eletrocardiograma: Avançado",
   "description": "Casos clínicos com interpretação ponto a ponto",
-  "icon": "❤️",
   "color": "wine",
   "questions": [
     {
@@ -77,22 +75,21 @@ const EXAMPLE_ECG = `{
 }`;
 
 const EXAMPLE_CASE = `{
-  "title": "Casos Clínicos — Cardiologia",
+  "title": "Casos Clínicos: Cardiologia",
   "description": "Vinhetas com decisões encadeadas",
-  "icon": "🩺",
   "color": "wine",
   "questions": [
     {
       "type": "case",
       "topic": "Síndrome coronariana aguda",
-      "vignette": "Homem, 58a, dor torácica retroesternal há 2h, sudorese, irradia pra braço esquerdo. PA 150x95, FC 92, ECG com supra ST em DII/DIII/aVF.",
+      "vignette": "Homem, 58a, dor torácica retroesternal há 2h, sudorese, irradia para braço esquerdo. PA 150x95, FC 92, ECG com supra ST em DII/DIII/aVF.",
       "steps": [
         {
           "id": "diag",
           "question": "Diagnóstico mais provável?",
           "options": ["IAM inferior com supra ST", "Angina estável", "Pericardite aguda", "Dissecção de aorta"],
           "correct": 0,
-          "expl": "Quadro clássico de SCAcSST inferior — supra de ST em parede inferior."
+          "expl": "Quadro clássico de SCAcSST inferior, supra de ST em parede inferior."
         },
         {
           "id": "conduta",
@@ -105,7 +102,7 @@ const EXAMPLE_CASE = `{
             "Cateterismo apenas após estabilização ambulatorial"
           ],
           "correct": 0,
-          "expl": "Janela ouro pra angioplastia primária. ATC se disponível < 120min, senão trombólise."
+          "expl": "Janela ouro para angioplastia primária. ATC se disponível < 120min, senão trombólise."
         }
       ],
       "difficulty": "medium"
@@ -113,10 +110,10 @@ const EXAMPLE_CASE = `{
   ]
 }`;
 
-const PROMPT_CASE = `Você é um preceptor de residência médica gerando casos clínicos encadeados pra simular plantão.
+const PROMPT_CASE = `Você é um preceptor de residência médica gerando casos clínicos encadeados para simular plantão.
 
 Gere 4 casos em português brasileiro, no formato JSON exato abaixo. Cada caso tem:
-- vignette: vinheta clínica longa (3-6 linhas), com idade, sexo, queixa, antecedentes, exame físico, exames laboratoriais relevantes. Pode usar \\n pra quebrar parágrafos.
+- vignette: vinheta clínica longa (3-6 linhas), com idade, sexo, queixa, antecedentes, exame físico, exames laboratoriais relevantes. Pode usar \\n para quebrar parágrafos.
 - steps: 3 a 5 sub-questões em sequência lógica de raciocínio (diagnóstico → exames → conduta → seguimento). Cada step:
   - id: slug curto (diag, conduta, atb, alta, etc.)
   - prompt? (opcional): nova informação revelada antes dessa pergunta ("Após pedir hemograma, você recebe Hb 7,2...")
@@ -138,13 +135,13 @@ A nossa plataforma renderiza os traçados dinamicamente a partir de um id. Os id
 - stemi-inferior, stemi-anterior
 - lbbb (BRE), rbbb (BRD)
 
-Gere 5 questões em português brasileiro, escolhendo o tracingId mais adequado ao caso clínico. Cada questão tem 4-7 pontos de análise (ondas P, intervalo PR, QRS, segmento ST, onda T, ritmo, FC, eixo — escolha o que faz sentido pro caso) e termina com um diagnóstico final.
+Gere 5 questões em português brasileiro, escolhendo o tracingId mais adequado ao caso clínico. Cada questão tem 4-7 pontos de análise (ondas P, intervalo PR, QRS, segmento ST, onda T, ritmo, FC, eixo, escolha o que faz sentido pro caso) e termina com um diagnóstico final.
 
 Cada PONTO tem:
 - id (slug curto: ritmo, fc, ondaP, intervaloPr, qrs, st, t, eixo)
 - label (rótulo bonito: "Ritmo", "Frequência cardíaca", etc.)
 - hint? (uma dica curta, opcional)
-- region? (opcional: { x, y, w, h } com valores 0-1 normalizados pra destacar a parte do traçado)
+- region? (opcional: { x, y, w, h } com valores 0-1 normalizados para destacar a parte do traçado)
 - question (a pergunta dessa etapa)
 - options (4 alternativas)
 - correct (0-3)
@@ -297,7 +294,7 @@ export default function Author() {
         <h2 className="mb-3 font-serif text-2xl italic text-wine-deep">1. Gere o JSON com o Claude</h2>
         <p className="mb-4 text-sm leading-relaxed text-ink-soft">
           Escolha o tipo de questão, copie o prompt e cole numa conversa nova com o Claude,
-          junto com o material. Ele devolve um JSON pronto pra importar.
+          junto com o material. Ele devolve um JSON pronto para importar.
         </p>
 
         <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
@@ -320,7 +317,7 @@ export default function Author() {
             onClick={() => setKind('case')}
             Icon={FileText}
             title="Caso clínico"
-            description="Vinheta longa + 3-5 decisões encadeadas. Ideal pra simular plantão."
+            description="Vinheta longa + 3-5 decisões encadeadas. Ideal para simular plantão."
           />
         </div>
 
@@ -390,7 +387,12 @@ export default function Author() {
             {courses.map((c) => (
               <li key={c.id} className="flex items-center justify-between gap-3 rounded-xl bg-bg-soft px-4 py-3">
                 <Link to={`/curso/${c.id}`} className="flex items-center gap-3 text-left">
-                  <span className="text-2xl">{c.icon}</span>
+                  <span
+                    aria-hidden
+                    className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line bg-paper font-serif text-base italic text-wine-deep"
+                  >
+                    {c.title.charAt(0).toUpperCase()}
+                  </span>
                   <div>
                     <div className="font-serif text-lg italic text-wine-deep">{c.title}</div>
                     <div className="text-xs text-muted">{c.questionCount} questões · {c.topics.length} tópicos</div>

@@ -1,7 +1,7 @@
 {
-  "title": "Casos Clínicos — Urgência",
+  "title": "Casos Clínicos: Urgência",
   "description": "Vinhetas com decisões encadeadas: você lê o caso e vai conduzindo passo a passo, como no plantão.",
-  "icon": "🩺",
+  "icon": "",
   "color": "wine",
   "questions": [
     {
@@ -32,11 +32,11 @@
             "Iniciar noradrenalina antes da expansão volêmica"
           ],
           "correct": 0,
-          "expl": "Bundle de 1 hora: cultura → ATB amplo → volume 30 mL/kg → lactato seriado → vasopressor se PAM < 65 após volume. Imagem fica pra depois da estabilização."
+          "expl": "Bundle de 1 hora: cultura → ATB amplo → volume 30 mL/kg → lactato seriado → vasopressor se PAM < 65 após volume. Imagem fica para depois da estabilização."
         },
         {
           "id": "atb",
-          "prompt": "Você expandiu 2L de SF, colheu hemoculturas e urocultura. PAS subiu pra 95.",
+          "prompt": "Você expandiu 2L de SF, colheu hemoculturas e urocultura. PAS subiu para 95.",
           "question": "Qual antibiótico empírico mais apropriado para foco urinário comunitário em paciente idosa, com sepse?",
           "options": [
             "Ceftriaxone 2g EV",
@@ -45,7 +45,7 @@
             "Azitromicina + amoxicilina"
           ],
           "correct": 0,
-          "expl": "ITU comunitária complicada/pielonefrite: ceftriaxone EV é a 1ª linha. Carbapenêmico fica reservado pra paciente colonizado por BLEE ou sem resposta. Nitro não cobre ITU alta."
+          "expl": "ITU comunitária complicada/pielonefrite: ceftriaxone EV é a 1ª linha. Carbapenêmico fica reservado para paciente colonizado por BLEE ou sem resposta. Nitro não cobre ITU alta."
         },
         {
           "id": "vasopressor",
@@ -70,7 +70,7 @@
       "steps": [
         {
           "id": "tempo",
-          "question": "Qual o 'time of onset' que você considera pra cálculo da janela?",
+          "question": "Qual o 'time of onset' que você considera para cálculo da janela?",
           "options": [
             "10h30 (quando os sintomas foram percebidos)",
             "7h (último horário em que estava comprovadamente bem)",
@@ -103,14 +103,14 @@
             "Anticoagulação plena imediata pela FA"
           ],
           "correct": 1,
-          "expl": "4h45 = passou da janela de 4,5h pra alteplase. Mas trombectomia mecânica pode ser feita até 6h (ou 24h em casos selecionados com mismatch perfusão-difusão). Angio-TC pra ver se há oclusão de grande vaso é o próximo passo. NIHSS 5 pode não justificar trombectomia — discutir com neuro."
+          "expl": "4h45 = passou da janela de 4,5h para alteplase. Mas trombectomia mecânica pode ser feita até 6h (ou 24h em casos selecionados com mismatch perfusão-difusão). Angio-TC para ver se há oclusão de grande vaso é o próximo passo. NIHSS 5 pode não justificar trombectomia, discutir com neuro."
         },
         {
           "id": "pa",
           "question": "PA está 178x102. Qual conduta de pressão?",
           "options": [
-            "Não tratar — permitir PA até 220x120 se NÃO for elegível pra trombólise",
-            "Reduzir agressivamente pra < 140x90 imediatamente",
+            "Não tratar, permitir PA até 220x120 se NÃO for elegível para trombólise",
+            "Reduzir agressivamente para < 140x90 imediatamente",
             "Iniciar IECA VO",
             "Captopril SL 25mg"
           ],

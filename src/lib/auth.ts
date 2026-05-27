@@ -1,6 +1,14 @@
 import type { UserProfile } from '../types';
 import { db } from './db';
 
+export const USER_CHANGE_EVENT = 'guava:user-change';
+
+function emitChange() {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent(USER_CHANGE_EVENT));
+  }
+}
+
 const ALLOWED_EMAILS_ENV = (import.meta.env.VITE_ALLOWED_EMAILS ?? '').toString();
 
 export function getAllowedEmails(): string[] {
@@ -47,11 +55,13 @@ export function login({ email, name }: LoginInput): { ok: true; user: UserProfil
       };
 
   db.user.save(user);
+  emitChange();
   return { ok: true, user };
 }
 
 export function logout() {
   db.user.clear();
+  emitChange();
 }
 
 export function getCurrentUser(): UserProfile | null {
@@ -62,4 +72,5 @@ export function updateUser(patch: Partial<UserProfile>) {
   const current = db.user.get();
   if (!current) return;
   db.user.save({ ...current, ...patch });
+  emitChange();
 }

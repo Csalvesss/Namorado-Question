@@ -1,7 +1,7 @@
 {
   "title": "Oropouche",
   "description": "Arbovirose por Orthobunyavirus, vetor Culicoides paraensis, quadro 'Dengue-like' com recorrência, manejo sintomático.",
-  "icon": "🦟",
+  "icon": "",
   "color": "rose",
   "questions": [
     {
@@ -53,7 +53,7 @@
         "Ordem Coleoptera, exclusivo de florestas"
       ],
       "correct": 1,
-      "expl": "O Culicoides paraensis pertence à ordem Diptera, família Ceratopogonidae. NÃO é um mosquito 'clássico' — os mosquitos verdadeiros (como o Aedes aegypti) pertencem à família Culicidae. Essa distinção taxonômica é importante porque os Ceratopogonidae têm biologia, habitats e comportamento distintos, exigindo estratégias de controle diferentes.",
+      "expl": "O Culicoides paraensis pertence à ordem Diptera, família Ceratopogonidae. NÃO é um mosquito 'clássico', os mosquitos verdadeiros (como o Aedes aegypti) pertencem à família Culicidae. Essa distinção taxonômica é importante porque os Ceratopogonidae têm biologia, habitats e comportamento distintos, exigindo estratégias de controle diferentes.",
       "difficulty": "hard"
     },
     {

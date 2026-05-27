@@ -65,7 +65,7 @@ export default function Profile() {
         <h2 className="font-serif text-xl italic text-wine-deep">Modo de mensagens</h2>
         <p className="text-sm text-ink-soft">
           No <strong>modo namorado</strong> aparecem as frases carinhosas. No <strong>modo doutora</strong> elas
-          ficam neutras e profissionais (bom pra estudar em público).
+          ficam neutras e profissionais (bom para estudar em público).
         </p>
         <div className="flex items-center justify-between rounded-xl bg-bg-soft px-4 py-3">
           <span className="font-serif italic text-wine-deep">

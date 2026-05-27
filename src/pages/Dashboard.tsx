@@ -43,7 +43,7 @@ export default function Dashboard() {
           <EmptyState
             illustration="book"
             title="Nenhum curso ainda"
-            description="Vá em Autor pra criar ou importar um banco de questões. É rápido e o Claude monta as 30 questões pra você."
+            description="Vá em Autor para criar ou importar um banco de questões. É rápido e o Claude monta as 30 questões para você."
             action={
               <Link to="/autor" className="btn-primary">
                 Criar primeiro curso
@@ -60,7 +60,12 @@ export default function Dashboard() {
               >
                 <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-rose-soft transition group-hover:bg-wine" />
                 <div className="mb-2 flex items-center gap-3">
-                  <span className="text-3xl">{c.icon}</span>
+                  <span
+                    aria-hidden
+                    className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line bg-paper-soft font-serif text-xl italic text-wine-deep"
+                  >
+                    {c.title.charAt(0).toUpperCase()}
+                  </span>
                   <h3 className="font-serif text-xl italic text-wine-deep">{c.title}</h3>
                 </div>
                 <p className="mb-3 text-sm leading-relaxed text-ink-soft">{c.description}</p>

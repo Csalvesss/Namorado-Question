@@ -81,7 +81,7 @@ export function importCourse(payload: ImportPayload, opts: { createdBy?: string 
     description: payload.description ?? '',
     topics,
     color: payload.color ?? 'wine',
-    icon: payload.icon ?? '📘',
+    icon: payload.icon ?? '',
     questionCount: payload.questions.length,
     createdBy: opts.createdBy ?? 'system',
     sharedWith: [],

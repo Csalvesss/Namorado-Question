@@ -1,7 +1,7 @@
 {
   "title": "Zika",
   "description": "Arbovirose por Flavivírus com clínica frustra: diagnóstico por RT-PCR (sangue/urina), sorologia e tratamento sintomático.",
-  "icon": "🦟",
+  "icon": "",
   "color": "gold",
   "questions": [
     {
@@ -53,7 +53,7 @@
         "Apenas corticoide intra-articular"
       ],
       "correct": 1,
-      "expl": "O tratamento da infecção aguda por Zika é SINTOMÁTICO: analgésico simples (paracetamol, dipirona) para febre/dor, anti-histamínico para o prurido e exantema, EVITAR AAS (risco de sangramento — mesma lógica das demais arboviroses), repouso e cuidados locais com a pele. Não existe antiviral específico.",
+      "expl": "O tratamento da infecção aguda por Zika é SINTOMÁTICO: analgésico simples (paracetamol, dipirona) para febre/dor, anti-histamínico para o prurido e exantema, EVITAR AAS (risco de sangramento, mesma lógica das demais arboviroses), repouso e cuidados locais com a pele. Não existe antiviral específico.",
       "difficulty": "easy"
     },
     {
@@ -131,7 +131,7 @@
         "Zika: cursa sempre com choque hemorrágico em 100% dos casos"
       ],
       "correct": 3,
-      "expl": "A afirmação INCORRETA é que 'Zika cursa sempre com choque hemorrágico em 100% dos casos' — a Zika tem quadro frustro, geralmente leve, e o choque hemorrágico não é característico dela (é mais associado à Dengue Hemorrágica). As outras descrições estão corretas: Dengue tem febre alta com plaquetopenia mais marcada e risco hemorrágico; Chikungunya tem artralgia limitante simétrica com fases crônicas; Zika tem clínica leve com exantema pruriginoso e conjuntivite não purulenta.",
+      "expl": "A afirmação INCORRETA é que 'Zika cursa sempre com choque hemorrágico em 100% dos casos', a Zika tem quadro frustro, geralmente leve, e o choque hemorrágico não é característico dela (é mais associado à Dengue Hemorrágica). As outras descrições estão corretas: Dengue tem febre alta com plaquetopenia mais marcada e risco hemorrágico; Chikungunya tem artralgia limitante simétrica com fases crônicas; Zika tem clínica leve com exantema pruriginoso e conjuntivite não purulenta.",
       "difficulty": "hard"
     }
   ]
