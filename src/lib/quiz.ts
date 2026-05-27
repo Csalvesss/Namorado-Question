@@ -91,7 +91,22 @@ export interface PreparedCaseQuestion {
   steps: import('../types').CaseStep[];
 }
 
-export type PreparedQuestion = PreparedMCQuestion | PreparedECGQuestion | PreparedCaseQuestion;
+export interface PreparedMatchQuestion {
+  type: 'match';
+  id: string;
+  topic: string;
+  prompt: string;
+  leftLabel?: string;
+  rightLabel?: string;
+  pairs: import('../types').MatchPair[];
+  expl?: string;
+}
+
+export type PreparedQuestion =
+  | PreparedMCQuestion
+  | PreparedECGQuestion
+  | PreparedCaseQuestion
+  | PreparedMatchQuestion;
 
 export function prepareQuestion(question: Question): PreparedQuestion {
   if (question.type === 'ecg') {
@@ -123,6 +138,18 @@ export function prepareQuestion(question: Question): PreparedQuestion {
       expl: question.back,
       options: [question.back, 'Não sei', 'Talvez', 'Pular'],
       correct: 0,
+    };
+  }
+  if (question.type === 'match') {
+    return {
+      type: 'match',
+      id: question.id,
+      topic: question.topic,
+      prompt: question.prompt,
+      leftLabel: question.leftLabel,
+      rightLabel: question.rightLabel,
+      pairs: question.pairs,
+      expl: question.expl,
     };
   }
   const tagged = question.options.map((opt: string, i: number) => ({

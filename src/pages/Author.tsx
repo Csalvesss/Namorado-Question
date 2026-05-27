@@ -1,12 +1,12 @@
 import { useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Activity, BookOpenCheck, FileText, Layers } from 'lucide-react';
+import { Activity, BookOpenCheck, FileText, Layers, Link2 } from 'lucide-react';
 import { db } from '../lib/db';
 import { importCourse } from '../lib/seed';
 import { useUser } from '../lib/useUser';
 import type { ImportPayload } from '../types';
 
-type AuthorKind = 'mc' | 'ecg' | 'case' | 'flashcard';
+type AuthorKind = 'mc' | 'ecg' | 'case' | 'flashcard' | 'match';
 
 const EXAMPLE_MC = `{
   "title": "Nome da matéria",
@@ -207,6 +207,57 @@ Saída: APENAS o JSON válido, sem texto antes ou depois.
 Formato:
 ${EXAMPLE_FLASHCARD}`;
 
+const EXAMPLE_MATCH = `{
+  "title": "Antibióticos: Mecanismos",
+  "description": "Associe a droga ao seu mecanismo de ação",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "match",
+      "topic": "Mecanismos de ação",
+      "prompt": "Associe cada antibiótico ao seu mecanismo de ação predominante.",
+      "leftLabel": "Antibiótico",
+      "rightLabel": "Mecanismo",
+      "pairs": [
+        { "id": "vanco", "left": "Vancomicina", "right": "Liga-se ao D-Ala-D-Ala, bloqueando síntese de parede" },
+        { "id": "azitro", "left": "Azitromicina", "right": "Liga subunidade 50S, bloqueia translocação" },
+        { "id": "cipro", "left": "Ciprofloxacino", "right": "Inibe DNA girase e topoisomerase IV" },
+        { "id": "smxtmp", "left": "SMX-TMP", "right": "Bloqueia síntese de folato (dihidropteroato + dihidrofolato redutase)" }
+      ],
+      "expl": "Cada classe ataca um alvo molecular específico, ajudando a prever espectro e resistência.",
+      "difficulty": "medium"
+    }
+  ]
+}`;
+
+const PROMPT_MATCH = `Você é uma professora de medicina criando exercícios de pareamento para fixação rápida.
+
+Vou te enviar um PDF (ou material de estudo). Leia com atenção e gere 8 questões de pareamento em português brasileiro, no formato JSON exato abaixo.
+
+Princípios:
+- cada questão tem 4 a 6 pares (não mais que isso, fica confuso)
+- coluna ESQUERDA: itens curtos (nome, classe, achado)
+- coluna DIREITA: descrições/definições/mecanismos/critérios (mais longas)
+- USE temas onde associação é natural: droga ↔ mecanismo, doença ↔ achado patognomônico, classificação ↔ critério, antibiótico ↔ espectro, sinal ↔ síndrome, escala ↔ aplicação
+- evite pares óbvios que não testam raciocínio
+- "expl" opcional: nota didática curta sobre o tema
+
+A plataforma renderiza as duas colunas lado a lado. A aluna toca um item da esquerda, depois o da direita correspondente. Mobile-friendly, sem drag-drop.
+
+Cada questão tem:
+- type: "match"
+- topic: subtópico
+- prompt: enunciado curto (1 frase)
+- leftLabel? rightLabel?: labels das colunas (ex: "Antibiótico" / "Mecanismo")
+- pairs: array com { id, left, right } — id é slug único usado para checar acerto
+- expl?: explicação opcional
+- difficulty?: "easy" | "medium" | "hard"
+
+Saída: APENAS o JSON válido, sem texto antes ou depois.
+
+Formato:
+${EXAMPLE_MATCH}`;
+
 export default function Author() {
   const { user } = useUser();
   const [raw, setRaw] = useState('');
@@ -224,7 +275,9 @@ export default function Author() {
         ? PROMPT_CASE
         : kind === 'flashcard'
           ? PROMPT_FLASHCARD
-          : PROMPT_MC;
+          : kind === 'match'
+            ? PROMPT_MATCH
+            : PROMPT_MC;
   const exampleJson =
     kind === 'ecg'
       ? EXAMPLE_ECG
@@ -232,7 +285,9 @@ export default function Author() {
         ? EXAMPLE_CASE
         : kind === 'flashcard'
           ? EXAMPLE_FLASHCARD
-          : EXAMPLE_MC;
+          : kind === 'match'
+            ? EXAMPLE_MATCH
+            : EXAMPLE_MC;
 
   function parseAndValidate(text: string): ImportPayload | null {
     let data: unknown;
@@ -299,6 +354,17 @@ export default function Author() {
         }
         if (typeof q.back !== 'string' || !q.back.trim()) {
           setError(`Questão ${i + 1} (flashcard): "back" obrigatório.`);
+          return null;
+        }
+        continue;
+      }
+      if (type === 'match') {
+        if (typeof q.prompt !== 'string' || !q.prompt.trim()) {
+          setError(`Questão ${i + 1} (pareamento): "prompt" obrigatório.`);
+          return null;
+        }
+        if (!Array.isArray(q.pairs) || q.pairs.length < 2) {
+          setError(`Questão ${i + 1} (pareamento): "pairs" precisa ter pelo menos 2 itens.`);
           return null;
         }
         continue;
@@ -372,7 +438,7 @@ export default function Author() {
           junto com o material. Ele devolve um JSON pronto para importar.
         </p>
 
-        <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
           <KindCard
             active={kind === 'mc'}
             onClick={() => setKind('mc')}
@@ -400,6 +466,13 @@ export default function Author() {
             Icon={Layers}
             title="Flashcards"
             description="Frente / verso com repetição espaçada (SM-2)."
+          />
+          <KindCard
+            active={kind === 'match'}
+            onClick={() => setKind('match')}
+            Icon={Link2}
+            title="Pareamento"
+            description="Associa duas colunas, como droga e mecanismo."
           />
         </div>
 

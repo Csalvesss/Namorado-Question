@@ -1,6 +1,6 @@
 export type Difficulty = 'easy' | 'medium' | 'hard';
 
-export type QuestionType = 'mc' | 'ecg' | 'case' | 'flashcard';
+export type QuestionType = 'mc' | 'ecg' | 'case' | 'flashcard' | 'match';
 
 interface BaseQuestion {
   id: string;
@@ -78,7 +78,27 @@ export interface FlashcardQuestion extends BaseQuestion {
   hint?: string;
 }
 
-export type Question = MultipleChoiceQuestion | ECGQuestion | CaseQuestion | FlashcardQuestion;
+export interface MatchPair {
+  id: string;
+  left: string;
+  right: string;
+}
+
+export interface MatchQuestion extends BaseQuestion {
+  type: 'match';
+  prompt: string;
+  leftLabel?: string;
+  rightLabel?: string;
+  pairs: MatchPair[];
+  expl?: string;
+}
+
+export type Question =
+  | MultipleChoiceQuestion
+  | ECGQuestion
+  | CaseQuestion
+  | FlashcardQuestion
+  | MatchQuestion;
 
 export interface Course {
   id: string;
@@ -167,11 +187,24 @@ export interface ImportFlashcardQuestion {
   tags?: string[];
 }
 
+export interface ImportMatchQuestion {
+  type: 'match';
+  topic: string;
+  prompt: string;
+  leftLabel?: string;
+  rightLabel?: string;
+  pairs: MatchPair[];
+  expl?: string;
+  difficulty?: Difficulty;
+  tags?: string[];
+}
+
 export type ImportQuestion =
   | ImportMCQuestion
   | ImportECGQuestion
   | ImportCaseQuestion
-  | ImportFlashcardQuestion;
+  | ImportFlashcardQuestion
+  | ImportMatchQuestion;
 
 export interface ImportPayload {
   title: string;

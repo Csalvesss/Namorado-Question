@@ -5,6 +5,7 @@ import confetti from 'canvas-confetti';
 import EmptyState from '../components/EmptyState';
 import CaseClinical, { type CaseState } from '../components/questions/CaseClinical';
 import EcgInterpret, { type EcgState } from '../components/questions/EcgInterpret';
+import Matching, { type MatchState } from '../components/questions/Matching';
 import { ResultPanel } from '../components/ResultPanel';
 import { getPhrases } from '../data/phrases';
 import { db } from '../lib/db';
@@ -28,6 +29,8 @@ type QuestionState = PreparedQuestion & {
   diagnosisSelected?: number;
   completed?: boolean;
   stepAnswers?: Record<string, number>;
+  matchSelections?: Record<string, string>;
+  matchRightOrder?: string[];
 };
 
 type MCQuestionState = PreparedMCQuestion & { selected?: number };
@@ -35,14 +38,21 @@ type MCQuestionState = PreparedMCQuestion & { selected?: number };
 function isAnswered(q: QuestionState): boolean {
   if (q.type === 'mc') return q.selected !== undefined;
   if (q.type === 'ecg') return Boolean(q.completed);
-  return Object.keys(q.stepAnswers ?? {}).length === q.steps.length;
+  if (q.type === 'case') {
+    return Object.keys(q.stepAnswers ?? {}).length === q.steps.length;
+  }
+  return Object.keys(q.matchSelections ?? {}).length === q.pairs.length;
 }
 
 function questionIsRight(q: QuestionState): boolean {
   if (q.type === 'mc') return q.selected === q.correct;
   if (q.type === 'ecg') return q.diagnosisSelected === q.diagnosis.correct;
-  const last = q.steps[q.steps.length - 1];
-  return last !== undefined && q.stepAnswers?.[last.id] === last.correct;
+  if (q.type === 'case') {
+    const last = q.steps[q.steps.length - 1];
+    return last !== undefined && q.stepAnswers?.[last.id] === last.correct;
+  }
+  const sel = q.matchSelections ?? {};
+  return q.pairs.every((p) => sel[p.id] === p.id);
 }
 
 function questionAnswer(q: QuestionState): { selected: number; correct: number } {
@@ -52,9 +62,14 @@ function questionAnswer(q: QuestionState): { selected: number; correct: number }
   if (q.type === 'ecg') {
     return { selected: q.diagnosisSelected ?? -1, correct: q.diagnosis.correct };
   }
-  const last = q.steps[q.steps.length - 1];
-  if (!last) return { selected: -1, correct: -1 };
-  return { selected: q.stepAnswers?.[last.id] ?? -1, correct: last.correct };
+  if (q.type === 'case') {
+    const last = q.steps[q.steps.length - 1];
+    if (!last) return { selected: -1, correct: -1 };
+    return { selected: q.stepAnswers?.[last.id] ?? -1, correct: last.correct };
+  }
+  const sel = q.matchSelections ?? {};
+  const correctCount = q.pairs.reduce((acc, p) => acc + (sel[p.id] === p.id ? 1 : 0), 0);
+  return { selected: correctCount, correct: q.pairs.length };
 }
 
 export default function Quiz() {
@@ -157,6 +172,17 @@ export default function Quiz() {
     setQuestions((cur) =>
       cur.map((q, i) =>
         i === qIdx && q.type === 'case' ? { ...q, stepAnswers: next.stepAnswers } : q,
+      ),
+    );
+  }
+
+  function updateMatchState(qIdx: number, next: MatchState) {
+    if (submitted) return;
+    setQuestions((cur) =>
+      cur.map((q, i) =>
+        i === qIdx && q.type === 'match'
+          ? { ...q, matchSelections: next.selections, matchRightOrder: next.rightOrder }
+          : q,
       ),
     );
   }
@@ -301,14 +327,29 @@ export default function Quiz() {
               />
             );
           }
+          if (q.type === 'case') {
+            return (
+              <CaseClinical
+                key={q.id + '-' + idx}
+                question={q}
+                index={idx}
+                submitted={submitted}
+                state={{ stepAnswers: q.stepAnswers ?? {} }}
+                onUpdate={(next) => updateCaseState(idx, next)}
+              />
+            );
+          }
           return (
-            <CaseClinical
+            <Matching
               key={q.id + '-' + idx}
               question={q}
               index={idx}
               submitted={submitted}
-              state={{ stepAnswers: q.stepAnswers ?? {} }}
-              onUpdate={(next) => updateCaseState(idx, next)}
+              state={{
+                selections: q.matchSelections ?? {},
+                rightOrder: q.matchRightOrder,
+              }}
+              onUpdate={(next) => updateMatchState(idx, next)}
             />
           );
         })}

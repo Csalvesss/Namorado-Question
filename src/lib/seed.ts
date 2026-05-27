@@ -71,6 +71,22 @@ function buildQuestion(q: ImportQuestion, courseId: string, now: number): Questi
       createdAt: now,
     };
   }
+  if (q.type === 'match') {
+    return {
+      id: db.ids.question(),
+      courseId,
+      topic: q.topic,
+      type: 'match',
+      prompt: q.prompt,
+      leftLabel: q.leftLabel,
+      rightLabel: q.rightLabel,
+      pairs: q.pairs,
+      expl: q.expl,
+      difficulty: q.difficulty,
+      tags: q.tags,
+      createdAt: now,
+    };
+  }
   return {
     id: db.ids.question(),
     courseId,
