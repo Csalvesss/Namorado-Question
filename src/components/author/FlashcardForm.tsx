@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import { Plus } from 'lucide-react';
 import AIFlashcardPanel from './AIFlashcardPanel';
 import type { Difficulty, ImportFlashcardQuestion } from '../../types';
 
@@ -10,29 +8,6 @@ interface Props {
 }
 
 export default function FlashcardForm({ onAdd, onAddMany, defaultTopic = '' }: Props) {
-  const [topic, setTopic] = useState(defaultTopic);
-  const [front, setFront] = useState('');
-  const [back, setBack] = useState('');
-  const [hint, setHint] = useState('');
-  const [difficulty, setDifficulty] = useState<Difficulty>('medium');
-
-  const ready = topic.trim() && front.trim() && back.trim();
-
-  function handleAdd() {
-    if (!ready) return;
-    onAdd({
-      type: 'flashcard',
-      topic: topic.trim(),
-      front: front.trim(),
-      back: back.trim(),
-      hint: hint.trim() || undefined,
-      difficulty,
-    });
-    setFront('');
-    setBack('');
-    setHint('');
-  }
-
   function handleGenerated(cards: ImportFlashcardQuestion[]) {
     if (onAddMany) {
       onAddMany(cards);
@@ -41,76 +16,7 @@ export default function FlashcardForm({ onAdd, onAddMany, defaultTopic = '' }: P
     }
   }
 
-  return (
-    <div className="space-y-5">
-      <AIFlashcardPanel onGenerated={handleGenerated} defaultTopic={topic} />
-
-      <div className="relative flex items-center gap-3">
-        <span className="h-px flex-1 bg-line" />
-        <span className="text-[10px] uppercase tracking-[0.28em] text-muted">
-          ou monte manualmente
-        </span>
-        <span className="h-px flex-1 bg-line" />
-      </div>
-
-      <FieldRow
-        label="Tópico"
-        hint="grupo do card (ex: Betalactâmicos, Onda P)"
-      >
-        <input
-          value={topic}
-          onChange={(e) => setTopic(e.target.value)}
-          className="input-elegant"
-          placeholder="ex: Betalactâmicos"
-        />
-      </FieldRow>
-
-      <FieldRow label="Pergunta (frente)">
-        <textarea
-          value={front}
-          onChange={(e) => setFront(e.target.value)}
-          rows={2}
-          className="input-elegant"
-          placeholder="Qual o mecanismo de ação dos betalactâmicos?"
-        />
-      </FieldRow>
-
-      <FieldRow label="Resposta (verso)">
-        <textarea
-          value={back}
-          onChange={(e) => setBack(e.target.value)}
-          rows={3}
-          className="input-elegant"
-          placeholder="Inibem a transpeptidase (PBP), bloqueando a síntese da parede celular."
-        />
-      </FieldRow>
-
-      <FieldRow label="Dica (opcional)" hint="aparece sem revelar a resposta">
-        <input
-          value={hint}
-          onChange={(e) => setHint(e.target.value)}
-          className="input-elegant"
-          placeholder="pense na parede celular"
-        />
-      </FieldRow>
-
-      <FieldRow label="Dificuldade">
-        <DifficultySelector value={difficulty} onChange={setDifficulty} />
-      </FieldRow>
-
-      <div className="flex justify-end">
-        <button
-          type="button"
-          onClick={handleAdd}
-          disabled={!ready}
-          className="btn-primary disabled:cursor-not-allowed"
-        >
-          <Plus className="mr-2 h-4 w-4" strokeWidth={2} />
-          Adicionar flashcard
-        </button>
-      </div>
-    </div>
-  );
+  return <AIFlashcardPanel onGenerated={handleGenerated} defaultTopic={defaultTopic} />;
 }
 
 export function FieldRow({
