@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Eye, EyeOff, Heart, Sparkles, Stethoscope } from 'lucide-react';
-import { getAnthropicKey, setAnthropicKey } from '../lib/ai-client';
+import { Heart, Stethoscope } from 'lucide-react';
 import { logout } from '../lib/auth';
 import { db } from '../lib/db';
 import { useUser } from '../lib/useUser';
@@ -15,9 +14,6 @@ export default function Profile() {
   const [saved, setSaved] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
   const [savingName, setSavingName] = useState(false);
-  const [aiKey, setAiKey] = useState(getAnthropicKey() ?? '');
-  const [aiKeyVisible, setAiKeyVisible] = useState(false);
-  const [aiKeySaved, setAiKeySaved] = useState(false);
 
   useEffect(() => {
     if (user?.name) setName(user.name);
@@ -60,12 +56,6 @@ export default function Profile() {
       setSaveError(e instanceof Error ? e.message : 'Falha ao salvar a meta.');
       console.error('setDailyGoal falhou:', e);
     }
-  }
-
-  function saveAiKey() {
-    setAnthropicKey(aiKey.trim());
-    setAiKeySaved(true);
-    setTimeout(() => setAiKeySaved(false), 2000);
   }
 
   function handleLogout() {
@@ -204,63 +194,6 @@ export default function Profile() {
       <section className="card space-y-4 p-6 sm:p-7">
         <div className="flex items-baseline gap-3">
           <span className="font-serif text-2xl italic leading-none text-gold opacity-60">IV</span>
-          <h2 className="font-serif text-xl italic text-wine-deep">Geração com IA</h2>
-        </div>
-        <p className="text-sm leading-relaxed text-ink-soft">
-          A geração automática de flashcards usa a API da Anthropic. Cole sua chave abaixo (começa
-          com <code className="font-mono text-wine">sk-ant-</code>) para liberar o gerador no Modo
-          Autor. A chave fica salva só no seu navegador.
-        </p>
-        <div>
-          <label className="mb-1 block text-[11px] uppercase tracking-[0.22em] text-muted">
-            Chave da Anthropic
-          </label>
-          <div className="flex gap-2">
-            <input
-              type={aiKeyVisible ? 'text' : 'password'}
-              value={aiKey}
-              onChange={(e) => setAiKey(e.target.value)}
-              className="input-elegant font-mono text-sm"
-              placeholder="sk-ant-..."
-              autoComplete="off"
-              spellCheck={false}
-            />
-            <button
-              type="button"
-              onClick={() => setAiKeyVisible((v) => !v)}
-              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line bg-paper text-muted transition hover:border-wine hover:text-wine"
-              aria-label={aiKeyVisible ? 'Esconder chave' : 'Mostrar chave'}
-            >
-              {aiKeyVisible ? (
-                <EyeOff className="h-4 w-4" strokeWidth={1.75} />
-              ) : (
-                <Eye className="h-4 w-4" strokeWidth={1.75} />
-              )}
-            </button>
-          </div>
-        </div>
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <a
-            href="https://console.anthropic.com/settings/keys"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.18em] text-muted transition hover:text-wine"
-          >
-            <Sparkles className="h-3 w-3" strokeWidth={1.75} />
-            Onde pegar a chave
-          </a>
-          <div className="flex items-center gap-3">
-            {aiKeySaved && <span className="text-xs italic text-green">salva</span>}
-            <button onClick={saveAiKey} className="btn-primary">
-              Salvar chave
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section className="card space-y-4 p-6 sm:p-7">
-        <div className="flex items-baseline gap-3">
-          <span className="font-serif text-2xl italic leading-none text-gold opacity-60">V</span>
           <h2 className="font-serif text-xl italic text-wine-deep">Sessão</h2>
         </div>
         <div className="flex flex-wrap gap-3">
