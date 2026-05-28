@@ -54,13 +54,13 @@
       "topic": "Benznidazol",
       "q": "Sobre o benznidazol (Chagas), assinale a CORRETA:",
       "options": [
-        "PRIMEIRA escolha na fase AGUDA da doença de Chagas; gera EROs por interação com a ferredoxina do T. cruzi; NUNCA associar a álcool (efeito antabuse / acetaldeído); EA: rash, neuropatia, leucopenia",
+        "PRIMEIRA escolha na fase AGUDA da doença de Chagas; ativado pela nitrorredutase do T. cruzi → gera metabólitos nitrorreduzidos reativos que se ligam ao DNA e proteínas do parasita; EVITAR álcool (efeito tipo dissulfiram conforme a aula); EA: rash, neuropatia, leucopenia",
         "Usado apenas em fase crônica indeterminada",
         "Mecanismo igual ao do metronidazol em anaeróbios",
         "Sem qualquer interação com álcool"
       ],
       "correct": 0,
-      "expl": "Benznidazol é a 1ª escolha na fase aguda da doença de Chagas. Mecanismo: ativação pela nitrorredutase do T. cruzi (via ferredoxina) → geração de EROs → dano ao DNA do parasita. Eficácia decai na fase crônica. EA: dermatite alérgica (rash), neuropatia periférica (suspender), supressão medular. NÃO associar a álcool — efeito tipo dissulfiram (acetaldeído). Nifurtimox é alternativa.",
+      "expl": "Benznidazol é a 1ª escolha na fase aguda da doença de Chagas. Mecanismo: ativação pela nitrorredutase do T. cruzi → metabólitos nitrorreduzidos reativos (intermediários eletrofílicos) que se ligam covalentemente ao DNA e proteínas do parasita (diferente do metronidazol, que gera EROs em anaeróbios). Eficácia decai na fase crônica. EA: dermatite alérgica (rash), neuropatia periférica (suspender), supressão medular. NÃO associar a álcool — efeito tipo dissulfiram conforme a aula. Nifurtimox é alternativa.",
       "difficulty": "medium",
       "tags": ["chagas", "benznidazol"]
     },
@@ -180,7 +180,7 @@
         "Atovacona/proguanil só serve para Chagas"
       ],
       "correct": 0,
-      "expl": "Quinino: alcaloide da cinchona, ainda usado em malária grave se artesunato indisponível. Cinconismo (tinito, cefaleia, distúrbios visuais, hipoglicemia) é um conjunto de EA clássicos. Mefloquina: profilaxia em viajante; EA neuropsiquiátricos importantes (insônia, ansiedade, psicose) → evitar em pacientes com transtorno psiquiátrico. Atovacona/proguanil (Malarone): atovacona bloqueia transporte mitocondrial do parasita; proguanil inibe DHFR (sinergia). Profilaxia e tratamento; bem tolerado.",
+      "expl": "Quinino: alcaloide da cinchona, ainda usado em malária grave se artesunato indisponível. Cinconismo (tinito, cefaleia, distúrbios visuais, hipoglicemia) é um conjunto de EA clássicos. Mefloquina: profilaxia em viajante; EA neuropsiquiátricos importantes (insônia, ansiedade, psicose) → evitar em pacientes com transtorno psiquiátrico (FDA emitiu black box warning em 2013 — sintomas podem persistir). Atovacona/proguanil: atovacona inibe o COMPLEXO III (citocromo bc1) da cadeia respiratória mitocondrial do parasita; proguanil é metabolizado a cicloguanil → inibe DHFR (sinergia). Profilaxia e tratamento; bem tolerado.",
       "difficulty": "hard",
       "tags": ["mefloquina", "quinino", "atovacona"]
     },
@@ -198,6 +198,51 @@
       "expl": "Neurocisticercose com cistos viáveis: albendazol (15 mg/kg/dia, 7-30 dias) ou praziquantel. SEMPRE associar CORTICOIDE (dexametasona) — quando o parasita morre, libera antígenos → reação inflamatória peri-cisto que pode desencadear convulsões, edema, hidrocefalia. Profilaxia anticonvulsivante na fase aguda. Albendazol tem melhor penetração no SNC que mebendazol.",
       "difficulty": "hard",
       "tags": ["cisticercose", "albendazol", "corticoide"]
+    },
+    {
+      "type": "mc",
+      "topic": "Mebendazol vs Albendazol · neurocisticercose",
+      "q": "Paciente com neurocisticercose com cistos viáveis. Por que o mebendazol NÃO é boa escolha?",
+      "options": [
+        "Mebendazol tem baixíssima absorção sistêmica e NÃO atravessa a barreira hematoencefálica em concentração eficaz; albendazol tem maior biodisponibilidade (sobretudo com gordura) e penetra no SNC — escolha para cisticercose",
+        "Mebendazol é tóxico no SNC",
+        "Mebendazol só age em protozoários",
+        "Mebendazol é a 1ª escolha em cisticercose"
+      ],
+      "correct": 0,
+      "expl": "Pegadinha clássica: ambos são benzimidazóis ligadores de β-tubulina, mas mebendazol tem absorção intestinal mínima → ótimo para vermes intestinais (oxiúrus, ancilóstomo, ascaris) MAS não atinge níveis terapêuticos no SNC. Albendazol absorve melhor (especialmente com refeição gordurosa) e penetra no SNC — é a escolha em neurocisticercose, equinococose e estrongiloidíase sistêmica. Praziquantel também funciona em cisticercose.",
+      "difficulty": "medium",
+      "tags": ["benzimidazol", "cisticercose"]
+    },
+    {
+      "type": "mc",
+      "topic": "Malária · gestante",
+      "q": "Gestante de 22 semanas com malária por P. vivax confirmada. Conduta?",
+      "options": [
+        "Cloroquina por 3 dias (formas eritrocitárias) + supressão semanal com cloroquina até o pós-parto. PRIMAQUINA é contraindicada na gestação — adiar a cura radical para após o parto (checar G6PD do RN antes)",
+        "Cloroquina + primaquina no esquema habitual",
+        "Apenas artesunato IV em qualquer caso",
+        "Suspender qualquer tratamento até o parto"
+      ],
+      "correct": 0,
+      "expl": "Primaquina é CONTRAINDICADA na gestação (atravessa placenta; risco de hemólise no feto especialmente se G6PD-deficiente). Em gestante com P. vivax: cloroquina aguda + supressão semanal com cloroquina até o pós-parto, então iniciar cura radical (com checagem de G6PD do RN se for amamentar). Em P. falciparum na gestante: artesunato IV em casos graves (seguro a partir do 2º trimestre); ACT em casos não complicados.",
+      "difficulty": "medium",
+      "tags": ["malaria", "gestante", "primaquina"]
+    },
+    {
+      "type": "mc",
+      "topic": "Praziquantel · Katayama",
+      "q": "Por que o praziquantel NÃO funciona bem na fase aguda da esquistossomose (febre de Katayama)?",
+      "options": [
+        "Atua apenas em VERMES ADULTOS (S. mansoni adulto); na fase aguda os parasitas estão na forma esquistossômulo/jovem migratório e são insensíveis ao praziquantel — tratar Katayama com corticoide e adiar praziquantel para 6-8 semanas após a exposição",
+        "Tem absorção zero",
+        "É contraindicado por reação alérgica grave nessa fase",
+        "É tóxico em < 18 anos"
+      ],
+      "correct": 0,
+      "expl": "Pegadinha tropical clássica: praziquantel só elimina os vermes ADULTOS de Schistosoma. Na fase aguda (febre de Katayama), os parasitas estão como esquistossômulos migratórios — insensíveis ao praziquantel. Resultado: tratar muito cedo → ineficaz + risco de reação inflamatória grave. Conduta: corticoide para sintomas + adiar praziquantel para 6-8 semanas após exposição (quando os vermes maduram).",
+      "difficulty": "hard",
+      "tags": ["praziquantel", "katayama"]
     },
     {
       "type": "match",
@@ -325,7 +370,7 @@
       "type": "flashcard",
       "topic": "Benznidazol",
       "front": "Benznidazol: indicação, mecanismo e cuidado clássico?",
-      "back": "1ª escolha em Chagas (fase AGUDA). Gera EROs via ferredoxina do T. cruzi. EA: rash, neuropatia, leucopenia. NUNCA com álcool (efeito dissulfiram → acetaldeído).",
+      "back": "1ª escolha em Chagas (fase AGUDA). Ativado pela nitrorredutase do T. cruzi → metabólitos nitrorreduzidos reativos que ligam covalentemente DNA/proteínas do parasita. EA: rash, neuropatia, leucopenia. EVITAR álcool (efeito tipo dissulfiram conforme a aula).",
       "tags": ["chagas"]
     },
     {
@@ -423,7 +468,7 @@
       "type": "flashcard",
       "topic": "Atovacona+Proguanil",
       "front": "Atovacona/Proguanil: papel?",
-      "back": "Profilaxia e tratamento de malária. Atovacona bloqueia transporte mitocondrial do parasita; Proguanil inibe DHFR (sinergia). Bom para viajantes. Tomar com gordura para absorção.",
+      "back": "Profilaxia e tratamento de malária. Atovacona inibe COMPLEXO III (citocromo bc1) da cadeia respiratória mitocondrial do parasita; Proguanil → cicloguanil → DHFR (sinergia). Bom para viajantes. Tomar com gordura para absorção.",
       "tags": ["atovacona"]
     }
   ]
