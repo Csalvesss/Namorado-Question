@@ -57,8 +57,8 @@ export default {
         lift: '0 18px 44px rgba(92,15,36,.12)',
         card: '0 6px 24px rgba(92,15,36,.06)',
         'card-hover': '0 18px 44px rgba(92,15,36,.12)',
-        wine: '0 6px 22px rgba(124,23,51,.22)',
-        'wine-hover': '0 10px 28px rgba(124,23,51,.32)',
+        wine: '0 4px 14px rgba(124,23,51,.14)',
+        'wine-hover': '0 8px 22px rgba(124,23,51,.22)',
         inset: 'inset 0 1px 0 rgba(255,255,255,0.6), inset 0 -1px 0 rgba(124,23,51,0.04)',
       },
       borderRadius: {

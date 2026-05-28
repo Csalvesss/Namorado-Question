@@ -253,7 +253,7 @@ export default function Home() {
 
                   <div className="mt-6 flex flex-wrap gap-3">
                     <Link to={`/curso/${lastCourse.id}`} className="btn-primary">
-                      continuar leitura →
+                      continuar leitura
                     </Link>
                     <Link to={`/curso/${lastCourse.id}`} className="btn-ghost">
                       ver tópicos
@@ -267,7 +267,7 @@ export default function Home() {
                   </p>
                   <div className="mt-6">
                     <Link to="/cursos" className="btn-primary">
-                      ver cursos →
+                      ver cursos
                     </Link>
                   </div>
                 </>

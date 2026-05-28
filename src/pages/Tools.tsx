@@ -96,7 +96,7 @@ export default function Tools() {
             </div>
           </div>
           <span className="hidden font-display text-sm italic text-wine sm:inline-flex items-center gap-2 rounded-full bg-wine px-6 py-3 text-[#FBEFEC] shadow-wine">
-            abrir caderno →
+            abrir caderno
           </span>
         </Link>
 
