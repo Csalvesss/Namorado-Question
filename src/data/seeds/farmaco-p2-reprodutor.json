@@ -1,0 +1,459 @@
+{
+  "title": "Farmaco P2: Sistema Reprodutor",
+  "description": "Fármacos do sistema reprodutor da lista da P2: SERMs, inibidores de aromatase, inibidores 5α-redutase, antiandrógenos, análogos GnRH, hormônios sexuais e contracepção.",
+  "icon": "",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "mc",
+      "topic": "Tamoxifeno",
+      "q": "Sobre o tamoxifeno (SERM), assinale a CORRETA:",
+      "options": [
+        "Modulador seletivo do receptor de estrogênio: ANTAGONISTA em mama (tratamento e prevenção de Ca de mama RE+ na pré-menopausa) e AGONISTA parcial em útero (risco de Ca de endométrio) e osso (mantém DMO); risco de TEV",
+        "Inibe a síntese de estrogênio (aromatase)",
+        "É exclusivamente agonista em todos os tecidos",
+        "Não tem risco trombótico"
+      ],
+      "correct": 0,
+      "expl": "Tamoxifeno é SERM: ANTAGONISTA do RE em mama (tratamento e prevenção de Ca de mama RE+) — escolha em pré-menopausa. AGONISTA parcial em endométrio (risco de hiperplasia/Ca de endométrio — sangramento pós-menopausa = investigar) e em osso (mantém DMO, útil em mulher pós-menopausa com risco). EA: TEV (trombose), fogachos, sangramento uterino, catarata. CYP2D6 ativa o tamoxifeno em endoxifeno → cuidado com inibidores fortes (alguns antidepressivos como paroxetina/fluoxetina podem reduzir eficácia).",
+      "difficulty": "medium",
+      "tags": ["serm", "tamoxifeno", "mama"]
+    },
+    {
+      "type": "mc",
+      "topic": "Raloxifeno",
+      "q": "Sobre o raloxifeno (SERM), assinale a CORRETA:",
+      "options": [
+        "ANTAGONISTA em mama (reduz risco de Ca de mama em pós-menopausa) e em útero (NÃO aumenta risco de Ca de endométrio); AGONISTA em osso (aprovado em osteoporose pós-menopausa). EA: fogachos, TEV",
+        "Aumenta risco de Ca de endométrio (igual ao tamoxifeno)",
+        "É indicado em pré-menopausa",
+        "É inibidor de aromatase"
+      ],
+      "correct": 0,
+      "expl": "Raloxifeno é SERM com perfil diferente do tamoxifeno em endométrio: NÃO é agonista em útero → não aumenta risco de Ca de endométrio. Antagonista em mama (reduz risco de Ca de mama em pós-menopausa). Agonista em osso (aprovado em osteoporose pós-menopausa, reduz fraturas vertebrais). EA: fogachos, risco de TEV (comum a todos os SERMs).",
+      "difficulty": "medium",
+      "tags": ["serm", "raloxifeno"]
+    },
+    {
+      "type": "mc",
+      "topic": "Anastrozol · inibidor de aromatase",
+      "q": "Sobre o anastrozol (inibidor de aromatase), assinale a CORRETA:",
+      "options": [
+        "Inibidor da AROMATASE (CYP19) → ↓ conversão periférica de androgênios em estrogênios (única fonte de estrogênio na pós-menopausa); indicado em Ca de mama RE+ na PÓS-MENOPAUSA; EA: osteopenia/fraturas, artralgia, dislipidemia",
+        "Indicado em pré-menopausa (cobre estrogênio ovariano)",
+        "É um SERM",
+        "Não reduz a massa óssea"
+      ],
+      "correct": 0,
+      "expl": "Inibidores de aromatase (anastrozol, letrozol, exemestano) bloqueiam a conversão periférica de androgênios em estrogênios pela aromatase — única fonte residual de estrogênio na PÓS-MENOPAUSA. NÃO atuam na produção ovariana → ineficazes em pré-menopausa (a menos que combinados com supressão ovariana). Indicação: Ca de mama RE+ pós-menopausa. EA: PERDA DE DMO (osteopenia, osteoporose, fraturas), artralgia/mialgia, dislipidemia, fogachos. Monitorar densitometria.",
+      "difficulty": "medium",
+      "tags": ["aromatase", "anastrozol", "pos-menopausa"]
+    },
+    {
+      "type": "mc",
+      "topic": "Finasterida · Dutasterida",
+      "q": "Sobre finasterida e dutasterida (inibidores da 5α-redutase), assinale a CORRETA:",
+      "options": [
+        "Inibem a conversão de testosterona em DI-HIDROTESTOSTERONA (DHT); indicação: HPB (redução de volume prostático) e alopecia androgenética; EA: disfunção sexual, ginecomastia, REDUÇÃO ARTIFICIAL DO PSA (~50% — fator de correção em rastreio de Ca de próstata)",
+        "Atuam diretamente como antagonistas do receptor androgênico",
+        "Aumentam a DHT",
+        "Não afetam o PSA"
+      ],
+      "correct": 0,
+      "expl": "Finasterida (inibe 5α-redutase tipo 2) e dutasterida (inibe tipos 1 e 2) reduzem a conversão de testosterona em DHT — andrógeno potente que estimula crescimento prostático e queda de cabelo. Indicações: HPB (reduzem volume prostático ~25% e melhoram sintomas) e alopecia androgenética masculina. EA: disfunção erétil, queda da libido, ginecomastia, distúrbios depressivos (raros). REDUÇÃO ARTIFICIAL DO PSA em cerca de 50% → MULTIPLICAR PSA POR 2 em paciente em uso quando interpretar rastreio. CONTRAINDICAÇÃO: gestação (mulheres grávidas não podem manipular comprimido quebrado — risco de feminilização do feto masculino).",
+      "difficulty": "medium",
+      "tags": ["5a-redutase", "finasterida", "psa"]
+    },
+    {
+      "type": "mc",
+      "topic": "Antiandrógenos não esteroidais",
+      "q": "Sobre apalutamida, bicalutamida e flutamida, é CORRETO afirmar:",
+      "options": [
+        "Antiandrógenos não esteroidais — antagonistas competitivos do receptor androgênico; usados em Ca de próstata avançado (combinados com supressão androgênica); flutamida é hepatotóxica; apalutamida é nova geração com maior afinidade",
+        "Inibem a 5α-redutase",
+        "São agonistas do receptor androgênico",
+        "Não têm uso oncológico"
+      ],
+      "correct": 0,
+      "expl": "Antiandrógenos não esteroidais bloqueiam o receptor androgênico nuclear → impedem que DHT/testosterona ativem a expressão de genes-alvo. Usados em Ca de próstata avançado, geralmente COMBINADOS com supressão androgênica (análogo GnRH ou orquiectomia) — bloqueio androgênico completo. FLUTAMIDA: hepatotóxica (LFTs periódicas), pouco usada hoje. BICALUTAMIDA: melhor perfil, dose única diária. APALUTAMIDA: nova geração, indicada em Ca de próstata castração-resistente não metastático.",
+      "difficulty": "medium",
+      "tags": ["antiandrogenos", "prostata"]
+    },
+    {
+      "type": "mc",
+      "topic": "Análogos de GnRH",
+      "q": "Sobre gosserrelina e leuprolida (análogos de GnRH), é CORRETO afirmar:",
+      "options": [
+        "Inicialmente AGONISTAS (causam pico inicial de FSH/LH — FLARE-UP) → uso contínuo causa DESSENSIBILIZAÇÃO dos receptores hipofisários → supressão de gonadotrofinas → hipogonadismo. Indicações: Ca de próstata, endometriose, miomas, puberdade precoce; em Ca de próstata, ASSOCIAR antiandrógeno na fase inicial (evitar flare)",
+        "São antagonistas diretos do GnRH desde a primeira dose",
+        "Aumentam testosterona permanentemente",
+        "Não causam fogachos"
+      ],
+      "correct": 0,
+      "expl": "Análogos agonistas de GnRH (gosserrelina, leuprolida, triptorrelina) ligam o receptor hipofisário continuamente → pico inicial de LH/FSH (FLARE-UP, ~7-14 dias) → DESSENSIBILIZAÇÃO/internalização do receptor → queda de gonadotrofinas → hipogonadismo (queda de testosterona/estrogênio). Indicações: Ca de próstata (castração química), endometriose, miomas, puberdade precoce. CUIDADO em Ca de próstata: o flare inicial pode piorar sintomas (compressão medular, obstrução urinária) → associar antiandrógeno por 2-4 semanas. EA: fogachos, ↓ libido, perda de DMO em uso prolongado.",
+      "difficulty": "medium",
+      "tags": ["gnrh", "gosserrelina", "leuprolida"]
+    },
+    {
+      "type": "mc",
+      "topic": "Estrogênios · contracepção combinada",
+      "q": "Sobre o etinilestradiol e estradiol em contracepção oral combinada, assinale a CORRETA:",
+      "options": [
+        "Etinilestradiol é o estrogênio sintético usado na maioria dos contraceptivos orais (resistente à metabolização hepática). Inibe o pico de LH/FSH (→ não ovula). EA importantes: TEV, AVC, IAM (aumentados em tabagistas > 35a), HAS, cefaleia, mastalgia; CONTRAINDICADO em fumantes > 35a, TEV prévio, enxaqueca com aura, Ca de mama, hepatopatia ativa",
+        "É um progestínico de longa duração",
+        "Não tem risco de TEV",
+        "É seguro em fumantes > 35 anos"
+      ],
+      "correct": 0,
+      "expl": "Etinilestradiol é o estrogênio sintético usado em quase todos os ACO combinados (resistente ao metabolismo hepático de 1ª passagem). Mecanismo: suprime FSH/LH → bloqueia ovulação; espessa muco cervical; altera endométrio. EA: TEV (5-12x basal), HAS, AVC, IAM (especialmente em fumantes > 35a). Contraindicações ABSOLUTAS: fumante > 35a, TEV/TEP prévio, enxaqueca COM aura, HAS grave, Ca de mama, hepatopatia ativa. Em risco trombótico: optar por método progestínico apenas.",
+      "difficulty": "medium",
+      "tags": ["estrogenio", "aco", "etinilestradiol"]
+    },
+    {
+      "type": "mc",
+      "topic": "Progestínicos · contracepção",
+      "q": "Sobre os progestínicos isolados (mini-pílula, DIU de levonorgestrel, implante), assinale a CORRETA:",
+      "options": [
+        "Indicados em mulheres com contraindicação ao estrogênio (amamentação, TEV prévio, fumantes > 35a); mecanismo: espessamento do muco cervical, alterações endometriais, inibição parcial da ovulação; pode causar sangramento irregular; mini-pílula tem JANELA ESTREITA (3h)",
+        "Indicados apenas em gestante",
+        "Inibem a 5α-redutase",
+        "Substituem hormônio tireoidiano"
+      ],
+      "correct": 0,
+      "expl": "Progestínicos isolados (norgestrel/desogestrel oral, levonorgestrel intrauterino, etonogestrel implante, AMPD injetável) são alternativa quando estrogênio é contraindicado: amamentação, TEV prévio, enxaqueca com aura, fumantes > 35a. Mecanismo: espessamento de muco + alteração endometrial + inibição parcial da ovulação. EA: sangramento irregular. Mini-pílula (norgestrel) tem janela de tomada estreita (3h); desogestrel tem janela maior (12h). AMPD pode causar perda óssea reversível.",
+      "difficulty": "medium",
+      "tags": ["progestinico", "aco"]
+    },
+    {
+      "type": "mc",
+      "topic": "Levonorgestrel emergencial",
+      "q": "Sobre a contracepção de emergência com levonorgestrel, é CORRETO afirmar:",
+      "options": [
+        "Levonorgestrel 1,5 mg VO em dose única até 72h após relação desprotegida (eficácia decai com o tempo); mecanismo: adiar/inibir a ovulação (NÃO atua em ovo já implantado, não é abortivo); ulipristal (até 120h) é mais eficaz, antagonista do receptor de progesterona",
+        "Tem efeito após 5 dias da relação",
+        "É abortivo se já houve implantação",
+        "Atua bloqueando receptor de andrógeno"
+      ],
+      "correct": 0,
+      "expl": "Levonorgestrel 1,5 mg em dose única: contracepção de emergência até 72h (idealmente o quanto antes). Mecanismo principal: ADIAR ou inibir a ovulação. NÃO é abortivo (não atua em embrião implantado). Eficácia: ~85% em 24h, decai depois. Ulipristal (30 mg dose única): mais eficaz, até 120h, é antagonista do receptor de progesterona. EA: náusea, atraso menstrual.",
+      "difficulty": "medium",
+      "tags": ["levonorgestrel", "emergencia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Tibolona",
+      "q": "Sobre a tibolona, assinale a CORRETA:",
+      "options": [
+        "Esteroide sintético com ação estrogênica, progestínica e ANDROGÊNICA (após metabolização tecido-específica); usada em terapia hormonal da menopausa (alívio de fogachos e libido); aumenta risco de Ca de mama em hormônio-terapia prolongada (LIFT trial sinalizou risco AVC em mulheres > 60a)",
+        "É um antiandrógeno puro",
+        "Não tem ação androgênica",
+        "É um SERM"
+      ],
+      "correct": 0,
+      "expl": "Tibolona é esteroide sintético com metabólitos que ativam diferentes receptores (estrogênio, progesterona, androgênio) conforme o tecido. Indicação: terapia hormonal da menopausa (sintomas vasomotores, libido). EA: ganho de peso, leucorreia, aumento de risco de Ca de mama (em uso prolongado) e AVC em > 60 anos (LIFT). Não é primeira escolha em mulher com risco cardiovascular.",
+      "difficulty": "hard",
+      "tags": ["tibolona"]
+    },
+    {
+      "type": "mc",
+      "topic": "Ciproterona",
+      "q": "Sobre a ciproterona, assinale a CORRETA:",
+      "options": [
+        "Antiandrógeno esteroidal (também tem leve atividade progestínica) — bloqueia receptor androgênico e inibe gonadotrofinas; usada em hirsutismo, acne grave, Ca de próstata e em alguns ACO combinados; EA importantes: hepatotoxicidade (rara mas grave), risco trombótico maior que outros progestínicos",
+        "É um SERM",
+        "Aumenta a libido em homens",
+        "É indicada na suplementação testosterona"
+      ],
+      "correct": 0,
+      "expl": "Ciproterona é antiandrógeno esteroidal + progestínico fraco. Bloqueia receptor androgênico E inibe gonadotrofinas (duplo mecanismo). Indicações: hirsutismo, acne grave em mulher com hiperandrogenismo, parafilias, Ca de próstata. EA importantes: HEPATOTOXICIDADE (alerta de tarja preta em alguns países), risco TROMBOEMBÓLICO acima da média dos progestínicos. Pílulas combinadas com ciproterona (Diane) têm risco TEV maior — uso por curto prazo em hirsutismo.",
+      "difficulty": "hard",
+      "tags": ["ciproterona", "antiandrogeno"]
+    },
+    {
+      "type": "mc",
+      "topic": "Nandrolona · esteroides anabolizantes",
+      "q": "Sobre a nandrolona, assinale a CORRETA:",
+      "options": [
+        "Esteroide anabólico androgênico sintético — IM de depósito; uso clínico limitado (anemia da DRC, caquexia em algumas situações); USO ABUSIVO em academia traz EA importantes: supressão do eixo HHG (atrofia testicular, infertilidade), acne, alopecia, hepatotoxicidade, ginecomastia, eventos cardiovasculares",
+        "É um inibidor de 5α-redutase",
+        "Aumenta os níveis endógenos de testosterona",
+        "Não tem qualquer EA cardiovascular"
+      ],
+      "correct": 0,
+      "expl": "Nandrolona é esteroide anabolizante sintético (derivado de testosterona). IM de depósito. Uso clínico restrito hoje. Uso ABUSIVO (academia, dopagem) tem EA marcantes: SUPRESSÃO do eixo hipotálamo-hipófise-gônada → atrofia testicular, oligo/azoospermia (infertilidade — frequentemente irreversível em uso prolongado), acne, alopecia androgenética, hepatotoxicidade (peliose hepática), dislipidemia (↓ HDL), HVE, eventos cardiovasculares. Em mulheres: virilização (hirsutismo, voz grave, clitoromegalia).",
+      "difficulty": "medium",
+      "tags": ["nandrolona", "anabolizante"]
+    },
+    {
+      "type": "mc",
+      "topic": "Tansulosina · HPB",
+      "q": "Tansulosina vs finasterida na HPB: quando escolher cada uma?",
+      "options": [
+        "Tansulosina (α1A bloqueador) age RÁPIDO no relaxamento da musculatura prostática e do colo vesical → alívio sintomático em dias. Finasterida (inibidor 5α-redutase) reduz VOLUME prostático ao longo de 6-12 meses, mais útil em próstatas grandes (> 30-40g). Frequentemente associadas em sintomas moderados/grave",
+        "Ambas têm o mesmo mecanismo (relaxar músculo)",
+        "Finasterida age em dias",
+        "Tansulosina reduz volume prostático"
+      ],
+      "correct": 0,
+      "expl": "Em HPB sintomática: tansulosina (α1A bloqueador seletivo de próstata) relaxa a musculatura lisa do colo vesical e estroma prostático → alívio rápido (dias). Não muda volume. EA: hipotensão postural (menor que outros α1), ejaculação retrógrada, cuidado em cirurgia de catarata (síndrome da íris flácida). Finasterida (inibidor 5α-redutase) reduz volume em 6-12 meses → indicada em próstatas grandes. Associação tansulosina + finasterida (estudo MTOPS) reduz progressão da HPB e necessidade de cirurgia.",
+      "difficulty": "medium",
+      "tags": ["tansulosina", "hpb"]
+    },
+    {
+      "type": "mc",
+      "topic": "Hidroxiprogesterona",
+      "q": "Sobre a hidroxiprogesterona caproato, é CORRETO afirmar:",
+      "options": [
+        "Progestínico de longa ação (IM semanal); usada na PREVENÇÃO de parto prematuro recorrente em gestante com história prévia de parto prematuro espontâneo (eficácia revisada em estudos recentes — uso controverso); também em endometriose e amenorreia",
+        "É um SERM",
+        "Indicada para contracepção emergencial",
+        "Inibe a 5α-redutase"
+      ],
+      "correct": 0,
+      "expl": "Hidroxiprogesterona caproato (17-OH-progesterona): progestínico de depósito IM. Historicamente indicada na prevenção de parto prematuro recorrente em gestantes com parto prematuro espontâneo prévio (estudo MEIS). Estudo PROLONG (2019) não confirmou benefício → uso controverso, FDA recomendou retirada do mercado. Em ginecologia: endometriose, amenorreia. Também antigamente em ameaça de aborto (sem evidência sólida).",
+      "difficulty": "hard",
+      "tags": ["hidroxiprogesterona"]
+    },
+    {
+      "type": "match",
+      "topic": "Reprodutor: classe",
+      "prompt": "Associe o fármaco à classe.",
+      "leftLabel": "Fármaco",
+      "rightLabel": "Classe",
+      "pairs": [
+        { "id": "tam", "left": "Tamoxifeno / Raloxifeno", "right": "SERM" },
+        { "id": "ana", "left": "Anastrozol", "right": "Inibidor de aromatase" },
+        { "id": "fin", "left": "Finasterida / Dutasterida", "right": "Inibidor de 5α-redutase" },
+        { "id": "bi", "left": "Bicalutamida / Flutamida / Apalutamida", "right": "Antiandrógeno não esteroidal" },
+        { "id": "cip", "left": "Ciproterona", "right": "Antiandrógeno esteroidal (+ progestínico fraco)" },
+        { "id": "gnrh", "left": "Gosserrelina / Leuprolida", "right": "Análogo agonista de GnRH" },
+        { "id": "estr", "left": "Etinilestradiol / Estradiol", "right": "Estrogênio (sintético / natural)" },
+        { "id": "prog", "left": "Levonorgestrel / Norgestrel / Hidroxiprogesterona", "right": "Progestínico" },
+        { "id": "ulip", "left": "Ulipristal", "right": "Antagonista do receptor de progesterona" },
+        { "id": "tib", "left": "Tibolona", "right": "Esteroide com ação E/P/A tecido-específica" },
+        { "id": "nand", "left": "Nandrolona", "right": "Esteroide anabolizante androgênico" }
+      ],
+      "expl": "Saber a classe orienta o uso clínico e o EA principal. Os sufixos ajudam: -trozol = aromatase, -terida = 5α-redutase, -lutamida = antiandrógeno não esteroidal, -rrelina = análogo GnRH.",
+      "difficulty": "easy",
+      "tags": ["classes"]
+    },
+    {
+      "type": "match",
+      "topic": "Reprodutor: indicação clássica",
+      "prompt": "Associe o fármaco à indicação clássica de prova.",
+      "leftLabel": "Fármaco",
+      "rightLabel": "Indicação clássica",
+      "pairs": [
+        { "id": "tam", "left": "Tamoxifeno", "right": "Ca de mama RE+ na pré-menopausa" },
+        { "id": "ana", "left": "Anastrozol", "right": "Ca de mama RE+ na pós-menopausa" },
+        { "id": "ral", "left": "Raloxifeno", "right": "Osteoporose pós-menopausa (reduz Ca de mama)" },
+        { "id": "fin", "left": "Finasterida / Dutasterida", "right": "HPB + alopecia androgenética" },
+        { "id": "bic", "left": "Bicalutamida / Apalutamida", "right": "Ca de próstata avançado (bloqueio androgênico)" },
+        { "id": "gnrh", "left": "Gosserrelina / Leuprolida", "right": "Ca de próstata, endometriose, puberdade precoce" },
+        { "id": "lev", "left": "Levonorgestrel 1,5 mg", "right": "Contracepção de emergência até 72h" },
+        { "id": "ulip", "left": "Ulipristal 30 mg", "right": "Contracepção de emergência até 120h" },
+        { "id": "cip", "left": "Ciproterona", "right": "Hirsutismo, acne grave em mulher" },
+        { "id": "tans", "left": "Tansulosina", "right": "HPB sintomática (alívio rápido)" }
+      ],
+      "expl": "Para a prova, decora essas 10 associações. Resolve a maior parte das questões 'qual o fármaco de escolha em X?'.",
+      "difficulty": "easy",
+      "tags": ["indicacoes"]
+    },
+    {
+      "type": "match",
+      "topic": "Reprodutor: EA / armadilha",
+      "prompt": "Associe o fármaco ao EA ou armadilha de prova.",
+      "leftLabel": "Fármaco",
+      "rightLabel": "EA / armadilha",
+      "pairs": [
+        { "id": "tam", "left": "Tamoxifeno", "right": "TEV + risco de Ca de endométrio (agonista uterino)" },
+        { "id": "ana", "left": "Anastrozol", "right": "Perda de DMO, artralgia (sem Ca de endométrio)" },
+        { "id": "fin", "left": "Finasterida", "right": "Reduz PSA em ~50% (multiplicar por 2 no rastreio); teratogênica (manuseio)" },
+        { "id": "flu", "left": "Flutamida", "right": "HEPATOTOXICIDADE" },
+        { "id": "gnrh", "left": "Análogo GnRH em Ca de próstata", "right": "FLARE inicial — associar antiandrógeno por 2-4 semanas" },
+        { "id": "etn", "left": "Etinilestradiol em fumante > 35a", "right": "Contraindicação absoluta (TEV/AVC)" },
+        { "id": "cip", "left": "Ciproterona", "right": "Hepatotoxicidade + risco TEV" },
+        { "id": "nand", "left": "Nandrolona (abuso)", "right": "Supressão do eixo HHG (infertilidade), HVE" }
+      ],
+      "expl": "Essas pegadinhas caem em prova com altíssima frequência. Decora a tabela e a maioria das questões cai sozinha.",
+      "difficulty": "medium",
+      "tags": ["pegadinhas"]
+    },
+    {
+      "type": "case",
+      "topic": "Câncer de próstata avançado",
+      "subtitle": "Homem 68a, PSA 42, biópsia confirma adenocarcinoma metastático",
+      "specialty": "Urologia · Oncologia",
+      "difficulty": "medium",
+      "vignette": "Homem 68 anos, PSA elevado (42) em rastreio. RNM e biópsia confirmam adenocarcinoma de próstata Gleason 8 com metástases ósseas. Sem comorbidades significativas. Você discute opções de bloqueio androgênico.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Conduta inicial de bloqueio androgênico?",
+          "options": [
+            "Análogo de GnRH (gosserrelina ou leuprolida) ASSOCIADO a antiandrógeno (bicalutamida) nas primeiras 2-4 semanas para evitar o flare inicial; supressão de testosterona ao nível de castração",
+            "Análogo de GnRH isolado, sem cobertura inicial com antiandrógeno",
+            "Inibidor de aromatase como primeira escolha",
+            "Apenas observação por 6 meses"
+          ],
+          "correct": 0,
+          "expl": "Em Ca de próstata avançado/metastático, o tratamento de base é supressão androgênica (castração química com análogo GnRH ou orquiectomia). O FLARE inicial (pico de testosterona nas 1-2 semanas iniciais do análogo) pode piorar a doença (dor óssea, compressão medular, obstrução urinária). PROTEÇÃO: associar antiandrógeno (bicalutamida ou similar) por 2-4 semanas. Alternativa moderna: antagonista direto de GnRH (degarelix) — sem flare. Orquiectomia bilateral é alternativa cirúrgica."
+        },
+        {
+          "id": "step2",
+          "prompt": "Após 18 meses de bloqueio androgênico, PSA volta a subir (resistência à castração). Quais as opções?",
+          "question": "Conduta nessa fase de resistência à castração?",
+          "options": [
+            "Manter a supressão androgênica; ADICIONAR antiandrógeno de nova geração (apalutamida, enzalutamida) ou abiraterona (inibidor da CYP17, bloqueia produção residual androgênica); considerar quimioterapia (docetaxel), radioisótopos ósseos, sipuleucel-T",
+            "Suspender qualquer terapia hormonal",
+            "Voltar para flutamida em dose alta",
+            "Iniciar finasterida em monoterapia"
+          ],
+          "correct": 0,
+          "expl": "Ca de próstata castração-resistente: não suspender o análogo GnRH (mantém o cenário de baixa testosterona). Adicionar antiandrógenos de nova geração (apalutamida, enzalutamida, darolutamida) ou abiraterona (inibe CYP17 — bloqueia síntese androgênica residual adrenal e tumoral). Em metastáticos sintomáticos: docetaxel é opção. Radium-223 para metástases ósseas dolorosas."
+        }
+      ],
+      "outcome": "Paciente segue em supressão androgênica + bicalutamida nas primeiras semanas, com excelente resposta inicial (PSA cai para 0,8). Após resistência, inicia abiraterona + prednisona com benefício de qualidade de vida. Acompanhamento conjunto com urologia e oncologia."
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tamoxifeno",
+      "front": "Tamoxifeno: classe, indicação, armadilha de prova?",
+      "back": "SERM. Antagonista em mama (Ca de mama RE+ na pré-menopausa, prevenção). AGONISTA em endométrio (risco Ca endométrio) e osso. EA: TEV, fogachos.",
+      "tags": ["serm"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Raloxifeno",
+      "front": "Raloxifeno: indicação principal e vantagem sobre tamoxifeno?",
+      "back": "SERM. Antagonista em mama E em endométrio (NÃO aumenta Ca endométrio). Agonista em osso → osteoporose pós-menopausa. EA: TEV, fogachos.",
+      "tags": ["serm"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Anastrozol",
+      "front": "Anastrozol: classe, indicação e EA típico?",
+      "back": "Inibidor de aromatase (CYP19). Ca de mama RE+ PÓS-menopausa (não funciona em pré). EA: perda de DMO, artralgia, dislipidemia, fogachos.",
+      "tags": ["aromatase"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Finasterida",
+      "front": "Finasterida: alvo, indicação, pegadinha do PSA?",
+      "back": "Inibidor da 5α-redutase tipo 2 → ↓ DHT. HPB e alopecia androgenética. Reduz PSA em ~50% (multiplicar por 2 no rastreio de Ca próstata). Teratogênica.",
+      "tags": ["5a-redutase"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Dutasterida",
+      "front": "Dutasterida: diferença para finasterida?",
+      "back": "Inibe tipos 1 E 2 da 5α-redutase (mais potente que finasterida). Mesmas indicações (HPB, alopecia). Mesma pegadinha do PSA (reduzir).",
+      "tags": ["5a-redutase"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Bicalutamida",
+      "front": "Bicalutamida: classe, uso, papel no início do tratamento de Ca próstata?",
+      "back": "Antiandrógeno não esteroidal. Bloqueia receptor androgênico. Ca de próstata avançado. USAR nas primeiras 2-4 semanas do análogo GnRH para prevenir FLARE.",
+      "tags": ["antiandrogeno"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Flutamida",
+      "front": "Flutamida: alerta principal?",
+      "back": "Antiandrógeno não esteroidal. HEPATOTOXICIDADE → monitorar LFTs. Pouco usada hoje (substituída por bicalutamida).",
+      "tags": ["antiandrogeno"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Apalutamida",
+      "front": "Apalutamida: papel?",
+      "back": "Antiandrógeno de nova geração (similar enzalutamida). Indicação: Ca de próstata castração-resistente não metastático. Maior afinidade pelo receptor androgênico.",
+      "tags": ["antiandrogeno"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Gosserrelina",
+      "front": "Gosserrelina: classe, indicações?",
+      "back": "Análogo agonista de GnRH (SC de depósito mensal/trimestral). Ca de próstata (com antiandrógeno inicial), endometriose, miomas, puberdade precoce. FLARE inicial.",
+      "tags": ["gnrh"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Leuprolida",
+      "front": "Leuprolida: característica?",
+      "back": "Análogo agonista de GnRH (IM/SC). Mesmas indicações da gosserrelina. Forma trimestral e semestral disponíveis.",
+      "tags": ["gnrh"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Estradiol",
+      "front": "Estradiol: principal uso?",
+      "back": "Estrogênio NATURAL (17β-estradiol). Terapia hormonal da menopausa (TH). Pode ser oral, transdérmico, vaginal. EA: TEV, Ca de mama em uso prolongado, sangramento.",
+      "tags": ["estrogenio"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Etinilestradiol",
+      "front": "Etinilestradiol: por que sintético e contraindicações?",
+      "back": "Estrogênio sintético resistente ao metabolismo de 1ª passagem → usado em ACO combinado. CI: fumante > 35a, TEV/TEP, enxaqueca com aura, Ca mama, hepatopatia.",
+      "tags": ["estrogenio"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Hidroxiprogesterona",
+      "front": "Hidroxiprogesterona caproato: indicação clássica e status atual?",
+      "back": "Progestínico IM. Historicamente: prevenção de parto prematuro recorrente. Estudo PROLONG (2019) não confirmou benefício → uso controverso, FDA recomendou retirada.",
+      "tags": ["progestinico"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Norgestrel / Levonorgestrel",
+      "front": "Norgestrel e Levonorgestrel: papéis?",
+      "back": "Progestínicos de 2ª geração. Norgestrel: mini-pílula (janela de 3h). Levonorgestrel: DIU hormonal, mini-pílula, e dose única em CONTRACEPÇÃO DE EMERGÊNCIA (1,5 mg até 72h).",
+      "tags": ["progestinico"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Ciproterona",
+      "front": "Ciproterona: usos e alerta?",
+      "back": "Antiandrógeno esteroidal + progestínico fraco. Hirsutismo, acne grave, Ca próstata. Alerta: HEPATOTOXICIDADE e risco TEV maior que outros progestínicos.",
+      "tags": ["antiandrogeno"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Ulipristal",
+      "front": "Ulipristal: classe, indicação?",
+      "back": "Modulador seletivo do receptor de progesterona (antagonista). Contracepção de emergência ATÉ 120h (5 dias) — mais eficaz que levonorgestrel. Não é abortivo.",
+      "tags": ["ulipristal"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tibolona",
+      "front": "Tibolona: ação e cuidado?",
+      "back": "Esteroide com metabólitos de ação estrogênica, progestínica e ANDROGÊNICA. TH da menopausa (fogachos + libido). Risco aumentado de Ca mama em uso prolongado e AVC em > 60a.",
+      "tags": ["tibolona"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Nandrolona",
+      "front": "Nandrolona (abuso): EA mais marcantes?",
+      "back": "Esteroide anabolizante. Abuso → SUPRESSÃO do eixo HHG (atrofia testicular, infertilidade), acne, alopecia, hepatotoxicidade, dislipidemia, HVE, eventos CV. Virilização em mulher.",
+      "tags": ["nandrolona"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tansulosina (HPB)",
+      "front": "Tansulosina em HPB: rapidez e EA?",
+      "back": "α1A bloqueador seletivo de próstata. Alívio sintomático em DIAS. EA: ejaculação retrógrada, hipotensão postural leve, síndrome da íris flácida em cirurgia de catarata.",
+      "tags": ["alfa1", "hpb"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Doxazosina (HPB)",
+      "front": "Doxazosina em HPB: diferença para tansulosina?",
+      "back": "α1 bloqueador não seletivo. Útil em paciente com HPB + HAS. Hipotensão postural mais marcante que tansulosina (especialmente 1ª dose). Tomar à noite.",
+      "tags": ["alfa1", "hpb"]
+    }
+  ]
+}
