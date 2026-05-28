@@ -15,6 +15,7 @@ import {
 import { firebaseAuth, firestore } from './firebase';
 import { clearUserCustomData, hydrateCoursesFromCloud, hydrateSessionsFromCloud } from './db';
 import { hydrateSrsFromCloud } from './srs';
+import { hydrateStudyPlanFromCloud } from './studyPlan';
 import type { UserProfile } from '../types';
 
 export const USER_CHANGE_EVENT = 'guava:user-change';
@@ -191,6 +192,7 @@ async function hydrateUserData(uid: string) {
     hydrateSessionsFromCloud(uid),
     hydrateSrsFromCloud(uid),
     hydrateCoursesFromCloud(uid),
+    hydrateStudyPlanFromCloud(uid),
   ]);
 }
 

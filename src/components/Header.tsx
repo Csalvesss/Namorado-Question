@@ -32,6 +32,7 @@ export default function Header() {
         {user && (
           <nav className="hidden gap-1 md:flex">
             <NavItem to="/app">Cursos</NavItem>
+            <NavItem to="/plano">Plano</NavItem>
             <NavItem to="/revisar">Revisar</NavItem>
             {showBilhetes && <NavItem to="/bilhetes">Bilhetes</NavItem>}
             <NavItem to="/historico">Histórico</NavItem>

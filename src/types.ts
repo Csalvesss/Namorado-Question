@@ -154,6 +154,37 @@ export interface UserProfile {
   createdAt: number;
 }
 
+export interface Subject {
+  id: string;
+  name: string;
+  color: string;
+  professor?: string;
+  semester?: string;
+  createdAt: number;
+}
+
+export type DayOfWeek = 0 | 1 | 2 | 3 | 4 | 5 | 6;
+
+export interface ClassEvent {
+  id: string;
+  subjectId: string;
+  dayOfWeek: DayOfWeek;
+  startTime: string;
+  endTime: string;
+  location?: string;
+  createdAt: number;
+}
+
+export interface ExamEvent {
+  id: string;
+  subjectId: string;
+  date: string;
+  time?: string;
+  label?: string;
+  location?: string;
+  createdAt: number;
+}
+
 export interface ImportMCQuestion {
   type?: 'mc';
   topic: string;
