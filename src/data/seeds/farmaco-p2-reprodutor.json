@@ -215,6 +215,21 @@
       "tags": ["hidroxiprogesterona"]
     },
     {
+      "type": "mc",
+      "topic": "ACO · interação com indutor enzimático",
+      "q": "Mulher de 24a em uso regular de ACO combinado (etinilestradiol + levonorgestrel) inicia rifampicina por tuberculose latente. Qual a conduta para evitar falha contraceptiva?",
+      "options": [
+        "Rifampicina é INDUTOR potente do CYP → acelera metabolismo do etinilestradiol e progestínico → reduz a eficácia contraceptiva. Orientar método de barreira adicional durante o uso da rifampicina e por 4 semanas após a suspensão. Alternativa: trocar para DIU de cobre ou levonorgestrel",
+        "Não há interação, manter o esquema sem ajustes",
+        "Aumentar a dose do ACO em 50%",
+        "Suspender qualquer contracepção até o fim do uso da rifampicina"
+      ],
+      "correct": 0,
+      "expl": "Pegadinha clássica de prova. Indutores enzimáticos potentes do CYP3A4 (RIFAMPICINA, fenitoína, carbamazepina, fenobarbital, primidona, alguns ARV, erva-de-são-joão) aceleram o metabolismo de estrogênio e progestínico → falha contraceptiva mesmo com adesão perfeita. Conduta: usar método adicional (preservativo) durante o uso E por pelo menos 4 semanas após a suspensão. Alternativas mais seguras: DIU de cobre ou DIU de levonorgestrel (efeito local, não dependente do metabolismo hepático), AMPD injetável.",
+      "difficulty": "medium",
+      "tags": ["aco", "interacao", "rifampicina"]
+    },
+    {
       "type": "match",
       "topic": "Reprodutor: classe",
       "prompt": "Associe o fármaco à classe.",
@@ -244,7 +259,7 @@
       "leftLabel": "Fármaco",
       "rightLabel": "Indicação clássica",
       "pairs": [
-        { "id": "tam", "left": "Tamoxifeno", "right": "Ca de mama RE+ na pré-menopausa" },
+        { "id": "tam", "left": "Tamoxifeno", "right": "Ca de mama RE+ (escolha na pré-menopausa, opção em pós)" },
         { "id": "ana", "left": "Anastrozol", "right": "Ca de mama RE+ na pós-menopausa" },
         { "id": "ral", "left": "Raloxifeno", "right": "Osteoporose pós-menopausa (reduz Ca de mama)" },
         { "id": "fin", "left": "Finasterida / Dutasterida", "right": "HPB + alopecia androgenética" },
@@ -304,13 +319,13 @@
           "prompt": "Após 18 meses de bloqueio androgênico, PSA volta a subir (resistência à castração). Quais as opções?",
           "question": "Conduta nessa fase de resistência à castração?",
           "options": [
-            "Manter a supressão androgênica; ADICIONAR antiandrógeno de nova geração (apalutamida, enzalutamida) ou abiraterona (inibidor da CYP17, bloqueia produção residual androgênica); considerar quimioterapia (docetaxel), radioisótopos ósseos, sipuleucel-T",
+            "Manter a supressão androgênica; ADICIONAR antiandrógeno de nova geração (apalutamida, enzalutamida) ou abiraterona (inibidor da CYP17, bloqueia produção residual androgênica); considerar quimioterapia (docetaxel)",
             "Suspender qualquer terapia hormonal",
             "Voltar para flutamida em dose alta",
             "Iniciar finasterida em monoterapia"
           ],
           "correct": 0,
-          "expl": "Ca de próstata castração-resistente: não suspender o análogo GnRH (mantém o cenário de baixa testosterona). Adicionar antiandrógenos de nova geração (apalutamida, enzalutamida, darolutamida) ou abiraterona (inibe CYP17 — bloqueia síntese androgênica residual adrenal e tumoral). Em metastáticos sintomáticos: docetaxel é opção. Radium-223 para metástases ósseas dolorosas."
+          "expl": "Ca de próstata castração-resistente: não suspender o análogo GnRH (mantém o cenário de baixa testosterona). Adicionar antiandrógenos de nova geração (apalutamida, enzalutamida, darolutamida) ou abiraterona (inibe CYP17 — bloqueia síntese androgênica residual adrenal e tumoral). Em metastáticos sintomáticos: docetaxel é opção."
         }
       ],
       "outcome": "Paciente segue em supressão androgênica + bicalutamida nas primeiras semanas, com excelente resposta inicial (PSA cai para 0,8). Após resistência, inicia abiraterona + prednisona com benefício de qualidade de vida. Acompanhamento conjunto com urologia e oncologia."
@@ -410,7 +425,7 @@
       "type": "flashcard",
       "topic": "Norgestrel / Levonorgestrel",
       "front": "Norgestrel e Levonorgestrel: papéis?",
-      "back": "Progestínicos de 2ª geração. Norgestrel: mini-pílula (janela de 3h). Levonorgestrel: DIU hormonal, mini-pílula, e dose única em CONTRACEPÇÃO DE EMERGÊNCIA (1,5 mg até 72h).",
+      "back": "Progestínicos de 2ª geração. Norgestrel: progestínico oral em ACO combinado. Levonorgestrel: DIU hormonal, ACO progestínico isolado, dose única em CONTRACEPÇÃO DE EMERGÊNCIA (1,5 mg até 72h). Mini-pílula clássica brasileira é a noretisterona (janela 3h) ou desogestrel (12h).",
       "tags": ["progestinico"]
     },
     {
