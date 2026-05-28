@@ -1,7 +1,9 @@
 import {
   BILHETES,
   GREETINGS,
+  GREETINGS_DOUTORA,
   PERFORMANCE_QUOTES,
+  PERFORMANCE_QUOTES_DOUTORA,
   type Bilhete,
 } from '../data/bilhetes';
 
@@ -18,9 +20,12 @@ export function currentBilhete(now: number = Date.now()): Bilhete {
   return BILHETES[bucket(now) % BILHETES.length];
 }
 
-export function currentGreeting(now: number = Date.now()): string {
-  if (GREETINGS.length === 0) return '';
-  return GREETINGS[bucket(now) % GREETINGS.length];
+export type Tone = 'namorado' | 'doutora';
+
+export function currentGreeting(tone: Tone = 'namorado', now: number = Date.now()): string {
+  const pool = tone === 'doutora' ? GREETINGS_DOUTORA : GREETINGS;
+  if (pool.length === 0) return '';
+  return pool[bucket(now) % pool.length];
 }
 
 export type PerformanceTier = 'high' | 'mid' | 'low';
@@ -34,9 +39,11 @@ export function tierFromAccuracy(accuracy: number, samples: number): Performance
 
 export function currentPerformanceQuote(
   tier: PerformanceTier,
+  tone: Tone = 'namorado',
   now: number = Date.now(),
 ): string {
-  const pool = PERFORMANCE_QUOTES[tier];
+  const quotes = tone === 'doutora' ? PERFORMANCE_QUOTES_DOUTORA : PERFORMANCE_QUOTES;
+  const pool = quotes[tier];
   if (!pool || pool.length === 0) return '';
   return pool[bucket(now) % pool.length];
 }
