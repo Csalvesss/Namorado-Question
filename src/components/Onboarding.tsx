@@ -59,7 +59,7 @@ export default function Onboarding() {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: duration.base }}
-        className="fixed inset-0 z-50 flex items-center justify-center bg-wine-deep/30 px-4 backdrop-blur-sm"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-wine-deep/30 px-4 py-6 pb-safe backdrop-blur-sm"
         role="dialog"
         aria-modal="true"
         aria-labelledby="onboarding-title"

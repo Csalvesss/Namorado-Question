@@ -35,7 +35,7 @@ export default function BlueprintModal({ open, courseTitle, onClose }: Props) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: duration.base }}
-          className="fixed inset-0 z-[60] flex items-end justify-center bg-ink/40 px-3 py-6 sm:items-center"
+          className="fixed inset-0 z-[60] flex items-end justify-center bg-ink/40 px-3 pt-6 pb-safe sm:items-center sm:py-6"
           onClick={onClose}
         >
           <motion.div
