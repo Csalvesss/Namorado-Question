@@ -1,15 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Check, Heart, Pill, X } from 'lucide-react';
+import { ArrowLeft, Check, Heart, Pill, RotateCcw, X } from 'lucide-react';
 import Eyebrow from '../components/ui/Eyebrow';
 import IconChip from '../components/ui/IconChip';
 import { useUser } from '../lib/useUser';
+import { hasCardHistory, listDueCards, reviewCard, SRS_CHANGE_EVENT } from '../lib/srs';
 import {
   CLASSES,
   SYSTEM_LABEL,
   SCENARIOS,
   getClass,
   getDrug,
+  getScenario,
+  mdcCardId,
   pickScenarios,
   shuffle,
   type FarmacoSystem,
@@ -26,7 +29,13 @@ interface SessionState {
   drugChoice: string | null;
   /** ids de cenários onde ela errou pelo menos uma etapa */
   revisitTomorrow: string[];
+  /** ids de cenários acertados em ambas as etapas, nesta sessão */
+  cleared: string[];
+  /** marcador "sessão de revisão" — afeta copy de saída */
+  isReviewSession: boolean;
   startedAt: number;
+  /** trava pra escrever no SRS uma única vez ao terminar */
+  gradesWritten: boolean;
 }
 
 const SESSION_SIZE = 8;
@@ -34,9 +43,10 @@ const SESSION_SIZE = 8;
 export default function FarmacoMDC() {
   const { user } = useUser();
   const isNamorado = user?.displayMode !== 'doutora';
-  const [system, setSystem] = useState<FarmacoSystem | 'mix' | null>(null);
+  const [system, setSystem] = useState<FarmacoSystem | 'mix' | 'review' | null>(null);
   const [state, setState] = useState<SessionState | null>(null);
   const [now, setNow] = useState(Date.now());
+  const [srsTick, setSrsTick] = useState(0);
 
   useEffect(() => {
     if (!state) return;
@@ -44,8 +54,40 @@ export default function FarmacoMDC() {
     return () => clearInterval(i);
   }, [state]);
 
-  function startSession(sys: FarmacoSystem | 'mix') {
-    const scenarios = pickScenarios(sys, SESSION_SIZE);
+  // Sincroniza com SRS_CHANGE_EVENT (quando gravamos grades no fim da sessão,
+  // o badge "revisar pendentes" deve recalcular sem reload).
+  useEffect(() => {
+    function bump() {
+      setSrsTick((t) => t + 1);
+    }
+    window.addEventListener(SRS_CHANGE_EVENT, bump);
+    return () => window.removeEventListener(SRS_CHANGE_EVENT, bump);
+  }, []);
+
+  /** Cenários que já têm card no SRS e estão vencidos (due ≤ now).
+   *  Cenários NUNCA estudados não entram aqui — eles vêm via botões de sistema.
+   *  Isso evita que "revisar pendentes" mostre o catálogo inteiro no primeiro dia. */
+  const dueScenarios = useMemo<Scenario[]>(() => {
+    if (!user) return [];
+    const allCardIds = SCENARIOS.map((s) => mdcCardId(s.id));
+    const dueIds = new Set(listDueCards(user.uid, allCardIds));
+    // raw map cards → scenarios, filtrando os que NÃO são "novos"
+    // (listDueCards trata ausência como due=0, então cenários novos vêm também;
+    //  para a fila de revisão queremos apenas os que JÁ foram vistos antes).
+    return SCENARIOS.filter((s) => {
+      const cardId = mdcCardId(s.id);
+      if (!dueIds.has(cardId)) return false;
+      return hasCardHistory(user.uid, cardId);
+    });
+  }, [user, srsTick]);
+
+  function startSession(sys: FarmacoSystem | 'mix' | 'review') {
+    let scenarios: Scenario[];
+    if (sys === 'review') {
+      scenarios = shuffle(dueScenarios).slice(0, SESSION_SIZE);
+    } else {
+      scenarios = pickScenarios(sys, SESSION_SIZE);
+    }
     if (scenarios.length === 0) return;
     setSystem(sys);
     setState({
@@ -55,13 +97,18 @@ export default function FarmacoMDC() {
       classChoice: null,
       drugChoice: null,
       revisitTomorrow: [],
+      cleared: [],
+      isReviewSession: sys === 'review',
       startedAt: Date.now(),
+      gradesWritten: false,
     });
   }
 
   function reset() {
     setSystem(null);
     setState(null);
+    // força refetch da fila de pendentes
+    setSrsTick((t) => t + 1);
   }
 
   // Tela inicial — seleção de sistema
@@ -120,6 +167,30 @@ export default function FarmacoMDC() {
               Sem pontuação. Sem streak. O que escapar volta amanhã.
             </p>
           </div>
+
+          {dueScenarios.length > 0 && (
+            <button
+              type="button"
+              onClick={() => startSession('review')}
+              className="card mt-8 flex w-full items-center justify-between gap-5 border-[var(--blush-stroke)] bg-blush p-7 text-left shadow-lift transition hover:-translate-y-0.5 active:scale-[0.99]"
+            >
+              <div className="flex items-center gap-5">
+                <IconChip icon={RotateCcw} tone="wine" size="lg" />
+                <div>
+                  <h3 className="font-display text-xl italic text-ink">
+                    {isNamorado ? 'tem coisa te esperando, amor' : 'pendências de revisão'}
+                  </h3>
+                  <p className="mt-1 font-body text-[14px] italic text-mute">
+                    {dueScenarios.length} {dueScenarios.length === 1 ? 'caso' : 'casos'} marcado
+                    {dueScenarios.length === 1 ? '' : 's'} pra hoje. abre primeiro.
+                  </p>
+                </div>
+              </div>
+              <span className="hidden font-display text-sm italic text-wine sm:inline">
+                revisar →
+              </span>
+            </button>
+          )}
 
           <div className="mt-8">
             <Eyebrow>escolha o sistema</Eyebrow>
@@ -182,7 +253,17 @@ export default function FarmacoMDC() {
 
   // Fim de sessão
   if (!scenario) {
-    return <EndOfSession state={state} isNamorado={isNamorado} onRestart={reset} />;
+    return (
+      <EndOfSession
+        state={state}
+        isNamorado={isNamorado}
+        onRestart={reset}
+        onGradesWritten={() =>
+          setState((s) => (s ? { ...s, gradesWritten: true } : s))
+        }
+        uid={user?.uid}
+      />
+    );
   }
 
   // Etapa: classe
@@ -274,19 +355,23 @@ export default function FarmacoMDC() {
     );
 
     function answerDrug(drugId: string) {
-      setState((s) =>
-        s
-          ? {
-              ...s,
-              step: 'closing',
-              drugChoice: drugId,
-              revisitTomorrow:
-                drugId === scenario.correctDrugId
-                  ? s.revisitTomorrow
-                  : Array.from(new Set([...s.revisitTomorrow, scenario.id])),
-            }
-          : s,
-      );
+      setState((s) => {
+        if (!s) return s;
+        const drugWrong = drugId !== scenario.correctDrugId;
+        const classWrong = s.classChoice !== scenario.correctClassId;
+        const errored = drugWrong || classWrong;
+        return {
+          ...s,
+          step: 'closing',
+          drugChoice: drugId,
+          revisitTomorrow: errored
+            ? Array.from(new Set([...s.revisitTomorrow, scenario.id]))
+            : s.revisitTomorrow,
+          cleared: errored
+            ? s.cleared
+            : Array.from(new Set([...s.cleared, scenario.id])),
+        };
+      });
     }
   }
 
@@ -388,8 +473,10 @@ export default function FarmacoMDC() {
     );
   }
 
-  function systemLabelOf(sys: FarmacoSystem | 'mix' | null): string {
-    if (sys === null || sys === 'mix') return 'Mistura';
+  function systemLabelOf(sys: FarmacoSystem | 'mix' | 'review' | null): string {
+    if (sys === null) return '';
+    if (sys === 'mix') return 'Mistura';
+    if (sys === 'review') return 'Revisão';
     return SYSTEM_LABEL[sys];
   }
 }
@@ -466,16 +553,35 @@ function EndOfSession({
   state,
   isNamorado,
   onRestart,
+  onGradesWritten,
+  uid,
 }: {
   state: SessionState;
   isNamorado: boolean;
   onRestart: () => void;
+  onGradesWritten: () => void;
+  uid: string | undefined;
 }) {
+  // Grava as grades no SRS uma única vez ao montar este componente.
+  // Cenário errado vira 'hard' (≈ 1 dia); acertado vira 'good' (1d na 1ª rep,
+  // depois 3d, depois ~7d). Não-respondidos ficam de fora — sessão pode ter
+  // sido interrompida; respeito isso.
+  useEffect(() => {
+    if (state.gradesWritten || !uid) return;
+    for (const id of state.cleared) {
+      reviewCard(uid, mdcCardId(id), 'good');
+    }
+    for (const id of state.revisitTomorrow) {
+      reviewCard(uid, mdcCardId(id), 'hard');
+    }
+    onGradesWritten();
+  }, [state.gradesWritten, state.cleared, state.revisitTomorrow, uid, onGradesWritten]);
+
   const elapsedSec = Math.floor((Date.now() - state.startedAt) / 1000);
   const mm = Math.max(1, Math.round(elapsedSec / 60));
   const revisitCount = state.revisitTomorrow.length;
   const revisitScenarios = state.revisitTomorrow
-    .map((id) => SCENARIOS.find((s) => s.id === id))
+    .map((id) => getScenario(id))
     .filter((s): s is Scenario => Boolean(s));
 
   // Coletar classes únicas das classes corretas dos cenários problemáticos pra mostrar
@@ -488,7 +594,7 @@ function EndOfSession({
   return (
     <section className="bg-paper">
       <div className="mx-auto w-full max-w-3xl px-6 py-16 sm:px-10 sm:py-24 lg:px-12">
-        <Eyebrow>sessão</Eyebrow>
+        <Eyebrow>{state.isReviewSession ? 'revisão' : 'sessão'}</Eyebrow>
         <h1 className="mt-4 font-display font-light leading-[1.05] text-ink text-[clamp(2.25rem,6vw,3.5rem)]">
           {isNamorado ? 'você fez bonito, amor' : 'sessão concluída'}
         </h1>
@@ -500,7 +606,7 @@ function EndOfSession({
               : 'todos os casos respondidos corretamente.'
             : `${revisitCount} ${
                 revisitCount === 1 ? 'caso volta' : 'casos voltam'
-              } amanhã pra fechar.`}
+              } amanhã, agendado${revisitCount === 1 ? '' : 's'} aqui mesmo.`}
         </p>
 
         {revisitCount > 0 && classesToReview.length > 0 && (
