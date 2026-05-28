@@ -11,6 +11,7 @@ export default function Profile() {
   const navigate = useNavigate();
   const { user, refresh, updateUser } = useUser();
   const [name, setName] = useState(user?.name ?? '');
+  const [partner, setPartner] = useState(user?.partnerName ?? '');
   const [saved, setSaved] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
   const [savingName, setSavingName] = useState(false);
@@ -19,6 +20,10 @@ export default function Profile() {
     if (user?.name) setName(user.name);
   }, [user?.name]);
 
+  useEffect(() => {
+    if (typeof user?.partnerName === 'string') setPartner(user.partnerName);
+  }, [user?.partnerName]);
+
   if (!user) return null;
 
   async function saveName() {
@@ -26,7 +31,7 @@ export default function Profile() {
     setSaveError(null);
     setSavingName(true);
     try {
-      await updateUser({ name: name.trim() });
+      await updateUser({ name: name.trim(), partnerName: partner.trim() });
       setSaved(true);
       setTimeout(() => setSaved(false), 1500);
     } catch (e) {
@@ -101,6 +106,21 @@ export default function Profile() {
           <label className="mb-1 block text-[11px] uppercase tracking-[0.22em] text-muted">E-mail</label>
           <div className="text-base text-ink">{user.email}</div>
         </div>
+        <div>
+          <label htmlFor="partner" className="mb-1 block text-[11px] uppercase tracking-[0.22em] text-muted">
+            Nome do seu namorado
+          </label>
+          <input
+            id="partner"
+            value={partner}
+            onChange={(e) => setPartner(e.target.value)}
+            className="input-elegant"
+            placeholder="quem assina os bilhetes (ex: Cesar)"
+          />
+          <p className="mt-1 text-[11px] italic text-muted">
+            aparece como assinatura nos bilhetes que rolam a cada 5 horas.
+          </p>
+        </div>
         {saveError && (
           <div className="rounded-xl border-l-2 border-red bg-red-soft px-4 py-3 text-sm text-ink">
             {saveError}
@@ -110,7 +130,11 @@ export default function Profile() {
           {saved && <span className="self-center text-xs italic text-green">salvo</span>}
           <button
             onClick={saveName}
-            disabled={savingName || !name.trim() || name.trim() === user.name}
+            disabled={
+              savingName ||
+              !name.trim() ||
+              (name.trim() === user.name && partner.trim() === (user.partnerName ?? ''))
+            }
             className="btn-primary disabled:cursor-not-allowed"
           >
             {savingName ? 'Salvando...' : 'Salvar'}
