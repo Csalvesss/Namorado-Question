@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Moon, RotateCw } from 'lucide-react';
+import PageContainer from '../components/ui/PageContainer';
 import { db } from '../lib/db';
 import { shuffle } from '../lib/quiz';
 import { useUser } from '../lib/useUser';
@@ -40,15 +41,17 @@ export default function QuickReview() {
 
   if (items.length === 0) {
     return (
-      <div className="mx-auto max-w-md space-y-6 text-center">
-        <Link to="/app" className="inline-flex items-center text-[11px] uppercase tracking-wider text-muted hover:text-wine">
-          <ArrowLeft className="mr-1 h-3 w-3" /> Voltar
-        </Link>
-        <h1 className="font-serif text-3xl italic text-wine-deep">passa-fácil noturno</h1>
-        <p className="font-serif text-base italic text-ink-soft">
-          ainda não temos flashcards no banco. quando os cursos ganharem cards, eles aparecem aqui pra uma revisão tranquila.
-        </p>
-      </div>
+      <PageContainer width="md">
+        <div className="mx-auto max-w-md space-y-6 text-center">
+          <Link to="/app" className="inline-flex items-center text-[11px] uppercase tracking-wider text-muted hover:text-wine">
+            <ArrowLeft className="mr-1 h-3 w-3" /> Voltar
+          </Link>
+          <h1 className="font-serif text-3xl italic text-wine-deep">passa-fácil noturno</h1>
+          <p className="font-serif text-base italic text-ink-soft">
+            ainda não temos flashcards no banco. quando os cursos ganharem cards, eles aparecem aqui pra uma revisão tranquila.
+          </p>
+        </div>
+      </PageContainer>
     );
   }
 
@@ -67,7 +70,8 @@ export default function QuickReview() {
   }
 
   return (
-    <div className="mx-auto max-w-2xl space-y-8 pb-20">
+    <PageContainer width="md">
+    <div className="space-y-8 pb-20">
       <header>
         <Link to="/app" className="inline-flex items-center text-[11px] uppercase tracking-wider text-muted transition hover:text-wine">
           <ArrowLeft className="mr-1 h-3 w-3" strokeWidth={2} /> Voltar
@@ -146,5 +150,6 @@ export default function QuickReview() {
         </>
       )}
     </div>
+    </PageContainer>
   );
 }

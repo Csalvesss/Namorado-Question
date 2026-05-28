@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, ChevronRight, GitBranch, RotateCw, Workflow } from 'lucide-react';
+import PageContainer from '../components/ui/PageContainer';
 import { db } from '../lib/db';
 import { duration as motionDuration, easeOutExpo } from '../lib/motion';
 import type { AlgorithmNode, AlgorithmOutcome, AlgorithmQuestion } from '../types';
@@ -20,6 +21,7 @@ export function AlgorithmsList() {
   }, []);
 
   return (
+    <PageContainer>
     <div className="space-y-10">
       <section>
         <div className="eyebrow-gold">protocolos e fluxogramas</div>
@@ -83,6 +85,7 @@ export function AlgorithmsList() {
         </div>
       )}
     </div>
+    </PageContainer>
   );
 }
 
@@ -130,7 +133,8 @@ export default function AlgorithmPlayer() {
   }
 
   return (
-    <div className="mx-auto max-w-3xl space-y-6 pb-16">
+    <PageContainer width="md">
+    <div className="space-y-6 pb-16">
       <Link
         to="/algoritmos"
         className="inline-flex items-center text-[11px] uppercase tracking-[0.22em] text-muted transition hover:text-wine"
@@ -213,6 +217,7 @@ export default function AlgorithmPlayer() {
         </AnimatePresence>
       )}
     </div>
+    </PageContainer>
   );
 }
 
