@@ -82,6 +82,19 @@ export default function FarmacoMDC() {
     });
   }, [user, srsTick]);
 
+  // CRÍTICO: useMemos têm que vir ANTES de qualquer early return, senão
+  // a ordem dos hooks muda entre renders (home → sessão) e o React quebra
+  // com Minified Error #310. Cálculo é safe quando state é null.
+  const activeScenario = state ? state.scenarios[state.index] : undefined;
+  const classOptions = useMemo(
+    () => (activeScenario ? classOptionsFor(activeScenario) : []),
+    [activeScenario?.id],
+  );
+  const drugOptions = useMemo(
+    () => (activeScenario ? drugOptionsFor(activeScenario) : []),
+    [activeScenario?.id],
+  );
+
   function startSession(sys: FarmacoSystem | 'mix' | 'review') {
     let scenarios: Scenario[];
     if (sys === 'review') {
@@ -251,18 +264,6 @@ export default function FarmacoMDC() {
 
   // Sessão em andamento ou tela de fechamento
   const scenario = state.scenarios[state.index];
-
-  // Opções memoizadas por cenário — sem isso, o setInterval do timer
-  // re-renderiza a tela a cada segundo e reembaralha as opções (bug visível).
-  // Chave inclui scenario.id para reembaralhar APENAS quando muda o caso.
-  const classOptions = useMemo(
-    () => (scenario ? classOptionsFor(scenario) : []),
-    [scenario?.id],
-  );
-  const drugOptions = useMemo(
-    () => (scenario ? drugOptionsFor(scenario) : []),
-    [scenario?.id],
-  );
 
   // Fim de sessão
   if (!scenario) {
