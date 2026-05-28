@@ -315,7 +315,7 @@
         "Suspender qualquer tratamento durante a gestação"
       ],
       "correct": 0,
-      "expl": "Esquema clássico em gestante no Brasil (cobrado em P2): Efavirenz + Lamivudina + Tenofovir. Sinal histórico de teratogenia do efavirenz não foi confirmado em humanos → considerado seguro. Dolutegravir também é considerado seguro atualmente (inclusive periconcepção). Profilaxia neonatal pós-parto: zidovudina 4-6 semanas.",
+      "expl": "Esquema CLÁSSICO cobrado em P2 para gestante: Efavirenz + Lamivudina + Tenofovir. Sinal histórico de teratogenia do efavirenz não foi confirmado em humanos → considerado seguro em qualquer trimestre. ATENÇÃO: o PCDT/MS brasileiro atual já contempla DOLUTEGRAVIR como 1ª linha inclusive em gestantes (após reanálise dos dados Tsepamo). Em prova, marcar o que a aula da professora cobrou — se EFV, vai de EFV; se DTG, vai de DTG. Profilaxia neonatal pós-parto: zidovudina 4-6 semanas.",
       "difficulty": "medium",
       "tags": ["tarv", "gestante"]
     },
