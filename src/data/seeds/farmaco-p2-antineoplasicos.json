@@ -39,13 +39,13 @@
       "topic": "Carboplatina",
       "q": "Carboplatina difere da cisplatina principalmente por:",
       "options": [
-        "MENOS nefrotoxicidade, ototoxicidade e êmese; MAIS mielossupressão (especialmente PLAQUETOPENIA); dose calculada pela FÓRMULA AUC × (TFG + 25)",
+        "MENOS nefrotoxicidade, ototoxicidade e êmese; MAIS mielossupressão (especialmente PLAQUETOPENIA); dose ajustada pela função renal",
         "Maior nefrotoxicidade que a cisplatina",
         "Mecanismo totalmente diferente",
         "Sem mielossupressão"
       ],
       "correct": 0,
-      "expl": "Carboplatina tem mesmo mecanismo da cisplatina (alquilação do DNA) mas perfil farmacológico mais leve: muito menos nefrotoxicidade e ototoxicidade, êmese menor. EM CONTRAPARTIDA: maior MIELOSSUPRESSÃO, especialmente plaquetopenia. Dose pela fórmula de Calvert (AUC × [TFG + 25]). Indicada quando perfil renal/ototóxico é proibitivo ou em manutenção de Ca de ovário.",
+      "expl": "Carboplatina tem mesmo mecanismo da cisplatina (alquilação do DNA) mas perfil farmacológico mais leve: muito menos nefrotoxicidade e ototoxicidade, êmese menor. EM CONTRAPARTIDA: maior MIELOSSUPRESSÃO, especialmente plaquetopenia. Dose ajustada à função renal. Indicada quando perfil renal/ototóxico é proibitivo ou em manutenção de Ca de ovário.",
       "difficulty": "medium",
       "tags": ["platina", "carboplatina"]
     },
@@ -105,7 +105,7 @@
         "Sem cardiotoxicidade"
       ],
       "correct": 0,
-      "expl": "5-FU é análogo de uracila. Após fosforilação intracelular: FdUMP inibe a timidilato sintase (TS) → bloqueia conversão de dUMP em dTMP → ↓ síntese de DNA. Capecitabina é pró-fármaco oral convertido em 5-FU em 3 etapas (última no tumor, pela timidina fosforilase). Indicações: Ca de cólon, gástrico, mama, cabeça/pescoço. EA: mielossupressão, mucosite, diarreia (severa em deficiência de DPD — dihidropirimidina desidrogenase), SÍNDROME MÃO-PÉ, cardiotoxicidade (vasoespasmo coronariano — angina). Capecitabina especialmente associada à síndrome mão-pé.",
+      "expl": "5-FU é análogo de uracila. Após fosforilação intracelular: FdUMP inibe a timidilato sintase (TS) → bloqueia conversão de dUMP em dTMP → ↓ síntese de DNA. Capecitabina é pró-fármaco oral convertido em 5-FU em 3 etapas (última no tumor, pela timidina fosforilase). Indicações: Ca de cólon, gástrico, mama, cabeça/pescoço. EA: mielossupressão, mucosite, diarreia, SÍNDROME MÃO-PÉ, cardiotoxicidade (vasoespasmo coronariano — angina). Em deficiência de DPD (dihidropirimidina desidrogenase): toxicidade GRAVE E POTENCIALMENTE FATAL (mucosite, diarreia e mielossupressão extremas) — alguns serviços rastreiam DPYD antes do tratamento. Capecitabina especialmente associada à síndrome mão-pé.",
       "difficulty": "medium",
       "tags": ["5fu", "timidilato"]
     },
@@ -241,7 +241,8 @@
         { "id": "dox", "left": "Doxorrubicina / Daunorrubicina", "right": "Antraciclinas (topo II + radicais livres)" },
         { "id": "ble", "left": "Bleomicina", "right": "Quebras de DNA por radicais livres (Fe-O2)" },
         { "id": "mtx", "left": "Metotrexato", "right": "Antifolato (DHFR)" },
-        { "id": "fu", "left": "5-FU / Capecitabina / Pemetrexede", "right": "Antimetabólitos pirimidínicos / antifolatos" },
+        { "id": "fu", "left": "5-FU / Capecitabina", "right": "Antimetabólitos pirimidínicos (inibem timidilato sintase)" },
+        { "id": "pem", "left": "Pemetrexede", "right": "Antifolato multi-target (DHFR + TS + GARFT)" },
         { "id": "vin", "left": "Vincristina / Vimblastina", "right": "Alcaloides da vinca (despolimerizam tubulina)" },
         { "id": "tax", "left": "Paclitaxel / Docetaxel", "right": "Taxanos (estabilizam tubulina)" },
         { "id": "tki", "left": "Imatinib / Dasatinibe / Nilotinibe", "right": "Inibidores de tirosina-cinase (BCR-ABL)" },
@@ -368,7 +369,7 @@
       "type": "flashcard",
       "topic": "Carboplatina",
       "front": "Carboplatina: vantagem e desvantagem vs cisplatina?",
-      "back": "MENOS nefro/oto/êmese. MAIS mielossupressão (plaquetopenia). Dose por AUC (Calvert). Útil quando cisplatina é proibitiva.",
+      "back": "MENOS nefro/oto/êmese. MAIS mielossupressão (plaquetopenia). Dose ajustada à função renal. Útil quando cisplatina é proibitiva.",
       "tags": ["platina"]
     },
     {
