@@ -1,0 +1,754 @@
+{
+  "title": "Farmaco P2: Anti-hipertensivos e IC",
+  "description": "Fármacos para HAS e insuficiência cardíaca conforme a lista da P2. IECA, BRA, BB, BCC, diuréticos, vasodilatadores e inotrópicos. Mecanismo, indicação preferencial e armadilhas.",
+  "icon": "",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "mc",
+      "topic": "IECA",
+      "q": "Sobre captopril e enalapril (IECA), assinale a CORRETA:",
+      "options": [
+        "Inibem a enzima conversora de angiotensina (reduzem síntese de Ang II e degradação de bradicinina); EA clássico é tosse seca; contraindicados na gestação",
+        "São bloqueadores diretos do receptor AT1 sem efeito sobre bradicinina",
+        "Não interferem na função renal e podem ser usados em estenose bilateral de artéria renal",
+        "São diuréticos de alça que aumentam a excreção de sódio"
+      ],
+      "correct": 0,
+      "expl": "IECA inibem a ECA: ↓ Ang II (vasodilatação, ↓ aldosterona) e ↑ bradicinina (vasodilatação adicional e efeito tussígeno). Indicações: HAS, IC com FE reduzida, pós-IAM, nefropatia diabética, proteinúria. EA: tosse seca (10-20%), angioedema (raro mas grave), hipercalemia, IRA em estenose bilateral de artéria renal, teratogenicidade (CONTRAINDICADO na gestação).",
+      "difficulty": "easy",
+      "tags": ["ieca", "renina-angiotensina"]
+    },
+    {
+      "type": "mc",
+      "topic": "BRA",
+      "q": "Sobre losartana, olmesartana e valsartana (BRA), assinale a CORRETA:",
+      "options": [
+        "Bloqueiam seletivamente o receptor AT1; não aumentam bradicinina (sem tosse); mesma contraindicação em gestante",
+        "Têm efeito tussígeno semelhante aos IECA",
+        "São seguros na gestação por não atingirem a barreira placentária",
+        "Não afetam o potássio sérico"
+      ],
+      "correct": 0,
+      "expl": "BRA bloqueiam o receptor AT1 da angiotensina II → vasodilatação, ↓ aldosterona, sem efeito sobre bradicinina (por isso não dão tosse). Indicações sobrepostas a IECA. Como contraindicação: hipersensibilidade, gestação (teratogênico), estenose bilateral de artéria renal, hipercalemia. Útil em pacientes intolerantes a IECA por tosse.",
+      "difficulty": "easy",
+      "tags": ["bra", "renina-angiotensina"]
+    },
+    {
+      "type": "mc",
+      "topic": "Betabloqueadores",
+      "q": "Sobre os betabloqueadores na IC com fração de ejeção reduzida, assinale a CORRETA:",
+      "options": [
+        "Carvedilol, succinato de metoprolol e bisoprolol são os 3 com benefício de mortalidade comprovado; iniciar com paciente euvolêmico e em dose baixa, titulando lentamente",
+        "Devem ser iniciados em dose plena na IC descompensada para acelerar resposta",
+        "Atenolol é o de primeira escolha em IC",
+        "São contraindicados em diabetes tipo 2"
+      ],
+      "correct": 0,
+      "expl": "Só 3 BB têm benefício de mortalidade em IC com FE reduzida: carvedilol (não seletivo + α1), succinato de metoprolol (cardiosseletivo β1) e bisoprolol (cardiosseletivo β1). Iniciar SOMENTE com paciente euvolêmico (sem congestão aguda), em dose baixa, titulando a cada 2-4 semanas. Atenolol e tartarato de metoprolol NÃO têm benefício em IC. Diabetes não é contraindicação (podem mascarar hipoglicemia, especialmente os não seletivos).",
+      "difficulty": "medium",
+      "tags": ["betabloqueador", "ic"]
+    },
+    {
+      "type": "mc",
+      "topic": "Betabloqueadores · seletividade",
+      "q": "Qual betabloqueador tem maior seletividade β1 e adicionalmente libera óxido nítrico?",
+      "options": [
+        "Nebivolol",
+        "Propranolol",
+        "Carvedilol",
+        "Atenolol"
+      ],
+      "correct": 0,
+      "expl": "Nebivolol é cardiosseletivo (β1) e tem efeito vasodilatador adicional por liberação de óxido nítrico endotelial. Útil em idosos, hipertensos com disfunção endotelial. Carvedilol é não seletivo + bloqueio α1 (vasodilatação). Propranolol é não seletivo (β1+β2). Atenolol é cardiosseletivo, sem efeito vasodilatador.",
+      "difficulty": "medium",
+      "tags": ["betabloqueador", "seletividade"]
+    },
+    {
+      "type": "mc",
+      "topic": "Betabloqueadores · esmolol",
+      "q": "Esmolol tem perfil farmacocinético particular. Qual a característica e a indicação principal?",
+      "options": [
+        "Meia-vida curta (~9 min), uso IV (geralmente em BIC) — útil em emergência (taquiarritmias supraventriculares perioperatórias, crise hipertensiva)",
+        "Uso oral com dose única diária e meia-vida longa",
+        "Tem alta seletividade β2",
+        "Indicado para tratamento crônico de IC"
+      ],
+      "correct": 0,
+      "expl": "Esmolol é BB β1 seletivo de uso EV em BIC. Meia-vida ultracurta (9 min) — hidrolisado por esterases. Indicações: taquicardia supraventricular peri-operatória, crise hipertensiva, controle de FC em UTI. Vantagem: se causar bradicardia ou hipotensão, basta suspender e em minutos o efeito passa.",
+      "difficulty": "hard",
+      "tags": ["betabloqueador", "esmolol", "iv"]
+    },
+    {
+      "type": "mc",
+      "topic": "Bloqueadores α1",
+      "q": "Sobre prazosina, doxazosina e tansulosina, é CORRETO afirmar:",
+      "options": [
+        "Bloqueiam receptor α1 vascular (e prostático para tansulosina); causam hipotensão postural (especialmente na 1ª dose, à noite); tansulosina é mais seletiva para próstata",
+        "São diuréticos tiazídicos",
+        "São agonistas α centrais como a clonidina",
+        "Têm benefício comprovado de mortalidade em HAS isolada (estudo ALLHAT)"
+      ],
+      "correct": 0,
+      "expl": "α1 bloqueadores vasodilatam pela inibição do receptor α1 vascular. EA: hipotensão postural intensa (especialmente 1ª dose — administrar à noite, deitar). Doxazosina foi inferior à clortalidona em mortalidade no ALLHAT (não 1ª linha em HAS). Tansulosina é mais seletiva para α1A prostática — usada em HPB com menos efeito sobre PA. Prazosina é alternativa no tratamento do pesadelo no TEPT.",
+      "difficulty": "medium",
+      "tags": ["alfa1", "tansulosina"]
+    },
+    {
+      "type": "mc",
+      "topic": "Anti-hipertensivos centrais",
+      "q": "Sobre metildopa e clonidina (simpaticolíticos centrais), assinale a CORRETA:",
+      "options": [
+        "Atuam no SNC (núcleo do trato solitário) reduzindo o tônus simpático periférico; metildopa é a droga de escolha na HAS na gestação; suspensão abrupta de clonidina pode causar crise hipertensiva de rebote",
+        "São diuréticos de alça",
+        "Bloqueiam canais de cálcio nos vasos",
+        "Não atravessam a barreira hematoencefálica"
+      ],
+      "correct": 0,
+      "expl": "Metildopa e clonidina atuam em receptores α2 centrais (e imidazólicos) → reduzem o output simpático → ↓ PA. Metildopa é segura na gestação (HAS gestacional, pré-eclâmpsia leve). Clonidina tem suspensão perigosa: rebote hipertensivo intenso e bradicardia — sempre desmamar. EA: sedação, boca seca, hipotensão postural. Metildopa pode causar anemia hemolítica autoimune (Coombs+).",
+      "difficulty": "medium",
+      "tags": ["centrais", "metildopa", "clonidina"]
+    },
+    {
+      "type": "mc",
+      "topic": "Bloqueadores de canal de cálcio",
+      "q": "Sobre os BCC dihidropiridínicos (anlodipino, nifedipino), é INCORRETO afirmar:",
+      "options": [
+        "Têm efeito inotrópico negativo significativo, sendo contraindicados em IC com FE reduzida",
+        "Vasodilatam preferencialmente o leito arterial periférico",
+        "EA clássico: edema maleolar (não responde a diurético — é vasodilatação)",
+        "Nifedipino de liberação imediata (sublingual) deve ser EVITADO em crise hipertensiva pelo risco de hipotensão e isquemia"
+      ],
+      "correct": 0,
+      "expl": "BCC dihidropiridínicos (terminação 'dipino') têm efeito predominantemente vasodilatador arterial, com efeito inotrópico negativo MÍNIMO em doses terapêuticas — podem ser usados em pacientes com IC se necessário (anlodipino e felodipino são os preferidos). Os BCC NÃO dihidropiridínicos (verapamil, diltiazem) sim têm inotropismo negativo importante e SÃO contraindicados em IC com FE reduzida. Edema maleolar é EA comum dos dihidropiridínicos — não responde a diurético.",
+      "difficulty": "medium",
+      "tags": ["bcc", "anlodipino"]
+    },
+    {
+      "type": "mc",
+      "topic": "Diuréticos tiazídicos",
+      "q": "Hidroclorotiazida e indapamida (tiazídicos) têm como mecanismo e efeito metabólico característico:",
+      "options": [
+        "Inibem o cotransportador Na-Cl no túbulo contorcido distal; causam hipocalemia, hiponatremia, hiperuricemia, hiperglicemia e hipercalcemia",
+        "Inibem o cotransportador Na-K-2Cl na alça de Henle; causam hipercalciúria",
+        "Bloqueiam aldosterona no túbulo coletor",
+        "Não interferem na glicemia ou ácido úrico"
+      ],
+      "correct": 0,
+      "expl": "Tiazídicos: inibem Na-Cl no túbulo contorcido distal. Efeitos metabólicos clássicos (memorizar): ↓ K+ (cuidado em arritmia), ↑ Ca++ (úteis em hipercalciúria e osteoporose), ↑ ác. úrico (cuidado em gota), ↑ glicemia, ↑ lipídeos. Indapamida tem menos efeito metabólico que hidroclorotiazida. Mecanismo de ↑ cálcio: ↑ reabsorção tubular (oposto da alça que perde Ca).",
+      "difficulty": "medium",
+      "tags": ["tiazidico", "diuretico"]
+    },
+    {
+      "type": "mc",
+      "topic": "Diuréticos de alça",
+      "q": "Furosemida e bumetanida (alça) diferem dos tiazídicos por:",
+      "options": [
+        "Inibem o cotransportador Na-K-2Cl na alça de Henle; mais potentes, com efeito mesmo em TFG baixa; causam HIPOcalcemia (perda renal de Ca) e ototoxicidade em infusão rápida",
+        "Atuam no túbulo coletor poupando K+",
+        "Não atravessam a alça de Henle",
+        "São contraindicados na IC descompensada"
+      ],
+      "correct": 0,
+      "expl": "Diuréticos de alça inibem Na-K-2Cl na porção ascendente da alça de Henle. Mais potentes que tiazídicos (~25% do filtrado pode ser excretado). Efetivos mesmo em TFG baixa (< 30). Pilar do tratamento da IC descompensada e edema. EA: hipocalemia (mais que tiazídicos), hipocalcemia (perda renal de Ca — oposto do tiazídico), alcalose metabólica hipoclorêmica, ototoxicidade (infusão IV rápida), hiperuricemia, hiperglicemia.",
+      "difficulty": "medium",
+      "tags": ["alca", "furosemida"]
+    },
+    {
+      "type": "mc",
+      "topic": "Poupadores de potássio",
+      "q": "Sobre espironolactona e eplerenona (antagonistas de aldosterona), assinale a CORRETA:",
+      "options": [
+        "Antagonizam o receptor mineralocorticoide; têm benefício de mortalidade em IC com FE reduzida (RALES, EMPHASIS); EA principal é hipercalemia; espironolactona causa ginecomastia em homens (eplerenona é mais seletiva)",
+        "São tiazídicos de longa duração",
+        "Causam hipocalemia importante",
+        "São contraindicados em IC"
+      ],
+      "correct": 0,
+      "expl": "Espironolactona e eplerenona antagonizam o receptor mineralocorticoide no túbulo coletor → ↓ reabsorção de Na, ↑ poupança de K+. RALES (espironolactona) e EMPHASIS-HF (eplerenona) mostraram redução de mortalidade em IC com FE reduzida. EA: HIPERCALEMIA (monitorar K+ e creatinina), ginecomastia (espironolactona, pelo bloqueio de receptor androgênico — eplerenona é mais seletiva). Amilorida e triantereno atuam no canal ENaC (não no receptor de aldosterona).",
+      "difficulty": "medium",
+      "tags": ["poupador-k", "aldosterona"]
+    },
+    {
+      "type": "mc",
+      "topic": "Vasodilatadores diretos",
+      "q": "Sobre hidralazina e minoxidil, é CORRETO afirmar:",
+      "options": [
+        "Vasodilatadores arteriais diretos; causam taquicardia reflexa e retenção hídrica — geralmente associados a BB e diurético; minoxidil é potente e usado em HAS refratária (e em alopecia tópica)",
+        "São inibidores da ECA",
+        "Têm efeito venodilatador predominante",
+        "Não causam taquicardia reflexa"
+      ],
+      "correct": 0,
+      "expl": "Hidralazina e minoxidil vasodilatam arteríolas (resistência periférica). Por isso causam taquicardia reflexa (sem BB → palpitação, isquemia) e retenção hídrica (sem diurético → edema). Tratamento ideal: tripla (vasodilatador + BB + diurético). Hidralazina + isossorbida tem benefício em IC com FE reduzida em afrodescendentes (A-HeFT). Hidralazina é segura na gestação. Minoxidil causa hirsutismo (uso tópico em alopecia androgenética).",
+      "difficulty": "hard",
+      "tags": ["vasodilatador", "hidralazina"]
+    },
+    {
+      "type": "mc",
+      "topic": "Nitratos",
+      "q": "Sobre os nitratos (nitroglicerina, isossorbida, propatilnitrato), assinale a CORRETA:",
+      "options": [
+        "São doadores de óxido nítrico → vasodilatação predominantemente venosa (reduz pré-carga); ÚTIL em angina e EAP; risco de tolerância → manter janela livre de pelo menos 8h sem nitrato; contraindicação absoluta com inibidores de fosfodiesterase 5 (sildenafil)",
+        "Aumentam a contratilidade cardíaca",
+        "Aumentam a pré-carga",
+        "Podem ser usados livremente com sildenafil sem risco"
+      ],
+      "correct": 0,
+      "expl": "Nitratos: doadores de NO → vasodilatação venosa > arterial → ↓ pré-carga (e secundariamente ↓ pós-carga). Indicação: angina (alívio sintomático), edema agudo pulmonar, IC descompensada. Tolerância: tratar com janela livre de 8-12h sem nitrato. CONTRAINDICAÇÃO ABSOLUTA: associação com sildenafil/tadalafil/vardenafil (hipotensão grave). NÃO usar em IAM de VD (hipotensão refratária por dependência de pré-carga).",
+      "difficulty": "medium",
+      "tags": ["nitrato", "isossorbida"]
+    },
+    {
+      "type": "mc",
+      "topic": "Nitroprussiato",
+      "q": "Nitroprussiato de sódio é utilizado em emergência hipertensiva. Sobre ele é CORRETO afirmar:",
+      "options": [
+        "Doador de NO, ação rápida (segundos) e curta, BIC obrigatória; risco de toxicidade por cianeto e tiocianato em uso prolongado ou em IR; reservar para emergência hipertensiva com risco de vida",
+        "Pode ser administrado VO de forma segura",
+        "Não causa hipotensão",
+        "É um IECA de ação ultrarrápida"
+      ],
+      "correct": 0,
+      "expl": "Nitroprussiato: vasodilatador arterial E venoso por NO. Ação em segundos. Uso EV em BIC, com proteção de luz (fotossensível). Indicado em emergência hipertensiva grave, dissecção de aorta (associado a BB), EAP refratário. Risco de toxicidade em uso prolongado e em insuficiência renal — preferir alternativas se possível.",
+      "difficulty": "hard",
+      "tags": ["nitroprussiato", "emergencia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Digoxina",
+      "q": "Sobre a digoxina, assinale a CORRETA:",
+      "options": [
+        "Inotrópica positiva (inibe Na/K-ATPase, aumenta Ca intracelular) e cronotrópica negativa; janela terapêutica estreita; indicação atual: IC com FE reduzida sintomática apesar de terapia otimizada ou FA com FC alta; cuidado em hipocalemia (aumenta toxicidade)",
+        "É um diurético de alça",
+        "Não tem interação com hipocalemia",
+        "Tem janela terapêutica ampla, dispensa monitorização"
+      ],
+      "correct": 0,
+      "expl": "Digoxina: inibe Na/K-ATPase → ↑ Na intracelular → ↑ Ca intracelular (via trocador Na/Ca) → ↑ contratilidade. Também aumenta tônus vagal (bradicardia, ↓ condução AV). Janela estreita (toxicidade > 2 ng/mL). EA: arritmias (bradicardia, BAV, ESV, TV bidirecional), náusea, visão amarelada (xantopsia). HIPOcalemia AUMENTA toxicidade (compete pelo sítio na bomba). Antídoto: anticorpo antidigoxina (Digibind). Indicação atual: IC com sintomas apesar de terapia otimizada, controle de FC em FA.",
+      "difficulty": "hard",
+      "tags": ["digoxina", "inotropico"]
+    },
+    {
+      "type": "mc",
+      "topic": "Ivabradina",
+      "q": "Ivabradina tem mecanismo único. Assinale a CORRETA:",
+      "options": [
+        "Inibe seletivamente a corrente If do nó sinusal, reduzindo a FC sem afetar contratilidade, condução AV ou PA; indicada em IC com FE ≤ 35%, ritmo sinusal e FC ≥ 70 bpm apesar de BB em dose máxima tolerada",
+        "É um BB cardiosseletivo",
+        "Bloqueia canais de cálcio",
+        "Tem efeito inotrópico positivo"
+      ],
+      "correct": 0,
+      "expl": "Ivabradina inibe a corrente If (funny channel) do nó sinusal → reduz FC sem afetar inotropismo, condução AV ou PA. Indicação: IC com FE reduzida (≤35%), ritmo sinusal, FC ≥ 70 bpm apesar de BB em dose máxima tolerada (estudo SHIFT). EA típico: fosfenos (sensação luminosa transitória), bradicardia. Sem efeito em FA.",
+      "difficulty": "medium",
+      "tags": ["ivabradina", "ic"]
+    },
+    {
+      "type": "mc",
+      "topic": "Dobutamina",
+      "q": "Dobutamina é indicada em IC descompensada com baixo débito. Mecanismo principal?",
+      "options": [
+        "Agonista β1 (e modestamente β2) — inotrópica positiva e cronotrópica positiva; usada IV em UTI; tolerância rápida e risco de arritmias",
+        "Antagonista β1 com efeito vasodilatador",
+        "Diurético tiazídico de uso parenteral",
+        "Inibidor de fosfodiesterase 3"
+      ],
+      "correct": 0,
+      "expl": "Dobutamina: agonista β1 (predominante) com efeito modesto em β2. Aumenta contratilidade e FC; vasodilatação leve por β2. Indicada em IC descompensada com baixo débito (ponte para definição, choque cardiogênico). Uso IV em BIC com monitorização. EA: taquicardia, arritmias, tolerância (downregulation β após 72h). Milrinona (inibidor de PDE3) é alternativa, especialmente em paciente em uso crônico de BB.",
+      "difficulty": "medium",
+      "tags": ["dobutamina", "inotropico"]
+    },
+    {
+      "type": "mc",
+      "topic": "Escolha em HAS gestante",
+      "q": "Gestante de 26 semanas com PA 156x102 confirmada. Qual o anti-hipertensivo de PRIMEIRA escolha?",
+      "options": [
+        "Metildopa (escolha clássica e segura) ou alternativas: nifedipino de liberação prolongada, hidralazina; em crise: hidralazina IV ou nifedipino VO",
+        "Enalapril (IECA de primeira linha em todos os contextos)",
+        "Losartana (BRA seguro na gestação)",
+        "Atenolol (BB cardiosseletivo seguro até o termo)"
+      ],
+      "correct": 0,
+      "expl": "Drogas seguras na gestação: metildopa (clássica), hidralazina, nifedipino (LP). IECA e BRA são CONTRAINDICADOS (teratogênicos, oligoidrâmnio, IRA fetal). Atenolol foi associado a RCIU se usado precocemente — preferir metildopa. Em crise hipertensiva da gestação: hidralazina IV ou nifedipino VO. Sulfato de magnésio para profilaxia/tratamento de eclâmpsia (não é anti-hipertensivo principal).",
+      "difficulty": "medium",
+      "tags": ["gestacao", "metildopa", "escolha"]
+    },
+    {
+      "type": "mc",
+      "topic": "Quadrupla da IC com FE reduzida",
+      "q": "Quais são os 4 pilares atuais do tratamento da IC com FE reduzida com benefício de mortalidade?",
+      "options": [
+        "BB + IECA/BRA (ou ARNI) + espironolactona + iSGLT-2 — os 4 com benefício de mortalidade demonstrado",
+        "Apenas furosemida em dose alta",
+        "Digoxina + diurético + IECA",
+        "BCC + BB + diurético"
+      ],
+      "correct": 0,
+      "expl": "Quadrupla terapia da ICFEr: 1) BB (carvedilol, succinato de metoprolol ou bisoprolol), 2) IECA, BRA ou preferencialmente ARNI (sacubitril/valsartana — ARNI é BRA + inibidor de neprilisina, NÃO é um BRA simples), 3) espironolactona ou eplerenona, 4) iSGLT-2 (dapa ou empa). Diurético (furosemida) trata congestão mas NÃO muda mortalidade. Digoxina e ivabradina são adições sintomáticas.",
+      "difficulty": "hard",
+      "tags": ["icfer", "quadrupla"]
+    },
+    {
+      "type": "mc",
+      "topic": "Tríade nefrotóxica · IECA + espirono + AINE",
+      "q": "Idoso de 74 anos em uso crônico de enalapril e espironolactona consulta por dor lombar e recebe ibuprofeno 600 mg 8/8h. Após 72h volta com fraqueza, oligúria, K+ 6,7 e creatinina dobrou. Qual a explicação?",
+      "options": [
+        "Tríade clássica nefrotóxica: IECA + espironolactona + AINE → IRA pré-renal e hipercalemia por bloqueio do SRAA + inibição da prostaglandina renal + retenção de K+",
+        "Pielonefrite aguda por ibuprofeno",
+        "Rabdomiólise por idade",
+        "Hipoaldosteronismo primário descompensado"
+      ],
+      "correct": 0,
+      "expl": "Combinação clássica que cai em prova: IECA/BRA reduzem Ang II → ↓ vasoconstrição da arteríola eferente. Espironolactona bloqueia aldosterona → retém K+. AINE inibem prostaglandinas (que vasodilatam a arteríola aferente) → ↓ fluxo glomerular. Resultado: IRA pré-renal + hipercalemia. Sempre pesquisar AINE recente quando IECA/BRA + diurético + IR aguda.",
+      "difficulty": "medium",
+      "tags": ["interacao", "iecaepiroaine", "nefrotoxico"]
+    },
+    {
+      "type": "mc",
+      "topic": "Hidralazina · lúpus medicamentoso",
+      "q": "Mulher 52a em uso de hidralazina há 9 meses por HAS refratária apresenta artralgias, exantema malar e ANA positivo (anti-histona). Qual a hipótese?",
+      "options": [
+        "Lúpus eritematoso medicamentoso induzido por hidralazina (mais comum em acetiladores lentos); reverte com suspensão",
+        "Esclerose sistêmica progressiva",
+        "Artrite reumatoide de início tardio",
+        "Síndrome de Sjögren"
+      ],
+      "correct": 0,
+      "expl": "Hidralazina é causa clássica de lúpus medicamentoso (junto com procainamida, isoniazida e BB em menor grau). Mais comum em acetiladores lentos. Quadro: artralgia, serosite, exantema, ANA+ com PADRÃO ANTI-HISTONA (vs anti-dsDNA do LES idiopático). Sem nefrite e sem comprometimento SNC. Suspender a droga = resolução.",
+      "difficulty": "medium",
+      "tags": ["hidralazina", "lupus-medicamentoso"]
+    },
+    {
+      "type": "mc",
+      "topic": "Nitrato em IAM de VD",
+      "q": "Homem 58a com IAM inferior, recebe nitroglicerina sublingual e cai a PA para 78x40 com piora da perfusão. Qual a explicação?",
+      "options": [
+        "IAM inferior com acometimento de VD: dependência crítica de pré-carga; nitrato venodilatou e desabou a pré-carga do VD → colapso hemodinâmico",
+        "Reação alérgica imediata à nitroglicerina",
+        "Embolia pulmonar associada",
+        "Sangramento ativo do tubo digestivo"
+      ],
+      "correct": 0,
+      "expl": "30-50% dos IAM de parede inferior envolvem também o VD (artéria coronária direita irriga ambos). O VD com isquemia depende da pré-carga para manter o débito. Nitrato (venodilatador) cai a pré-carga e precipita choque. Por isso: em IAM inferior + hipotensão = pensar em VD e EVITAR nitrato. Pedir derivações direitas (V3R, V4R). Tratamento: volume IV (cristaloide) + suporte inotrópico se necessário.",
+      "difficulty": "medium",
+      "tags": ["nitrato", "iam-vd", "armadilha"]
+    },
+    {
+      "type": "mc",
+      "topic": "Tiazídico · hiponatremia",
+      "q": "Senhora 78a, magra, em uso de hidroclorotiazida por HAS. Aparece com confusão, marcha instável e Na+ sérico de 118 mEq/L. Qual a relação fisiopatológica?",
+      "options": [
+        "Tiazídico inibe a diluição urinária (NaCl no túbulo distal) → ADH mantém reabsorção de água livre → hiponatremia, frequente em idosa magra e desnutrida",
+        "Tiazídico causa secreção excessiva de ADH no SNC",
+        "Hiponatremia é dilucional por sobrecarga hídrica do diurético",
+        "Não há relação entre tiazídico e Na+"
+      ],
+      "correct": 0,
+      "expl": "Tiazídicos atuam no túbulo contorcido distal — segmento da diluição urinária. Inibindo Na-Cl ali, o paciente não consegue eliminar água livre adequadamente. Combinado com ADH (que reabsorve água), gera hiponatremia. Mais comum em idosa magra (menor massa, menor diluição), com baixa ingesta de sódio. Pegadinha clássica. Diuréticos de alça NÃO causam tanto: por agirem no segmento que concentra a urina.",
+      "difficulty": "hard",
+      "tags": ["tiazidico", "hiponatremia"]
+    },
+    {
+      "type": "match",
+      "topic": "Anti-hipertensivos: classe",
+      "prompt": "Associe o fármaco à sua classe.",
+      "leftLabel": "Fármaco",
+      "rightLabel": "Classe",
+      "pairs": [
+        { "id": "enal", "left": "Enalapril", "right": "IECA" },
+        { "id": "los", "left": "Losartana", "right": "BRA" },
+        { "id": "carv", "left": "Carvedilol", "right": "BB não seletivo + α1" },
+        { "id": "ate", "left": "Atenolol", "right": "BB β1 seletivo" },
+        { "id": "anlo", "left": "Anlodipino", "right": "BCC dihidropiridínico" },
+        { "id": "hctz", "left": "Hidroclorotiazida", "right": "Diurético tiazídico" },
+        { "id": "furo", "left": "Furosemida", "right": "Diurético de alça" },
+        { "id": "espir", "left": "Espironolactona", "right": "Antagonista de aldosterona" },
+        { "id": "metd", "left": "Metildopa", "right": "Simpaticolítico central" },
+        { "id": "hidr", "left": "Hidralazina", "right": "Vasodilatador arterial direto" }
+      ],
+      "expl": "Memorize um representante por classe. Sufixos ajudam: '-pril' = IECA, '-sartana' = BRA, '-olol' = BB, '-dipino' = BCC dihidropiridínico, '-tiazida' = tiazídico, '-semida'/'-anida' = alça.",
+      "difficulty": "easy",
+      "tags": ["classes"]
+    },
+    {
+      "type": "match",
+      "topic": "Anti-hipertensivos: EA característico",
+      "prompt": "Associe a classe ao efeito adverso mais característico.",
+      "leftLabel": "Classe",
+      "rightLabel": "EA característico",
+      "pairs": [
+        { "id": "ieca", "left": "IECA", "right": "Tosse seca e angioedema (bradicinina)" },
+        { "id": "bra", "left": "BRA", "right": "Hipercalemia, sem tosse, gestação contraindica" },
+        { "id": "bb", "left": "BB", "right": "Bradicardia, broncoespasmo (não seletivos), fadiga" },
+        { "id": "bcc", "left": "BCC dihidropiridínico", "right": "Edema maleolar (não responde a diurético), rubor" },
+        { "id": "tiaz", "left": "Tiazídico", "right": "Hipocalemia, hipercalcemia, hiperuricemia, hiperglicemia" },
+        { "id": "alca", "left": "Alça", "right": "Hipocalemia, hipocalcemia, ototoxicidade IV rápida" },
+        { "id": "esp", "left": "Espironolactona", "right": "Hipercalemia e ginecomastia" },
+        { "id": "metd", "left": "Metildopa", "right": "Sedação e anemia hemolítica autoimune (Coombs+)" },
+        { "id": "clon", "left": "Clonidina", "right": "Rebote hipertensivo na suspensão abrupta" }
+      ],
+      "expl": "Saber o EA típico evita prescrição errada: BB não seletivo em asmático, IECA em gestante, tiazídico em gotoso, espironolactona em paciente com K alto.",
+      "difficulty": "medium",
+      "tags": ["efeitos-adversos"]
+    },
+    {
+      "type": "match",
+      "topic": "Diuréticos: sítio de ação",
+      "prompt": "Associe o diurético ao sítio do néfron onde atua.",
+      "leftLabel": "Diurético",
+      "rightLabel": "Sítio de ação",
+      "pairs": [
+        { "id": "furo", "left": "Furosemida / Bumetanida", "right": "Alça de Henle (Na-K-2Cl)" },
+        { "id": "hctz", "left": "Hidroclorotiazida / Indapamida", "right": "Túbulo contorcido distal (Na-Cl)" },
+        { "id": "esp", "left": "Espironolactona / Eplerenona", "right": "Túbulo coletor (receptor de aldosterona)" },
+        { "id": "ami", "left": "Amilorida / Triantereno", "right": "Túbulo coletor (canal ENaC)" }
+      ],
+      "expl": "Cada diurético atua em um segmento específico, com perfil de eletrólitos diferentes. Combinar dois (ex: furosemida + espironolactona) potencializa o efeito e protege K+.",
+      "difficulty": "medium",
+      "tags": ["diureticos", "nefron"]
+    },
+    {
+      "type": "case",
+      "topic": "IC descompensada com baixo débito",
+      "subtitle": "Senhor 72 anos, IC há 8 anos, chega ao PS hipotenso e dispneico",
+      "specialty": "Cardiologia · Emergência",
+      "difficulty": "hard",
+      "vignette": "Senhor de 72 anos, IC com FE 28% há 8 anos em uso de carvedilol, enalapril e espironolactona. Chega ao PS com dispneia importante há 24h. PA 88x52, FC 108, FR 28, SpO₂ 92%. Extremidades frias, jugulares ingurgitadas, estertores em bases bilaterais, edema 3+/4 em MMII. Creatinina 1,8 (basal 1,2). Lactato 2,8.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Qual o perfil hemodinâmico e a conduta inicial?",
+          "options": [
+            "Perfil C (frio e úmido): congestão + baixo débito. Suporte com inotrópico (dobutamina) + diurético cauteloso. Manter BB se possível (não suspender se hemodinamicamente estável)",
+            "Perfil A: bem perfundido e seco. Alta com ajuste de medicação",
+            "Choque séptico: ATB amplo espectro",
+            "TEP: trombolítico imediato"
+          ],
+          "correct": 0,
+          "expl": "Stevenson: perfil A (quente/seco), B (quente/úmido), C (frio/úmido), L (frio/seco). Esse é C: congestão (jugulares, estertores, edema) + baixa perfusão (frias, hipotensão, lactato, IRA). Conduta: dobutamina (β1 agonista) para inotropismo + furosemida cautelosa para congestão. BB de uso crônico não deve ser suspenso bruscamente se hemodinamicamente estável."
+        },
+        {
+          "id": "step2",
+          "prompt": "Você inicia dobutamina 5 mcg/kg/min e furosemida 40 mg IV em bólus. Após 4h: PA 102x60, FC 96, diurese 600 mL. Extremidades menos frias. Estertores diminuíram.",
+          "question": "Conduta sobre IECA e antagonista de aldosterona?",
+          "options": [
+            "Suspender enalapril e espironolactona temporariamente pela IRA + hipercalemia potencial. Reintroduzir gradualmente após melhora hemodinâmica e renal",
+            "Aumentar a dose de enalapril para potencializar efeito",
+            "Manter tudo inalterado e não reavaliar até alta",
+            "Trocar enalapril por losartana imediatamente"
+          ],
+          "correct": 0,
+          "expl": "Em IC descompensada com IRA, suspender IECA/BRA e antagonista de aldosterona temporariamente é prudente (risco de piora da função renal e hipercalemia). Reintroduzir gradualmente após estabilização, monitorando creatinina e potássio. Manter BB se hemodinâmica permitir (suspensão abrupta tem rebote)."
+        },
+        {
+          "id": "step3",
+          "prompt": "Após 48h em UTI: hemodinâmica estável sem dobutamina, diurese boa, creatinina caindo, K+ 4,8.",
+          "question": "Como ajustar a quadrupla terapia agora?",
+          "options": [
+            "Após estabilização hemodinâmica e renal, reintroduzir IECA em dose reduzida (ou substituir por sacubitril/valsartana respeitando intervalo de segurança). Reintroduzir antagonista de aldosterona quando K+ < 5,0. Acrescentar dapagliflozina (iSGLT-2)",
+            "Manter só carvedilol e furosemida",
+            "Iniciar digoxina como única adição",
+            "Suspender tudo e dar alta com apenas furosemida"
+          ],
+          "correct": 0,
+          "expl": "Quadrupla terapia da ICFEr: 1) BB, 2) sacubitril/valsartana (preferido) ou IECA/BRA, 3) antagonista de aldosterona (se K e função renal permitirem), 4) iSGLT-2 (mesmo sem DM). Sacubitril/valsartana após washout de 36h do IECA (risco de angioedema). iSGLT-2 reduz hospitalização por IC e melhora prognóstico em pacientes com ICFEr, mesmo sem DM."
+        }
+      ],
+      "outcome": "Após 5 dias, paciente recebe alta em uso de carvedilol, sacubitril/valsartana (titulação progressiva), espironolactona 25 mg e dapagliflozina 10 mg. Ambulatório de IC em 7 dias. Ele agradece e diz: 'doutora, parece que respirei a primeira vez depois de meses'."
+    },
+    {
+      "type": "case",
+      "topic": "Crise hipertensiva",
+      "subtitle": "Mulher 58 anos, PA 222x128 com dor torácica e dispneia",
+      "specialty": "Emergência cardiovascular",
+      "difficulty": "medium",
+      "vignette": "Mulher de 58 anos, HAS há 10 anos com adesão ruim ao tratamento (losartana + hidroclorotiazida). Chega ao PS com cefaleia intensa há 6h, dor torácica em aperto e dispneia. PA 222x128 mmHg em ambos os braços. ECG: hipertrofia de VE, sem isquemia aguda. Troponina inicial normal. Creatinina 1,4. Raio-X de tórax: congestão pulmonar.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Como classificar e qual a estratégia inicial?",
+          "options": [
+            "Emergência hipertensiva (lesão de órgão-alvo aguda: congestão pulmonar, sintomas). Reduzir PA em 25% em 1h com fármaco IV titulável",
+            "Urgência hipertensiva sem dano agudo: ajuste de medicação oral e alta",
+            "PA medida errada: aguardar 1h e remedir",
+            "Crise hipertensiva pseudo: dar diazepam e observar"
+          ],
+          "correct": 0,
+          "expl": "Emergência hipertensiva = PA elevada COM lesão de órgão-alvo aguda (EAP, IAM, AVC, dissecção, eclâmpsia, encefalopatia, IRA). Aqui: dispneia + congestão = EAP hipertensivo. Reduzir PA em ~25% na primeira hora, depois mais gradual. Urgência hipertensiva = PA alta SEM dano agudo (ajuste oral em 24-48h)."
+        },
+        {
+          "id": "step2",
+          "question": "Qual a melhor opção EV nesse caso (emergência hipertensiva com congestão pulmonar)?",
+          "options": [
+            "Nitroglicerina IV em BIC (reduz pré-carga e tem efeito coronariano) + furosemida IV. Considerar nitroprussiato se sem resposta",
+            "Captopril sublingual",
+            "Nifedipino sublingual",
+            "Adenosina IV"
+          ],
+          "correct": 0,
+          "expl": "Em emergência hipertensiva com EAP: nitroglicerina IV (vasodilatador venoso, reduz pré-carga, alivia congestão) + furosemida IV (diurese). Nitroprussiato é alternativa se sem resposta. Captopril sublingual e nifedipino sublingual são CONTRAINDICADOS (queda brusca e imprevisível de PA, isquemia). Adenosina é antiarrítmica, não anti-hipertensiva."
+        },
+        {
+          "id": "step3",
+          "prompt": "Após 30 min de nitroglicerina IV + furosemida 80 mg IV: PA 178x102, dispneia melhorou, raio-X com menos congestão.",
+          "question": "Próximo passo na transição para terapia oral?",
+          "options": [
+            "Iniciar transição gradual para terapia oral (manter ou trocar losartana, otimizar HCTZ, considerar adição de BB ou anlodipino conforme avaliação)",
+            "Suspender todas as medicações orais por 24h",
+            "Aumentar a infusão de nitroglicerina ad libitum",
+            "Iniciar furosemida em dose única semanal"
+          ],
+          "correct": 0,
+          "expl": "Após estabilização inicial, transição cuidadosa para terapia oral. Avaliar adesão, otimizar esquema (geralmente combinação tripla: BRA/IECA + BCC dihidropiridínico + tiazídico). Investigar causas secundárias se HAS resistente. Educar paciente sobre adesão."
+        }
+      ],
+      "outcome": "Alta em 48h com tripla otimizada: losartana 100 mg + anlodipino 10 mg + HCTZ 25 mg. Consulta com nefrologia para avaliar HAS resistente (mais 3 drogas em dose máxima). Paciente passa a usar despertador para medicação e aderência melhora."
+    },
+    {
+      "type": "flashcard",
+      "topic": "Enalapril",
+      "front": "Enalapril: classe, mecanismo e EA típico?",
+      "back": "IECA. Inibe ECA → ↓ Ang II e ↑ bradicinina. EA: tosse seca, angioedema (raro), hipercalemia, IRA em estenose bilateral de artéria renal. CONTRAINDICADO na gestação.",
+      "tags": ["ieca"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Captopril",
+      "front": "Captopril: diferença para enalapril e armadilha de uso agudo?",
+      "back": "IECA de meia-vida curta (3x/dia). VO em urgência hipertensiva (pico em 15-30 min). ARMADILHA: NÃO é sublingual — não há absorção sublingual real, o efeito agudo vem da deglutição. Mesmos EA dos demais IECA.",
+      "tags": ["ieca"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Losartana",
+      "front": "Losartana: classe e vantagem sobre IECA?",
+      "back": "BRA. Bloqueia receptor AT1. NÃO causa tosse (sem efeito sobre bradicinina). Útil em pacientes com tosse por IECA. CONTRAINDICADO na gestação.",
+      "tags": ["bra"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Olmesartana",
+      "front": "Olmesartana: alerta específico?",
+      "back": "BRA. Pode causar enteropatia sprue-like (diarreia crônica, perda de peso) — quadro raro mas reversível com suspensão. Mesmas indicações dos outros BRA.",
+      "tags": ["bra"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Valsartana",
+      "front": "Valsartana: combinação importante?",
+      "back": "BRA. Componente do sacubitril/valsartana (ENTRESTO), nova base do tratamento de IC com FE reduzida (estudo PARADIGM-HF). Reduz hospitalização e mortalidade.",
+      "tags": ["bra"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Atenolol",
+      "front": "Atenolol: seletividade e papel atual?",
+      "back": "BB β1 seletivo. Hidrofílico, baixa penetração no SNC. NÃO tem benefício de mortalidade em IC (não usar). Sem efeito ISA. Pode ser usado em HAS, FA com FC alta, angina.",
+      "tags": ["betabloqueador"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Propranolol",
+      "front": "Propranolol: seletividade e indicações ímpares?",
+      "back": "BB não seletivo (β1+β2). Cuidado em asma, DPOC. Indicações: HAS, FA, ansiedade situacional (tremor essencial), profilaxia de enxaqueca, hipertireoidismo (sintomático), profilaxia de sangramento por varizes em hepatopata.",
+      "tags": ["betabloqueador"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Esmolol",
+      "front": "Esmolol: característica única?",
+      "back": "BB β1 IV em BIC. Meia-vida 9 min (esterase). Usado em taquicardia supraventricular peri-operatória, crise hipertensiva. Suspendeu → efeito acaba em minutos.",
+      "tags": ["betabloqueador"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Carvedilol",
+      "front": "Carvedilol: mecanismo e papel em IC?",
+      "back": "BB não seletivo + α1 bloqueador (vasodilatação). Um dos 3 BB com benefício de mortalidade em IC com FE reduzida. Iniciar com paciente euvolêmico, titular.",
+      "tags": ["betabloqueador", "ic"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Nebivolol",
+      "front": "Nebivolol: diferencial?",
+      "back": "BB β1 seletivo + libera óxido nítrico endotelial (vasodilatação). Bom em idosos, hipertensos com disfunção endotelial. Sem benefício clássico em IC.",
+      "tags": ["betabloqueador"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Metoprolol",
+      "front": "Metoprolol: diferença entre succinato e tartarato?",
+      "back": "SUCCINATO de metoprolol = liberação prolongada, uso em IC com benefício de mortalidade. TARTARATO = liberação imediata (2x/dia), NÃO usar em IC. Pegadinha clássica.",
+      "tags": ["betabloqueador", "ic"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Prazosina",
+      "front": "Prazosina: indicações fora HAS?",
+      "back": "α1 bloqueador. EA: hipotensão postural (1ª dose, à noite). Indicação fora HAS: HPB sintomática e pesadelos no TEPT (revisões militares).",
+      "tags": ["alfa1"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Doxazosina",
+      "front": "Doxazosina: lição do estudo ALLHAT?",
+      "back": "α1 bloqueador. Foi RETIRADA do ALLHAT por inferioridade na prevenção de IC versus clortalidona. Não é 1ª linha em HAS isolada. Usada em HPB.",
+      "tags": ["alfa1"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tansulosina",
+      "front": "Tansulosina: indicação e diferencial?",
+      "back": "α1A bloqueador seletivo (próstata > vasos). Tratamento da HPB com menos hipotensão postural. EA: ejaculação retrógrada. Cuidado: síndrome da íris flácida em cirurgia de catarata.",
+      "tags": ["alfa1", "hpb"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Metildopa",
+      "front": "Metildopa: indicação principal e EA?",
+      "back": "Simpaticolítico central (agonista α2). Escolha clássica em HAS na gestação. EA: sedação, boca seca, anemia hemolítica autoimune (Coombs+), hepatite.",
+      "tags": ["centrais", "gestacao"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Clonidina",
+      "front": "Clonidina: cuidado clássico?",
+      "back": "Simpaticolítico central. NUNCA suspender abruptamente: rebote hipertensivo intenso (taquicardia, hipertensão, sudorese). Sempre desmamar. EA: sedação, boca seca.",
+      "tags": ["centrais"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Anlodipino",
+      "front": "Anlodipino: classe e EA típico?",
+      "back": "BCC dihidropiridínico de longa duração. Vasodilatador arterial. EA: edema maleolar (não responde a diurético), rubor facial. Pode ser usado em IC (anlodipino e felodipino são os dihidropiridínicos preferidos em IC).",
+      "tags": ["bcc"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Nifedipino",
+      "front": "Nifedipino: forma e cuidado?",
+      "back": "BCC dihidropiridínico. Liberação IMEDIATA (sublingual) NUNCA em crise hipertensiva (queda imprevisível, isquemia). Liberação PROLONGADA OK em HAS crônica. Também usado em tocólise.",
+      "tags": ["bcc"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Hidroclorotiazida",
+      "front": "Hidroclorotiazida: 5 alterações metabólicas?",
+      "back": "Tiazídico. Mnemônico: ↓ Na, ↓ K, ↑ Ca, ↑ úrico, ↑ glicose (e ↑ lipídeos). Eficaz em HAS e em hipercalciúria idiopática (reduz cálculo renal de cálcio).",
+      "tags": ["tiazidico"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Indapamida",
+      "front": "Indapamida: vantagem sobre HCTZ?",
+      "back": "Tiazídico-símile. Menos efeitos metabólicos que HCTZ. Pode ser preferida em pacientes com risco metabólico (DM, gota).",
+      "tags": ["tiazidico"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Furosemida",
+      "front": "Furosemida: mecanismo, indicação, EA típico?",
+      "back": "Diurético de alça (Na-K-2Cl). Indicação principal: congestão da IC e edema. Funciona mesmo em TFG baixa. EA: hipocalemia, hipocalcemia, ototoxicidade (IV rápida), alcalose metabólica.",
+      "tags": ["alca"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Bumetanida",
+      "front": "Bumetanida: diferença para furosemida?",
+      "back": "Diurético de alça mais potente que furosemida, com maior biodisponibilidade oral. Útil quando furosemida oral falha (edema intestinal em IC). Mesmas indicações e EA.",
+      "tags": ["alca"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Espironolactona",
+      "front": "Espironolactona: benefício de mortalidade?",
+      "back": "Antagonista do receptor mineralocorticoide. RALES: redução de mortalidade em IC com FE reduzida. EA: hipercalemia, ginecomastia (homens). Também usada em hiperaldosteronismo e SOP.",
+      "tags": ["poupador-k", "ic"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Eplerenona",
+      "front": "Eplerenona: vantagem sobre espironolactona?",
+      "back": "Antagonista mineralocorticoide MAIS seletivo (sem efeito antiandrogênico) → sem ginecomastia. EMPHASIS-HF mostrou benefício em IC com FE reduzida. EA principal: hipercalemia.",
+      "tags": ["poupador-k", "ic"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Amilorida",
+      "front": "Amilorida: mecanismo (diferente de espironolactona)?",
+      "back": "Bloqueia canal ENaC no túbulo coletor (NÃO é antagonista de aldosterona). Poupador de K+. Útil em diabetes insípido por lítio. Geralmente associado a tiazídico.",
+      "tags": ["poupador-k"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Triantereno",
+      "front": "Triantereno: característica?",
+      "back": "Bloqueia canal ENaC. Poupador de K+. Geralmente em combinação fixa com HCTZ. Pode causar cristalúria. Menos usado isoladamente.",
+      "tags": ["poupador-k"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Hidralazina",
+      "front": "Hidralazina: mecanismo, indicação e cuidado?",
+      "back": "Vasodilatador arterial direto. Indicação: HAS na gestação (segura), HAS resistente, IC com FE reduzida em afro-descendentes (com isossorbida). EA: taquicardia reflexa, retenção, lupus-like em dose alta.",
+      "tags": ["vasodilatador"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Nitroprussiato",
+      "front": "Nitroprussiato: indicação e toxicidade?",
+      "back": "Doador de NO, vasodilatador arterial e venoso. EV em BIC, fotossensível. Emergência hipertensiva grave, dissecção de aorta. Risco de toxicidade em uso prolongado e em IR — preferir alternativas se possível.",
+      "tags": ["vasodilatador", "emergencia"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Isossorbida",
+      "front": "Isossorbida (mono ou dinitrato): mecanismo e uso crônico?",
+      "back": "Nitrato oral. Vasodilatador venoso > arterial (↓ pré-carga). Usado em angina crônica e IC. Tolerância: janela livre de 8-12h sem nitrato. Contraindicado com sildenafil.",
+      "tags": ["nitrato"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Nitroglicerina",
+      "front": "Nitroglicerina: indicação aguda?",
+      "back": "Nitrato sublingual ou IV. Angina aguda (SL), emergência hipertensiva com isquemia ou EAP (IV em BIC). Evitar em IAM de VD (hipotensão). Contraindicado com sildenafil.",
+      "tags": ["nitrato"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Propatilnitrato",
+      "front": "Propatilnitrato: característica?",
+      "back": "Nitrato oral usado no Brasil. Similar à isossorbida. Profilaxia de angina crônica estável. Mesmos cuidados de tolerância e contraindicação com inibidores de PDE5.",
+      "tags": ["nitrato"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Minoxidil",
+      "front": "Minoxidil: indicação e EA interessantes?",
+      "back": "Vasodilatador arterial direto potente (ativa canal de K+). HAS refratária (com BB e diurético). Tópico em alopecia androgenética. EA: hirsutismo, taquicardia, retenção hídrica acentuada.",
+      "tags": ["vasodilatador"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Digoxina",
+      "front": "Digoxina: indicação atual, antídoto e cuidado?",
+      "back": "Inibidor da Na/K-ATPase. Inotropismo + bradicardia. Indicação: IC com sintomas apesar de terapia otimizada, controle de FC em FA. Janela estreita. Toxicidade aumentada por hipoK. Antídoto: anticorpo antidigoxina (Digibind).",
+      "tags": ["digoxina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Ivabradina",
+      "front": "Ivabradina: alvo e indicação?",
+      "back": "Inibe corrente If do nó sinusal → ↓ FC sem afetar inotropismo. Indicação: IC com FE ≤35%, ritmo sinusal, FC ≥70 bpm apesar de BB em dose máxima tolerada. EA: fosfenos.",
+      "tags": ["ivabradina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Dobutamina",
+      "front": "Dobutamina: mecanismo, indicação, cuidado?",
+      "back": "Agonista β1 (e modesto β2). Inotropismo + cronotropismo + leve vasodilatação. IC descompensada com baixo débito, choque cardiogênico. Tolerância em 72h. Risco de arritmia.",
+      "tags": ["dobutamina"]
+    }
+  ]
+}
