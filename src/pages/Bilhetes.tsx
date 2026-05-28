@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
-import BilheteCard from '../components/BilheteCard';
+import BilheteFocus from '../components/BilheteFocus';
+import Eyebrow from '../components/ui/Eyebrow';
+import NoteCard from '../components/NoteCard';
+import { BILHETES, type Bilhete } from '../data/bilhetes';
 import {
   currentBilhete,
   formatRotationCountdown,
@@ -9,9 +11,56 @@ import {
 } from '../lib/bilhete';
 import { useUser } from '../lib/useUser';
 
+const FIVE_HOURS_MS = 5 * 60 * 60 * 1000;
+const FEED_SIZE = 6;
+
+function bucketIndex(now: number) {
+  return Math.floor(now / FIVE_HOURS_MS);
+}
+
+function timeLabelFor(date: Date, idx: number): string {
+  const now = new Date();
+  const isToday =
+    date.getFullYear() === now.getFullYear() &&
+    date.getMonth() === now.getMonth() &&
+    date.getDate() === now.getDate();
+  const yesterday = new Date(now);
+  yesterday.setDate(now.getDate() - 1);
+  const isYesterday =
+    date.getFullYear() === yesterday.getFullYear() &&
+    date.getMonth() === yesterday.getMonth() &&
+    date.getDate() === yesterday.getDate();
+  const hh = String(date.getHours()).padStart(2, '0');
+  const mm = String(date.getMinutes()).padStart(2, '0');
+  if (idx === 0) return 'há poucos minutos';
+  if (isToday) return `hoje, ${hh}:${mm}`;
+  if (isYesterday) return `ontem, ${hh}:${mm}`;
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  return `${day}/${month}, ${hh}:${mm}`;
+}
+
+interface FeedItem {
+  bilhete: Bilhete;
+  timeLabel: string;
+}
+
+function buildFeed(now: number = Date.now()): FeedItem[] {
+  if (BILHETES.length === 0) return [];
+  const baseBucket = bucketIndex(now);
+  const out: FeedItem[] = [];
+  for (let i = 0; i < FEED_SIZE; i++) {
+    const b = BILHETES[(baseBucket - i + BILHETES.length * 100) % BILHETES.length];
+    const ts = (baseBucket - i) * FIVE_HOURS_MS;
+    out.push({ bilhete: b, timeLabel: timeLabelFor(new Date(ts), i) });
+  }
+  return out;
+}
+
 export default function Bilhetes() {
   const { user, loading } = useUser();
   const [rotationTick, setRotationTick] = useState(0);
+  const [focusBilhete, setFocusBilhete] = useState<Bilhete | null>(null);
 
   useEffect(() => {
     const delay = nextRotationIn();
@@ -19,7 +68,8 @@ export default function Bilhetes() {
     return () => clearTimeout(timer);
   }, [rotationTick]);
 
-  const bilhete = useMemo(() => currentBilhete(), [rotationTick]);
+  const feed = useMemo(() => buildFeed(), [rotationTick]);
+  const current = useMemo(() => currentBilhete(), [rotationTick]);
   const nextIn = useMemo(() => formatRotationCountdown(nextRotationIn()), [rotationTick]);
 
   if (loading) return null;
@@ -27,34 +77,54 @@ export default function Bilhetes() {
     return <Navigate to="/app" replace />;
   }
 
-  const partner = user?.partnerName?.trim() || '';
+  const partner = user?.partnerName?.trim() || 'César';
 
   return (
-    <div className="mx-auto max-w-2xl space-y-10">
-      <header>
-        <Link
-          to="/app"
-          className="inline-flex items-center text-[11px] uppercase tracking-[0.22em] text-muted transition hover:text-wine"
-        >
-          <ArrowLeft className="mr-1 h-3 w-3" strokeWidth={2} /> Voltar
-        </Link>
-        <div className="eyebrow-gold mt-4">do seu namorado</div>
-        <h1 className="display-title-sm mt-1">Bilhete do dia</h1>
-        <p className="mt-3 max-w-xl font-serif text-lg italic leading-relaxed text-ink-soft">
-          uma cartinha rápida pra lembrar que ele tá aqui. troca a cada 5 horas.
+    <section className="bg-paper">
+      <div className="mx-auto w-full max-w-5xl px-6 py-14 sm:px-10 sm:py-20 lg:px-20">
+        <Eyebrow>a cada 5 horas</Eyebrow>
+
+        <h1 className="mt-4 font-display font-light leading-[1.05] text-ink text-[clamp(2.5rem,7vw,4.5rem)]">
+          Bilhetes
+        </h1>
+        <p className="mt-4 max-w-xl font-body text-lg italic leading-relaxed text-mute">
+          recados do seu namorado pra te dar forças, doutora.
         </p>
-      </header>
 
-      <BilheteCard bilhete={bilhete} signature={partner || undefined} uid={user?.uid} />
+        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+          {feed.map((item, i) => (
+            <NoteCard
+              key={`${item.bilhete.id}-${i}`}
+              body={item.bilhete.body}
+              timeLabel={item.timeLabel}
+              signature={partner}
+              highlighted={i % 2 === 0}
+              onClick={
+                item.bilhete.id === current.id
+                  ? () => setFocusBilhete(item.bilhete)
+                  : undefined
+              }
+            />
+          ))}
+        </div>
 
-      <div className="flex items-center justify-between border-t border-line pt-5 text-[11px] uppercase tracking-[0.22em] text-muted">
-        <span>novo em {nextIn}</span>
-        {!partner && (
-          <Link to="/perfil" className="text-wine transition hover:text-wine-deep">
-            configurar nome do namorado
-          </Link>
-        )}
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-6 font-display text-[11px] uppercase tracking-[0.22em] text-mute">
+          <span>novo em {nextIn}</span>
+          {(!user?.partnerName || user.partnerName.trim() === '') && (
+            <Link to="/perfil" className="italic text-wine hover:text-[#5A0F22]">
+              configurar nome do namorado
+            </Link>
+          )}
+        </div>
       </div>
-    </div>
+
+      <BilheteFocus
+        open={focusBilhete !== null}
+        bilhete={focusBilhete}
+        signature={partner}
+        uid={user?.uid}
+        onClose={() => setFocusBilhete(null)}
+      />
+    </section>
   );
 }

@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Heart, Stethoscope } from 'lucide-react';
+import DayChip from '../components/DayChip';
+import Eyebrow from '../components/ui/Eyebrow';
+import Field from '../components/ui/Field';
+import RomanNumeral from '../components/ui/RomanNumeral';
 import { logout } from '../lib/auth';
 import { db } from '../lib/db';
 import { useUser } from '../lib/useUser';
@@ -78,161 +82,150 @@ export default function Profile() {
   }
 
   const isNamorado = user.displayMode === 'namorado';
+  const dirty =
+    name.trim() !== user.name || partner.trim() !== (user.partnerName ?? '');
 
   return (
-    <div className="mx-auto max-w-2xl space-y-10">
-      <header>
-        <div className="eyebrow-gold mb-3">conta</div>
-        <h1 className="display-title-sm">Perfil</h1>
-      </header>
+    <section className="bg-paper">
+      <div className="mx-auto w-full max-w-4xl px-6 py-14 sm:px-10 sm:py-20 lg:px-20">
+        <Eyebrow>conta</Eyebrow>
+        <h1 className="mt-4 font-display font-light leading-[1.05] text-ink text-[clamp(2.5rem,7vw,4.5rem)]">
+          Perfil
+        </h1>
 
-      <section className="card space-y-4 p-6 sm:p-7">
-        <div className="flex items-baseline gap-3">
-          <span className="font-serif text-2xl italic leading-none text-gold opacity-60">I</span>
-          <h2 className="font-serif text-xl italic text-wine-deep">Seus dados</h2>
-        </div>
-        <div>
-          <label htmlFor="name" className="mb-1 block text-[11px] uppercase tracking-[0.22em] text-muted">
-            Nome
-          </label>
-          <input
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="input-elegant"
-          />
-        </div>
-        <div>
-          <label className="mb-1 block text-[11px] uppercase tracking-[0.22em] text-muted">E-mail</label>
-          <div className="text-base text-ink">{user.email}</div>
-        </div>
-        <div>
-          <label htmlFor="partner" className="mb-1 block text-[11px] uppercase tracking-[0.22em] text-muted">
-            Nome do seu namorado
-          </label>
-          <input
-            id="partner"
-            value={partner}
-            onChange={(e) => setPartner(e.target.value)}
-            className="input-elegant"
-            placeholder="quem assina os bilhetes (ex: Cesar)"
-          />
-          <p className="mt-1 text-[11px] italic text-muted">
-            aparece como assinatura nos bilhetes que rolam a cada 5 horas.
-          </p>
-        </div>
-        {saveError && (
-          <div className="rounded-xl border-l-2 border-red bg-red-soft px-4 py-3 text-sm text-ink">
-            {saveError}
+        {/* I — Seus dados */}
+        <div className="card mt-10 p-8 sm:p-10">
+          <div className="flex items-baseline gap-4">
+            <RomanNumeral value="I" />
+            <h2 className="font-display text-2xl italic text-ink">Seus dados</h2>
           </div>
-        )}
-        <div className="flex justify-end gap-3">
-          {saved && <span className="self-center text-xs italic text-green">salvo</span>}
-          <button
-            onClick={saveName}
-            disabled={
-              savingName ||
-              !name.trim() ||
-              (name.trim() === user.name && partner.trim() === (user.partnerName ?? ''))
-            }
-            className="btn-primary disabled:cursor-not-allowed"
-          >
-            {savingName ? 'Salvando...' : 'Salvar'}
-          </button>
-        </div>
-      </section>
 
-      <section className="card space-y-4 p-6 sm:p-7">
-        <div className="flex items-baseline gap-3">
-          <span className="font-serif text-2xl italic leading-none text-gold opacity-60">II</span>
-          <h2 className="font-serif text-xl italic text-wine-deep">Modo de mensagens</h2>
-        </div>
-        <p className="text-sm leading-relaxed text-ink-soft">
-          No <strong>modo namorado</strong> aparecem as frases carinhosas. No{' '}
-          <strong>modo doutora</strong> elas ficam neutras e profissionais (bom para estudar em
-          público).
-        </p>
+          <div className="mt-6 space-y-5">
+            <Field
+              id="name"
+              label="nome"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <Field id="email" label="e-mail" readonlyValue={user.email} />
+            <Field
+              id="partner"
+              label="nome do seu namorado"
+              value={partner}
+              onChange={(e) => setPartner(e.target.value)}
+              placeholder="quem assina os bilhetes (ex: Cesar)"
+              hint="aparece como assinatura nos bilhetes que rolam a cada 5 horas."
+            />
+          </div>
 
-        <div className="grid grid-cols-2 gap-3">
-          <ModeOption
-            active={isNamorado}
-            Icon={Heart}
-            label="modo namorado"
-            sample="boa, amor, mandou bem demais"
-            onClick={() => setDisplayMode('namorado')}
-          />
-          <ModeOption
-            active={!isNamorado}
-            Icon={Stethoscope}
-            label="modo doutora"
-            sample="resposta correta. continue."
-            onClick={() => setDisplayMode('doutora')}
-          />
+          {saveError && (
+            <div className="mt-4 rounded-2xl border-l-2 border-red bg-red-soft px-4 py-3 font-body text-sm text-txt">
+              {saveError}
+            </div>
+          )}
+
+          <div className="mt-6 flex items-center justify-end gap-3">
+            {saved && (
+              <span className="font-display text-sm italic text-wine">salvo</span>
+            )}
+            <button
+              type="button"
+              onClick={saveName}
+              disabled={savingName || !name.trim() || !dirty}
+              className="btn-primary disabled:cursor-not-allowed"
+            >
+              {savingName ? 'salvando…' : 'salvar'}
+            </button>
+          </div>
         </div>
 
-        <div className="flex items-center justify-between gap-3 rounded-xl bg-bg-soft px-4 py-3">
-          <span className="font-serif italic text-wine-deep">
-            Atualmente: {isNamorado ? 'modo namorado' : 'modo doutora'}
-          </span>
-          <button
-            onClick={() => setDisplayMode(isNamorado ? 'doutora' : 'namorado')}
-            className="btn-secondary text-xs"
-          >
-            Trocar para {isNamorado ? 'doutora' : 'namorado'}
-          </button>
-        </div>
-      </section>
+        {/* II — Modo de mensagens */}
+        <div className="card mt-6 p-8 sm:p-10">
+          <div className="flex items-baseline gap-4">
+            <RomanNumeral value="II" />
+            <h2 className="font-display text-2xl italic text-ink">Modo de mensagens</h2>
+          </div>
 
-      <section className="card space-y-4 p-6 sm:p-7">
-        <div className="flex items-baseline gap-3">
-          <span className="font-serif text-2xl italic leading-none text-gold opacity-60">III</span>
-          <h2 className="font-serif text-xl italic text-wine-deep">Meta diária</h2>
+          <p className="mt-5 font-body text-[15px] leading-relaxed text-txt/85">
+            No <strong className="text-ink">modo namorado</strong> aparecem as frases carinhosas.
+            No <strong className="text-ink">modo doutora</strong> elas ficam neutras e
+            profissionais — bom para estudar em público.
+          </p>
+
+          <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <ModeOption
+              active={isNamorado}
+              Icon={Heart}
+              label="modo namorado"
+              sample="boa, amor, mandou bem demais"
+              onClick={() => setDisplayMode('namorado')}
+            />
+            <ModeOption
+              active={!isNamorado}
+              Icon={Stethoscope}
+              label="modo doutora"
+              sample="resposta correta. continue."
+              onClick={() => setDisplayMode('doutora')}
+            />
+          </div>
+
+          <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-blush/60 px-5 py-4">
+            <span className="font-display italic text-wine">
+              Atualmente: {isNamorado ? 'modo namorado' : 'modo doutora'}
+            </span>
+            <button
+              type="button"
+              onClick={() => setDisplayMode(isNamorado ? 'doutora' : 'namorado')}
+              className="btn-ghost"
+            >
+              Trocar para {isNamorado ? 'doutora' : 'namorado'}
+            </button>
+          </div>
         </div>
-        <p className="text-sm leading-relaxed text-ink-soft">
-          Quantas questões você quer responder por dia. A meta aparece no Dashboard com um anel
-          de progresso e marca a sequência de dias seguidos.
-        </p>
-        <div className="flex flex-wrap gap-2">
-          {GOAL_PRESETS.map((n) => {
-            const active = (user.dailyGoal ?? 15) === n;
-            return (
-              <button
+
+        {/* III — Meta diária */}
+        <div className="card mt-6 p-8 sm:p-10">
+          <div className="flex items-baseline gap-4">
+            <RomanNumeral value="III" />
+            <h2 className="font-display text-2xl italic text-ink">Meta diária</h2>
+          </div>
+          <p className="mt-5 font-body text-[15px] leading-relaxed text-txt/85">
+            Quantas questões você quer responder por dia. A meta aparece no Início com um anel de
+            progresso e marca a sequência de dias seguidos.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {GOAL_PRESETS.map((n) => (
+              <DayChip
                 key={n}
+                value={n}
+                active={(user.dailyGoal ?? 15) === n}
                 onClick={() => setDailyGoal(n)}
-                className={`inline-flex min-h-touch items-center gap-1.5 rounded-full border px-4 py-1.5 text-sm transition active:scale-[0.98] ${
-                  active
-                    ? 'border-wine bg-wine text-white'
-                    : 'border-line bg-paper text-ink-soft hover:border-rose'
-                }`}
-              >
-                <span className="font-serif font-semibold">{n}</span>
-                <span className="text-[11px] uppercase tracking-[0.18em]">
-                  {active ? 'questões/dia' : '/dia'}
-                </span>
-              </button>
-            );
-          })}
+              />
+            ))}
+          </div>
         </div>
-      </section>
 
-      <section className="card space-y-4 p-6 sm:p-7">
-        <div className="flex items-baseline gap-3">
-          <span className="font-serif text-2xl italic leading-none text-gold opacity-60">IV</span>
-          <h2 className="font-serif text-xl italic text-wine-deep">Sessão</h2>
+        {/* IV — Sessão */}
+        <div className="card mt-6 p-8 sm:p-10">
+          <div className="flex items-baseline gap-4">
+            <RomanNumeral value="IV" />
+            <h2 className="font-display text-2xl italic text-ink">Sessão</h2>
+          </div>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <button type="button" onClick={handleLogout} className="btn-ghost">
+              sair
+            </button>
+            <button
+              type="button"
+              onClick={resetEverything}
+              className="inline-flex min-h-touch items-center justify-center rounded-full border border-red px-7 py-3 font-display text-[14px] italic text-red transition active:scale-[0.98] hover:bg-red-soft"
+            >
+              apagar tudo
+            </button>
+          </div>
         </div>
-        <div className="flex flex-wrap gap-3">
-          <button onClick={handleLogout} className="btn-secondary">
-            Sair
-          </button>
-          <button
-            onClick={resetEverything}
-            className="inline-flex min-h-touch items-center justify-center rounded-full border border-red px-7 py-3 text-sm font-semibold uppercase tracking-wider text-red transition active:scale-[0.98] hover:bg-red-soft"
-          >
-            Apagar tudo
-          </button>
-        </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
 
@@ -249,23 +242,25 @@ function ModeOption({ active, Icon, label, sample, onClick }: ModeOptionProps) {
     <button
       type="button"
       onClick={onClick}
-      className={`group min-h-touch rounded-xl border p-4 text-left transition active:scale-[0.99] ${
+      className={`min-h-touch rounded-2xl border p-5 text-left transition active:scale-[0.99] ${
         active
-          ? 'border-wine bg-rose-soft/40 shadow-soft'
-          : 'border-line bg-paper hover:border-wine hover:bg-bg-soft'
+          ? 'bg-blush border-[var(--blush-stroke)] shadow-soft'
+          : 'border-line bg-card hover:border-wine/40'
       }`}
     >
-      <div className="mb-2 flex items-center gap-2">
+      <div className="flex items-center gap-3">
         <span
-          className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${
-            active ? 'bg-wine text-white' : 'bg-rose-soft text-wine-deep'
+          className={`inline-flex h-9 w-9 items-center justify-center rounded-xl ${
+            active ? 'bg-wine text-[#FBEFEC]' : 'bg-blush text-wine'
           }`}
         >
-          <Icon className="h-4 w-4" strokeWidth={1.75} />
+          <Icon className="h-4 w-4" strokeWidth={1.6} />
         </span>
-        <span className="font-serif text-base italic text-wine-deep">{label}</span>
+        <span className="font-display text-lg italic text-ink">{label}</span>
       </div>
-      <p className="font-serif text-sm italic leading-snug text-ink-soft">"{sample}"</p>
+      <p className="mt-3 font-body text-[14px] italic leading-relaxed text-mute">
+        &ldquo;{sample}&rdquo;
+      </p>
     </button>
   );
 }

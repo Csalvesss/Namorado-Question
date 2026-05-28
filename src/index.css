@@ -8,6 +8,22 @@
     --sa-bottom: env(safe-area-inset-bottom, 0px);
     --sa-left: env(safe-area-inset-left, 0px);
     --sa-right: env(safe-area-inset-right, 0px);
+
+    /* Design tokens — Guava editorial */
+    --paper: #F8EFE9;
+    --band: #F4E3DD;
+    --card: #FFFFFF;
+    --ink: #4A1226;
+    --txt: #3D2D2F;
+    --wine: #7C1733;
+    --rose: #C0758B;
+    --gold: #B49A82;
+    --mute: #8A746F;
+    --line: #ECDCD5;
+    --blush: #FBE7E3;
+    --blush-stroke: #E6B6B3;
+    --shadow-soft: 0 6px 24px rgba(92, 15, 36, .06);
+    --shadow-lift: 0 18px 44px rgba(92, 15, 36, .12);
   }
 
   html {
@@ -19,18 +35,18 @@
   body {
     min-height: 100vh;
     min-height: 100dvh;
-    background:
-      radial-gradient(900px 500px at 90% -10%, rgba(201, 123, 138, 0.10), transparent 60%),
-      radial-gradient(700px 500px at -10% 100%, rgba(184, 137, 90, 0.08), transparent 60%),
-      theme('colors.bg');
-    color: theme('colors.ink');
-    font-family: theme('fontFamily.sans');
-    font-feature-settings: 'ss01', 'ss02', 'liga', 'calt';
+    background: var(--paper);
+    color: var(--txt);
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.6;
+    font-feature-settings: 'liga', 'calt';
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
   }
 
-  .font-serif {
+  .font-serif,
+  .font-display {
     font-feature-settings: 'liga', 'calt', 'dlig', 'ss01';
   }
 
@@ -62,49 +78,87 @@
 }
 
 @layer components {
-  .btn-primary {
-    @apply inline-flex min-h-touch items-center justify-center rounded-full bg-wine px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-white shadow-wine transition active:scale-[0.98] hover:bg-wine-deep hover:shadow-wine-hover disabled:bg-muted disabled:shadow-none disabled:cursor-not-allowed disabled:active:scale-100;
-  }
-  .btn-secondary {
-    @apply inline-flex min-h-touch items-center justify-center rounded-full border border-wine bg-paper px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-wine-deep transition active:scale-[0.98] hover:bg-rose-soft;
-  }
-  .btn-ghost {
-    @apply inline-flex min-h-touch items-center justify-center rounded-full px-5 py-2 text-sm font-medium text-ink-soft transition active:text-wine hover:text-wine-deep;
-  }
-  .card {
-    @apply rounded-2xl border border-line bg-paper shadow-card;
-  }
-  .card-elevated {
-    @apply card relative overflow-hidden;
-    background-image: theme('backgroundImage.paper-grain'), theme('backgroundImage.paper-soft');
-    background-size: 160px 160px, 100% 100%;
-    background-repeat: repeat, no-repeat;
-  }
+  /* ========== Tipografia editorial ========== */
   .eyebrow {
-    @apply text-eyebrow font-sans uppercase text-muted;
+    @apply font-display text-[12.5px] font-medium uppercase text-gold;
+    letter-spacing: 0.2em;
   }
   .eyebrow-gold {
-    @apply eyebrow text-gold;
+    @apply eyebrow;
+  }
+  .display-hero {
+    @apply font-display font-light text-ink;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+  }
+  .display-section {
+    @apply font-display font-light text-ink;
+    font-size: clamp(1.875rem, 4vw, 2.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
   }
   .display-title {
-    @apply font-serif text-display italic text-wine-deep;
+    @apply font-display italic text-ink;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
   }
   .display-title-sm {
-    @apply font-serif text-display-sm italic text-wine-deep;
-  }
-  .divider-dots {
-    @apply font-serif text-2xl tracking-[0.5em] text-rose opacity-70;
-  }
-  .label-tag {
-    @apply inline-block rounded-full bg-bg-soft px-2.5 py-1 text-[11px] uppercase tracking-[0.2em] text-muted;
-  }
-  .input-elegant {
-    @apply w-full rounded-xl border border-line bg-paper px-4 py-3 font-sans text-base text-ink outline-none transition focus:border-wine focus:ring-2 focus:ring-rose-soft;
+    @apply font-display italic text-ink;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.1;
   }
   .heading-serif {
-    @apply font-serif italic text-wine-deep;
+    @apply font-display italic text-ink;
+  }
+  .body-lead {
+    @apply font-body text-base italic leading-relaxed text-mute sm:text-lg;
   }
 
+  /* ========== Botões pill ========== */
+  .btn-primary {
+    @apply inline-flex min-h-touch items-center justify-center gap-2 rounded-full bg-wine px-7 py-3 font-display text-[15px] italic text-[#FBEFEC] shadow-wine transition active:scale-[0.98] hover:bg-[#5A0F22] hover:shadow-wine-hover disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100;
+  }
+  .btn-ghost {
+    @apply inline-flex min-h-touch items-center justify-center gap-2 rounded-full border px-6 py-3 font-display text-[15px] italic text-wine transition active:scale-[0.98] hover:bg-blush;
+    border-color: rgba(124, 23, 51, 0.45);
+  }
+  .btn-secondary {
+    @apply btn-ghost;
+  }
+
+  /* ========== Cards ========== */
+  .card {
+    @apply rounded-3xl border border-line bg-card shadow-soft;
+  }
+  .card-highlight {
+    @apply rounded-3xl border bg-blush shadow-lift;
+    border-color: var(--blush-stroke);
+  }
+  .card-elevated {
+    @apply card;
+  }
+
+  /* ========== Labels ========== */
+  .label-tag {
+    @apply inline-flex items-center rounded-full bg-blush px-3 py-1 font-display text-[11px] font-medium uppercase tracking-[0.2em] text-wine;
+  }
+
+  /* ========== Inputs ========== */
+  .input-elegant {
+    @apply w-full rounded-2xl border border-line bg-card px-4 py-3 font-body text-base text-txt outline-none transition;
+  }
+  .input-elegant:focus {
+    border-color: var(--wine);
+    box-shadow: 0 0 0 3px rgba(192, 117, 139, .18);
+  }
+
+  .divider-dots {
+    @apply font-display text-2xl tracking-[0.5em] text-rose opacity-70;
+  }
+
+  /* ========== Safe areas ========== */
   .safe-top {
     padding-top: max(env(safe-area-inset-top), 0px);
   }
@@ -117,7 +171,7 @@
   }
 
   .sticky-cta {
-    @apply fixed inset-x-0 bottom-0 z-30 border-t border-line bg-paper/85 px-4 py-3 backdrop-blur-md md:static md:inset-auto md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none;
+    @apply fixed inset-x-0 bottom-0 z-30 border-t border-line bg-card/85 px-4 py-3 backdrop-blur-md md:static md:inset-auto md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none;
     padding-bottom: max(env(safe-area-inset-bottom), 12px);
   }
   @media (min-width: 768px) {
