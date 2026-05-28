@@ -491,3 +491,17 @@ export function pickScenarios(system: FarmacoSystem | 'mix', count: number): Sce
   const pool = system === 'mix' ? SCENARIOS : SCENARIOS.filter((s) => s.system === system);
   return shuffle(pool).slice(0, count);
 }
+
+/** Prefixo único pros IDs do MDC dentro do SRS — evita colisão com flashcards. */
+export function mdcCardId(scenarioId: string): string {
+  return `mdc:${scenarioId}`;
+}
+
+/** Reverte mdcCardId pra obter o scenario id. */
+export function mdcScenarioIdFromCard(cardId: string): string | null {
+  return cardId.startsWith('mdc:') ? cardId.slice('mdc:'.length) : null;
+}
+
+export function getScenario(id: string): Scenario | undefined {
+  return SCENARIOS.find((s) => s.id === id);
+}

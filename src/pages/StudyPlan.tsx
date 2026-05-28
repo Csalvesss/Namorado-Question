@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { CalendarDays, Clock3, MapPin, Pencil, Plus, Trash2 } from 'lucide-react';
+import PageContainer from '../components/ui/PageContainer';
 import {
   STUDY_PLAN_CHANGE_EVENT,
   SUBJECT_PALETTE,
@@ -79,6 +80,7 @@ export default function StudyPlan() {
   if (!user) return null;
 
   return (
+    <PageContainer>
     <div className="space-y-12">
       <section>
         <div className="eyebrow-gold">{todayISO().split('-').reverse().join('.')}</div>
@@ -349,6 +351,7 @@ export default function StudyPlan() {
         />
       )}
     </div>
+    </PageContainer>
   );
 }
 

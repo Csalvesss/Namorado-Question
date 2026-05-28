@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Activity, Brain, HeartPulse, Siren, Stethoscope, type LucideIcon } from 'lucide-react';
+import PageContainer from '../components/ui/PageContainer';
 import { db } from '../lib/db';
 import type { CaseQuestion } from '../types';
 
@@ -42,6 +43,7 @@ export default function Cases() {
   }, []);
 
   return (
+    <PageContainer>
     <div className="space-y-10">
       <section>
         <div className="eyebrow-gold">simulações clínicas</div>
@@ -118,5 +120,6 @@ export default function Cases() {
         </section>
       )}
     </div>
+    </PageContainer>
   );
 }

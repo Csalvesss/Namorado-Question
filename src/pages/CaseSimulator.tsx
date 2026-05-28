@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, ChevronRight, MapPin, Stethoscope, Timer } from 'lucide-react';
+import PageContainer from '../components/ui/PageContainer';
 import { db } from '../lib/db';
 import { duration as motionDuration, easeOutExpo } from '../lib/motion';
 import { useUser } from '../lib/useUser';
@@ -46,10 +47,12 @@ export default function CaseSimulator() {
 
   if (!caseQ) {
     return (
-      <div className="mx-auto max-w-md py-16 text-center">
-        <p className="font-serif text-xl italic text-ink-soft">Simulação não encontrada.</p>
-        <Link to="/casos" className="btn-secondary mt-4 inline-block">Voltar</Link>
-      </div>
+      <PageContainer width="md">
+        <div className="mx-auto max-w-md py-16 text-center">
+          <p className="font-serif text-xl italic text-ink-soft">Simulação não encontrada.</p>
+          <Link to="/casos" className="btn-secondary mt-4 inline-block">Voltar</Link>
+        </div>
+      </PageContainer>
     );
   }
 
@@ -94,7 +97,8 @@ export default function CaseSimulator() {
   const score = answers.filter((a) => a.isRight).length;
 
   return (
-    <div className="mx-auto max-w-3xl space-y-6 pb-16">
+    <PageContainer width="md">
+    <div className="space-y-6 pb-16">
       <Link
         to="/casos"
         className="inline-flex items-center text-[11px] uppercase tracking-[0.22em] text-muted transition hover:text-wine"
@@ -307,6 +311,7 @@ export default function CaseSimulator() {
         </>
       )}
     </div>
+    </PageContainer>
   );
 }
 
