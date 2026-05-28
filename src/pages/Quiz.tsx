@@ -246,7 +246,7 @@ export default function Quiz() {
           ← {course.title} · {config.label}
         </Link>
         <div className="mt-1 text-[10px] uppercase tracking-[0.32em] text-gold opacity-70">
-          — MODO {config.label.toUpperCase()}
+          modo {config.label.toLowerCase()}
         </div>
         <div className="mt-4 flex flex-wrap items-end justify-between gap-4">
           <div className="min-w-0 flex-1">

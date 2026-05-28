@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Activity,
-  ArrowRight,
   BookOpen,
   Brain,
   Bug,
@@ -17,7 +16,6 @@ import {
 import EmptyState from '../components/EmptyState';
 import Onboarding from '../components/Onboarding';
 import SpringFlower from '../components/decorative/SpringFlower';
-import WaxSeal from '../components/decorative/WaxSeal';
 import { COURSES_CHANGE_EVENT, db } from '../lib/db';
 import { listDueCards, SRS_CHANGE_EVENT } from '../lib/srs';
 import { useSessions } from '../lib/useSessions';
@@ -213,7 +211,6 @@ export default function Dashboard() {
                 className="inline-flex min-h-touch items-center rounded-full bg-wine px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-wine transition active:scale-[0.98] hover:bg-wine-deep"
               >
                 Continuar
-                <ArrowRight className="ml-1.5 h-3.5 w-3.5" strokeWidth={2} />
               </Link>
             )}
             {showBilhete && (
@@ -257,7 +254,7 @@ export default function Dashboard() {
 
       <section>
         <div className="mb-2 text-[10px] uppercase tracking-[0.32em] text-gold opacity-70">
-          — CAPÍTULO UM
+          capítulo um
         </div>
         <div className="mb-6 flex items-baseline justify-between gap-3">
           <div className="flex items-baseline gap-4">
@@ -351,20 +348,15 @@ export default function Dashboard() {
       </section>
 
       <section className="border-t border-line pt-8">
-        <div className="flex items-start gap-5">
-          <WaxSeal size={84} />
-          <div>
-            <div className="text-[10px] uppercase tracking-[0.32em] text-gold opacity-70">
-              — UMA CARTA DA CASA
-            </div>
-            <p className="mt-3 max-w-2xl font-serif text-base leading-relaxed text-ink-soft sm:text-[17px]">
-              Cada questão aqui foi escolhida com cuidado, pensada para residência, para prática
-              clínica e para você revisar entre um plantão e outro. Estuda sem culpa, descansa
-              quando precisar, e lembra: a gente faz isso junto. Quando quiser uma pausa, abre um
-              bilhete; quando quiser correr, manda um simulado. O ritmo é seu.
-            </p>
-          </div>
+        <div className="text-[10px] uppercase tracking-[0.32em] text-gold opacity-70">
+          uma carta da casa
         </div>
+        <p className="mt-3 max-w-2xl font-serif text-base leading-relaxed text-ink-soft sm:text-[17px]">
+          Cada questão aqui foi escolhida com cuidado, no seu tempo, para você revisar entre um
+          descanso e outro. Estuda tranquila, respira quando precisar e lembra: a gente faz isso
+          junto. Quando quiser uma pausa, abre um bilhete. Quando quiser acelerar, manda um
+          simulado. O ritmo é seu.
+        </p>
       </section>
 
       <div className="flex items-center justify-center gap-3 text-rose opacity-50">
