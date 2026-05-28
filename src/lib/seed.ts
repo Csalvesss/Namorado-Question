@@ -173,7 +173,21 @@ export function importCourse(payload: ImportPayload, opts: { createdBy?: string 
   return course;
 }
 
+const SEED_VERSION_KEY = 'guava.seedVersion';
+const SEED_VERSION = 2;
+
 export function ensureSeed() {
+  const storedVersion = Number(localStorage.getItem(SEED_VERSION_KEY) ?? '0');
+  const needsRefresh = storedVersion < SEED_VERSION;
+
+  if (needsRefresh) {
+    const systemCourses = db.courses.list().filter((c) => c.createdBy === 'system');
+    systemCourses.forEach((c) => db.courses.remove(c.id));
+    SEEDS.forEach((seed) => importCourse(seed));
+    localStorage.setItem(SEED_VERSION_KEY, String(SEED_VERSION));
+    return;
+  }
+
   const existing = new Set(db.courses.list().map((c) => c.title));
   SEEDS.forEach((seed) => {
     if (!existing.has(seed.title)) {

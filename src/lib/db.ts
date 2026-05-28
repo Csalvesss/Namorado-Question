@@ -8,6 +8,7 @@ function normalizeQuestion(q: Question & { type?: string }): Question {
   if (q.type === 'case') return q as Question;
   if (q.type === 'flashcard') return q as Question;
   if (q.type === 'match') return q as Question;
+  if (q.type === 'algorithm') return q as Question;
   return { ...q, type: 'mc' } as Question;
 }
 
