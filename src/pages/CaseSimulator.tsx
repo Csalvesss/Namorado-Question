@@ -154,6 +154,21 @@ export default function CaseSimulator() {
         <>
           {stepIndex === 0 && (
             <article className="rounded-3xl border border-line bg-paper px-6 py-7 shadow-soft sm:px-9 sm:py-9">
+              {caseQ.imageUrl && (
+                <figure className="mb-5 overflow-hidden rounded-2xl border border-line bg-paper-soft">
+                  <img
+                    src={caseQ.imageUrl}
+                    alt={caseQ.imageCaption ?? 'imagem do caso'}
+                    className="w-full object-contain"
+                    loading="lazy"
+                  />
+                  {caseQ.imageCaption && (
+                    <figcaption className="border-t border-line px-3 py-2 text-xs italic text-ink-soft">
+                      {caseQ.imageCaption}
+                    </figcaption>
+                  )}
+                </figure>
+              )}
               <div className="flex items-start gap-4">
                 <span
                   aria-hidden

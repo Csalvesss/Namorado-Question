@@ -7,6 +7,7 @@ import Course from './pages/Course';
 import Dashboard from './pages/Dashboard';
 import History from './pages/History';
 import Login from './pages/Login';
+import AlgorithmPlayer, { AlgorithmsList } from './pages/Algorithms';
 import CaseSimulator from './pages/CaseSimulator';
 import Cases from './pages/Cases';
 import Mistakes from './pages/Mistakes';
@@ -37,6 +38,8 @@ export default function App() {
         <Route path="/casos" element={<Cases />} />
         <Route path="/casos/:caseId" element={<CaseSimulator />} />
         <Route path="/erros" element={<Mistakes />} />
+        <Route path="/algoritmos" element={<AlgorithmsList />} />
+        <Route path="/algoritmos/:algoId" element={<AlgorithmPlayer />} />
         <Route path="/historico" element={<History />} />
         <Route path="/revisar" element={<Review />} />
         <Route path="/plano" element={<StudyPlan />} />

@@ -353,6 +353,7 @@ function questionTitle(question: Question): string {
   if (question.type === 'case') return question.vignette.split('\n')[0];
   if (question.type === 'ecg') return question.diagnosis.question;
   if (question.type === 'flashcard') return question.front;
+  if (question.type === 'algorithm') return question.title;
   return question.prompt;
 }
 

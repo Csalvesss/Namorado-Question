@@ -16,6 +16,7 @@ import {
   Stethoscope,
   Target,
   ThermometerSun,
+  Workflow,
   type LucideIcon,
 } from 'lucide-react';
 import EmptyState from '../components/EmptyState';
@@ -382,6 +383,25 @@ export default function Dashboard() {
             </div>
             <p className="text-sm leading-relaxed text-paper/85">
               Casos clínicos imersivos. Pressão de plantão, decisões que pesam.
+            </p>
+          </Link>
+          <Link
+            to="/algoritmos"
+            className="group block overflow-hidden rounded-2xl border border-line bg-paper p-5 shadow-card transition active:scale-[0.99] hover:shadow-card-hover sm:p-6"
+          >
+            <div className="mb-3 flex items-center gap-3">
+              <span
+                aria-hidden
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-rose-soft text-wine-deep"
+              >
+                <Workflow className="h-5 w-5" strokeWidth={1.6} />
+              </span>
+              <h3 className="font-serif text-xl italic leading-tight text-wine-deep">
+                Algoritmos
+              </h3>
+            </div>
+            <p className="text-sm leading-relaxed text-ink-soft">
+              Fluxogramas de decisão clínica interativos. Treine protocolos como se estivesse no plantão.
             </p>
           </Link>
           <Link
