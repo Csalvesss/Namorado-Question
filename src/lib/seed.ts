@@ -19,6 +19,7 @@ import farmacoP2Antidiabeticos from '../data/seeds/farmaco-p2-antidiabeticos.jso
 import farmacoP2CardioHas from '../data/seeds/farmaco-p2-cardio-has.json';
 import farmacoP2CardioCoag from '../data/seeds/farmaco-p2-cardio-coag.json';
 import farmacoP2Antivirais from '../data/seeds/farmaco-p2-antivirais.json';
+import farmacoP2Antiparasitarios from '../data/seeds/farmaco-p2-antiparasitarios.json';
 import flashcardsAntibioticos from '../data/seeds/flashcards-antibioticos.json';
 import flashcardsHivAids from '../data/seeds/flashcards-hiv-aids.json';
 import flashcardsIc from '../data/seeds/flashcards-insuficiencia-cardiaca.json';
@@ -43,6 +44,7 @@ const SEEDS: ImportPayload[] = [
   farmacoP2CardioHas as ImportPayload,
   farmacoP2CardioCoag as ImportPayload,
   farmacoP2Antivirais as ImportPayload,
+  farmacoP2Antiparasitarios as ImportPayload,
   flashcardsAntibioticos as ImportPayload,
   flashcardsHivAids as ImportPayload,
   flashcardsIc as ImportPayload,
@@ -182,7 +184,7 @@ export function importCourse(payload: ImportPayload, opts: { createdBy?: string 
 }
 
 const SEED_VERSION_KEY = 'guava.seedVersion';
-const SEED_VERSION = 10;
+const SEED_VERSION = 11;
 
 export function ensureSeed() {
   const storedVersion = Number(localStorage.getItem(SEED_VERSION_KEY) ?? '0');

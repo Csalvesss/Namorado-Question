@@ -1,0 +1,430 @@
+{
+  "title": "Farmaco P2: Antiparasitários",
+  "description": "Antiparasitários conforme a lista da P2: helmintos, Chagas, amebíase/giardíase, toxoplasmose e malária. Mecanismos por classe, indicações geográficas e pegadinhas.",
+  "icon": "",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "mc",
+      "topic": "Ivermectina",
+      "q": "Sobre a ivermectina, assinale a CORRETA:",
+      "options": [
+        "Agonista dos canais de cloro glutamato-dependentes do parasita (causa hiperpolarização e paralisia); usada em estrongiloidíase, escabiose, pediculose, oncocercose; mamíferos não têm esses canais no SNC (segurança)",
+        "Inibe a β-tubulina dos helmintos",
+        "Forma EROs intracelulares contra protozoários",
+        "Inibe a DHFR do parasita"
+      ],
+      "correct": 0,
+      "expl": "Ivermectina liga canais de cloro glutamato-dependentes (GluCl) do parasita → influxo de Cl⁻ → hiperpolarização → paralisia flácida. Mamíferos não têm esses canais no SNC (a BHE protege; GABA-dependentes são diferentes) → boa segurança. Indicações: estrongiloidíase, escabiose, pediculose, oncocercose. Cuidado em encefalopatias de Loa loa (carga parasitária alta → reação grave).",
+      "difficulty": "medium",
+      "tags": ["ivermectina"]
+    },
+    {
+      "type": "mc",
+      "topic": "Praziquantel",
+      "q": "Praziquantel é o tratamento de escolha para:",
+      "options": [
+        "Esquistossomose (mansoni) e teníases — aumenta a permeabilidade ao cálcio nos parasitas, paralisia espástica e exposição de antígenos ao sistema imune",
+        "Malária",
+        "Doença de Chagas aguda",
+        "Toxoplasmose congênita"
+      ],
+      "correct": 0,
+      "expl": "Praziquantel aumenta permeabilidade ao Ca²⁺ nas células dos helmintos → contração tetânica + vacuolização do tegumento → exposição de antígenos. ESCOLHA para esquistossomose (mansoni, haematobium), teníases (T. solium, T. saginata) e cisticercose (associado a corticoide). EA: dor abdominal, tontura, sonolência (transitórios).",
+      "difficulty": "medium",
+      "tags": ["praziquantel"]
+    },
+    {
+      "type": "mc",
+      "topic": "Albendazol / Mebendazol",
+      "q": "Sobre albendazol e mebendazol (benzimidazóis), assinale a CORRETA:",
+      "options": [
+        "Ligam-se à β-tubulina do parasita → inibem a formação dos microtúbulos → bloqueiam captação de glicose → morte do helminto; baixa absorção intestinal (efeito local); EA grave: hepatotoxicidade e mielossupressão em uso prolongado",
+        "Aumentam a entrada de cálcio nos parasitas",
+        "Inibem a DHFR",
+        "Formam EROs em anaeróbios"
+      ],
+      "correct": 0,
+      "expl": "Benzimidazóis ligam-se preferencialmente à β-tubulina do helminto (afinidade muito maior que pela tubulina humana) → impedem polimerização dos microtúbulos → bloqueia captação de glicose → depleção energética → morte do verme. Baixa absorção sistêmica → boa para parasitas intestinais. Albendazol tem maior biodisponibilidade (com gordura) → também para cisticercose, equinococose, estrongiloidíase. EA em uso prolongado/dose alta: hepatotoxicidade, mielossupressão.",
+      "difficulty": "medium",
+      "tags": ["benzimidazol", "albendazol", "mebendazol"]
+    },
+    {
+      "type": "mc",
+      "topic": "Benznidazol",
+      "q": "Sobre o benznidazol (Chagas), assinale a CORRETA:",
+      "options": [
+        "PRIMEIRA escolha na fase AGUDA da doença de Chagas; gera EROs por interação com a ferredoxina do T. cruzi; NUNCA associar a álcool (efeito antabuse / acetaldeído); EA: rash, neuropatia, leucopenia",
+        "Usado apenas em fase crônica indeterminada",
+        "Mecanismo igual ao do metronidazol em anaeróbios",
+        "Sem qualquer interação com álcool"
+      ],
+      "correct": 0,
+      "expl": "Benznidazol é a 1ª escolha na fase aguda da doença de Chagas. Mecanismo: ativação pela nitrorredutase do T. cruzi (via ferredoxina) → geração de EROs → dano ao DNA do parasita. Eficácia decai na fase crônica. EA: dermatite alérgica (rash), neuropatia periférica (suspender), supressão medular. NÃO associar a álcool — efeito tipo dissulfiram (acetaldeído). Nifurtimox é alternativa.",
+      "difficulty": "medium",
+      "tags": ["chagas", "benznidazol"]
+    },
+    {
+      "type": "mc",
+      "topic": "Metronidazol",
+      "q": "Sobre o metronidazol, assinale a CORRETA:",
+      "options": [
+        "Pró-fármaco ativado por enzimas anaeróbias (formam radicais livres que danificam DNA); ÚTIL em amebíase (forma invasiva), giardíase, tricomoníase, vaginose, anaeróbios; EVITAR ÁLCOOL (efeito dissulfiram)",
+        "Atua apenas em bactérias aeróbias",
+        "Não interage com álcool",
+        "Inibe DHFR"
+      ],
+      "correct": 0,
+      "expl": "Metronidazol é nitroimidazólico — pró-fármaco ativado por enzimas redutases de organismos ANAERÓBIOS (e protozoários como Entamoeba, Giardia, Trichomonas) → forma radicais livres → dano ao DNA. Inativo em aeróbios. Indicações: amebíase invasiva, giardíase, tricomoníase, vaginose bacteriana, infecções por anaeróbios. ÁLCOOL: efeito DISSULFIRAM (inibe aldeído desidrogenase) — acetaldeído acumula → náusea, rubor, hipotensão.",
+      "difficulty": "easy",
+      "tags": ["metronidazol", "anaerobios"]
+    },
+    {
+      "type": "mc",
+      "topic": "Tinidazol e Secnidazol",
+      "q": "Tinidazol e secnidazol diferem do metronidazol principalmente por:",
+      "options": [
+        "Meia-vida mais longa → dose única ou esquemas mais curtos; mesmo mecanismo (nitroimidazólicos); mesmo efeito dissulfiram com álcool",
+        "Mecanismo totalmente diferente do metronidazol",
+        "Atuam apenas em vermes",
+        "Sem qualquer efeito com álcool"
+      ],
+      "correct": 0,
+      "expl": "Tinidazol e secnidazol são nitroimidazólicos da mesma família do metronidazol. Vantagem: meia-vida mais longa → dose única em amebíase intestinal e giardíase. Mesmos EA e mesma interação com álcool (efeito dissulfiram). Secnidazol é amplamente disponível no Brasil em dose única VO.",
+      "difficulty": "medium",
+      "tags": ["tinidazol", "secnidazol"]
+    },
+    {
+      "type": "mc",
+      "topic": "Nitazoxanida",
+      "q": "Sobre a nitazoxanida, assinale a CORRETA:",
+      "options": [
+        "Amplo espectro contra protozoários e helmintos; inibe a piruvato-ferredoxina oxidorredutase (PFOR); alta ligação à albumina (~99%); útil em Cryptosporidium, Giardia, amebíase, ascaridíase",
+        "Aciclovir-símile, ativada por TK viral",
+        "Inibidor de β-tubulina exclusivamente",
+        "Forma EROs apenas em aeróbios"
+      ],
+      "correct": 0,
+      "expl": "Nitazoxanida é antiparasitário de amplo espectro. Mecanismo: inibe a enzima piruvato-ferredoxina oxidorredutase (PFOR) do parasita — etapa-chave do metabolismo anaeróbio. ALTA ligação à albumina (~99%). Indicações: criptosporidíase, giardíase, amebíase, ascaridíase, enterobíase. Boa tolerância. EA: discreto desconforto GI.",
+      "difficulty": "medium",
+      "tags": ["nitazoxanida"]
+    },
+    {
+      "type": "mc",
+      "topic": "Sulfadiazina + Pirimetamina (Toxoplasmose)",
+      "q": "Sobre o tratamento da toxoplasmose ativa, é CORRETO afirmar:",
+      "options": [
+        "Sulfadiazina inibe a síntese do ácido fólico (via DHPS); pirimetamina inibe a DHFR. Bloqueio sequencial. SEMPRE adicionar ÁCIDO FOLÍNICO para prevenir mielossupressão (resgate)",
+        "Pirimetamina sozinha é igualmente eficaz",
+        "Tratar sem ácido folínico para potencializar o efeito",
+        "Indicado o esquema apenas em toxoplasmose ocular"
+      ],
+      "correct": 0,
+      "expl": "Toxoplasmose ativa: bloqueio sequencial do ácido fólico — sulfadiazina inibe a di-hidropteroato sintase (DHPS, etapa anterior); pirimetamina inibe a di-hidrofolato redutase (DHFR). Indicações: toxoplasmose congênita, ocular, cerebral em imunossuprimido (HIV). SEMPRE associar ÁCIDO FOLÍNICO (leucovorina) — resgate da função das células humanas sem prejudicar o parasita (não converte como o parasita faz). Mielossupressão é EA importante.",
+      "difficulty": "medium",
+      "tags": ["toxoplasmose", "dhfr"]
+    },
+    {
+      "type": "mc",
+      "topic": "Malária · cloroquina",
+      "q": "Sobre a cloroquina e hidroxicloroquina (4-aminoquinolinas) na malária, é CORRETO afirmar:",
+      "options": [
+        "Acumulam no vacúolo digestivo do parasita, inibem a heme-polimerase → acúmulo de heme tóxica → morte do plasmódio. Eficaz em P. vivax, P. ovale, P. malariae (não em formas hepáticas); P. falciparum é RESISTENTE em quase todo o mundo",
+        "Tratamento de escolha para P. falciparum",
+        "Inibem a DHFR do parasita",
+        "Sem cardiotoxicidade"
+      ],
+      "correct": 0,
+      "expl": "Cloroquina e hidroxicloroquina concentram-se no vacúolo digestivo do parasita → inibem heme-polimerase → heme livre acumula → tóxica para o plasmódio. Eficaz em P. vivax/ovale/malariae (formas eritrocitárias). NÃO age em formas hepáticas (hipnozoítos). P. FALCIPARUM é resistente na maioria das áreas endêmicas (incluindo Amazônia brasileira). EA: distúrbios visuais (retinopatia em uso crônico), cardiotoxicidade (prolongamento de QT), hepatotoxicidade, nefrotoxicidade.",
+      "difficulty": "medium",
+      "tags": ["malaria", "cloroquina"]
+    },
+    {
+      "type": "mc",
+      "topic": "Primaquina · hipnozoítos",
+      "q": "Por que a primaquina é essencial no tratamento da malária por P. vivax / P. ovale, e qual o cuidado de segurança crucial?",
+      "options": [
+        "É a única que elimina os HIPNOZOÍTOS hepáticos (cura radical, previne recaída); CAUSA HEMÓLISE GRAVE em pacientes com deficiência de G6PD (rastrear antes)",
+        "Atua sobre as formas eritrocitárias",
+        "É indicada em P. falciparum exclusivamente",
+        "Sem risco em deficiência de G6PD"
+      ],
+      "correct": 0,
+      "expl": "Primaquina é a única do arsenal que mata os HIPNOZOÍTOS hepáticos (formas latentes) de P. vivax e P. ovale → cura radical, previne recaída. ANTES de prescrever: rastrear deficiência de G6PD (dosagem). Em deficientes graves: HEMÓLISE intravascular maciça. Em mulheres em idade fértil: descartar gestação (teratogênica). Recém-aprovada: tafenoquina (uma dose, mesma precaução).",
+      "difficulty": "medium",
+      "tags": ["primaquina", "g6pd", "hipnozoito"]
+    },
+    {
+      "type": "mc",
+      "topic": "Artemisininas",
+      "q": "Sobre artesunato, artemeter/lumefantrina (artemisininas) na malária por P. falciparum, é CORRETO afirmar:",
+      "options": [
+        "Endoperóxidos: o ferro do heme cliva a ponte peróxido → forma radicais livres → matam rapidamente formas eritrocitárias; ARTESUNATO IV é a escolha em malária GRAVE; ACT (artemeter+lumefantrina) é a escolha em P. falciparum não complicada; risco de prolongamento de QT",
+        "Não têm eficácia em P. falciparum",
+        "Atuam só nos hipnozoítos hepáticos",
+        "São inibidores da DHFR"
+      ],
+      "correct": 0,
+      "expl": "Artemisininas têm ponte endoperóxido. O Fe²⁺ do heme cliva essa ponte → gera radicais livres → matam rapidamente o parasita (forma eritrocitária). ARTESUNATO IV: tratamento de escolha em MALÁRIA GRAVE (P. falciparum). ACT (artemeter+lumefantrina): 1ª linha em P. falciparum não complicada (combinação evita resistência). EA: prolongamento de QT — atenção a outras drogas QTcáveis.",
+      "difficulty": "medium",
+      "tags": ["artemisinina", "falciparum"]
+    },
+    {
+      "type": "mc",
+      "topic": "Mefloquina · quinino · atovacona/proguanil",
+      "q": "Sobre os antimaláricos menos usados hoje no Brasil, assinale a CORRETA:",
+      "options": [
+        "Quinino: ainda usado em malária grave quando artesunato não disponível (cinconismo: tinitos, cefaleia, distúrbios visuais). Mefloquina: profilaxia em viajante (EA neuropsiquiátricos importantes). Atovacona/proguanil: profilaxia e tratamento (Atovacona inibe transporte mitocondrial; Proguanil inibe DHFR)",
+        "Quinino é absolutamente seguro",
+        "Mefloquina não causa efeitos psiquiátricos",
+        "Atovacona/proguanil só serve para Chagas"
+      ],
+      "correct": 0,
+      "expl": "Quinino: alcaloide da cinchona, ainda usado em malária grave se artesunato indisponível. Cinconismo (tinito, cefaleia, distúrbios visuais, hipoglicemia) é um conjunto de EA clássicos. Mefloquina: profilaxia em viajante; EA neuropsiquiátricos importantes (insônia, ansiedade, psicose) → evitar em pacientes com transtorno psiquiátrico. Atovacona/proguanil (Malarone): atovacona bloqueia transporte mitocondrial do parasita; proguanil inibe DHFR (sinergia). Profilaxia e tratamento; bem tolerado.",
+      "difficulty": "hard",
+      "tags": ["mefloquina", "quinino", "atovacona"]
+    },
+    {
+      "type": "mc",
+      "topic": "Albendazol · cisticercose",
+      "q": "No tratamento da neurocisticercose com cistos viáveis, é CORRETO afirmar:",
+      "options": [
+        "Albendazol (ou praziquantel) associado a CORTICOIDE (dexametasona) e profilaxia anticonvulsivante; corticoide previne reação inflamatória peri-cisto durante a morte do parasita",
+        "Tratar com albendazol em monoterapia",
+        "Corticoide é contraindicado",
+        "Albendazol não atravessa a BHE"
+      ],
+      "correct": 0,
+      "expl": "Neurocisticercose com cistos viáveis: albendazol (15 mg/kg/dia, 7-30 dias) ou praziquantel. SEMPRE associar CORTICOIDE (dexametasona) — quando o parasita morre, libera antígenos → reação inflamatória peri-cisto que pode desencadear convulsões, edema, hidrocefalia. Profilaxia anticonvulsivante na fase aguda. Albendazol tem melhor penetração no SNC que mebendazol.",
+      "difficulty": "hard",
+      "tags": ["cisticercose", "albendazol", "corticoide"]
+    },
+    {
+      "type": "match",
+      "topic": "Antiparasitários: mecanismo",
+      "prompt": "Associe o antiparasitário ao mecanismo.",
+      "leftLabel": "Fármaco",
+      "rightLabel": "Mecanismo",
+      "pairs": [
+        { "id": "iver", "left": "Ivermectina", "right": "Agonista de canal de Cl⁻ glutamato-dependente do parasita" },
+        { "id": "praz", "left": "Praziquantel", "right": "Aumenta permeabilidade ao Ca²⁺ no helminto" },
+        { "id": "alb", "left": "Albendazol/Mebendazol", "right": "Liga β-tubulina, impede microtúbulos" },
+        { "id": "metr", "left": "Metronidazol/Tinidazol", "right": "Forma EROs em anaeróbios e protozoários" },
+        { "id": "nita", "left": "Nitazoxanida", "right": "Inibe PFOR (piruvato-ferredoxina oxidorredutase)" },
+        { "id": "sulp", "left": "Sulfadiazina+Pirimetamina", "right": "Bloqueio sequencial do ácido fólico (DHPS + DHFR)" },
+        { "id": "clor", "left": "Cloroquina", "right": "Inibe heme-polimerase no vacúolo digestivo" },
+        { "id": "arte", "left": "Artemisinina", "right": "Endoperóxido ativado por Fe do heme → radicais livres" }
+      ],
+      "expl": "Saber o mecanismo é a base para entender o espectro e os EA: ivermectina/praziquantel atuam em canais iônicos, benzimidazóis em microtúbulos, nitroimidazólicos em DNA via EROs, antimaláricos no metabolismo do heme.",
+      "difficulty": "medium",
+      "tags": ["mecanismos"]
+    },
+    {
+      "type": "match",
+      "topic": "Antiparasitários: indicação clássica",
+      "prompt": "Associe o fármaco à indicação clássica.",
+      "leftLabel": "Fármaco",
+      "rightLabel": "Indicação clássica",
+      "pairs": [
+        { "id": "iver", "left": "Ivermectina", "right": "Estrongiloidíase, escabiose, pediculose" },
+        { "id": "praz", "left": "Praziquantel", "right": "Esquistossomose, teníases" },
+        { "id": "alb", "left": "Albendazol", "right": "Ascaridíase, cisticercose, equinococose" },
+        { "id": "benz", "left": "Benznidazol", "right": "Doença de Chagas (fase aguda)" },
+        { "id": "metr", "left": "Metronidazol", "right": "Amebíase invasiva, giardíase, tricomoníase" },
+        { "id": "sulp", "left": "Sulfadiazina+Pirimetamina+folínico", "right": "Toxoplasmose ativa" },
+        { "id": "prim", "left": "Primaquina", "right": "Cura radical da malária por P. vivax/ovale" },
+        { "id": "arte", "left": "Artesunato IV", "right": "Malária grave (P. falciparum)" }
+      ],
+      "expl": "Em prova, a pergunta clássica é 'qual a droga de escolha para X?' — esses 8 pareamentos cobrem ~80% das questões.",
+      "difficulty": "easy",
+      "tags": ["indicacoes"]
+    },
+    {
+      "type": "match",
+      "topic": "Antiparasitários: pegadinhas de segurança",
+      "prompt": "Associe o fármaco à precaução crítica de segurança.",
+      "leftLabel": "Fármaco",
+      "rightLabel": "Precaução crítica",
+      "pairs": [
+        { "id": "prim", "left": "Primaquina", "right": "Hemólise grave em deficiência de G6PD (rastrear)" },
+        { "id": "benz", "left": "Benznidazol", "right": "EVITAR ÁLCOOL (efeito dissulfiram)" },
+        { "id": "metr", "left": "Metronidazol/Tinidazol/Secnidazol", "right": "EVITAR ÁLCOOL (efeito dissulfiram)" },
+        { "id": "sulp", "left": "Sulfadiazina+Pirimetamina", "right": "Adicionar ÁCIDO FOLÍNICO para resgate medular" },
+        { "id": "arte", "left": "Artemeter/Lumefantrina", "right": "Prolongamento de QT (cuidado em arritmia)" },
+        { "id": "mef", "left": "Mefloquina", "right": "EA neuropsiquiátricos (evitar em psiquiátrico)" }
+      ],
+      "expl": "Essas 6 pegadinhas caem em prova de farmaco aplicada com altíssima frequência. Memorizar como tabela.",
+      "difficulty": "medium",
+      "tags": ["seguranca"]
+    },
+    {
+      "type": "case",
+      "topic": "Malária por P. vivax",
+      "subtitle": "Homem 35a, volta da Amazônia com febre intermitente terçã",
+      "specialty": "Infectologia · Tropicais",
+      "difficulty": "medium",
+      "vignette": "Homem 35 anos, geólogo, voltou há 10 dias de campanha de 30 dias no Amazonas. Há 4 dias com febre intermitente em padrão terçã (a cada 48h), calafrios, sudorese, cefaleia. Hb 11,2, plaquetas 95.000. Gota espessa: trofozoítos e gametócitos compatíveis com P. vivax. Sem sinais de gravidade.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Qual o esquema de tratamento?",
+          "options": [
+            "Cloroquina por 3 dias (formas eritrocitárias) + PRIMAQUINA por 7-14 dias (formas hepáticas / hipnozoítos) — cura radical",
+            "Apenas artesunato IV",
+            "Apenas cloroquina sem primaquina",
+            "Doxiciclina por 30 dias"
+          ],
+          "correct": 0,
+          "expl": "P. vivax não complicado: cloroquina (3 dias) trata formas eritrocitárias + primaquina (7-14 dias) elimina hipnozoítos hepáticos = cura radical, sem recaída. SEM primaquina, recaídas em semanas/meses. ATENÇÃO: rastrear G6PD antes da primaquina; em gestante não usar primaquina (cloroquina + supressão pós-parto)."
+        },
+        {
+          "id": "step2",
+          "prompt": "Você verifica G6PD: normal. Inicia o esquema. No 4º dia ele retorna sem febre, mas você nota palidez e refere fadiga.",
+          "question": "Conduta?",
+          "options": [
+            "Verificar hemograma (queda discreta da Hb é possível mesmo sem deficiência de G6PD); manter primaquina se sem sinais de hemólise grave; orientar retorno se urina escura",
+            "Suspender primaquina por hemólise grave inevitável",
+            "Trocar para artesunato IV",
+            "Repetir o curso de cloroquina"
+          ],
+          "correct": 0,
+          "expl": "Mesmo com G6PD normal, primaquina pode causar hemólise leve. Acompanhar Hb e sintomas (urina escura, icterícia). Em hemólise importante: suspender. Aqui, fadiga discreta sem outros sinais → manter, observar."
+        }
+      ],
+      "outcome": "Conclui esquema sem intercorrências. Hb normaliza em 3 semanas. Sem recaídas em 1 ano de seguimento. Orientação: profilaxia em próximas viagens (mefloquina ou atovacona/proguanil conforme área)."
+    },
+    {
+      "type": "flashcard",
+      "topic": "Ivermectina",
+      "front": "Ivermectina: mecanismo e principais indicações?",
+      "back": "Agonista de canal de Cl⁻ glutamato-dependente do parasita → paralisia flácida. Indicações: estrongiloidíase, escabiose, pediculose, oncocercose. Segura em mamíferos pela BHE.",
+      "tags": ["ivermectina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Praziquantel",
+      "front": "Praziquantel: mecanismo e indicações?",
+      "back": "Aumenta permeabilidade ao Ca²⁺ no helminto → paralisia espástica + exposição de antígenos. Escolha em esquistossomose e teníases. Em neurocisticercose: associar corticoide.",
+      "tags": ["praziquantel"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Albendazol",
+      "front": "Albendazol: mecanismo, indicação e cuidado?",
+      "back": "Liga β-tubulina → bloqueia microtúbulos. Boa absorção com gordura. Indicações: ascaridíase, ancilostomíase, cisticercose, equinococose. EA: hepatotoxicidade, mielossupressão em uso prolongado.",
+      "tags": ["albendazol"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Mebendazol",
+      "front": "Mebendazol: diferença para albendazol?",
+      "back": "Benzimidazol. Pouca absorção sistêmica → efeito local intestinal (preferível em verminose intestinal pura). NÃO atravessa BHE → não usar em cisticercose. Bem tolerado.",
+      "tags": ["mebendazol"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Benznidazol",
+      "front": "Benznidazol: indicação, mecanismo e cuidado clássico?",
+      "back": "1ª escolha em Chagas (fase AGUDA). Gera EROs via ferredoxina do T. cruzi. EA: rash, neuropatia, leucopenia. NUNCA com álcool (efeito dissulfiram → acetaldeído).",
+      "tags": ["chagas"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Metronidazol",
+      "front": "Metronidazol: mecanismo e interação clássica?",
+      "back": "Pró-fármaco ativado em anaeróbios → EROs → dano ao DNA. Indicações: amebíase invasiva, giardíase, tricomoníase, vaginose, anaeróbios. EVITAR ÁLCOOL (efeito dissulfiram).",
+      "tags": ["metronidazol"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tinidazol",
+      "front": "Tinidazol: vantagem prática?",
+      "back": "Nitroimidazólico de meia-vida longa → dose única em amebíase intestinal e giardíase. Mesmas precauções do metronidazol (álcool).",
+      "tags": ["tinidazol"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Secnidazol",
+      "front": "Secnidazol: característica?",
+      "back": "Nitroimidazólico. Meia-vida ainda mais longa → dose única em amebíase intestinal. Boa adesão. Mesmas precauções com álcool.",
+      "tags": ["secnidazol"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Nitazoxanida",
+      "front": "Nitazoxanida: espectro e mecanismo?",
+      "back": "Amplo espectro contra protozoários e helmintos. Inibe PFOR (piruvato-ferredoxina oxidorredutase). 99% ligada à albumina. Útil em Cryptosporidium, Giardia, amebíase, ascaridíase.",
+      "tags": ["nitazoxanida"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Sulfadiazina+Pirimetamina",
+      "front": "Toxoplasmose: esquema padrão e adição obrigatória?",
+      "back": "Sulfadiazina (inibe DHPS) + Pirimetamina (inibe DHFR) — bloqueio sequencial do folato. SEMPRE adicionar ÁCIDO FOLÍNICO (leucovorina) para resgatar medula óssea humana.",
+      "tags": ["toxoplasmose"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Quinino",
+      "front": "Quinino: papel atual e EA típico?",
+      "back": "Alcaloide da cinchona. Hoje uso restrito: malária grave quando artesunato não disponível. EA: cinconismo (tinitos, cefaleia, distúrbios visuais), hipoglicemia, cardiotoxicidade.",
+      "tags": ["quinino"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Cloroquina",
+      "front": "Cloroquina: alvo e limite atual?",
+      "back": "Inibe heme-polimerase no vacúolo digestivo do plasmódio. Eficaz em P. vivax/ovale/malariae. P. falciparum é RESISTENTE na maioria das áreas (incluindo Amazônia). EA: retinopatia, QT, hepatotoxicidade.",
+      "tags": ["cloroquina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Hidroxicloroquina",
+      "front": "Hidroxicloroquina: usos atuais?",
+      "back": "Mesmo mecanismo da cloroquina. Hoje muito mais usada em reumatologia (LES, AR) que em malária. Mesmas precauções: retinopatia (fundoscopia anual), QT.",
+      "tags": ["hidroxicloroquina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Primaquina",
+      "front": "Primaquina: papel único e cuidado crucial?",
+      "back": "Única que mata HIPNOZOÍTOS hepáticos de P. vivax/ovale → cura radical. CAUSA HEMÓLISE em deficiência de G6PD — sempre rastrear. NÃO usar em gestante.",
+      "tags": ["primaquina", "g6pd"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Mefloquina",
+      "front": "Mefloquina: indicação e EA marcante?",
+      "back": "Profilaxia da malária em viajantes para áreas de P. falciparum cloroquina-resistente. EA neuropsiquiátricos importantes (insônia, ansiedade, psicose) → não usar em transtorno psiquiátrico.",
+      "tags": ["mefloquina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Lumefantrina",
+      "front": "Lumefantrina: parceira de qual artemisinina?",
+      "back": "Antimalárico de longa duração. Sempre em combinação com artemeter (ACT). Trata P. falciparum não complicado. Cuidado com QT.",
+      "tags": ["lumefantrina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Artemeter + Lumefantrina",
+      "front": "ACT (artemeter+lumefantrina): indicação e cuidado?",
+      "back": "1ª linha em P. falciparum NÃO complicado. Artemeter mata rápido + lumefantrina elimina remanescentes. Prolonga QT — atenção a outras drogas QTcáveis.",
+      "tags": ["act"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Artesunato",
+      "front": "Artesunato IV: indicação maior?",
+      "back": "ESCOLHA em malária GRAVE (P. falciparum). Endoperóxido ativado por Fe do heme → radicais livres → matam rapidamente o parasita. Após melhora, transicionar para ACT VO.",
+      "tags": ["artesunato"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Atovacona+Proguanil",
+      "front": "Atovacona/Proguanil: papel?",
+      "back": "Profilaxia e tratamento de malária. Atovacona bloqueia transporte mitocondrial do parasita; Proguanil inibe DHFR (sinergia). Bom para viajantes. Tomar com gordura para absorção.",
+      "tags": ["atovacona"]
+    }
+  ]
+}
