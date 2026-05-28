@@ -3,12 +3,13 @@ import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import BilheteCard from '../components/BilheteCard';
+import BilheteFocus from '../components/BilheteFocus';
 import EmptyState from '../components/EmptyState';
 import CaseClinical, { type CaseState } from '../components/questions/CaseClinical';
 import EcgInterpret, { type EcgState } from '../components/questions/EcgInterpret';
 import Matching, { type MatchState } from '../components/questions/Matching';
 import { ResultPanel } from '../components/ResultPanel';
-import { BILHETES } from '../data/bilhetes';
+import { BILHETES, type Bilhete } from '../data/bilhetes';
 import { getPhrases } from '../data/phrases';
 import { db } from '../lib/db';
 import { duration, easeOutExpo, palette } from '../lib/motion';
@@ -92,6 +93,7 @@ export default function Quiz() {
   const [session, setSession] = useState<QuizSession | null>(null);
   const [startedAt, setStartedAt] = useState<number>(() => Date.now());
   const [now, setNow] = useState<number>(() => Date.now());
+  const [focusBilhete, setFocusBilhete] = useState<Bilhete | null>(null);
   const resultRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -301,6 +303,12 @@ export default function Quiz() {
           session={session}
           questions={questions}
           displayMode={displayMode}
+          mode={mode}
+          bilheteCount={
+            mode === 'bilhete' && displayMode === 'namorado'
+              ? Math.floor((questions.length - 1) / 3)
+              : 0
+          }
         />
       )}
 
@@ -390,7 +398,15 @@ export default function Quiz() {
                 </span>
                 <span className="h-px w-12 bg-rose-soft" />
               </div>
-              <BilheteCard bilhete={bilhete} signature={partner || undefined} />
+              <BilheteCard
+                bilhete={bilhete}
+                signature={partner || undefined}
+                uid={user?.uid}
+                onClick={() => setFocusBilhete(bilhete)}
+              />
+              <div className="text-center text-[11px] italic text-muted">
+                toca o bilhete para uma pausa de verdade
+              </div>
             </div>
           );
         })}
@@ -423,6 +439,14 @@ export default function Quiz() {
           )}
         </div>
       </div>
+
+      <BilheteFocus
+        open={focusBilhete !== null}
+        bilhete={focusBilhete}
+        signature={user?.partnerName?.trim() || undefined}
+        uid={user?.uid}
+        onClose={() => setFocusBilhete(null)}
+      />
     </div>
   );
 }

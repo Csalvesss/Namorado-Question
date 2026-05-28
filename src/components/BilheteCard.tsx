@@ -1,5 +1,11 @@
+import { useEffect, useState } from 'react';
 import { Heart } from 'lucide-react';
 import type { Bilhete } from '../data/bilhetes';
+import {
+  FAVORITES_CHANGE_EVENT,
+  isFavorited,
+  toggleFavorite,
+} from '../lib/favorites';
 
 const MONTHS_PT_LONG = [
   'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
@@ -24,6 +30,8 @@ interface Props {
   date?: Date;
   className?: string;
   showSeal?: boolean;
+  uid?: string;
+  onClick?: () => void;
 }
 
 export default function BilheteCard({
@@ -32,16 +40,59 @@ export default function BilheteCard({
   date = new Date(),
   className = '',
   showSeal = true,
+  uid,
+  onClick,
 }: Props) {
   const sigInitial = signature ? signature.charAt(0).toUpperCase() : 'C';
+  const [fav, setFav] = useState(() => (uid ? isFavorited(uid, bilhete.id) : false));
+
+  useEffect(() => {
+    if (!uid) return;
+    function sync() {
+      setFav(isFavorited(uid!, bilhete.id));
+    }
+    sync();
+    window.addEventListener(FAVORITES_CHANGE_EVENT, sync);
+    return () => window.removeEventListener(FAVORITES_CHANGE_EVENT, sync);
+  }, [uid, bilhete.id]);
+
+  function handleHeartClick(e: React.MouseEvent) {
+    e.stopPropagation();
+    if (!uid) return;
+    const next = toggleFavorite(uid, bilhete.id);
+    setFav(next);
+  }
+
+  const Wrapper = onClick ? 'button' : 'article';
 
   return (
-    <article
-      className={`relative overflow-hidden rounded-3xl border border-line bg-gradient-to-br from-paper via-rose-soft/40 to-rose-soft/60 px-6 py-7 shadow-card sm:px-8 sm:py-9 ${className}`}
+    <Wrapper
+      onClick={onClick}
+      type={onClick ? 'button' : undefined}
+      className={`relative block w-full overflow-hidden rounded-3xl border border-line bg-gradient-to-br from-paper via-rose-soft/40 to-rose-soft/60 px-6 py-7 text-left shadow-card transition sm:px-8 sm:py-9 ${
+        onClick ? 'hover:shadow-card-hover active:scale-[0.995]' : ''
+      } ${className}`}
     >
-      <div className="absolute right-5 top-5 text-rose">
-        <Heart className="h-5 w-5" strokeWidth={1.5} fill="currentColor" fillOpacity={0.4} />
-      </div>
+      {uid ? (
+        <button
+          type="button"
+          onClick={handleHeartClick}
+          aria-label={fav ? 'remover dos favoritos' : 'favoritar bilhete'}
+          aria-pressed={fav}
+          className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full text-rose transition hover:bg-rose-soft active:scale-90"
+        >
+          <Heart
+            className="h-5 w-5"
+            strokeWidth={1.5}
+            fill={fav ? 'currentColor' : 'currentColor'}
+            fillOpacity={fav ? 1 : 0.25}
+          />
+        </button>
+      ) : (
+        <div className="absolute right-5 top-5 text-rose">
+          <Heart className="h-5 w-5" strokeWidth={1.5} fill="currentColor" fillOpacity={0.4} />
+        </div>
+      )}
 
       {signature && (
         <div className="mb-2 font-serif text-sm italic text-ink-soft">
@@ -80,6 +131,6 @@ export default function BilheteCard({
           )}
         </div>
       )}
-    </article>
+    </Wrapper>
   );
 }
