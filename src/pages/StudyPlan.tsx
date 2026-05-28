@@ -440,7 +440,7 @@ function ModalShell({ title, onClose, onSubmit, onDelete, children, submitLabel 
   }, [onClose]);
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-end justify-center bg-ink/40 px-3 py-6 sm:items-center">
+    <div className="fixed inset-0 z-[60] flex items-end justify-center bg-ink/40 px-3 pt-6 pb-safe sm:items-center sm:py-6">
       <form
         onSubmit={onSubmit}
         className="w-full max-w-md overflow-hidden rounded-3xl border border-line bg-paper shadow-card sm:max-w-lg"

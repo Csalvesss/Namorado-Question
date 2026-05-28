@@ -170,6 +170,21 @@
     padding-right: max(env(safe-area-inset-right), 0px);
   }
 
+  /* Esconde scrollbar mantendo scroll funcional (nav mobile horizontal). */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Adiciona padding-bottom respeitando notch/home-indicator do iPhone.
+   * Útil em modais full-screen e CTAs sticky. */
+  .pb-safe {
+    padding-bottom: max(env(safe-area-inset-bottom), 1rem);
+  }
+
   .sticky-cta {
     @apply fixed inset-x-0 bottom-0 z-30 border-t border-line bg-card/85 px-4 py-3 backdrop-blur-md md:static md:inset-auto md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none;
     padding-bottom: max(env(safe-area-inset-bottom), 12px);
