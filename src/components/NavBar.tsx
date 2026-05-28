@@ -29,7 +29,7 @@ export default function NavBar() {
 
   return (
     <header className="safe-top sticky top-0 z-30 border-b border-line bg-paper/85 backdrop-blur-md">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-5 py-3 sm:gap-4 sm:px-10 sm:py-4 lg:px-20">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-2 px-5 py-3 sm:gap-3 sm:px-10 sm:py-4 lg:gap-4 lg:px-12 xl:px-20">
         <Link to="/app" className="flex min-w-0 items-center gap-2 sm:gap-3">
           <span
             aria-hidden
@@ -52,11 +52,11 @@ export default function NavBar() {
           </nav>
         )}
 
-        {/* Direita: olá + sair (desktop completo / mobile compacto) */}
+        {/* Direita: olá (só em xl+) + sair (ícone sempre; texto só em xl+) */}
         {user && (
           <div className="flex shrink-0 items-center gap-2 sm:gap-3">
             {firstName && (
-              <span className="hidden font-display text-sm italic text-mute sm:inline">
+              <span className="hidden font-display text-sm italic text-mute xl:inline">
                 olá, {firstName}
               </span>
             )}
@@ -64,10 +64,10 @@ export default function NavBar() {
               type="button"
               onClick={handleLogout}
               aria-label="Sair"
-              className="inline-flex min-h-touch min-w-touch items-center justify-center gap-1.5 rounded-full px-3 py-1.5 font-display text-xs italic text-mute transition hover:bg-blush/60 hover:text-wine"
+              className="inline-flex min-h-touch min-w-touch items-center justify-center gap-1.5 rounded-full px-2.5 py-1.5 font-display text-xs italic text-mute transition hover:bg-blush/60 hover:text-wine sm:px-3"
             >
               <LogOut className="h-3.5 w-3.5" strokeWidth={1.75} />
-              <span className="hidden sm:inline">sair</span>
+              <span className="hidden xl:inline">sair</span>
             </button>
           </div>
         )}
@@ -92,7 +92,7 @@ function NavItem({ to, children }: { to: string; children: React.ReactNode }) {
       to={to}
       end={to === '/app'}
       className={({ isActive }) =>
-        `inline-flex min-h-touch shrink-0 items-center rounded-full px-4 py-1.5 font-display text-[15px] transition ${
+        `inline-flex min-h-touch shrink-0 items-center rounded-full px-3 py-1.5 font-display text-[14px] transition lg:px-3.5 xl:px-4 xl:text-[15px] ${
           isActive
             ? 'bg-blush text-wine'
             : 'text-mute hover:bg-blush/50 hover:text-wine'

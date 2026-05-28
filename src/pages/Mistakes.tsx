@@ -303,7 +303,7 @@ function QuestionDetail({ row, uid }: { row: MistakeRow; uid: string }) {
           to={`/curso/${row.question.courseId}`}
           className="text-wine transition hover:text-wine-deep"
         >
-          ir ao curso →
+          ir ao curso
         </Link>
       </div>
     </div>
