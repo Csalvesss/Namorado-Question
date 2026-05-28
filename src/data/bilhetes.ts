@@ -347,6 +347,40 @@ export const GREETINGS: string[] = [
   'doutora, estamos prontos.',
 ];
 
+export const GREETINGS_DOUTORA: string[] = [
+  'selecione uma matéria abaixo.',
+  'escolha o módulo do dia.',
+  'continue de onde parou.',
+  'estudo livre. boa sessão.',
+  'foco no que precisar revisar hoje.',
+  'comece pelo modo de erro se houver pendências.',
+  'priorize tópicos com menor acerto.',
+  'sessão aberta. selecione uma matéria.',
+  'distribua o tempo entre os módulos.',
+  'mantenha consistência. um por dia já basta.',
+];
+
+export const PERFORMANCE_QUOTES_DOUTORA = {
+  high: [
+    'desempenho consistente. mantenha o ritmo.',
+    'média estável acima de 75%. continue.',
+    'resultado dentro do esperado para a fase.',
+    'progresso adequado. monitore tópicos fracos.',
+  ],
+  mid: [
+    'acerto médio razoável. há margem para subir.',
+    'desempenho intermediário. revise os erros.',
+    'mantenha o estudo periódico.',
+    'distribuição típica. foque em tópicos fracos.',
+  ],
+  low: [
+    'média abaixo do esperado. revise o conteúdo.',
+    'tópicos fracos pedem atenção. modo erro disponível.',
+    'reduza o volume e aumente a revisão.',
+    'volte aos conceitos básicos antes de avançar.',
+  ],
+};
+
 export const PERFORMANCE_QUOTES = {
   high: [
     'firme, constante, sem pressa — a curva está subindo.',

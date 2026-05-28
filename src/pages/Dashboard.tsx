@@ -135,9 +135,14 @@ export default function Dashboard() {
   }, [rotationTick]);
 
   const bilhete = useMemo(() => currentBilhete(), [rotationTick]);
-  const greeting = useMemo(() => currentGreeting(), [rotationTick]);
+  const tone = user?.displayMode === 'doutora' ? 'doutora' : 'namorado';
+  const showBilhete = tone === 'namorado';
+  const greeting = useMemo(() => currentGreeting(tone), [tone, rotationTick]);
   const tier = useMemo(() => tierFromAccuracy(accuracy, completed.length), [accuracy, completed.length]);
-  const performanceQuote = useMemo(() => currentPerformanceQuote(tier), [tier, rotationTick]);
+  const performanceQuote = useMemo(
+    () => currentPerformanceQuote(tier, tone),
+    [tier, tone, rotationTick],
+  );
   const nextIn = useMemo(() => formatRotationCountdown(nextRotationIn()), [rotationTick]);
   const partner = user?.partnerName?.trim() || '';
 
@@ -198,20 +203,22 @@ export default function Dashboard() {
         )}
       </section>
 
-      <section>
-        <div className="mb-3 flex items-baseline justify-between gap-3">
-          <div className="flex items-baseline gap-3">
-            <Mail className="h-4 w-4 self-center text-wine" strokeWidth={1.75} />
-            <span className="eyebrow-gold">bilhete do dia</span>
+      {showBilhete && (
+        <section>
+          <div className="mb-3 flex items-baseline justify-between gap-3">
+            <div className="flex items-baseline gap-3">
+              <Mail className="h-4 w-4 self-center text-wine" strokeWidth={1.75} />
+              <span className="eyebrow-gold">bilhete do dia</span>
+            </div>
+            <span className="text-[11px] italic text-muted">novo em {nextIn}</span>
           </div>
-          <span className="text-[11px] italic text-muted">novo em {nextIn}</span>
-        </div>
-        <BilheteCard
-          bilhete={bilhete}
-          signature={partner || undefined}
-          recipientFirstName={firstName}
-        />
-      </section>
+          <BilheteCard
+            bilhete={bilhete}
+            signature={partner || undefined}
+            recipientFirstName={firstName}
+          />
+        </section>
+      )}
 
       {completed.length > 0 && (
         <section>
