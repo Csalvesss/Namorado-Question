@@ -1,18 +1,16 @@
 import { Outlet } from 'react-router-dom';
-import Header from './Header';
+import NavBar from './NavBar';
 
 export default function Layout() {
   return (
-    <div className="flex min-h-screen flex-col safe-x">
-      <Header />
+    <div className="flex min-h-screen flex-col safe-x bg-paper">
+      <NavBar />
       <main className="flex-1">
-        <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-          <Outlet />
-        </div>
+        <Outlet />
       </main>
       <footer
-        className="px-4 pt-4 text-center font-serif text-xs italic text-muted"
-        style={{ paddingBottom: 'max(env(safe-area-inset-bottom), 1.5rem)' }}
+        className="bg-paper px-6 pt-10 text-center font-display text-sm italic text-mute"
+        style={{ paddingBottom: 'max(env(safe-area-inset-bottom), 2.5rem)' }}
       >
         feito com cuidado para a minha doutora favorita
       </footer>
