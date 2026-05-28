@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import PageContainer from '../components/ui/PageContainer';
 import { db } from '../lib/db';
 
 export default function Author() {
@@ -14,6 +15,7 @@ export default function Author() {
   }
 
   return (
+    <PageContainer>
     <div className="space-y-10">
       <header>
         <div className="eyebrow-gold mb-3">conteúdo</div>
@@ -66,5 +68,6 @@ export default function Author() {
         )}
       </section>
     </div>
+    </PageContainer>
   );
 }

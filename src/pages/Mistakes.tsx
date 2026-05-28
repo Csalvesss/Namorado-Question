@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, ChevronRight, Target, X } from 'lucide-react';
+import PageContainer from '../components/ui/PageContainer';
 import { db } from '../lib/db';
 import {
   MISTAKES_CHANGE_EVENT,
@@ -97,6 +98,7 @@ export default function Mistakes() {
   if (!user) return null;
 
   return (
+    <PageContainer>
     <div className="space-y-10">
       <section>
         <div className="eyebrow-gold">caderno de erros</div>
@@ -221,6 +223,7 @@ export default function Mistakes() {
         </>
       )}
     </div>
+    </PageContainer>
   );
 }
 

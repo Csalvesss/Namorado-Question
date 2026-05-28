@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, Eye, EyeOff, Sparkles } from 'lucide-react';
 import EmptyState from '../components/EmptyState';
+import PageContainer from '../components/ui/PageContainer';
 import { duration, easeOutExpo } from '../lib/motion';
 import { db } from '../lib/db';
 import {
@@ -102,6 +103,7 @@ export default function Review() {
 
   if (allCards.length === 0) {
     return (
+      <PageContainer width="lg">
       <div className="space-y-8">
         <Link
           to="/app"
@@ -120,11 +122,13 @@ export default function Review() {
           }
         />
       </div>
+      </PageContainer>
     );
   }
 
   if (order.length === 0) {
     return (
+      <PageContainer width="lg">
       <div className="space-y-8">
         <Link
           to="/app"
@@ -147,6 +151,7 @@ export default function Review() {
           }
         />
       </div>
+      </PageContainer>
     );
   }
 
@@ -154,6 +159,7 @@ export default function Review() {
 
   if (!currentItem) {
     return (
+      <PageContainer width="lg">
       <div className="space-y-8 text-center">
         <Link
           to="/app"
@@ -178,6 +184,7 @@ export default function Review() {
           </div>
         </div>
       </div>
+      </PageContainer>
     );
   }
 
@@ -198,6 +205,7 @@ export default function Review() {
   const cardKey = `${card.id}-${cursor}`;
 
   return (
+    <PageContainer width="lg">
     <div className="space-y-6 pb-32 md:pb-0">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div className="min-w-0">
@@ -306,6 +314,7 @@ export default function Review() {
         </div>
       </div>
     </div>
+    </PageContainer>
   );
 }
 

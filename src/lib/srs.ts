@@ -47,6 +47,11 @@ export function getCardState(userId: string, cardId: string): CardState {
   return load(userId)[cardId] ?? defaultState(cardId);
 }
 
+/** True se o card já foi revisado pelo menos uma vez (existe estado salvo). */
+export function hasCardHistory(userId: string, cardId: string): boolean {
+  return Boolean(load(userId)[cardId]);
+}
+
 export function reviewCard(userId: string, cardId: string, grade: Grade): CardState {
   const data = load(userId);
   const next = applyGrade(data[cardId] ?? defaultState(cardId), grade);
