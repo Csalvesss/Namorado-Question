@@ -1,0 +1,590 @@
+{
+  "title": "Farmaco P2: Antidiabéticos e Insulinas",
+  "description": "Fármacos do tratamento do DM2 e DM1 conforme a lista da P2. Mecanismo, efeito adverso característico, indicação preferencial e armadilhas de prova.",
+  "icon": "",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "mc",
+      "topic": "Metformina",
+      "q": "Sobre a metformina, primeira escolha no tratamento do DM2, é correto afirmar:",
+      "options": [
+        "Ativa a AMPK, reduz produção hepática de glicose, é eutrópica e tem excreção 100% renal",
+        "Estimula a secreção pancreática de insulina, com alto risco de hipoglicemia",
+        "Promove ganho de peso e retenção hídrica, sendo contraindicada na ICC",
+        "Atua nos rins inibindo a reabsorção tubular de glicose"
+      ],
+      "correct": 0,
+      "expl": "Metformina é biguanida: ativa AMPK, reduz gliconeogênese hepática, melhora sensibilidade periférica à insulina, é peso-neutra (tende a discreta perda) e excreção 100% renal — por isso suspender se TFG < 30 mL/min e ajustar se TFG 30-45. Não causa hipoglicemia em monoterapia. Efeito adverso clássico: gastrointestinal (diarreia, náusea) e risco raro de acidose láctica.",
+      "difficulty": "easy",
+      "tags": ["biguanida", "1a-linha"]
+    },
+    {
+      "type": "mc",
+      "topic": "Metformina",
+      "q": "Em qual situação a metformina deve ser SUSPENSA ou ter dose reduzida?",
+      "options": [
+        "TFG estimada abaixo de 30 mL/min, situações de hipoperfusão e antes de exame com contraste iodado em pacientes com IR",
+        "Em todo paciente acima de 60 anos por risco de hipoglicemia",
+        "Em qualquer paciente com IMC > 35",
+        "Em pacientes com colesterol elevado"
+      ],
+      "correct": 0,
+      "expl": "TFG < 30 = contraindicada. TFG 30-45 = dose reduzida e cautela. Suspender em situações de hipoperfusão (sepse, choque, jejum prolongado) e antes de contraste iodado em IR (risco de acidose láctica por acúmulo). Não é contraindicada por idade nem IMC isolados.",
+      "difficulty": "medium",
+      "tags": ["biguanida", "ajuste-renal"]
+    },
+    {
+      "type": "mc",
+      "topic": "Sulfonilureias",
+      "q": "Sobre as sulfonilureias (glibenclamida, gliclazida MR, glimepirida), assinale a CORRETA:",
+      "options": [
+        "Atuam fechando o canal de K-ATP da célula beta, secretagogas, com risco importante de hipoglicemia, especialmente em idosos e na insuficiência renal",
+        "Não causam hipoglicemia porque dependem da glicemia",
+        "São cardioprotetoras e indicadas em pacientes com ICC",
+        "Atuam no túbulo proximal renal"
+      ],
+      "correct": 0,
+      "expl": "Sulfonilureias são secretagogas: fecham o canal K-ATP da célula beta, despolarizam, abrem o canal de Ca, liberam insulina. Causam hipoglicemia (mesmo glicemia baixa), especialmente em idosos, IR e jejum. Glibenclamida tem maior risco; gliclazida MR e glimepirida são consideradas mais seguras. Causam ganho de peso. Não têm benefício cardiovascular comprovado.",
+      "difficulty": "medium",
+      "tags": ["sulfonilureia", "hipoglicemia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Glinidas",
+      "q": "Repaglinida e nateglinida (glinidas) diferem das sulfonilureias principalmente por:",
+      "options": [
+        "Início de ação muito rápido e meia-vida curta, indicadas para controle pós-prandial; risco de hipoglicemia menor mas presente",
+        "Atuação no receptor PPAR-γ",
+        "Independência completa da função pancreática",
+        "Não causarem hipoglicemia em nenhuma situação"
+      ],
+      "correct": 0,
+      "expl": "Glinidas também são secretagogas (canal K-ATP), mas com cinética rápida (pico em 1h, ação curta). Tomadas antes das refeições para reduzir glicemia pós-prandial. Causam hipoglicemia (menos que sulfonilureia mas não ausente). Repaglinida é metabolizada via CYP3A4 (cuidado com indutores/inibidores).",
+      "difficulty": "medium",
+      "tags": ["glinida", "pos-prandial"]
+    },
+    {
+      "type": "mc",
+      "topic": "Agonistas GLP-1",
+      "q": "Sobre os agonistas do receptor GLP-1 (semaglutida, liraglutida, dulaglutida, exenatida, tirzepatida), é INCORRETO afirmar:",
+      "options": [
+        "Causam hipoglicemia frequente em monoterapia por estimular constantemente a secreção de insulina",
+        "Aumentam a secreção de insulina dependente de glicose e reduzem a secreção de glucagon",
+        "Promovem perda de peso significativa e retardam o esvaziamento gástrico",
+        "Têm benefício cardiovascular comprovado (redução de MACE) em pacientes com DCV estabelecida"
+      ],
+      "correct": 0,
+      "expl": "Em MONOTERAPIA agonistas GLP-1 NÃO causam hipoglicemia (efeito dependente de glicose — só agem quando há glicemia alta). Os outros pontos estão corretos: efeito incretínico, retardo do esvaziamento gástrico (daí náuseas, principal EA), perda de peso, e benefício cardiovascular em pacientes com DCV ou alto risco (LEADER, SUSTAIN-6, REWIND). Tirzepatida é duplo agonista GIP/GLP-1.",
+      "difficulty": "medium",
+      "tags": ["incretina", "agonista-glp1", "perda-peso"]
+    },
+    {
+      "type": "mc",
+      "topic": "Inibidores de SGLT-2",
+      "q": "Os inibidores de SGLT-2 (dapagliflozina, empagliflozina, canagliflozina) têm como mecanismo principal e benefício adicional:",
+      "options": [
+        "Inibem reabsorção tubular proximal de glicose, causam glicosúria, têm benefício cardiovascular (ICC) e renal demonstrado",
+        "Estimulam a secreção pancreática de insulina, com efeito sobre o peso desprezível",
+        "Bloqueiam α-glicosidase intestinal, retardando absorção de carboidratos",
+        "São hormônios injetáveis com perfil semelhante à insulina"
+      ],
+      "correct": 0,
+      "expl": "iSGLT2 inibem a recaptação tubular proximal de glicose → glicosúria → redução da glicemia, peso (~2-3 kg) e PA. Benefícios estabelecidos: redução de hospitalização por IC (EMPA-REG, DAPA-HF, EMPEROR), proteção renal (CREDENCE, DAPA-CKD). EA: infecções genitais (candidíase), ITU, e raro mas grave: cetoacidose diabética EUGLICÊMICA (cuidado em jejum, dieta low-carb, peri-operatório).",
+      "difficulty": "medium",
+      "tags": ["sglt2", "cardio-renal"]
+    },
+    {
+      "type": "mc",
+      "topic": "Inibidores de DPP-4",
+      "q": "Sobre os inibidores de DPP-4 (sitagliptina, saxagliptina, linagliptina, vildagliptina, alogliptina), assinale a CORRETA:",
+      "options": [
+        "Inibem a enzima que degrada o GLP-1 endógeno, com eficácia modesta na HbA1c, sem hipoglicemia em monoterapia e peso-neutros",
+        "São secretagogos de ação curta dependentes da função renal",
+        "Atuam exclusivamente no rim inibindo reabsorção de glicose",
+        "Promovem perda significativa de peso semelhante aos agonistas GLP-1"
+      ],
+      "correct": 0,
+      "expl": "iDPP-4 inibem a enzima dipeptidil peptidase-4, que degrada GLP-1 endógeno. Resultado: aumenta meia-vida do GLP-1 e potencia o efeito incretínico. Eficácia modesta (queda ~0.5-0.8% HbA1c). Sem hipoglicemia em monoterapia, peso-neutros. Linagliptina não precisa de ajuste renal (excreção biliar). Saxagliptina foi associada a maior risco de internação por IC (SAVOR-TIMI 53).",
+      "difficulty": "medium",
+      "tags": ["dpp4", "incretina"]
+    },
+    {
+      "type": "mc",
+      "topic": "Acarbose",
+      "q": "A acarbose tem como mecanismo de ação e efeito adverso principal:",
+      "options": [
+        "Inibe α-glicosidase intestinal, retardando absorção de carboidratos; EA principal é flatulência e desconforto gastrointestinal",
+        "Estimula secreção de insulina pelo pâncreas, com hipoglicemia frequente",
+        "Inibe reabsorção tubular de glicose, com risco de ITU",
+        "Atua no SNC reduzindo apetite"
+      ],
+      "correct": 0,
+      "expl": "Acarbose inibe α-glicosidase no jejuno, retardando hidrólise e absorção de carboidratos. Reduz glicemia pós-prandial. Eficácia modesta. EA gastrointestinais frequentes (flatulência, distensão, diarreia) limitam adesão. Em caso de hipoglicemia associada a outras drogas, tratar com GLICOSE pura (não sacarose), pois inibe a quebra de dissacarídeos.",
+      "difficulty": "medium",
+      "tags": ["acarbose"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pioglitazona",
+      "q": "Sobre a pioglitazona (tiazolidinediona), é CORRETO afirmar:",
+      "options": [
+        "Agonista PPAR-γ, melhora sensibilidade periférica à insulina; EA: ganho de peso, edema, ICC, fraturas e risco discutido de câncer de bexiga",
+        "Estimula secreção de insulina e causa hipoglicemia frequente",
+        "É a primeira escolha em DM2 obeso pela perda de peso",
+        "É inibidora de SGLT-2"
+      ],
+      "correct": 0,
+      "expl": "TZD ativa receptor PPAR-γ → modula transcrição de genes que aumentam sensibilidade insulínica, especialmente no tecido adiposo. Não causa hipoglicemia em monoterapia. EA importantes: retenção hídrica, edema, descompensação de ICC (contraindicada em NYHA III-IV), fraturas (mulheres pós-menopausa) e dúvida de risco de Ca de bexiga. Pode melhorar esteatose hepática.",
+      "difficulty": "hard",
+      "tags": ["tzd", "ppar"]
+    },
+    {
+      "type": "mc",
+      "topic": "Escolha terapêutica DM2",
+      "q": "Paciente de 58 anos, DM2 há 4 anos, HbA1c 8.2%, IMC 32, ICC com FE 38% e DRC com TFG 42 mL/min. Qual a melhor associação à metformina?",
+      "options": [
+        "Empagliflozina (iSGLT-2), pelo benefício cardiovascular e renal independentemente do controle glicêmico",
+        "Glibenclamida pela potência hipoglicemiante",
+        "Pioglitazona para reduzir HbA1c rapidamente",
+        "Insulina NPH em dose plena imediatamente"
+      ],
+      "correct": 0,
+      "expl": "Em DM2 com ICC e DRC, a 1ª escolha (após metformina) é iSGLT-2 pela proteção cardiovascular (redução de hospitalização por IC) e renal (proteção contra progressão de DRC, mesmo em normoglicêmicos). Empagliflozina/dapagliflozina aprovadas para IC com FE reduzida independente de DM. Glibenclamida e pioglitazona pioram ICC. Insulina não é primeira escolha aqui.",
+      "difficulty": "hard",
+      "tags": ["escolha", "icc", "drc"]
+    },
+    {
+      "type": "mc",
+      "topic": "Insulina Regular",
+      "q": "Sobre a insulina regular (humana solúvel), é CORRETO afirmar:",
+      "options": [
+        "Forma hexâmeros em solução aquosa, com início subcutâneo em 30 min, pico em 2-3h e duração de 6-8h",
+        "É um análogo ultrarrápido com início em 5-15 min",
+        "É a insulina de escolha para basal por ter duração de 24h",
+        "Não pode ser usada por via endovenosa"
+      ],
+      "correct": 0,
+      "expl": "Insulina regular é a insulina humana solúvel, forma hexâmeros estáveis. SC: início 30 min, pico 2-3h, duração 6-8h. PODE ser usada IV (única indicada em emergência: cetoacidose, estado hiperosmolar). Para refeições, foi substituída em grande parte pelos análogos ultrarrápidos (aspart, lispro, glulisina) que têm início mais rápido e menos hipoglicemia pós-prandial tardia.",
+      "difficulty": "medium",
+      "tags": ["insulina", "regular"]
+    },
+    {
+      "type": "mc",
+      "topic": "Análogos rápidos de insulina",
+      "q": "Os análogos ultrarrápidos (lispro, aspart, glulisina, fast aspart) foram desenvolvidos para:",
+      "options": [
+        "Substituir aminoácidos de modo a impedir a formação de hexâmeros, acelerando absorção e melhorando o controle pós-prandial",
+        "Aumentar a duração de ação para 24h e cobrir necessidades basais",
+        "Reduzir o custo em relação à insulina regular",
+        "Funcionar apenas por via endovenosa"
+      ],
+      "correct": 0,
+      "expl": "Análogos rápidos têm trocas de aminoácidos (ex: lispro inverte lys-pro) que impedem hexâmeros — formam dímeros/monômeros → absorção SC mais rápida (início 5-15 min, pico 1h, duração 3-5h). Melhor controle pós-prandial e menos hipoglicemia tardia que a regular. Fast aspart tem niacinamida que acelera ainda mais. Não substituem insulina basal.",
+      "difficulty": "medium",
+      "tags": ["insulina", "analogo-rapido"]
+    },
+    {
+      "type": "mc",
+      "topic": "Análogos basais de insulina",
+      "q": "Sobre os análogos basais (glargina, detemir, degludeca, icodeca), assinale a CORRETA:",
+      "options": [
+        "Têm perfil de ação prolongado e relativamente plano, com menor risco de hipoglicemia noturna que a NPH",
+        "Apresentam pico de ação semelhante ao da insulina regular",
+        "Precisam ser administradas duas vezes ao dia, sempre antes das refeições",
+        "São indicadas apenas como bolus pós-prandial"
+      ],
+      "correct": 0,
+      "expl": "Análogos basais foram desenvolvidos para liberação prolongada e mais plana (sem pico marcado), reduzindo hipoglicemia noturna comparado à NPH. Glargina (~24h), detemir (16-24h, geralmente 2x/dia), degludeca (>42h, dose única), icodeca (semanal, novidade). Substituem cobertura basal. NPH ainda usada por custo mas tem pico em 4-8h (mais hipoglicemia).",
+      "difficulty": "medium",
+      "tags": ["insulina", "analogo-basal"]
+    },
+    {
+      "type": "mc",
+      "topic": "Hipoglicemia",
+      "q": "Sobre os sinais e sintomas de hipoglicemia, marque a opção que separa CORRETAMENTE adrenérgicos de neuroglicopênicos:",
+      "options": [
+        "Adrenérgicos: sudorese, tremor, taquicardia, fome, palidez. Neuroglicopênicos: confusão, déficit focal, convulsão, coma",
+        "Adrenérgicos: convulsão, coma, déficit focal. Neuroglicopênicos: tremor e sudorese",
+        "Ambos são exatamente os mesmos sintomas",
+        "Hipoglicemia em diabético não tem sintomas adrenérgicos"
+      ],
+      "correct": 0,
+      "expl": "Adrenérgicos (resposta simpática à hipoglicemia, aparecem mais cedo, ~70 mg/dL): sudorese, tremor, palpitação, ansiedade, fome, palidez, midríase, aumento PA. Neuroglicopênicos (sofrimento neuronal, mais tarde, < 50 mg/dL): irritabilidade, confusão, déficit focal transitório, parestesia, convulsão, coma. Em diabéticos antigos pode haver hypoglycemia unawareness (perda dos sinais adrenérgicos).",
+      "difficulty": "medium",
+      "tags": ["hipoglicemia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Tirzepatida",
+      "q": "Tirzepatida é um fármaco recente. Seu mecanismo de ação difere dos demais agonistas GLP-1 porque:",
+      "options": [
+        "É duplo agonista dos receptores GIP e GLP-1, com perda de peso e redução de HbA1c maiores que os agonistas GLP-1 isolados",
+        "Inibe a DPP-4 com seletividade maior",
+        "É um análogo de insulina basal de ação ultraprolongada",
+        "Bloqueia receptores de glucagon de forma exclusiva"
+      ],
+      "correct": 0,
+      "expl": "Tirzepatida é o primeiro duplo agonista incretínico aprovado: ativa receptores de GLP-1 E de GIP. Resultado: redução adicional de HbA1c (SURPASS) e perda de peso significativa (SURMOUNT). EA gastrointestinais semelhantes aos GLP-1. Administração semanal SC.",
+      "difficulty": "hard",
+      "tags": ["tirzepatida", "incretina"]
+    },
+    {
+      "type": "match",
+      "topic": "Antidiabéticos: classe",
+      "prompt": "Associe o fármaco antidiabético à sua classe farmacológica.",
+      "leftLabel": "Fármaco",
+      "rightLabel": "Classe",
+      "pairs": [
+        { "id": "met", "left": "Metformina", "right": "Biguanida" },
+        { "id": "glib", "left": "Glibenclamida", "right": "Sulfonilureia" },
+        { "id": "rep", "left": "Repaglinida", "right": "Glinida" },
+        { "id": "sema", "left": "Semaglutida", "right": "Agonista GLP-1" },
+        { "id": "empa", "left": "Empagliflozina", "right": "Inibidor de SGLT-2" },
+        { "id": "sita", "left": "Sitagliptina", "right": "Inibidor de DPP-4" },
+        { "id": "pio", "left": "Pioglitazona", "right": "Tiazolidinediona (PPAR-γ)" },
+        { "id": "acar", "left": "Acarbose", "right": "Inibidor de α-glicosidase" }
+      ],
+      "expl": "Conhecer a classe é o primeiro passo: ela define mecanismo, eficácia, EA típico e indicação preferencial. Memorize um representante por classe e expanda para os demais membros (todas as 'glitazonas' são TZD, todas as 'gliflozinas' são iSGLT-2, todas as 'gliptinas' são iDPP-4, todas as 'tidas' são agonistas GLP-1).",
+      "difficulty": "easy",
+      "tags": ["classes"]
+    },
+    {
+      "type": "match",
+      "topic": "Antidiabéticos: efeito adverso característico",
+      "prompt": "Associe a classe ao efeito adverso mais característico em prova.",
+      "leftLabel": "Classe",
+      "rightLabel": "EA característico",
+      "pairs": [
+        { "id": "bigu", "left": "Biguanida (metformina)", "right": "Sintomas gastrointestinais e risco raro de acidose láctica" },
+        { "id": "sulf", "left": "Sulfonilureia", "right": "Hipoglicemia e ganho de peso" },
+        { "id": "sglt", "left": "Inibidor de SGLT-2", "right": "Infecção genital, ITU, cetoacidose euglicêmica" },
+        { "id": "glp1", "left": "Agonista GLP-1", "right": "Náusea, vômito, retardo do esvaziamento gástrico" },
+        { "id": "tzd", "left": "Tiazolidinediona", "right": "Edema, ganho de peso, descompensação de ICC, fraturas" },
+        { "id": "acar", "left": "Acarbose", "right": "Flatulência e desconforto gastrointestinal" }
+      ],
+      "expl": "Saber o EA típico ajuda a evitar prescrições erradas: GLP-1 em paciente com gastroparesia importante, TZD em ICC, sulfonilureia em idoso magro. Conhecer o EA também ajuda na hora de explicar para o paciente e ajustar adesão.",
+      "difficulty": "medium",
+      "tags": ["efeitos-adversos"]
+    },
+    {
+      "type": "match",
+      "topic": "Insulinas: duração de ação",
+      "prompt": "Associe a insulina à sua categoria de ação.",
+      "leftLabel": "Insulina",
+      "rightLabel": "Categoria",
+      "pairs": [
+        { "id": "lispro", "left": "Lispro / Aspart / Glulisina", "right": "Ultrarrápida (pré-prandial)" },
+        { "id": "reg", "left": "Regular (humana solúvel)", "right": "Rápida (única IV)" },
+        { "id": "nph", "left": "NPH", "right": "Intermediária" },
+        { "id": "glar", "left": "Glargina / Detemir", "right": "Longa duração" },
+        { "id": "deg", "left": "Degludeca / Icodeca", "right": "Ultralonga (até semanal)" }
+      ],
+      "expl": "Esquema basal-bolus: análogo basal (1x/dia) + análogo ultrarrápido nas refeições. NPH ainda muito usada por custo (SUS) mas tem pico → mais hipoglicemia. Regular é a única IV (cetoacidose).",
+      "difficulty": "medium",
+      "tags": ["insulinas", "duracao"]
+    },
+    {
+      "type": "case",
+      "topic": "Escolha em DM2 + ICC",
+      "subtitle": "Senhora 64 anos, DM2, dispneia aos esforços e edema",
+      "specialty": "Endocrinologia · Cardiologia",
+      "difficulty": "hard",
+      "vignette": "Senhora de 64 anos, DM2 há 6 anos em uso de metformina 1000 mg 12/12h. HbA1c última: 7,9%. Refere dispneia aos médios esforços e edema vespertino há 2 meses. Ecocardiograma recente: FE 36%. Creatinina 1,2 (TFG ~52). Está sentada na sua frente perguntando se precisa começar insulina.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Qual a melhor adição à metformina nesse contexto?",
+          "options": [
+            "Iniciar empagliflozina (iSGLT-2) pelo benefício adicional em ICC com FE reduzida e proteção renal",
+            "Iniciar glibenclamida pela potência hipoglicemiante",
+            "Iniciar pioglitazona para reduzir HbA1c",
+            "Iniciar insulina NPH em dose plena já"
+          ],
+          "correct": 0,
+          "expl": "iSGLT-2 (empa, dapa) reduz hospitalização por IC e progressão de DRC mesmo em paciente com HbA1c próximo do alvo. Pioglitazona PIORA ICC (retenção hídrica). Glibenclamida não tem benefício cardiovascular. Insulina não é a primeira opção aqui."
+        },
+        {
+          "id": "step2",
+          "prompt": "Você opta por empagliflozina 10 mg/dia. Em 2 meses ela retorna queixando-se de ardência ao urinar e secreção vaginal espessa.",
+          "question": "Qual a conduta?",
+          "options": [
+            "Tratar candidíase com antifúngico tópico e orientar higiene; manter empagliflozina, esses EA são esperados mas geralmente manejáveis",
+            "Suspender empagliflozina imediatamente e nunca mais usar",
+            "Aumentar a dose para 25 mg para 'limpar' a infecção",
+            "Trocar por glibenclamida"
+          ],
+          "correct": 0,
+          "expl": "Candidíase genital é EA comum dos iSGLT-2 pela glicosúria. Geralmente manejável: tratar episódio agudo, orientar higiene íntima e secagem. Suspensão só se recorrente/grave. ITU também aumentada; pielonefrite e infecções graves (Fournier) são raras mas exigem suspensão."
+        },
+        {
+          "id": "step3",
+          "prompt": "Seis meses depois, HbA1c 7,1%, sintomas de IC melhoraram, perdeu 3 kg, sem mais episódios de candidíase.",
+          "question": "Qual seria a próxima adição se a HbA1c subir para 8% no futuro?",
+          "options": [
+            "Agonista GLP-1 (semaglutida ou dulaglutida) pelo benefício adicional cardiovascular e perda de peso, sem hipoglicemia",
+            "Glibenclamida em alta dose",
+            "Insulina basal-bolus imediatamente",
+            "Acarbose"
+          ],
+          "correct": 0,
+          "expl": "Em DM2 com DCV ou alto risco, após iSGLT-2 a próxima adição preferencial é agonista GLP-1. Os dois juntos têm efeitos complementares e sinérgicos (estudos AMPLITUDE-O, SUSTAIN-6). Insulina só quando esquema oral/injetável não-insulínico falha, ou em descompensação."
+        }
+      ],
+      "outcome": "Após associar semaglutida 0,5 mg semanal: HbA1c 6,8%, perda adicional de 4 kg, qualidade de vida muito melhorada. Insulina basal não foi necessária. Paciente segue em controle ambulatorial."
+    },
+    {
+      "type": "case",
+      "topic": "Hipoglicemia em idoso",
+      "subtitle": "Idoso 78 anos, glibenclamida há 10 anos, encontrado inconsciente",
+      "specialty": "Endocrinologia · Emergência",
+      "difficulty": "medium",
+      "vignette": "Idoso de 78 anos, DM2 em uso de glibenclamida 10 mg/dia + metformina. Familiares relatam que tem comido pouco há 3 dias por gripe. Encontrado pela manhã sonolento, sudoreico, com fala arrastada. Dextro à chegada do SAMU: 32 mg/dL.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Conduta IMEDIATA na cena?",
+          "options": [
+            "Glicose 50% IV (4 ampolas) se acesso disponível; se não, glucagon 1 mg IM. Reavaliar dextro em 15 min",
+            "Aguardar resposta espontânea",
+            "Insulina rápida para 'corrigir' a glicemia",
+            "Sondagem nasoenteral para alimentação"
+          ],
+          "correct": 0,
+          "expl": "Hipoglicemia grave em paciente inconsciente: glicose hipertônica IV (50% 30-50 mL) é primeira escolha. Se sem acesso, glucagon IM. Insulina jamais. Sondagem não cabe agora."
+        },
+        {
+          "id": "step2",
+          "prompt": "Paciente acorda após glicose 50%. Dextro 110. Está orientado mas com astenia.",
+          "question": "Conduta a seguir?",
+          "options": [
+            "Internação por pelo menos 24h. Glibenclamida tem meia-vida longa, risco real de recaída prolongada. Manter SG 5-10% IV e dextro 2/2h",
+            "Alta imediata pois já respondeu",
+            "Repetir glibenclamida na dose habitual",
+            "Suspender metformina e manter só glibenclamida"
+          ],
+          "correct": 0,
+          "expl": "Hipoglicemia por sulfonilureia exige observação prolongada (24h ou mais) por meia-vida longa e risco de recaída. Manter glicose IV contínua, dextro frequente. Suspender sulfonilureia. Após estabilização, repensar o esquema (paciente idoso, magro, com hiporexia → considerar trocar glibenclamida por DPP-4 ou GLP-1)."
+        }
+      ],
+      "outcome": "Após 36h de SG 10% IV, paciente estável sem recaídas. Alta com troca de glibenclamida por linagliptina 5 mg/dia. Orientação familiar reforçada: nunca pular refeições com glibenclamida, monitorar dextro em jejum prolongado ou doença."
+    },
+    {
+      "type": "flashcard",
+      "topic": "Metformina",
+      "front": "Metformina: classe, mecanismo, indicação e efeito adverso mais comum?",
+      "back": "Biguanida. Ativa AMPK, reduz gliconeogênese hepática. Primeira escolha em DM2. EA principal: gastrointestinal (diarreia, náusea). Suspender se TFG < 30. Não causa hipoglicemia em monoterapia. Risco raro: acidose láctica.",
+      "tags": ["biguanida"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Glibenclamida",
+      "front": "Glibenclamida: classe, mecanismo, EA principal?",
+      "back": "Sulfonilureia. Fecha canal K-ATP da célula beta → secreção de insulina. Causa hipoglicemia (especialmente em idosos e IR) e ganho de peso. Meia-vida longa = risco de hipoglicemia prolongada. Sem benefício cardiovascular.",
+      "tags": ["sulfonilureia"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Gliclazida MR",
+      "front": "Gliclazida MR: diferenças em relação à glibenclamida?",
+      "back": "Sulfonilureia de liberação modificada (MR). Menor risco de hipoglicemia que a glibenclamida. Tem ação seletiva no SUR-1 pancreático (menos efeito cardíaco). Considerada mais segura em idosos.",
+      "tags": ["sulfonilureia"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Glimepirida",
+      "front": "Glimepirida: classe e diferença das outras sulfonilureias?",
+      "back": "Sulfonilureia de 2ª geração. Dose única diária. Menor risco de hipoglicemia que glibenclamida, mas ainda presente. Causa ganho de peso. Excreção renal e hepática.",
+      "tags": ["sulfonilureia"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Repaglinida",
+      "front": "Repaglinida: classe, indicação e cuidado farmacológico?",
+      "back": "Glinida. Secretagogo de ação rápida (pré-prandial). Reduz glicemia pós-prandial. Metabolizada via CYP3A4 → cuidado com indutores (rifampicina) e inibidores (claritromicina, antifúngicos azólicos).",
+      "tags": ["glinida"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Nateglinida",
+      "front": "Nateglinida: característica principal?",
+      "back": "Glinida com ação ainda mais rápida que repaglinida. Estimula secreção de insulina dependente de glicose. Menor risco de hipoglicemia entre os secretagogos.",
+      "tags": ["glinida"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Semaglutida",
+      "front": "Semaglutida: classe, posologia e benefícios principais?",
+      "back": "Agonista GLP-1. SC semanal (ou oral diária). Reduz HbA1c, perda de peso significativa, redução de MACE em pacientes com DCV (SUSTAIN-6). EA: náusea, vômito (geralmente transitório).",
+      "tags": ["agonista-glp1"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Liraglutida",
+      "front": "Liraglutida: dose e diferença para semaglutida?",
+      "back": "Agonista GLP-1 SC diária. Benefício cardiovascular comprovado (LEADER). Pode ser usada como antiobesidade em dose maior (3 mg = Saxenda). Mais doses diárias que semaglutida.",
+      "tags": ["agonista-glp1"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Dulaglutida",
+      "front": "Dulaglutida: posologia e estudo de referência?",
+      "back": "Agonista GLP-1 SC semanal. Benefício cardiovascular demonstrado (REWIND, em prevenção primária e secundária). Dose única semanal facilita adesão.",
+      "tags": ["agonista-glp1"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Exenatida",
+      "front": "Exenatida: origem e posologia?",
+      "back": "Primeiro agonista GLP-1 aprovado. Originalmente derivado da exendina-4 (saliva do lagarto Gila monster). Versão diária 2x e versão semanal. Mais EA gastrointestinais que análogos humanos.",
+      "tags": ["agonista-glp1"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tirzepatida",
+      "front": "Tirzepatida: mecanismo único e papel atual?",
+      "back": "Duplo agonista GIP/GLP-1 (primeiro aprovado). Maior redução de HbA1c e maior perda de peso que agonistas GLP-1 isolados. SC semanal. EA gastrointestinais (geralmente transitórios).",
+      "tags": ["incretina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Dapagliflozina",
+      "front": "Dapagliflozina: classe, mecanismo e indicações além de DM2?",
+      "back": "Inibidor de SGLT-2. Inibe reabsorção tubular de glicose. Indicações: DM2, IC com FE reduzida ou preservada (mesmo sem DM), proteção renal em DRC (DAPA-CKD). EA: candidíase, ITU, cetoacidose euglicêmica.",
+      "tags": ["sglt2"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Empagliflozina",
+      "front": "Empagliflozina: estudo de referência e benefício principal?",
+      "back": "iSGLT-2. EMPA-REG OUTCOME (primeiro estudo a mostrar benefício CV em antidiabético oral). EMPEROR-Reduced/Preserved (IC). Indicações: DM2, IC, DRC. Mesmas precauções que dapa.",
+      "tags": ["sglt2"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Canagliflozina",
+      "front": "Canagliflozina: alerta de segurança importante?",
+      "back": "iSGLT-2. CANVAS sinalizou aumento de amputação de MMII e risco de fratura, principalmente em pacientes com doença vascular periférica. Cuidado especial. Benefício renal demonstrado (CREDENCE).",
+      "tags": ["sglt2"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Acarbose",
+      "front": "Acarbose: mecanismo, eficácia e EA principal?",
+      "back": "Inibidor de α-glicosidase intestinal. Retarda absorção de carboidratos. Reduz glicemia pós-prandial. Eficácia modesta. EA: flatulência, distensão, diarreia (limita adesão). Em hipoglicemia: usar GLICOSE (não sacarose).",
+      "tags": ["acarbose"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Pioglitazona",
+      "front": "Pioglitazona: classe, mecanismo, contraindicação principal?",
+      "back": "TZD. Agonista PPAR-γ. Melhora sensibilidade insulínica. Contraindicada em ICC (retenção hídrica). EA: ganho de peso, edema, fraturas. Pode melhorar esteatose hepática. Discussão sobre risco de Ca de bexiga.",
+      "tags": ["tzd"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Sitagliptina",
+      "front": "Sitagliptina: classe, posologia e ajuste renal?",
+      "back": "Inibidor de DPP-4. Oral 1x/dia. Sem hipoglicemia em monoterapia, peso-neutra. Precisa ajuste em IR (50 mg se TFG 30-50; 25 mg se < 30).",
+      "tags": ["dpp4"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Saxagliptina",
+      "front": "Saxagliptina: alerta cardiovascular?",
+      "back": "iDPP-4. SAVOR-TIMI 53 sinalizou aumento de hospitalização por IC. Evitar em paciente com ICC pré-existente. Sem benefício CV. Ajuste em IR.",
+      "tags": ["dpp4"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Linagliptina",
+      "front": "Linagliptina: diferença farmacocinética importante?",
+      "back": "iDPP-4 com excreção PREDOMINANTEMENTE biliar (não precisa ajuste renal). Útil em DRC avançada. Sem benefício CV.",
+      "tags": ["dpp4"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Vildagliptina",
+      "front": "Vildagliptina: posologia e cuidado?",
+      "back": "iDPP-4. 50 mg 2x/dia (geralmente). Monitorar transaminases (raros casos de hepatotoxicidade). Sem benefício CV.",
+      "tags": ["dpp4"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Alogliptina",
+      "front": "Alogliptina: posologia e ajuste?",
+      "back": "iDPP-4 dose única diária. Ajustar em IR. Perfil similar aos outros 'gliptinas'.",
+      "tags": ["dpp4"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Insulina Regular",
+      "front": "Insulina Regular: cinética e única indicação importante?",
+      "back": "Insulina humana solúvel. SC: início 30 min, pico 2-3h, duração 6-8h. ÚNICA insulina indicada IV: cetoacidose diabética e estado hiperosmolar.",
+      "tags": ["insulina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Insulina NPH",
+      "front": "Insulina NPH: característica e papel?",
+      "back": "Insulina intermediária (insulina regular + protamina). Início 1-2h, PICO 4-8h, duração 12-18h. Pico é o principal motivo de hipoglicemia noturna. Ainda muito usada por custo (SUS).",
+      "tags": ["insulina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Insulina Aspart",
+      "front": "Aspart: classe, cinética e troca de aminoácido?",
+      "back": "Análogo ultrarrápido. Troca prolina por ácido aspártico (B28). Início 10-15 min, pico 1h, duração 3-5h. Usar pré-prandial (5-10 min antes da refeição).",
+      "tags": ["insulina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Insulina Fast Aspart",
+      "front": "Fast Aspart: diferença para Aspart?",
+      "back": "Aspart + niacinamida + L-arginina = absorção ainda mais rápida. Pode ser administrada no momento da refeição ou até 20 min depois. Ideal pra crianças e pacientes com pico pós-prandial intenso.",
+      "tags": ["insulina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Insulina Lispro",
+      "front": "Lispro: troca de aminoácido e cinética?",
+      "back": "Análogo ultrarrápido. Inverte lisina-prolina (B28-B29). Início 5-15 min, pico 1h, duração 3-4h. Pré-prandial.",
+      "tags": ["insulina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Insulina Glulisina",
+      "front": "Glulisina: característica?",
+      "back": "Análogo ultrarrápido. Trocas em B3 (lys) e B29 (glu). Cinética similar a lispro/aspart. Pré-prandial.",
+      "tags": ["insulina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Insulina Glargina",
+      "front": "Glargina: pH e mecanismo de ação prolongada?",
+      "back": "Análogo basal. Solúvel em pH ácido (4); precipita no SC (pH 7) → liberação lenta. Duração ~24h, sem pico marcado. Glargina U-300 (Toujeo) é mais concentrada e duração maior.",
+      "tags": ["insulina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Insulina Degludeca",
+      "front": "Degludeca: cinética e vantagem?",
+      "back": "Análogo basal ultralongo. Forma multihexâmeros no SC → meia-vida >25h, duração >42h. Dose única diária, flexibilidade de horário. Menor variabilidade e menos hipoglicemia noturna que glargina.",
+      "tags": ["insulina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Insulina Detemir",
+      "front": "Detemir: mecanismo de prolongação?",
+      "back": "Análogo basal. Liga-se à albumina (cadeia de ácido graxo) → liberação lenta. Duração 16-24h (geralmente 2x/dia). Menos pico que NPH.",
+      "tags": ["insulina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Insulina Icodeca",
+      "front": "Icodeca: novidade e posologia?",
+      "back": "Insulina SEMANAL (primeira aprovada). Análogo basal com ligação prolongada à albumina. Aplicação 1x por semana SC. Aprovada recentemente, simplifica adesão.",
+      "tags": ["insulina"]
+    }
+  ]
+}
