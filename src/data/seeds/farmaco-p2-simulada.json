@@ -1,0 +1,620 @@
+{
+  "title": "Farmaco P2: Simulada",
+  "description": "Simulado integrado da P2 com questões inter-bloco: discrimine classes parecidas, identifique interações, escolha o fármaco certo entre opções de blocos diferentes. Treina o tipo de questão que SEMPRE cai e separa quem decorou de quem entendeu.",
+  "icon": "",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "mc",
+      "topic": "Discriminação · IECA vs BRA",
+      "q": "Paciente com HAS em uso de enalapril desenvolveu tosse seca persistente. Qual a melhor conduta farmacológica?",
+      "options": [
+        "Substituir por losartana (BRA): bloqueia AT1 sem aumentar bradicinina, mesma eficácia, sem tosse",
+        "Aumentar a dose de enalapril para suprimir a tosse",
+        "Adicionar codeína para a tosse",
+        "Trocar para hidralazina monoterapia"
+      ],
+      "correct": 0,
+      "expl": "Tosse seca dos IECA decorre do aumento de bradicinina (a mesma enzima ECA degrada bradicinina). BRA bloqueia somente o receptor AT1 sem afetar bradicinina → não tem tosse. Indicações sobrepostas (HAS, IC, nefropatia). Mesma contraindicação na gestação.",
+      "difficulty": "easy",
+      "tags": ["ieca", "bra", "tosse"]
+    },
+    {
+      "type": "mc",
+      "topic": "Discriminação · DM2 + ICC + DRC",
+      "q": "Senhora 64a, DM2 com HbA1c 8,2%, IC com FE 35%, TFG 42. Em uso de metformina. Qual a melhor adição?",
+      "options": [
+        "Empagliflozina (iSGLT-2) — benefício comprovado em IC e proteção renal além do efeito glicêmico",
+        "Glibenclamida — pelo efeito hipoglicemiante potente",
+        "Pioglitazona — para reduzir HbA1c rapidamente",
+        "Insulina NPH em dose plena"
+      ],
+      "correct": 0,
+      "expl": "Em DM2 com IC e DRC: iSGLT-2 é a 1ª escolha após metformina (benefício na IC com FE reduzida e proteção renal). Glibenclamida → hipoglicemia em DRC. Pioglitazona piora IC (retenção). Insulina não é primeira escolha aqui.",
+      "difficulty": "medium",
+      "tags": ["dm2", "isglt2", "ic"]
+    },
+    {
+      "type": "mc",
+      "topic": "Interação · ACO + rifampicina",
+      "q": "Mulher 24a em uso regular de ACO combinado inicia rifampicina por tuberculose latente. Conduta?",
+      "options": [
+        "Orientar método de barreira durante o uso + por 4 semanas após suspensão da rifampicina (indutor enzimático reduz eficácia do ACO)",
+        "Manter ACO normalmente — não há interação",
+        "Aumentar a dose do ACO em 50%",
+        "Suspender qualquer contracepção"
+      ],
+      "correct": 0,
+      "expl": "Indutores potentes do CYP (rifampicina, fenitoína, carbamazepina, fenobarbital, alguns ARV) aceleram o metabolismo do etinilestradiol e progestínicos → FALHA contraceptiva. Conduta: método de barreira durante o uso + 4 semanas após. Alternativas: DIU cobre, DIU levonorgestrel (efeito local), AMPD.",
+      "difficulty": "medium",
+      "tags": ["aco", "rifampicina"]
+    },
+    {
+      "type": "mc",
+      "topic": "Interação · IECA + espirono + AINE",
+      "q": "Idoso 78a em uso de enalapril e espironolactona inicia ibuprofeno 600 mg 8/8h por lombalgia. Após 3 dias: oligúria, K+ 6,7, creatinina dobra. Qual a explicação?",
+      "options": [
+        "Tríade nefrotóxica/hipercalêmica clássica: IECA + espironolactona + AINE → IRA pré-renal + hipercalemia (vasoconstrição da arteríola aferente + retenção de K+ + bloqueio do SRAA)",
+        "Pielonefrite aguda por ibuprofeno",
+        "Rabdomiólise por idade",
+        "Hipoaldosteronismo primário"
+      ],
+      "correct": 0,
+      "expl": "Combinação extremamente cobrada em prova: IECA/BRA reduzem Ang II → vasodilatam arteríola eferente. Espironolactona retém K+. AINE inibem prostaglandinas → vasoconstrição da aferente → ↓ FG. Resultado: IRA pré-renal + hipercalemia. Sempre pesquisar AINE em paciente em uso de SRAA + diurético com IRA.",
+      "difficulty": "medium",
+      "tags": ["interacao", "ieca", "aine"]
+    },
+    {
+      "type": "mc",
+      "topic": "Discriminação · IAM inferior + VD",
+      "q": "Homem 60a com IAM inferior recebe nitroglicerina sublingual e cai a PA para 78x40 com piora da perfusão. Próximo passo?",
+      "options": [
+        "Suspender nitrato; expansão volêmica (cristaloide) IV; pedir derivações direitas (V3R/V4R) para confirmar IAM de VD",
+        "Aumentar dose de nitroglicerina",
+        "Trombólise imediata sem mais avaliação",
+        "Iniciar betabloqueador IV"
+      ],
+      "correct": 0,
+      "expl": "IAM inferior tem ~30-50% de acometimento de VD (mesma irrigação CD). VD isquêmico depende de pré-carga para manter débito. Nitrato cai pré-carga → colapso. Pegadinha clássica. Conduta: parar nitrato + volume IV + ECG das direitas. EVITAR também morfina e diurético na fase aguda.",
+      "difficulty": "medium",
+      "tags": ["nitrato", "iam-vd"]
+    },
+    {
+      "type": "mc",
+      "topic": "Antídotos · sangramento por dabigatrana",
+      "q": "Paciente em uso de dabigatrana chega ao PS com hemorragia digestiva alta volumosa. Qual o antídoto específico?",
+      "options": [
+        "Idarucizumabe (Praxbind) — anticorpo Fab que neutraliza dabigatrana",
+        "Andexanet alfa",
+        "Sulfato de protamina",
+        "Vitamina K"
+      ],
+      "correct": 0,
+      "expl": "Pareamento: HEP → protamina (100% HNF, parcial HBPM, zero fondaparinux). VARFARINA → vit K (e PCC/plasma se grave). DABIGATRANA (anti-IIa) → idarucizumabe. RIVAROXABANA / apixabana (anti-Xa direto) → andexanet alfa.",
+      "difficulty": "easy",
+      "tags": ["antidoto", "dabigatrana"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pegadinha · captopril sublingual",
+      "q": "Paciente com urgência hipertensiva (PA 200x115, sem lesão de órgão-alvo). Qual conduta é INADEQUADA?",
+      "options": [
+        "Captopril SUBLINGUAL — não há absorção sublingual real",
+        "Captopril 25-50 mg VO mastigado",
+        "Clonidina 0,1-0,2 mg VO",
+        "Anlodipino VO"
+      ],
+      "correct": 0,
+      "expl": "Pegadinha clássica: captopril NÃO é absorvido pela mucosa sublingual — o efeito agudo vem da deglutição e absorção GI. NUNCA escrever 'captopril SL'. Em urgência (sem lesão de órgão-alvo): VO mastigado, com pico em 15-30 min. Nifedipino sublingual também é proibido (queda imprevisível, AVC/IAM).",
+      "difficulty": "medium",
+      "tags": ["captopril", "pegadinha"]
+    },
+    {
+      "type": "mc",
+      "topic": "Resgate · metotrexato vs sulfa+pirimetamina",
+      "q": "Em qual situação o ácido FOLÍNICO (leucovorina) é o resgate adequado?",
+      "options": [
+        "Toxicidade por metotrexato (inibe DHFR) OU tratamento de toxoplasmose com sulfa + pirimetamina (sempre associar para evitar mielossupressão)",
+        "Sangramento por varfarina",
+        "Toxicidade por digoxina",
+        "Toxicidade por opioide"
+      ],
+      "correct": 0,
+      "expl": "Ácido FOLÍNICO (leucovorina) é resgate em situações que bloqueiam DHFR: METOTREXATO (resgate pós alta dose) e SULFA + PIRIMETAMINA (toxoplasmose — sempre adicionar para resgatar medula). Ácido fólico (não folínico) não funciona como resgate em DHFR bloqueado. Sangramento por varfarina → vit K. Digoxina → Digibind. Opioide → naloxona.",
+      "difficulty": "medium",
+      "tags": ["folinico", "metotrexato"]
+    },
+    {
+      "type": "mc",
+      "topic": "Discriminação · gestante com HAS",
+      "q": "Gestante 26 semanas com PA 158x102 confirmada. Anti-hipertensivo de primeira escolha?",
+      "options": [
+        "Metildopa (clássica e segura); alternativas: nifedipino LP, hidralazina; em crise: hidralazina IV ou nifedipino VO",
+        "Enalapril",
+        "Losartana",
+        "Atenolol"
+      ],
+      "correct": 0,
+      "expl": "Drogas SEGURAS na gestação: metildopa, hidralazina, nifedipino LP. IECA e BRA são TERATOGÊNICOS (oligoidrâmnio, IRA fetal). Atenolol foi associado a RCIU se usado precocemente. Em crise hipertensiva da gestação: hidralazina IV ou nifedipino VO. Sulfato de magnésio para profilaxia/tratamento de eclâmpsia (separado).",
+      "difficulty": "medium",
+      "tags": ["gestacao", "metildopa"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pegadinha · contraindicação ao ACO",
+      "q": "Em qual situação o ACO COMBINADO (etinilestradiol) está absolutamente CONTRAINDICADO?",
+      "options": [
+        "Fumante > 35 anos (risco AVC/IAM aumentado em ~10x)",
+        "Mulher 25a saudável",
+        "Adolescente sem comorbidades",
+        "Mulher pós-parto após 6 semanas sem aleitamento"
+      ],
+      "correct": 0,
+      "expl": "Contraindicações ABSOLUTAS ao etinilestradiol: fumante > 35a, TEV/TEP prévio, enxaqueca COM aura, HAS grave, Ca de mama, hepatopatia ativa, < 6 sem pós-parto. Em fumantes > 35a: risco multiplicativo de evento cardiovascular. Alternativa: método progestínico isolado ou DIU.",
+      "difficulty": "easy",
+      "tags": ["aco", "contraindicacao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Discriminação · escolha em FA",
+      "q": "Mulher 76a com FA crônica não valvar, HAS, DM2 controlado. Sem AVC prévio. Qual a indicação de anticoagulação?",
+      "options": [
+        "Indicada (idade + HAS + DM = risco moderado a alto); preferir DOAC (rivaroxabana, dabigatrana, apixabana, edoxabana) sobre varfarina em FA não valvar",
+        "Apenas AAS",
+        "Nada — risco baixo",
+        "Trombolítico profilático"
+      ],
+      "correct": 0,
+      "expl": "FA não valvar com risco moderado-alto = anticoagulação plena. DOACs são preferidos sobre varfarina (eficácia ≥ e menos hemorragia intracraniana). FA VALVAR (estenose mitral reumática ou válvula mecânica) = varfarina obrigatória. AAS ou DAPT NÃO substituem anticoagulação em FA com risco.",
+      "difficulty": "medium",
+      "tags": ["fa", "anticoagulacao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pegadinha · primaquina e gestante",
+      "q": "Gestante 22 semanas com malária por P. vivax. Conduta?",
+      "options": [
+        "Cloroquina por 3 dias + supressão semanal com cloroquina ATÉ O PÓS-PARTO (primaquina é contraindicada na gestação)",
+        "Cloroquina + primaquina no esquema habitual",
+        "Apenas artesunato IV em qualquer caso",
+        "Suspender tratamento até o parto"
+      ],
+      "correct": 0,
+      "expl": "Primaquina é CONTRAINDICADA na gestação (atravessa placenta, risco de hemólise no feto, especialmente G6PD-deficiente). Em gestante com vivax: cloroquina aguda + supressão semanal com cloroquina até o pós-parto. Após o parto, iniciar cura radical com primaquina (checar G6PD do RN se for amamentar).",
+      "difficulty": "medium",
+      "tags": ["malaria", "gestante"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pegadinha · finasterida e PSA",
+      "q": "Homem 60a em uso de finasterida há 1 ano por HPB. PSA 3,2. Qual a interpretação correta?",
+      "options": [
+        "Multiplicar o PSA por 2 → valor real ~6,4 (finasterida reduz PSA em ~50%); investigar Ca de próstata se valor corrigido elevado",
+        "PSA é normal (3,2), nada a fazer",
+        "Suspender finasterida para 'limpar' o PSA",
+        "Repetir PSA em 5 anos"
+      ],
+      "correct": 0,
+      "expl": "Inibidores de 5α-redutase (finasterida, dutasterida) reduzem o PSA em ~50% após ≥6 meses de uso. Em rastreio de Ca de próstata em paciente em uso crônico: MULTIPLICAR O PSA POR 2 para estimar o valor real. Aqui: 3,2 × 2 = 6,4 → investigar. Pegadinha clássica de prova.",
+      "difficulty": "medium",
+      "tags": ["finasterida", "psa"]
+    },
+    {
+      "type": "mc",
+      "topic": "Discriminação · CMV vs HSV",
+      "q": "Paciente transplantado com viremia confirmada de CMV. Qual o tratamento?",
+      "options": [
+        "Ganciclovir (ou valganciclovir VO) — CMV é fosforilado pela UL97 viral; aciclovir NÃO funciona (CMV não tem timidina-cinase)",
+        "Aciclovir em alta dose",
+        "Oseltamivir",
+        "Foscarnet de 1ª linha"
+      ],
+      "correct": 0,
+      "expl": "Aciclovir depende da TIMIDINA-CINASE viral (HSV/VZV). CMV NÃO tem TK funcional → aciclovir é inativo. CMV: ganciclovir/valganciclovir (ativados pela fosfotransferase UL97). Resistência ou intolerância: foscarnet (não precisa de cinase viral).",
+      "difficulty": "medium",
+      "tags": ["cmv", "aciclovir"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pegadinha · sulfonilureia + idoso",
+      "q": "Idoso 80a com DM2, hiporexia há 3 dias por gripe, em uso de glibenclamida + metformina. Chega ao PS sonolento, dextro 32. Conduta inicial e seguinte?",
+      "options": [
+        "Glicose 50% IV imediata; INTERNAR por 24-48h com SG IV (glibenclamida tem metabólitos ativos com meia-vida longa, risco de recidiva); octreotide se refratário; trocar glibenclamida ao alta",
+        "Glicose IV e alta imediata",
+        "Repetir glibenclamida na dose habitual",
+        "Insulina rápida para 'corrigir' a glicemia"
+      ],
+      "correct": 0,
+      "expl": "Hipoglicemia por sulfonilureia em idoso é potencialmente FATAL e RECIDIVA. Glibenclamida e metabólitos ativos têm meia-vida prolongada → observação 24-48h obrigatória com SG IV. Octreotide (inibe secreção β) é antídoto específico em casos refratários. Repensar esquema: trocar por DPP-4 ou GLP-1.",
+      "difficulty": "medium",
+      "tags": ["sulfonilureia", "hipoglicemia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pegadinha · GLP-1 contraindicação",
+      "q": "Mulher 45a com DM2, IMC 35, vai iniciar semaglutida. Qual condição na história contraindicaria?",
+      "options": [
+        "História pessoal ou familiar de carcinoma medular de tireoide (CMT) ou neoplasia endócrina múltipla tipo 2 (NEM-2)",
+        "Idade acima de 65 anos",
+        "IMC acima de 30",
+        "Uso atual de metformina"
+      ],
+      "correct": 0,
+      "expl": "Agonistas GLP-1 (semaglutida, liraglutida, dulaglutida, exenatida): contraindicação ABSOLUTA em pacientes/famílias com CMT ou NEM-2 (sinal em roedores de hiperplasia/tumor de células C). Pancreatite aguda prévia é contraindicação relativa. Idade, IMC e metformina não contraindicam.",
+      "difficulty": "medium",
+      "tags": ["glp1", "cmt"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pegadinha · sangramento por sulfonilureia refratário",
+      "q": "Paciente com hipoglicemia persistente por glibenclamida apesar de 12h de SG 10% IV. Qual o antídoto específico?",
+      "options": [
+        "Octreotide 50-100 mcg SC a cada 6-8h (inibe secreção de insulina pela célula β)",
+        "Glucagon IM",
+        "Insulina basal para 'estabilizar'",
+        "Naloxona EV"
+      ],
+      "correct": 0,
+      "expl": "Octreotide é antídoto específico para hipoglicemia refratária por sulfonilureia: análogo da somatostatina que inibe canal K-ATP/secreção de insulina. Glucagon é menos eficaz nesse contexto (estoque de glicogênio já depletado). Insulina jamais. Considerar em recidivas apesar de glicose IV contínua.",
+      "difficulty": "hard",
+      "tags": ["octreotide", "sulfonilureia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pegadinha · estatina + macrolídeo",
+      "q": "Paciente em sinvastatina 40 mg/dia inicia claritromicina por sinusite. Após 5 dias: dor muscular intensa, CPK 12.000, urina escura. Mecanismo?",
+      "options": [
+        "Claritromicina inibe CYP3A4 → ↑ concentração da sinvastatina → rabdomiólise; suspender ambos, hidratar, monitorar função renal",
+        "Rabdomiólise por exercício",
+        "Infecção viral coincidente",
+        "Hiperaldosteronismo"
+      ],
+      "correct": 0,
+      "expl": "Sinvastatina e atorvastatina são metabolizadas pelo CYP3A4. Inibidores potentes (macrolídeos como claritromicina/eritromicina, antifúngicos azólicos, ciclosporina, suco de grapefruit) aumentam a concentração da estatina → miopatia/rabdomiólise. ROSUVASTATINA e PRAVASTATINA (não CYP3A4) são alternativas mais seguras.",
+      "difficulty": "medium",
+      "tags": ["estatina", "interacao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Discriminação · clonidina vs metildopa",
+      "q": "Qual anti-hipertensivo TEM rebote hipertensivo grave se suspenso bruscamente?",
+      "options": [
+        "Clonidina (simpaticolítico central) — sempre desmamar gradualmente; rebote por hiperatividade simpática",
+        "Metildopa",
+        "Anlodipino",
+        "Hidralazina"
+      ],
+      "correct": 0,
+      "expl": "Clonidina: suspensão abrupta causa CRISE HIPERTENSIVA DE REBOTE (HAS, taquicardia, sudorese intensa). Sempre desmamar. Metildopa não tem esse fenômeno tão marcante. BB também podem ter rebote (especialmente isquêmico — angina) mas o cenário clássico de prova é a clonidina.",
+      "difficulty": "medium",
+      "tags": ["clonidina", "rebote"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pegadinha · benznidazol + álcool",
+      "q": "Paciente em uso de benznidazol para fase aguda de Chagas pergunta se pode beber em festa de aniversário. Conduta?",
+      "options": [
+        "ORIENTAR ABSTINÊNCIA TOTAL durante o tratamento (efeito tipo dissulfiram conforme a aula): náusea, vômito, rubor, hipotensão; metronidazol/tinidazol/secnidazol têm o mesmo problema",
+        "Pode beber moderadamente",
+        "Sem qualquer restrição",
+        "Pode beber apenas vinho"
+      ],
+      "correct": 0,
+      "expl": "Pegadinha clássica: benznidazol, metronidazol, tinidazol, secnidazol e cefamandol têm interação tipo dissulfiram com álcool (inibição da aldeído desidrogenase → acúmulo de acetaldeído). Sintomas: rubor, náusea, vômito, taquicardia, hipotensão, cefaleia. Sempre orientar abstinência durante e por 48-72h após o término.",
+      "difficulty": "easy",
+      "tags": ["benznidazol", "alcool"]
+    },
+    {
+      "type": "mc",
+      "topic": "Discriminação · TARV gestante",
+      "q": "Gestante recém-diagnosticada com HIV, sem TARV prévia. Esquema clássico cobrado na P2?",
+      "options": [
+        "Efavirenz + Lamivudina + Tenofovir (esquema clássico em gestante no Brasil; atualizações recentes consideram DTG também seguro)",
+        "Apenas zidovudina monoterapia",
+        "Lopinavir/Ritonavir em monoterapia",
+        "Suspender qualquer tratamento durante a gestação"
+      ],
+      "correct": 0,
+      "expl": "Esquema clássico em gestante no Brasil (cobrado em P2): Efavirenz + Lamivudina + Tenofovir. Sinal histórico de teratogenia do efavirenz não foi confirmado em humanos → considerado seguro. Dolutegravir também é considerado seguro atualmente (inclusive periconcepção). Profilaxia neonatal pós-parto: zidovudina 4-6 semanas.",
+      "difficulty": "medium",
+      "tags": ["tarv", "gestante"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pegadinha · primaquina + G6PD",
+      "q": "Antes de prescrever primaquina para cura radical da malária por P. vivax, qual o rastreio obrigatório?",
+      "options": [
+        "Dosagem de G6PD eritrocitária (hemólise grave em deficientes)",
+        "Apenas hemograma",
+        "Função tireoidiana",
+        "PSA"
+      ],
+      "correct": 0,
+      "expl": "Primaquina causa HEMÓLISE intravascular grave em pacientes com deficiência de G6PD. Rastreio obrigatório antes da prescrição. Em mulher em idade fértil: também descartar gestação (teratogênica). Tafenoquina (dose única, mesma classe) tem mesma precaução. Cidofovir e dapsona também podem causar hemólise em G6PD-deficientes.",
+      "difficulty": "easy",
+      "tags": ["primaquina", "g6pd"]
+    },
+    {
+      "type": "mc",
+      "topic": "Discriminação · pré vs pós-menopausa",
+      "q": "Mulher 58 anos, pós-menopausa, recém-diagnosticada com Ca de mama RE+. Qual a melhor opção endócrina adjuvante?",
+      "options": [
+        "Inibidor de aromatase (anastrozol) — única fonte de estrogênio na pós-menopausa é a aromatase periférica",
+        "Tamoxifeno — escolha exclusiva em qualquer faixa etária",
+        "Análogo de GnRH (gosserrelina)",
+        "Quimioterapia citotóxica obrigatória sem terapia endócrina"
+      ],
+      "correct": 0,
+      "expl": "Ca de mama RE+: PRÉ-MENOPAUSA = tamoxifeno (ovário ainda produz estrogênio; IA é ineficaz isoladamente). PÓS-MENOPAUSA = inibidor de aromatase (anastrozol, letrozol, exemestano) — a fonte residual é a aromatase periférica. Tamoxifeno também é opção em pós-menopausa.",
+      "difficulty": "medium",
+      "tags": ["ca-mama", "aromatase"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pegadinha · trastuzumabe vs antraciclina",
+      "q": "Paciente com Ca de mama HER2+ em uso de doxorrubicina seguida de trastuzumabe apresenta queda da FE de 65% para 48%. Qual a expectativa?",
+      "options": [
+        "Suspender trastuzumabe; cardiotoxicidade do trastuzumabe é geralmente REVERSÍVEL (diferente da antraciclina). Iniciar IECA + BB. Reavaliar FE em 4-6 semanas",
+        "Cardiotox do trastuzumabe é irreversível, abandonar tratamento",
+        "Continuar trastuzumabe sem ajustes",
+        "Iniciar antraciclina em dose maior"
+      ],
+      "correct": 0,
+      "expl": "Diferença chave de prova: ANTRACICLINA → cardiotox cumulativa e GERALMENTE IRREVERSÍVEL. TRASTUZUMABE → cardiotox geralmente REVERSÍVEL (mecanismo de mitocôndria diferente). Conduta: suspender trastuzumabe + IECA + BB; reavaliar; retomar quando FE recupera.",
+      "difficulty": "hard",
+      "tags": ["trastuzumabe", "cardiotox"]
+    },
+    {
+      "type": "mc",
+      "topic": "Discriminação · análogo GnRH em Ca próstata",
+      "q": "Paciente vai iniciar gosserrelina para Ca de próstata avançado. Por que associar bicalutamida nas primeiras 2-4 semanas?",
+      "options": [
+        "Evitar o FLARE (pico inicial de testosterona pelo agonismo do GnRH) que pode piorar dor óssea, obstrução urinária ou compressão medular",
+        "Sinergia hipoglicemiante",
+        "Efeito cardioprotetor",
+        "Reduzir o efeito da gosserrelina"
+      ],
+      "correct": 0,
+      "expl": "Análogos AGONISTAS de GnRH (gosserrelina, leuprolida) causam pico inicial de testosterona nos primeiros 7-14 dias (flare) → pode acelerar o crescimento tumoral nas primeiras semanas. ASSOCIAR antiandrógeno (bicalutamida) por 2-4 semanas para bloqueio androgênico. Alternativa moderna: antagonista direto de GnRH (degarelix) — sem flare.",
+      "difficulty": "medium",
+      "tags": ["gnrh", "flare"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pegadinha · rituximabe + hepatite B",
+      "q": "Paciente com linfoma vai iniciar R-CHOP. Qual rastreio obrigatório antes da primeira dose?",
+      "options": [
+        "Sorologia para hepatite B (HBsAg, anti-HBc) — risco de REATIVAÇÃO grave durante imunossupressão; iniciar profilaxia com tenofovir se positivo",
+        "Apenas tireoide",
+        "PSA",
+        "Vit B12"
+      ],
+      "correct": 0,
+      "expl": "Rituximabe (anti-CD20) imunossuprime células B → REATIVAÇÃO de HBV pode ser fulminante. Rastreio obrigatório: HBsAg + anti-HBc total. Positivos: profilaxia com tenofovir/entecavir durante e por 12 meses após. Mesmo cuidado para outros imunossupressores potentes (ocrelizumabe, alemtuzumabe).",
+      "difficulty": "medium",
+      "tags": ["rituximabe", "hbv"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pegadinha · ciclofosfamida + cistite",
+      "q": "Paciente em uso de ciclofosfamida em alta dose. Qual a profilaxia obrigatória?",
+      "options": [
+        "MESNA + hidratação vigorosa (a acroleína, metabólito da ciclofosfamida, é tóxica ao urotélio; MESNA captura a acroleína na urina)",
+        "Alopurinol isolado",
+        "Vitamina K",
+        "Acetilcisteína oral"
+      ],
+      "correct": 0,
+      "expl": "Acroleína é metabólito urotóxico da ciclofosfamida (também da ifosfamida). Causa CISTITE HEMORRÁGICA, fibrose vesical, risco de Ca de bexiga. Profilaxia: MESNA (mercaptoethanesulfonato — grupo SH liga acroleína) + hidratação vigorosa. SLT (síndrome de lise tumoral) → alopurinol/rasburicase. Não confundir.",
+      "difficulty": "medium",
+      "tags": ["ciclofosfamida", "mesna"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pegadinha · vincristina intratecal",
+      "q": "Por que vincristina NUNCA deve ser administrada por via intratecal?",
+      "options": [
+        "É FATAL: causa polirradiculomielopatia ascendente irreversível e morte em dias; erro de medicação com mortes documentadas mundialmente",
+        "Causa cefaleia leve",
+        "Reduz a eficácia",
+        "Custa mais caro"
+      ],
+      "correct": 0,
+      "expl": "Vincristina intratecal = MORTE. Erro de medicação fatal documentado mundialmente. Causa neurotoxicidade ascendente irreversível. Rotulagem específica e protocolos rigorosos (ex: bolsas pequenas, separação de seringas IT vs IV) existem em todo hospital sério. Em prova: pergunta direta sobre o cuidado nunca pode ser intratecal. Metotrexato e citarabina sim podem ser intratecais; vincristina jamais.",
+      "difficulty": "medium",
+      "tags": ["vincristina", "erro-medicacao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pegadinha · TDF/FTC suspenso em coinfectado",
+      "q": "Paciente com coinfecção HIV+HBV em uso de TDF/FTC + dolutegravir. Por que NUNCA suspender o TDF abruptamente?",
+      "options": [
+        "TDF e FTC cobrem HBV também — suspender = REATIVAÇÃO grave do HBV (flare hepático, hepatite fulminante)",
+        "TDF é o único antirretroviral aprovado no Brasil",
+        "FTC é apenas para HBV",
+        "Suspender é seguro"
+      ],
+      "correct": 0,
+      "expl": "Tenofovir e emtricitabina/lamivudina cobrem HBV e HIV. Em coinfectado: SUSPENDER → flare hepático grave por reativação de HBV. Sempre rastrear HBsAg antes de mudar TARV em coinfectado. Manter cobertura ativa contra HBV no novo esquema. Encaminhar a hepatologista se descontinuação necessária.",
+      "difficulty": "hard",
+      "tags": ["tdf", "coinfeccao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pegadinha · catarata + tansulosina",
+      "q": "Paciente com HPB em uso de tansulosina vai operar catarata. Qual a recomendação?",
+      "options": [
+        "Avisar o oftalmologista (risco de síndrome da íris flácida intraoperatória); suspender tansulosina ANTES da cirurgia se possível",
+        "Nenhuma precaução",
+        "Suspender só após a cirurgia",
+        "Trocar para finasterida no dia"
+      ],
+      "correct": 0,
+      "expl": "Tansulosina (α1A bloqueador prostático) também atua em α1A da íris → SÍNDROME DA ÍRIS FLÁCIDA INTRAOPERATÓRIA (IFIS): íris flácida, miose intraoperatória, prolapso. Aumenta risco de complicações cirúrgicas. Avisar oftalmologista, considerar suspensão antes da cirurgia. Outros α1 bloqueadores também (doxazosina, prazosina) — risco menor.",
+      "difficulty": "hard",
+      "tags": ["tansulosina", "catarata"]
+    },
+    {
+      "type": "mc",
+      "topic": "Discriminação · contracepção de emergência",
+      "q": "Mulher após relação desprotegida há 72h vem buscar contracepção de emergência. Já passaram 72h do levonorgestrel. Qual a opção?",
+      "options": [
+        "Ulipristal 30 mg VO em dose única — eficaz até 120h após a relação",
+        "Mifepristona em alta dose",
+        "ACO em alta dose por 7 dias",
+        "Aguardar a próxima menstruação"
+      ],
+      "correct": 0,
+      "expl": "Levonorgestrel 1,5 mg: eficácia decai após 72h. ULIPRISTAL 30 mg (antagonista do receptor de progesterona): eficaz até 120h (5 dias) com perfil melhor que LNG no fim da janela. DIU de cobre: contracepção de emergência mais eficaz (~99%) e duradoura — pode ser inserido até 5 dias após a ovulação estimada.",
+      "difficulty": "medium",
+      "tags": ["ulipristal", "emergencia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pegadinha · estatina e gestação",
+      "q": "Gestante 8 semanas em uso crônico de atorvastatina. Conduta?",
+      "options": [
+        "Suspender estatina imediatamente (categoria X — risco teratogênico); orientar dieta e atividade física; reintroduzir somente após o aleitamento",
+        "Manter sem ajustes",
+        "Trocar para sinvastatina (segura)",
+        "Aumentar a dose"
+      ],
+      "correct": 0,
+      "expl": "ESTATINAS são categoria X (contraindicadas na gestação): risco teratogênico (sistema nervoso, esqueléticos). Suspender ao diagnóstico de gestação. Manejar dislipidemia com dieta e exercício. Reintroduzir apenas após o aleitamento. Outras categoria X: IECA, BRA, varfarina (1º trimestre), ribavirina, isotretinoína, talidomida.",
+      "difficulty": "medium",
+      "tags": ["estatina", "gestacao"]
+    },
+    {
+      "type": "case",
+      "topic": "Simulado · idoso polifarmácia",
+      "subtitle": "Idoso 76a, polifarmácia, IRA + hipercalemia após início de ibuprofeno",
+      "specialty": "Clínica geral · Polifarmácia",
+      "difficulty": "hard",
+      "vignette": "Senhor de 76 anos, HAS + ICC com FE 32% + DM2 + DRC estágio 3a. Em uso de: enalapril 20 mg, carvedilol 25 mg 2x/dia, espironolactona 25 mg, furosemida 40 mg, metformina, empagliflozina. Há 5 dias iniciou ibuprofeno 600 mg 8/8h por dor lombar. Hoje: oligúria, fraqueza, K+ 6,8, creatinina 2,8 (basal 1,5). PA 98x62.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Qual o quadro e a conduta imediata?",
+          "options": [
+            "IRA pré-renal + hipercalemia por TRÍADE NEFROTÓXICA (IECA + espironolactona + AINE). Suspender ibuprofeno, suspender espironolactona, AJUSTAR ou suspender enalapril temporariamente; tratar hipercalemia (gluconato de cálcio se ECG alterado, insulina+glicose, beta-2 inalatório)",
+            "Sepse — iniciar ATB amplo",
+            "Manter todas as medicações",
+            "Iniciar hidroclorotiazida em dose alta"
+          ],
+          "correct": 0,
+          "expl": "Quadro clássico: paciente com SRAA bloqueado (IECA + espironolactona) + diurético + função renal limítrofe + AINE. AINE vasoconstringe arteríola aferente → ↓ FG; espironolactona retém K+. Conduta: suspender AINE, suspender (ou reduzir) espironolactona e IECA temporariamente. Tratar hipercalemia: gluconato de cálcio (estabiliza membrana), insulina + glicose (desloca K para intracelular), beta-2 inalatório (mesmo efeito), resinas (Resincalcio, patiromer). Hemodiálise se refratário."
+        },
+        {
+          "id": "step2",
+          "prompt": "Após 48h: K+ 4,8, creatinina 2,0, oligúria melhorou. Paciente está euvolêmico, PA 110x70, FC 78.",
+          "question": "Conduta sobre as medicações crônicas?",
+          "options": [
+            "Reintroduzir IECA em dose reduzida assim que K+ < 5,0 e creatinina próxima do basal; reintroduzir espironolactona depois (com monitorização); SUSPENDER definitivamente o AINE — orientar alternativas para dor (paracetamol, analgesia tópica, fisioterapia)",
+            "Manter tudo suspenso indefinidamente",
+            "Reintroduzir ibuprofeno na alta",
+            "Trocar IECA por losartana imediatamente sem ajustes"
+          ],
+          "correct": 0,
+          "expl": "Em paciente com ICFEr: IECA, espironolactona e iSGLT-2 são pilares de mortalidade — não suspender em definitivo. Reintroduzir gradualmente após recuperação. SUSPENDER AINE permanentemente (alternativas: paracetamol, fisioterapia, analgesia tópica). Educar paciente e familiares: AINE de venda livre causa danos em quem usa IECA/BRA + diurético."
+        }
+      ],
+      "outcome": "Alta no 6º dia em uso de enalapril 10 mg (em ajuste), carvedilol, furosemida, metformina, empagliflozina; espironolactona reintroduzida em 25 mg 3x/semana com K+ semanal. AINE proibido. Paciente e família orientados por escrito. Em ambulatório de IC mantém estabilidade nos próximos meses."
+    },
+    {
+      "type": "case",
+      "topic": "Simulado · gestante HIV",
+      "subtitle": "Gestante 14 sem, diagnóstico recente de HIV",
+      "specialty": "Infectologia ambulatorial",
+      "difficulty": "medium",
+      "vignette": "Mulher 28 anos, gestante de 14 semanas, diagnóstico de HIV no pré-natal. CD4 410, carga viral 65.000, genotipagem sem resistência. HBsAg negativo. Sem outras comorbidades. Vem para iniciar TARV.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Esquema preferencial no Brasil?",
+          "options": [
+            "Efavirenz + Lamivudina + Tenofovir (esquema clássico em gestante); atualizações recentes consideram Dolutegravir também seguro inclusive em periconcepção",
+            "Apenas Zidovudina monoterapia",
+            "Lopinavir/Ritonavir + Estavudina + Didanosina",
+            "Suspender qualquer TARV durante a gestação"
+          ],
+          "correct": 0,
+          "expl": "Esquema clássico cobrado em P2 para gestante: EFV + 3TC + TDF. O sinal histórico de defeito de tubo neural pelo efavirenz não foi confirmado em humanos; hoje é considerado seguro em qualquer trimestre. Dolutegravir também é considerado seguro (mesmo periconcepcional, após reanálise dos dados Tsepamo)."
+        },
+        {
+          "id": "step2",
+          "prompt": "Em 4 semanas: carga viral cai para 380. Não tolera bem o efavirenz (sonhos vívidos intensos, ansiedade).",
+          "question": "Conduta?",
+          "options": [
+            "Trocar para dolutegravir + 3TC + TDF (DTG é tão seguro quanto EFV em gestante, melhor tolerabilidade neuropsiquiátrica e maior potência); reforçar adesão",
+            "Suspender toda a TARV",
+            "Adicionar mais um antirretroviral ao efavirenz",
+            "Trocar para zidovudina monoterapia"
+          ],
+          "correct": 0,
+          "expl": "Efavirenz tem EA neuropsiquiátricos que melhoram em 2-4 semanas, mas em ~5% persistem. Conduta: trocar para DTG + 3TC + TDF (também combinado em comprimido único). DTG é melhor tolerado, mais potente, com alta barreira à resistência."
+        },
+        {
+          "id": "step3",
+          "prompt": "Na 36ª semana: carga viral indetectável (<50), CD4 590. Paciente bem.",
+          "question": "Como será o parto e a profilaxia neonatal?",
+          "options": [
+            "Carga viral indetectável próximo ao termo → parto VAGINAL é permitido se condições obstétricas favoráveis. Profilaxia neonatal: zidovudina por 4-6 semanas no RN",
+            "Cesárea obrigatória mesmo com carga indetectável",
+            "Suspender TARV no parto",
+            "RN não precisa de profilaxia se mãe indetectável"
+          ],
+          "correct": 0,
+          "expl": "Em gestante com carga viral indetectável próximo ao termo (especialmente < 1.000), parto vaginal é permitido (transmissão vertical < 1%). Cesárea eletiva (38 sem) reservada para carga viral ≥ 1.000 ou desconhecida no termo. Profilaxia neonatal padrão: zidovudina por 4-6 semanas. Em alto risco: esquema triplo. Não amamentar (recomendação brasileira atual)."
+        }
+      ],
+      "outcome": "Parto vaginal sem intercorrências na 39ª semana. RN com zidovudina por 4 semanas. Cargas virais aos 1, 3 e 6 meses negativas. Mãe segue TARV e mantém indetectabilidade. Filho saudável."
+    },
+    {
+      "type": "match",
+      "topic": "Antídotos · grandes pareamentos",
+      "prompt": "Associe a intoxicação ao antídoto/reversor adequado.",
+      "leftLabel": "Intoxicação / situação",
+      "rightLabel": "Antídoto / reversor",
+      "pairs": [
+        { "id": "hep", "left": "Heparina (HNF/HBPM)", "right": "Sulfato de protamina" },
+        { "id": "var", "left": "Varfarina", "right": "Vitamina K (+ PCC ou plasma se grave)" },
+        { "id": "dab", "left": "Dabigatrana", "right": "Idarucizumabe" },
+        { "id": "riv", "left": "Rivaroxabana / Apixabana", "right": "Andexanet alfa" },
+        { "id": "dig", "left": "Digoxina", "right": "Anticorpo antidigoxina (Digibind)" },
+        { "id": "mtx", "left": "Metotrexato (alta dose)", "right": "Ácido folínico (leucovorina)" },
+        { "id": "sulfa", "left": "Sulfa + Pirimetamina (toxoplasmose)", "right": "Ácido folínico (leucovorina)" },
+        { "id": "sulf", "left": "Hipoglicemia por sulfonilureia refratária", "right": "Octreotide" },
+        { "id": "ben", "left": "Cistite por ciclofosfamida/ifosfamida", "right": "MESNA (+ hidratação)" },
+        { "id": "tlb", "left": "Síndrome de lise tumoral (ác. úrico)", "right": "Alopurinol ou rasburicase" },
+        { "id": "opio", "left": "Opioide (depressão respiratória)", "right": "Naloxona" },
+        { "id": "bz", "left": "Benzodiazepínico", "right": "Flumazenil" },
+        { "id": "para", "left": "Paracetamol (overdose)", "right": "N-acetilcisteína" }
+      ],
+      "expl": "Tabela de antídotos é OURO em prova. Decora esses 13 pares e você resolve a maioria das questões 'qual o antídoto/reversor?'.",
+      "difficulty": "easy",
+      "tags": ["antidotos"]
+    },
+    {
+      "type": "match",
+      "topic": "Contraindicação na gestação",
+      "prompt": "Associe o fármaco à condição/categoria na gestação.",
+      "leftLabel": "Fármaco",
+      "rightLabel": "Status na gestação",
+      "pairs": [
+        { "id": "iec", "left": "IECA / BRA", "right": "CONTRAINDICADO (oligoidrâmnio, IRA fetal)" },
+        { "id": "stat", "left": "Estatinas", "right": "CONTRAINDICADAS (categoria X)" },
+        { "id": "var", "left": "Varfarina (1º trim)", "right": "CONTRAINDICADA (teratogênica)" },
+        { "id": "rib", "left": "Ribavirina", "right": "CONTRAINDICADA (categoria X)" },
+        { "id": "mtx", "left": "Metotrexato", "right": "CONTRAINDICADO" },
+        { "id": "prim", "left": "Primaquina", "right": "CONTRAINDICADA (hemólise no feto)" },
+        { "id": "fin", "left": "Finasterida (manuseio do comprimido)", "right": "CONTRAINDICADO (feminilização)" },
+        { "id": "metd", "left": "Metildopa", "right": "SEGURA (escolha em HAS gestacional)" },
+        { "id": "hep", "left": "HBPM / HNF", "right": "SEGURA (não atravessa placenta)" },
+        { "id": "efv", "left": "Efavirenz", "right": "SEGURO (TARV em gestante)" }
+      ],
+      "expl": "Em prova clínica, a gestação aparece como filtro: 50% das pegadinhas são 'paciente é gestante'. Decore essa tabela.",
+      "difficulty": "medium",
+      "tags": ["gestacao"]
+    }
+  ]
+}
