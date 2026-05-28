@@ -75,7 +75,7 @@
         "Não atua em CMV"
       ],
       "correct": 0,
-      "expl": "Foscarnet é análogo de pirofosfato — bloqueia o sítio de ligação do pirofosfato na DNA polimerase viral e na transcriptase reversa do HIV. NÃO precisa de ativação por cinase viral → útil em RESISTÊNCIAS à aciclovir (mutação na timidina-cinase) e ao ganciclovir (UL97). Uso IV em hospital. EA principal: NEFROTOXICIDADE (hidratação obrigatória), distúrbios eletrolíticos (hipoCa, hipoK, hipoMg).",
+      "expl": "Foscarnet é análogo de pirofosfato — bloqueia o sítio de ligação do pirofosfato na DNA polimerase viral. NÃO precisa de ativação por cinase viral → útil em RESISTÊNCIAS à aciclovir (mutação na timidina-cinase viral) e ao ganciclovir (UL97). Uso IV em hospital. EA principal: NEFROTOXICIDADE (hidratação obrigatória), distúrbios eletrolíticos.",
       "difficulty": "hard",
       "tags": ["foscarnet", "resistencia"]
     },
@@ -150,7 +150,7 @@
         "Não tem toxicidade hematológica"
       ],
       "correct": 0,
-      "expl": "Zidovudina (AZT): ITRN, primeiro antirretroviral aprovado. Hoje pouco usada em esquema crônico de adulto (toxicidade), mas mantida em profilaxia neonatal pós-parto. EA: ANEMIA macrocítica (sem deficiência de B12/folato; ocorre mesmo sem hipoplasia), neutropenia, miopatia, hiperpigmentação ungueal. Mecanismo: análogo de timidina trifosforilado → terminação prematura da cadeia de DNA viral.",
+      "expl": "Zidovudina (AZT): ITRN, primeiro antirretroviral aprovado. Hoje pouco usada em esquema crônico de adulto (toxicidade), mas mantida em profilaxia neonatal pós-parto. EA: ANEMIA macrocítica (por inibição da síntese de DNA medular, VCM elevado, sem relação com B12/folato), neutropenia, miopatia, hiperpigmentação ungueal. Mecanismo: análogo de timidina trifosforilado → terminação prematura da cadeia de DNA viral.",
       "difficulty": "medium",
       "tags": ["zidovudina", "azt", "hiv"]
     },
@@ -219,7 +219,7 @@
       "topic": "Efavirenz · perfil",
       "q": "Sobre o efavirenz (ITRNN), é CORRETO afirmar:",
       "options": [
-        "EA neuropsiquiátricos clássicos: tontura, sonhos vívidos, insônia, mudanças de humor (geralmente transitórios — tomar à noite); melhora em 2-4 semanas; potencial teratogênico no 1º trimestre é controverso (hoje considerado seguro)",
+        "EA neuropsiquiátricos clássicos: tontura, sonhos vívidos, insônia, mudanças de humor (geralmente transitórios — tomar à noite); melhora em 2-4 semanas; sinal histórico de defeito de tubo neural não foi confirmado em humanos — hoje considerado seguro na gestação",
         "Inibe a protease do HIV",
         "Sem efeitos no SNC",
         "É um inibidor de integrase"
@@ -243,6 +243,66 @@
       "expl": "DTG é inibidor de integrase de 2ª geração (após raltegravir). Vantagens: alta potência, supressão rápida da carga viral, altíssima barreira à resistência (rara em virgem de tratamento), boa tolerabilidade, dose única diária, sem ajuste renal/hepático em maioria. Cuidados: cátions divalentes (antiácidos, sulfato ferroso, cálcio) — separar 2-6h. Ganho discreto de peso. Distúrbios psiquiátricos raros.",
       "difficulty": "medium",
       "tags": ["dolutegravir", "integrase"]
+    },
+    {
+      "type": "mc",
+      "topic": "Aciclovir · CMV",
+      "q": "Por que o aciclovir NÃO é eficaz contra o citomegalovírus (CMV)?",
+      "options": [
+        "Porque o CMV não tem timidina-cinase eficaz para fosforilar o aciclovir → ele não se torna ativo na célula infectada; o CMV precisa da fosfotransferase UL97 (alvo do ganciclovir)",
+        "Porque o aciclovir não consegue penetrar nas células infectadas pelo CMV",
+        "Porque o CMV é um vírus de RNA, e o aciclovir só age em vírus de DNA",
+        "Porque o aciclovir é destruído pela protease do CMV"
+      ],
+      "correct": 0,
+      "expl": "Pegadinha clássica de mecanismo. Aciclovir depende da timidina-cinase VIRAL para sua primeira fosforilação. HSV e VZV codificam essa TK → ativam o aciclovir. CMV NÃO tem TK funcional para o aciclovir; em vez disso codifica UL97, uma fosfotransferase com especificidade para outros análogos (ganciclovir). Por isso ganciclovir/valganciclovir são as drogas de escolha em CMV — e aciclovir, mesmo em dose alta, não funciona.",
+      "difficulty": "medium",
+      "tags": ["aciclovir", "cmv", "mecanismo"]
+    },
+    {
+      "type": "mc",
+      "topic": "Resistência ao aciclovir",
+      "q": "Paciente imunossuprimido com herpes-zóster grave evolui sem melhora apesar de aciclovir IV em dose plena por 5 dias. Cultura indica HSV TK-negativo. Conduta?",
+      "options": [
+        "Trocar para foscarnet (não depende da timidina-cinase viral para ativação)",
+        "Aumentar ainda mais a dose de aciclovir",
+        "Trocar para ganciclovir (CMV)",
+        "Iniciar oseltamivir"
+      ],
+      "correct": 0,
+      "expl": "Resistência ao aciclovir geralmente decorre de mutação na timidina-cinase VIRAL (cepas TK-negativas) — mais frequente em imunossuprimidos. Aumentar dose NÃO resolve (a TK é o gargalo). Conduta: trocar para FOSCARNET, que não precisa de ativação por cinase viral. Cidofovir é alternativa.",
+      "difficulty": "hard",
+      "tags": ["aciclovir", "resistencia", "foscarnet"]
+    },
+    {
+      "type": "mc",
+      "topic": "Oseltamivir · profilaxia",
+      "q": "Idosa em ILPI tem confirmação de influenza A. Outros residentes não vacinados estão expostos. Conduta?",
+      "options": [
+        "Profilaxia pós-exposição com oseltamivir nos contatos de alto risco (idosos, imunossuprimidos), durante 7-10 dias",
+        "Apenas isolamento; oseltamivir é só para tratamento",
+        "Iniciar AAS profilático",
+        "Aciclovir profilático para todos os contatos"
+      ],
+      "correct": 0,
+      "expl": "Oseltamivir tem indicação tanto de TRATAMENTO (idealmente em 48h) quanto de PROFILAXIA pós-exposição em contactantes de alto risco (idosos, imunossuprimidos, cardiopatas, pneumopatas, gestantes). Reduz incidência clínica. Duração da profilaxia: 7-10 dias após contato (ou enquanto durar o surto em coletividade fechada). Vacinação anual é a estratégia primária.",
+      "difficulty": "medium",
+      "tags": ["oseltamivir", "profilaxia"]
+    },
+    {
+      "type": "mc",
+      "topic": "TDF/FTC · coinfecção HIV-HBV",
+      "q": "Paciente com coinfecção HIV e hepatite B crônica em uso de TDF + emtricitabina + dolutegravir. Por que suspender o tenofovir é arriscado?",
+      "options": [
+        "TDF e FTC têm atividade dupla contra HIV E HBV — suspender expõe o paciente a REATIVAÇÃO grave do HBV (flare hepático e descompensação)",
+        "TDF é o único antirretroviral aprovado no Brasil",
+        "FTC trata apenas HBV, não tem ação no HIV",
+        "A suspensão é segura, basta repor depois"
+      ],
+      "correct": 0,
+      "expl": "Pegadinha clássica e clinicamente relevante: TDF (e TAF) e emtricitabina/lamivudina têm atividade tanto contra HIV quanto contra HBV. Em paciente coinfectado, suspender abruptamente o esquema pode REATIVAR o HBV → flare hepático com hepatite fulminante em pior cenário. Sempre rastrear HBsAg antes de mudar TARV em coinfectado e manter cobertura ativa contra HBV no novo esquema.",
+      "difficulty": "hard",
+      "tags": ["tdf", "coinfeccao", "hbv"]
     },
     {
       "type": "match",
@@ -340,7 +400,7 @@
           "prompt": "Um ano depois ela engravida (não planejado). Está no 1º trimestre.",
           "question": "Conduta com a TARV?",
           "options": [
-            "Em geral, MANTER o esquema atual de DTG se ela está com carga viral indetectável e em uso há tempo (atualizações recentes consideraram DTG seguro na gestação). Acompanhamento pré-natal de alto risco; objetivo: indetectabilidade até o parto",
+            "Manter o DTG: atualizações recentes consideram DTG seguro inclusive em periconcepção e 1º trimestre (preferencial em gestante). Acompanhamento pré-natal de alto risco; objetivo: indetectabilidade até o parto",
             "Suspender toda a TARV durante a gestação",
             "Trocar para zidovudina monoterapia",
             "Trocar para ribavirina"
