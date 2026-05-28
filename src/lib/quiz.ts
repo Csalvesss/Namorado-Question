@@ -225,7 +225,7 @@ export function modeConfig(mode: QuizMode): ModeConfig {
         Icon: Mail,
         timed: false,
         description:
-          'Estude no seu ritmo: a cada três questões, um bilhetinho carinhoso aparece, pequena pausa pra respirar e lembrar de quem cuida de você.',
+          'Uma prova com um bilhete carinhoso no meio do caminho. Mensagem fofa, dica de cuidado (água, descanso, comida) e uma pausa para respirar antes de seguir.',
       };
     case 'standard':
     default:
