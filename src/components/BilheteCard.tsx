@@ -96,7 +96,7 @@ export default function BilheteCard({
 
       {signature && (
         <div className="mb-2 font-serif text-sm italic text-ink-soft">
-          — do seu namorado, com amor
+          do seu namorado, com amor
         </div>
       )}
 

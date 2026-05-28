@@ -3,7 +3,6 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import {
   Activity,
   ArrowLeft,
-  ArrowRight,
   BookOpen,
   Brain,
   Bug,
@@ -115,7 +114,7 @@ export default function Course() {
       <header className="relative grid grid-cols-1 gap-6 md:grid-cols-[1fr_auto] md:items-start">
         <div>
           <div className="eyebrow-gold">
-            — {moduleLabel} · MÓDULO {moduleNumber}
+            {moduleLabel} · módulo {moduleNumber}
           </div>
           <h1 className="mt-3 font-serif italic leading-[0.95] text-wine-deep">
             {titleParts.length > 1 ? (
@@ -165,7 +164,7 @@ export default function Course() {
 
       <section>
         <div className="mb-2 text-[10px] uppercase tracking-[0.32em] text-gold opacity-70">
-          — COMO VOCÊ QUER ESTUDAR
+          como você quer estudar
         </div>
         <div className="mb-6 flex items-baseline justify-between gap-3">
           <div className="flex items-baseline gap-4">
@@ -191,7 +190,7 @@ export default function Course() {
                   novo
                 </span>
                 <span className="font-serif text-[10px] italic uppercase tracking-[0.28em] text-wine">
-                  — para os dias longos
+                  para os dias longos
                 </span>
               </div>
               <h3 className="mt-3 font-serif text-3xl italic leading-tight text-wine-deep sm:text-4xl">
@@ -203,12 +202,11 @@ export default function Course() {
               </p>
               <div className="mt-5 flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-muted">
                 <span>{Math.min(15, questions.length)} questões + bilhetes</span>
-                <ArrowRight className="h-4 w-4 text-wine" strokeWidth={2} />
               </div>
             </div>
             <div className="relative hidden w-32 shrink-0 sm:block">
               <div className="absolute right-2 top-2 rotate-6 rounded-xl border border-line bg-paper-soft px-3 py-2 text-[10px] italic text-ink-soft shadow-soft">
-                — do seu namorado
+                do seu namorado
               </div>
               <div className="absolute bottom-2 right-6 -rotate-3 rounded-xl border border-line bg-paper-soft px-3 py-2 font-hand text-base text-wine-deep shadow-soft">
                 amor,
@@ -290,7 +288,7 @@ export default function Course() {
       {topics.length > 1 && (
         <section className="card p-6 sm:p-7">
           <div className="mb-2 text-[10px] uppercase tracking-[0.32em] text-gold opacity-70">
-            — REFINE SE QUISER
+            refine se quiser
           </div>
           <div className="mb-4 flex items-baseline justify-between gap-3">
             <h2 className="font-serif text-2xl italic text-wine-deep sm:text-3xl">
@@ -349,7 +347,7 @@ function FeaturedModeCard({
   title,
   description,
   count,
-  eyebrow = '— a recomendada',
+  eyebrow = 'a recomendada',
   tone = 'highlight',
   onClick,
   disabled,
@@ -381,9 +379,6 @@ function FeaturedModeCard({
       <p className="text-sm leading-relaxed text-ink-soft">{description}</p>
       <div className="mt-4 flex items-center justify-between border-t border-line/60 pt-3">
         <span className="text-[11px] uppercase tracking-[0.22em] text-muted">{count}</span>
-        <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-line text-wine transition group-hover:bg-wine group-hover:text-white">
-          <ArrowRight className="h-4 w-4" strokeWidth={2} />
-        </span>
       </div>
     </button>
   );
@@ -424,7 +419,7 @@ function CompactModeCard({
         <div>
           {eyebrow && (
             <div className="font-serif text-[10px] italic lowercase tracking-[0.22em] text-wine">
-              — {eyebrow}
+              {eyebrow}
             </div>
           )}
           <h3 className="mt-1 font-serif text-xl italic leading-tight text-wine-deep">{title}</h3>
@@ -434,12 +429,8 @@ function CompactModeCard({
         </span>
       </div>
       <p className="text-[13px] leading-relaxed text-ink-soft">{description}</p>
-      <div className="mt-1 flex items-baseline justify-between gap-2 border-t border-line/60 pt-2 text-[11px] uppercase tracking-[0.22em] text-muted">
+      <div className="mt-1 border-t border-line/60 pt-2 text-[11px] uppercase tracking-[0.22em] text-muted">
         <span>{count} {count === '1' ? 'questão' : 'questões'}</span>
-        <ArrowRight
-          className="h-3 w-3 text-wine transition group-hover:translate-x-0.5"
-          strokeWidth={2}
-        />
       </div>
     </button>
   );

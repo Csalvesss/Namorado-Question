@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 import EmptyState from '../components/EmptyState';
 import { topicAccuracyColor, weakestTopics } from '../lib/analytics';
 import { db } from '../lib/db';
@@ -207,10 +206,6 @@ export default function History() {
                             {w.courseTitle} · {w.attempts} tentativas
                           </div>
                         </div>
-                        <ArrowRight
-                          className="h-4 w-4 shrink-0 text-muted transition group-hover:translate-x-1 group-hover:text-wine"
-                          strokeWidth={1.75}
-                        />
                       </Link>
                     </li>
                   );
@@ -221,7 +216,7 @@ export default function History() {
 
           <section>
             <div className="mb-2 text-[10px] uppercase tracking-[0.32em] text-gold opacity-70">
-              — MAIS RECENTES PRIMEIRO
+              mais recentes primeiro
             </div>
             <div className="mb-6 flex items-baseline justify-between gap-3">
               <div className="flex items-baseline gap-4">
