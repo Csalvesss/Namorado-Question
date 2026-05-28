@@ -45,7 +45,7 @@ export default function Bilhetes() {
         </p>
       </header>
 
-      <BilheteCard bilhete={bilhete} signature={partner || undefined} />
+      <BilheteCard bilhete={bilhete} signature={partner || undefined} uid={user?.uid} />
 
       <div className="flex items-center justify-between border-t border-line pt-5 text-[11px] uppercase tracking-[0.22em] text-muted">
         <span>novo em {nextIn}</span>

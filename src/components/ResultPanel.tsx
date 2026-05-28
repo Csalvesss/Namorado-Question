@@ -1,19 +1,21 @@
 import { forwardRef, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Clock3, Flame, Sparkles } from 'lucide-react';
+import { Clock3, Flame, Mail, Sparkles } from 'lucide-react';
 import { getPhrases } from '../data/phrases';
 import { duration, easeOutExpo } from '../lib/motion';
 import type { PreparedQuestion } from '../lib/quiz';
-import type { QuizSession } from '../types';
+import type { QuizMode, QuizSession } from '../types';
 
 interface ResultPanelProps {
   session: QuizSession;
   questions: PreparedQuestion[];
   displayMode: 'namorado' | 'doutora';
+  mode?: QuizMode;
+  bilheteCount?: number;
 }
 
 export const ResultPanel = forwardRef<HTMLDivElement, ResultPanelProps>(function ResultPanel(
-  { session, questions, displayMode },
+  { session, questions, displayMode, mode, bilheteCount = 0 },
   ref,
 ) {
   const pct = Math.round((session.score / session.total) * 100);
@@ -21,6 +23,7 @@ export const ResultPanel = forwardRef<HTMLDivElement, ResultPanelProps>(function
   const tier = pct >= 80 ? 'high' : pct >= 50 ? 'med' : 'low';
   const list = tier === 'high' ? phrases.finalHigh : tier === 'med' ? phrases.finalMed : phrases.finalLow;
   const praise = useMemo(() => list[Math.floor(Math.random() * list.length)], [list]);
+  const isBilheteMode = mode === 'bilhete' && displayMode === 'namorado' && bilheteCount > 0;
 
   const { bestStreak, bestTopic, durationMin, durationSec } = useMemo(() => {
     let streak = 0;
@@ -82,7 +85,9 @@ export const ResultPanel = forwardRef<HTMLDivElement, ResultPanelProps>(function
       </span>
 
       <div className="relative">
-        <div className="eyebrow-gold mb-2">Resultado da prova</div>
+        <div className="eyebrow-gold mb-2">
+          {isBilheteMode ? 'Fim do modo bilhete' : 'Resultado da prova'}
+        </div>
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -93,6 +98,18 @@ export const ResultPanel = forwardRef<HTMLDivElement, ResultPanelProps>(function
           <span className="text-3xl font-normal text-muted sm:text-4xl"> / {session.total}</span>
         </motion.div>
         <div className="mt-1 font-serif text-xl italic text-ink-soft">{pct} por cento de acerto</div>
+
+        {isBilheteMode && (
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: duration.slow, ease: easeOutExpo, delay: 0.22 }}
+            className="mx-auto mt-5 inline-flex items-center gap-2 rounded-full border border-rose bg-rose-soft/60 px-4 py-1.5 font-serif text-sm italic text-wine-deep"
+          >
+            <Mail className="h-3.5 w-3.5" strokeWidth={1.75} />
+            {session.total} questões · {bilheteCount} {bilheteCount === 1 ? 'bilhete' : 'bilhetes'} pelo caminho
+          </motion.div>
+        )}
 
         <motion.p
           initial={{ opacity: 0, y: 8 }}
@@ -107,7 +124,9 @@ export const ResultPanel = forwardRef<HTMLDivElement, ResultPanelProps>(function
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: duration.slow, ease: easeOutExpo, delay: 0.45 }}
-          className="mx-auto mt-8 grid max-w-md grid-cols-3 gap-3 border-t border-line pt-6 sm:gap-4"
+          className={`mx-auto mt-8 grid max-w-md gap-3 border-t border-line pt-6 sm:gap-4 ${
+            isBilheteMode ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-3'
+          }`}
         >
           <MiniStat
             Icon={Clock3}
@@ -125,10 +144,20 @@ export const ResultPanel = forwardRef<HTMLDivElement, ResultPanelProps>(function
             value={bestTopic ? `${bestTopic.pct}%` : '·'}
             sub={bestTopic?.topic}
           />
+          {isBilheteMode && (
+            <MiniStat
+              Icon={Mail}
+              label="bilhetes"
+              value={String(bilheteCount)}
+              sub="pausas no caminho"
+            />
+          )}
         </motion.div>
 
         <p className="mx-auto mt-6 max-w-md text-sm italic text-ink-soft">
-          Olha a explicação de cada questão logo abaixo. Quando quiser, refaz a prova que eu sorteio outras questões.
+          {isBilheteMode
+            ? 'Você estudou no seu ritmo, com pausa e carinho. Olha a explicação de cada questão logo abaixo.'
+            : 'Olha a explicação de cada questão logo abaixo. Quando quiser, refaz a prova que eu sorteio outras questões.'}
         </p>
       </div>
     </motion.div>
