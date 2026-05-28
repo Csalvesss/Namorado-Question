@@ -9,7 +9,14 @@ import {
   setDoc,
 } from 'firebase/firestore';
 import { firebaseAuth, firestore } from './firebase';
-import type { Course, Question, QuizSession } from '../types';
+import type {
+  ClassEvent,
+  Course,
+  ExamEvent,
+  Question,
+  QuizSession,
+  Subject,
+} from '../types';
 
 function requireUid(): string {
   const uid = firebaseAuth.currentUser?.uid;
@@ -104,5 +111,58 @@ export const cloudCourses = {
   async remove(uid: string, courseId: string) {
     const ref = doc(firestore, 'users', uid, 'customCourses', courseId);
     await deleteDoc(ref);
+  },
+};
+
+export const cloudStudyPlan = {
+  async listSubjects(uid?: string): Promise<Subject[]> {
+    const targetUid = uid ?? requireUid();
+    const snap = await getDocs(collection(firestore, 'users', targetUid, 'subjects'));
+    return snap.docs.map((d) => d.data() as Subject);
+  },
+
+  async saveSubject(subject: Subject) {
+    const uid = requireUid();
+    const ref = doc(firestore, 'users', uid, 'subjects', subject.id);
+    await setDoc(ref, subject);
+  },
+
+  async removeSubject(subjectId: string) {
+    const uid = requireUid();
+    await deleteDoc(doc(firestore, 'users', uid, 'subjects', subjectId));
+  },
+
+  async listClasses(uid?: string): Promise<ClassEvent[]> {
+    const targetUid = uid ?? requireUid();
+    const snap = await getDocs(collection(firestore, 'users', targetUid, 'classes'));
+    return snap.docs.map((d) => d.data() as ClassEvent);
+  },
+
+  async saveClass(event: ClassEvent) {
+    const uid = requireUid();
+    const ref = doc(firestore, 'users', uid, 'classes', event.id);
+    await setDoc(ref, event);
+  },
+
+  async removeClass(eventId: string) {
+    const uid = requireUid();
+    await deleteDoc(doc(firestore, 'users', uid, 'classes', eventId));
+  },
+
+  async listExams(uid?: string): Promise<ExamEvent[]> {
+    const targetUid = uid ?? requireUid();
+    const snap = await getDocs(collection(firestore, 'users', targetUid, 'exams'));
+    return snap.docs.map((d) => d.data() as ExamEvent);
+  },
+
+  async saveExam(event: ExamEvent) {
+    const uid = requireUid();
+    const ref = doc(firestore, 'users', uid, 'exams', event.id);
+    await setDoc(ref, event);
+  },
+
+  async removeExam(eventId: string) {
+    const uid = requireUid();
+    await deleteDoc(doc(firestore, 'users', uid, 'exams', eventId));
   },
 };
