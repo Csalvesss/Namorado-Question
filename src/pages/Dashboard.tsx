@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Flame, Layers, Mail } from 'lucide-react';
-import BilheteCard from '../components/BilheteCard';
 import DailyGoalRing from '../components/DailyGoalRing';
 import EmptyState from '../components/EmptyState';
 import Onboarding from '../components/Onboarding';
@@ -12,10 +11,8 @@ import {
   studyByDay,
 } from '../lib/analytics';
 import {
-  currentBilhete,
   currentGreeting,
   currentPerformanceQuote,
-  formatRotationCountdown,
   nextRotationIn,
   tierFromAccuracy,
 } from '../lib/bilhete';
@@ -134,7 +131,6 @@ export default function Dashboard() {
     return () => clearTimeout(timer);
   }, [rotationTick]);
 
-  const bilhete = useMemo(() => currentBilhete(), [rotationTick]);
   const tone = user?.displayMode === 'doutora' ? 'doutora' : 'namorado';
   const showBilhete = tone === 'namorado';
   const greeting = useMemo(() => currentGreeting(tone), [tone, rotationTick]);
@@ -143,8 +139,6 @@ export default function Dashboard() {
     () => currentPerformanceQuote(tier, tone),
     [tier, tone, rotationTick],
   );
-  const nextIn = useMemo(() => formatRotationCountdown(nextRotationIn()), [rotationTick]);
-  const partner = user?.partnerName?.trim() || '';
 
   return (
     <div className="space-y-12">
@@ -168,7 +162,7 @@ export default function Dashboard() {
             </p>
           )}
 
-          {(lastCourse || completed.length > 0 || dueCardCount > 0) && (
+          {(lastCourse || completed.length > 0 || dueCardCount > 0 || showBilhete) && (
             <div className="mt-5 flex flex-wrap items-center gap-3">
               {lastCourse && (
                 <Link to={`/curso/${lastCourse.id}`} className="btn-primary">
@@ -176,8 +170,14 @@ export default function Dashboard() {
                   <ArrowRight className="ml-2 h-4 w-4" strokeWidth={2} />
                 </Link>
               )}
+              {showBilhete && (
+                <Link to="/bilhetes" className="btn-secondary">
+                  <Mail className="mr-2 h-4 w-4" strokeWidth={1.75} />
+                  Abrir bilhete do dia
+                </Link>
+              )}
               {dueCardCount > 0 && (
-                <Link to="/revisar" className="btn-secondary">
+                <Link to="/revisar" className="btn-ghost text-xs uppercase tracking-wider">
                   <Layers className="mr-2 h-4 w-4" strokeWidth={1.75} />
                   Revisar {dueCardCount} {dueCardCount === 1 ? 'card' : 'cards'}
                 </Link>
@@ -203,22 +203,6 @@ export default function Dashboard() {
         )}
       </section>
 
-      {showBilhete && (
-        <section>
-          <div className="mb-3 flex items-baseline justify-between gap-3">
-            <div className="flex items-baseline gap-3">
-              <Mail className="h-4 w-4 self-center text-wine" strokeWidth={1.75} />
-              <span className="eyebrow-gold">bilhete do dia</span>
-            </div>
-            <span className="text-[11px] italic text-muted">novo em {nextIn}</span>
-          </div>
-          <BilheteCard
-            bilhete={bilhete}
-            signature={partner || undefined}
-            recipientFirstName={firstName}
-          />
-        </section>
-      )}
 
       {completed.length > 0 && (
         <section>
