@@ -195,7 +195,7 @@ export default function Course() {
                   disabled={questions.length < 1}
                   className="btn-primary"
                 >
-                  iniciar questões →
+                  iniciar questões
                 </button>
                 <button
                   type="button"
