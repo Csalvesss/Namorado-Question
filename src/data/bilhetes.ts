@@ -5,11 +5,23 @@
 
 export type BilheteMood = 'amor' | 'pausa' | 'estudo' | 'poema';
 
+export type CareIcon =
+  | 'agua'
+  | 'comida'
+  | 'descanso'
+  | 'alongar'
+  | 'respirar'
+  | 'sono'
+  | 'caminhar'
+  | 'sol';
+
 export interface Bilhete {
   id: string;
   title?: string;
   body: string;
   mood: BilheteMood;
+  care?: string;
+  careIcon?: CareIcon;
 }
 
 export const BILHETES: Bilhete[] = [
@@ -404,3 +416,128 @@ export const PERFORMANCE_QUOTES = {
     'doutora, respira e tenta de novo. eu seguro.',
   ],
 };
+
+// Bilhetes especiais do Modo Bilhete: aparecem uma vez por prova, no meio.
+// Combinam mensagem carinhosa com uma dica concreta de cuidado.
+export const PROVA_BILHETES: Bilhete[] = [
+  {
+    id: 'prova-01',
+    title: 'doutora,',
+    mood: 'pausa',
+    body: 'no meio dessa prova eu paro pra te lembrar uma coisa: você é capaz, e eu sei disso melhor do que ninguém.',
+    care: 'bebe um gole de água antes de seguir. seu cérebro estuda melhor hidratado.',
+    careIcon: 'agua',
+  },
+  {
+    id: 'prova-02',
+    title: 'amor,',
+    mood: 'pausa',
+    body: 'cada questão certa aqui é uma vitória sua. cada errada é só um aviso de onde voltar.',
+    care: 'já se levantou da cadeira hoje? estica os braços, gira o pescoço devagar, sem pressa.',
+    careIcon: 'alongar',
+  },
+  {
+    id: 'prova-03',
+    title: 'minha doutora,',
+    mood: 'pausa',
+    body: 'eu queria estar aí pra fazer um café e te entregar quentinho. fica esse bilhete no lugar.',
+    care: 'come alguma coisa de verdade, viu? estudo de barriga vazia rende metade.',
+    careIcon: 'comida',
+  },
+  {
+    id: 'prova-04',
+    title: 'vida,',
+    mood: 'pausa',
+    body: 'respira fundo. essa prova não decide nada sobre você, só te ajuda a estudar melhor.',
+    care: 'inspira contando 4, segura 4, solta em 6. três vezes. seu corpo agradece.',
+    careIcon: 'respirar',
+  },
+  {
+    id: 'prova-05',
+    title: 'doutora favorita,',
+    mood: 'pausa',
+    body: 'olhar pra você estudando é a coisa mais bonita que eu vejo no dia, juro.',
+    care: 'olha pra longe agora, foca num ponto distante por uns vinte segundos. seus olhos pedem pausa.',
+    careIcon: 'descanso',
+  },
+  {
+    id: 'prova-06',
+    title: 'meu amor,',
+    mood: 'pausa',
+    body: 'tô torcendo daqui em silêncio, com aquele orgulho idiota de quem te conhece de perto.',
+    care: 'hoje já tomou um pouquinho de sol? cinco minutos na janela já vale ouro.',
+    careIcon: 'sol',
+  },
+  {
+    id: 'prova-07',
+    title: 'doutora,',
+    mood: 'pausa',
+    body: 'lembra: você não precisa saber tudo agora. precisa saber um pouco mais do que ontem.',
+    care: 'se já estudou bastante hoje, considera parar mais cedo. dormir bem é metade da prova.',
+    careIcon: 'sono',
+  },
+  {
+    id: 'prova-08',
+    title: 'amor da minha vida,',
+    mood: 'pausa',
+    body: 'cada gabarito seu aqui me deixa um pouco mais convencido de que escolhi bem.',
+    care: 'enche o copo de novo. água, mesmo. café por hoje já chega.',
+    careIcon: 'agua',
+  },
+  {
+    id: 'prova-09',
+    title: 'minha pessoa,',
+    mood: 'pausa',
+    body: 'no fim das contas eu só queria estar do seu lado, dividindo o silêncio do estudo.',
+    care: 'levanta e dá uma volta na sala por dois minutinhos. circulação ajuda a memória.',
+    careIcon: 'caminhar',
+  },
+  {
+    id: 'prova-10',
+    title: 'doutora,',
+    mood: 'pausa',
+    body: 'sua paciência é desumana, e mesmo assim você consegue ser doce comigo todo dia.',
+    care: 'lanche de verdade, sem culpa: fruta, castanha, um pedaço de queijo. nutrir é estudar.',
+    careIcon: 'comida',
+  },
+  {
+    id: 'prova-11',
+    title: 'amor,',
+    mood: 'pausa',
+    body: 'um dia desses a gente olha pra trás e ri de quão difícil tudo isso parecia.',
+    care: 'mexe os ombros, abre o peito, alonga o pescoço. seu corpo carrega esses estudos.',
+    careIcon: 'alongar',
+  },
+  {
+    id: 'prova-12',
+    title: 'minha doutora,',
+    mood: 'pausa',
+    body: 'descansar também faz parte do estudo, sabia? cansaço não é prova de esforço.',
+    care: 'se a cabeça pesar, pausa de dez minutos. deita, fecha o olho, depois volta inteira.',
+    careIcon: 'descanso',
+  },
+  {
+    id: 'prova-13',
+    title: 'vida,',
+    mood: 'pausa',
+    body: 'eu sei que dá medo. mas você já passou por coisas piores, e olha onde está.',
+    care: 'respira pelo nariz, fundo, três vezes. e se quiser, fecha o olho por um minuto.',
+    careIcon: 'respirar',
+  },
+  {
+    id: 'prova-14',
+    title: 'amor,',
+    mood: 'pausa',
+    body: 'sua dedicação é meu maior motivo de admiração silenciosa.',
+    care: 'já parou pra esticar as pernas? caminha pela casa enquanto pensa nas próximas questões.',
+    careIcon: 'caminhar',
+  },
+  {
+    id: 'prova-15',
+    title: 'doutora,',
+    mood: 'pausa',
+    body: 'estuda no seu tempo. ninguém precisa virar médica em um dia.',
+    care: 'janta direito hoje. carboidrato bom, proteína, alguma cor no prato. estudar é gastar energia.',
+    careIcon: 'comida',
+  },
+];

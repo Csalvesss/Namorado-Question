@@ -1,11 +1,33 @@
 import { useEffect, useState } from 'react';
-import { Heart } from 'lucide-react';
-import type { Bilhete } from '../data/bilhetes';
+import {
+  Apple,
+  Coffee,
+  Droplet,
+  Footprints,
+  Heart,
+  Moon,
+  PersonStanding,
+  Sun,
+  Wind,
+  type LucideIcon,
+} from 'lucide-react';
+import type { Bilhete, CareIcon } from '../data/bilhetes';
 import {
   FAVORITES_CHANGE_EVENT,
   isFavorited,
   toggleFavorite,
 } from '../lib/favorites';
+
+const CARE_ICONS: Record<CareIcon, LucideIcon> = {
+  agua: Droplet,
+  comida: Apple,
+  descanso: Coffee,
+  alongar: PersonStanding,
+  respirar: Wind,
+  sono: Moon,
+  caminhar: Footprints,
+  sol: Sun,
+};
 
 const MONTHS_PT_LONG = [
   'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
@@ -109,6 +131,28 @@ export default function BilheteCard({
       <p className="mt-3 font-hand text-xl leading-snug text-ink sm:text-2xl">
         {bilhete.body}
       </p>
+
+      {bilhete.care && (() => {
+        const Icon = bilhete.careIcon ? CARE_ICONS[bilhete.careIcon] : Heart;
+        return (
+          <div className="mt-5 flex items-start gap-3 rounded-2xl border border-line/60 bg-paper/70 px-4 py-3 backdrop-blur-sm">
+            <span
+              aria-hidden
+              className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-rose-soft text-wine-deep"
+            >
+              <Icon className="h-3.5 w-3.5" strokeWidth={1.75} />
+            </span>
+            <div className="min-w-0">
+              <div className="text-[10px] uppercase tracking-[0.22em] text-gold">
+                pra você cuidar
+              </div>
+              <p className="mt-1 text-[13px] leading-relaxed text-ink-soft sm:text-sm">
+                {bilhete.care}
+              </p>
+            </div>
+          </div>
+        );
+      })()}
 
       {signature && (
         <div className="mt-6 flex items-end justify-between gap-4">

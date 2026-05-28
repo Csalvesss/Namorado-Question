@@ -9,7 +9,7 @@ import CaseClinical, { type CaseState } from '../components/questions/CaseClinic
 import EcgInterpret, { type EcgState } from '../components/questions/EcgInterpret';
 import Matching, { type MatchState } from '../components/questions/Matching';
 import { ResultPanel } from '../components/ResultPanel';
-import { BILHETES, type Bilhete } from '../data/bilhetes';
+import { PROVA_BILHETES, type Bilhete } from '../data/bilhetes';
 import { getPhrases } from '../data/phrases';
 import { db } from '../lib/db';
 import { duration, easeOutExpo, palette } from '../lib/motion';
@@ -94,6 +94,7 @@ export default function Quiz() {
   const [startedAt, setStartedAt] = useState<number>(() => Date.now());
   const [now, setNow] = useState<number>(() => Date.now());
   const [focusBilhete, setFocusBilhete] = useState<Bilhete | null>(null);
+  const [provaBilhete, setProvaBilhete] = useState<Bilhete | null>(null);
   const resultRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -110,6 +111,11 @@ export default function Quiz() {
     setSubmitted(false);
     setSession(null);
     setStartedAt(Date.now());
+    if (mode === 'bilhete' && user.displayMode !== 'doutora') {
+      setProvaBilhete(PROVA_BILHETES[Math.floor(Math.random() * PROVA_BILHETES.length)]);
+    } else {
+      setProvaBilhete(null);
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [course, user, courseId, mode, topics, config.count, seed]);
 
@@ -305,9 +311,7 @@ export default function Quiz() {
           displayMode={displayMode}
           mode={mode}
           bilheteCount={
-            mode === 'bilhete' && displayMode === 'namorado'
-              ? Math.floor((questions.length - 1) / 3)
-              : 0
+            mode === 'bilhete' && displayMode === 'namorado' && provaBilhete ? 1 : 0
           }
         />
       )}
@@ -325,10 +329,12 @@ export default function Quiz() {
               wrongIdx++;
             }
           }
+          const bilheteSlot = Math.floor(questions.length / 2);
           const showBilheteAfter =
             mode === 'bilhete' &&
             displayMode === 'namorado' &&
-            (idx + 1) % 3 === 0 &&
+            provaBilhete !== null &&
+            idx === bilheteSlot - 1 &&
             idx + 1 < questions.length;
 
           let rendered: React.ReactNode = null;
@@ -381,12 +387,11 @@ export default function Quiz() {
             );
           }
 
-          if (!showBilheteAfter) {
+          if (!showBilheteAfter || !provaBilhete) {
             return <div key={q.id + '-' + idx}>{rendered}</div>;
           }
 
-          const bilheteIndex = Math.floor((idx + 1) / 3) - 1;
-          const bilhete = BILHETES[bilheteIndex % BILHETES.length];
+          const bilhete = provaBilhete;
           const partner = user?.partnerName?.trim() || '';
           return (
             <div key={q.id + '-' + idx} className="space-y-4">

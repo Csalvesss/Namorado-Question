@@ -197,11 +197,11 @@ export default function Course() {
                 Modo Bilhete
               </h3>
               <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-soft sm:text-[15px]">
-                Estude no seu ritmo: a cada três questões, um bilhetinho carinhoso aparece, pequenas
-                pausas para respirar e lembrar de quem cuida de você.
+                Uma prova com um bilhete carinhoso no meio do caminho. Mensagem fofa, dica de
+                cuidado (água, descanso, alongar) e uma pausa para respirar antes de seguir.
               </p>
               <div className="mt-5 flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-muted">
-                <span>{Math.min(15, questions.length)} questões + bilhetes</span>
+                <span>{Math.min(15, questions.length)} questões + um bilhete</span>
               </div>
             </div>
             <div className="relative hidden w-32 shrink-0 sm:block">
