@@ -99,7 +99,7 @@
       "topic": "Rivaroxabana",
       "q": "Sobre a rivaroxabana (DOAC), assinale a CORRETA:",
       "options": [
-        "Inibidor DIRETO do fator Xa, sem necessidade de monitorização rotineira; antídoto específico: andexanet alfa; CONTRAINDICADA em válvula mecânica e em síndrome antifosfolípide triplo-positiva",
+        "Inibidor DIRETO do fator Xa, sem necessidade de monitorização rotineira; antídoto específico: andexanet alfa; CONTRAINDICADA em válvula mecânica e gestação",
         "Antagonista da vitamina K",
         "Anti-IIa direto",
         "Inibidor da antitrombina III"
@@ -159,7 +159,7 @@
       "topic": "Ezetimiba",
       "q": "Ezetimiba tem mecanismo diferente das estatinas. Assinale a CORRETA:",
       "options": [
-        "Inibe NPC1L1 no enterócito → ↓ absorção intestinal de colesterol; redução adicional de ~20% no LDL; bom perfil de segurança; benefício de desfecho em associação à estatina (IMPROVE-IT)",
+        "Inibe NPC1L1 no enterócito → ↓ absorção intestinal de colesterol; redução adicional de ~20% no LDL; bom perfil de segurança; benefício de desfecho em associação à estatina",
         "Inibe HMG-CoA redutase",
         "Liga LDL plasmático diretamente",
         "Reduz triglicérides principalmente"
@@ -174,7 +174,7 @@
       "topic": "Inibidores de PCSK9",
       "q": "Sobre evolocumabe e alirocumabe (anti-PCSK9), é CORRETO afirmar:",
       "options": [
-        "Anticorpos monoclonais que se ligam à PCSK9 → impedem degradação do receptor LDL → ↓ LDL em 50-60%; SC quinzenal/mensal; alto custo; benefício de desfecho em prevenção secundária (FOURIER, ODYSSEY)",
+        "Anticorpos monoclonais que se ligam à PCSK9 → impedem degradação do receptor LDL → ↓ LDL em 50-60%; SC quinzenal/mensal; alto custo; benefício de desfecho em prevenção secundária",
         "Pequenas moléculas orais que inibem HMG-CoA redutase",
         "Aumentam PCSK9 plasmática",
         "Reduzem só HDL"
@@ -275,6 +275,21 @@
       "tags": ["estatina", "interacao", "rabdomiolise"]
     },
     {
+      "type": "mc",
+      "topic": "Protamina · reversão das heparinas",
+      "q": "Sobre a reversão das heparinas com sulfato de protamina, assinale a CORRETA:",
+      "options": [
+        "Protamina REVERTE 100% da HNF (heparina não fracionada), PARCIALMENTE a HBPM (~60%) e NÃO REVERTE o fondaparinux",
+        "Protamina reverte 100% dos três (HNF, HBPM e fondaparinux)",
+        "Protamina só reverte HBPM, não tem ação sobre HNF",
+        "Protamina é o antídoto da varfarina e da dabigatrana"
+      ],
+      "correct": 0,
+      "expl": "Pegadinha clássica de prova: a protamina é uma proteína catiônica que neutraliza heparinas aniônicas. Reverte 100% da HNF, ~60% da HBPM (que tem cadeias menores, menos sítios de ligação) e NÃO neutraliza fondaparinux (pentassacarídeo sintético sem ligação direta). Em sangramento por fondaparinux: medidas gerais, fator VIIa recombinante em casos graves. Antídotos: HNF/HBPM → protamina; varfarina → vit K; dabigatrana → idarucizumabe; anti-Xa direto (riva/api) → andexanet alfa.",
+      "difficulty": "medium",
+      "tags": ["protamina", "antidoto", "heparina"]
+    },
+    {
       "type": "match",
       "topic": "Anticoagulantes: mecanismo",
       "prompt": "Associe o anticoagulante ao mecanismo.",
@@ -362,7 +377,7 @@
           "prompt": "Trombólise realizada às 11:40. Você acompanha o paciente. Aos 30 minutos do bólus: redução do supra > 50% em V2-V4 e desaparecimento da dor.",
           "question": "Como interpretar e qual o próximo passo?",
           "options": [
-            "Critérios de sucesso de trombólise: queda > 50% do supra, alívio da dor, arritmias de reperfusão. Manter conduta + transferência para PCI farmacoinvasiva em 3-24h",
+            "Critérios de sucesso de trombólise: queda > 50% do supra e alívio da dor. Manter anticoagulação e antiagregação, transferir para cateterismo de seguimento",
             "Trombólise falhou; repetir tenecteplase",
             "Suspender todos os anticoagulantes",
             "Alta hospitalar imediata"
