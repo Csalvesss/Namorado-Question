@@ -5,10 +5,13 @@ import {
   BookOpen,
   Brain,
   Bug,
+  Calculator,
   Dna,
   HeartPulse,
   Layers,
   Mail,
+  Moon,
+  Shuffle,
   Stethoscope,
   ThermometerSun,
   type LucideIcon,
@@ -345,6 +348,79 @@ export default function Dashboard() {
             })}
           </div>
         )}
+      </section>
+
+      <section>
+        <div className="mb-2 text-[10px] uppercase tracking-[0.32em] text-gold opacity-70">
+          capítulo dois
+        </div>
+        <div className="mb-6 flex items-baseline gap-4">
+          <span className="font-serif text-[3.5rem] italic leading-none text-gold opacity-40">
+            II
+          </span>
+          <h2 className="font-serif text-3xl italic text-wine-deep sm:text-4xl">
+            Ferramentas de estudo
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <Link
+            to="/intercalado"
+            className="group block overflow-hidden rounded-2xl border border-line bg-paper p-5 shadow-card transition active:scale-[0.99] hover:shadow-card-hover sm:p-6"
+          >
+            <div className="mb-3 flex items-center gap-3">
+              <span
+                aria-hidden
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-rose-soft text-wine-deep"
+              >
+                <Shuffle className="h-5 w-5" strokeWidth={1.6} />
+              </span>
+              <h3 className="font-serif text-xl italic leading-tight text-wine-deep">
+                Modo intercalado
+              </h3>
+            </div>
+            <p className="text-sm leading-relaxed text-ink-soft">
+              20 questões sorteadas entre cursos diferentes. Treina discriminação entre diagnósticos parecidos.
+            </p>
+          </Link>
+          <Link
+            to="/ferramentas"
+            className="group block overflow-hidden rounded-2xl border border-line bg-paper p-5 shadow-card transition active:scale-[0.99] hover:shadow-card-hover sm:p-6"
+          >
+            <div className="mb-3 flex items-center gap-3">
+              <span
+                aria-hidden
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-rose-soft text-wine-deep"
+              >
+                <Calculator className="h-5 w-5" strokeWidth={1.6} />
+              </span>
+              <h3 className="font-serif text-xl italic leading-tight text-wine-deep">
+                Calculadoras
+              </h3>
+            </div>
+            <p className="text-sm leading-relaxed text-ink-soft">
+              CKD-EPI, Wells, CHA₂DS₂-VASc, MELD, Glasgow, APGAR, IMC. O que você precisa no plantão.
+            </p>
+          </Link>
+          <Link
+            to="/passa-facil"
+            className="group block overflow-hidden rounded-2xl border border-line bg-paper p-5 shadow-card transition active:scale-[0.99] hover:shadow-card-hover sm:p-6"
+          >
+            <div className="mb-3 flex items-center gap-3">
+              <span
+                aria-hidden
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-rose-soft text-wine-deep"
+              >
+                <Moon className="h-5 w-5" strokeWidth={1.6} />
+              </span>
+              <h3 className="font-serif text-xl italic leading-tight text-wine-deep">
+                Passa-fácil noturno
+              </h3>
+            </div>
+            <p className="text-sm leading-relaxed text-ink-soft">
+              Dez flashcards aleatórios, sem cobrança. Pra relembrar antes de dormir.
+            </p>
+          </Link>
+        </div>
       </section>
 
       <section className="border-t border-line pt-8">
