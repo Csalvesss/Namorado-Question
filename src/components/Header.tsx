@@ -30,7 +30,7 @@ export default function Header() {
           </span>
         </Link>
         {user && (
-          <nav className="hidden gap-1 md:flex">
+          <nav className="hidden gap-1 lg:flex">
             <NavItem to="/app">Cursos</NavItem>
             <NavItem to="/plano">Plano</NavItem>
             <NavItem to="/revisar">Revisar</NavItem>
@@ -58,8 +58,9 @@ export default function Header() {
         </div>
       </div>
       {user && (
-        <nav className="flex gap-1 overflow-x-auto border-t border-line px-3 py-2 md:hidden [-webkit-overflow-scrolling:touch]">
+        <nav className="flex gap-1 overflow-x-auto border-t border-line px-3 py-2 lg:hidden [-webkit-overflow-scrolling:touch]">
           <NavItem to="/app">Cursos</NavItem>
+          <NavItem to="/plano">Plano</NavItem>
           <NavItem to="/revisar">Revisar</NavItem>
           {showBilhetes && <NavItem to="/bilhetes">Bilhetes</NavItem>}
           <NavItem to="/historico">Histórico</NavItem>

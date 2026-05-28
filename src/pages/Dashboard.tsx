@@ -204,7 +204,7 @@ export default function Dashboard() {
             {subtitle}
           </p>
 
-          <div className="mt-5 flex flex-wrap items-center gap-2">
+          <div className="mt-5 flex items-center gap-2">
             {lastCourse && (
               <Link
                 to={`/curso/${lastCourse.id}`}
@@ -222,16 +222,16 @@ export default function Dashboard() {
                 Bilhete do dia
               </Link>
             )}
-            {dueCardCount > 0 && (
-              <Link
-                to="/revisar"
-                className="inline-flex items-center text-[11px] uppercase tracking-wider text-muted transition hover:text-wine"
-              >
-                <Layers className="mr-1 h-3 w-3" strokeWidth={1.75} />
-                Revisar {dueCardCount} cards
-              </Link>
-            )}
           </div>
+          {dueCardCount > 0 && (
+            <Link
+              to="/revisar"
+              className="mt-3 inline-flex items-center text-[11px] uppercase tracking-wider text-muted transition hover:text-wine"
+            >
+              <Layers className="mr-1 h-3 w-3" strokeWidth={1.75} />
+              Revisar {dueCardCount} cards
+            </Link>
+          )}
         </div>
 
         {completed.length >= 3 && (
