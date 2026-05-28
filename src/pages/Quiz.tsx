@@ -18,6 +18,7 @@ import {
   modeConfig,
   prepareQuestion,
   sampleQuestions,
+  sampleQuestionsInterleaved,
   type PreparedMCQuestion,
   type PreparedQuestion,
 } from '../lib/quiz';
@@ -80,12 +81,17 @@ export default function Quiz() {
   const [params] = useSearchParams();
   const { user } = useUser();
 
-  const mode = (params.get('mode') ?? 'standard') as QuizMode;
+  const isInterleaved = courseId === '' || courseId === '__interleaved__';
+  const defaultMode: QuizMode = isInterleaved ? 'interleaved' : 'standard';
+  const mode = (params.get('mode') ?? defaultMode) as QuizMode;
   const topicsParam = params.get('topics');
   const topics = useMemo(() => (topicsParam ? topicsParam.split(',') : undefined), [topicsParam]);
   const config = modeConfig(mode);
 
-  const course = useMemo(() => db.courses.get(courseId), [courseId]);
+  const course = useMemo(
+    () => (isInterleaved ? null : db.courses.get(courseId)),
+    [courseId, isInterleaved],
+  );
 
   const [seed, setSeed] = useState(0);
   const [questions, setQuestions] = useState<QuestionState[]>([]);
@@ -98,15 +104,22 @@ export default function Quiz() {
   const resultRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (!course || !user) return;
-    const mistakeIds = mode === 'mistakes' ? getMistakeQuestionIds(user.uid, courseId) : undefined;
-    const raw = sampleQuestions({
-      courseId,
-      count: config.count,
-      topics,
-      mistakeIds,
-      typeFilter: mode === 'clinical' ? 'case' : undefined,
-    });
+    if (!user) return;
+    if (!isInterleaved && !course) return;
+    const mistakeIds =
+      mode === 'mistakes' && !isInterleaved ? getMistakeQuestionIds(user.uid, courseId) : undefined;
+    const raw = isInterleaved
+      ? sampleQuestionsInterleaved({
+          count: config.count,
+          typeFilter: mode === 'clinical' ? 'case' : undefined,
+        })
+      : sampleQuestions({
+          courseId,
+          count: config.count,
+          topics,
+          mistakeIds,
+          typeFilter: mode === 'clinical' ? 'case' : undefined,
+        });
     setQuestions(raw.map(prepareQuestion));
     setSubmitted(false);
     setSession(null);
@@ -117,7 +130,7 @@ export default function Quiz() {
       setProvaBilhete(null);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [course, user, courseId, mode, topics, config.count, seed]);
+  }, [course, user, courseId, mode, topics, config.count, seed, isInterleaved]);
 
   useEffect(() => {
     if (!config.timed || submitted) return;
@@ -125,7 +138,7 @@ export default function Quiz() {
     return () => clearInterval(i);
   }, [config.timed, submitted]);
 
-  if (!course) {
+  if (!course && !isInterleaved) {
     return (
       <div className="card p-10 text-center">
         <p className="font-serif text-xl italic text-ink-soft">Curso não encontrado.</p>
@@ -133,6 +146,12 @@ export default function Quiz() {
       </div>
     );
   }
+
+  const titleLabel = course?.title ?? 'Modo intercalado';
+  const moduleLabel = titleLabel.toUpperCase();
+  const backTo = course ? `/curso/${courseId}` : '/app';
+  const persistedCourseId = course?.id ?? '__interleaved__';
+  const persistedTitle = course?.title ?? 'Modo intercalado';
 
   if (questions.length === 0) {
     return (
@@ -145,8 +164,8 @@ export default function Quiz() {
             : 'Nenhuma questão disponível com esses tópicos. Tenta limpar a seleção ou escolher outro modo.'
         }
         action={
-          <Link to={`/curso/${courseId}`} className="btn-secondary">
-            Voltar ao curso
+          <Link to={backTo} className="btn-secondary">
+            {course ? 'Voltar ao curso' : 'Voltar ao painel'}
           </Link>
         }
       />
@@ -198,7 +217,8 @@ export default function Quiz() {
   }
 
   function submitQuiz() {
-    if (submitted || !user || !course) return;
+    if (submitted || !user) return;
+    if (!course && !isInterleaved) return;
     setSubmitted(true);
     const completedAt = Date.now();
     const answers = questions.map((q) => {
@@ -214,8 +234,8 @@ export default function Quiz() {
     const sess: QuizSession = {
       id: db.ids.session(),
       userId: user.uid,
-      courseId,
-      courseTitle: course.title,
+      courseId: persistedCourseId,
+      courseTitle: persistedTitle,
       mode,
       questionIds: questions.map((q) => q.id),
       answers,
@@ -240,16 +260,14 @@ export default function Quiz() {
   let rightIdx = 0;
   let wrongIdx = 0;
 
-  const moduleLabel = course.title.toUpperCase();
-
   return (
     <div className="space-y-7 pb-28 md:pb-0">
       <header>
         <Link
-          to={`/curso/${courseId}`}
+          to={backTo}
           className="inline-flex items-center text-[11px] uppercase tracking-[0.22em] text-muted transition hover:text-wine"
         >
-          ← {course.title} · {config.label}
+          ← {titleLabel} · {config.label}
         </Link>
         <div className="mt-1 text-[10px] uppercase tracking-[0.32em] text-gold opacity-70">
           modo {config.label.toLowerCase()}
@@ -437,8 +455,8 @@ export default function Quiz() {
               <button onClick={redoQuiz} className="btn-secondary flex-1 sm:flex-none">
                 Refazer
               </button>
-              <Link to={`/curso/${courseId}`} className="btn-primary flex-1 sm:flex-none">
-                Outro modo
+              <Link to={backTo} className="btn-primary flex-1 sm:flex-none">
+                {course ? 'Outro modo' : 'Voltar'}
               </Link>
             </>
           )}

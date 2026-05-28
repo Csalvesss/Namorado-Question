@@ -1,4 +1,4 @@
-import { BookOpenCheck, Flame, Mail, Stethoscope, Target, Timer, Zap, type LucideIcon } from 'lucide-react';
+import { BookOpenCheck, Flame, Mail, Shuffle, Stethoscope, Target, Timer, Zap, type LucideIcon } from 'lucide-react';
 import type { Question, QuestionType, QuizMode } from '../types';
 import { db } from './db';
 
@@ -17,6 +17,43 @@ export interface SampleOptions {
   topics?: string[];
   mistakeIds?: string[];
   typeFilter?: QuestionType;
+}
+
+export interface InterleavedOptions {
+  count: number;
+  excludeCourseIds?: string[];
+  typeFilter?: QuestionType;
+}
+
+export function sampleQuestionsInterleaved({
+  count,
+  excludeCourseIds,
+  typeFilter,
+}: InterleavedOptions): Question[] {
+  const courses = db.courses.list();
+  const byCourse = new Map<string, Question[]>();
+  courses.forEach((c) => {
+    if (excludeCourseIds?.includes(c.id)) return;
+    let pool = db.questions.listByCourse(c.id);
+    if (typeFilter) {
+      pool = pool.filter((q) => q.type === typeFilter);
+    } else {
+      pool = pool.filter((q) => q.type !== 'flashcard');
+    }
+    if (pool.length > 0) byCourse.set(c.id, pool);
+  });
+  const ids = Array.from(byCourse.keys());
+  if (ids.length === 0) return [];
+  const perCourse = Math.floor(count / ids.length);
+  let remaining = count - perCourse * ids.length;
+  let picked: Question[] = [];
+  ids.forEach((id) => {
+    const shuf = shuffle(byCourse.get(id)!);
+    const take = perCourse + (remaining > 0 ? 1 : 0);
+    if (remaining > 0) remaining--;
+    picked = picked.concat(shuf.slice(0, take));
+  });
+  return shuffle(picked).slice(0, count);
 }
 
 export function sampleQuestions({
@@ -226,6 +263,15 @@ export function modeConfig(mode: QuizMode): ModeConfig {
         timed: false,
         description:
           'Uma prova com um bilhete carinhoso no meio do caminho. Mensagem fofa, dica de cuidado (água, descanso, comida) e uma pausa para respirar antes de seguir.',
+      };
+    case 'interleaved':
+      return {
+        count: 20,
+        label: 'Modo intercalado',
+        Icon: Shuffle,
+        timed: false,
+        description:
+          '20 questões sorteadas entre vários cursos diferentes, balanceadas por área. Treina a discriminação entre diagnósticos parecidos.',
       };
     case 'standard':
     default:

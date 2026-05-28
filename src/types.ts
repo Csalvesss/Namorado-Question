@@ -120,7 +120,8 @@ export type QuizMode =
   | 'mistakes'
   | 'timed'
   | 'clinical'
-  | 'bilhete';
+  | 'bilhete'
+  | 'interleaved';
 
 export interface QuizAnswer {
   questionId: string;
