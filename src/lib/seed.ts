@@ -12,6 +12,7 @@ import zika from '../data/seeds/zika.json';
 import oropouche from '../data/seeds/oropouche.json';
 import eletroBasico from '../data/seeds/eletro-basico.json';
 import casosClinicos from '../data/seeds/casos-clinicos.json';
+import casosImersivos from '../data/seeds/casos-imersivos.json';
 import flashcardsAntibioticos from '../data/seeds/flashcards-antibioticos.json';
 import flashcardsHivAids from '../data/seeds/flashcards-hiv-aids.json';
 import flashcardsIc from '../data/seeds/flashcards-insuficiencia-cardiaca.json';
@@ -29,6 +30,7 @@ const SEEDS: ImportPayload[] = [
   oropouche as ImportPayload,
   eletroBasico as ImportPayload,
   casosClinicos as ImportPayload,
+  casosImersivos as ImportPayload,
   flashcardsAntibioticos as ImportPayload,
   flashcardsHivAids as ImportPayload,
   flashcardsIc as ImportPayload,
@@ -59,6 +61,11 @@ function buildQuestion(q: ImportQuestion, courseId: string, now: number): Questi
       type: 'case',
       vignette: q.vignette,
       steps: q.steps,
+      subtitle: q.subtitle,
+      specialty: q.specialty,
+      timeStamp: q.timeStamp,
+      location: q.location,
+      outcome: q.outcome,
       difficulty: q.difficulty,
       tags: q.tags,
       createdAt: now,

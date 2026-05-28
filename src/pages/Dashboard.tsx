@@ -12,6 +12,7 @@ import {
   Mail,
   Moon,
   Shuffle,
+  Siren,
   Stethoscope,
   ThermometerSun,
   type LucideIcon,
@@ -362,7 +363,26 @@ export default function Dashboard() {
             Ferramentas de estudo
           </h2>
         </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Link
+            to="/casos"
+            className="group relative block overflow-hidden rounded-2xl border border-wine-deep bg-wine-deep p-5 text-paper shadow-card transition active:scale-[0.99] hover:shadow-card-hover sm:p-6"
+          >
+            <div className="mb-3 flex items-center gap-3">
+              <span
+                aria-hidden
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-rose-soft"
+              >
+                <Siren className="h-5 w-5" strokeWidth={1.6} />
+              </span>
+              <h3 className="font-serif text-xl italic leading-tight">
+                Simulações
+              </h3>
+            </div>
+            <p className="text-sm leading-relaxed text-paper/85">
+              Casos clínicos imersivos. Pressão de plantão, decisões que pesam.
+            </p>
+          </Link>
           <Link
             to="/intercalado"
             className="group block overflow-hidden rounded-2xl border border-line bg-paper p-5 shadow-card transition active:scale-[0.99] hover:shadow-card-hover sm:p-6"
