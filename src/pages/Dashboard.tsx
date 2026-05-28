@@ -210,22 +210,22 @@ export default function Dashboard() {
             {subtitle}
           </p>
 
-          <div className="mt-5 flex items-center gap-2">
+          <div className="mt-5 flex flex-wrap items-stretch gap-3">
             {lastCourse && (
               <Link
                 to={`/curso/${lastCourse.id}`}
-                className="inline-flex min-h-touch items-center rounded-full bg-wine px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-wine transition active:scale-[0.98] hover:bg-wine-deep"
+                className="inline-flex min-h-touch items-center whitespace-nowrap bg-wine px-5 py-2.5 font-serif text-base italic text-paper shadow-wine transition hover:bg-wine-deep active:scale-[0.99]"
               >
-                Continuar
+                continuar leitura →
               </Link>
             )}
             {showBilhete && (
               <Link
                 to="/bilhetes"
-                className="inline-flex min-h-touch items-center rounded-full border border-wine bg-paper px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-wine-deep transition active:scale-[0.98] hover:bg-rose-soft"
+                className="inline-flex min-h-touch items-center gap-2 whitespace-nowrap border-b border-wine pb-1 font-serif text-base italic text-wine-deep transition hover:text-wine active:scale-[0.99]"
               >
-                <Mail className="mr-1.5 h-3.5 w-3.5" strokeWidth={1.75} />
-                Bilhete do dia
+                <Mail className="h-4 w-4" strokeWidth={1.5} />
+                bilhete do dia
               </Link>
             )}
           </div>
