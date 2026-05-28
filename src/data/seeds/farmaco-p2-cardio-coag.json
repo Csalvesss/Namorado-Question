@@ -1,0 +1,537 @@
+{
+  "title": "Farmaco P2: Antiagregantes, Anticoag e Hipolipemiantes",
+  "description": "Parte B do bloco cardiovascular: antiagregantes plaquetários, heparinas, anticoagulantes orais, hipolipemiantes e trombolíticos. Mecanismo, antídoto, EA típico e uma indicação clássica.",
+  "icon": "",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "mc",
+      "topic": "AAS",
+      "q": "Sobre o AAS (ácido acetilsalicílico) em dose antiagregante, assinale a CORRETA:",
+      "options": [
+        "Acetila irreversivelmente a COX-1 plaquetária → inibição da síntese de tromboxano A2 por toda vida da plaqueta (7-10 dias)",
+        "É um inibidor reversível da COX-2 sem efeito plaquetário",
+        "Bloqueia o receptor P2Y12 plaquetário como o clopidogrel",
+        "Inibe diretamente a trombina"
+      ],
+      "correct": 0,
+      "expl": "AAS acetila irreversivelmente a serina da COX-1 plaquetária → bloqueia tromboxano A2 (vasoconstrição + agregação) pela vida útil da plaqueta. Por isso o efeito antiagregante persiste 7-10 dias após suspensão. Doses baixas (100 mg) preservam mais a prostaciclina endotelial. EA principais: gastrite, sangramento, broncoespasmo (asma sensível a AAS), Reye em crianças com infecção viral.",
+      "difficulty": "easy",
+      "tags": ["antiagregante", "aas"]
+    },
+    {
+      "type": "mc",
+      "topic": "Clopidogrel",
+      "q": "Sobre o clopidogrel, é CORRETO afirmar:",
+      "options": [
+        "Pró-fármaco bloqueador irreversível do receptor P2Y12 plaquetário; ativação depende do CYP2C19 (polimorfismo gera falha terapêutica em ~30%)",
+        "Inibe a COX-1 plaquetária",
+        "Inibe diretamente o fator Xa",
+        "É um anticorpo monoclonal contra IIb/IIIa"
+      ],
+      "correct": 0,
+      "expl": "Clopidogrel é pró-fármaco: precisa de ativação hepática pelo CYP2C19 para gerar o metabólito ativo que bloqueia irreversivelmente o receptor P2Y12 plaquetário. Pacientes com perda de função do CYP2C19 (~30% da população) têm resposta reduzida. Alternativas: prasugrel e ticagrelor (resposta mais previsível). Combinado com AAS em SCA e pós-stent. Suspender 5-7 dias antes de cirurgia eletiva.",
+      "difficulty": "medium",
+      "tags": ["antiagregante", "clopidogrel", "p2y12"]
+    },
+    {
+      "type": "mc",
+      "topic": "Heparinas",
+      "q": "Sobre as heparinas (HNF e HBPM), assinale a CORRETA:",
+      "options": [
+        "Ambas potencializam a antitrombina III; HNF inibe IIa e Xa, monitora TTPa; HBPM (enoxaparina) inibe mais Xa, dose fixa por peso sem necessidade rotineira de monitorização",
+        "São antagonistas diretos da vitamina K",
+        "São absorvidas por via oral",
+        "Não causam HIT (trombocitopenia induzida por heparina)"
+      ],
+      "correct": 0,
+      "expl": "HNF e HBPM atuam pela ligação à antitrombina III. HNF inibe IIa (trombina) e Xa em proporção igual; monitorada por TTPa. HBPM inibe MAIS Xa; dose por peso, sem monitorização rotineira (anti-Xa em casos especiais: gestante, obesidade, IR). HBPM tem MENOR risco de HIT que HNF, mas o risco não é zero. Antídoto parcial: sulfato de protamina (reverte HNF totalmente e HBPM parcialmente).",
+      "difficulty": "medium",
+      "tags": ["heparina", "anticoagulante"]
+    },
+    {
+      "type": "mc",
+      "topic": "HIT (heparina · trombocitopenia)",
+      "q": "Sobre a HIT (trombocitopenia induzida por heparina), é CORRETO afirmar:",
+      "options": [
+        "É uma reação imune mediada por IgG contra PF4-heparina; queda da plaqueta após 5-10 dias da heparina; PARADOXALMENTE trombótica; suspender heparina e usar inibidor direto da trombina (argatrobana, bivalirudina) ou fondaparinux",
+        "É hemorrágica e responde a transfusão de plaquetas",
+        "Acontece nas primeiras horas com qualquer dose",
+        "É frequente com fondaparinux"
+      ],
+      "correct": 0,
+      "expl": "HIT tipo II: imune, mediada por IgG contra complexo PF4-heparina. Queda da plaqueta (>50% do basal) 5-10 dias após início. Paradoxal: TROMBÓTICA (não hemorrágica). Risco maior com HNF, menor com HBPM. Conduta: suspender qualquer heparina imediatamente, anticoagular com inibidor direto da trombina (argatrobana) ou fondaparinux (não causa HIT). Transfundir plaqueta só se sangramento ativo.",
+      "difficulty": "hard",
+      "tags": ["hit", "heparina"]
+    },
+    {
+      "type": "mc",
+      "topic": "Fondaparinux",
+      "q": "Fondaparinux tem como diferencial sobre as heparinas:",
+      "options": [
+        "Inibidor INDIRETO seletivo do fator Xa via antitrombina; não causa HIT (sem ligação com PF4); excreção renal (cuidado em IR)",
+        "Inibe diretamente a trombina",
+        "Reverte completamente com protamina",
+        "Pode ser usado VO"
+      ],
+      "correct": 0,
+      "expl": "Fondaparinux é pentassacarídeo sintético — sítio mínimo de ligação à antitrombina que inibe seletivamente fator Xa. Não interage com PF4 → NÃO causa HIT. Excreção renal: contraindicado em TFG < 30. SC 1x/dia. Sem antídoto específico (protamina não reverte). Indicação: profilaxia/tratamento de TVP/TEP, SCA.",
+      "difficulty": "medium",
+      "tags": ["fondaparinux"]
+    },
+    {
+      "type": "mc",
+      "topic": "Varfarina",
+      "q": "Sobre a varfarina, é CORRETO afirmar:",
+      "options": [
+        "Inibe o ciclo da vitamina K (epóxido redutase) → síntese reduzida dos fatores II, VII, IX, X e proteínas C/S; monitorada por INR; antídoto: vitamina K (e PCC ou plasma em sangramento grave)",
+        "Atua diretamente sobre a trombina",
+        "Tem ação imediata após primeira dose",
+        "Não tem interações alimentares ou medicamentosas"
+      ],
+      "correct": 0,
+      "expl": "Varfarina inibe a vitamina K epóxido redutase → não regenera vit K reduzida → diminui síntese hepática dos fatores vit K dependentes (II, VII, IX, X) e das proteínas C e S. ALÉM da ação anticoagulante, no início também reduz proteína C/S (efeito procoagulante transitório → necrose de pele) — por isso superpor heparina nos primeiros 5 dias. Janela estreita, muitas interações (alimentos com vit K, antibióticos, amiodarona, CYP). INR alvo: 2-3 (FA, TVP); 2,5-3,5 (válvula mecânica). Antídoto: vit K + PCC ou plasma.",
+      "difficulty": "medium",
+      "tags": ["varfarina", "vitamina-k"]
+    },
+    {
+      "type": "mc",
+      "topic": "Rivaroxabana",
+      "q": "Sobre a rivaroxabana (DOAC), assinale a CORRETA:",
+      "options": [
+        "Inibidor DIRETO do fator Xa, sem necessidade de monitorização rotineira; antídoto específico: andexanet alfa; CONTRAINDICADA em válvula mecânica e em síndrome antifosfolípide triplo-positiva",
+        "Antagonista da vitamina K",
+        "Anti-IIa direto",
+        "Inibidor da antitrombina III"
+      ],
+      "correct": 0,
+      "expl": "Rivaroxabana é DOAC anti-Xa direto. Indicações: FA não valvar, TVP/TEP, profilaxia pós-cirurgia ortopédica. Sem monitorização rotineira. Antídoto: andexanet alfa (recombinante Xa inativo). CONTRAINDICAÇÕES: válvula mecânica (estudo RE-ALIGN com dabigatrana foi negativo; DOACs ainda inferiores à varfarina), síndrome antifosfolípide triplo-positiva, gestação. Ajuste em IR.",
+      "difficulty": "medium",
+      "tags": ["rivaroxabana", "doac", "anti-xa"]
+    },
+    {
+      "type": "mc",
+      "topic": "Dabigatrana",
+      "q": "Dabigatrana tem mecanismo diferente da rivaroxabana. Assinale a CORRETA:",
+      "options": [
+        "Inibidor DIRETO da trombina (IIa); antídoto específico: idarucizumabe (anticorpo monoclonal Fab); excreção predominantemente renal; usar com cuidado em IR",
+        "Inibidor da vitamina K",
+        "Inibidor do fator Xa direto",
+        "Inibidor de receptor de fibrinogênio"
+      ],
+      "correct": 0,
+      "expl": "Dabigatrana é o único DOAC anti-IIa (trombina direta). Antídoto: IDARUCIZUMABE (Praxbind, fragmento Fab que se liga e neutraliza a dabigatrana). Excreção 80% renal — contraindicada em TFG < 30. Sem necessidade de monitorização rotineira. Mesmas indicações dos outros DOACs (FA não valvar, TVP/TEP).",
+      "difficulty": "medium",
+      "tags": ["dabigatrana", "doac", "anti-iia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Estatinas",
+      "q": "Sobre as estatinas (atorvastatina, rosuvastatina, sinvastatina, etc.), é CORRETO afirmar:",
+      "options": [
+        "Inibem a HMG-CoA redutase, reduzindo síntese hepática de colesterol e aumentando expressão de receptor LDL; EA mais comum: mialgia (até 10%); EA grave: miopatia/rabdomiólise e elevação de transaminases",
+        "Aumentam o LDL e diminuem o HDL",
+        "Não têm efeito sobre HDL ou triglicérides",
+        "Inibem a absorção intestinal de colesterol"
+      ],
+      "correct": 0,
+      "expl": "Estatinas inibem HMG-CoA redutase no fígado → ↓ síntese intracelular de colesterol → ↑ expressão de receptores LDL → ↓ LDL plasmático. Reduzem desfechos cardiovasculares (4S, HPS, JUPITER, IMPROVE-IT). EA: mialgia (frequente), miopatia/rabdomiólise (raro), ↑ ALT/AST (geralmente reversível), aumento discreto de glicemia/HbA1c, intolerância. CONTRAINDICADAS na gestação. Cuidado com interações via CYP3A4 (sinvastatina, atorvastatina) — claritromicina, antifúngicos, suco de grapefruit.",
+      "difficulty": "easy",
+      "tags": ["estatina", "hipolipemiante"]
+    },
+    {
+      "type": "mc",
+      "topic": "Fibratos",
+      "q": "Sobre os fibratos (genfibrozila, fenofibrato, bezafibrato), assinale a CORRETA:",
+      "options": [
+        "Ativam PPAR-α → ↓↓ triglicérides e ↑ HDL; indicados em hipertrigliceridemia grave; CUIDADO em associar com estatina (maior risco de miopatia, especialmente genfibrozila)",
+        "Atuam sobre a HMG-CoA redutase",
+        "Não interagem com estatinas",
+        "Indicados primariamente para reduzir LDL"
+      ],
+      "correct": 0,
+      "expl": "Fibratos ativam PPAR-α (receptor de proliferação peroxissomal) → ↑ oxidação de ácidos graxos, ↑ síntese de lipoproteína lipase → ↓ triglicérides (40-60%) e ↑ HDL (10-20%). Efeito sobre LDL é modesto. INDICAÇÃO: TG > 500 mg/dL (prevenção de pancreatite). EA: miopatia (especialmente com estatina), litíase biliar, ↑ creatinina. GENFIBROZILA inibe CYP da estatina → mais risco. Prefere FENOFIBRATO quando associar a estatina.",
+      "difficulty": "medium",
+      "tags": ["fibrato", "ppar-alfa", "tg"]
+    },
+    {
+      "type": "mc",
+      "topic": "Ezetimiba",
+      "q": "Ezetimiba tem mecanismo diferente das estatinas. Assinale a CORRETA:",
+      "options": [
+        "Inibe NPC1L1 no enterócito → ↓ absorção intestinal de colesterol; redução adicional de ~20% no LDL; bom perfil de segurança; benefício de desfecho em associação à estatina (IMPROVE-IT)",
+        "Inibe HMG-CoA redutase",
+        "Liga LDL plasmático diretamente",
+        "Reduz triglicérides principalmente"
+      ],
+      "correct": 0,
+      "expl": "Ezetimiba inibe a proteína NPC1L1 (Niemann-Pick C1-like 1) no enterócito → ↓ absorção intestinal de colesterol → ↓ entrega hepática → ↑ expressão de receptor LDL. Redução adicional de LDL ~20%. Estudo IMPROVE-IT: associação ezetimiba + sinvastatina reduziu eventos cardiovasculares pós-SCA. Bom perfil de segurança, sem miopatia significativa.",
+      "difficulty": "medium",
+      "tags": ["ezetimiba"]
+    },
+    {
+      "type": "mc",
+      "topic": "Inibidores de PCSK9",
+      "q": "Sobre evolocumabe e alirocumabe (anti-PCSK9), é CORRETO afirmar:",
+      "options": [
+        "Anticorpos monoclonais que se ligam à PCSK9 → impedem degradação do receptor LDL → ↓ LDL em 50-60%; SC quinzenal/mensal; alto custo; benefício de desfecho em prevenção secundária (FOURIER, ODYSSEY)",
+        "Pequenas moléculas orais que inibem HMG-CoA redutase",
+        "Aumentam PCSK9 plasmática",
+        "Reduzem só HDL"
+      ],
+      "correct": 0,
+      "expl": "PCSK9 (proproteína convertase subtilisina/kexina tipo 9) é uma enzima que se liga ao receptor LDL e leva à sua degradação. Bloquear PCSK9 = mais receptor LDL na superfície hepática = mais clearance de LDL plasmático. Evolocumabe e alirocumabe são mAbs SC quinzenais/mensais. Reduzem LDL 50-60% mesmo em paciente já com estatina. Benefício de desfecho (FOURIER, ODYSSEY) em prevenção secundária. Alto custo limita uso.",
+      "difficulty": "hard",
+      "tags": ["pcsk9", "evolocumabe", "alirocumabe"]
+    },
+    {
+      "type": "mc",
+      "topic": "Ácido bempedoico",
+      "q": "Ácido bempedoico é uma opção em pacientes com intolerância à estatina. Mecanismo?",
+      "options": [
+        "Inibe a ATP-citrato liase (ACL), uma enzima ANTERIOR à HMG-CoA redutase na via do colesterol; ativado SOMENTE no fígado (sem ativação muscular → sem miopatia); redução de LDL ~20%",
+        "Inibe diretamente PCSK9",
+        "Bloqueia absorção intestinal de colesterol",
+        "Inibe HMG-CoA redutase muscular"
+      ],
+      "correct": 0,
+      "expl": "Ácido bempedoico é pró-fármaco ativado por uma enzima hepática específica (ACSVL1) AUSENTE no músculo — por isso não causa miopatia. Atua a montante da HMG-CoA redutase, inibindo ATP-citrato liase. Reduz LDL ~20%. Útil em paciente com intolerância muscular à estatina. EA: hiperuricemia (gota).",
+      "difficulty": "medium",
+      "tags": ["bempedoico"]
+    },
+    {
+      "type": "mc",
+      "topic": "Alteplase / Tenecteplase",
+      "q": "Sobre os trombolíticos fibrina-específicos (alteplase, tenecteplase), é CORRETO afirmar:",
+      "options": [
+        "Convertem plasminogênio em plasmina (lise da fibrina); usados em IAM com supra (até 12h) quando PCI não disponível em tempo, AVC isquêmico até 4,5h, e TEP de alto risco; principal EA: sangramento intracraniano",
+        "São inibidores diretos do fator Xa",
+        "Aumentam o fator VII",
+        "Não causam sangramento intracraniano"
+      ],
+      "correct": 0,
+      "expl": "Alteplase (rt-PA) e tenecteplase ativam plasminogênio → plasmina → lise da fibrina. Indicações: IAM com supra (quando PCI primária não está disponível em até 120 min), AVC isquêmico até 4,5h, TEP de alto risco. Principal EA: sangramento (intracraniano é o mais temido, ~1%). Contraindicações absolutas: hemorragia ativa, AVC hemorrágico prévio, cirurgia cerebral recente, trauma craniano recente, dissecção de aorta, PA não controlada > 185/110. Tenecteplase pode ser bólus único.",
+      "difficulty": "medium",
+      "tags": ["trombolitico", "alteplase"]
+    },
+    {
+      "type": "mc",
+      "topic": "Estreptoquinase",
+      "q": "Estreptoquinase difere dos trombolíticos modernos por:",
+      "options": [
+        "É proteína bacteriana NÃO fibrina-específica; mais barata mas com risco de reação alérgica e perda de eficácia em uso repetido (formação de anticorpos)",
+        "É fibrina-específica como a alteplase",
+        "Não causa reações alérgicas",
+        "Pode ser usada quantas vezes for necessário"
+      ],
+      "correct": 0,
+      "expl": "Estreptoquinase é proteína derivada de estreptococo β-hemolítico. NÃO é fibrina-específica → ativa plasminogênio em circulação geral (mais sangramento sistêmico). Causa reações alérgicas (urticária, anafilaxia em ~1-5%) e induz anticorpos → uso repetido perde eficácia (não usar 2x em < 5 anos). Mais barata. Cada vez menos usada com a disponibilidade de alteplase/tenecteplase.",
+      "difficulty": "medium",
+      "tags": ["estreptoquinase"]
+    },
+    {
+      "type": "mc",
+      "topic": "Antídotos · anticoagulantes",
+      "q": "Associar o antídoto/reversor correto a cada anticoagulante:",
+      "options": [
+        "Heparina → sulfato de protamina; Varfarina → vitamina K (e PCC ou plasma se sangramento grave); Dabigatrana → idarucizumabe; Rivaroxabana/apixabana → andexanet alfa",
+        "Heparina → vitamina K; Varfarina → protamina; Dabigatrana → andexanet; Rivaroxabana → idarucizumabe",
+        "Todos revertidos com plasma fresco congelado apenas",
+        "Não há antídotos para nenhum desses"
+      ],
+      "correct": 0,
+      "expl": "Pareamento crucial em emergência: HEParina ↔ Protamina (carga + neutraliza heparina aniônica). Varfarina ↔ Vitamina K (até 24h para INR baixar) + PCC ou plasma se sangramento ativo. Dabigatrana ↔ Idarucizumabe (Fab específico). Anti-Xa (rivaroxabana, apixabana, edoxabana) ↔ Andexanet alfa (Xa recombinante inativo).",
+      "difficulty": "medium",
+      "tags": ["antidotos"]
+    },
+    {
+      "type": "mc",
+      "topic": "Trombolítico · contraindicações",
+      "q": "Em IAM com supra de ST, qual condição é CONTRAINDICAÇÃO ABSOLUTA à trombólise?",
+      "options": [
+        "AVC hemorrágico prévio (qualquer tempo) ou AVC isquêmico nos últimos 3 meses, hemorragia ativa, trauma craniano recente, dissecção de aorta",
+        "Idade acima de 70 anos",
+        "HAS controlada",
+        "DM2 com bom controle"
+      ],
+      "correct": 0,
+      "expl": "Contraindicações absolutas à trombólise: AVC hemorrágico (qualquer tempo), AVC isquêmico nos últimos 3 meses, neoplasia ou MAV cerebral, dissecção de aorta, sangramento ativo, hemorragia interna recente, cirurgia ou trauma craniano recente, PA > 185/110 não controlada. RELATIVAS: > 75 anos, anticoagulação plena, gestação, RCP > 10 min com trauma, úlcera ativa. Idade isolada e HAS controlada NÃO são contraindicações.",
+      "difficulty": "medium",
+      "tags": ["trombolitico", "contraindicacao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Estatina + miopatia",
+      "q": "Paciente em uso de sinvastatina 40 mg/dia há 2 meses começa a tomar claritromicina por infecção respiratória. Após 5 dias, dor muscular intensa, CPK 12.000, urina escura. Qual a relação?",
+      "options": [
+        "Claritromicina inibe CYP3A4 → ↑ concentração sérica da sinvastatina → rabdomiólise; suspender estatina e ATB, monitorar função renal, hidratação intensa",
+        "Infecção viral por COVID coincidente",
+        "Rabdomiólise por exercício no banheiro",
+        "Hiperaldosteronismo descompensado"
+      ],
+      "correct": 0,
+      "expl": "Sinvastatina e atorvastatina são metabolizadas pelo CYP3A4. Macrolídeos (claritromicina, eritromicina), antifúngicos azólicos, suco de grapefruit, ciclosporina, alguns antirretrovirais INIBEM o CYP3A4 → ↑ concentração da estatina → miopatia/rabdomiólise. ROSUVASTATINA e PRAVASTATINA (não metabolizadas pelo CYP) são mais seguras nessas situações. Conduta: suspender ambos, hidratação, monitorar K+ (libera com lise muscular) e função renal.",
+      "difficulty": "medium",
+      "tags": ["estatina", "interacao", "rabdomiolise"]
+    },
+    {
+      "type": "match",
+      "topic": "Anticoagulantes: mecanismo",
+      "prompt": "Associe o anticoagulante ao mecanismo.",
+      "leftLabel": "Fármaco",
+      "rightLabel": "Mecanismo",
+      "pairs": [
+        { "id": "hnf", "left": "Heparina não fracionada", "right": "Potencia antitrombina (inibe IIa e Xa)" },
+        { "id": "enox", "left": "Enoxaparina (HBPM)", "right": "Potencia antitrombina (predomínio anti-Xa)" },
+        { "id": "fonda", "left": "Fondaparinux", "right": "Inibidor INDIRETO seletivo de Xa via antitrombina" },
+        { "id": "varf", "left": "Varfarina", "right": "Inibe vitamina K epóxido redutase (↓ II, VII, IX, X)" },
+        { "id": "riv", "left": "Rivaroxabana", "right": "Inibidor DIRETO do fator Xa" },
+        { "id": "dab", "left": "Dabigatrana", "right": "Inibidor DIRETO da trombina (IIa)" }
+      ],
+      "expl": "Saber o alvo de cada anticoagulante orienta o antídoto correto: anti-Xa direto → andexanet; anti-IIa direto → idarucizumabe; vit K dependente → vitamina K; potenciador da AT → protamina.",
+      "difficulty": "medium",
+      "tags": ["anticoagulantes"]
+    },
+    {
+      "type": "match",
+      "topic": "Hipolipemiantes: alvo molecular",
+      "prompt": "Associe a classe ao alvo molecular.",
+      "leftLabel": "Classe",
+      "rightLabel": "Alvo",
+      "pairs": [
+        { "id": "stat", "left": "Estatinas", "right": "HMG-CoA redutase hepática" },
+        { "id": "ez", "left": "Ezetimiba", "right": "NPC1L1 enterócito" },
+        { "id": "pcsk9", "left": "Evolocumabe/Alirocumabe", "right": "PCSK9 (impede degradação do receptor LDL)" },
+        { "id": "fib", "left": "Fibratos", "right": "PPAR-α (↓ TG, ↑ HDL)" },
+        { "id": "bemp", "left": "Ácido bempedoico", "right": "ATP-citrato liase (ativada só no fígado)" }
+      ],
+      "expl": "5 alvos diferentes na via do colesterol = 5 ferramentas combinadas em paciente com LDL difícil de baixar (genética, intolerância, alto risco).",
+      "difficulty": "medium",
+      "tags": ["hipolipemiantes"]
+    },
+    {
+      "type": "match",
+      "topic": "Anticoagulantes: antídoto",
+      "prompt": "Associe o anticoagulante ao antídoto/reversor específico.",
+      "leftLabel": "Anticoagulante",
+      "rightLabel": "Antídoto / reversor",
+      "pairs": [
+        { "id": "hep", "left": "Heparina", "right": "Sulfato de protamina" },
+        { "id": "var", "left": "Varfarina", "right": "Vitamina K (+ PCC ou plasma se sangramento grave)" },
+        { "id": "dab", "left": "Dabigatrana", "right": "Idarucizumabe" },
+        { "id": "riv", "left": "Rivaroxabana", "right": "Andexanet alfa" }
+      ],
+      "expl": "Memorize esses 4 pares — caem em prova e em prova prática. Em sangramento ativo sem antídoto disponível: medidas gerais (suspender, suporte) e PCC podem ajudar.",
+      "difficulty": "easy",
+      "tags": ["antidotos"]
+    },
+    {
+      "type": "case",
+      "topic": "IAM com supra · trombólise",
+      "subtitle": "Homem 56a, dor torácica há 90 min, hemodinâmica a 4h de distância",
+      "specialty": "Emergência cardiológica",
+      "difficulty": "medium",
+      "vignette": "Homem 56 anos chega ao PS com dor torácica em aperto irradiando para braço esquerdo há 90 min, sudorese fria. ECG: supradesnivelamento de ST de 4 mm em V1-V4 + recíproco em DII e DIII. PA 132x84, FC 92, sem sinais de IC. Sem AVC prévio, sem cirurgia recente, sem sangramento. Hemodinâmica mais próxima fica a 4h de distância (transporte terrestre).",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Estratégia de reperfusão?",
+          "options": [
+            "PCI primária não é viável em < 120 min → indicar trombólise farmacológica imediata + transferência para PCI de resgate ou estratégia farmacoinvasiva",
+            "Aguardar PCI primária mesmo demorando 4h",
+            "Apenas medicação clínica (AAS + clopidogrel + heparina) e observar",
+            "Cateterismo eletivo em 7 dias"
+          ],
+          "correct": 0,
+          "expl": "Tempo é músculo. Se PCI primária NÃO disponível em até 120 min do primeiro contato médico, a estratégia é TROMBÓLISE em até 30 min do diagnóstico + transferência para estratégia farmacoinvasiva (cateterismo em 3-24h após trombólise). Pacientes com sintomas < 12h beneficiam-se da reperfusão."
+        },
+        {
+          "id": "step2",
+          "question": "Qual trombolítico escolher e que combinar?",
+          "options": [
+            "Tenecteplase em bólus único IV (peso-ajustado) + AAS 300 mg + clopidogrel 300 mg + enoxaparina (HBPM ajustada à idade e função renal)",
+            "Estreptoquinase IV apenas, sem antiplaquetário",
+            "Trombolítico oral",
+            "AAS isoladamente"
+          ],
+          "correct": 0,
+          "expl": "Tenecteplase é a escolha quando disponível: bólus único, mais fibrino-específica, menos sangramento extracraniano comparada à alteplase. Combinação obrigatória: AAS + 2º antiagregante (clopidogrel) + anticoagulante (enoxaparina ou HNF). Estreptoquinase é alternativa de menor custo, com mais reações alérgicas e perda de eficácia em uso repetido."
+        },
+        {
+          "id": "step3",
+          "prompt": "Trombólise realizada às 11:40. Você acompanha o paciente. Aos 30 minutos do bólus: redução do supra > 50% em V2-V4 e desaparecimento da dor.",
+          "question": "Como interpretar e qual o próximo passo?",
+          "options": [
+            "Critérios de sucesso de trombólise: queda > 50% do supra, alívio da dor, arritmias de reperfusão. Manter conduta + transferência para PCI farmacoinvasiva em 3-24h",
+            "Trombólise falhou; repetir tenecteplase",
+            "Suspender todos os anticoagulantes",
+            "Alta hospitalar imediata"
+          ],
+          "correct": 0,
+          "expl": "Sucesso da trombólise (em 60-90 min): redução > 50% do supra no ECG, alívio da dor, arritmias de reperfusão (ritmo idioventricular acelerado, ESV). Mesmo com sucesso, indicação de cateterismo em 3-24h (estratégia farmacoinvasiva) — abordar a lesão residual. Se sem sucesso aos 90 min: PCI de resgate imediata."
+        }
+      ],
+      "outcome": "Transferência por SAMU para o hospital terciário. Cateterismo em 6h mostra oclusão proximal da descendente anterior, recanalizada com stent. Alta no 5º dia com AAS + clopidogrel + atorvastatina 80 mg + carvedilol + enalapril. Reabilitação cardíaca encaminhada."
+    },
+    {
+      "type": "case",
+      "topic": "FA · escolha de anticoagulação",
+      "subtitle": "Senhora 76a, FA recente, HAS e DM",
+      "specialty": "Cardiologia ambulatorial",
+      "difficulty": "medium",
+      "vignette": "Senhora 76 anos vem para consulta após diagnóstico de FA crônica feito há 7 dias por Holter (palpitação intermitente). História: HAS controlada com losartana e HCTZ, DM2 com metformina (HbA1c 6,8%), sem AVC ou TIA prévio, sem sangramento ativo. Creatinina 1,0 (TFG 58). Sem doença hepática.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Considerando o perfil de risco, qual a indicação de anticoagulação?",
+          "options": [
+            "Anticoagulação está indicada (risco moderado-alto de AVC); escolher entre varfarina e DOAC (preferência por DOAC em FA não valvar)",
+            "Apenas AAS pelo perfil baixo risco",
+            "Nenhuma anticoagulação pelo bom controle dos fatores de risco",
+            "Trombolítico profilático"
+          ],
+          "correct": 0,
+          "expl": "Em FA não valvar, idade ≥ 65, HAS e DM já indicam anticoagulação (risco moderado-alto de AVC). DOACs (rivaroxabana, dabigatrana, apixabana, edoxabana) são preferidos em FA NÃO valvar: eficácia ≥ varfarina e menor risco de hemorragia intracraniana. Varfarina ainda é a escolha em FA VALVAR (estenose mitral reumática moderada/grave, válvula mecânica)."
+        },
+        {
+          "id": "step2",
+          "question": "Você opta por um DOAC. Qual outra escolha relevante?",
+          "options": [
+            "Rivaroxabana, apixabana, dabigatrana ou edoxabana — todos com perfil de eficácia comparável; considerar função renal (dabigatrana é mais sensível à TFG), idade, custo e adesão",
+            "Estreptoquinase oral",
+            "Heparina subcutânea para o resto da vida",
+            "AAS + clopidogrel substituem anticoagulação"
+          ],
+          "correct": 0,
+          "expl": "Os 4 DOACs aprovados em FA não valvar têm eficácia comparável (não há comparação direta head-to-head). Considerar: função renal (dabigatrana > 80% renal; rivaroxabana e apixabana com mais flexibilidade em IR), idade (apixabana com bom perfil em idoso), adesão (rivaroxabana e edoxabana 1x/dia; apixabana e dabigatrana 2x/dia), custo, e disponibilidade. AAS sozinho ou dupla antiagregação NÃO substituem anticoagulação em FA com risco moderado-alto."
+        },
+        {
+          "id": "step3",
+          "prompt": "Você prescreve rivaroxabana 20 mg/dia VO com a refeição. Em 4 meses ela retorna com episódio de epistaxe controlada espontaneamente, sem outras intercorrências.",
+          "question": "Conduta a seguir?",
+          "options": [
+            "Manter rivaroxabana; orientar sobre sinais de sangramento maior, hidratação nasal, evitar AINE; reavaliar fatores de risco para sangramento periódica",
+            "Suspender qualquer anticoagulação imediatamente",
+            "Trocar por varfarina por ser mais segura",
+            "Adicionar AAS para profilaxia"
+          ],
+          "correct": 0,
+          "expl": "Sangramento menor (epistaxe controlada) NÃO é indicação de suspender DOAC em paciente com FA e risco de AVC. Educar paciente, orientar evitar AINE (interagem aumentando risco), tratar fatores precipitantes (HAS bem controlada, ressecamento de mucosa). Em sangramento maior: medidas gerais, considerar reversor específico (andexanet alfa para anti-Xa) ou PCC em emergência sem reversor."
+        }
+      ],
+      "outcome": "Paciente segue em uso de rivaroxabana, sem novos sangramentos. PA controlada, HbA1c 6,9%. Holter de controle em 6 meses mostra FA persistente com FC controlada por betabloqueador. Anticoagulação mantida indefinidamente."
+    },
+    {
+      "type": "flashcard",
+      "topic": "AAS",
+      "front": "AAS antiagregante: mecanismo, EA típico, duração do efeito?",
+      "back": "Acetilação IRREVERSÍVEL da COX-1 plaquetária → ↓ tromboxano A2. Efeito persiste 7-10 dias (vida da plaqueta). Doses baixas 75-100 mg. EA: gastrite, sangramento, broncoespasmo (asma sensível ao AAS), Reye em criança com viral.",
+      "tags": ["antiagregante"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Clopidogrel",
+      "front": "Clopidogrel: ativação, alvo, falha terapêutica?",
+      "back": "Pró-fármaco ativado pelo CYP2C19. Bloqueio IRREVERSÍVEL do receptor P2Y12. Polimorfismo do CYP2C19 → falha em ~30%. Suspender 5-7 dias antes de cirurgia eletiva.",
+      "tags": ["antiagregante", "p2y12"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Heparina não fracionada (HNF)",
+      "front": "HNF: alvo, monitorização, antídoto, risco específico?",
+      "back": "Potencia antitrombina → inibe IIa e Xa em proporção igual. Monitora por TTPa. Antídoto: sulfato de PROTAMINA. Risco: HIT (trombocitopenia paradoxal trombótica após 5-10 dias).",
+      "tags": ["heparina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "HBPM (enoxaparina)",
+      "front": "HBPM: vantagens sobre HNF?",
+      "back": "Predomínio anti-Xa. Dose fixa por peso, sem TTPa rotineiro. Menor risco de HIT. SC 1-2x/dia. Cuidado em IR (ajustar). Protamina reverte parcialmente.",
+      "tags": ["heparina", "hbpm"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Fondaparinux",
+      "front": "Fondaparinux: diferencial em relação às heparinas?",
+      "back": "Pentassacarídeo sintético. Inibidor INDIRETO seletivo de Xa via antitrombina. NÃO causa HIT (sem ligação a PF4). Excreção renal — contraindicado em TFG < 30. SC 1x/dia. Sem antídoto específico.",
+      "tags": ["fondaparinux"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Varfarina",
+      "front": "Varfarina: alvo, monitorização, antídoto, alvo INR?",
+      "back": "Inibe vit K epóxido redutase → ↓ II, VII, IX, X e proteína C/S. Monitora INR (alvo 2-3 em FA/TVP; 2,5-3,5 em válvula mecânica). Antídoto: vit K + PCC ou plasma se sangramento. Necrose de pele inicial — superpor heparina nos primeiros 5 dias.",
+      "tags": ["varfarina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Rivaroxabana",
+      "front": "Rivaroxabana: classe, antídoto, contraindicação importante?",
+      "back": "DOAC anti-Xa DIRETO. Sem monitorização rotineira. Antídoto: ANDEXANET ALFA. Contraindicada em válvula mecânica e antifosfolípide triplo-positivo. Ajuste em IR.",
+      "tags": ["doac", "anti-xa"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Dabigatrana",
+      "front": "Dabigatrana: alvo, antídoto, cuidado renal?",
+      "back": "DOAC anti-IIa DIRETO (única). Antídoto: IDARUCIZUMABE (Praxbind). 80% excreção renal — contraindicada em TFG < 30. Não usar com inibidores fortes da glicoproteína P (claritromicina).",
+      "tags": ["doac", "anti-iia"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Estatinas",
+      "front": "Estatinas: mecanismo, EA, interação importante?",
+      "back": "Inibem HMG-CoA redutase. EA: mialgia, miopatia/rabdomiólise (raro), ↑ALT/AST, ↑glicemia leve. CONTRAINDICADAS na gestação. Sinvastatina e atorvastatina via CYP3A4 (cuidado com macrolídeos, antifúngicos, grapefruit). Rosuvastatina e pravastatina mais seguras nessas interações.",
+      "tags": ["estatina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Fibratos",
+      "front": "Fibratos: indicação, EA, alerta de associação?",
+      "back": "Ativam PPAR-α. Indicação: hipertrigliceridemia (TG > 500). ↓ TG 40-60%, ↑ HDL. EA: miopatia (especialmente associado a estatina), litíase biliar. GENFIBROZILA inibe CYP da estatina → preferir FENOFIBRATO se associar.",
+      "tags": ["fibrato"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Ácido bempedoico",
+      "front": "Ácido bempedoico: vantagem principal?",
+      "back": "Inibe ATP-citrato liase (a montante da HMG-CoA redutase). Ativado SÓ no fígado → SEM miopatia (única na via). Útil em intolerância à estatina. EA: hiperuricemia.",
+      "tags": ["bempedoico"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Ezetimiba",
+      "front": "Ezetimiba: mecanismo, redução de LDL, estudo de desfecho?",
+      "back": "Inibe NPC1L1 no enterócito → ↓ absorção intestinal de colesterol. ↓ LDL ~20%. IMPROVE-IT: reduziu eventos CV em associação com sinvastatina pós-SCA. Bom perfil de segurança.",
+      "tags": ["ezetimiba"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Evolocumabe / Alirocumabe",
+      "front": "Anti-PCSK9: alvo, redução de LDL, indicação?",
+      "back": "mAb que bloqueia PCSK9 → mais receptor LDL preservado → ↓ LDL 50-60%. SC quinzenal/mensal. Indicação: prevenção secundária com LDL elevado apesar de estatina máxima, ou hipercolesterolemia familiar. FOURIER e ODYSSEY com benefício de desfecho.",
+      "tags": ["pcsk9"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Alteplase",
+      "front": "Alteplase (rt-PA): mecanismo, indicações principais, contraindicação absoluta?",
+      "back": "Ativa plasminogênio em plasmina → lise da fibrina. Indicações: IAM com supra (se PCI não disponível em < 120 min), AVC isquêmico até 4,5h, TEP de alto risco. Contraindicações absolutas: AVC hemorrágico (qualquer tempo), AVC isquêmico < 3 meses, sangramento ativo, trauma craniano recente, dissecção de aorta, PA > 185/110.",
+      "tags": ["trombolitico"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tenecteplase",
+      "front": "Tenecteplase: vantagem prática sobre alteplase?",
+      "back": "Mais fibrino-específica, meia-vida maior, BÓLUS ÚNICO IV (alteplase precisa de infusão). Menos sangramento extracraniano. Preferida em IAM com supra para trombólise. Mesmas contraindicações que alteplase.",
+      "tags": ["trombolitico"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Estreptoquinase",
+      "front": "Estreptoquinase: origem e limitações?",
+      "back": "Proteína bacteriana (estreptococo β-hemolítico). NÃO é fibrino-específica → mais sangramento sistêmico. Causa alergias e induz anticorpos → NÃO usar 2x em 5 anos (perda de eficácia + risco anafilático). Mais barata.",
+      "tags": ["trombolitico"]
+    }
+  ]
+}
