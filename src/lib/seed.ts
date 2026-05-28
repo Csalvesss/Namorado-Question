@@ -16,6 +16,7 @@ import casosImersivos from '../data/seeds/casos-imersivos.json';
 import farmacoMatch from '../data/seeds/farmaco-match.json';
 import algoritmosClinicos from '../data/seeds/algoritmos-clinicos.json';
 import farmacoP2Antidiabeticos from '../data/seeds/farmaco-p2-antidiabeticos.json';
+import farmacoP2CardioHas from '../data/seeds/farmaco-p2-cardio-has.json';
 import flashcardsAntibioticos from '../data/seeds/flashcards-antibioticos.json';
 import flashcardsHivAids from '../data/seeds/flashcards-hiv-aids.json';
 import flashcardsIc from '../data/seeds/flashcards-insuficiencia-cardiaca.json';
@@ -37,6 +38,7 @@ const SEEDS: ImportPayload[] = [
   farmacoMatch as ImportPayload,
   algoritmosClinicos as ImportPayload,
   farmacoP2Antidiabeticos as ImportPayload,
+  farmacoP2CardioHas as ImportPayload,
   flashcardsAntibioticos as ImportPayload,
   flashcardsHivAids as ImportPayload,
   flashcardsIc as ImportPayload,
@@ -176,7 +178,7 @@ export function importCourse(payload: ImportPayload, opts: { createdBy?: string 
 }
 
 const SEED_VERSION_KEY = 'guava.seedVersion';
-const SEED_VERSION = 4;
+const SEED_VERSION = 5;
 
 export function ensureSeed() {
   const storedVersion = Number(localStorage.getItem(SEED_VERSION_KEY) ?? '0');
