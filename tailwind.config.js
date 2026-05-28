@@ -14,6 +14,7 @@ export default {
       fontFamily: {
         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        hand: ['Caveat', '"Cormorant Garamond"', 'cursive'],
       },
       fontSize: {
         display: ['clamp(2.5rem, 6vw, 4rem)', { lineHeight: '1.05', letterSpacing: '-0.015em' }],

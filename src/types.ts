@@ -143,6 +143,7 @@ export interface UserProfile {
   name: string;
   displayMode: 'namorado' | 'doutora';
   dailyGoal?: number;
+  partnerName?: string;
   createdAt: number;
 }
 

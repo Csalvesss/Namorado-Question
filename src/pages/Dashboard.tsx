@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Flame, Layers } from 'lucide-react';
+import { ArrowRight, Flame, Layers, Mail } from 'lucide-react';
+import BilheteCard from '../components/BilheteCard';
 import DailyGoalRing from '../components/DailyGoalRing';
 import EmptyState from '../components/EmptyState';
 import Onboarding from '../components/Onboarding';
@@ -10,6 +11,14 @@ import {
   questionsAnsweredToday,
   studyByDay,
 } from '../lib/analytics';
+import {
+  currentBilhete,
+  currentGreeting,
+  currentPerformanceQuote,
+  formatRotationCountdown,
+  nextRotationIn,
+  tierFromAccuracy,
+} from '../lib/bilhete';
 import { COURSES_CHANGE_EVENT, db } from '../lib/db';
 import { listDueCards, SRS_CHANGE_EVENT } from '../lib/srs';
 import { useSessions } from '../lib/useSessions';
@@ -26,7 +35,7 @@ const WEEKDAYS_PT = [
   'quinta', 'sexta', 'sábado',
 ];
 
-function greeting(hour: number): string {
+function greetingByHour(hour: number): string {
   if (hour < 5) return 'boa madrugada';
   if (hour < 12) return 'bom dia';
   if (hour < 18) return 'boa tarde';
@@ -76,7 +85,7 @@ export default function Dashboard() {
   const now = new Date();
   const firstName = user?.name?.split(' ')[0] ?? 'doutora';
   const hour = now.getHours();
-  const sub = greeting(hour);
+  const sub = greetingByHour(hour);
 
   const accuracyByCourse = useMemo(() => {
     const map = new Map<string, { right: number; total: number }>();
@@ -118,6 +127,20 @@ export default function Dashboard() {
     return listDueCards(user.uid, flashcardIds).length;
   }, [user, flashcardIds, srsTick]);
 
+  const [rotationTick, setRotationTick] = useState(0);
+  useEffect(() => {
+    const delay = nextRotationIn();
+    const timer = setTimeout(() => setRotationTick((t) => t + 1), delay + 1000);
+    return () => clearTimeout(timer);
+  }, [rotationTick]);
+
+  const bilhete = useMemo(() => currentBilhete(), [rotationTick]);
+  const greeting = useMemo(() => currentGreeting(), [rotationTick]);
+  const tier = useMemo(() => tierFromAccuracy(accuracy, completed.length), [accuracy, completed.length]);
+  const performanceQuote = useMemo(() => currentPerformanceQuote(tier), [tier, rotationTick]);
+  const nextIn = useMemo(() => formatRotationCountdown(nextRotationIn()), [rotationTick]);
+  const partner = user?.partnerName?.trim() || '';
+
   return (
     <div className="space-y-12">
       <Onboarding />
@@ -132,8 +155,13 @@ export default function Dashboard() {
             <span className="text-rose">{firstName}</span>
           </h1>
           <p className="mt-3 max-w-xl font-serif text-lg italic leading-relaxed text-ink-soft">
-            o que você quer estudar hoje. cada questão é um passo a mais para a prova.
+            {greeting}
           </p>
+          {performanceQuote && completed.length > 0 && (
+            <p className="mt-2 max-w-xl font-serif text-base italic leading-relaxed text-wine-deep/80">
+              "{performanceQuote}"
+            </p>
+          )}
 
           {(lastCourse || completed.length > 0 || dueCardCount > 0) && (
             <div className="mt-5 flex flex-wrap items-center gap-3">
@@ -168,6 +196,21 @@ export default function Dashboard() {
             </div>
           </aside>
         )}
+      </section>
+
+      <section>
+        <div className="mb-3 flex items-baseline justify-between gap-3">
+          <div className="flex items-baseline gap-3">
+            <Mail className="h-4 w-4 self-center text-wine" strokeWidth={1.75} />
+            <span className="eyebrow-gold">bilhete do dia</span>
+          </div>
+          <span className="text-[11px] italic text-muted">novo em {nextIn}</span>
+        </div>
+        <BilheteCard
+          bilhete={bilhete}
+          signature={partner || undefined}
+          recipientFirstName={firstName}
+        />
       </section>
 
       {completed.length > 0 && (

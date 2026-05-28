@@ -62,6 +62,7 @@ async function fetchProfile(uid: string): Promise<UserProfile | null> {
     name: data.name,
     displayMode: data.displayMode ?? 'namorado',
     dailyGoal: typeof data.dailyGoal === 'number' ? data.dailyGoal : undefined,
+    partnerName: typeof data.partnerName === 'string' ? data.partnerName : undefined,
     createdAt: typeof data.createdAt === 'number' ? data.createdAt : Date.now(),
   };
 }
