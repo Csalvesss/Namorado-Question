@@ -13,6 +13,7 @@ import oropouche from '../data/seeds/oropouche.json';
 import eletroBasico from '../data/seeds/eletro-basico.json';
 import casosClinicos from '../data/seeds/casos-clinicos.json';
 import casosImersivos from '../data/seeds/casos-imersivos.json';
+import farmacoMatch from '../data/seeds/farmaco-match.json';
 import flashcardsAntibioticos from '../data/seeds/flashcards-antibioticos.json';
 import flashcardsHivAids from '../data/seeds/flashcards-hiv-aids.json';
 import flashcardsIc from '../data/seeds/flashcards-insuficiencia-cardiaca.json';
@@ -31,6 +32,7 @@ const SEEDS: ImportPayload[] = [
   eletroBasico as ImportPayload,
   casosClinicos as ImportPayload,
   casosImersivos as ImportPayload,
+  farmacoMatch as ImportPayload,
   flashcardsAntibioticos as ImportPayload,
   flashcardsHivAids as ImportPayload,
   flashcardsIc as ImportPayload,
