@@ -50,7 +50,7 @@ export default function Tools() {
             to="/farmaco-mdc"
             icon={Pill}
             title="Mapa de Decisão Clínica"
-            description="Para fixar os 156 fármacos da P2 sem decorar lista. Cenário → classe → molécula."
+            description="Para fixar os 156 fármacos da P2 sem decorar lista. Você decora pelo cenário."
             variant="wine"
           />
           <ToolCard

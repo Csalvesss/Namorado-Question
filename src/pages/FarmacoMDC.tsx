@@ -13,6 +13,7 @@ import {
   getDrug,
   getScenario,
   mdcCardId,
+  pickSameClassDrugs,
   pickScenarios,
   shuffle,
   type FarmacoSystem,
@@ -140,7 +141,7 @@ export default function FarmacoMDC() {
           <p className="mt-4 max-w-xl font-body text-lg italic leading-relaxed text-mute">
             {isNamorado
               ? 'sem pressão, amor. a gente decora pela situação, não pelo nome.'
-              : 'cenário → classe → molécula. 5 a 8 minutos por sessão.'}
+              : 'cenário, classe, molécula. 5 a 8 minutos por sessão.'}
           </p>
 
           <div className="card mt-10 p-8 sm:p-10">
@@ -187,7 +188,7 @@ export default function FarmacoMDC() {
                 </div>
               </div>
               <span className="hidden font-display text-sm italic text-wine sm:inline">
-                revisar →
+                revisar
               </span>
             </button>
           )}
@@ -251,6 +252,18 @@ export default function FarmacoMDC() {
   // Sessão em andamento ou tela de fechamento
   const scenario = state.scenarios[state.index];
 
+  // Opções memoizadas por cenário — sem isso, o setInterval do timer
+  // re-renderiza a tela a cada segundo e reembaralha as opções (bug visível).
+  // Chave inclui scenario.id para reembaralhar APENAS quando muda o caso.
+  const classOptions = useMemo(
+    () => (scenario ? classOptionsFor(scenario) : []),
+    [scenario?.id],
+  );
+  const drugOptions = useMemo(
+    () => (scenario ? drugOptionsFor(scenario) : []),
+    [scenario?.id],
+  );
+
   // Fim de sessão
   if (!scenario) {
     return (
@@ -275,7 +288,7 @@ export default function FarmacoMDC() {
         <div className="mt-8">
           <Eyebrow>qual classe?</Eyebrow>
           <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {classOptionsFor(scenario).map((classId) => {
+            {classOptions.map((classId) => {
               const cls = getClass(classId);
               if (!cls) return null;
               return (
@@ -332,7 +345,7 @@ export default function FarmacoMDC() {
         <div className="mt-8">
           <Eyebrow>qual molécula?</Eyebrow>
           <div className="mt-4 grid grid-cols-1 gap-3">
-            {drugOptionsFor(scenario).map((drugId) => {
+            {drugOptions.map((drugId) => {
               const d = getDrug(drugId);
               if (!d) return null;
               return (
@@ -453,7 +466,7 @@ export default function FarmacoMDC() {
 
       <div className="mt-6 flex items-center justify-end">
         <button type="button" onClick={advance} className="btn-primary">
-          {state.index + 1 < state.scenarios.length ? 'próximo caso →' : 'terminar sessão →'}
+          {state.index + 1 < state.scenarios.length ? 'próximo caso' : 'terminar sessão'}
         </button>
       </div>
     </SessionLayout>
@@ -644,7 +657,7 @@ function EndOfSession({
 
         <div className="mt-10 flex flex-wrap gap-3">
           <button type="button" onClick={onRestart} className="btn-primary">
-            outra sessão →
+            outra sessão
           </button>
           <Link to="/ferramentas" className="btn-ghost">
             voltar às ferramentas
@@ -665,8 +678,18 @@ function classOptionsFor(scenario: Scenario): string[] {
 }
 
 function drugOptionsFor(scenario: Scenario): string[] {
-  const ids = [scenario.correctDrugId, ...scenario.drugDistractors];
-  return shuffle(ids);
+  // Distractor preferido: drogas da MESMA classe da droga correta.
+  // Isso é o que faz a etapa "qual molécula?" testar recall do nome,
+  // não eliminação por classe. Fallback nos distractors manuais se a
+  // classe não tiver drogas suficientes no catálogo.
+  const sameClass = pickSameClassDrugs(scenario.correctDrugId, 2);
+  const distractors =
+    sameClass.length >= 2
+      ? sameClass.map((d) => d.id)
+      : scenario.drugDistractors;
+  const ids = [scenario.correctDrugId, ...distractors];
+  // dedup defensivo (se classe pequena pode haver colisão com manual)
+  return shuffle(Array.from(new Set(ids)));
 }
 
 // Suprime warning de "CLASSES não usado" se vier — está sendo usado via getClass
