@@ -45,7 +45,7 @@ export default function BilheteFocus({ open, bilhete, signature, uid, onClose }:
           transition={{ duration: duration.base }}
           className="fixed inset-0 z-[60] overflow-y-auto bg-paper-soft"
         >
-          <div className="mx-auto flex min-h-full max-w-6xl flex-col px-5 py-6 sm:px-8 sm:py-10">
+          <div className="safe-top mx-auto flex min-h-full max-w-6xl flex-col px-5 pt-6 pb-safe sm:px-8 sm:pt-10">
             <button
               type="button"
               onClick={onClose}
