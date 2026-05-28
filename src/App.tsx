@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import RequireAuth from './components/RequireAuth';
 import Author from './pages/Author';
+import Bilhetes from './pages/Bilhetes';
 import Course from './pages/Course';
 import Dashboard from './pages/Dashboard';
 import History from './pages/History';
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/quiz/:courseId" element={<Quiz />} />
         <Route path="/historico" element={<History />} />
         <Route path="/revisar" element={<Review />} />
+        <Route path="/bilhetes" element={<Bilhetes />} />
         <Route path="/autor" element={<Author />} />
         <Route path="/perfil" element={<Profile />} />
       </Route>

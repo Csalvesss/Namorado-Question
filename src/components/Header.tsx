@@ -5,6 +5,7 @@ import { useUser } from '../lib/useUser';
 export default function Header() {
   const navigate = useNavigate();
   const { user, refresh } = useUser();
+  const showBilhetes = user?.displayMode !== 'doutora';
 
   function handleLogout() {
     logout();
@@ -32,6 +33,7 @@ export default function Header() {
           <nav className="hidden gap-1 md:flex">
             <NavItem to="/app">Cursos</NavItem>
             <NavItem to="/revisar">Revisar</NavItem>
+            {showBilhetes && <NavItem to="/bilhetes">Bilhetes</NavItem>}
             <NavItem to="/historico">Histórico</NavItem>
             <NavItem to="/autor">Autor</NavItem>
             <NavItem to="/perfil">Perfil</NavItem>
@@ -57,6 +59,8 @@ export default function Header() {
       {user && (
         <nav className="flex gap-1 overflow-x-auto border-t border-line px-3 py-2 md:hidden [-webkit-overflow-scrolling:touch]">
           <NavItem to="/app">Cursos</NavItem>
+          <NavItem to="/revisar">Revisar</NavItem>
+          {showBilhetes && <NavItem to="/bilhetes">Bilhetes</NavItem>}
           <NavItem to="/historico">Histórico</NavItem>
           <NavItem to="/autor">Autor</NavItem>
           <NavItem to="/perfil">Perfil</NavItem>
