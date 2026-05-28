@@ -57,6 +57,7 @@ export default function Course() {
   const mistakeIds = useMemo(() => (user ? getMistakeQuestionIds(user.uid, id) : []), [user, id]);
   const caseCount = useMemo(() => questions.filter((q) => q.type === 'case').length, [questions]);
   const hasCases = caseCount > 0;
+  const showBilheteMode = user?.displayMode !== 'doutora' && questions.length >= 6;
   const featuredModes: QuizMode[] = hasCases ? ['standard', 'clinical'] : ['standard', 'quick'];
   const compactModes: QuizMode[] = hasCases ? ['quick', 'marathon', 'timed'] : ['marathon', 'timed'];
 
@@ -177,6 +178,44 @@ export default function Course() {
           </div>
           <span className="text-[11px] italic text-muted">escolha um abaixo</span>
         </div>
+
+        {showBilheteMode && (
+          <button
+            onClick={() => startQuiz('bilhete')}
+            disabled={questions.length < 6}
+            className="group relative mb-4 flex w-full items-stretch overflow-hidden rounded-3xl border border-rose bg-gradient-to-br from-paper via-rose-soft/40 to-rose-soft/70 p-6 text-left transition active:scale-[0.995] hover:shadow-card-hover sm:p-7"
+          >
+            <div className="flex-1">
+              <div className="flex items-center gap-2">
+                <span className="inline-flex items-center rounded-full bg-wine px-2.5 py-0.5 text-[10px] uppercase tracking-[0.22em] text-white">
+                  novo
+                </span>
+                <span className="font-serif text-[10px] italic uppercase tracking-[0.28em] text-wine">
+                  — para os dias longos
+                </span>
+              </div>
+              <h3 className="mt-3 font-serif text-3xl italic leading-tight text-wine-deep sm:text-4xl">
+                Modo Bilhete
+              </h3>
+              <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-soft sm:text-[15px]">
+                Estude no seu ritmo: a cada três questões, um bilhetinho carinhoso aparece, pequenas
+                pausas para respirar e lembrar de quem cuida de você.
+              </p>
+              <div className="mt-5 flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-muted">
+                <span>{Math.min(15, questions.length)} questões + bilhetes</span>
+                <ArrowRight className="h-4 w-4 text-wine" strokeWidth={2} />
+              </div>
+            </div>
+            <div className="relative hidden w-32 shrink-0 sm:block">
+              <div className="absolute right-2 top-2 rotate-6 rounded-xl border border-line bg-paper-soft px-3 py-2 text-[10px] italic text-ink-soft shadow-soft">
+                — do seu namorado
+              </div>
+              <div className="absolute bottom-2 right-6 -rotate-3 rounded-xl border border-line bg-paper-soft px-3 py-2 font-hand text-base text-wine-deep shadow-soft">
+                amor,
+              </div>
+            </div>
+          </button>
+        )}
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {featuredModes.map((m) => {

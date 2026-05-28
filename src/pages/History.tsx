@@ -131,12 +131,13 @@ export default function History() {
   }, [sessions]);
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-12">
       <header>
-        <div className="eyebrow-gold mb-3">seu progresso</div>
-        <h1 className="display-title-sm">Histórico</h1>
-        <p className="mt-3 max-w-xl font-serif text-lg italic leading-relaxed text-ink-soft">
-          cada prova é um passo. aqui ficam guardadas as suas, na ordem da mais recente.
+        <h1 className="font-serif text-[clamp(3rem,7vw,5rem)] italic leading-[0.95] text-wine-deep">
+          Histórico
+        </h1>
+        <p className="mt-4 max-w-2xl font-serif text-lg italic leading-relaxed text-ink-soft">
+          cada prova é um passo. aqui ficam guardadas as suas, em ordem de quem foi mais recente.
         </p>
       </header>
 
@@ -153,15 +154,15 @@ export default function History() {
         />
       ) : (
         <>
-          <section className="card grid grid-cols-1 gap-5 px-5 py-5 sm:grid-cols-[1fr_1fr_1fr_auto] sm:items-center sm:gap-8 sm:px-7">
-            <StatBlock label="provas realizadas" value={String(sessions.length)} />
+          <section className="card-elevated grid grid-cols-1 gap-6 px-6 py-6 sm:grid-cols-[1fr_1fr_1fr_auto] sm:items-center sm:gap-10 sm:px-9">
+            <StatBlock label="provas finalizadas" value={String(sessions.length)} />
             <StatBlock label="questões respondidas" value={String(stats.totalQuestions)} />
             <StatBlock label="acerto médio" value={`${stats.accuracy}%`} />
             {stats.accuracies.length >= 2 && (
               <div className="flex flex-col items-end">
-                <Sparkline values={stats.accuracies} />
-                <div className="mt-1 text-[10px] uppercase tracking-[0.18em] text-muted">
-                  evolução por prova
+                <Sparkline values={stats.accuracies} width={200} height={56} />
+                <div className="mt-2 text-[10px] uppercase tracking-[0.22em] text-muted">
+                  últimas {stats.accuracies.length} provas
                 </div>
               </div>
             )}
@@ -219,16 +220,25 @@ export default function History() {
           )}
 
           <section>
-            <div className="mb-5 flex items-baseline justify-between">
-              <div className="flex items-baseline gap-3">
-                <span className="font-serif text-3xl italic leading-none text-gold opacity-60">
+            <div className="mb-2 text-[10px] uppercase tracking-[0.32em] text-gold opacity-70">
+              — MAIS RECENTES PRIMEIRO
+            </div>
+            <div className="mb-6 flex items-baseline justify-between gap-3">
+              <div className="flex items-baseline gap-4">
+                <span className="font-serif text-[3.5rem] italic leading-none text-gold opacity-40">
                   {weakSpots.length > 0 ? 'III' : 'II'}
                 </span>
-                <h2 className="font-serif text-2xl italic text-wine-deep">Suas provas</h2>
+                <h2 className="font-serif text-3xl italic text-wine-deep sm:text-4xl">
+                  Suas provas
+                </h2>
               </div>
-              <span className="text-[11px] uppercase tracking-[0.22em] text-muted">
-                mais recentes primeiro
-              </span>
+              <button
+                type="button"
+                onClick={() => window.print()}
+                className="btn-ghost text-xs uppercase tracking-wider"
+              >
+                Exportar PDF
+              </button>
             </div>
 
             <ul className="space-y-3">
