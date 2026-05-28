@@ -69,7 +69,7 @@
       "topic": "Betabloqueadores · esmolol",
       "q": "Esmolol tem perfil farmacocinético particular. Qual a característica e a indicação principal?",
       "options": [
-        "Meia-vida curta (~9 min), uso EXCLUSIVO IV em BIC — útil em emergência (taquiarritmias supraventriculares perioperatórias, crise hipertensiva)",
+        "Meia-vida curta (~9 min), uso IV (geralmente em BIC) — útil em emergência (taquiarritmias supraventriculares perioperatórias, crise hipertensiva)",
         "Uso oral com dose única diária e meia-vida longa",
         "Tem alta seletividade β2",
         "Indicado para tratamento crônico de IC"
@@ -210,7 +210,7 @@
         "É um IECA de ação ultrarrápida"
       ],
       "correct": 0,
-      "expl": "Nitroprussiato: vasodilatador arterial E venoso por NO. Ação em segundos. Uso EV em BIC, com proteção de luz (fotossensível). Indicado em emergência hipertensiva grave, dissecção de aorta (associado a BB), EAP refratário. Risco: hipotensão, e em uso prolongado (>48h) ou IR: acúmulo de cianeto (acidose láctica, confusão) e tiocianato (psicose, hipotireoidismo). Antídoto: tiossulfato de sódio.",
+      "expl": "Nitroprussiato: vasodilatador arterial E venoso por NO. Ação em segundos. Uso EV em BIC, com proteção de luz (fotossensível). Indicado em emergência hipertensiva grave, dissecção de aorta (associado a BB), EAP refratário. Risco de toxicidade em uso prolongado e em insuficiência renal — preferir alternativas se possível.",
       "difficulty": "hard",
       "tags": ["nitroprussiato", "emergencia"]
     },
@@ -276,18 +276,78 @@
     },
     {
       "type": "mc",
-      "topic": "Tripla da IC com FE reduzida",
-      "q": "Quais são os 4 pilares atuais (quadrupla terapia) do tratamento da IC com FE reduzida com benefício de mortalidade?",
+      "topic": "Quadrupla da IC com FE reduzida",
+      "q": "Quais são os 4 pilares atuais do tratamento da IC com FE reduzida com benefício de mortalidade?",
       "options": [
-        "BB (carvedilol/succinato de metoprolol/bisoprolol) + IECA ou BRA (preferencialmente sacubitril/valsartana) + antagonista de aldosterona (espironolactona/eplerenona) + iSGLT-2 (dapagliflozina/empagliflozina)",
+        "BB + IECA/BRA (ou ARNI) + espironolactona + iSGLT-2 — os 4 com benefício de mortalidade demonstrado",
         "Apenas furosemida em dose alta",
         "Digoxina + diurético + IECA",
         "BCC + BB + diurético"
       ],
       "correct": 0,
-      "expl": "Quadrupla terapia da ICFEr (sociedades europeia e americana): 1) BB (carvedilol, succinato de metoprolol ou bisoprolol), 2) inibidor do SRAA (sacubitril/valsartana > IECA > BRA), 3) antagonista de receptor mineralocorticoide (espironolactona ou eplerenona), 4) iSGLT-2 (dapa ou empa). Diurético (furosemida) trata congestão mas NÃO muda mortalidade. Ivabradina e digoxina são adições se sintomas persistirem.",
+      "expl": "Quadrupla terapia da ICFEr: 1) BB (carvedilol, succinato de metoprolol ou bisoprolol), 2) IECA, BRA ou preferencialmente ARNI (sacubitril/valsartana — ARNI é BRA + inibidor de neprilisina, NÃO é um BRA simples), 3) espironolactona ou eplerenona, 4) iSGLT-2 (dapa ou empa). Diurético (furosemida) trata congestão mas NÃO muda mortalidade. Digoxina e ivabradina são adições sintomáticas.",
       "difficulty": "hard",
       "tags": ["icfer", "quadrupla"]
+    },
+    {
+      "type": "mc",
+      "topic": "Tríade nefrotóxica · IECA + espirono + AINE",
+      "q": "Idoso de 74 anos em uso crônico de enalapril e espironolactona consulta por dor lombar e recebe ibuprofeno 600 mg 8/8h. Após 72h volta com fraqueza, oligúria, K+ 6,7 e creatinina dobrou. Qual a explicação?",
+      "options": [
+        "Tríade clássica nefrotóxica: IECA + espironolactona + AINE → IRA pré-renal e hipercalemia por bloqueio do SRAA + inibição da prostaglandina renal + retenção de K+",
+        "Pielonefrite aguda por ibuprofeno",
+        "Rabdomiólise por idade",
+        "Hipoaldosteronismo primário descompensado"
+      ],
+      "correct": 0,
+      "expl": "Combinação clássica que cai em prova: IECA/BRA reduzem Ang II → ↓ vasoconstrição da arteríola eferente. Espironolactona bloqueia aldosterona → retém K+. AINE inibem prostaglandinas (que vasodilatam a arteríola aferente) → ↓ fluxo glomerular. Resultado: IRA pré-renal + hipercalemia. Sempre pesquisar AINE recente quando IECA/BRA + diurético + IR aguda.",
+      "difficulty": "medium",
+      "tags": ["interacao", "iecaepiroaine", "nefrotoxico"]
+    },
+    {
+      "type": "mc",
+      "topic": "Hidralazina · lúpus medicamentoso",
+      "q": "Mulher 52a em uso de hidralazina há 9 meses por HAS refratária apresenta artralgias, exantema malar e ANA positivo (anti-histona). Qual a hipótese?",
+      "options": [
+        "Lúpus eritematoso medicamentoso induzido por hidralazina (mais comum em acetiladores lentos); reverte com suspensão",
+        "Esclerose sistêmica progressiva",
+        "Artrite reumatoide de início tardio",
+        "Síndrome de Sjögren"
+      ],
+      "correct": 0,
+      "expl": "Hidralazina é causa clássica de lúpus medicamentoso (junto com procainamida, isoniazida e BB em menor grau). Mais comum em acetiladores lentos. Quadro: artralgia, serosite, exantema, ANA+ com PADRÃO ANTI-HISTONA (vs anti-dsDNA do LES idiopático). Sem nefrite e sem comprometimento SNC. Suspender a droga = resolução.",
+      "difficulty": "medium",
+      "tags": ["hidralazina", "lupus-medicamentoso"]
+    },
+    {
+      "type": "mc",
+      "topic": "Nitrato em IAM de VD",
+      "q": "Homem 58a com IAM inferior, recebe nitroglicerina sublingual e cai a PA para 78x40 com piora da perfusão. Qual a explicação?",
+      "options": [
+        "IAM inferior com acometimento de VD: dependência crítica de pré-carga; nitrato venodilatou e desabou a pré-carga do VD → colapso hemodinâmico",
+        "Reação alérgica imediata à nitroglicerina",
+        "Embolia pulmonar associada",
+        "Sangramento ativo do tubo digestivo"
+      ],
+      "correct": 0,
+      "expl": "30-50% dos IAM de parede inferior envolvem também o VD (artéria coronária direita irriga ambos). O VD com isquemia depende da pré-carga para manter o débito. Nitrato (venodilatador) cai a pré-carga e precipita choque. Por isso: em IAM inferior + hipotensão = pensar em VD e EVITAR nitrato. Pedir derivações direitas (V3R, V4R). Tratamento: volume IV (cristaloide) + suporte inotrópico se necessário.",
+      "difficulty": "medium",
+      "tags": ["nitrato", "iam-vd", "armadilha"]
+    },
+    {
+      "type": "mc",
+      "topic": "Tiazídico · hiponatremia",
+      "q": "Senhora 78a, magra, em uso de hidroclorotiazida por HAS. Aparece com confusão, marcha instável e Na+ sérico de 118 mEq/L. Qual a relação fisiopatológica?",
+      "options": [
+        "Tiazídico inibe a diluição urinária (NaCl no túbulo distal) → ADH mantém reabsorção de água livre → hiponatremia, frequente em idosa magra e desnutrida",
+        "Tiazídico causa secreção excessiva de ADH no SNC",
+        "Hiponatremia é dilucional por sobrecarga hídrica do diurético",
+        "Não há relação entre tiazídico e Na+"
+      ],
+      "correct": 0,
+      "expl": "Tiazídicos atuam no túbulo contorcido distal — segmento da diluição urinária. Inibindo Na-Cl ali, o paciente não consegue eliminar água livre adequadamente. Combinado com ADH (que reabsorve água), gera hiponatremia. Mais comum em idosa magra (menor massa, menor diluição), com baixa ingesta de sódio. Pegadinha clássica. Diuréticos de alça NÃO causam tanto: por agirem no segmento que concentra a urina.",
+      "difficulty": "hard",
+      "tags": ["tiazidico", "hiponatremia"]
     },
     {
       "type": "match",
@@ -386,7 +446,7 @@
           "prompt": "Após 48h em UTI: hemodinâmica estável sem dobutamina, diurese boa, creatinina caindo, K+ 4,8.",
           "question": "Como ajustar a quadrupla terapia agora?",
           "options": [
-            "Reintroduzir IECA em dose reduzida (ou trocar para sacubitril/valsartana após washout de 36h se possível). Reintroduzir antagonista de aldosterona quando K < 5,0. Acrescentar dapagliflozina (iSGLT-2) — recomendação atual",
+            "Após estabilização hemodinâmica e renal, reintroduzir IECA em dose reduzida (ou substituir por sacubitril/valsartana respeitando intervalo de segurança). Reintroduzir antagonista de aldosterona quando K+ < 5,0. Acrescentar dapagliflozina (iSGLT-2)",
             "Manter só carvedilol e furosemida",
             "Iniciar digoxina como única adição",
             "Suspender tudo e dar alta com apenas furosemida"
@@ -443,7 +503,7 @@
           "expl": "Após estabilização inicial, transição cuidadosa para terapia oral. Avaliar adesão, otimizar esquema (geralmente combinação tripla: BRA/IECA + BCC dihidropiridínico + tiazídico). Investigar causas secundárias se HAS resistente. Educar paciente sobre adesão."
         }
       ],
-      "outcome": "Alta em 48h com losartana 100 mg + anlodipino 10 mg + HCTZ 25 mg + carvedilol 12,5 mg 2x/dia. Consulta com nefrologia para avaliar HAS resistente. Paciente passa a usar despertador para medicação e aderência melhora."
+      "outcome": "Alta em 48h com tripla otimizada: losartana 100 mg + anlodipino 10 mg + HCTZ 25 mg. Consulta com nefrologia para avaliar HAS resistente (mais 3 drogas em dose máxima). Paciente passa a usar despertador para medicação e aderência melhora."
     },
     {
       "type": "flashcard",
@@ -455,8 +515,8 @@
     {
       "type": "flashcard",
       "topic": "Captopril",
-      "front": "Captopril: diferença para enalapril?",
-      "back": "IECA de meia-vida curta (3x/dia), pode ser sublingual em urgência hipertensiva (não em emergência). Mesmos EA dos demais IECA.",
+      "front": "Captopril: diferença para enalapril e armadilha de uso agudo?",
+      "back": "IECA de meia-vida curta (3x/dia). VO em urgência hipertensiva (pico em 15-30 min). ARMADILHA: NÃO é sublingual — não há absorção sublingual real, o efeito agudo vem da deglutição. Mesmos EA dos demais IECA.",
       "tags": ["ieca"]
     },
     {
@@ -582,7 +642,7 @@
       "type": "flashcard",
       "topic": "Indapamida",
       "front": "Indapamida: vantagem sobre HCTZ?",
-      "back": "Tiazídico-símile. Menos efeitos metabólicos que HCTZ. Vasodilatação adicional. Pode ser preferida em pacientes com risco metabólico (DM, gota).",
+      "back": "Tiazídico-símile. Menos efeitos metabólicos que HCTZ. Pode ser preferida em pacientes com risco metabólico (DM, gota).",
       "tags": ["tiazidico"]
     },
     {
@@ -596,7 +656,7 @@
       "type": "flashcard",
       "topic": "Bumetanida",
       "front": "Bumetanida: diferença para furosemida?",
-      "back": "Diurético de alça mais potente (1 mg = 40 mg de furosemida). Maior biodisponibilidade oral, útil quando furosemida oral falha (edema intestinal em IC). Mesmas indicações e EA.",
+      "back": "Diurético de alça mais potente que furosemida, com maior biodisponibilidade oral. Útil quando furosemida oral falha (edema intestinal em IC). Mesmas indicações e EA.",
       "tags": ["alca"]
     },
     {
@@ -638,7 +698,7 @@
       "type": "flashcard",
       "topic": "Nitroprussiato",
       "front": "Nitroprussiato: indicação e toxicidade?",
-      "back": "Doador de NO, vasodilatador arterial e venoso. EV em BIC, fotossensível. Emergência hipertensiva grave, dissecção de aorta. Toxicidade: cianeto e tiocianato em uso prolongado/IR. Antídoto: tiossulfato.",
+      "back": "Doador de NO, vasodilatador arterial e venoso. EV em BIC, fotossensível. Emergência hipertensiva grave, dissecção de aorta. Risco de toxicidade em uso prolongado e em IR — preferir alternativas se possível.",
       "tags": ["vasodilatador", "emergencia"]
     },
     {
