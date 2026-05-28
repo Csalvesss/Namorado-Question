@@ -1,0 +1,501 @@
+{
+  "title": "Farmaco P2: Antineoplásicos",
+  "description": "Antineoplásicos da lista da P2: alquilantes, platinas, antitumorais antibióticos, antimetabólitos, alcaloides da vinca, taxanos, inibidores de tirosina-cinase e anticorpos monoclonais. Foco em mecanismo, EA característico e indicação clássica.",
+  "icon": "",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "mc",
+      "topic": "Ciclofosfamida",
+      "q": "Sobre a ciclofosfamida (alquilante), assinale a CORRETA:",
+      "options": [
+        "Pró-fármaco ativado pelo CYP hepático → mostarda nitrogenada que alquila o DNA → ligações cruzadas → bloqueio da replicação; EA marcante: CISTITE HEMORRÁGICA pela acroleína (PREVENIR com hidratação e MESNA)",
+        "Inibe a topoisomerase II diretamente sem ativação",
+        "É um anticorpo monoclonal anti-CD20",
+        "Inibe a aromatase periférica"
+      ],
+      "correct": 0,
+      "expl": "Ciclofosfamida é pró-fármaco ativado pelo CYP2B6 hepático → mostarda fosforamida (alquila o DNA) + acroleína (metabólito urotóxico). EA típicos: mielossupressão, náusea/vômito, alopecia, CISTITE HEMORRÁGICA pela acroleína (hidratar + MESNA — captura a acroleína na urina), infertilidade, risco de neoplasia secundária (bexiga, leucemia), SIADH em altas doses. Indicações: linfomas, LLA, alguns tumores sólidos, doenças autoimunes (lúpus grave, vasculites).",
+      "difficulty": "medium",
+      "tags": ["alquilante", "ciclofosfamida"]
+    },
+    {
+      "type": "mc",
+      "topic": "Cisplatina",
+      "q": "Sobre a cisplatina (platina), assinale a CORRETA:",
+      "options": [
+        "Forma ligações cruzadas no DNA (predominantemente intra-cadeia, guanina-guanina); EA marcantes: NEFROTOXICIDADE (proximal — hidratar muito antes da infusão), OTOTOXICIDADE (irreversível), neuropatia periférica, êmese intensa (mais que carboplatina)",
+        "Inibe a topoisomerase II",
+        "É um análogo de purina",
+        "Não tem nefrotoxicidade"
+      ],
+      "correct": 0,
+      "expl": "Cisplatina forma adutos no DNA (ligações cruzadas intra-cadeia entre guaninas) → bloqueia replicação e transcrição. Hidrólise no citoplasma libera grupo ativo. EA marcantes: NEFROTOXICIDADE proximal (hidratação obrigatória pré-infusão, manitol; cuidado com aminoglicosídeos), OTOTOXICIDADE (perda auditiva irreversível, ↑ em criança), neuropatia periférica, êmese intensa, mielossupressão (leve em comparação a carboplatina). Indicações: tumores germinativos (testículo), bexiga, cabeça e pescoço, pulmão.",
+      "difficulty": "medium",
+      "tags": ["platina", "cisplatina"]
+    },
+    {
+      "type": "mc",
+      "topic": "Carboplatina",
+      "q": "Carboplatina difere da cisplatina principalmente por:",
+      "options": [
+        "MENOS nefrotoxicidade, ototoxicidade e êmese; MAIS mielossupressão (especialmente PLAQUETOPENIA); dose calculada pela FÓRMULA AUC × (TFG + 25)",
+        "Maior nefrotoxicidade que a cisplatina",
+        "Mecanismo totalmente diferente",
+        "Sem mielossupressão"
+      ],
+      "correct": 0,
+      "expl": "Carboplatina tem mesmo mecanismo da cisplatina (alquilação do DNA) mas perfil farmacológico mais leve: muito menos nefrotoxicidade e ototoxicidade, êmese menor. EM CONTRAPARTIDA: maior MIELOSSUPRESSÃO, especialmente plaquetopenia. Dose pela fórmula de Calvert (AUC × [TFG + 25]). Indicada quando perfil renal/ototóxico é proibitivo ou em manutenção de Ca de ovário.",
+      "difficulty": "medium",
+      "tags": ["platina", "carboplatina"]
+    },
+    {
+      "type": "mc",
+      "topic": "Doxorrubicina",
+      "q": "Sobre a doxorrubicina (antraciclina), assinale a CORRETA:",
+      "options": [
+        "Inibe a topoisomerase II e intercala no DNA + gera radicais livres; EA marcante: CARDIOTOXICIDADE DOSE-DEPENDENTE (insuficiência cardíaca crônica) — dose cumulativa máxima ~450-550 mg/m²; outros EA: mucosite, mielossupressão, alopecia, COLORAÇÃO VERMELHA DA URINA (transitória)",
+        "Não tem cardiotoxicidade",
+        "É um inibidor de tirosina-cinase",
+        "É anticorpo monoclonal"
+      ],
+      "correct": 0,
+      "expl": "Doxorrubicina e daunorrubicina (antraciclinas) intercalam no DNA + inibem topoisomerase II + geram radicais livres (cardiotoxicidade). CARDIOTOXICIDADE é o EA limitante (dose cumulativa): IC crônica meses a anos depois. Monitorar FE por eco antes e durante o tratamento. DEXRAZOXANO pode reduzir cardiotoxicidade. Doxorrubicina lipossomal é alternativa de menor cardiotoxicidade. Outros: mielossupressão, mucosite, alopecia, urina vermelha (transitória, não preocupar paciente). Extravasamento causa necrose grave.",
+      "difficulty": "medium",
+      "tags": ["antraciclina", "doxorrubicina", "cardiotoxicidade"]
+    },
+    {
+      "type": "mc",
+      "topic": "Bleomicina",
+      "q": "Sobre a bleomicina, assinale a CORRETA:",
+      "options": [
+        "Glicopeptídeo que gera radicais livres (Fe + O2) → quebras de DNA; EA marcante: TOXICIDADE PULMONAR (pneumonite, fibrose dose-dependente); pouca mielossupressão (vantagem em esquemas combinados — ABVD em linfoma de Hodgkin)",
+        "Causa mielossupressão grave",
+        "Sem toxicidade pulmonar",
+        "É um anticorpo anti-CD20"
+      ],
+      "correct": 0,
+      "expl": "Bleomicina é peptídeo isolado de Streptomyces. Liga DNA + ferro + oxigênio → radicais livres → quebras de DNA. POUCA mielossupressão (vantagem — combina bem em ABVD para Hodgkin e BEP para tumor testicular). EA LIMITANTE: PNEUMONITE/FIBROSE PULMONAR dose-dependente (dose cumulativa máxima ~400 U), risco maior em fumantes, idosos, IR. Cuidado com FiO2 alta em cirurgia (peri-operatório). Reação cutânea (descoloração, hiperpigmentação).",
+      "difficulty": "medium",
+      "tags": ["bleomicina", "pulmao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Metotrexato",
+      "q": "Sobre o metotrexato (antagonista do folato), assinale a CORRETA:",
+      "options": [
+        "Inibe a di-hidrofolato redutase (DHFR) → ↓ tetra-hidrofolato → ↓ síntese de purinas/timidilato → ↓ replicação celular; ANTÍDOTO/RESGATE: ÁCIDO FOLÍNICO (leucovorina); EA: mielossupressão, mucosite, hepatotoxicidade, nefrotoxicidade (hidratação + alcalinização da urina); CONTRAINDICADO na gestação",
+        "Inibe a topoisomerase II",
+        "Ácido fólico (não folínico) é o resgate adequado",
+        "É seguro na gestação"
+      ],
+      "correct": 0,
+      "expl": "Metotrexato é o antimetabólito mais cobrado. Inibe DHFR → impede regeneração de tetra-hidrofolato → bloqueio da síntese de purinas e timidilato → morte celular. Resgate clínico: ÁCIDO FOLÍNICO (leucovorina) — entra após DHFR, restaura células normais. Ácido fólico não funciona como resgate (precisa ser reduzido pela DHFR já bloqueada). Em altas doses: hidratação + alcalinização da urina (metotrexato cristaliza em pH ácido). EA: mielossupressão, mucosite, hepatotoxicidade (uso crônico em AR), nefrotoxicidade, pneumonite. CONTRAINDICADO na gestação (teratogênico). Indicações: LLA, linfomas, sarcomas, AR/psoríase em dose baixa, abortivo medicamentoso.",
+      "difficulty": "medium",
+      "tags": ["antimetabolito", "metotrexato", "dhfr"]
+    },
+    {
+      "type": "mc",
+      "topic": "5-FU / Capecitabina",
+      "q": "Sobre 5-fluorouracila (5-FU) e capecitabina, assinale a CORRETA:",
+      "options": [
+        "5-FU é antimetabólito (pirimidina) que inibe a TIMIDILATO SINTASE → ↓ síntese de DNA; capecitabina é pró-fármaco oral do 5-FU; EA: mielossupressão, mucosite, diarreia, SÍNDROME MÃO-PÉ (eritrodisestesia), cardiotoxicidade (espasmo coronariano)",
+        "Inibe a DHFR (igual ao metotrexato)",
+        "É inibidor de aromatase",
+        "Sem cardiotoxicidade"
+      ],
+      "correct": 0,
+      "expl": "5-FU é análogo de uracila. Após fosforilação intracelular: FdUMP inibe a timidilato sintase (TS) → bloqueia conversão de dUMP em dTMP → ↓ síntese de DNA. Capecitabina é pró-fármaco oral convertido em 5-FU em 3 etapas (última no tumor, pela timidina fosforilase). Indicações: Ca de cólon, gástrico, mama, cabeça/pescoço. EA: mielossupressão, mucosite, diarreia (severa em deficiência de DPD — dihidropirimidina desidrogenase), SÍNDROME MÃO-PÉ, cardiotoxicidade (vasoespasmo coronariano — angina). Capecitabina especialmente associada à síndrome mão-pé.",
+      "difficulty": "medium",
+      "tags": ["5fu", "timidilato"]
+    },
+    {
+      "type": "mc",
+      "topic": "Vincristina vs Vimblastina",
+      "q": "Sobre os alcaloides da vinca (vincristina e vimblastina), assinale a CORRETA:",
+      "options": [
+        "Ligam-se à tubulina e impedem a formação dos microtúbulos do fuso mitótico (parada em metáfase); VINCRISTINA: EA limitante é NEUROPATIA periférica (sensitivo-motora, autonômica), pouca mielossupressão; VIMBLASTINA: EA limitante é MIELOSSUPRESSÃO, neuropatia leve",
+        "Estabilizam os microtúbulos (não desestabilizam)",
+        "São inibidores de aromatase",
+        "Vincristina causa mielossupressão grave"
+      ],
+      "correct": 0,
+      "expl": "Vincristina e vimblastina ligam-se à β-tubulina e BLOQUEIAM a polimerização dos microtúbulos → parada em metáfase. Pegadinha de prova: dois fármacos da mesma classe com perfil de EA OPOSTO. VINCRISTINA: neuropatia (sensitivo-motora e autonômica — íleo paralítico, retenção urinária) é o EA limitante; pouca mielossupressão. VIMBLASTINA: mielossupressão limitante; neuropatia leve. NUNCA INTRATECAL (fatal). Indicações: LLA, linfomas, Hodgkin (vimblastina ABVD), sarcoma.",
+      "difficulty": "hard",
+      "tags": ["vinca", "microtubulos"]
+    },
+    {
+      "type": "mc",
+      "topic": "Paclitaxel / Docetaxel",
+      "q": "Sobre os taxanos (paclitaxel, docetaxel), assinale a CORRETA:",
+      "options": [
+        "ESTABILIZAM os microtúbulos (impedem despolimerização — oposto da vinca) → parada em mitose; EA: mielossupressão, neuropatia, alopecia, reações de hipersensibilidade (pré-medicar com corticoide e anti-histamínico)",
+        "Desestabilizam os microtúbulos",
+        "Inibem a DHFR",
+        "Sem necessidade de pré-medicação"
+      ],
+      "correct": 0,
+      "expl": "Taxanos têm mecanismo OPOSTO aos alcaloides da vinca: ESTABILIZAM os microtúbulos (impedem despolimerização normal) → fuso mitótico travado → apoptose. EA: mielossupressão, neuropatia periférica (paclitaxel > docetaxel), alopecia, MIALGIA/ARTRALGIA (paclitaxel), edema (docetaxel — retenção). REAÇÕES DE HIPERSENSIBILIDADE pelo veículo (Cremophor no paclitaxel) — pré-medicar com dexametasona + anti-H1 + anti-H2. Indicações: mama, ovário, próstata, pulmão (NSCLC), cabeça/pescoço.",
+      "difficulty": "medium",
+      "tags": ["taxano", "microtubulos"]
+    },
+    {
+      "type": "mc",
+      "topic": "Imatinib · TKI",
+      "q": "Sobre o imatinib (inibidor de tirosina-cinase), assinale a CORRETA:",
+      "options": [
+        "Inibe BCR-ABL (Filadélfia +) → indicado em LMC e LLA Ph+; também inibe c-KIT e PDGFR → indicado em GIST (tumor estromal gastrointestinal); EA: edema periorbital, citopenias, hepatotoxicidade, retenção hídrica",
+        "É um anticorpo monoclonal anti-CD20",
+        "É um agente alquilante",
+        "Indicado em Ca de mama HER2+"
+      ],
+      "correct": 0,
+      "expl": "Imatinib (Glivec) é inibidor de tirosina-cinase pequeno-molécula: inibe BCR-ABL (oncoproteína da translocação 9;22 = cromossomo Philadelphia da LMC e algumas LLA), KIT (mutado em GIST) e PDGFR. Revolução em LMC. Dasatinibe e nilotinibe são TKIs de 2ª geração (mais potentes, contornam algumas resistências). EA: edema periorbital, citopenias, hepatotoxicidade, retenção hídrica, mialgia. Dasatinibe pode causar derrame pleural; nilotinibe pode prolongar QT.",
+      "difficulty": "medium",
+      "tags": ["tki", "imatinib", "lmc"]
+    },
+    {
+      "type": "mc",
+      "topic": "Trastuzumabe · Ca mama HER2+",
+      "q": "Sobre o trastuzumabe, assinale a CORRETA:",
+      "options": [
+        "Anticorpo monoclonal anti-HER2 (ErbB2); indicado em Ca de mama HER2-positivo (~20% dos Ca de mama); EA: CARDIOTOXICIDADE (disfunção sistólica geralmente REVERSÍVEL — diferente da antraciclina); cuidado em associar com antraciclinas (cardiotoxicidade aditiva)",
+        "É um inibidor de tirosina-cinase oral",
+        "Indicado em Ca de mama RE+ exclusivamente",
+        "Sem qualquer cardiotoxicidade"
+      ],
+      "correct": 0,
+      "expl": "Trastuzumabe é anticorpo monoclonal humanizado anti-HER2 (receptor 2 do fator de crescimento epidérmico humano). Indicado em Ca de mama com HER2+ (~20% dos Ca de mama) e Ca gástrico HER2+. Mecanismo: bloqueia sinalização HER2 + ativa imunidade (ADCC). Reduziu drasticamente recidiva e mortalidade. EA: cardiotoxicidade — disfunção sistólica geralmente REVERSÍVEL (diferente da antraciclina). Monitorar FE; CUIDADO em associar com antraciclinas. Reações infusionais.",
+      "difficulty": "medium",
+      "tags": ["mab", "trastuzumabe", "her2"]
+    },
+    {
+      "type": "mc",
+      "topic": "Rituximabe · anti-CD20",
+      "q": "Sobre o rituximabe, assinale a CORRETA:",
+      "options": [
+        "Anticorpo monoclonal anti-CD20 (linfócitos B); indicado em linfomas B (LNH, Hodgkin), LLC, e doenças autoimunes (AR, vasculites ANCA+, LES refratário); EA: reação infusional grave (pré-medicar), reativação de hepatite B (rastrear HBsAg e anti-HBc), citopenias",
+        "Anti-CD3 (linfócitos T)",
+        "Inibe a aromatase",
+        "Indicado apenas em LMC"
+      ],
+      "correct": 0,
+      "expl": "Rituximabe é mAb quimérico anti-CD20 (presente em linfócitos B maduros, ausente em plasmócitos e células B progenitoras). Mecanismo: ADCC + lise mediada por complemento + apoptose direta. Indicações: LNH B (LDGCB com R-CHOP), LLC, doenças autoimunes B-mediadas (AR, vasculites ANCA-associadas, LES refratário, esclerose múltipla). EA: REAÇÃO INFUSIONAL grave (síndrome de liberação de citocinas — pré-medicar com corticoide + anti-H1 + paracetamol), citopenias (especialmente B), RISCO DE REATIVAÇÃO DE HEPATITE B (rastrear HBsAg e anti-HBc; profilaxia com tenofovir se positivo).",
+      "difficulty": "medium",
+      "tags": ["mab", "rituximabe", "cd20"]
+    },
+    {
+      "type": "mc",
+      "topic": "Bevacizumabe · anti-VEGF",
+      "q": "Sobre o bevacizumabe, assinale a CORRETA:",
+      "options": [
+        "Anticorpo monoclonal anti-VEGF (fator de crescimento endotelial vascular) → ANTI-ANGIOGÊNICO; indicado em Ca colorretal metastático, pulmão, ovário, glioblastoma, mama (off-label hoje); EA típicos: HIPERTENSÃO, proteinúria, sangramento, MÁ CICATRIZAÇÃO de feridas (suspender 4-6 semanas antes de cirurgia), perfuração intestinal, eventos tromboembólicos",
+        "Inibe diretamente HER2",
+        "Estimula a angiogênese tumoral",
+        "Sem risco trombótico"
+      ],
+      "correct": 0,
+      "expl": "Bevacizumabe é mAb anti-VEGF-A → bloqueia angiogênese tumoral (impede formação de novos vasos para nutrir o tumor). Indicações: Ca colorretal metastático (com FOLFOX/FOLFIRI), Ca de pulmão, ovário, glioblastoma. EA típicos da inibição do VEGF: HIPERTENSÃO (controlar antes/durante), proteinúria, eventos tromboembólicos (arteriais e venosos), MÁ CICATRIZAÇÃO de feridas (suspender 4-6 semanas antes de cirurgia), perfuração intestinal (raro mas grave), fístulas.",
+      "difficulty": "medium",
+      "tags": ["mab", "bevacizumabe", "vegf"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pembrolizumabe · imunoterapia",
+      "q": "Sobre o pembrolizumabe (imunoterapia), assinale a CORRETA:",
+      "options": [
+        "Anticorpo monoclonal anti-PD-1 (inibidor de checkpoint imunológico) → libera resposta linfocitária T contra o tumor; várias indicações (melanoma, NSCLC PD-L1+, urotelial, etc); EA singular: TOXICIDADE IMUNO-MEDIADA (tireoidite, hepatite, colite, pneumonite, hipofisite, dermatite) — tratar com corticoide; resposta clínica heterogênea (alguns respondedores duráveis, outros não)",
+        "É um agente alquilante clássico",
+        "Reduz a resposta imune contra o tumor",
+        "Sem EA imunes"
+      ],
+      "correct": 0,
+      "expl": "Pembrolizumabe (Keytruda) é mAb anti-PD-1 (programmed death receptor 1): bloqueia o eixo PD-1/PD-L1 → libera linfócitos T citotóxicos contra o tumor (que usava PD-L1 como 'escudo'). Aprovado em várias neoplasias (melanoma, NSCLC, urotelial, gástrico MSI-alto, etc.). Mecanismo de EA é único: TOXICIDADES IMUNO-MEDIADAS (irAEs) — qualquer órgão pode ser alvo: tireoidite (hipo > hiper), hepatite, colite (diarreia), pneumonite (dispneia/tosse), hipofisite (deficiências hormonais múltiplas), dermatite, miosite. Tratamento dos irAEs: CORTICOIDE (suspender se grave; imunossupressor adicional se refratário).",
+      "difficulty": "hard",
+      "tags": ["imunoterapia", "pembrolizumabe", "pd1"]
+    },
+    {
+      "type": "mc",
+      "topic": "Síndrome de lise tumoral",
+      "q": "Sobre a síndrome de lise tumoral (SLT) na quimioterapia, é CORRETO afirmar:",
+      "options": [
+        "Decorre da lise maciça de células tumorais (especialmente em LLA, linfomas Burkitt, alta carga tumoral) → liberação de K+, fósforo, ácido úrico e ↓ Ca++; pode causar IRA, arritmia, convulsão; PREVENÇÃO: HIDRATAÇÃO vigorosa + ALOPURINOL (inibe xantina oxidase, reduz formação de ác. úrico) ou RASBURICASE (degrada ác. úrico já formado, mais eficaz e rápida)",
+        "Aparece em paciente sem doença oncológica",
+        "Tratar com diurético sem hidratar",
+        "Não precisa de prevenção"
+      ],
+      "correct": 0,
+      "expl": "SLT: lise maciça de células tumorais altamente proliferativas (LLA, Burkitt, linfomas, alguns tumores sólidos grandes) → liberação rápida de conteúdo intracelular: hiperK, hiperfosfatemia, hipocalcemia (Ca precipita com fósforo), HIPERURICEMIA → IRA por nefropatia por ácido úrico, arritmias, convulsões. Profilaxia: HIDRATAÇÃO IV vigorosa (manter diurese alta) + ALOPURINOL (oral, inibe xantina oxidase — reduz formação) ou RASBURICASE (IV, urato oxidase recombinante — degrada o ácido úrico já existente, mais rápida; CONTRAINDICADA em deficiência de G6PD). Monitorar K+, fósforo, Ca, ácido úrico, função renal, ECG.",
+      "difficulty": "hard",
+      "tags": ["slt", "lise-tumoral"]
+    },
+    {
+      "type": "match",
+      "topic": "Antineoplásicos: classe",
+      "prompt": "Associe o fármaco à classe.",
+      "leftLabel": "Fármaco",
+      "rightLabel": "Classe",
+      "pairs": [
+        { "id": "cic", "left": "Ciclofosfamida / Ifosfamida / Dacarbazina", "right": "Alquilantes" },
+        { "id": "cis", "left": "Cisplatina / Carboplatina", "right": "Platinas (DNA crosslinkers)" },
+        { "id": "dox", "left": "Doxorrubicina / Daunorrubicina", "right": "Antraciclinas (topo II + radicais livres)" },
+        { "id": "ble", "left": "Bleomicina", "right": "Quebras de DNA por radicais livres (Fe-O2)" },
+        { "id": "mtx", "left": "Metotrexato", "right": "Antifolato (DHFR)" },
+        { "id": "fu", "left": "5-FU / Capecitabina / Pemetrexede", "right": "Antimetabólitos pirimidínicos / antifolatos" },
+        { "id": "vin", "left": "Vincristina / Vimblastina", "right": "Alcaloides da vinca (despolimerizam tubulina)" },
+        { "id": "tax", "left": "Paclitaxel / Docetaxel", "right": "Taxanos (estabilizam tubulina)" },
+        { "id": "tki", "left": "Imatinib / Dasatinibe / Nilotinibe", "right": "Inibidores de tirosina-cinase (BCR-ABL)" },
+        { "id": "tras", "left": "Trastuzumabe", "right": "Anti-HER2 (mAb)" },
+        { "id": "ritu", "left": "Rituximabe", "right": "Anti-CD20 (mAb)" },
+        { "id": "bev", "left": "Bevacizumabe", "right": "Anti-VEGF (mAb)" },
+        { "id": "pem", "left": "Pembrolizumabe", "right": "Anti-PD-1 (checkpoint imune)" }
+      ],
+      "expl": "Saber a classe orienta o EA típico, a indicação e o cuidado de aplicação.",
+      "difficulty": "easy",
+      "tags": ["classes"]
+    },
+    {
+      "type": "match",
+      "topic": "Antineoplásicos: EA característico",
+      "prompt": "Associe o fármaco ao EA mais característico.",
+      "leftLabel": "Fármaco",
+      "rightLabel": "EA característico",
+      "pairs": [
+        { "id": "cic", "left": "Ciclofosfamida", "right": "Cistite hemorrágica (acroleína; prevenir com MESNA)" },
+        { "id": "cis", "left": "Cisplatina", "right": "Nefrotoxicidade + ototoxicidade + êmese" },
+        { "id": "carb", "left": "Carboplatina", "right": "Mielossupressão (especialmente plaquetopenia)" },
+        { "id": "dox", "left": "Doxorrubicina", "right": "Cardiotoxicidade dose-cumulativa" },
+        { "id": "ble", "left": "Bleomicina", "right": "Pneumonite / fibrose pulmonar" },
+        { "id": "mtx", "left": "Metotrexato", "right": "Mucosite, hepatotoxicidade (resgate: ácido folínico)" },
+        { "id": "fu", "left": "5-FU / Capecitabina", "right": "Síndrome mão-pé + cardiotoxicidade vasoespástica" },
+        { "id": "vinc", "left": "Vincristina", "right": "Neuropatia periférica (pouca mielossupressão)" },
+        { "id": "tax", "left": "Paclitaxel", "right": "Hipersensibilidade ao Cremophor + neuropatia" },
+        { "id": "bev", "left": "Bevacizumabe", "right": "HAS + proteinúria + má cicatrização" },
+        { "id": "pem", "left": "Pembrolizumabe", "right": "Toxicidades imuno-mediadas (tireoide, fígado, cólon)" },
+        { "id": "ritu", "left": "Rituximabe", "right": "Reação infusional + reativação de HBV" }
+      ],
+      "expl": "Memorize essa tabela; é o que mais cai em prova nesse bloco.",
+      "difficulty": "medium",
+      "tags": ["efeitos-adversos"]
+    },
+    {
+      "type": "match",
+      "topic": "Antineoplásicos: indicação clássica",
+      "prompt": "Associe o fármaco à indicação clássica de prova.",
+      "leftLabel": "Fármaco",
+      "rightLabel": "Indicação clássica",
+      "pairs": [
+        { "id": "cic", "left": "Ciclofosfamida", "right": "Linfomas, LLA, vasculites e LES grave" },
+        { "id": "cis", "left": "Cisplatina", "right": "Tumores germinativos (testículo), bexiga, pulmão" },
+        { "id": "dox", "left": "Doxorrubicina", "right": "Linfoma (CHOP), mama, sarcomas" },
+        { "id": "ble", "left": "Bleomicina", "right": "Linfoma de Hodgkin (ABVD), tumor germinativo (BEP)" },
+        { "id": "mtx", "left": "Metotrexato", "right": "LLA, linfomas, AR/psoríase em dose baixa" },
+        { "id": "fu", "left": "5-FU / Capecitabina", "right": "Ca colorretal, gástrico, mama, cabeça e pescoço" },
+        { "id": "tax", "left": "Paclitaxel", "right": "Ca de mama, ovário, pulmão" },
+        { "id": "imat", "left": "Imatinib", "right": "LMC Philadelphia+ e GIST" },
+        { "id": "tras", "left": "Trastuzumabe", "right": "Ca de mama HER2+ e gástrico HER2+" },
+        { "id": "ritu", "left": "Rituximabe", "right": "Linfomas B (LDGCB), LLC, AR refratária" }
+      ],
+      "expl": "Em prova clínica, a pergunta clássica é 'qual a primeira escolha em X?'. Essas 10 cobrem o essencial.",
+      "difficulty": "medium",
+      "tags": ["indicacoes"]
+    },
+    {
+      "type": "case",
+      "topic": "Ca de mama HER2+ recém-diagnosticado",
+      "subtitle": "Mulher 48a, Ca de mama, RE-, HER2+, T2N1",
+      "specialty": "Oncologia clínica",
+      "difficulty": "medium",
+      "vignette": "Mulher de 48 anos, mastectomia + dissecção axilar por adenocarcinoma de mama. Imuno-histoquímica: RE negativo, HER2 superexpresso (3+). T2N1M0. Sem comorbidades, FE de 65%. Você vai discutir adjuvância.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Qual é o esquema padrão?",
+          "options": [
+            "Quimioterapia (geralmente AC seguido de taxano: ciclofosfamida + doxorrubicina, depois paclitaxel) + trastuzumabe por 12 meses",
+            "Apenas tamoxifeno por 5 anos",
+            "Apenas anastrozol por 5 anos",
+            "Cuidados paliativos exclusivos"
+          ],
+          "correct": 0,
+          "expl": "Ca de mama HER2+ adjuvância padrão: quimioterapia (AC → T = doxorrubicina + ciclofosfamida → paclitaxel) + TRASTUZUMABE por 12 meses. Trastuzumabe melhora desfechos drasticamente nesse subtipo. Tamoxifeno/anastrozol são para Ca de mama RE+ (esse é RE-)."
+        },
+        {
+          "id": "step2",
+          "prompt": "Após 4 ciclos de AC e início do paclitaxel + trastuzumabe, ecocardiograma de controle mostra queda da FE de 65% para 48% (queda > 10% e abaixo do limite normal).",
+          "question": "Conduta?",
+          "options": [
+            "Suspender trastuzumabe temporariamente; iniciar terapia para disfunção sistólica (IECA + BB cardiosseletivo); reavaliar FE em 4-6 semanas — geralmente reversível diferentemente da antraciclina",
+            "Manter trastuzumabe sem alterações",
+            "Trocar para mais antraciclina",
+            "Cirurgia cardíaca de urgência"
+          ],
+          "correct": 0,
+          "expl": "Cardiotoxicidade do trastuzumabe é geralmente REVERSÍVEL (diferente da antraciclina cumulativa). Conduta: SUSPENDER trastuzumabe se queda > 10% da FE ou FE abaixo do limite normal; iniciar IECA + BB (carvedilol, succinato de metoprolol ou bisoprolol); reavaliar em 4-6 semanas. Se FE recupera, RETOMAR trastuzumabe com monitorização. Em queda persistente: suspender em definitivo."
+        }
+      ],
+      "outcome": "Após 6 semanas de suspensão + carvedilol + enalapril, FE recupera para 62%. Trastuzumabe é reintroduzido com sucesso. Completa 12 meses. Em seguimento, sem recidiva em 3 anos."
+    },
+    {
+      "type": "flashcard",
+      "topic": "Ciclofosfamida",
+      "front": "Ciclofosfamida: mecanismo, EA típico e profilaxia?",
+      "back": "Pró-fármaco alquilante (CYP). EA: CISTITE HEMORRÁGICA pela acroleína. Profilaxia: HIDRATAÇÃO + MESNA. Risco de infertilidade e neoplasia secundária (bexiga, leucemia).",
+      "tags": ["alquilante"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Ifosfamida",
+      "front": "Ifosfamida: característica vs ciclofosfamida?",
+      "back": "Alquilante semelhante à ciclofosfamida, mas mais NEUROTÓXICA (encefalopatia, sonolência, alucinações — reversível). Também causa cistite hemorrágica; SEMPRE com MESNA.",
+      "tags": ["alquilante"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Dacarbazina",
+      "front": "Dacarbazina: indicação principal?",
+      "back": "Alquilante. Indicação clássica: linfoma de Hodgkin (esquema ABVD) e melanoma. EA: náusea importante, mielossupressão.",
+      "tags": ["alquilante"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Cisplatina",
+      "front": "Cisplatina: 3 EA marcantes?",
+      "back": "Forma adutos no DNA. EA marcantes: NEFROTOXICIDADE (hidratar!), OTOTOXICIDADE (irreversível), neuropatia, êmese intensa. Indicação clássica: tumor germinativo de testículo.",
+      "tags": ["platina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Carboplatina",
+      "front": "Carboplatina: vantagem e desvantagem vs cisplatina?",
+      "back": "MENOS nefro/oto/êmese. MAIS mielossupressão (plaquetopenia). Dose por AUC (Calvert). Útil quando cisplatina é proibitiva.",
+      "tags": ["platina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Bleomicina",
+      "front": "Bleomicina: EA típico e vantagem em esquema?",
+      "back": "Pouca mielossupressão (boa em ABVD/BEP). EA limitante: PNEUMONITE/FIBROSE PULMONAR. Cuidado com FiO2 alta em cirurgia.",
+      "tags": ["bleomicina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Doxorrubicina",
+      "front": "Doxorrubicina: EA limitante e prevenção?",
+      "back": "Antraciclina. Cardiotoxicidade dose-cumulativa (~450-550 mg/m²) — IC crônica. Monitorar FE. DEXRAZOXANO reduz cardiotoxicidade. Urina vermelha transitória.",
+      "tags": ["antraciclina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Daunorrubicina",
+      "front": "Daunorrubicina: uso principal?",
+      "back": "Antraciclina. Indicação clássica: leucemias agudas (LMA, LLA — esquemas de indução). Mesma cardiotoxicidade da doxorrubicina.",
+      "tags": ["antraciclina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Metotrexato",
+      "front": "Metotrexato: mecanismo, resgate, contraindicação?",
+      "back": "Inibe DHFR. Resgate: ÁCIDO FOLÍNICO (não fólico). Hidratação + alcalinização da urina em alta dose. CONTRAINDICADO na gestação. Doses baixas em AR e psoríase.",
+      "tags": ["antifolato"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Pemetrexede",
+      "front": "Pemetrexede: alvo e indicação?",
+      "back": "Antifolato multialvo (DHFR + timidilato sintase + outras). Indicação clássica: NSCLC não escamoso e mesotelioma. Suplementar B12 e ácido fólico para reduzir toxicidade.",
+      "tags": ["antifolato"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "5-Fluorouracila",
+      "front": "5-FU: alvo, EA peculiares?",
+      "back": "Inibe timidilato sintase. EA: mielossupressão, mucosite, diarreia, SÍNDROME MÃO-PÉ, cardiotoxicidade por vasoespasmo. Severo em deficiência de DPD.",
+      "tags": ["antimetabolito"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Capecitabina",
+      "front": "Capecitabina: o que é?",
+      "back": "Pró-fármaco oral do 5-FU (3 etapas de ativação, última no tumor). Mais comodidade. EA: especialmente síndrome mão-pé.",
+      "tags": ["antimetabolito"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Vincristina",
+      "front": "Vincristina: EA limitante e cuidado fatal?",
+      "back": "Alcaloide da vinca. Despolimeriza microtúbulos. EA limitante: NEUROPATIA (sensitivo-motora, autonômica — íleo, retenção). Pouca mielossupressão. NUNCA INTRATECAL (fatal).",
+      "tags": ["vinca"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Vimblastina",
+      "front": "Vimblastina: EA limitante?",
+      "back": "Alcaloide da vinca. EA limitante: MIELOSSUPRESSÃO (oposto à vincristina). Indicação: linfoma de Hodgkin (ABVD). NUNCA intratecal.",
+      "tags": ["vinca"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Paclitaxel",
+      "front": "Paclitaxel: mecanismo e cuidado pré-infusão?",
+      "back": "Taxano. ESTABILIZA microtúbulos. EA: mielossupressão, neuropatia, alopecia, MIALGIA. Pré-medicar com dexametasona + anti-H1/H2 (Cremophor causa hipersensibilidade).",
+      "tags": ["taxano"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Docetaxel",
+      "front": "Docetaxel: diferença para paclitaxel?",
+      "back": "Taxano. EA típico adicional: RETENÇÃO HÍDRICA / EDEMA (pré-medicar com dexametasona). Indicações: mama, próstata, NSCLC.",
+      "tags": ["taxano"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Imatinib",
+      "front": "Imatinib: alvos e indicações?",
+      "back": "TKI: BCR-ABL (LMC, LLA Ph+), KIT (GIST), PDGFR. Revolução em LMC. EA: edema periorbital, citopenias, hepatotoxicidade.",
+      "tags": ["tki"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Dasatinibe",
+      "front": "Dasatinibe: papel e EA singular?",
+      "back": "TKI de 2ª geração (BCR-ABL e outras). Usado em LMC resistente ao imatinib. EA específico: DERRAME PLEURAL.",
+      "tags": ["tki"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Nilotinibe",
+      "front": "Nilotinibe: cuidado cardíaco?",
+      "back": "TKI de 2ª geração. LMC. Cuidado: PROLONGAMENTO DE QT (ECG pré-tratamento, evitar drogas QTcáveis), hiperglicemia.",
+      "tags": ["tki"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Trastuzumabe",
+      "front": "Trastuzumabe: indicação e EA?",
+      "back": "mAb anti-HER2. Ca de mama HER2+ (e gástrico HER2+). EA: CARDIOTOXICIDADE (geralmente reversível, diferente da antraciclina). Monitorar FE.",
+      "tags": ["mab"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Pembrolizumabe",
+      "front": "Pembrolizumabe: alvo e mecanismo de EA único?",
+      "back": "Anti-PD-1 (checkpoint imune). TOXICIDADES IMUNO-MEDIADAS (tireoidite, hepatite, colite, pneumonite, hipofisite). Tratar com CORTICOIDE.",
+      "tags": ["imunoterapia"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Rituximabe",
+      "front": "Rituximabe: alvo, indicações, screening obrigatório?",
+      "back": "mAb anti-CD20. LNH B, LLC, AR/vasculites refratárias. Risco: REATIVAÇÃO DE HEPATITE B (rastrear HBsAg/anti-HBc) + reação infusional.",
+      "tags": ["mab"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Bevacizumabe",
+      "front": "Bevacizumabe: alvo e 3 EA típicos?",
+      "back": "mAb anti-VEGF (anti-angiogênico). EA: HIPERTENSÃO, proteinúria, MÁ CICATRIZAÇÃO (suspender 4-6 semanas antes de cirurgia), eventos tromboembólicos.",
+      "tags": ["mab"]
+    }
+  ]
+}
