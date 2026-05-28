@@ -9,13 +9,13 @@
       "topic": "Metformina",
       "q": "Sobre a metformina, primeira escolha no tratamento do DM2, é correto afirmar:",
       "options": [
-        "Ativa a AMPK, reduz produção hepática de glicose, é eutrópica e tem excreção 100% renal",
+        "Ativa a AMPK, reduz produção hepática de glicose, é peso-neutra e tem excreção renal sem metabolização hepática",
         "Estimula a secreção pancreática de insulina, com alto risco de hipoglicemia",
         "Promove ganho de peso e retenção hídrica, sendo contraindicada na ICC",
         "Atua nos rins inibindo a reabsorção tubular de glicose"
       ],
       "correct": 0,
-      "expl": "Metformina é biguanida: ativa AMPK, reduz gliconeogênese hepática, melhora sensibilidade periférica à insulina, é peso-neutra (tende a discreta perda) e excreção 100% renal — por isso suspender se TFG < 30 mL/min e ajustar se TFG 30-45. Não causa hipoglicemia em monoterapia. Efeito adverso clássico: gastrointestinal (diarreia, náusea) e risco raro de acidose láctica.",
+      "expl": "Metformina é biguanida: ativa AMPK, reduz gliconeogênese hepática, melhora sensibilidade periférica à insulina, é peso-neutra (tende a discreta perda) e tem excreção renal inalterada (não é metabolizada no fígado) — por isso suspender se TFG < 30 mL/min e ajustar se TFG 30-45. Não causa hipoglicemia em monoterapia. EA clássico: gastrointestinal (diarreia, náusea) e risco raro de acidose láctica. Uso crônico (> 4 anos) pode causar deficiência de vitamina B12 — pesquisar em paciente com parestesia ou macrocitose.",
       "difficulty": "easy",
       "tags": ["biguanida", "1a-linha"]
     },
@@ -90,7 +90,7 @@
         "São hormônios injetáveis com perfil semelhante à insulina"
       ],
       "correct": 0,
-      "expl": "iSGLT2 inibem a recaptação tubular proximal de glicose → glicosúria → redução da glicemia, peso (~2-3 kg) e PA. Benefícios estabelecidos: redução de hospitalização por IC (EMPA-REG, DAPA-HF, EMPEROR), proteção renal (CREDENCE, DAPA-CKD). EA: infecções genitais (candidíase), ITU, e raro mas grave: cetoacidose diabética EUGLICÊMICA (cuidado em jejum, dieta low-carb, peri-operatório).",
+      "expl": "iSGLT2 inibem a recaptação tubular proximal de glicose → glicosúria → redução da glicemia, peso (~2-3 kg) e PA. Benefícios estabelecidos: redução de hospitalização por IC (EMPA-REG, DAPA-HF, EMPEROR), proteção renal (CREDENCE, DAPA-CKD). EA: infecções genitais (candidíase), ITU, e raro mas grave: cetoacidose diabética EUGLICÊMICA (cuidado em jejum, dieta low-carb, peri-operatório — suspender 3-4 dias antes de cirurgia eletiva).",
       "difficulty": "medium",
       "tags": ["sglt2", "cardio-renal"]
     },
@@ -135,7 +135,7 @@
         "É inibidora de SGLT-2"
       ],
       "correct": 0,
-      "expl": "TZD ativa receptor PPAR-γ → modula transcrição de genes que aumentam sensibilidade insulínica, especialmente no tecido adiposo. Não causa hipoglicemia em monoterapia. EA importantes: retenção hídrica, edema, descompensação de ICC (contraindicada em NYHA III-IV), fraturas (mulheres pós-menopausa) e dúvida de risco de Ca de bexiga. Pode melhorar esteatose hepática.",
+      "expl": "TZD ativa receptor PPAR-γ → modula transcrição de genes que aumentam sensibilidade insulínica, especialmente no tecido adiposo. Não causa hipoglicemia em monoterapia. EA importantes: retenção hídrica, edema, descompensação de ICC (contraindicada em NYHA III-IV), fraturas distais (punho, antebraço, pé — mais marcante em mulheres pós-menopausa, mas também em homens) e dúvida de risco de Ca de bexiga. Pode melhorar esteatose hepática.",
       "difficulty": "hard",
       "tags": ["tzd", "ppar"]
     },
@@ -165,7 +165,7 @@
         "Não pode ser usada por via endovenosa"
       ],
       "correct": 0,
-      "expl": "Insulina regular é a insulina humana solúvel, forma hexâmeros estáveis. SC: início 30 min, pico 2-3h, duração 6-8h. PODE ser usada IV (única indicada em emergência: cetoacidose, estado hiperosmolar). Para refeições, foi substituída em grande parte pelos análogos ultrarrápidos (aspart, lispro, glulisina) que têm início mais rápido e menos hipoglicemia pós-prandial tardia.",
+      "expl": "Insulina regular é a insulina humana solúvel, forma hexâmeros estáveis. SC: início 30 min, pico 2-3h, duração 6-8h. É a insulina-padrão IV em CAD e estado hiperosmolar (SUS, disponibilidade, custo). Análogos rápidos também funcionam IV em teoria, mas sem vantagem clínica e raramente disponíveis para essa via. Em prova, considerar regular = padrão IV em emergência hiperglicêmica.",
       "difficulty": "medium",
       "tags": ["insulina", "regular"]
     },
@@ -228,6 +228,96 @@
       "expl": "Tirzepatida é o primeiro duplo agonista incretínico aprovado: ativa receptores de GLP-1 E de GIP. Resultado: redução adicional de HbA1c (SURPASS) e perda de peso significativa (SURMOUNT). EA gastrointestinais semelhantes aos GLP-1. Administração semanal SC.",
       "difficulty": "hard",
       "tags": ["tirzepatida", "incretina"]
+    },
+    {
+      "type": "mc",
+      "topic": "Metformina · B12",
+      "q": "Mulher de 68 anos em uso de metformina há 7 anos vem com parestesia em mãos e pés e hemograma com VCM 108. Qual a hipótese e conduta?",
+      "options": [
+        "Deficiência de vitamina B12 por uso crônico de metformina; dosar B12 sérico e repor se confirmado",
+        "Neuropatia diabética típica; aumentar metformina e iniciar pregabalina",
+        "Anemia por doença crônica; suspender metformina",
+        "Síndrome carcinoide; investigar tumor"
+      ],
+      "correct": 0,
+      "expl": "Uso crônico de metformina (> 4 anos) reduz a absorção de B12 no íleo terminal — mecanismo provável: alteração do cálcio dependente da junção com B12-FI. Resultado: anemia megaloblástica (VCM alto) e/ou neuropatia (parestesia, perda de propriocepção). Dosar B12 (e ácido metilmalônico se duvidoso); repor B12 (oral 1000 mcg/dia ou IM mensal). Não suspender metformina necessariamente — repor B12 resolve.",
+      "difficulty": "medium",
+      "tags": ["metformina", "b12"]
+    },
+    {
+      "type": "mc",
+      "topic": "Sulfonilureia refratária · Octreotide",
+      "q": "Paciente com hipoglicemia por glibenclamida persiste com episódios mesmo após 12h de SG 10% IV. Qual o adjuvante específico?",
+      "options": [
+        "Octreotide 50-100 mcg SC a cada 6-8h (inibe secreção de insulina pela célula beta)",
+        "Insulina basal para 'estabilizar' a glicemia",
+        "Hidrocortisona EV em dose alta",
+        "Naloxona EV"
+      ],
+      "correct": 0,
+      "expl": "Octreotide é antídoto específico para hipoglicemia refratária por sulfonilureia: análogo da somatostatina que inibe secreção de insulina (canal K-ATP do paciente que está sendo despolarizado pela sulfonilureia). Dose 50-100 mcg SC 6/6h ou 8/8h até estabilização. Considerar em hipoglicemia que recidiva apesar de glicose IV. Glucagon é menos eficaz nesse contexto por já haver estoque de glicogênio depletado.",
+      "difficulty": "hard",
+      "tags": ["sulfonilureia", "octreotide", "antidoto"]
+    },
+    {
+      "type": "mc",
+      "topic": "Somogyi vs Alvorecer",
+      "q": "Paciente em uso de NPH noturna com glicemia de jejum persistentemente elevada. Como diferenciar fenômeno do alvorecer de efeito Somogyi?",
+      "options": [
+        "Glicemia capilar às 3h da manhã: baixa sugere Somogyi (rebote por hipo noturna, reduzir NPH); normal/alta sugere alvorecer (surto de GH/cortisol, aumentar ou atrasar NPH)",
+        "Ambos têm a mesma conduta: dobrar a NPH",
+        "Apenas pelo HbA1c",
+        "Glicemia capilar pós-prandial define"
+      ],
+      "correct": 0,
+      "expl": "Pegadinha clássica de prova: a glicemia de jejum alta pode vir de duas causas opostas. Efeito Somogyi: hipoglicemia noturna (~3h) → contrarregulação (glucagon, cortisol) → hiperglicemia de rebote pela manhã. Conduta: REDUZIR a NPH noturna. Fenômeno do alvorecer (Dawn): surto matinal de GH e cortisol fisiológico → hiperglicemia. Conduta: AUMENTAR ou ATRASAR a NPH. Diferenciação: glicemia capilar 3h da manhã. Hoje é menos frequente com análogos basais (glargina/degludeca têm perfil plano).",
+      "difficulty": "hard",
+      "tags": ["insulina", "somogyi", "alvorecer"]
+    },
+    {
+      "type": "mc",
+      "topic": "Insulina IV em CAD · Potássio",
+      "q": "Em cetoacidose diabética com K+ sérico de 3,1 mEq/L, qual a conduta antes de iniciar insulina IV?",
+      "options": [
+        "Suspender (ou não iniciar) insulina e repor potássio agressivamente; só liberar insulina quando K+ > 3,3 mEq/L",
+        "Iniciar insulina em dose plena imediatamente",
+        "Reduzir a dose da insulina pela metade",
+        "Iniciar bicarbonato sem repor K+"
+      ],
+      "correct": 0,
+      "expl": "Insulina desloca K+ para o intracelular. Se K+ < 3,3 mEq/L, iniciar insulina pode precipitar parada cardíaca por hipocalemia. Conduta correta no protocolo de CAD: K+ > 5,2 → não repor, K+ 3,3-5,2 → repor 20-30 mEq/L de SF junto com insulina, K+ < 3,3 → SUSPENDER insulina, repor K+ até > 3,3, então liberar insulina.",
+      "difficulty": "hard",
+      "tags": ["insulina", "cad", "potassio"]
+    },
+    {
+      "type": "mc",
+      "topic": "Agonista GLP-1 · contraindicações",
+      "q": "Qual condição é contraindicação ABSOLUTA ao uso de agonistas GLP-1 (semaglutida, liraglutida, dulaglutida)?",
+      "options": [
+        "História pessoal ou familiar de carcinoma medular de tireoide (CMT) ou neoplasia endócrina múltipla tipo 2 (NEM-2)",
+        "Idade acima de 65 anos",
+        "IMC acima de 35",
+        "Uso concomitante de metformina"
+      ],
+      "correct": 0,
+      "expl": "Estudos com roedores mostraram hiperplasia/tumores de células C tireoidianas com agonistas GLP-1 prolongados. Embora a translação para humanos não esteja estabelecida, a bula contraindica em pacientes com história pessoal/familiar de CMT ou NEM-2. Pancreatite aguda prévia é contraindicação RELATIVA — discutir risco/benefício.",
+      "difficulty": "medium",
+      "tags": ["glp1", "contraindicacao", "cmt"]
+    },
+    {
+      "type": "mc",
+      "topic": "Insulina · mistura na mesma seringa",
+      "q": "Qual combinação de insulinas NÃO pode ser misturada na mesma seringa?",
+      "options": [
+        "Glargina + qualquer outra insulina (pH ácido precipita ao misturar)",
+        "Regular + NPH (clássico esquema 70/30 misto)",
+        "Aspart + NPH",
+        "Lispro + NPH"
+      ],
+      "correct": 0,
+      "expl": "Glargina é solúvel em pH ácido (4) e PRECIPITA quando em contato com soluções de pH neutro/básico de outras insulinas → administração imprevisível. NUNCA misturar na mesma seringa. Regular pode ser misturada com NPH (esquema 70/30, 50/50). Análogos rápidos (aspart, lispro) também podem ser misturados com NPH. Detemir e degludeca também não devem ser misturadas.",
+      "difficulty": "medium",
+      "tags": ["insulina", "glargina", "mistura"]
     },
     {
       "type": "match",
@@ -358,13 +448,13 @@
           "prompt": "Paciente acorda após glicose 50%. Dextro 110. Está orientado mas com astenia.",
           "question": "Conduta a seguir?",
           "options": [
-            "Internação por pelo menos 24h. Glibenclamida tem meia-vida longa, risco real de recaída prolongada. Manter SG 5-10% IV e dextro 2/2h",
+            "Internação por 24-48h. Glibenclamida e metabólitos ativos têm meia-vida prolongada, risco real de recaída. Manter SG 5-10% IV e dextro 2/2h. Se hipoglicemia refratária, considerar octreotide SC.",
             "Alta imediata pois já respondeu",
             "Repetir glibenclamida na dose habitual",
             "Suspender metformina e manter só glibenclamida"
           ],
           "correct": 0,
-          "expl": "Hipoglicemia por sulfonilureia exige observação prolongada (24h ou mais) por meia-vida longa e risco de recaída. Manter glicose IV contínua, dextro frequente. Suspender sulfonilureia. Após estabilização, repensar o esquema (paciente idoso, magro, com hiporexia → considerar trocar glibenclamida por DPP-4 ou GLP-1)."
+          "expl": "Hipoglicemia por sulfonilureia exige observação prolongada (24-48h, pelos metabólitos ativos da glibenclamida). Manter glicose IV contínua, dextro frequente. Octreotide SC (50-100 mcg) é antídoto específico em casos refratários — inibe a secreção de insulina pela célula beta. Suspender sulfonilureia. Após estabilização, repensar o esquema (paciente idoso, magro, com hiporexia → trocar glibenclamida por iDPP-4 ou agonista GLP-1)."
         }
       ],
       "outcome": "Após 36h de SG 10% IV, paciente estável sem recaídas. Alta com troca de glibenclamida por linagliptina 5 mg/dia. Orientação familiar reforçada: nunca pular refeições com glibenclamida, monitorar dextro em jejum prolongado ou doença."
@@ -464,7 +554,7 @@
       "type": "flashcard",
       "topic": "Canagliflozina",
       "front": "Canagliflozina: alerta de segurança importante?",
-      "back": "iSGLT-2. CANVAS sinalizou aumento de amputação de MMII e risco de fratura, principalmente em pacientes com doença vascular periférica. Cuidado especial. Benefício renal demonstrado (CREDENCE).",
+      "back": "iSGLT-2. CANVAS sinalizou risco de amputação de MMII e fratura, mas estudos posteriores (CREDENCE, meta-análises) não confirmaram o sinal. FDA retirou o boxed warning em 2020. Cuidado ainda recomendado em doença vascular periférica avançada. Benefício renal robusto (CREDENCE).",
       "tags": ["sglt2"]
     },
     {
