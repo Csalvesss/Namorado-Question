@@ -11,6 +11,7 @@ function previewTitle(q: ImportQuestion): string {
   if (q.type === 'ecg') return `ECG ${q.tracingId}`;
   if (q.type === 'case') return q.vignette;
   if (q.type === 'match') return q.prompt;
+  if (q.type === 'algorithm') return q.title;
   return q.q;
 }
 
@@ -19,6 +20,7 @@ function previewSecondary(q: ImportQuestion): string {
   if (q.type === 'ecg') return `${q.points.length} pontos · ${q.diagnosis.question}`;
   if (q.type === 'case') return `${q.steps.length} decisões`;
   if (q.type === 'match') return `${q.pairs.length} pares`;
+  if (q.type === 'algorithm') return `${q.nodes.length} nós · ${q.outcomes.length} desfechos`;
   return q.options.join(' · ');
 }
 
@@ -32,6 +34,8 @@ function typeLabel(q: ImportQuestion): string {
       return 'caso clínico';
     case 'match':
       return 'pareamento';
+    case 'algorithm':
+      return 'algoritmo';
     default:
       return 'múltipla escolha';
   }

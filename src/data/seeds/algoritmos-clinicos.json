@@ -1,0 +1,230 @@
+{
+  "title": "Protocolos e Algoritmos Clínicos",
+  "description": "Fluxogramas de decisão interativos. Você navega pela árvore como se estivesse aplicando o protocolo na cabeceira do leito.",
+  "icon": "",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "algorithm",
+      "topic": "Dor torácica no PA",
+      "title": "Dor torácica aguda",
+      "subtitle": "Protocolo de triagem inicial em adulto com dor torácica",
+      "specialty": "Emergência cardiológica",
+      "startNodeId": "triagem",
+      "difficulty": "medium",
+      "nodes": [
+        {
+          "id": "triagem",
+          "prompt": "Adulto, 54 anos, chega ao PA com dor torácica há 1 hora.",
+          "question": "Primeiro passo na triagem?",
+          "options": [
+            { "label": "ECG em até 10 minutos + monitor + acesso venoso", "nextId": "ecg-result", "isPreferred": true },
+            { "label": "Solicitar troponina seriada antes do ECG", "nextId": "tropo-erro" },
+            { "label": "Encaminhar à observação e reavaliar em 1h", "nextId": "espera-erro" }
+          ]
+        },
+        {
+          "id": "tropo-erro",
+          "question": "Atrasou o ECG. Em 30 minutos o paciente convulsiona por arritmia ventricular sem registro inicial.",
+          "options": [
+            { "label": "Voltar ao protocolo: ECG primeiro", "nextId": "ecg-result" }
+          ]
+        },
+        {
+          "id": "espera-erro",
+          "question": "Após 45 minutos em observação sem ECG, paciente entra em PCR.",
+          "options": [
+            { "label": "Voltar ao protocolo: ECG primeiro", "nextId": "ecg-result" }
+          ]
+        },
+        {
+          "id": "ecg-result",
+          "prompt": "ECG feito. Você precisa interpretar.",
+          "question": "O ECG mostra:",
+          "options": [
+            { "label": "Supradesnivelamento de ST em parede inferior (DII, DIII, aVF)", "nextId": "stemi", "isPreferred": true },
+            { "label": "Ritmo sinusal sem alterações", "nextId": "nstemi-investigar" },
+            { "label": "Infradesnivelamento difuso de ST", "nextId": "nstemi-investigar" }
+          ]
+        },
+        {
+          "id": "stemi",
+          "prompt": "IAM com supra inferior confirmado.",
+          "question": "Conduta imediata?",
+          "options": [
+            { "label": "AAS 300 mg + 2º antiagregante + heparina + reperfusão (PCI em até 90 min ou trombolítico em até 30 min)", "nextId": "out-stemi-bom", "isPreferred": true },
+            { "label": "Apenas AAS e observar evolução", "nextId": "out-conservador-ruim" },
+            { "label": "Nitrato sublingual em dose alta antes de mais nada", "nextId": "out-nitrato-vd" }
+          ]
+        },
+        {
+          "id": "nstemi-investigar",
+          "prompt": "ECG sem supra evidente. Você ainda tem suspeita.",
+          "question": "O que pedir agora?",
+          "options": [
+            { "label": "Troponina seriada (0 e 3h), ECG seriado, escore HEART", "nextId": "out-investigar-bom", "isPreferred": true },
+            { "label": "Apenas alta com retorno em 7 dias", "nextId": "out-conservador-ruim" }
+          ]
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "out-stemi-bom",
+          "title": "Reperfusão em tempo. Bom desfecho.",
+          "body": "Paciente sobe para a hemodinâmica em 45 min. Angioplastia primária com sucesso. UTI 48h, alta no 5º dia com dupla antiagregação, estatina alta intensidade e betabloqueador. Reabilitação cardíaca encaminhada.",
+          "tone": "good"
+        },
+        {
+          "id": "out-conservador-ruim",
+          "title": "Conduta omissa. Evolução adversa.",
+          "body": "Sem reperfusão, área infartada se expande. Paciente desenvolve choque cardiogênico nas próximas 6h. Transferido tardiamente, mortalidade alta. Tempo é músculo.",
+          "tone": "bad"
+        },
+        {
+          "id": "out-nitrato-vd",
+          "title": "Hipotensão grave por acometimento de VD.",
+          "body": "IAM inferior frequentemente envolve VD. Nitrato vasodilata e cai pré-carga, gerando hipotensão refratária. Use com cuidado em supra inferior — fazer ECG das derivações direitas antes.",
+          "tone": "bad"
+        },
+        {
+          "id": "out-investigar-bom",
+          "title": "Investigação adequada.",
+          "body": "Troponina em ascensão, ECG mostra nova inversão de T. Define-se IAMSST. Estratificação invasiva precoce, cateterismo em 24-72h. Antiagregação dupla, anticoagulação e estatina iniciadas.",
+          "tone": "good"
+        }
+      ]
+    },
+    {
+      "type": "algorithm",
+      "topic": "Sepse no PA",
+      "title": "Protocolo de sepse (1 hora)",
+      "subtitle": "Reconhecimento e bundle de 1 hora em adulto com sepse",
+      "specialty": "Emergência infecciosa",
+      "startNodeId": "suspeita",
+      "difficulty": "medium",
+      "nodes": [
+        {
+          "id": "suspeita",
+          "prompt": "Adulto, 68 anos, febre, sonolento, FC 122, PA 84/48, FR 28.",
+          "question": "Qual o primeiro passo?",
+          "options": [
+            { "label": "Aplicar qSOFA, considerar sepse e iniciar bundle de 1 hora", "nextId": "bundle", "isPreferred": true },
+            { "label": "Esperar resultados de exames para definir conduta", "nextId": "out-tardio" }
+          ]
+        },
+        {
+          "id": "bundle",
+          "prompt": "qSOFA ≥ 2. Cronômetro de 1 hora começou.",
+          "question": "O que está incluído no bundle de 1 hora?",
+          "options": [
+            { "label": "Lactato + hemoculturas + ATB amplo + cristaloide 30 mL/kg se hipotensão/lactato ≥ 4 + vasopressor se PA não responde", "nextId": "pos-bundle", "isPreferred": true },
+            { "label": "Hidratação leve e antibiótico oral", "nextId": "out-subdose" },
+            { "label": "Apenas hemocultura antes de qualquer medicação", "nextId": "out-tardio" }
+          ]
+        },
+        {
+          "id": "pos-bundle",
+          "prompt": "Após 30 mL/kg de cristaloide, PA 92/52 e lactato cai de 4,2 para 2,8.",
+          "question": "Próximo passo?",
+          "options": [
+            { "label": "Reavaliar perfusão. Manter PAM ≥ 65, considerar UTI", "nextId": "out-bundle-bom", "isPreferred": true },
+            { "label": "Continuar cristaloide ad libitum mesmo com sinais de sobrecarga", "nextId": "out-sobrecarga" }
+          ]
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "out-bundle-bom",
+          "title": "Bundle no tempo. Vida salva.",
+          "body": "Paciente transferido pra UTI estável. ATB ajustado pela urocultura (E. coli sensível à ceftriaxona). Alta no 6º dia. Bundle de 1 hora reduz mortalidade em ~25% (Surviving Sepsis 2021).",
+          "tone": "good"
+        },
+        {
+          "id": "out-tardio",
+          "title": "ATB tardio. Choque grave.",
+          "body": "Cada hora de atraso no ATB em sepse aumenta mortalidade ~7-9%. O paciente progride para falência de múltiplos órgãos, UTI prolongada.",
+          "tone": "bad"
+        },
+        {
+          "id": "out-subdose",
+          "title": "Cobertura inadequada.",
+          "body": "ATB oral é insuficiente em sepse com hipoperfusão (absorção comprometida). Cristaloide em volume baixo não reverte choque. Bacteremia persiste, paciente piora.",
+          "tone": "bad"
+        },
+        {
+          "id": "out-sobrecarga",
+          "title": "Sobrecarga hídrica.",
+          "body": "Volume excessivo em sepse aumenta mortalidade (estudo CLASSIC, CLASSIC-2). Quando há resposta inicial, faça reavaliação dinâmica (perna elevada, USG VCI) antes de mais volume. Vasopressor é alternativa segura.",
+          "tone": "bad"
+        }
+      ]
+    },
+    {
+      "type": "algorithm",
+      "topic": "BLS adulto",
+      "title": "BLS / Suporte Básico de Vida",
+      "subtitle": "Sequência para PCR em adulto fora do hospital",
+      "specialty": "Emergência · ressuscitação",
+      "startNodeId": "vitima-no-chao",
+      "difficulty": "easy",
+      "nodes": [
+        {
+          "id": "vitima-no-chao",
+          "prompt": "Você é a primeira a chegar. Homem adulto caído na calçada.",
+          "question": "Primeira ação?",
+          "options": [
+            { "label": "Verificar segurança da cena, depois resposta da vítima (chame, sacuda ombro)", "nextId": "checar-resposta", "isPreferred": true },
+            { "label": "Iniciar compressões imediatamente", "nextId": "compressao-cega" },
+            { "label": "Procurar pulso carotídeo por 30 segundos", "nextId": "checar-pulso-demora" }
+          ]
+        },
+        {
+          "id": "compressao-cega",
+          "question": "Comprimir sem verificar se está em PCR pode ferir vítima consciente. Volte ao protocolo.",
+          "options": [
+            { "label": "Verificar resposta primeiro", "nextId": "checar-resposta" }
+          ]
+        },
+        {
+          "id": "checar-pulso-demora",
+          "question": "Pulso em adulto leigo é difícil e demora. Recomendação atual é checar respiração simultaneamente em até 10 segundos.",
+          "options": [
+            { "label": "Voltar e verificar resposta + respiração em até 10s", "nextId": "checar-resposta" }
+          ]
+        },
+        {
+          "id": "checar-resposta",
+          "prompt": "Não responde. Você olha o tórax: respiração agônica (gasping).",
+          "question": "Qual a próxima ação?",
+          "options": [
+            { "label": "Pedir socorro (192), pedir DEA, iniciar compressões imediatamente (30:2 ou só compressão se sozinha)", "nextId": "compressao", "isPreferred": true },
+            { "label": "Aguardar 2 minutos para confirmar PCR", "nextId": "compressao-cega" }
+          ]
+        },
+        {
+          "id": "compressao",
+          "prompt": "Compressões em curso. 100-120/min, profundidade 5-6 cm. Sem interromper.",
+          "question": "DEA chegou. O que fazer?",
+          "options": [
+            { "label": "Ligar DEA, seguir comandos, afastar todos no choque (ritmo chocável: FV/TV sem pulso)", "nextId": "out-bls-bom", "isPreferred": true },
+            { "label": "Continuar compressões sem usar DEA", "nextId": "out-bls-suboptimo" }
+          ]
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "out-bls-bom",
+          "title": "RCE alcançado.",
+          "body": "Após 2 ciclos + 1 choque, vítima recupera circulação espontânea. Posição de recuperação enquanto SAMU chega. Sobrevivência hospitalar em PCR extra-hospitalar com DEA precoce sobe de ~10% para ~40%.",
+          "tone": "good"
+        },
+        {
+          "id": "out-bls-suboptimo",
+          "title": "Sem desfibrilação.",
+          "body": "Compressões mantêm perfusão básica, mas FV/TV sem pulso só reverte com choque. Sem DEA, sobrevida cai rapidamente (~10%/min de atraso). DEA precoce é a intervenção que mais salva.",
+          "tone": "bad"
+        }
+      ]
+    }
+  ]
+}

@@ -14,6 +14,7 @@ import eletroBasico from '../data/seeds/eletro-basico.json';
 import casosClinicos from '../data/seeds/casos-clinicos.json';
 import casosImersivos from '../data/seeds/casos-imersivos.json';
 import farmacoMatch from '../data/seeds/farmaco-match.json';
+import algoritmosClinicos from '../data/seeds/algoritmos-clinicos.json';
 import flashcardsAntibioticos from '../data/seeds/flashcards-antibioticos.json';
 import flashcardsHivAids from '../data/seeds/flashcards-hiv-aids.json';
 import flashcardsIc from '../data/seeds/flashcards-insuficiencia-cardiaca.json';
@@ -33,6 +34,7 @@ const SEEDS: ImportPayload[] = [
   casosClinicos as ImportPayload,
   casosImersivos as ImportPayload,
   farmacoMatch as ImportPayload,
+  algoritmosClinicos as ImportPayload,
   flashcardsAntibioticos as ImportPayload,
   flashcardsHivAids as ImportPayload,
   flashcardsIc as ImportPayload,
@@ -68,6 +70,25 @@ function buildQuestion(q: ImportQuestion, courseId: string, now: number): Questi
       timeStamp: q.timeStamp,
       location: q.location,
       outcome: q.outcome,
+      imageUrl: q.imageUrl,
+      imageCaption: q.imageCaption,
+      difficulty: q.difficulty,
+      tags: q.tags,
+      createdAt: now,
+    };
+  }
+  if (q.type === 'algorithm') {
+    return {
+      id: db.ids.question(),
+      courseId,
+      topic: q.topic,
+      type: 'algorithm',
+      title: q.title,
+      subtitle: q.subtitle,
+      specialty: q.specialty,
+      startNodeId: q.startNodeId,
+      nodes: q.nodes,
+      outcomes: q.outcomes,
       difficulty: q.difficulty,
       tags: q.tags,
       createdAt: now,
@@ -112,6 +133,8 @@ function buildQuestion(q: ImportQuestion, courseId: string, now: number): Questi
     options: q.options,
     correct: q.correct,
     expl: q.expl,
+    imageUrl: q.imageUrl,
+    imageCaption: q.imageCaption,
     difficulty: q.difficulty,
     tags: q.tags,
     createdAt: now,

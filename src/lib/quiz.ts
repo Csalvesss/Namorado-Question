@@ -38,7 +38,7 @@ export function sampleQuestionsInterleaved({
     if (typeFilter) {
       pool = pool.filter((q) => q.type === typeFilter);
     } else {
-      pool = pool.filter((q) => q.type !== 'flashcard');
+      pool = pool.filter((q) => q.type !== 'flashcard' && q.type !== 'algorithm');
     }
     if (pool.length > 0) byCourse.set(c.id, pool);
   });
@@ -67,7 +67,7 @@ export function sampleQuestions({
   if (typeFilter) {
     pool = pool.filter((q) => q.type === typeFilter);
   } else {
-    pool = pool.filter((q) => q.type !== 'flashcard');
+    pool = pool.filter((q) => q.type !== 'flashcard' && q.type !== 'algorithm');
   }
   if (topics && topics.length > 0) {
     pool = pool.filter((q) => topics.includes(q.topic));
@@ -108,6 +108,8 @@ export interface PreparedMCQuestion {
   expl: string;
   options: string[];
   correct: number;
+  imageUrl?: string;
+  imageCaption?: string;
 }
 
 export interface PreparedECGQuestion {
@@ -189,19 +191,25 @@ export function prepareQuestion(question: Question): PreparedQuestion {
       expl: question.expl,
     };
   }
-  const tagged = question.options.map((opt: string, i: number) => ({
+  if (question.type !== 'mc') {
+    throw new Error(`prepareQuestion: unsupported type ${question.type}`);
+  }
+  const mc = question;
+  const tagged = mc.options.map((opt, i) => ({
     opt,
-    isCorrect: i === question.correct,
+    isCorrect: i === mc.correct,
   }));
   const shuffled = shuffle(tagged);
   return {
     type: 'mc',
-    id: question.id,
-    topic: question.topic,
-    q: question.q,
-    expl: question.expl,
+    id: mc.id,
+    topic: mc.topic,
+    q: mc.q,
+    expl: mc.expl,
     options: shuffled.map((o) => o.opt),
     correct: shuffled.findIndex((o) => o.isCorrect),
+    imageUrl: mc.imageUrl,
+    imageCaption: mc.imageCaption,
   };
 }
 

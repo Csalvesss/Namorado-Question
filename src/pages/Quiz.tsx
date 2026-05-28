@@ -509,6 +509,21 @@ function QuestionCard({ question, index, submitted, phrase, onSelect }: Question
             <span className="h-1.5 w-1.5 rounded-full bg-wine" />
             {question.topic}
           </div>
+          {question.imageUrl && (
+            <figure className="mb-4 overflow-hidden rounded-2xl border border-line bg-paper">
+              <img
+                src={question.imageUrl}
+                alt={question.imageCaption ?? 'imagem da questão'}
+                className="w-full object-contain"
+                loading="lazy"
+              />
+              {question.imageCaption && (
+                <figcaption className="border-t border-line px-3 py-2 text-xs italic text-ink-soft">
+                  {question.imageCaption}
+                </figcaption>
+              )}
+            </figure>
+          )}
           <p className="text-[16px] leading-relaxed text-ink sm:text-[18px]">{question.q}</p>
 
           <div className="mt-6 flex flex-col gap-2.5">

@@ -1,6 +1,6 @@
 export type Difficulty = 'easy' | 'medium' | 'hard';
 
-export type QuestionType = 'mc' | 'ecg' | 'case' | 'flashcard' | 'match';
+export type QuestionType = 'mc' | 'ecg' | 'case' | 'flashcard' | 'match' | 'algorithm';
 
 interface BaseQuestion {
   id: string;
@@ -17,6 +17,8 @@ export interface MultipleChoiceQuestion extends BaseQuestion {
   options: string[];
   correct: number;
   expl: string;
+  imageUrl?: string;
+  imageCaption?: string;
 }
 
 export interface ECGPoint {
@@ -74,6 +76,39 @@ export interface CaseQuestion extends BaseQuestion {
   timeStamp?: string;
   location?: string;
   outcome?: string;
+  imageUrl?: string;
+  imageCaption?: string;
+}
+
+export interface AlgorithmOptionEdge {
+  label: string;
+  nextId: string;
+  expl?: string;
+  isPreferred?: boolean;
+}
+
+export interface AlgorithmNode {
+  id: string;
+  prompt?: string;
+  question: string;
+  options: AlgorithmOptionEdge[];
+}
+
+export interface AlgorithmOutcome {
+  id: string;
+  title: string;
+  body: string;
+  tone: 'good' | 'neutral' | 'bad';
+}
+
+export interface AlgorithmQuestion extends BaseQuestion {
+  type: 'algorithm';
+  title: string;
+  subtitle?: string;
+  specialty?: string;
+  startNodeId: string;
+  nodes: AlgorithmNode[];
+  outcomes: AlgorithmOutcome[];
 }
 
 export interface FlashcardQuestion extends BaseQuestion {
@@ -103,7 +138,8 @@ export type Question =
   | ECGQuestion
   | CaseQuestion
   | FlashcardQuestion
-  | MatchQuestion;
+  | MatchQuestion
+  | AlgorithmQuestion;
 
 export interface Course {
   id: string;
@@ -198,6 +234,8 @@ export interface ImportMCQuestion {
   options: string[];
   correct: number;
   expl: string;
+  imageUrl?: string;
+  imageCaption?: string;
   difficulty?: Difficulty;
   tags?: string[];
 }
@@ -223,6 +261,21 @@ export interface ImportCaseQuestion {
   timeStamp?: string;
   location?: string;
   outcome?: string;
+  imageUrl?: string;
+  imageCaption?: string;
+  difficulty?: Difficulty;
+  tags?: string[];
+}
+
+export interface ImportAlgorithmQuestion {
+  type: 'algorithm';
+  topic: string;
+  title: string;
+  subtitle?: string;
+  specialty?: string;
+  startNodeId: string;
+  nodes: AlgorithmNode[];
+  outcomes: AlgorithmOutcome[];
   difficulty?: Difficulty;
   tags?: string[];
 }
@@ -254,7 +307,8 @@ export type ImportQuestion =
   | ImportECGQuestion
   | ImportCaseQuestion
   | ImportFlashcardQuestion
-  | ImportMatchQuestion;
+  | ImportMatchQuestion
+  | ImportAlgorithmQuestion;
 
 export interface ImportPayload {
   title: string;
