@@ -2,11 +2,13 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
+import BilheteCard from '../components/BilheteCard';
 import EmptyState from '../components/EmptyState';
 import CaseClinical, { type CaseState } from '../components/questions/CaseClinical';
 import EcgInterpret, { type EcgState } from '../components/questions/EcgInterpret';
 import Matching, { type MatchState } from '../components/questions/Matching';
 import { ResultPanel } from '../components/ResultPanel';
+import { BILHETES } from '../data/bilhetes';
 import { getPhrases } from '../data/phrases';
 import { db } from '../lib/db';
 import { duration, easeOutExpo, palette } from '../lib/motion';
@@ -230,32 +232,36 @@ export default function Quiz() {
   let rightIdx = 0;
   let wrongIdx = 0;
 
+  const moduleLabel = course.title.toUpperCase();
+
   return (
-    <div className="space-y-6 pb-28 md:pb-0">
-      <header className="space-y-3">
+    <div className="space-y-7 pb-28 md:pb-0">
+      <header>
         <Link
           to={`/curso/${courseId}`}
           className="inline-flex items-center text-[11px] uppercase tracking-[0.22em] text-muted transition hover:text-wine"
         >
-          ← Voltar ao curso
+          ← {course.title} · {config.label}
         </Link>
-        <div className="flex flex-wrap items-end justify-between gap-4">
+        <div className="mt-1 text-[10px] uppercase tracking-[0.32em] text-gold opacity-70">
+          — MODO {config.label.toUpperCase()}
+        </div>
+        <div className="mt-4 flex flex-wrap items-end justify-between gap-4">
           <div className="min-w-0 flex-1">
-            <div className="eyebrow-gold mb-2 flex items-center gap-2">
-              <config.Icon className="h-3.5 w-3.5 text-wine" strokeWidth={1.75} />
-              <span>Modo {config.label}</span>
-            </div>
-            <h1 className="display-title-sm leading-tight">{course.title}</h1>
-            <div className="mt-2 text-[11px] uppercase tracking-[0.22em] text-muted">
-              {questions.length} questões · balanceado por tópico
+            <h1 className="font-serif italic leading-[0.95] text-wine-deep">
+              <span className="block text-[clamp(2.5rem,6vw,4.5rem)]">{moduleLabel}</span>
+            </h1>
+            <div className="mt-3 text-[11px] uppercase tracking-[0.22em] text-muted">
+              questão {String(Math.max(answeredCount, 1)).padStart(2, '0')} de{' '}
+              {String(questions.length).padStart(2, '0')} · balanceado por tópico
             </div>
           </div>
           {config.timed && !submitted && (
-            <div className="card flex flex-col items-center px-5 py-3 text-center">
+            <div className="card flex flex-col items-center px-6 py-3 text-center">
               <div className="font-serif text-3xl font-semibold leading-none text-wine-deep">
                 {formatTime(elapsedSec)}
               </div>
-              <div className="mt-1 text-[10px] uppercase tracking-[0.18em] text-muted">
+              <div className="mt-1.5 text-[10px] uppercase tracking-[0.2em] text-muted">
                 tempo decorrido
               </div>
             </div>
@@ -264,16 +270,28 @@ export default function Quiz() {
       </header>
 
       <div className="card flex flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:gap-5">
-        <div className="font-serif text-base text-ink-soft">
-          Respondidas{' '}
-          <strong className="font-serif text-xl text-wine-deep">{answeredCount}</strong> de{' '}
-          <strong className="font-serif text-xl text-wine-deep">{questions.length}</strong>
+        <div className="font-serif text-sm italic text-ink-soft">
+          respondidas{' '}
+          <strong className="font-serif text-xl font-semibold not-italic text-wine-deep">
+            {String(answeredCount).padStart(2, '0')}
+          </strong>{' '}
+          <span className="text-muted">de {String(questions.length).padStart(2, '0')}</span>
         </div>
-        <div className="flex-1 overflow-hidden rounded-full bg-rose-soft">
+        <div className="relative flex-1 overflow-hidden rounded-full bg-rose-soft">
           <div
             className="h-1.5 bg-gradient-to-r from-rose to-wine transition-all"
             style={{ width: `${progress}%` }}
           />
+        </div>
+        <div className="hidden items-center gap-[3px] sm:flex">
+          {questions.map((_, i) => (
+            <span
+              key={i}
+              className={`h-1.5 w-1.5 rounded-full ${
+                i < answeredCount ? 'bg-wine' : 'bg-rose-soft'
+              }`}
+            />
+          ))}
         </div>
       </div>
 
@@ -299,10 +317,16 @@ export default function Quiz() {
               wrongIdx++;
             }
           }
+          const showBilheteAfter =
+            mode === 'bilhete' &&
+            displayMode === 'namorado' &&
+            (idx + 1) % 3 === 0 &&
+            idx + 1 < questions.length;
+
+          let rendered: React.ReactNode = null;
           if (q.type === 'mc') {
-            return (
+            rendered = (
               <QuestionCard
-                key={q.id + '-' + idx}
                 question={q}
                 index={idx}
                 submitted={submitted}
@@ -310,11 +334,9 @@ export default function Quiz() {
                 onSelect={(optIdx) => selectOption(idx, optIdx)}
               />
             );
-          }
-          if (q.type === 'ecg') {
-            return (
+          } else if (q.type === 'ecg') {
+            rendered = (
               <EcgInterpret
-                key={q.id + '-' + idx}
                 question={q}
                 index={idx}
                 submitted={submitted}
@@ -326,11 +348,9 @@ export default function Quiz() {
                 onUpdate={(next) => updateEcgState(idx, next)}
               />
             );
-          }
-          if (q.type === 'case') {
-            return (
+          } else if (q.type === 'case') {
+            rendered = (
               <CaseClinical
-                key={q.id + '-' + idx}
                 question={q}
                 index={idx}
                 submitted={submitted}
@@ -338,19 +358,40 @@ export default function Quiz() {
                 onUpdate={(next) => updateCaseState(idx, next)}
               />
             );
+          } else {
+            rendered = (
+              <Matching
+                question={q}
+                index={idx}
+                submitted={submitted}
+                state={{
+                  selections: q.matchSelections ?? {},
+                  rightOrder: q.matchRightOrder,
+                }}
+                onUpdate={(next) => updateMatchState(idx, next)}
+              />
+            );
           }
+
+          if (!showBilheteAfter) {
+            return <div key={q.id + '-' + idx}>{rendered}</div>;
+          }
+
+          const bilheteIndex = Math.floor((idx + 1) / 3) - 1;
+          const bilhete = BILHETES[bilheteIndex % BILHETES.length];
+          const partner = user?.partnerName?.trim() || '';
           return (
-            <Matching
-              key={q.id + '-' + idx}
-              question={q}
-              index={idx}
-              submitted={submitted}
-              state={{
-                selections: q.matchSelections ?? {},
-                rightOrder: q.matchRightOrder,
-              }}
-              onUpdate={(next) => updateMatchState(idx, next)}
-            />
+            <div key={q.id + '-' + idx} className="space-y-4">
+              {rendered}
+              <div className="my-2 flex items-center justify-center gap-3 text-rose opacity-60">
+                <span className="h-px w-12 bg-rose-soft" />
+                <span className="text-[10px] uppercase tracking-[0.32em] text-gold">
+                  uma pausa pra você
+                </span>
+                <span className="h-px w-12 bg-rose-soft" />
+              </div>
+              <BilheteCard bilhete={bilhete} signature={partner || undefined} />
+            </div>
           );
         })}
       </div>
@@ -399,55 +440,68 @@ function QuestionCard({ question, index, submitted, phrase, onSelect }: Question
   const isRight = submitted && question.selected === question.correct;
   const numberClass = submitted
     ? isRight
-      ? 'text-green'
-      : 'text-red'
+      ? 'text-green/40'
+      : 'text-red/40'
     : isAnswered
-      ? 'text-wine'
+      ? 'text-rose/60'
       : 'text-rose-soft';
 
   return (
-    <article className="card relative overflow-hidden p-5 sm:p-8">
-      <span
-        className={`absolute left-0 top-0 bottom-0 w-[3px] ${isAnswered ? 'bg-wine' : 'bg-rose-soft'}`}
-      />
-
-      <div className="flex flex-col gap-4 sm:flex-row sm:gap-7">
-        <div className="flex shrink-0 items-baseline gap-3 sm:flex-col sm:items-start sm:gap-1">
+    <article className="relative overflow-hidden rounded-3xl border border-line bg-paper-soft p-6 shadow-card sm:p-10">
+      <div className="flex flex-col gap-5 sm:flex-row sm:gap-8">
+        <div className="flex shrink-0 items-baseline gap-3 sm:block">
           <span
-            className={`font-serif text-[3.5rem] font-semibold italic leading-none transition-colors sm:text-[5rem] ${numberClass}`}
+            className={`font-serif text-[4rem] font-semibold italic leading-none transition-colors sm:text-[6rem] ${numberClass}`}
           >
             {String(index + 1).padStart(2, '0')}
           </span>
-          <span className="eyebrow-gold">{question.topic}</span>
         </div>
 
         <div className="min-w-0 flex-1">
-          <p className="text-[15px] leading-relaxed text-ink sm:text-[17px]">{question.q}</p>
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-rose-soft px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-wine">
+            <span className="h-1.5 w-1.5 rounded-full bg-wine" />
+            {question.topic}
+          </div>
+          <p className="text-[16px] leading-relaxed text-ink sm:text-[18px]">{question.q}</p>
 
-          <div className="mt-5 flex flex-col gap-2.5">
+          <div className="mt-6 flex flex-col gap-2.5">
             {question.options.map((opt, i) => {
               const isSelected = question.selected === i;
               const isCorrectOpt = i === question.correct;
               let classes =
-                'border-line bg-bg-soft text-ink-soft hover:border-rose hover:bg-paper hover:text-ink active:bg-paper';
-              if (!submitted && isSelected) classes = 'border-wine bg-rose-soft text-wine-deep font-medium';
-              if (submitted && isCorrectOpt) classes = 'border-green bg-green-soft text-green';
-              if (submitted && isSelected && !isCorrectOpt) classes = 'border-red bg-red-soft text-red';
-              let letterClass = 'text-wine';
-              if (submitted && isCorrectOpt) letterClass = 'text-green';
-              if (submitted && isSelected && !isCorrectOpt) letterClass = 'text-red';
+                'border-line bg-paper text-ink-soft hover:border-rose hover:text-ink active:bg-bg-soft';
+              if (!submitted && isSelected)
+                classes = 'border-wine bg-rose-soft/60 text-wine-deep font-medium';
+              if (submitted && isCorrectOpt) classes = 'border-green bg-green-soft/80 text-green';
+              if (submitted && isSelected && !isCorrectOpt)
+                classes = 'border-red bg-red-soft/80 text-red';
+              let letterClass = 'border-line text-wine bg-paper';
+              if (!submitted && isSelected) letterClass = 'border-wine bg-wine text-white';
+              if (submitted && isCorrectOpt) letterClass = 'border-green bg-green text-white';
+              if (submitted && isSelected && !isCorrectOpt) letterClass = 'border-red bg-red text-white';
               return (
                 <button
                   key={i}
                   type="button"
                   onClick={() => onSelect(i)}
                   disabled={submitted}
-                  className={`flex min-h-[56px] items-start gap-3 rounded-xl border px-4 py-3.5 text-left text-[15px] leading-snug transition ${classes} disabled:cursor-default`}
+                  className={`flex min-h-[56px] items-center gap-4 rounded-2xl border px-4 py-3 text-left text-[15px] leading-snug transition ${classes} disabled:cursor-default`}
                 >
-                  <span className={`font-serif text-lg font-semibold leading-6 ${letterClass}`}>
+                  <span
+                    className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border font-serif text-base font-semibold ${letterClass}`}
+                  >
                     {LETTERS[i]}
                   </span>
-                  <span className="flex-1 pt-[1px]">{opt}</span>
+                  <span className="flex-1">{opt}</span>
+                  <span
+                    className={`hidden h-4 w-4 shrink-0 rounded-full border sm:inline-block ${
+                      isSelected
+                        ? 'border-wine bg-wine'
+                        : submitted && isCorrectOpt
+                          ? 'border-green bg-green'
+                          : 'border-line bg-paper'
+                    }`}
+                  />
                 </button>
               );
             })}

@@ -1,4 +1,4 @@
-import { BookOpenCheck, Flame, Stethoscope, Target, Timer, Zap, type LucideIcon } from 'lucide-react';
+import { BookOpenCheck, Flame, Mail, Stethoscope, Target, Timer, Zap, type LucideIcon } from 'lucide-react';
 import type { Question, QuestionType, QuizMode } from '../types';
 import { db } from './db';
 
@@ -217,6 +217,15 @@ export function modeConfig(mode: QuizMode): ModeConfig {
         Icon: Stethoscope,
         timed: false,
         description: 'Casos clínicos encadeados, como uma rodada de plantão.',
+      };
+    case 'bilhete':
+      return {
+        count: 15,
+        label: 'Modo bilhete',
+        Icon: Mail,
+        timed: false,
+        description:
+          'Estude no seu ritmo: a cada três questões, um bilhetinho carinhoso aparece, pequena pausa pra respirar e lembrar de quem cuida de você.',
       };
     case 'standard':
     default:
