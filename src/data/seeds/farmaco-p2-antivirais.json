@@ -1,0 +1,495 @@
+{
+  "title": "Farmaco P2: Antivirais",
+  "description": "Antivirais conforme a lista da P2: influenza, herpes, CMV, hepatite B, HIV (TARV + PrEP) e hepatite C. Mecanismo seletivo, esquemas de 1ª linha e armadilhas.",
+  "icon": "",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "mc",
+      "topic": "Oseltamivir",
+      "q": "Sobre o oseltamivir (anti-influenza), assinale a CORRETA:",
+      "options": [
+        "Pró-fármaco oral; inibe a neuraminidase do vírus influenza A e B impedindo a liberação de novos vírions; eficácia máxima quando iniciado nas primeiras 48h dos sintomas",
+        "Inibe a polimerase do DNA viral",
+        "Atua sobre a transcriptase reversa do influenza",
+        "É um anticorpo monoclonal anti-hemaglutinina"
+      ],
+      "correct": 0,
+      "expl": "Oseltamivir é pró-fármaco VO ativado por esterases hepáticas. Inibe a NEURAMINIDASE viral — impede a clivagem do ácido siálico → vírions ficam presos à célula e não infectam novas. Eficácia depende do início precoce (até 48h dos sintomas reduz duração da doença; tardio só beneficia hospitalizados ou imunossuprimidos). Indicação: tratamento e profilaxia pós-exposição em grupos de risco. EA: náuseas, vômitos.",
+      "difficulty": "easy",
+      "tags": ["influenza", "oseltamivir"]
+    },
+    {
+      "type": "mc",
+      "topic": "Aciclovir",
+      "q": "Sobre o aciclovir (anti-HSV/VZV), assinale a CORRETA:",
+      "options": [
+        "Análogo de guanosina ativado pela timidina-cinase VIRAL (seletividade); inibe a DNA polimerase viral; indicação: herpes simples e varicela-zoster; EA: nefrotoxicidade por cristalização (hidratar)",
+        "Inibe a neuraminidase do influenza",
+        "É um inibidor da transcriptase reversa do HIV",
+        "Atua sobre a integrase viral"
+      ],
+      "correct": 0,
+      "expl": "Aciclovir é análogo de guanosina. SELETIVIDADE: é monofosforilado pela timidina-cinase VIRAL (não é ativado em células não infectadas — daí toxicidade baixa). Depois fosforilado por enzimas celulares a triP, que inibe a DNA polimerase viral. Indicações: HSV (oral e genital), VZV (catapora, herpes-zóster). EA: nefrotoxicidade por cristalúria (hidratar bem antes do IV). VZV exige doses MAIORES que HSV.",
+      "difficulty": "medium",
+      "tags": ["herpes", "aciclovir"]
+    },
+    {
+      "type": "mc",
+      "topic": "Valaciclovir, Penciclovir, Famciclovir",
+      "q": "Comparando os análogos do aciclovir, é CORRETO afirmar:",
+      "options": [
+        "Valaciclovir é pró-fármaco do aciclovir com melhor biodisponibilidade VO; famciclovir é pró-fármaco do penciclovir (mecanismo semelhante mas meia-vida intracelular maior)",
+        "Valaciclovir é uma fluoroquinolona antiviral",
+        "Penciclovir só está disponível VO em altas doses",
+        "Famciclovir é ativado por enzima exclusivamente humana"
+      ],
+      "correct": 0,
+      "expl": "Valaciclovir: éster L-valina do aciclovir; 3-5x mais biodisponível VO. Penciclovir: similar ao aciclovir mas meia-vida intracelular maior (mais persistente na célula infectada); disponível como tópico. Famciclovir: pró-fármaco VO do penciclovir. Todos dependem de timidina-cinase viral (HSV/VZV) — seletividade equivalente.",
+      "difficulty": "medium",
+      "tags": ["herpes", "analogos"]
+    },
+    {
+      "type": "mc",
+      "topic": "Ganciclovir / Valganciclovir",
+      "q": "Sobre o ganciclovir (CMV), assinale a CORRETA:",
+      "options": [
+        "Análogo de guanosina ativado pela proteína-cinase viral (UL97); inibe a DNA polimerase do CMV; EA grave: MIELOSSUPRESSÃO (leuco/plaquetopenia); valganciclovir é pró-fármaco oral",
+        "Não atua no CMV, apenas em HSV/VZV",
+        "Tem perfil de toxicidade idêntico ao aciclovir (sem mielossupressão)",
+        "É inibidor de neuraminidase"
+      ],
+      "correct": 0,
+      "expl": "Ganciclovir é análogo de guanosina ativado pela cinase viral UL97 do CMV. EA marcantes: MIELOSSUPRESSÃO (citopenias importantes — monitorar hemograma), nefrotoxicidade, teratogenicidade. Valganciclovir é pró-fármaco oral (boa biodisponibilidade). Indicação: CMV em imunossuprimidos (transplante de órgão sólido, HIV/AIDS com CD4 baixo, profilaxia pós-TMO). Resistência por mutação UL97.",
+      "difficulty": "medium",
+      "tags": ["cmv", "ganciclovir"]
+    },
+    {
+      "type": "mc",
+      "topic": "Foscarnet",
+      "q": "Foscarnet tem mecanismo único. Assinale a CORRETA:",
+      "options": [
+        "Análogo de pirofosfato; inibe DNA polimerase viral SEM precisar de fosforilação prévia; útil em cepas de HSV/VZV/CMV resistentes a aciclovir/ganciclovir; EA grave: nefrotoxicidade",
+        "É um pró-fármaco oral muito biodisponível",
+        "Depende da timidina-cinase viral para ativação",
+        "Não atua em CMV"
+      ],
+      "correct": 0,
+      "expl": "Foscarnet é análogo de pirofosfato — bloqueia o sítio de ligação do pirofosfato na DNA polimerase viral e na transcriptase reversa do HIV. NÃO precisa de ativação por cinase viral → útil em RESISTÊNCIAS à aciclovir (mutação na timidina-cinase) e ao ganciclovir (UL97). Uso IV em hospital. EA principal: NEFROTOXICIDADE (hidratação obrigatória), distúrbios eletrolíticos (hipoCa, hipoK, hipoMg).",
+      "difficulty": "hard",
+      "tags": ["foscarnet", "resistencia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Tenofovir · formulações",
+      "q": "Sobre as formulações do tenofovir, é CORRETO afirmar:",
+      "options": [
+        "TDF (disoproxil fumarato) é convertido a tenofovir no plasma; tem maior risco renal (lesão tubular proximal) e ósseo. TAF (alafenamida) é ativada nas células-alvo → menores níveis plasmáticos, menor toxicidade renal/óssea",
+        "TDF é o de menor toxicidade renal",
+        "Não existem diferenças entre TDF e TAF",
+        "Ambas as formas são administradas IV"
+      ],
+      "correct": 0,
+      "expl": "Tenofovir é análogo de nucleotídeo (não precisa de fosforilação inicial). TDF (forma antiga): hidrolisado no plasma → maior nível sérico → maior toxicidade renal (síndrome de Fanconi, doença renal crônica) e óssea (perda de DMO). TAF (forma nova): mais estável no plasma, ativada dentro da célula-alvo → mesma eficácia com MENOS toxicidade. Ambas são VO. Tenofovir só (forma livre, não usado clinicamente VO).",
+      "difficulty": "hard",
+      "tags": ["tenofovir", "tdf", "taf"]
+    },
+    {
+      "type": "mc",
+      "topic": "TARV · esquema de 1ª linha (adulto)",
+      "q": "Qual o esquema preferencial para iniciar TARV em adulto não gestante no Brasil hoje?",
+      "options": [
+        "Dolutegravir (DTG) + Lamivudina (3TC) + Tenofovir (TDF ou TAF) — comprimido combinado 1x ao dia",
+        "Zidovudina + Lamivudina + Efavirenz",
+        "Lopinavir/Ritonavir + Estavudina + Didanosina",
+        "Apenas TDF em monoterapia"
+      ],
+      "correct": 0,
+      "expl": "1ª linha em adulto não gestante: DTG (inibidor de integrase) + 3TC (ITRN) + TDF (ITRN, análogo de nucleotídeo). Vantagens: dose única diária (combinado), alta barreira genética à resistência, boa tolerabilidade, eficácia para indetectabilidade. Iniciar o quanto antes (estudo START 2015 — independente do CD4).",
+      "difficulty": "easy",
+      "tags": ["tarv", "1a-linha", "dtg"]
+    },
+    {
+      "type": "mc",
+      "topic": "TARV · gestação",
+      "q": "Em gestante com HIV, o esquema PREFERENCIAL no Brasil é:",
+      "options": [
+        "Efavirenz + Lamivudina + Tenofovir (alternativa: Raltegravir + Lopinavir/Ritonavir em situações especiais)",
+        "Apenas zidovudina monoterapia",
+        "Lopinavir/Ritonavir em monoterapia",
+        "Suspender qualquer TARV durante a gestação"
+      ],
+      "correct": 0,
+      "expl": "Em gestante, o esquema usual hoje é EFAVIRENZ + lamivudina + tenofovir (efavirenz é seguro a partir do 2º trimestre; teratogenicidade descartada por estudos recentes). Em ALGUMAS situações (resistência, intolerância): raltegravir + lopinavir/ritonavir. Objetivo: indetectabilidade da carga viral materna na 36ª semana → transmissão vertical < 1%. Profilaxia neonatal: zidovudina nas primeiras 4-6 semanas.",
+      "difficulty": "medium",
+      "tags": ["tarv", "gestacao", "efavirenz"]
+    },
+    {
+      "type": "mc",
+      "topic": "PrEP",
+      "q": "Sobre a profilaxia pré-exposição (PrEP) ao HIV, é CORRETO afirmar:",
+      "options": [
+        "Tenofovir + Emtricitabina (TDF/FTC) VO diário (ou ON-DEMAND em HSH); reduz aquisição em > 90% se aderência adequada",
+        "É feita com dolutegravir em monoterapia",
+        "Substitui o uso de preservativo em qualquer situação",
+        "Indicada apenas em pessoas já vivendo com HIV"
+      ],
+      "correct": 0,
+      "expl": "PrEP: TDF/FTC oral diário em pessoas HIV-negativas com risco substancial de exposição (parceiro sorodiscordante, HSH, pessoas trans, profissionais do sexo, UDI). Esquema 'on-demand' (2-1-1) em HSH conforme guidelines. Reduz transmissão sexual > 90%. NÃO previne outras ISTs nem gravidez. PEP (profilaxia pós-exposição) é DIFERENTE: regime de 28 dias com TDF/3TC/DTG após acidente/exposição de alto risco.",
+      "difficulty": "medium",
+      "tags": ["prep", "hiv"]
+    },
+    {
+      "type": "mc",
+      "topic": "Zidovudina",
+      "q": "Sobre a zidovudina (AZT), assinale a CORRETA:",
+      "options": [
+        "Primeiro antirretroviral aprovado (1987); análogo de timidina (ITRN); ainda usada em profilaxia da transmissão vertical (RN exposto); EA clássico: ANEMIA macrocítica e mielossupressão, miopatia",
+        "Inibidor de integrase de última geração",
+        "É um inibidor de protease",
+        "Não tem toxicidade hematológica"
+      ],
+      "correct": 0,
+      "expl": "Zidovudina (AZT): ITRN, primeiro antirretroviral aprovado. Hoje pouco usada em esquema crônico de adulto (toxicidade), mas mantida em profilaxia neonatal pós-parto. EA: ANEMIA macrocítica (sem deficiência de B12/folato; ocorre mesmo sem hipoplasia), neutropenia, miopatia, hiperpigmentação ungueal. Mecanismo: análogo de timidina trifosforilado → terminação prematura da cadeia de DNA viral.",
+      "difficulty": "medium",
+      "tags": ["zidovudina", "azt", "hiv"]
+    },
+    {
+      "type": "mc",
+      "topic": "Velpatasvir/Sofosbuvir (Hep C)",
+      "q": "Sobre os antivirais de ação direta (DAA) para hepatite C, assinale a CORRETA:",
+      "options": [
+        "Esquema pangenotípico velpatasvir (NS5A) + sofosbuvir (NS5B polimerase) VO por 12 semanas; taxa de cura > 95%; CUIDADO com interações (IBP, CYP, indutores enzimáticos)",
+        "Necessita de interferon associado para cura",
+        "Sofosbuvir é um anti-influenza",
+        "Indicado apenas para genótipo 1"
+      ],
+      "correct": 0,
+      "expl": "DAA pangenotípicos revolucionaram o tratamento da hepatite C crônica: esquema oral, 12 semanas, sem interferon, com cura > 95% e mínimos EA. Sofosbuvir inibe NS5B (RNA polimerase). Velpatasvir inibe NS5A. INTERAÇÕES importantes: IBP reduzem absorção do velpatasvir; indutores enzimáticos fortes (rifampicina, fenitoína, carbamazepina, erva-de-São-João) reduzem níveis. Cuidado em pacientes em uso de amiodarona (bradicardia grave). Não usar em IR avançada (sofosbuvir).",
+      "difficulty": "hard",
+      "tags": ["hepc", "daa", "sofosbuvir"]
+    },
+    {
+      "type": "mc",
+      "topic": "Glecaprevir/Pibrentasvir",
+      "q": "Sobre a associação glecaprevir/pibrentasvir, é CORRETO afirmar:",
+      "options": [
+        "Glecaprevir inibe a protease NS3/4A; pibrentasvir inibe a NS5A; ambos são SEGUROS em insuficiência renal (preferida em DRC); esquema de 8-16 semanas conforme cirrose/genótipo",
+        "É contraindicada em todos os pacientes com IR",
+        "Necessita de interferon associado",
+        "Atua sobre o HIV, não sobre HCV"
+      ],
+      "correct": 0,
+      "expl": "Glecaprevir/Pibrentasvir: combinação de protease inibitor (NS3/4A) + NS5A. Pangenotípico, VO. DIFERENCIAL: SEGURA em insuficiência renal (não tem clearance renal significativo) — preferida nessa população. Duração: 8 semanas em paciente sem cirrose virgem de tratamento; até 16 semanas em casos complicados. Cuidado: não usar em cirrose descompensada (risco hepatotóxico de inibidores de protease).",
+      "difficulty": "hard",
+      "tags": ["hepc", "glecaprevir"]
+    },
+    {
+      "type": "mc",
+      "topic": "Ribavirina",
+      "q": "Sobre a ribavirina, assinale a CORRETA:",
+      "options": [
+        "Análogo de guanosina ativo contra vários vírus RNA; ainda usada em hepatite C em situações específicas, febre hemorrágica viral e VSR grave; EA principal: ANEMIA hemolítica; CONTRAINDICADA na gestação (teratogênica)",
+        "É um inibidor da neuraminidase do influenza",
+        "Sem toxicidade hematológica",
+        "Segura na gestação"
+      ],
+      "correct": 0,
+      "expl": "Ribavirina: análogo sintético de guanosina, amplo espectro contra vírus RNA. Usos atuais: hepatite C em populações específicas (genótipo 3 ou cirrose), Lassa, febre hemorrágica viral, alguns casos de VSR grave em imunossuprimidos. EA principal: ANEMIA HEMOLÍTICA dose-dependente (monitorar Hb). TERATOGÊNICA (categoria X) — contracepção obrigatória por 6 meses pós-tratamento em homens e mulheres. Cuidado em IR.",
+      "difficulty": "medium",
+      "tags": ["ribavirina", "anemia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Peg-interferon alfa (Hep B)",
+      "q": "Sobre o peg-interferon alfa no tratamento da hepatite B crônica, é CORRETO afirmar:",
+      "options": [
+        "Citocina recombinante peguilada com efeitos imunomoduladores e antivirais; SC semanal por 48 semanas; EA importantes: síndrome gripal, citopenias, depressão, descompensação tireoidiana; alternativa aos análogos de nucleot(s)ídeo",
+        "É administrado VO em comprimido",
+        "Não tem EA neuropsiquiátricos",
+        "É indicado em gestante como primeira escolha"
+      ],
+      "correct": 0,
+      "expl": "Peg-IFN alfa: citocina recombinante (peguilada para meia-vida maior). Estimula imunidade antiviral. SC semanal, 48 semanas. Vantagem: duração definida, sem resistência. Desvantagem: muitos EA — síndrome gripal (febre, mialgia), citopenias (leuco/plaquetopenia), DEPRESSÃO grave (rastrear antes), descompensação tireoidiana (hipo/hiper), exacerbação de doenças autoimunes. Contraindicações: descompensação hepática, gestação, transtornos psiquiátricos graves não controlados.",
+      "difficulty": "hard",
+      "tags": ["interferon", "hepb"]
+    },
+    {
+      "type": "mc",
+      "topic": "Efavirenz · perfil",
+      "q": "Sobre o efavirenz (ITRNN), é CORRETO afirmar:",
+      "options": [
+        "EA neuropsiquiátricos clássicos: tontura, sonhos vívidos, insônia, mudanças de humor (geralmente transitórios — tomar à noite); melhora em 2-4 semanas; potencial teratogênico no 1º trimestre é controverso (hoje considerado seguro)",
+        "Inibe a protease do HIV",
+        "Sem efeitos no SNC",
+        "É um inibidor de integrase"
+      ],
+      "correct": 0,
+      "expl": "Efavirenz é ITRNN (inibidor da transcriptase reversa não nucleosídeo). EA clássicos NEUROPSIQUIÁTRICOS: tontura, sonhos vívidos, pesadelos, insônia, alteração do humor, depressão. Tomar à noite (com estômago vazio) ajuda. Geralmente melhoram em 2-4 semanas. Já se considerou teratogênico (defeitos de tubo neural) — estudos recentes mostraram segurança aceitável e é usado em gestante no Brasil.",
+      "difficulty": "medium",
+      "tags": ["efavirenz", "itrnn"]
+    },
+    {
+      "type": "mc",
+      "topic": "Dolutegravir · vantagens",
+      "q": "Sobre o dolutegravir (DTG), assinale a CORRETA:",
+      "options": [
+        "Inibidor de integrase de SEGUNDA geração; ALTA barreira genética à resistência; potente, dose única diária; EA leves (cefaleia, GI); interação importante com cátions divalentes (Ca, Mg, Fe) — espaçar das refeições",
+        "Inibe a protease viral",
+        "É um pró-fármaco da zidovudina",
+        "Tem baixa barreira à resistência, alta taxa de falha"
+      ],
+      "correct": 0,
+      "expl": "DTG é inibidor de integrase de 2ª geração (após raltegravir). Vantagens: alta potência, supressão rápida da carga viral, altíssima barreira à resistência (rara em virgem de tratamento), boa tolerabilidade, dose única diária, sem ajuste renal/hepático em maioria. Cuidados: cátions divalentes (antiácidos, sulfato ferroso, cálcio) — separar 2-6h. Ganho discreto de peso. Distúrbios psiquiátricos raros.",
+      "difficulty": "medium",
+      "tags": ["dolutegravir", "integrase"]
+    },
+    {
+      "type": "match",
+      "topic": "Antivirais: vírus-alvo",
+      "prompt": "Associe o antiviral ao vírus-alvo principal.",
+      "leftLabel": "Antiviral",
+      "rightLabel": "Vírus-alvo principal",
+      "pairs": [
+        { "id": "ose", "left": "Oseltamivir", "right": "Influenza A e B" },
+        { "id": "aci", "left": "Aciclovir / Valaciclovir", "right": "HSV / VZV" },
+        { "id": "gan", "left": "Ganciclovir / Valganciclovir", "right": "CMV" },
+        { "id": "fos", "left": "Foscarnet", "right": "HSV/VZV/CMV resistentes" },
+        { "id": "ten", "left": "Tenofovir", "right": "HIV e VHB" },
+        { "id": "dtg", "left": "Dolutegravir", "right": "HIV (integrase)" },
+        { "id": "sof", "left": "Sofosbuvir / Velpatasvir", "right": "VHC" },
+        { "id": "rib", "left": "Ribavirina", "right": "VHC, VSR, febre hemorrágica" }
+      ],
+      "expl": "Saber o vírus-alvo de cada antiviral é o primeiro passo da escolha clínica.",
+      "difficulty": "easy",
+      "tags": ["virus-alvo"]
+    },
+    {
+      "type": "match",
+      "topic": "Antivirais HIV: classe",
+      "prompt": "Associe o antirretroviral à sua classe.",
+      "leftLabel": "Antirretroviral",
+      "rightLabel": "Classe",
+      "pairs": [
+        { "id": "azt", "left": "Zidovudina (AZT)", "right": "ITRN (análogo de timidina)" },
+        { "id": "3tc", "left": "Lamivudina (3TC)", "right": "ITRN (análogo de citidina)" },
+        { "id": "ftc", "left": "Emtricitabina (FTC)", "right": "ITRN (análogo de citidina)" },
+        { "id": "tdf", "left": "Tenofovir (TDF/TAF)", "right": "ITRN (análogo de nucleotídeo)" },
+        { "id": "efv", "left": "Efavirenz", "right": "ITRNN" },
+        { "id": "dtg", "left": "Dolutegravir / Raltegravir", "right": "Inibidor de integrase" },
+        { "id": "lpv", "left": "Lopinavir / Ritonavir", "right": "Inibidor de protease (Ritonavir = booster)" }
+      ],
+      "expl": "ITRN = inibidor da transcriptase reversa nucleosídeo/nucleotídeo (análogos terminadores). ITRNN = inibidor não nucleosídeo (liga em sítio alostérico). Integrase: bloqueia inserção do DNA viral no genoma. Protease: bloqueia maturação dos vírions.",
+      "difficulty": "medium",
+      "tags": ["classes-hiv"]
+    },
+    {
+      "type": "match",
+      "topic": "Antivirais: EA característico",
+      "prompt": "Associe o antiviral ao seu efeito adverso mais característico.",
+      "leftLabel": "Antiviral",
+      "rightLabel": "EA característico",
+      "pairs": [
+        { "id": "azt", "left": "Zidovudina (AZT)", "right": "Anemia macrocítica e mielossupressão" },
+        { "id": "tdf", "left": "Tenofovir disoproxil (TDF)", "right": "Nefrotoxicidade tubular e perda de DMO" },
+        { "id": "efv", "left": "Efavirenz", "right": "Sonhos vívidos, alteração de humor" },
+        { "id": "gan", "left": "Ganciclovir", "right": "Mielossupressão (citopenias)" },
+        { "id": "fos", "left": "Foscarnet", "right": "Nefrotoxicidade e distúrbios eletrolíticos" },
+        { "id": "rib", "left": "Ribavirina", "right": "Anemia hemolítica e teratogenicidade" },
+        { "id": "ifn", "left": "Peg-interferon alfa", "right": "Síndrome gripal, depressão, tireoidopatia" }
+      ],
+      "expl": "Saber o EA típico orienta a escolha e o monitoramento. Em prova: AZT-anemia, EFV-SNC, IFN-depressão, ganci-mielo, foscarnet/cidofovir-renal, ribavirina-hemólise.",
+      "difficulty": "medium",
+      "tags": ["efeitos-adversos"]
+    },
+    {
+      "type": "case",
+      "topic": "HIV recém-diagnosticado",
+      "subtitle": "Mulher 32a, diagnóstico de HIV, CD4 380, virgem de tratamento",
+      "specialty": "Infectologia ambulatorial",
+      "difficulty": "medium",
+      "vignette": "Mulher 32 anos, sem comorbidades, diagnóstico recente de HIV em rastreio. CD4 380 cels/μL, carga viral 87.000 cópias/mL, genotipagem sem mutações de resistência. HbsAg negativo. Sem gestação atual. Vem pra consulta inicial pra iniciar TARV.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Qual a indicação e o esquema preferencial?",
+          "options": [
+            "Iniciar TARV o mais cedo possível (independente do CD4): dolutegravir + lamivudina + tenofovir (comprimido combinado 1x/dia)",
+            "Aguardar CD4 < 200 para iniciar",
+            "Apenas profilaxia para infecções oportunistas, sem TARV",
+            "Iniciar zidovudina monoterapia"
+          ],
+          "correct": 0,
+          "expl": "Após o estudo START (2015) e o INSIGHT, TARV é iniciada o mais cedo possível em TODOS os pacientes com HIV, independente do CD4. Esquema preferencial no Brasil: DTG + 3TC + TDF (comprimido combinado 1x/dia). Vantagens: alta barreira à resistência, boa tolerabilidade, conveniência."
+        },
+        {
+          "id": "step2",
+          "prompt": "Você prescreve o esquema. Após 4 meses ela retorna: carga viral indetectável (<50), CD4 510. Sem queixas além de leve ganho de peso (3 kg).",
+          "question": "O que significa 'indetectável = intransmissível' (U=U) e qual orientação?",
+          "options": [
+            "Carga viral suprimida e sustentada (< 50 cópias) por > 6 meses + adesão = transmissão sexual essencialmente zero. NÃO substitui prevenção de outras IST/gestação, mas reduz drasticamente ansiedade e estigma",
+            "Significa que ela está curada e pode suspender a TARV",
+            "Significa que pode parar de usar preservativo para qualquer IST",
+            "Aumenta o risco de transmissão"
+          ],
+          "correct": 0,
+          "expl": "U=U (Undetectable = Untransmittable): consenso científico — pessoas com carga viral suprimida sustentada por > 6 meses e adesão consistente NÃO transmitem HIV por via sexual. Estudos PARTNER, PARTNER2, Opposites Attract. NÃO previne outras IST (sífilis, gonorreia) nem gravidez. NUNCA suspender TARV: a supressão depende da adesão; suspensão = rebote da carga viral e risco de resistência."
+        },
+        {
+          "id": "step3",
+          "prompt": "Um ano depois ela engravida (não planejado). Está no 1º trimestre.",
+          "question": "Conduta com a TARV?",
+          "options": [
+            "Em geral, MANTER o esquema atual de DTG se ela está com carga viral indetectável e em uso há tempo (atualizações recentes consideraram DTG seguro na gestação). Acompanhamento pré-natal de alto risco; objetivo: indetectabilidade até o parto",
+            "Suspender toda a TARV durante a gestação",
+            "Trocar para zidovudina monoterapia",
+            "Trocar para ribavirina"
+          ],
+          "correct": 0,
+          "expl": "Dolutegravir era inicialmente evitado no início da gestação por sinal de defeito de tubo neural (estudo Tsepamo, 2018), mas estudos posteriores e novos dados consideraram o risco menor que o inicialmente reportado — hoje DTG é considerado seguro e mantido em gestante já em uso e bem suprimida. Alternativa: efavirenz + 3TC + TDF. Profilaxia neonatal pós-parto: zidovudina por 4-6 semanas; em alto risco, esquema triplo do RN."
+        }
+      ],
+      "outcome": "Gestação evolui sem intercorrências. Parto vaginal eletivo na 39ª semana com carga viral indetectável. RN com profilaxia (zidovudina 4 semanas) e cargas virais aos 1, 3 e 6 meses: negativas. Mãe segue em uso de TARV e mantém indetectabilidade."
+    },
+    {
+      "type": "flashcard",
+      "topic": "Oseltamivir",
+      "front": "Oseltamivir: classe, alvo, janela de eficácia?",
+      "back": "Inibidor de neuraminidase do influenza A/B. VO, pró-fármaco. Eficácia máxima nas primeiras 48h dos sintomas. EA: náusea e vômito.",
+      "tags": ["influenza"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Aciclovir",
+      "front": "Aciclovir: ativação seletiva e indicação?",
+      "back": "Análogo de guanosina. Ativado pela TIMIDINA-CINASE VIRAL (selectividade). Inibe DNA polimerase viral. HSV e VZV (doses maiores em VZV). EA: nefrotoxicidade por cristalúria (hidratar).",
+      "tags": ["herpes"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Valaciclovir",
+      "front": "Valaciclovir: diferença para aciclovir?",
+      "back": "Pró-fármaco oral do aciclovir (éster L-valina). Biodisponibilidade 3-5x maior. Mesmo mecanismo, mesmo perfil de EA. Dose única diária possível para profilaxia.",
+      "tags": ["herpes"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Penciclovir",
+      "front": "Penciclovir: característica?",
+      "back": "Análogo de guanosina. Meia-vida intracelular maior que aciclovir → ação mais persistente. Forma tópica (creme) para herpes labial.",
+      "tags": ["herpes"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Famciclovir",
+      "front": "Famciclovir: o que é?",
+      "back": "Pró-fármaco VO do penciclovir. Boa biodisponibilidade. Indicação: HSV e VZV. Útil quando se quer alternativa ao aciclovir.",
+      "tags": ["herpes"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Ganciclovir",
+      "front": "Ganciclovir: alvo, EA grave?",
+      "back": "Análogo de guanosina. Ativado pela cinase viral UL97 do CMV. Inibe DNA polimerase. EA grave: MIELOSSUPRESSÃO. Indicação: CMV em imunossuprimidos.",
+      "tags": ["cmv"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Valganciclovir",
+      "front": "Valganciclovir: o que é?",
+      "back": "Pró-fármaco VO do ganciclovir. Boa biodisponibilidade oral. Permite tratamento ambulatorial de CMV. Mesma toxicidade (mielossupressão).",
+      "tags": ["cmv"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Foscarnet",
+      "front": "Foscarnet: mecanismo único e indicação?",
+      "back": "Análogo de pirofosfato. NÃO precisa de ativação por cinase viral → útil em HSV/VZV/CMV resistentes a aciclovir/ganciclovir. IV, hospital. EA: NEFROTOXICIDADE e distúrbios eletrolíticos.",
+      "tags": ["foscarnet"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Peg-interferon alfa",
+      "front": "Peg-IFN alfa: indicação atual e EA marcantes?",
+      "back": "Citocina imunomoduladora. Hepatite B crônica (alternativa aos análogos), HCV (legado), alguns tumores. SC semanal. EA: síndrome gripal, citopenias, DEPRESSÃO, descompensação tireoidiana.",
+      "tags": ["interferon"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tenofovir disoproxil (TDF)",
+      "front": "TDF: indicação e EA típico?",
+      "back": "Pró-fármaco VO que vira tenofovir no plasma. ITRN. HIV e VHB. EA: nefrotoxicidade tubular (Fanconi), perda de DMO (osteopenia/osteoporose). Mais antigo, mais barato.",
+      "tags": ["tenofovir"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tenofovir alafenamida (TAF)",
+      "front": "TAF: vantagem sobre TDF?",
+      "back": "Ativada nas células-alvo → níveis plasmáticos baixos → MENOS toxicidade renal e óssea. Mesma eficácia que TDF. Mais cara. VO.",
+      "tags": ["tenofovir"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tenofovir (livre)",
+      "front": "Tenofovir (livre): observação?",
+      "back": "Tenofovir como tal NÃO é usado VO clinicamente — biodisponibilidade muito baixa. Usado como pró-fármacos (TDF ou TAF).",
+      "tags": ["tenofovir"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Dolutegravir + 3TC + Tenofovir",
+      "front": "Esquema DTG + 3TC + TDF/TAF: por que é a 1ª linha?",
+      "back": "1ª linha em adulto não gestante: 1 comprimido/dia. Alta potência, alta barreira à resistência, boa tolerabilidade. Cuidar com cátions divalentes (antiácido, ferro, cálcio) → separar.",
+      "tags": ["tarv-1a-linha"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Efavirenz + 3TC + Tenofovir",
+      "front": "Esquema EFV + 3TC + TDF: indicação atual?",
+      "back": "Esquema usado em gestante no Brasil (atualizações recentes consideram seguro). ITRNN + 2 ITRN. EA do EFV: SNC (sonhos vívidos, insônia), normalmente transitórios. Tomar à noite.",
+      "tags": ["tarv-gestante"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Raltegravir + Lopinavir/Ritonavir",
+      "front": "Esquema RAL + LPV/r: papel?",
+      "back": "Esquema de RESGATE ou em situações especiais (resistência, gestante com falha, restrições). Raltegravir = integrase de 1ª geração; LPV/r = inibidor de protease com booster ritonavir.",
+      "tags": ["tarv-resgate"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tenofovir + Emtricitabina (PrEP)",
+      "front": "TDF/FTC como PrEP: indicação e eficácia?",
+      "back": "Profilaxia pré-exposição ao HIV em pessoas HIV-negativas com risco substancial. VO diário (ou on-demand em HSH). > 90% redução de risco com adesão. NÃO previne outras IST nem gestação.",
+      "tags": ["prep"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Zidovudina",
+      "front": "Zidovudina (AZT): uso atual e EA clássico?",
+      "back": "ITRN análogo de timidina. Pouco usada em adulto hoje (toxicidade). Mantida em profilaxia neonatal pós-parto. EA: anemia macrocítica, neutropenia, miopatia, hiperpigmentação ungueal.",
+      "tags": ["zidovudina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Velpatasvir/Sofosbuvir",
+      "front": "Velpatasvir/Sofosbuvir: alvos e cuidado?",
+      "back": "DAA pangenotípico para HCV. Velpatasvir = inibidor NS5A; Sofosbuvir = inibidor NS5B (polimerase). 12 semanas VO. Cura > 95%. CUIDADO: IBP, indutores enzimáticos, amiodarona (bradicardia grave).",
+      "tags": ["hepc"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Glecaprevir/Pibrentasvir",
+      "front": "Glecaprevir/Pibrentasvir: diferencial?",
+      "back": "DAA pangenotípico. Glecaprevir = NS3/4A protease; Pibrentasvir = NS5A. SEGURA em IR (preferida em DRC avançada). Duração 8 semanas em virgem sem cirrose; até 16 em complicados. Não usar em cirrose descompensada.",
+      "tags": ["hepc"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Ribavirina",
+      "front": "Ribavirina: EA principal e contraindicação?",
+      "back": "Análogo de guanosina. Amplo espectro (VRC, VSR, febres hemorrágicas). EA: ANEMIA HEMOLÍTICA (monitorar Hb). TERATOGÊNICA (cat. X) — contracepção por 6 meses pós-tratamento.",
+      "tags": ["ribavirina"]
+    }
+  ]
+}
