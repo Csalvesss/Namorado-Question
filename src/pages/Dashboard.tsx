@@ -14,6 +14,7 @@ import {
   Shuffle,
   Siren,
   Stethoscope,
+  Target,
   ThermometerSun,
   type LucideIcon,
 } from 'lucide-react';
@@ -439,6 +440,15 @@ export default function Dashboard() {
             <p className="text-sm leading-relaxed text-ink-soft">
               Dez flashcards aleatórios, sem cobrança. Pra relembrar antes de dormir.
             </p>
+          </Link>
+        </div>
+        <div className="mt-4">
+          <Link
+            to="/erros"
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-muted transition hover:text-wine"
+          >
+            <Target className="h-3 w-3" strokeWidth={1.75} />
+            abrir caderno de erros
           </Link>
         </div>
       </section>

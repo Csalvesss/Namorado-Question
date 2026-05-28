@@ -9,11 +9,14 @@ import {
   Dna,
   HeartPulse,
   Layers,
+  Sparkles,
   Stethoscope,
   ThermometerSun,
   type LucideIcon,
 } from 'lucide-react';
+import BlueprintModal from '../components/BlueprintModal';
 import SpringFlower from '../components/decorative/SpringFlower';
+import { blueprintsForCourse } from '../data/blueprints';
 import { db } from '../lib/db';
 import { getMistakeQuestionIds, modeConfig } from '../lib/quiz';
 import { useSessions } from '../lib/useSessions';
@@ -53,6 +56,8 @@ export default function Course() {
     return Array.from(counts.entries()).map(([topic, count]) => ({ topic, count }));
   }, [questions]);
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
+  const [blueprintOpen, setBlueprintOpen] = useState(false);
+  const hasBlueprint = useMemo(() => course ? blueprintsForCourse(course.title).length > 0 : false, [course]);
   const mistakeIds = useMemo(() => (user ? getMistakeQuestionIds(user.uid, id) : []), [user, id]);
   const caseCount = useMemo(() => questions.filter((q) => q.type === 'case').length, [questions]);
   const hasCases = caseCount > 0;
@@ -141,6 +146,16 @@ export default function Course() {
               </>
             )}
           </div>
+          {hasBlueprint && (
+            <button
+              type="button"
+              onClick={() => setBlueprintOpen(true)}
+              className="mt-4 inline-flex items-center gap-2 rounded-full border border-gold/60 bg-gold/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-gold transition hover:bg-gold/20 active:scale-[0.98]"
+            >
+              <Sparkles className="h-3.5 w-3.5" strokeWidth={1.75} />
+              resumo rápido do tópico
+            </button>
+          )}
         </div>
 
         <div className="relative flex items-center justify-center md:min-w-[180px]">
@@ -327,6 +342,12 @@ export default function Course() {
           </div>
         </section>
       )}
+
+      <BlueprintModal
+        open={blueprintOpen}
+        courseTitle={course.title}
+        onClose={() => setBlueprintOpen(false)}
+      />
     </div>
   );
 }

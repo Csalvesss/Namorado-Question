@@ -1,0 +1,109 @@
+{
+  "title": "Farmacologia: Mecanismo e Efeito",
+  "description": "Pares de droga, mecanismo de ação, indicação principal e efeito adverso clássico. Match para fixar a lógica de cada classe.",
+  "icon": "",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "match",
+      "topic": "Antibióticos: mecanismo",
+      "prompt": "Associe o antibiótico ao mecanismo de ação.",
+      "leftLabel": "Antibiótico",
+      "rightLabel": "Mecanismo",
+      "pairs": [
+        { "id": "amox", "left": "Amoxicilina", "right": "Inibe síntese da parede (PBP)" },
+        { "id": "vanco", "left": "Vancomicina", "right": "Liga D-Ala-D-Ala impedindo síntese da parede" },
+        { "id": "gent", "left": "Gentamicina", "right": "Inibe subunidade 30S do ribossomo" },
+        { "id": "azitro", "left": "Azitromicina", "right": "Inibe subunidade 50S do ribossomo" },
+        { "id": "cipro", "left": "Ciprofloxacino", "right": "Inibe DNA girase" }
+      ],
+      "expl": "Beta-lactâmicos (penicilinas, cefalosporinas) e glicopeptídeos (vanco) atuam na parede. Aminoglicosídeos (gent) atacam 30S; macrolídeos (azitro) atacam 50S. Quinolonas inibem girase/topoisomerase IV.",
+      "difficulty": "medium",
+      "tags": ["antibiotico", "mecanismo"]
+    },
+    {
+      "type": "match",
+      "topic": "Antibióticos: efeito adverso",
+      "prompt": "Associe o antibiótico ao efeito adverso mais característico.",
+      "leftLabel": "Antibiótico",
+      "rightLabel": "Efeito adverso característico",
+      "pairs": [
+        { "id": "amox", "left": "Amoxicilina", "right": "Rash com vírus Epstein-Barr" },
+        { "id": "vanco", "left": "Vancomicina", "right": "Síndrome do homem vermelho (infusão rápida)" },
+        { "id": "gent", "left": "Gentamicina", "right": "Nefrotoxicidade e ototoxicidade" },
+        { "id": "azitro", "left": "Azitromicina", "right": "Prolongamento de QT" },
+        { "id": "cipro", "left": "Ciprofloxacino", "right": "Tendinopatia (Aquiles)" }
+      ],
+      "expl": "Conhecer o efeito adverso clássico ajuda na escolha (e em prova). Vanco em infusão rápida → liberação de histamina → red man. Aminoglicosídeos têm janela terapêutica estreita.",
+      "difficulty": "medium",
+      "tags": ["antibiotico", "efeito adverso"]
+    },
+    {
+      "type": "match",
+      "topic": "Anti-hipertensivos: classe",
+      "prompt": "Associe a droga à classe farmacológica.",
+      "leftLabel": "Droga",
+      "rightLabel": "Classe",
+      "pairs": [
+        { "id": "enal", "left": "Enalapril", "right": "IECA" },
+        { "id": "losart", "left": "Losartana", "right": "BRA" },
+        { "id": "anlo", "left": "Anlodipino", "right": "Bloqueador de canal de cálcio" },
+        { "id": "hctz", "left": "Hidroclorotiazida", "right": "Diurético tiazídico" },
+        { "id": "metop", "left": "Metoprolol", "right": "Betabloqueador cardiosseletivo" }
+      ],
+      "expl": "Os pilares do tratamento da HAS. IECA tem tosse seca como efeito adverso clássico; BRA é alternativa sem tosse. BCC dihidropiridínicos (anlo) causam edema maleolar. Tiazídicos hipoK e hiperglicemia.",
+      "difficulty": "easy",
+      "tags": ["hipertensao", "classe"]
+    },
+    {
+      "type": "match",
+      "topic": "Anti-hipertensivos: armadilha clínica",
+      "prompt": "Associe a droga à contraindicação/cuidado mais importante.",
+      "leftLabel": "Droga",
+      "rightLabel": "Cuidado / contraindicação",
+      "pairs": [
+        { "id": "enal", "left": "Enalapril", "right": "Gestação (teratogênico) e estenose bilateral de artéria renal" },
+        { "id": "losart", "left": "Losartana", "right": "Hipercalemia se associada a poupador de K" },
+        { "id": "metop", "left": "Metoprolol", "right": "Asma grave e bloqueio AV avançado" },
+        { "id": "vera", "left": "Verapamil", "right": "Insuficiência cardíaca com FE reduzida" },
+        { "id": "hctz", "left": "Hidroclorotiazida", "right": "Gota e hipoK" }
+      ],
+      "expl": "Lembrete operacional: IECA/BRA fora da gestação. BB não em asma grave. Verapamil/diltiazem não em IC com FE reduzida (inotrópicos negativos). Tiazídico pode precipitar crise gotosa.",
+      "difficulty": "medium",
+      "tags": ["hipertensao", "contraindicacao"]
+    },
+    {
+      "type": "match",
+      "topic": "Antiarrítmicos: classe de Vaughan-Williams",
+      "prompt": "Associe a droga à classe.",
+      "leftLabel": "Droga",
+      "rightLabel": "Classe",
+      "pairs": [
+        { "id": "lido", "left": "Lidocaína", "right": "I (bloqueador de Na)" },
+        { "id": "metop", "left": "Metoprolol", "right": "II (betabloqueador)" },
+        { "id": "amio", "left": "Amiodarona", "right": "III (bloqueador de K)" },
+        { "id": "vera", "left": "Verapamil", "right": "IV (bloqueador de cálcio)" }
+      ],
+      "expl": "Vaughan-Williams: I bloqueia Na, II bloqueia receptor beta, III bloqueia K (prolonga repolarização), IV bloqueia cálcio. Amiodarona é classe III mas tem ações nas 4 classes — daí o perfil amplo.",
+      "difficulty": "medium",
+      "tags": ["antiarritmico"]
+    },
+    {
+      "type": "match",
+      "topic": "Anticoagulantes",
+      "prompt": "Associe o anticoagulante ao mecanismo / monitorização.",
+      "leftLabel": "Droga",
+      "rightLabel": "Mecanismo / monitorização",
+      "pairs": [
+        { "id": "hnf", "left": "Heparina não fracionada", "right": "Liga antitrombina, monitora TTPa" },
+        { "id": "enox", "left": "Enoxaparina", "right": "Inibe fator Xa, monitora anti-Xa em casos especiais" },
+        { "id": "varf", "left": "Varfarina", "right": "Inibe síntese de fatores II, VII, IX, X (vitamina K), monitora INR" },
+        { "id": "riva", "left": "Rivaroxabana", "right": "Inibidor direto do fator Xa, sem monitorização rotineira" },
+        { "id": "dabig", "left": "Dabigatrana", "right": "Inibidor direto da trombina, antídoto: idarucizumabe" }
+      ],
+      "expl": "Saber o mecanismo orienta o antídoto e a monitorização. Varfarina tem janela estreita e várias interações alimentares e medicamentosas; DOACs simplificam mas não são para todos (válvula mecânica, IR avançada).",
+      "difficulty": "medium",
+      "tags": ["anticoagulante"]
+    }
+  ]
+}

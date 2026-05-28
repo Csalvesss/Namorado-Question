@@ -9,6 +9,7 @@ import History from './pages/History';
 import Login from './pages/Login';
 import CaseSimulator from './pages/CaseSimulator';
 import Cases from './pages/Cases';
+import Mistakes from './pages/Mistakes';
 import Profile from './pages/Profile';
 import QuickReview from './pages/QuickReview';
 import Quiz from './pages/Quiz';
@@ -35,6 +36,7 @@ export default function App() {
         <Route path="/passa-facil" element={<QuickReview />} />
         <Route path="/casos" element={<Cases />} />
         <Route path="/casos/:caseId" element={<CaseSimulator />} />
+        <Route path="/erros" element={<Mistakes />} />
         <Route path="/historico" element={<History />} />
         <Route path="/revisar" element={<Review />} />
         <Route path="/plano" element={<StudyPlan />} />
