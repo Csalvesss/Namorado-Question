@@ -69,6 +69,11 @@ export interface CaseQuestion extends BaseQuestion {
   type: 'case';
   vignette: string;
   steps: CaseStep[];
+  subtitle?: string;
+  specialty?: string;
+  timeStamp?: string;
+  location?: string;
+  outcome?: string;
 }
 
 export interface FlashcardQuestion extends BaseQuestion {
@@ -213,6 +218,11 @@ export interface ImportCaseQuestion {
   topic: string;
   vignette: string;
   steps: CaseStep[];
+  subtitle?: string;
+  specialty?: string;
+  timeStamp?: string;
+  location?: string;
+  outcome?: string;
   difficulty?: Difficulty;
   tags?: string[];
 }

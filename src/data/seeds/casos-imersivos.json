@@ -1,0 +1,405 @@
+{
+  "title": "Simulações Clínicas",
+  "description": "Casos imersivos como se você estivesse no plantão. Pressão real, decisões que pesam. Pra treinar conduta quando não dá pra adiar.",
+  "icon": "",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "case",
+      "topic": "Emergência cardiológica",
+      "subtitle": "Caminhoneiro, 03:14, dor no peito que aperta o braço",
+      "specialty": "Emergência · Cardiologia",
+      "timeStamp": "03:14",
+      "location": "Pronto-socorro · noite de sexta",
+      "difficulty": "hard",
+      "vignette": "O alarme do telefone toca. Você acabou de fechar a evolução do leito 12. A enfermeira aparece na porta: 'doutora, chegou um homem de uns 50 anos pela ambulância. Tá branco, suando, dizendo que vai morrer.'\n\nVocê caminha até a sala vermelha. O paciente está sentado na maca, camisa aberta, mão esquerda apertando o esterno. Olha pra você com aquele olhar que você só viu nos casos clínicos do livro.\n\n— Doutora… começou faz uns 40 minutos. Tava na estrada, parei pra um café. A dor pega aqui no meio, abre pro braço esquerdo, parece que tem um aperto. Já vomitei duas vezes.\n\nVocê pede o ECG enquanto fala. Sinais vitais: FC 102, PA 154x92, FR 22, SpO₂ 96%. Pele fria, sudorese fria.\n\nFatores de risco: tabagismo 30 maços-ano, HAS sem tratamento, pai falecido de IAM aos 58.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Qual a primeira conduta enquanto o ECG está sendo feito?",
+          "options": [
+            "Acesso venoso calibroso, monitorização contínua, oxigênio se SpO₂ < 90%, AAS 300 mg mastigado",
+            "AAS, clopidogrel, atorvastatina e morfina já enquanto aguarda o ECG",
+            "Solicitar troponina antes de medicar para confirmar o diagnóstico",
+            "Encaminhar imediatamente à hemodinâmica sem aguardar ECG"
+          ],
+          "correct": 0,
+          "expl": "AAS 300 mg mastigado é classe I em qualquer SCA suspeita. Monitorização + acesso + O₂ só se hipoxêmico (não rotineiro). Clopi/ticagrelor e morfina entram, mas DEPOIS de definir tipo de SCA pelo ECG. Não se espera troponina pra iniciar manejo."
+        },
+        {
+          "id": "step2",
+          "prompt": "ECG na sua mão em 5 minutos. Você vê: supradesnivelamento do segmento ST de 3 mm em DII, DIII e aVF, com infra recíproco em DI e aVL.",
+          "question": "O que esse ECG significa e qual a janela terapêutica?",
+          "options": [
+            "IAM com supra de parede inferior. Reperfusão imediata, idealmente até 120 minutos do início da dor",
+            "Pericardite aguda. Manejo com AINE e observação",
+            "Angina instável. Estratégia conservadora com anticoagulação e investigação por estresse",
+            "Bloqueio de ramo esquerdo novo. Aguardar enzimas seriadas"
+          ],
+          "correct": 0,
+          "expl": "Supra em parede inferior (DII, DIII, aVF) com infra recíproco em DI e aVL é IAMCSST inferior clássico. Tempo é músculo: a meta é reperfusão ≤ 90 min se PCI primária disponível, ou trombolítico em até 30 min se transferência demorar > 120 min."
+        },
+        {
+          "id": "step3",
+          "prompt": "Sua emergência tem hemodinâmica 24h, sala 4 fica a 3 minutos de maca. Hemodinamicista de plantão acabou de te ligar.",
+          "question": "Antes de subir, qual conjunto de drogas você prescreve?",
+          "options": [
+            "Dupla antiagregação (AAS + ticagrelor 180 mg ou clopidogrel 600 mg), anticoagulação (heparina não fracionada 60 U/kg bólus), estatina alta potência",
+            "Apenas AAS e morfina, deixar o resto para o hemodinamicista",
+            "Trombolítico (tenecteplase) imediato e depois encaminhar",
+            "Sulfato de magnésio + amiodarona profilático antes da intervenção"
+          ],
+          "correct": 0,
+          "expl": "Antes de PCI primária: AAS já dado, adicionar 2º antiagregante (ticagrelor 180 mg dose de ataque, ou clopidogrel 600 mg se contraindicação) e anticoagulante (HNF 60 U/kg bólus). Estatina alta intensidade (atorvastatina 80 mg) o quanto antes. Trombolítico é alternativa se PCI não disponível em 120 min. Sulfato de magnésio só se torsades, não profilático."
+        },
+        {
+          "id": "step4",
+          "prompt": "Você está colocando a heparina quando a enfermeira grita: 'doutora, a PA caiu pra 78x40 e ele tá com bradicardia, 42 bpm'.",
+          "question": "Qual a hipótese mais provável e a conduta imediata?",
+          "options": [
+            "Reflexo de Bezold-Jarisch / acometimento de VD. Volume IV rápido, evitar nitrato, considerar atropina se sintomático",
+            "Choque cardiogênico por falência de VE. Iniciar noradrenalina e morfina IV",
+            "Reação alérgica à heparina. Suspender e dar adrenalina",
+            "Tamponamento cardíaco. Pericardiocentese de emergência"
+          ],
+          "correct": 0,
+          "expl": "IAM inferior frequentemente envolve VD (mesma irrigação por coronária direita). Hipotensão + bradicardia + IAM inferior = pensar em comprometimento de VD. Conduta: volume (cristaloide 250-500 mL), NÃO usar nitrato/morfina/diurético (vasodilatam e reduzem pré-carga), atropina se bradicardia sintomática. Sempre fazer ECG das derivações direitas (V3R, V4R) pra confirmar."
+        },
+        {
+          "id": "step5",
+          "prompt": "Hidratação iniciada, atropina 0,5 mg administrada. PA sobe pra 102x60, FC 78. Hemodinâmica liga: 'pode subir'.",
+          "question": "Como você passa o caso para o hemodinamicista (entrega segura)?",
+          "options": [
+            "Idade, FR, dor há 1h, ECG com supra de parede inferior + provável VD, AAS + ticagrelor + HNF feitos, episódio de hipo-bradi respondeu a volume + atropina, alergias e medicações habituais",
+            "Apenas o nome do paciente e a queixa, hemodinâmica vai avaliar",
+            "Mostrar o ECG sem comentar a hipotensão, pra não preocupar a equipe",
+            "Pedir pra equipe aguardar troponina antes de subir"
+          ],
+          "correct": 0,
+          "expl": "Handoff estruturado salva vidas: identificação, evento agudo, tempo, exames-chave, drogas administradas (incluindo doses e horário), eventos críticos (hipotensão), comorbidades, alergias. Modelos como SBAR ou IDEAL ajudam. Nunca esconda episódios adversos da equipe que vai assumir."
+        }
+      ],
+      "outcome": "Cateterismo às 04:08: oclusão proximal da coronária direita, sucesso na angioplastia com stent. ECG de controle: ST normalizado. UTI 48h, alta no 5º dia com AAS, ticagrelor, atorvastatina, betabloqueador e enalapril. Você dorme só às 07:30. Foi um bom plantão."
+    },
+    {
+      "type": "case",
+      "topic": "Eclâmpsia",
+      "subtitle": "Gestante 32 semanas, PA 180/120, cefaleia em capacete",
+      "specialty": "Obstetrícia · Emergência",
+      "timeStamp": "23:47",
+      "location": "Pronto atendimento obstétrico",
+      "difficulty": "hard",
+      "vignette": "Você acabou de evoluir o trabalho de parto do leito 3. A escriturária da triagem te chama: 'gestante esperando há uns 20 minutos, falou que tá com dor de cabeça.'\n\nVocê vai até a sala. Mulher de 28 anos, primigesta, 32 semanas pelo USG do início, sentada na cadeira com a mão na têmpora. Marido em pé do lado, segurando uma pastinha.\n\n— Doutora, começou hoje cedo. Achei que era enxaqueca, tomei dipirona, mas só piorou. Agora tá esticando o pescoço, e fica brilhando umas luzinhas no canto do olho.\n\nVocê pede pra ela deitar e mede a pressão: 184x118 mmHg. Repete depois de 5 minutos: 178x114. FC 92, FR 18, SpO₂ 98%.\n\nExame: reflexos patelares vivos (3+), edema importante em MMII (cacifo 3+), barriga indolor, BCF presente 140 bpm. Sumário de urina dipstick: proteínas 3+.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Qual a hipótese diagnóstica e o grau de gravidade?",
+          "options": [
+            "Pré-eclâmpsia grave com sinais de iminência de eclâmpsia",
+            "Hipertensão crônica descompensada, sem relação com a gestação",
+            "Hipertensão gestacional simples, manejo ambulatorial",
+            "Cefaleia tensional em gestante hipertensa"
+          ],
+          "correct": 0,
+          "expl": "PA ≥ 160x110 em gestante após 20 semanas + proteinúria + cefaleia + escotomas + hiperreflexia = pré-eclâmpsia grave com sinais de iminência. Iminência de eclâmpsia: cefaleia persistente, escotomas, epigastralgia, hiperreflexia."
+        },
+        {
+          "id": "step2",
+          "prompt": "Você instala dois acessos, monitor, e chama a enfermeira líder. A residente sênior aparece e pergunta: 'qual o seu primeiro passo agora?'",
+          "question": "Qual conduta inicial mais correta?",
+          "options": [
+            "Sulfato de magnésio: dose de ataque 4 g IV em 20 min, seguido de 1 g/h em BIC. Em paralelo, anti-hipertensivo de ação rápida",
+            "Furosemida 40 mg IV para baixar a pressão e reduzir o edema",
+            "Captopril 25 mg sublingual",
+            "Aguardar mais 30 min observando antes de medicar"
+          ],
+          "correct": 0,
+          "expl": "Sulfato de magnésio é a droga de escolha para prevenção e tratamento de eclâmpsia. Esquemas: Pritchard (IM) ou Zuspan (IV). Reduz convulsão em 50%. Em paralelo, controlar PA com hidralazina 5 mg IV ou nifedipina VO 10 mg (não sublingual). Captopril é CONTRAINDICADO na gestação (teratogênico). Furosemida não é primeira linha; pré-eclâmpsia tem volume circulante REDUZIDO."
+        },
+        {
+          "id": "step3",
+          "prompt": "Você prescreveu o esquema. Hidralazina 5 mg IV em curso. De repente, a paciente revira os olhos, o corpo enrijece, e começa a convulsionar.",
+          "question": "Conduta imediata na convulsão?",
+          "options": [
+            "Proteger vias aéreas (decúbito lateral, aspirar), oxigênio, manter MgSO₄ em curso, prescrever 2g de ataque adicional se ainda convulsionar após 5 min",
+            "Diazepam 10 mg IV imediatamente",
+            "Fenobarbital 200 mg IV imediatamente",
+            "Cesariana de urgência no leito"
+          ],
+          "correct": 0,
+          "expl": "Convulsão eclâmptica: proteger via aérea (lateralizar, aspirar), O₂, manter MgSO₄. Se ainda convulsionando após dose de ataque, repetir 2 g IV. Benzodiazepínico só se refratário ao Mg (3ª linha). A cesariana é necessária depois de estabilizar mãe, NÃO durante crise convulsiva."
+        },
+        {
+          "id": "step4",
+          "prompt": "Convulsão cedeu em 90 segundos. Paciente sonolenta mas responsiva. PA 162x108. Você fala com o obstetra de plantão.",
+          "question": "Conduta sobre a via de parto agora?",
+          "options": [
+            "Estabilizar (PA, MgSO₄, função renal, plaquetas) e proceder ao parto. Via vaginal se condições obstétricas favoráveis; cesárea se não",
+            "Manter expectante para tentar prolongar a gestação até 37 semanas",
+            "Cesárea imediata de urgência sem mais avaliação",
+            "Aguardar até a paciente acordar completamente"
+          ],
+          "correct": 0,
+          "expl": "Eclâmpsia é indicação de parto após estabilização materna, independente da idade gestacional. Não se prolonga gestação após convulsão. Via de parto depende das condições obstétricas (colo, apresentação, BCF). Corticoide pra maturação pulmonar entre 24-34 semanas se houver tempo."
+        }
+      ],
+      "outcome": "Cesárea às 02:15 sob anestesia regional. RN feminino, 1.890 g, APGAR 6/8, UTIN. Mãe permanece em UTI obstétrica por 48h com MgSO₄, depois enfermaria. PA estabiliza em 140x90 com metildopa. Alta ao 5º dia com seguimento ambulatorial. Você só vai dormir às 06:00, mas com a sensação de ter feito tudo certo."
+    },
+    {
+      "type": "case",
+      "topic": "Meningococcemia",
+      "subtitle": "Criança 4 anos, febre alta e manchas roxas que não somem na pressão",
+      "specialty": "Pediatria · Emergência infecciosa",
+      "timeStamp": "19:30",
+      "location": "Pronto atendimento pediátrico",
+      "difficulty": "hard",
+      "vignette": "A enfermeira da triagem te chama com pressa: 'doutora, criança de 4 anos, febre alta, mãe diz que apareceram manchas.'\n\nVocê entra na sala. Menino prostrado no colo da mãe. Olhos fundos, pele pálida com salpicado roxo no tronco e nas pernas. Você pressiona uma das manchas com a polpa do dedo: não some.\n\n— Doutora, começou de manhã. Febre alta, ele ficou meio mole. Comeu pouco. Há umas duas horas começaram essas pintinhas, agora tão por toda parte.\n\nSinais vitais: T 39,6°C · FC 168 · FR 42 · PA 78x40 · SpO₂ 93% em ar ambiente · TEC 4 segundos. Extremidades frias e moteadas. Glasgow 13 (V4 O4 M5).\n\nMãe nega vacinação completa (atraso em algumas doses).",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Qual a hipótese diagnóstica principal e o que ela exige?",
+          "options": [
+            "Meningococcemia com choque séptico. Reanimação imediata e antibiótico empírico na primeira hora",
+            "Púrpura de Henoch-Schönlein. Encaminhar para reumatologia ambulatorial",
+            "Dengue grave. Hidratação conforme protocolo e observação",
+            "Sarampo. Vitamina A e isolamento de contato"
+          ],
+          "correct": 0,
+          "expl": "Petéquias/equimoses que não somem à digitopressão + febre alta + choque + Glasgow alterado em criança = meningococcemia até prova em contrário. Mortalidade altíssima se atrasar antibiótico. Reanimação volêmica e ATB na primeira hora salvam vidas (Surviving Sepsis Pediátrico)."
+        },
+        {
+          "id": "step2",
+          "prompt": "Você grita por ajuda. Outro residente pega 2 acessos calibrosos. Você pede ATB e expansão.",
+          "question": "Esquema empírico mais adequado para criança de 4 anos com suspeita de meningococcemia?",
+          "options": [
+            "Ceftriaxona 100 mg/kg IV em dose única (max 2g), administrada o mais rápido possível",
+            "Vancomicina + ampicilina como em neonato",
+            "Penicilina G cristalina aguardando antibiograma",
+            "Azitromicina oral pela facilidade de administração"
+          ],
+          "correct": 0,
+          "expl": "Para crianças > 3 meses com suspeita de meningococcemia/meningite bacteriana, ceftriaxona 100 mg/kg IV (max 2g) cobre meningococo, pneumococo e Hib. Em RN < 1 mês precisa cobrir Listeria (ampicilina). Não esperar coleta de exames pra dar ATB — coletar hemoculturas em paralelo se viável."
+        },
+        {
+          "id": "step3",
+          "prompt": "Acesso conseguido. Ringer lactato 20 mL/kg em bolus correndo. ATB administrado em 28 minutos. Mas após o segundo bolus de 20 mL/kg, PA persiste em 76x38, perfusão ainda ruim.",
+          "question": "Conduta a seguir?",
+          "options": [
+            "Iniciar noradrenalina (ou adrenalina) em BIC + considerar 3º bolus se sem sinais de sobrecarga + cuidar via aérea / IOT se piora respiratória",
+            "Continuar bolus de 20 mL/kg indefinidamente até PA normalizar",
+            "Furosemida 1 mg/kg para reduzir edema pulmonar",
+            "Aguardar mais 30 minutos de hidratação antes de qualquer outra ação"
+          ],
+          "correct": 0,
+          "expl": "Choque séptico pediátrico refratário a fluido (após 40-60 mL/kg) = iniciar vasoativo. Em choque frio (extremidades frias, TEC lento) a adrenalina é primeira escolha; em choque quente, noradrenalina. Sempre reavaliar via aérea — RN/criança crítica deteriora rápido. Furosemida está errada e pode piorar choque."
+        },
+        {
+          "id": "step4",
+          "prompt": "Adrenalina iniciada. Você liga pra CTI pediátrica. Enquanto isso, a mãe pergunta: 'doutora, e os irmãos dele em casa? E a escola?'",
+          "question": "O que orientar sobre profilaxia de contactantes?",
+          "options": [
+            "Rifampicina por 2 dias (10 mg/kg 12/12h em crianças, 600 mg 12/12h em adultos) para contatos íntimos do domicílio, creche, e profissionais de saúde com contato com secreções. Ceftriaxona IM dose única alternativa",
+            "Nenhuma profilaxia, basta vacinação dos contatos",
+            "Penicilina oral por 10 dias para todos os contatos",
+            "Apenas isolar a criança por 24h, contatos não precisam de medida"
+          ],
+          "correct": 0,
+          "expl": "Profilaxia de contatos íntimos é mandatória em meningococcemia (notificação compulsória imediata). Rifampicina 2 dias para crianças (10 mg/kg 12/12h, max 600 mg). Ceftriaxona 250 mg IM dose única em gestantes. Ciprofloxacino 500 mg VO dose única é alternativa em adultos. Profissionais de saúde só fazem profilaxia se tiveram contato com secreções respiratórias (ex: IOT sem máscara)."
+        }
+      ],
+      "outcome": "Criança intubada em sala, transferida para CTIP. Diagnóstico confirmado por punção liquórica (cultura positiva pra N. meningitidis B). 5 dias intubada, evolui bem. Sequelas: amputação parcial de dois dedos do pé direito por necrose. Alta no 14º dia. Mãe e dois irmãos receberam rifampicina. Notificação SINAN realizada. Você não esquece esse plantão."
+    },
+    {
+      "type": "case",
+      "topic": "Tromboembolismo pulmonar",
+      "subtitle": "Mulher, 3º dia pós-bariátrica, dispneia súbita",
+      "specialty": "Emergência · Pneumologia",
+      "timeStamp": "14:22",
+      "location": "Enfermaria cirúrgica · 3º andar",
+      "difficulty": "hard",
+      "vignette": "Você está fazendo o round vespertino na enfermaria cirúrgica. A enfermeira te aborda: 'doutora, leito 308 tá com falta de ar há uns 20 minutos. É a paciente da bariátrica anteontem.'\n\nVocê vai até o quarto. Mulher de 38 anos, IMC pré-operatório 42, fez bypass em Y de Roux há 48h. Está sentada na cama, respirando rápido, com a mão no peito.\n\n— Doutora, do nada. Tava conversando com meu marido, levantei pra ir ao banheiro, e me apertou. Tô tonta, parece que vou desmaiar.\n\nSinais vitais: FC 124 · FR 32 · PA 96x58 · SpO₂ 88% em ar ambiente · Tax 37,2°C. Ausculta pulmonar: MV preservado bilateralmente, sem ruídos adventícios. Panturrilha direita levemente assimétrica, mais empastada. Ferida operatória limpa.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Qual a hipótese diagnóstica principal e a estratificação inicial?",
+          "options": [
+            "TEP de risco intermediário/alto. Estratificar pelo escore de Wells e PESI, anticoagulação enquanto investiga",
+            "Embolia gordurosa pós-cirurgia",
+            "Pneumonia aspirativa pós-operatória",
+            "Crise de pânico pós-cirúrgica"
+          ],
+          "correct": 0,
+          "expl": "Pós-op recente (4 sem) + IMC elevado + dispneia súbita + taquicardia + dessaturação + sinais de TVP = altíssima suspeita de TEP. Wells: TVP clínica (3) + TEP é o mais provável (3) + FC > 100 (1.5) + imobilização recente (1.5) = 9 pontos = alto risco. Anticoagulação empírica enquanto confirma com angio-TC."
+        },
+        {
+          "id": "step2",
+          "prompt": "Você instala monitor, O₂ por máscara 6 L/min (SpO₂ sobe pra 94%). Pede ECG, gasometria, troponina, BNP e D-dímero.",
+          "question": "Em paciente de alto risco para TEP, qual exame de imagem e qual conduta sobre o D-dímero?",
+          "options": [
+            "Angio-TC de tórax o mais rápido possível. D-dímero perde valor em alta probabilidade (alto VPN só em probabilidade baixa/intermediária)",
+            "Aguardar D-dímero antes de pedir imagem",
+            "USG Doppler de MMII apenas; se positivo, dispensa angio-TC",
+            "Cintilografia V/Q como primeiro exame em qualquer caso"
+          ],
+          "correct": 0,
+          "expl": "Em alta probabilidade clínica para TEP, D-dímero não exclui (já é esperado positivo no pós-op). Vai direto pra imagem: angio-TC é gold standard. V/Q é alternativa se contraindicação ao contraste (IR avançada, alergia). USG Doppler ajuda mas não exclui TEP isolado pulmonar."
+        },
+        {
+          "id": "step3",
+          "prompt": "Angio-TC confirma TEP bilateral com sinais de sobrecarga de VD (relação VD/VE > 1). Troponina elevada (T 0,089). BNP 480. PA agora 88x52, lactato 3,1.",
+          "question": "Classificação de risco e conduta terapêutica?",
+          "options": [
+            "TEP de alto risco (instabilidade + sobrecarga de VD + biomarcadores elevados). Trombólise sistêmica (alteplase 100 mg em 2h) se sem contraindicação absoluta",
+            "TEP de risco intermediário-baixo, apenas heparina de baixo peso",
+            "Anticoagulação oral direta (rivaroxabana) e alta para casa",
+            "Filtro de veia cava como primeira linha sem anticoagulação"
+          ],
+          "correct": 0,
+          "expl": "TEP de alto risco = instabilidade hemodinâmica (PA < 90 ou queda > 40 mmHg por > 15 min) OU disfunção de VD + biomarcadores elevados. Trombólise sistêmica reduz mortalidade. Pós-op recente (cirurgia há 48h) é contraindicação RELATIVA — discutir benefício/risco com cirurgião. Em contraindicação absoluta: trombectomia mecânica."
+        },
+        {
+          "id": "step4",
+          "prompt": "Você liga pro cirurgião que operou. Ele diz: 'fez bypass há 48h, sangramento ainda é risco real. Mas se ela tá morrendo agora…'.",
+          "question": "Como decidir e qual o passo seguinte?",
+          "options": [
+            "Discussão de risco/benefício multidisciplinar (cirurgião + hematologia + UTI), idealmente trombectomia mecânica por cateter na hemodinâmica como alternativa à trombólise sistêmica",
+            "Não fazer nada até as 72h pós-op",
+            "Trombólise sistêmica em dose plena imediatamente sem discutir com cirurgião",
+            "Apenas anticoagulação plena, sem reperfusão, e aguardar evolução"
+          ],
+          "correct": 0,
+          "expl": "Em contraindicação relativa à trombólise (cirurgia recente), trombectomia mecânica por cateter é a alternativa preferencial em centros com hemodinâmica. Decisão precisa ser rápida E discutida com cirurgião/hematologia/UTI. Em centro sem hemodinâmica para isso, trombólise em dose reduzida (50 mg) é considerada quando o risco de morte > risco de sangramento."
+        }
+      ],
+      "outcome": "Trombectomia mecânica realizada às 16:40. Melhora hemodinâmica imediata, SpO₂ 96% em O₂ baixo fluxo. UTI 72h com enoxaparina, depois rivaroxabana por 6 meses. Investigação de trombofilia negativa (fator de risco isolado: cirurgia + obesidade). Alta no 9º PO. Profilaxia mecânica + farmacológica precoce passa a ser protocolo do serviço."
+    },
+    {
+      "type": "case",
+      "topic": "Sepse urinária com choque",
+      "subtitle": "Senhor de 76 anos confuso, febre, PA 80x40",
+      "specialty": "Emergência · Geriatria",
+      "timeStamp": "09:10",
+      "location": "Pronto-socorro · plantão de domingo",
+      "difficulty": "hard",
+      "vignette": "Domingo, 9h da manhã. A neta entra empurrando uma cadeira de rodas. Sentado nela, um senhor de 76 anos, olhar perdido, falando coisas desconexas.\n\n— Doutora, ele tá esquisito desde ontem à noite. Hoje cedo nem reconheceu meu pai. Tá quentinho, e a tarde inteira ele falou que ia ter que ir trabalhar… ele é aposentado faz 15 anos.\n\nVocê pega a história. Hipertensão controlada, DM2 com metformina, AVC há 4 anos sem sequelas significativas, próstata aumentada (faz controle anual).\n\nExame: prostrado, sonolento. T 38,8°C · FC 132 · FR 26 · PA 82x44 · SpO₂ 95% em ar ambiente · TEC 4 s. Mucosas hipocoradas, extremidades frias. Abdome flácido, dor leve em hipogástrio. Globo vesical palpável.\n\nGlasgow 13 (V4 O4 M5). Sumário de urina dipstick: leucócitos 4+, nitrito positivo, sangue 2+.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Hipótese diagnóstica e classificação Sepsis-3?",
+          "options": [
+            "Choque séptico de foco urinário (qSOFA ≥ 2, hipotensão + lactato), provável retenção urinária aguda associada à hiperplasia prostática",
+            "AVC isquêmico em curso",
+            "Crise hipoglicêmica em diabético",
+            "Demência descompensada, sem causa orgânica"
+          ],
+          "correct": 0,
+          "expl": "Idoso + febre + alteração mental aguda + hipotensão + qSOFA ≥ 2 (FR ≥ 22, alteração consciência, PAS < 100) = choque séptico. Foco urinário pelo dipstick + globo vesical (retenção urinária aguda agravando estase, comum em HPB). Sempre pensar em foco urinário em idoso com sepse, mesmo sem queixa urinária clássica."
+        },
+        {
+          "id": "step2",
+          "prompt": "Você abre protocolo de sepse. Cronômetro começa.",
+          "question": "Bundle de 1 hora — qual a sequência mais correta?",
+          "options": [
+            "Coletar lactato, coletar hemoculturas (2 pares), iniciar ATB empírico amplo em até 1h, cristaloide 30 mL/kg, sondar (sonda vesical de demora), vasopressor se hipotensão refratária",
+            "Aguardar hemocultura para iniciar ATB direcionado",
+            "Sondagem vesical primeiro, só depois ATB",
+            "Iniciar amoxicilina oral e observar resposta em 24h"
+          ],
+          "correct": 0,
+          "expl": "Surviving Sepsis 1-hour bundle: lactato + hemoculturas + ATB empírico amplo em até 1h + cristaloide 30 mL/kg se hipoperfusão/choque + vasopressor se PA não responde a fluido. Em sepse urinária com globo vesical, sondagem alivia obstrução e ajuda controle de foco. ATB urinário hospitalar: piperacilina-tazobactam ou cefalosporina 3ª/4ª. Cobrir pseudomonas/ESBL conforme epidemiologia local."
+        },
+        {
+          "id": "step3",
+          "prompt": "Pip-tazo 4,5g em curso. Cristaloide 30 mL/kg (2.250 mL) infundindo. Sondagem com saída de 600 mL de urina turva. Após 1.500 mL, PA 92x50, FC 118, lactato 3,8 mmol/L.",
+          "question": "Conduta sobre vasopressor?",
+          "options": [
+            "Iniciar noradrenalina em BIC para manter PAM ≥ 65 mmHg, sem aguardar terminar todo o fluido se persiste hipoperfusão",
+            "Continuar apenas fluido até completar 60 mL/kg antes de pensar em vasopressor",
+            "Adrenalina como primeira linha em sepse",
+            "Dopamina em baixa dose como 'protetor renal'"
+          ],
+          "correct": 0,
+          "expl": "Vasopressor de escolha em choque séptico é noradrenalina (NE) em BIC, titulada para PAM ≥ 65 mmHg. Não precisa terminar todo o fluido antes de iniciar NE se já houve resposta parcial e sinais de hipoperfusão persistem. Adrenalina pode ser associada se PA não responde. Dopamina 'renal' é mito e está fora dos protocolos atuais."
+        },
+        {
+          "id": "step4",
+          "prompt": "Noradrenalina em curso. Após 45 minutos: PA 102x58 (PAM 73), FC 102, lactato 2,1, melhora do nível de consciência. Família chega na sala vermelha.",
+          "question": "O que dizer à família agora, e qual o destino do paciente?",
+          "options": [
+            "Explicar que é uma infecção urinária grave com choque, ele está respondendo ao tratamento mas precisa de UTI por instabilidade hemodinâmica e necessidade de drogas vasoativas",
+            "Dizer que está tudo bem e ele vai pra enfermaria comum",
+            "Falar pouco para não preocupar, esperar o quadro definir",
+            "Sugerir cuidados paliativos imediatos sem discutir mais"
+          ],
+          "correct": 0,
+          "expl": "Comunicação clara e honesta com família é parte do cuidado: diagnóstico, gravidade, plano, prognóstico, próximos passos. Choque séptico sempre vai pra UTI mesmo se respondeu — pode descompensar novamente, exige monitorização invasiva e ajuste de drogas vasoativas. Conversa franca evita conflito posterior."
+        }
+      ],
+      "outcome": "Paciente transferido pra UTI às 11:30, NE retirada em 18h, ATB ajustado pra ceftriaxona após urocultura (E. coli sensível). Investigado HPB com retenção urinária; segue com sondagem de alívio + urologia. Alta no 7º dia, recupera nível mental. Voltou a contar piadas com a neta. Você documenta tudo, escreve um bom prontuário, e segue o plantão."
+    },
+    {
+      "type": "case",
+      "topic": "Politrauma",
+      "subtitle": "Jovem 22 anos, acidente de moto, Glasgow 8",
+      "specialty": "Emergência · Trauma",
+      "timeStamp": "21:48",
+      "location": "Sala de trauma · domingo à noite",
+      "difficulty": "hard",
+      "vignette": "Sirene ecoando no corredor. A enfermeira-chefe abre a porta da sala de trauma: 'doutora, paciente vindo agora, moto x carro, 22 anos, SAMU está estimando 3 minutos.'\n\nVocê veste o avental de chumbo, calça luvas. A equipe se posiciona: outro residente nas vias aéreas, técnico no monitor, enfermeira nos acessos. O médico do SAMU entra empurrando a maca.\n\n— Homem de 22, capacete na hora, jogado a uns 8 metros. Glasgow 8 desde o resgate: V2 O2 M4. Tá com colar cervical, prancha. Sat 93% em O₂ máscara, FC 132, PA 88x52. Tem deformidade óbvia da coxa esquerda e abdome distendido. Vamos passar.\n\nVocê posiciona o estetoscópio. Murmúrio vesicular abolido em base direita. Trauma em hemitórax direito. Abdome distendido, doloroso difusamente. Pelve estável. Pulsos periféricos finos.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Primeiro passo do ATLS na sala de trauma?",
+          "options": [
+            "Via aérea com proteção cervical: avaliar permeabilidade, IOT por Glasgow ≤ 8, manter colar até descartar lesão cervical com imagem",
+            "Solicitar TC de crânio antes de qualquer manobra",
+            "Reposição volêmica primeiro, depois avaliar via aérea",
+            "Lavagem peritoneal diagnóstica imediata"
+          ],
+          "correct": 0,
+          "expl": "ATLS — A (Airway with cervical spine protection). Glasgow ≤ 8 é indicação de IOT (não consegue proteger via aérea). Manter colar até excluir lesão cervical com TC. Sequência rígida ABCDE existe pra não esquecer prioridade — quem morre, morre por A, B, C nessa ordem."
+        },
+        {
+          "id": "step2",
+          "prompt": "Você intuba em sequência rápida com etomidato + succinilcolina, tubo 8.0. Conferiu murmúrio bilateral pós-IOT. Saturação sobe para 97% no respirador. Agora você reavalia o B: tórax direito sem murmúrio, hiper-ressonante à percussão, jugulares ingurgitadas, PA caindo 76x40.",
+          "question": "Hipótese e conduta imediata?",
+          "options": [
+            "Pneumotórax hipertensivo. Toracocentese de alívio imediata no 5º EIC linha axilar média (ou 2º EIC linha hemiclavicular), depois dreno torácico",
+            "Aguardar raio-X de tórax antes de qualquer punção",
+            "Apenas aumentar PEEP no respirador",
+            "Iniciar antibiótico para pneumonia aspirativa"
+          ],
+          "correct": 0,
+          "expl": "Pneumotórax hipertensivo é diagnóstico CLÍNICO, não radiológico: hipotensão + jugulares ingurgitadas + murmúrio abolido + hiper-ressonância + desvio traqueal. Toracocentese de alívio IMEDIATA (5º EIC LAM ou 2º EIC LHC) salva vida. Esperar raio-X mata. Depois drenagem em selo d'água."
+        },
+        {
+          "id": "step3",
+          "prompt": "Punção feita, escape de ar, PA sobe pra 92x56. Dreno em selo d'água sendo passado. Você prossegue ao C: PA ainda baixa (90x52), abdome distendido e doloroso.",
+          "question": "Próximo passo na avaliação do choque hemorrágico?",
+          "options": [
+            "FAST à beira do leito (líquido livre abdominal/pericárdico) + 2 acessos calibrosos + cristaloide aquecido + ácido tranexâmico (1g em 10 min) + tipagem para hemotransfusão",
+            "TC de abdome com contraste antes de qualquer intervenção",
+            "Apenas observação por 2 horas para reavaliação",
+            "Lavagem peritoneal diagnóstica antes do FAST"
+          ],
+          "correct": 0,
+          "expl": "FAST (focused abdominal sonography for trauma) é exame inicial no choque hemorrágico abdominal — rápido, à beira do leito, identifica líquido livre. Em paciente instável com FAST positivo → laparotomia direta, não TC. Ácido tranexâmico em até 3h do trauma reduz mortalidade (CRASH-2). 2 acessos calibrosos (jelco 16 ou maior), tipagem e reserva sanguínea precoces."
+        },
+        {
+          "id": "step4",
+          "prompt": "FAST positivo: muito líquido em hipocôndrio esquerdo e fundo de saco. PA cai pra 78x42 apesar de 2L de cristaloide. Cirurgião já está sendo chamado, hemácias O negativo pedidas.",
+          "question": "Conduta enquanto cirurgia se organiza?",
+          "options": [
+            "Protocolo de transfusão maciça (PTM): hemácias + plasma + plaquetas 1:1:1, manter PA permissiva (PAS 80-90 em trauma penetrante / 100-110 se TCE), encaminhar à sala cirúrgica",
+            "Continuar apenas com cristaloide até atingir 4L antes de pensar em sangue",
+            "Iniciar noradrenalina antes de sangue",
+            "Aguardar exames laboratoriais antes de transfundir"
+          ],
+          "correct": 0,
+          "expl": "Choque hemorrágico classe III/IV refratário a fluido → PTM imediato (1:1:1 hemácias:plasma:plaquetas). Reposição com cristaloide demais piora coagulopatia (diluição) e edema. Hipotensão permissiva (PAS 80-90) em trauma penetrante reduz sangramento. Em TCE associado, alvo é mais alto (PAS ≥ 100-110) pra perfusão cerebral."
+        }
+      ],
+      "outcome": "Laparotomia exploradora às 22:35: laceração esplênica grau IV, esplenectomia. Hemotransfusão de 8 unidades de hemácias, 6 PFC, 1 pool de plaquetas. Fratura de fêmur estabilizada com tração no leito. TC de crânio sem hematoma agudo, contusões cerebrais discretas. UTI 6 dias. Quando recobra consciência, pergunta primeiro pela namorada. Você passa o caso na visita do dia seguinte com calma — sobreviveu graças ao ABCDE bem feito."
+    }
+  ]
+}

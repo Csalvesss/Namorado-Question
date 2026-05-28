@@ -7,6 +7,8 @@ import Course from './pages/Course';
 import Dashboard from './pages/Dashboard';
 import History from './pages/History';
 import Login from './pages/Login';
+import CaseSimulator from './pages/CaseSimulator';
+import Cases from './pages/Cases';
 import Profile from './pages/Profile';
 import QuickReview from './pages/QuickReview';
 import Quiz from './pages/Quiz';
@@ -31,6 +33,8 @@ export default function App() {
         <Route path="/intercalado" element={<Quiz />} />
         <Route path="/ferramentas" element={<Tools />} />
         <Route path="/passa-facil" element={<QuickReview />} />
+        <Route path="/casos" element={<Cases />} />
+        <Route path="/casos/:caseId" element={<CaseSimulator />} />
         <Route path="/historico" element={<History />} />
         <Route path="/revisar" element={<Review />} />
         <Route path="/plano" element={<StudyPlan />} />
