@@ -3,8 +3,10 @@ import Layout from './components/Layout';
 import RequireAuth from './components/RequireAuth';
 import Author from './pages/Author';
 import Bilhetes from './pages/Bilhetes';
+import Calculators from './pages/Calculators';
 import Course from './pages/Course';
-import Dashboard from './pages/Dashboard';
+import Courses from './pages/Courses';
+import Home from './pages/Home';
 import History from './pages/History';
 import Login from './pages/Login';
 import AlgorithmPlayer, { AlgorithmsList } from './pages/Algorithms';
@@ -29,11 +31,13 @@ export default function App() {
           </RequireAuth>
         }
       >
-        <Route path="/app" element={<Dashboard />} />
+        <Route path="/app" element={<Home />} />
+        <Route path="/cursos" element={<Courses />} />
         <Route path="/curso/:id" element={<Course />} />
         <Route path="/quiz/:courseId" element={<Quiz />} />
         <Route path="/intercalado" element={<Quiz />} />
         <Route path="/ferramentas" element={<Tools />} />
+        <Route path="/calculadoras" element={<Calculators />} />
         <Route path="/passa-facil" element={<QuickReview />} />
         <Route path="/casos" element={<Cases />} />
         <Route path="/casos/:caseId" element={<CaseSimulator />} />
