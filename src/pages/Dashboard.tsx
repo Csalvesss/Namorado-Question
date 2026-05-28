@@ -19,9 +19,10 @@ import Onboarding from '../components/Onboarding';
 import SpringFlower from '../components/decorative/SpringFlower';
 import WaxSeal from '../components/decorative/WaxSeal';
 import { COURSES_CHANGE_EVENT, db } from '../lib/db';
+import { listDueCards, SRS_CHANGE_EVENT } from '../lib/srs';
 import { useSessions } from '../lib/useSessions';
 import { useUser } from '../lib/useUser';
-import type { Course, QuizSession } from '../types';
+import type { Course, FlashcardQuestion, QuizSession } from '../types';
 
 const WEEKDAYS_PT_UP = ['DOMINGO', 'SEGUNDA', 'TERÇA', 'QUARTA', 'QUINTA', 'SEXTA', 'SÁBADO'];
 const MONTHS_PT_UP = [
@@ -29,13 +30,15 @@ const MONTHS_PT_UP = [
   'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ',
 ];
 
-function formatEditionDate(d: Date): string {
-  return `${WEEKDAYS_PT_UP[d.getDay()]} · ${d.getDate()} ${MONTHS_PT_UP[d.getMonth()]} · ${d.getFullYear()}`;
+function greetingByHour(hour: number): string {
+  if (hour < 5) return 'boa madrugada';
+  if (hour < 12) return 'bom dia';
+  if (hour < 18) return 'boa tarde';
+  return 'boa noite';
 }
 
-function daysSince(ts: number, now: number = Date.now()): number {
-  const dayMs = 24 * 60 * 60 * 1000;
-  return Math.max(0, Math.floor((now - ts) / dayMs));
+function formatEditionDate(d: Date): string {
+  return `${WEEKDAYS_PT_UP[d.getDay()]} · ${d.getDate()} ${MONTHS_PT_UP[d.getMonth()]} · ${d.getFullYear()}`;
 }
 
 function lastCourseFromSessions(sessions: QuizSession[], courses: Course[]): Course | null {
@@ -132,8 +135,8 @@ function performanceSentence(
 
 export default function Dashboard() {
   const { user } = useUser();
-  const [, setCoursesTick] = useState(0);
-  const courses = useMemo(() => db.courses.list(), []);
+  const [coursesTick, setCoursesTick] = useState(0);
+  const courses = useMemo(() => db.courses.list(), [coursesTick]);
   const { sessions } = useSessions();
 
   useEffect(() => {
@@ -141,8 +144,25 @@ export default function Dashboard() {
       setCoursesTick((t) => t + 1);
     }
     window.addEventListener(COURSES_CHANGE_EVENT, bump);
-    return () => window.removeEventListener(COURSES_CHANGE_EVENT, bump);
+    window.addEventListener(SRS_CHANGE_EVENT, bump);
+    return () => {
+      window.removeEventListener(COURSES_CHANGE_EVENT, bump);
+      window.removeEventListener(SRS_CHANGE_EVENT, bump);
+    };
   }, []);
+
+  const dueCardCount = useMemo(() => {
+    if (!user) return 0;
+    const allCardIds: string[] = [];
+    courses.forEach((c) => {
+      db.questions
+        .listByCourse(c.id)
+        .filter((q): q is FlashcardQuestion => q.type === 'flashcard')
+        .forEach((card) => allCardIds.push(card.id));
+    });
+    if (allCardIds.length === 0) return 0;
+    return listDueCards(user.uid, allCardIds).length;
+  }, [user, courses, coursesTick]);
 
   const completed = sessions.filter((s) => s.completedAt);
   const totalQuestions = completed.reduce((acc, s) => acc + s.answers.length, 0);
@@ -156,11 +176,7 @@ export default function Dashboard() {
   const firstName = user?.name?.split(' ')[0] ?? 'doutora';
   const tone = user?.displayMode === 'doutora' ? 'doutora' : 'namorado';
   const showBilhete = tone === 'namorado';
-
-  const editionDays = user ? daysSince(user.createdAt) + 1 : 1;
-  const volume = Math.max(1, Math.floor(editionDays / 7) + 1);
-  const editionLabel = `N.° ${String(editionDays).padStart(3, '0')}  ·  EDIÇÃO DIÁRIA`;
-  const volumeLabel = `VOL. ${String(volume).padStart(2, '0')}`;
+  const greeting = greetingByHour(now.getHours());
 
   const subtitle =
     tone === 'namorado'
@@ -176,62 +192,63 @@ export default function Dashboard() {
     <div className="space-y-12">
       <Onboarding />
 
-      <section className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_minmax(320px,400px)] md:items-start">
+      <section className="grid grid-cols-1 gap-6 md:grid-cols-[1fr_auto] md:items-start md:gap-10">
         <div>
-          <div className="eyebrow-gold mb-2">{formatEditionDate(now)}</div>
-          <div className="text-[10px] uppercase tracking-[0.32em] text-muted">{editionLabel}</div>
+          <div className="eyebrow-gold">{formatEditionDate(now).toLowerCase()}</div>
 
-          <h1 className="mt-6 font-serif italic leading-[0.95] text-wine-deep">
-            <span className="block text-[clamp(2.5rem,6vw,4.25rem)]">olá,</span>
-            <span className="block text-[clamp(3rem,8vw,5.5rem)] text-rose">
-              {firstName}
-              <span className="text-wine-deep">.</span>
-            </span>
+          <h1 className="mt-3 font-serif italic leading-[1.05] text-wine-deep">
+            <span className="text-[clamp(1.75rem,4vw,2.75rem)]">{greeting}, </span>
+            <span className="text-[clamp(1.75rem,4vw,2.75rem)] text-rose">{firstName}</span>
+            <span className="text-[clamp(1.75rem,4vw,2.75rem)] text-wine-deep">.</span>
           </h1>
 
-          <p className="mt-5 max-w-xl font-serif text-lg italic leading-relaxed text-ink-soft">
+          <p className="mt-3 font-serif text-base italic leading-relaxed text-ink-soft sm:text-lg">
             {subtitle}
           </p>
 
-          <div className="mt-7 flex flex-wrap items-center gap-3">
+          <div className="mt-5 flex flex-wrap items-center gap-2">
             {lastCourse && (
-              <Link to={`/curso/${lastCourse.id}`} className="btn-primary">
-                Continuar {lastCourse.title}
-                <ArrowRight className="ml-2 h-4 w-4" strokeWidth={2} />
+              <Link
+                to={`/curso/${lastCourse.id}`}
+                className="inline-flex min-h-touch items-center rounded-full bg-wine px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-wine transition active:scale-[0.98] hover:bg-wine-deep"
+              >
+                Continuar
+                <ArrowRight className="ml-1.5 h-3.5 w-3.5" strokeWidth={2} />
               </Link>
             )}
             {showBilhete && (
-              <Link to="/bilhetes" className="btn-secondary">
-                <Mail className="mr-2 h-4 w-4" strokeWidth={1.75} />
-                Abrir bilhete do dia
+              <Link
+                to="/bilhetes"
+                className="inline-flex min-h-touch items-center rounded-full border border-wine bg-paper px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-wine-deep transition active:scale-[0.98] hover:bg-rose-soft"
+              >
+                <Mail className="mr-1.5 h-3.5 w-3.5" strokeWidth={1.75} />
+                Bilhete do dia
+              </Link>
+            )}
+            {dueCardCount > 0 && (
+              <Link
+                to="/revisar"
+                className="inline-flex items-center text-[11px] uppercase tracking-wider text-muted transition hover:text-wine"
+              >
+                <Layers className="mr-1 h-3 w-3" strokeWidth={1.75} />
+                Revisar {dueCardCount} cards
               </Link>
             )}
           </div>
         </div>
 
         {completed.length >= 3 && (
-          <aside className="card-elevated relative overflow-hidden p-5 sm:p-6">
-            <SpringFlower
-              size={110}
-              className="pointer-events-none absolute -right-6 -top-8 opacity-90"
-            />
-            <div className="relative flex items-baseline justify-between gap-3">
-              <span className="eyebrow">seu desempenho</span>
-              <span className="font-serif text-[11px] uppercase tracking-[0.28em] text-gold">
-                {volumeLabel}
-              </span>
-            </div>
-            {perfBody && (
-              <p className="relative mt-4 max-w-prose font-serif text-base leading-relaxed text-ink-soft">
-                {perfBody}
-              </p>
-            )}
-            <hr className="my-5 border-line" />
+          <aside className="relative overflow-hidden rounded-2xl border border-line bg-paper px-5 py-4 shadow-soft md:min-w-[280px]">
             <div className="grid grid-cols-3 gap-3">
               <Stat label="provas" value={String(completed.length)} />
               <Stat label="questões" value={String(totalQuestions)} />
-              <Stat label="acerto médio" value={`${accuracy}%`} />
+              <Stat label="acerto" value={`${accuracy}%`} />
             </div>
+            {perfBody && (
+              <p className="mt-3 border-t border-line pt-3 font-serif text-[13px] italic leading-relaxed text-ink-soft">
+                {perfBody}
+              </p>
+            )}
           </aside>
         )}
       </section>
