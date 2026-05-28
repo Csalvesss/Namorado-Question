@@ -6,6 +6,7 @@ import Bilhetes from './pages/Bilhetes';
 import Calculators from './pages/Calculators';
 import Course from './pages/Course';
 import Courses from './pages/Courses';
+import FarmacoMDC from './pages/FarmacoMDC';
 import Home from './pages/Home';
 import History from './pages/History';
 import Login from './pages/Login';
@@ -38,6 +39,7 @@ export default function App() {
         <Route path="/intercalado" element={<Quiz />} />
         <Route path="/ferramentas" element={<Tools />} />
         <Route path="/calculadoras" element={<Calculators />} />
+        <Route path="/farmaco-mdc" element={<FarmacoMDC />} />
         <Route path="/passa-facil" element={<QuickReview />} />
         <Route path="/casos" element={<Cases />} />
         <Route path="/casos/:caseId" element={<CaseSimulator />} />

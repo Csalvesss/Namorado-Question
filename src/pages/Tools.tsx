@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Calculator, Moon, Shuffle, Siren, Workflow, BookOpen } from 'lucide-react';
+import { Calculator, Moon, Pill, Shuffle, Siren, Workflow, BookOpen } from 'lucide-react';
 import { useMemo } from 'react';
 import ToolCard from '../components/ToolCard';
 import Eyebrow from '../components/ui/Eyebrow';
@@ -44,6 +44,13 @@ export default function Tools() {
             icon={Siren}
             title="Simulações"
             description="Casos clínicos imersivos. Pressão de plantão, decisões que pesam."
+            variant="wine"
+          />
+          <ToolCard
+            to="/farmaco-mdc"
+            icon={Pill}
+            title="Mapa de Decisão Clínica"
+            description="Para fixar os 156 fármacos da P2 sem decorar lista. Cenário → classe → molécula."
             variant="wine"
           />
           <ToolCard
