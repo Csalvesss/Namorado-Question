@@ -337,6 +337,7 @@ export default function Quiz() {
                 index={idx}
                 submitted={submitted}
                 phrase={phrase}
+                displayMode={displayMode}
                 onSelect={(optIdx) => selectOption(idx, optIdx)}
               />
             );
@@ -391,7 +392,7 @@ export default function Quiz() {
               <div className="my-2 flex items-center justify-center gap-3 text-rose opacity-60">
                 <span className="h-px w-12 bg-rose-soft" />
                 <span className="text-[10px] uppercase tracking-[0.32em] text-gold">
-                  uma pausa pra você
+                  uma pausa para você
                 </span>
                 <span className="h-px w-12 bg-rose-soft" />
               </div>
@@ -454,12 +455,12 @@ interface QuestionCardProps {
   index: number;
   submitted: boolean;
   phrase: string;
+  displayMode: 'namorado' | 'doutora' | 'irmao';
   onSelect: (optIdx: number) => void;
 }
 
-function QuestionCard({ question, index, submitted, phrase, onSelect }: QuestionCardProps) {
+function QuestionCard({ question, index, submitted, phrase, displayMode, onSelect }: QuestionCardProps) {
   const isRight = submitted && question.selected === question.correct;
-  const isNamorado = /amor|doutora|querida|carinho|mandou|boa,/i.test(phrase);
 
   return (
     <article className="card overflow-hidden p-8 sm:p-10">
@@ -536,7 +537,7 @@ function QuestionCard({ question, index, submitted, phrase, onSelect }: Question
               phrase={phrase}
               correctLetter={LETTERS[question.correct]}
               explanation={question.expl}
-              mode={isNamorado ? 'namorado' : 'doutora'}
+              mode={displayMode}
             />
           </motion.div>
         )}

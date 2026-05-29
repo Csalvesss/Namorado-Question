@@ -69,7 +69,7 @@
         "Indicada para anestesia tópica"
       ],
       "correct": 0,
-      "expl": "Bupivacaína 0,5% com epi 1:200.000 = anestésico de longa duração. Ideal pra exodontia de siso, cirurgia periodontal, controle de dor pós-op nas primeiras horas. Cuidado: cardiotoxicidade grave em sobredose (mais grave que outras amidas) — respeitar dose máx 1,3 mg/kg / teto 90 mg.",
+      "expl": "Bupivacaína 0,5% com epi 1:200.000 = anestésico de longa duração. Ideal para exodontia de siso, cirurgia periodontal, controle de dor pós-op nas primeiras horas. Cuidado: cardiotoxicidade grave em sobredose (mais grave que outras amidas) — respeitar dose máx 1,3 mg/kg / teto 90 mg.",
       "difficulty": "hard",
       "tags": [
         "bupivacaina",
@@ -101,7 +101,7 @@
       "options": [
         "Bloqueio do nervo alveolar inferior (técnica de Halsted) — anestesia molares inferiores, pré-molares, incisivos e lábio inferior ipsilateral; lidocaína 2% c/ epi é padrão (articaína evitada por maior risco de parestesia em bloqueio)",
         "Infiltrativa vestibular isolada — suficiente em molares inferiores",
-        "Anestesia tópica — basta pra extração",
+        "Anestesia tópica — basta para extração",
         "Bloqueio do mentual — cobre os molares inferiores"
       ],
       "correct": 0,

@@ -1,5 +1,5 @@
 // Blueprints sao resumos rapidos de 5-7 bullets por topico.
-// Pra usar antes da prova, como "passa-facil" do tema, nao substituem o material.
+// Para usar antes da prova, como "passa-facil" do tema, nao substituem o material.
 // Sao indexados por (titulo do curso + topico), para facilitar manutencao.
 
 export interface TopicBlueprint {

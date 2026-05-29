@@ -26,7 +26,7 @@
     {
       "type": "mc",
       "topic": "Alergia à penicilina",
-      "q": "Paciente com história documentada de alergia à penicilina (urticária generalizada). Precisa antibiótico pra abscesso periapical. Qual prescrever?",
+      "q": "Paciente com história documentada de alergia à penicilina (urticária generalizada). Precisa antibiótico para abscesso periapical. Qual prescrever?",
       "options": [
         "Clindamicina 300 mg VO 6/6h por 7 dias — boa cobertura de Gram+ e anaeróbios orais, sem reação cruzada com β-lactâmicos",
         "Amoxicilina+clavulanato — clavulanato neutraliza a alergia",
@@ -46,7 +46,7 @@
       "topic": "Amox+clavulanato",
       "q": "Quando a associação amoxicilina+clavulanato é preferida sobre amoxicilina pura em odontologia?",
       "options": [
-        "Infecção grave, paciente que falhou em amoxicilina nas últimas 72h, abscesso com extensão pra espaços fasciais ou paciente imunocomprometido — o clavulanato inibe β-lactamases produzidas por anaeróbios resistentes",
+        "Infecção grave, paciente que falhou em amoxicilina nas últimas 72h, abscesso com extensão para espaços fasciais ou paciente imunocomprometido — o clavulanato inibe β-lactamases produzidas por anaeróbios resistentes",
         "Sempre, em qualquer infecção odontogênica",
         "Apenas em criança menor de 2 anos",
         "Em paciente alérgico à penicilina"

@@ -13,7 +13,7 @@ export const SEDACAO_LABEL: Record<SedacaoChoice, string> = {
   midazolam: 'Midazolam VO 7,5–15 mg (adulto) ou 0,5 mg/kg (criança)',
   lorazepam: 'Lorazepam VO 1–2 mg, 1–2h antes',
   n2o: 'Óxido nitroso/O2 inalatório',
-  encaminhar: 'Encaminhar pra centro com anestesista',
+  encaminhar: 'Encaminhar para centro com anestesista',
 };
 
 export interface CadeiraCase {
@@ -28,7 +28,7 @@ export interface CadeiraCase {
   why: string;
   /** Explicação detalhada por opção (didática) */
   feedbackByOption: Record<SedacaoChoice, string>;
-  /** Tag pra SRS prefix */
+  /** Tag para SRS prefix */
   tags: string[];
 }
 
@@ -49,11 +49,11 @@ export const CADEIRA_CASES: CadeiraCase[] = [
       midazolam:
         'CORRETO. 0,5 mg/kg VO, máx 15 mg, 15-20 min antes. Jejum: 2h líquido claro, 4h leite materno (3h ainda é limítrofe — confirmar com a mãe), 6h sólido (3h NÃO é seguro — adiar 3h ou trocar pro dia seguinte).',
       lorazepam:
-        'Lorazepam tem início ~2h e duração 8h — desproporcional pra criança e procedimento ambulatorial. Não é a 1ª escolha pediátrica.',
+        'Lorazepam tem início ~2h e duração 8h — desproporcional para criança e procedimento ambulatorial. Não é a 1ª escolha pediátrica.',
       n2o:
-        'N2O é ótimo pra criança cooperativa, mas em pré-escolar não-colaborativo que não aceita máscara nasal, falha. Tente após manejo comportamental se a criança permitir; caso contrário, midazolam.',
+        'N2O é ótimo para criança cooperativa, mas em pré-escolar não-colaborativo que não aceita máscara nasal, falha. Tente após manejo comportamental se a criança permitir; caso contrário, midazolam.',
       encaminhar:
-        'Encaminhamento pra anestesia em centro cirúrgico só se houve falha de sedação consciente ambulatorial ou se há contraindicação. Pular etapas é overtreatment.',
+        'Encaminhamento para anestesia em centro cirúrgico só se houve falha de sedação consciente ambulatorial ou se há contraindicação. Pular etapas é overtreatment.',
     },
     tags: ['pediatria', 'midazolam'],
   },
@@ -75,9 +75,9 @@ export const CADEIRA_CASES: CadeiraCase[] = [
       lorazepam:
         'CORRETO. 3-OH BZD: glicuronidação direta, sem metabólito ativo. Início lento (~2h) é desvantagem em outros contextos, mas em procedimento eletivo agendado é OK.',
       n2o:
-        'N2O é seguro e tem rápida recuperação, ótima opção complementar em idoso ansioso — mas precisa cooperação e via aérea pérvia. Como sedativo único pode não bastar pra ansiedade marcada.',
+        'N2O é seguro e tem rápida recuperação, ótima opção complementar em idoso ansioso — mas precisa cooperação e via aérea pérvia. Como sedativo único pode não bastar para ansiedade marcada.',
       encaminhar:
-        'Caso ambulatorial padrão — não há indicação de centro cirúrgico ou anestesista pra extração simples em idoso compensado.',
+        'Caso ambulatorial padrão — não há indicação de centro cirúrgico ou anestesista para extração simples em idoso compensado.',
     },
     tags: ['idoso', 'hepatopata', 'lorazepam'],
   },
@@ -95,13 +95,13 @@ export const CADEIRA_CASES: CadeiraCase[] = [
       'nao-medicar':
         'Em fobia grave, manejo só comportamental tende a fracassar — paciente não tolera o procedimento, reforça a fobia. Sedar quebra o ciclo. Use técnicas comportamentais (controle de respiração, presença, contrato verbal) como adjuvantes.',
       midazolam:
-        'CORRETO. Amnésia anterógrada é o ponto chave em fóbico — a experiência negativa não vira memória consolidada, facilitando próximas sessões. Acompanhante obrigatório pra alta.',
+        'CORRETO. Amnésia anterógrada é o ponto chave em fóbico — a experiência negativa não vira memória consolidada, facilitando próximas sessões. Acompanhante obrigatório para alta.',
       lorazepam:
         'Lorazepam funciona mas tem início ~2h (menos prática) e menor efeito de amnésia anterógrada que o midazolam. É 2ª opção em adulto hígido.',
       n2o:
         'N2O é excelente em fóbico LEVE — relaxa, dá controle (pode tirar a máscara). Em fobia grave com FC já disparada, geralmente não basta. Combinar com BZD VO é uma estratégia.',
       encaminhar:
-        'Sedação IV ou anestesia geral fica pra casos refratários ou procedimento muito extenso. Em endo+restauração ambulatorial, midazolam VO costuma resolver.',
+        'Sedação IV ou anestesia geral fica para casos refratários ou procedimento muito extenso. Em endo+restauração ambulatorial, midazolam VO costuma resolver.',
     },
     tags: ['fobia', 'midazolam', 'amnesia-anterograda'],
   },
@@ -119,9 +119,9 @@ export const CADEIRA_CASES: CadeiraCase[] = [
       'nao-medicar':
         'Em paciente ansioso após IAM, controlar a ansiedade reduz pico de catecolaminas endógenas — protege o miocárdio. Não é safe ignorar.',
       midazolam:
-        'Midazolam é seguro em cardiopata estável, mas tem recuperação mais lenta. N2O dá efeito imediato e rápida recuperação — melhor pra ambulatorial em cardiopata.',
+        'Midazolam é seguro em cardiopata estável, mas tem recuperação mais lenta. N2O dá efeito imediato e rápida recuperação — melhor para ambulatorial em cardiopata.',
       lorazepam:
-        'Lorazepam funciona, mas duração longa (8h) é exagero pra um procedimento curto. Risco de sedação residual no caminho de casa.',
+        'Lorazepam funciona, mas duração longa (8h) é exagero para um procedimento curto. Risco de sedação residual no caminho de casa.',
       n2o:
         'CORRETO. Em ASA II-III estável, N2O é a escolha mais elegante. Cuidado: ajustar concentração 30-50%, manter O2 100% por 5 min antes de retirar a máscara (evitar hipóxia de difusão).',
       encaminhar:
@@ -165,9 +165,9 @@ export const CADEIRA_CASES: CadeiraCase[] = [
       'Falha de sedação ambulatorial em paciente com necessidades especiais → indicação formal de tratamento sob anestesia geral em centro cirúrgico com equipe multidisciplinar (anestesista, monitorização, cardio se necessário). Não é "desistir" — é a conduta correta após falha do consciente.',
     feedbackByOption: {
       'nao-medicar':
-        'Já houve 2 tentativas frustradas — insistir traumatiza paciente, família e equipe. Escalar pra próxima etapa.',
+        'Já houve 2 tentativas frustradas — insistir traumatiza paciente, família e equipe. Escalar para próxima etapa.',
       midazolam:
-        'Midazolam VO em paciente que já rejeitou abordagem ambulatorial 2x tem alta chance de falha (cooperação parcial é necessária pra dose oral e pra colaborar mesmo sedado). Em peso 55 kg, dose 0,5 mg/kg = 27 mg > teto de 15-20 mg — não é dose adequada.',
+        'Midazolam VO em paciente que já rejeitou abordagem ambulatorial 2x tem alta chance de falha (cooperação parcial é necessária para dose oral e para colaborar mesmo sedado). Em peso 55 kg, dose 0,5 mg/kg = 27 mg > teto de 15-20 mg — não é dose adequada.',
       lorazepam:
         'Mesma limitação do midazolam — depende de cooperação básica que esse paciente não tem.',
       n2o:

@@ -85,7 +85,7 @@ export const ORIENTACAO_LABEL: Record<Orientacao, string> = {
 
 export interface ReceitaCorreta {
   medicamento: Medicamento;
-  /** Dose em mg (mantém numérica pra validação simples) */
+  /** Dose em mg (mantém numérica para validação simples) */
   doseMg: number;
   intervalo: Intervalo;
   /** Duração em dias (0 = dose única) */
@@ -131,7 +131,7 @@ export const RECEITA_SCENARIOS: ReceitaScenario[] = [
       'Mulher 24 anos, 60 kg, ASA I, sem alergias, sem gestação. Pós-exodontia de 38 incluso há 1 hora. Dor moderada esperada.',
     diagnosis: 'Dor inflamatória pós-cirúrgica',
     forbidden: {
-      cetorolaco: 'AINE potente reservado pra dor refratária — risco hemorrágico desnecessário em pós-op de rotina',
+      cetorolaco: 'AINE potente reservado para dor refratária — risco hemorrágico desnecessário em pós-op de rotina',
       tramadol: 'Opioide só após falha de AINE + paracetamol; começar com isso é overtreatment',
     },
     correct: {
@@ -143,7 +143,7 @@ export const RECEITA_SCENARIOS: ReceitaScenario[] = [
       orientacoes: ['apos-refeicao', 'horario-fixo'],
     },
     teaching:
-      'Ibuprofeno 600 mg VO 8/8h por 3-5 dias é o padrão em pós-op de siso. CRÍTICO: HORÁRIO FIXO nas primeiras 48-72h (não "se dor") — analgesia preemptiva impede o pico. Pode associar paracetamol 750 mg 6/6h pra cobertura adicional.',
+      'Ibuprofeno 600 mg VO 8/8h por 3-5 dias é o padrão em pós-op de siso. CRÍTICO: HORÁRIO FIXO nas primeiras 48-72h (não "se dor") — analgesia preemptiva impede o pico. Pode associar paracetamol 750 mg 6/6h para cobertura adicional.',
   },
   {
     id: 'gestante-dor',

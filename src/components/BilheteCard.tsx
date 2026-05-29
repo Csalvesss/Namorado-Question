@@ -144,7 +144,7 @@ export default function BilheteCard({
             </span>
             <div className="min-w-0">
               <div className="text-[10px] uppercase tracking-[0.22em] text-gold">
-                pra você cuidar
+                para você cuidar
               </div>
               <p className="mt-1 text-[13px] leading-relaxed text-ink-soft sm:text-sm">
                 {bilhete.care}

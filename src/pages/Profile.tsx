@@ -116,11 +116,11 @@ export default function Profile() {
             <Field id="email" label="e-mail" readonlyValue={user.email} />
             <Field
               id="partner"
-              label="nome do seu namorado"
+              label="nome do seu namorado(a)"
               value={partner}
               onChange={(e) => setPartner(e.target.value)}
-              placeholder="quem assina os bilhetes (ex: Cesar)"
-              hint="aparece como assinatura nos bilhetes que rolam a cada 5 horas."
+              placeholder="quem assina os bilhetes (ex: César)"
+              hint="aparece como assinatura nos bilhetes no modo namorado. No modo irmão a assinatura é sempre 'irmão'."
             />
           </div>
 
@@ -154,7 +154,7 @@ export default function Profile() {
 
           <p className="mt-5 font-body text-[15px] leading-relaxed text-txt/85">
             No <strong className="text-ink">modo namorado</strong> as frases são carinhosas. No{' '}
-            <strong className="text-ink">modo doutora</strong> ficam neutras (bom pra estudar em
+            <strong className="text-ink">modo doutora</strong> ficam neutras (bom para estudar em
             público). No <strong className="text-ink">modo irmão</strong> tem carinho + zoeira de
             quem te conhece desde criança.
           </p>
@@ -171,7 +171,7 @@ export default function Profile() {
               active={currentMode === 'irmao'}
               Icon={Laugh}
               label="modo irmão"
-              sample="boa, mana, você é fera mesmo"
+              sample="olha, se eu fosse seu paciente eu confiava"
               onClick={() => setDisplayMode('irmao')}
             />
             <ModeOption

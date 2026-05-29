@@ -1,5 +1,5 @@
 // Wrapper que escolhe o dataset do MDC conforme a trilha do usuário.
-// Mantém a interface estável pra pages/FarmacoMDC.tsx — só troca o conteúdo.
+// Mantém a interface estável para pages/FarmacoMDC.tsx — só troca o conteúdo.
 
 import {
   CLASSES as MED_CLASSES,
@@ -78,7 +78,7 @@ export interface MdcDataset {
   mdcCardId: (scenarioId: string) => string;
   pickScenarios: (system: string | 'mix', count: number) => MdcScenario[];
   pickSameClassDrugs: (correctDrugId: string, count: number) => MdcDrug[];
-  /** Rótulo curto da trilha pra UI (ex: "Mistura do dia", "Mistura clínica") */
+  /** Rótulo curto da trilha para UI (ex: "Mistura do dia", "Mistura clínica") */
   trackLabel: string;
   /** Suporte a `OdontoSystem | FarmacoSystem` ao percorrer scenarios */
   systems: string[];
@@ -120,5 +120,5 @@ export function getMdcDataset(track: MdcTrack): MdcDataset {
   return track === 'odonto' ? ODONTO_DATASET : MED_DATASET;
 }
 
-// Re-export tipos auxiliares pra outros lugares
+// Re-export tipos auxiliares para outros lugares
 export type { MedDrug, MedClass, MedScenario, OdontoDrug, OdontoDrugClass, OdontoScenario };

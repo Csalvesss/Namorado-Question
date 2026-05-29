@@ -22,7 +22,9 @@ interface ReviewState {
 
 export default function CadeiraAnsiosa() {
   const { user } = useUser();
-  const isNamorado = user?.displayMode !== 'doutora';
+  const displayMode = user?.displayMode ?? 'namorado';
+  const isNamorado = displayMode === 'namorado';
+  const isIrmao = displayMode === 'irmao';
   const [stage, setStage] = useState<Stage>('intro');
   const [currentCase, setCurrentCase] = useState<CadeiraCase | null>(null);
   const [chosen, setChosen] = useState<SedacaoChoice | null>(null);
@@ -78,7 +80,9 @@ export default function CadeiraAnsiosa() {
           <p className="mt-4 max-w-xl font-body text-lg italic leading-relaxed text-mute">
             {isNamorado
               ? 'um paciente ansioso senta na sua cadeira. o que você faz, doutora?'
-              : 'microssimulação de manejo farmacológico e comportamental do paciente ansioso.'}
+              : isIrmao
+                ? 'paciente ansioso sentou na cadeira. respira. qual a conduta?'
+                : 'microssimulação de manejo farmacológico e comportamental do paciente ansioso.'}
           </p>
 
           <div className="card mt-10 p-8 sm:p-10">
@@ -94,7 +98,7 @@ export default function CadeiraAnsiosa() {
               </li>
               <li>
                 <strong className="font-display not-italic text-ink">3.</strong> Recebe feedback
-                educacional pra cada opção — não só "errou", mas{' '}
+                educacional para cada opção — não só "errou", mas{' '}
                 <em className="not-italic text-wine">por que</em> cada escolha foi boa ou ruim.
               </li>
               <li>
@@ -199,10 +203,14 @@ export default function CadeiraAnsiosa() {
               {correct
                 ? isNamorado
                   ? 'boa, doutora — manejo certo'
-                  : 'conduta correta'
+                  : isIrmao
+                    ? 'mandou bem, leu o paciente certo'
+                    : 'conduta correta'
                 : isNamorado
                   ? 'olha só, ia ter uma armadilha aqui'
-                  : 'conduta não ideal — reveja'}
+                  : isIrmao
+                    ? 'pera, essa tinha armadilha. olha aí'
+                    : 'conduta não ideal — reveja'}
             </h3>
           </div>
           <p className="mt-3 font-body text-[15px] leading-relaxed text-txt">

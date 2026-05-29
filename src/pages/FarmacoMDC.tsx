@@ -27,7 +27,7 @@ interface SessionState {
   /** marcador "sessão de revisão" — afeta copy de saída */
   isReviewSession: boolean;
   startedAt: number;
-  /** trava pra escrever no SRS uma única vez ao terminar */
+  /** trava para escrever no SRS uma única vez ao terminar */
   gradesWritten: boolean;
 }
 
@@ -37,7 +37,9 @@ export default function FarmacoMDC() {
   const { user } = useUser();
   const userTrack = user?.track ?? 'medicina';
   const dataset = useMemo<MdcDataset>(() => getMdcDataset(userTrack), [userTrack]);
-  const isNamorado = user?.displayMode !== 'doutora';
+  const displayMode = user?.displayMode ?? 'namorado';
+  const isNamorado = displayMode === 'namorado';
+  const isIrmao = displayMode === 'irmao';
   const [system, setSystem] = useState<string | 'mix' | 'review' | null>(null);
   const [state, setState] = useState<SessionState | null>(null);
   const [now, setNow] = useState(Date.now());
@@ -142,7 +144,9 @@ export default function FarmacoMDC() {
           <p className="mt-4 max-w-xl font-body text-lg italic leading-relaxed text-mute">
             {isNamorado
               ? 'sem pressão, amor. a gente decora pela situação, não pelo nome.'
-              : 'cenário, classe, molécula. 5 a 8 minutos por sessão.'}
+              : isIrmao
+                ? 'sem pressão. decora pela situação, não pelo nome. funciona melhor assim.'
+                : 'cenário, classe, molécula. 5 a 8 minutos por sessão.'}
           </p>
 
           <div className="card mt-10 p-8 sm:p-10">
@@ -180,11 +184,15 @@ export default function FarmacoMDC() {
                 <IconChip icon={RotateCcw} tone="wine" size="lg" />
                 <div>
                   <h3 className="font-display text-xl italic text-ink">
-                    {isNamorado ? 'tem coisa te esperando, amor' : 'pendências de revisão'}
+                    {isNamorado
+                      ? 'tem coisa te esperando, amor'
+                      : isIrmao
+                        ? 'sobrou coisa para revisar, parça'
+                        : 'pendências de revisão'}
                   </h3>
                   <p className="mt-1 font-body text-[14px] italic text-mute">
                     {dueScenarios.length} {dueScenarios.length === 1 ? 'caso' : 'casos'} marcado
-                    {dueScenarios.length === 1 ? '' : 's'} pra hoje. abre primeiro.
+                    {dueScenarios.length === 1 ? '' : 's'} para hoje. abre primeiro.
                   </p>
                 </div>
               </div>
@@ -259,6 +267,7 @@ export default function FarmacoMDC() {
       <EndOfSession
         state={state}
         isNamorado={isNamorado}
+        isIrmao={isIrmao}
         onRestart={reset}
         onGradesWritten={() =>
           setState((s) => (s ? { ...s, gradesWritten: true } : s))
@@ -402,10 +411,14 @@ export default function FarmacoMDC() {
             {both
               ? isNamorado
                 ? 'mandou bem, amor'
-                : 'correto'
+                : isIrmao
+                  ? 'mandou bem. anotado'
+                  : 'correto'
               : isNamorado
                 ? 'sem pressão — só ficar com isso'
-                : 'observe'}
+                : isIrmao
+                  ? 'tudo bem, anota essa e segue'
+                  : 'observe'}
           </h3>
         </div>
 
@@ -564,6 +577,7 @@ function SessionLayout({
 function EndOfSession({
   state,
   isNamorado,
+  isIrmao,
   onRestart,
   onGradesWritten,
   uid,
@@ -572,6 +586,7 @@ function EndOfSession({
 }: {
   state: SessionState;
   isNamorado: boolean;
+  isIrmao: boolean;
   onRestart: () => void;
   onGradesWritten: () => void;
   uid: string | undefined;
@@ -600,7 +615,7 @@ function EndOfSession({
     .map((id) => dataset.getScenario(id))
     .filter((s): s is MdcScenario => Boolean(s));
 
-  // Coletar classes únicas das classes corretas dos cenários problemáticos pra mostrar
+  // Coletar classes únicas das classes corretas dos cenários problemáticos para mostrar
   const classesToReview = Array.from(
     new Set(revisitScenarios.map((s) => s.correctClassId)),
   )
@@ -612,14 +627,20 @@ function EndOfSession({
       <div className="mx-auto w-full max-w-3xl px-6 py-16 sm:px-10 sm:py-24 lg:px-12">
         <Eyebrow>{state.isReviewSession ? 'revisão' : 'sessão'}</Eyebrow>
         <h1 className="mt-4 font-display font-light leading-[1.05] text-ink text-[clamp(2.25rem,6vw,3.5rem)]">
-          {isNamorado ? 'você fez bonito, amor' : 'sessão concluída'}
+          {isNamorado
+            ? 'você fez bonito, amor'
+            : isIrmao
+              ? 'fechou a rodada, parça'
+              : 'sessão concluída'}
         </h1>
         <p className="mt-4 max-w-lg font-body text-lg italic leading-relaxed text-mute">
           {mm} {mm === 1 ? 'minuto' : 'minutos'} de estudo.{' '}
           {revisitCount === 0
             ? isNamorado
               ? 'nada ficou pendente. respira.'
-              : 'todos os casos respondidos corretamente.'
+              : isIrmao
+                ? 'zero pendência. limpou a mesa.'
+                : 'todos os casos respondidos corretamente.'
             : `${revisitCount} ${
                 revisitCount === 1 ? 'caso volta' : 'casos voltam'
               } amanhã, agendado${revisitCount === 1 ? '' : 's'} aqui mesmo.`}
@@ -653,7 +674,9 @@ function EndOfSession({
             <p className="font-body text-[15px] italic text-txt">
               {isNamorado
                 ? 'tá fluindo. dorme tranquila.'
-                : 'nada na fila de revisão.'}
+                : isIrmao
+                  ? 'tá afiada. fila vazia.'
+                  : 'nada na fila de revisão.'}
             </p>
           </div>
         )}
@@ -672,7 +695,7 @@ function EndOfSession({
 }
 
 // ============================================================
-// Lógica das opções (separa pra ficar testável)
+// Lógica das opções (separa para ficar testável)
 // ============================================================
 
 function classOptionsFor(scenario: MdcScenario): string[] {

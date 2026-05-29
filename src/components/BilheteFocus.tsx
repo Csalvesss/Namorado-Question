@@ -63,7 +63,7 @@ export default function BilheteFocus({ open, bilhete, signature, uid, onClose }:
             >
               <span className="h-px w-12 bg-rose-soft" />
               <span className="font-serif text-[11px] uppercase tracking-[0.32em] text-gold">
-                uma pausa pra você
+                uma pausa para você
               </span>
               <span className="h-px w-12 bg-rose-soft" />
             </motion.div>

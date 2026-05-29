@@ -49,7 +49,7 @@ export interface Scenario {
   vignette: string;
   question: string;
   correctClassId: string;
-  classDistractors: string[]; // 3 IDs de classe pra montar opções (com a correta totaliza 4)
+  classDistractors: string[]; // 3 IDs de classe para montar opções (com a correta totaliza 4)
   correctDrugId: string;
   drugDistractors: string[]; // 2 IDs de droga (mesma classe da correta sempre que possível)
   teaching: string; // 1-2 linhas no fechamento
@@ -119,7 +119,7 @@ export const DRUGS: Drug[] = [
     anchorIndication: 'HAS, IC com FE reduzida, nefropatia diabética',
     doseAnchor: '5–20 mg VO 12/12h',
     redFlag: 'Tosse seca, angioedema, K+↑, IRA em estenose bilateral, contraindicado na gestação',
-    mnemonic: '"-pril" = pressão pra baixo' },
+    mnemonic: '"-pril" = pressão para baixo' },
   { id: 'captopril', name: 'Captopril', classId: 'ieca',
     mechanism: 'Inibe ECA (meia-vida curta)',
     anchorIndication: 'Emergência hipertensiva por VO; HAS',
@@ -728,7 +728,7 @@ export function pickScenarios(system: FarmacoSystem | 'mix', count: number): Sce
   return shuffle(pool).slice(0, count);
 }
 
-/** Lista drogas da MESMA classe da droga-alvo, excluindo a própria. Usado pra
+/** Lista drogas da MESMA classe da droga-alvo, excluindo a própria. Usado para
  *  gerar distractor de droga não-trivial — ela precisa lembrar o nome da
  *  molécula dentro da classe, não eliminar por classe. */
 export function pickSameClassDrugs(correctDrugId: string, count: number): Drug[] {
@@ -745,7 +745,7 @@ export function mdcCardId(scenarioId: string): string {
   return `mdc:${scenarioId}`;
 }
 
-/** Reverte mdcCardId pra obter o scenario id. */
+/** Reverte mdcCardId para obter o scenario id. */
 export function mdcScenarioIdFromCard(cardId: string): string | null {
   return cardId.startsWith('mdc:') ? cardId.slice('mdc:'.length) : null;
 }

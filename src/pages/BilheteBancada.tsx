@@ -21,8 +21,9 @@ function bucketIndex(now: number) {
  */
 export default function BilheteBancada() {
   const { user } = useUser();
-  const isNamorado = user?.displayMode !== 'doutora';
-  const isIrmao = user?.displayMode === 'irmao';
+  const displayMode = user?.displayMode ?? 'namorado';
+  const isNamorado = displayMode === 'namorado';
+  const isIrmao = displayMode === 'irmao';
   const [tick, setTick] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [marked, setMarked] = useState<null | 'sabe' | 'revisar'>(null);
@@ -77,8 +78,10 @@ export default function BilheteBancada() {
 
         <p className="mt-4 max-w-xl font-body text-lg italic leading-relaxed text-mute">
           {isNamorado
-            ? 'um bilhete carinhoso a cada 5h — com uma pílula clínica anexada, pra fixar enquanto descansa.'
-            : 'micro-revisão clínica embrulhada num recado curto. roda a cada 5 horas.'}
+            ? 'um bilhete carinhoso a cada 5h — com uma pílula clínica anexada, para fixar enquanto descansa.'
+            : isIrmao
+              ? 'recado curto a cada 5h e uma pílula clínica de quebra. fixa enquanto descansa.'
+              : 'micro-revisão clínica embrulhada num recado curto. roda a cada 5 horas.'}
         </p>
 
         {/* Bilhete carinhoso */}
@@ -89,7 +92,7 @@ export default function BilheteBancada() {
           </p>
           <div className="mt-5 flex items-end justify-between gap-3 border-t border-[var(--blush-stroke)] pt-4 font-display text-[11px] uppercase tracking-[0.22em] text-mute">
             <span>novo em {nextIn}</span>
-            <span className="italic text-rose">— {user?.partnerName?.trim() || (isIrmao ? 'parça' : 'César')}</span>
+            <span className="italic text-rose">— {isIrmao ? 'irmão' : user?.partnerName?.trim() || 'César'}</span>
           </div>
         </div>
 
@@ -108,7 +111,7 @@ export default function BilheteBancada() {
               onClick={() => setRevealed(true)}
               className="mt-4 flex w-full items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-line bg-paper px-6 py-8 text-center font-display italic text-mute transition hover:border-wine/40 hover:text-wine"
             >
-              <Pill className="h-4 w-4" strokeWidth={1.6} /> toca pra revelar
+              <Pill className="h-4 w-4" strokeWidth={1.6} /> toca para revelar
             </button>
           ) : (
             <>
@@ -142,10 +145,14 @@ export default function BilheteBancada() {
                   {marked === 'sabe'
                     ? isNamorado
                       ? 'beleza, doutora. essa tá no bolso.'
-                      : 'marcada como dominada.'
+                      : isIrmao
+                        ? 'beleza, essa tá no bolso.'
+                        : 'marcada como dominada.'
                     : isNamorado
-                      ? 'volta amanhã pra fechar. sem pressão.'
-                      : 'agendada pra revisão.'}
+                      ? 'volta amanhã para fechar. sem pressão.'
+                      : isIrmao
+                        ? 'volta amanhã para fechar. sem drama.'
+                        : 'agendada para revisão.'}
                 </div>
               )}
             </>
