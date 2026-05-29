@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Heart, Stethoscope } from 'lucide-react';
+import { Heart, Laugh, Stethoscope } from 'lucide-react';
 import DayChip from '../components/DayChip';
 import Eyebrow from '../components/ui/Eyebrow';
 import Field from '../components/ui/Field';
@@ -47,7 +47,7 @@ export default function Profile() {
     }
   }
 
-  async function setDisplayMode(mode: 'namorado' | 'doutora') {
+  async function setDisplayMode(mode: 'namorado' | 'doutora' | 'irmao') {
     if (!user || user.displayMode === mode) return;
     try {
       await updateUser({ displayMode: mode });
@@ -81,9 +81,15 @@ export default function Profile() {
     navigate('/login');
   }
 
-  const isNamorado = user.displayMode === 'namorado';
+  const currentMode = user.displayMode;
   const dirty =
     name.trim() !== user.name || partner.trim() !== (user.partnerName ?? '');
+
+  const modeLabel: Record<'namorado' | 'doutora' | 'irmao', string> = {
+    namorado: 'modo namorado',
+    doutora: 'modo doutora',
+    irmao: 'modo irmão',
+  };
 
   return (
     <section className="bg-paper">
@@ -147,21 +153,29 @@ export default function Profile() {
           </div>
 
           <p className="mt-5 font-body text-[15px] leading-relaxed text-txt/85">
-            No <strong className="text-ink">modo namorado</strong> aparecem as frases carinhosas.
-            No <strong className="text-ink">modo doutora</strong> elas ficam neutras e
-            profissionais — bom para estudar em público.
+            No <strong className="text-ink">modo namorado</strong> as frases são carinhosas. No{' '}
+            <strong className="text-ink">modo doutora</strong> ficam neutras (bom pra estudar em
+            público). No <strong className="text-ink">modo irmão</strong> tem carinho + zoeira de
+            quem te conhece desde criança.
           </p>
 
-          <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-3">
             <ModeOption
-              active={isNamorado}
+              active={currentMode === 'namorado'}
               Icon={Heart}
               label="modo namorado"
               sample="boa, amor, mandou bem demais"
               onClick={() => setDisplayMode('namorado')}
             />
             <ModeOption
-              active={!isNamorado}
+              active={currentMode === 'irmao'}
+              Icon={Laugh}
+              label="modo irmão"
+              sample="boa, mana, você é foda mesmo"
+              onClick={() => setDisplayMode('irmao')}
+            />
+            <ModeOption
+              active={currentMode === 'doutora'}
               Icon={Stethoscope}
               label="modo doutora"
               sample="resposta correta. continue."
@@ -169,17 +183,10 @@ export default function Profile() {
             />
           </div>
 
-          <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-blush/60 px-5 py-4">
+          <div className="mt-5 rounded-2xl bg-blush/60 px-5 py-4">
             <span className="font-display italic text-wine">
-              Atualmente: {isNamorado ? 'modo namorado' : 'modo doutora'}
+              Atualmente: {modeLabel[currentMode]}
             </span>
-            <button
-              type="button"
-              onClick={() => setDisplayMode(isNamorado ? 'doutora' : 'namorado')}
-              className="btn-ghost"
-            >
-              Trocar para {isNamorado ? 'doutora' : 'namorado'}
-            </button>
           </div>
         </div>
 
