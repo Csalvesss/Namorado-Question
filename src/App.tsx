@@ -19,6 +19,9 @@ import QuickReview from './pages/QuickReview';
 import Quiz from './pages/Quiz';
 import Review from './pages/Review';
 import StudyPlan from './pages/StudyPlan';
+import BilheteBancada from './pages/BilheteBancada';
+import CadeiraAnsiosa from './pages/CadeiraAnsiosa';
+import CalculoTubetes from './pages/CalculoTubetes';
 import Tools from './pages/Tools';
 import Welcome from './pages/Welcome';
 
@@ -41,6 +44,9 @@ export default function App() {
         <Route path="/ferramentas" element={<Tools />} />
         <Route path="/calculadoras" element={<Calculators />} />
         <Route path="/farmaco-mdc" element={<FarmacoMDC />} />
+        <Route path="/cadeira-ansiosa" element={<CadeiraAnsiosa />} />
+        <Route path="/calculo-tubetes" element={<CalculoTubetes />} />
+        <Route path="/bilhete-bancada" element={<BilheteBancada />} />
         <Route path="/passa-facil" element={<QuickReview />} />
         <Route path="/casos" element={<Cases />} />
         <Route path="/casos/:caseId" element={<CaseSimulator />} />

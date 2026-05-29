@@ -3,6 +3,8 @@ import {
   BookOpen,
   Calculator,
   Droplet,
+  Heart,
+  Mail,
   Moon,
   Pill,
   Shuffle,
@@ -91,6 +93,24 @@ export default function Tools() {
               icon={Calculator}
               title="Conversor vasoconstritor"
               description="µg de epinefrina por tubete (1:100k vs 1:200k), limite por comorbidade CV."
+            />
+            <ToolCard
+              to="/cadeira-ansiosa"
+              icon={Heart}
+              title="Cadeira Ansiosa"
+              description="Microssim de manejo do paciente ansioso. Perfil + procedimento → escolha de sedação com feedback educativo."
+            />
+            <ToolCard
+              to="/calculo-tubetes"
+              icon={Syringe}
+              title="Cálculo de tubetes"
+              description="Comparação visual de TODOS os anestésicos lado a lado pelo mesmo peso, com restrições por cenário."
+            />
+            <ToolCard
+              to="/bilhete-bancada"
+              icon={Mail}
+              title="Bilhete da Bancada"
+              description="Recado carinhoso a cada 5h + uma micro-pílula clínica de farmaco odonto pra fixar enquanto descansa."
             />
             <ToolCard
               to="/intercalado"
