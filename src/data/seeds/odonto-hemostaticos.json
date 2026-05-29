@@ -1,117 +1,538 @@
 {
   "title": "Hemostáticos e Paciente Anticoagulado",
-  "description": "Ácido tranexâmico, etamsilato, vitamina K, hemostático de fibrina, gelatina hemostática. Manejo do paciente em uso de varfarina ou DOAC.",
-  "icon": "droplet",
+  "description": "Controle do sangramento na clínica odontológica: ácido tranexâmico, etamsilato, vitamina K, selante de fibrina, gelatina e celulose oxidada. Manejo do paciente em varfarina (INR), DOACs, AAS/clopidogrel, reversão de emergência e hemostasia local vs sistêmica. Mecanismo, indicação e armadilhas.",
+  "icon": "pill",
   "color": "wine",
   "track": "odonto",
   "questions": [
     {
       "type": "mc",
-      "topic": "Ácido tranexâmico",
-      "q": "Paciente em uso de varfarina com INR 2,5 vai fazer extração simples. Qual o manejo hemostático apropriado?",
+      "topic": "Ácido tranexâmico · mecanismo",
+      "q": "Qual o mecanismo de ação do ácido tranexâmico?",
       "options": [
-        "MANTER varfarina se INR estável dentro da faixa terapêutica (<3,5), realizar a extração com técnica atraumática, sutura cuidadosa, esponja de gelatina no alvéolo e BOCHECHO de ácido tranexâmico 4,8–5% (250 mg/5 mL) por 2 min, 4×/dia por 2 dias. Ácido tranexâmico atua inibindo a conversão de plasminogênio em plasmina (antifibrinolítico) — preserva o coágulo",
-        "Suspender varfarina por 7 dias antes — risco trombótico aceitável",
-        "Trocar por heparina e aguardar 30 dias",
-        "Encaminhar para cirurgia hospitalar — extração simples não pode ser feita em consultório"
+        "Antifibrinolítico: inibe a ativação do plasminogênio em plasmina, impedindo a degradação da fibrina e estabilizando o coágulo já formado",
+        "Ativa a cascata de coagulação convertendo fibrinogênio em fibrina",
+        "Aumenta a adesão plaquetária ao endotélio vascular",
+        "É cofator hepático na síntese dos fatores II, VII, IX e X"
       ],
       "correct": 0,
-      "expl": "Evidência atual: extração simples em paciente anticoagulado com INR estável (<3,5 ou <4 em alguns guidelines) NÃO requer suspensão da varfarina. Risco trombótico da suspensão > risco hemorrágico local. Medidas locais resolvem: sutura, gelatina, bochecho com tranexâmico. Em cirurgias maiores ou múltiplas extrações, discutir com médico assistente.",
-      "difficulty": "medium",
-      "tags": [
-        "tranexamico",
-        "varfarina"
-      ]
-    },
-    {
-      "type": "mc",
-      "topic": "Vitamina K",
-      "q": "Em qual cenário a fitomenadiona (vitamina K) tem papel em odontologia?",
-      "options": [
-        "Reversão de superdosagem de cumarínico (varfarina) com INR muito elevado e sangramento ativo significativo — coordenada com o médico; via oral 1-5 mg para reversão lenta, IV para sangramento grave. NÃO usar de rotina em odontologia",
-        "Hemostático tópico de rotina pós-extração",
-        "Substituto da varfarina em qualquer paciente",
-        "Tratar herpes labial"
-      ],
-      "correct": 0,
-      "expl": "Vit K (fitomenadiona) é cofator essencial para carboxilação dos fatores II, VII, IX, X. Reverte varfarina mas demora 6-24h para efeito completo. Em odontologia: papel limitado — situação de superdose com sangramento maior, sempre em conjunto com médico. Rotina é manejo local.",
-      "difficulty": "hard",
-      "tags": [
-        "vitamina-k"
-      ]
-    },
-    {
-      "type": "mc",
-      "topic": "Gelatina hemostática",
-      "q": "Esponja de gelatina hemostática (ex: Hemostop, Gelfoam) atua por qual mecanismo?",
-      "options": [
-        "Hemostático LOCAL passivo: forma uma matriz porosa que retém o coágulo mecanicamente e oferece superfície para agregação plaquetária; absorvida em 4-6 semanas; combinada com sutura no alvéolo aumenta significativamente o controle do sangramento",
-        "Antifibrinolítico sistêmico que age no fígado",
-        "Vasoconstritor com epinefrina embutida",
-        "Antibiótico tópico"
-      ],
-      "correct": 0,
-      "expl": "Gelatina hemostática = matriz mecânica + superfície para coagulação. Não tem efeito sistêmico. Combinada com sutura e compressão é o padrão local em extração de paciente anticoagulado. Outras opções locais: celulose oxidada (Surgicel), colágeno microfibrilar, hemostático de fibrina (mais caro).",
+      "expl": "O ácido tranexâmico é ANTIFIBRINOLÍTICO: bloqueia a conversão de plasminogênio em plasmina, preservando a rede de fibrina. NÃO forma o coágulo nem age na cascata — apenas impede que o coágulo já formado se desfaça. Por isso é inútil quando o problema é a FORMAÇÃO do coágulo ou em sangramento puramente mecânico.",
       "difficulty": "easy",
-      "tags": [
-        "gelatina"
-      ]
+      "tags": ["acido-tranexamico", "mecanismo"]
     },
     {
       "type": "mc",
-      "topic": "Gelatina vs celulose oxidada",
-      "q": "Você precisa escolher entre esponja de gelatina absorvível (Gelfoam/Hemospon) e celulose oxidada regenerada (Surgicel) para hemostasia em alvéolo pós-exodontia. Qual a comparação correta de mecanismo e indicação?",
+      "topic": "Ácido tranexâmico · bochecho",
+      "q": "Paciente anticoagulado fez exodontia e persiste sangramento difuso no alvéolo após sutura e compressão. Conduta com ácido tranexâmico?",
       "options": [
-        "Gelatina: matriz física que retém coágulo (não tem ação química), pH neutro, reabsorve em 4-6 semanas, ideal em alvéolo simples e ao redor de feixe nervoso; Celulose oxidada: ácida (pH ~3), tem ação bactericida e provoca hemostasia química por desnaturação proteica, melhor em sangramento em lençol, MAS pode causar lesão neural por acidez se contato com nervo exposto e inibe osteogênese se em contato com osso de enxerto",
-        "Os dois têm mecanismo idêntico (matriz física), escolha é só por preço",
-        "Gelatina é hemostático químico ativo via cascata da coagulação; celulose é apenas tampão mecânico",
-        "Celulose oxidada deve ser sempre a primeira escolha em qualquer alvéolo, inclusive próximo ao canal mandibular"
+        "Bochecho com ácido tranexâmico (ex.: solução a 4,8-5%, 10 mL por ~2 min, sem deglutir, repetível), que promove ação antifibrinolítica direta no local da ferida",
+        "Aplicar vitamina K tópica no alvéolo",
+        "Prescrever AAS para 'estabilizar' o coágulo",
+        "Bochecho com água oxigenada concentrada para cauterizar"
       ],
       "correct": 0,
-      "expl": "Gelatina absorvível = scaffold mecânico passivo, retém ~45x seu peso em sangue, pH neutro, seguro perto de nervos e enxertos. Celulose oxidada = hemostático ativo (pH ácido desnatura proteínas plasmáticas e tem bactericida leve), mais eficaz em sangramento em lençol, mas a acidez é neurotóxica (cuidado em alveolar inferior exposto) e inibe osteoblastos. Take-home: gelatina = curinga seguro; celulose = mais potente mas com restrições anatômicas.",
+      "expl": "Em anticoagulados, o ácido tranexâmico tópico em forma de BOCHECHO é medida local muito útil: age sobre a fibrina do coágulo no alvéolo, reduzindo o resangramento sem necessidade de alterar a anticoagulação. Sempre associado a sutura e compressão. A via tópica concentra o efeito no local com mínima exposição sistêmica.",
       "difficulty": "medium",
-      "tags": [
-        "hemostatico-local",
-        "comparacao"
-      ]
+      "tags": ["acido-tranexamico", "bochecho", "anticoagulado"]
     },
     {
       "type": "mc",
-      "topic": "Reversão de DOAC em emergência",
-      "q": "Paciente em uso de dabigatrana 150 mg 12/12h (FA não-valvar) sofre sangramento incoercível pós-exodontia múltipla, com queda de Hb e instabilidade hemodinâmica, sem resposta a hemostasia local (sutura, compressão, ácido tranexâmico tópico, celulose oxidada). Qual a conduta correta no PS?",
+      "topic": "Ácido tranexâmico · limitação",
+      "q": "Em qual situação o ácido tranexâmico NÃO traz benefício hemostático?",
       "options": [
-        "Idarucizumab 5 g IV (2x 2,5 g) — anticorpo monoclonal específico, reverte dabigatrana em minutos; para anti-Xa (rivaroxabana, apixabana, edoxabana) o antídoto específico é andexanet alfa; se indisponíveis, considerar CCP (concentrado de complexo protrombínico) 25-50 UI/kg e suporte hemoterápico",
-        "Vitamina K 10 mg IV — reverte qualquer anticoagulante oral em 6h",
-        "Sulfato de protamina 50 mg IV — antídoto universal de anticoagulantes orais",
-        "Plasma fresco congelado 4 unidades é suficiente e mais barato que os antídotos específicos"
+        "Quando o problema é a FORMAÇÃO do coágulo (déficit de fatores) ou sangramento de origem puramente mecânica — ele só preserva fibrina já formada, não a gera",
+        "Sangramento difuso pós-exodontia em anticoagulado",
+        "Sangramento de mucosa em paciente com fibrinólise aumentada",
+        "Prevenção de resangramento após cirurgia oral"
       ],
       "correct": 0,
-      "expl": "DOACs têm antídotos específicos: idarucizumab (Praxbind) para dabigatrana — anticorpo monoclonal Fab, reversão em minutos, dose 5 g IV; andexanet alfa (Andexxa) para anti-Xa. Vitamina K reverte só varfarina (e em horas). Protamina reverte heparina, não DOAC. Plasma fresco tem papel limitado em DOAC. CCP é alternativa quando antídoto específico indisponível. Take-home: sangramento odontológico em DOAC — 95% resolve com hemostasia local + tranexâmico; antídoto IV é só na catástrofe hemodinâmica.",
-      "difficulty": "hard",
-      "tags": [
-        "DOAC",
-        "reversao",
-        "emergencia"
-      ]
+      "expl": "O ácido tranexâmico atua só na FASE FINAL (fibrinólise), preservando o coágulo. Se o paciente não consegue FORMAR o coágulo (ex.: deficiência grave de fatores, plaquetopenia importante) ou o sangramento é arterial/mecânico, o antifibrinolítico isolado não resolve. Cautela em trombose ativa, CIVD não controlada e insuficiência renal (eliminação renal).",
+      "difficulty": "medium",
+      "tags": ["acido-tranexamico", "limitacao"]
     },
     {
       "type": "mc",
-      "topic": "DOAC e exodontia - mito do INR",
-      "q": "Homem de 72 anos, FA crônica em uso de rivaroxabana 20 mg/dia, chega para exodontia simples do 24. Hipertenso controlado, sem outras comorbidades. Qual a conduta correta em relação ao anticoagulante?",
+      "topic": "Etamsilato · mecanismo",
+      "q": "Como o etamsilato exerce sua ação hemostática?",
       "options": [
-        "Para exodontia simples de baixo sangramento, manter a rivaroxabana e realizar o procedimento 18-24 h após a última dose (no vale do efeito), usando medidas hemostáticas locais (sutura, ácido tranexâmico 4,8% tópico, esponja de fibrina); não há indicação de dosar INR pois DOAC não é monitorado por esse exame",
-        "Solicitar INR no dia do procedimento e só extrair se INR <3,0, mesmo critério usado para varfarina",
-        "Suspender a rivaroxabana por 5 dias antes da extração e fazer ponte com enoxaparina, conduta padrão para qualquer anticoagulante oral",
-        "Manter a rivaroxabana e não tomar nenhuma medida hemostática local, pois o efeito do DOAC é tão curto que o sangramento se autolimita sempre"
+        "Melhora a adesão plaquetária ao endotélio e aumenta a resistência capilar (reduz a produção de prostaciclina/PGI2), favorecendo o tampão hemostático primário",
+        "Inibe a conversão de plasminogênio em plasmina",
+        "Converte diretamente fibrinogênio em fibrina no local",
+        "Antagoniza a varfarina restaurando os fatores dependentes de vitamina K"
       ],
       "correct": 0,
-      "expl": "DOAC (rivaroxabana, apixabana, dabigatrana, edoxabana) NÃO se monitora por INR - esse exame só serve para varfarina. Para procedimentos de baixo risco hemorrágico como exodontia simples, mantém-se a droga, agenda-se no vale (12-24 h após dose) e usam-se medidas locais (ácido tranexâmico tópico é ouro). Ponte com heparina é desnecessária e perigosa. Take-home: pediu INR para paciente em DOAC, errou o conceito.",
+      "expl": "O etamsilato é hemostático SISTÊMICO que age na hemostasia PRIMÁRIA: aumenta a adesão plaquetária ao endotélio e a resistência/estabilidade capilar (reduz PGI2), ajudando em sangramentos capilares difusos e por fragilidade vascular. NÃO interfere diretamente nos fatores de coagulação nem na fibrinólise — ação indireta e complementar.",
+      "difficulty": "medium",
+      "tags": ["etamsilato", "mecanismo"]
+    },
+    {
+      "type": "mc",
+      "topic": "Etamsilato · indicação",
+      "q": "Em qual cenário o etamsilato é mais indicado em odontologia?",
+      "options": [
+        "Sangramento capilar difuso / por fragilidade vascular em exodontias e cirurgias orais, como adjuvante às medidas locais",
+        "Reversão rápida da varfarina antes de cirurgia de emergência",
+        "Tratamento primário de hemofilia",
+        "Como barreira mecânica colocada dentro do alvéolo"
+      ],
+      "correct": 0,
+      "expl": "Etamsilato é usado em sangramentos CAPILARES difusos e fragilidade vascular (exodontias, cirurgias periodontais), sempre como ADJUVANTE de sutura e compressão. Boa absorção oral (início 1-2h) e biodisponibilidade IM > 98%. Eficácia limitada e indireta — não corrige déficit de fatores nem reverte anticoagulante. Cautela em anticoagulados.",
+      "difficulty": "medium",
+      "tags": ["etamsilato", "indicacao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Vitamina K · mecanismo",
+      "q": "Qual o papel da vitamina K (fitomenadiona) na coagulação?",
+      "options": [
+        "Cofator hepático na carboxilação que sintetiza os fatores de coagulação II, VII, IX e X (e proteínas C e S)",
+        "Antifibrinolítico que preserva a rede de fibrina",
+        "Barreira mecânica local que tampona o alvéolo",
+        "Aumenta a adesão das plaquetas ao endotélio"
+      ],
+      "correct": 0,
+      "expl": "A vitamina K (fitomenadiona) é cofator da gama-carboxilação hepática que torna funcionais os fatores II, VII, IX e X (e proteínas C/S). Ação SISTÊMICA, INDIRETA e LENTA (início 1-2h, efeito pleno em horas a ~24h). Por isso não serve para emergência hemorrágica imediata. Não é antídoto da heparina.",
+      "difficulty": "easy",
+      "tags": ["vitamina-k", "mecanismo"]
+    },
+    {
+      "type": "mc",
+      "topic": "Vitamina K · reversão de varfarina",
+      "q": "Por que a vitamina K reverte o efeito da varfarina?",
+      "options": [
+        "A varfarina inibe a regeneração da vitamina K (bloqueia a epóxido redutase); repor vitamina K restaura a síntese dos fatores II, VII, IX e X e antagoniza o anticoagulante",
+        "Porque neutraliza quimicamente a molécula de varfarina no plasma",
+        "Porque inibe a fibrinólise no alvéolo dentário",
+        "Porque liga-se às plaquetas aumentando sua agregação"
+      ],
+      "correct": 0,
+      "expl": "A varfarina (cumarínico) bloqueia a vitamina K epóxido redutase, impedindo a reciclagem da vitamina K e a produção de fatores funcionais (II, VII, IX, X). A reposição de vitamina K reabastece o ciclo e RESTAURA a síntese desses fatores → reverte gradualmente o efeito. A reversão NÃO é imediata; em sangramento grave usa-se também complexo protrombínico (CCP) ou plasma.",
+      "difficulty": "medium",
+      "tags": ["vitamina-k", "varfarina", "reversao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Selante de fibrina · composição",
+      "q": "Qual a composição e o mecanismo do selante (hemostático) de fibrina?",
+      "options": [
+        "Fibrinogênio humano + trombina (e cálcio): a trombina converte o fibrinogênio em fibrina, reproduzindo a etapa final da coagulação e formando coágulo estável no local",
+        "Gelatina suína que apenas tampona mecanicamente o alvéolo",
+        "Solução antifibrinolítica para bochecho",
+        "Vitamina K em apresentação tópica de uso periodontal"
+      ],
+      "correct": 0,
+      "expl": "O selante de fibrina (ex.: Evicel, Tisseel, Beriplast) é hemostático BIOLÓGICO de ação LOCAL: combina fibrinogênio humano + trombina humana + cálcio. A trombina converte o fibrinogênio em fibrina em segundos, com polimerização cruzada pelo fator XIII — reproduz a fase final fisiológica da coagulação. Uso tópico (gotejamento/spray), NUNCA intravascular.",
+      "difficulty": "medium",
+      "tags": ["fibrina", "selante", "mecanismo"]
+    },
+    {
+      "type": "mc",
+      "topic": "Selante de fibrina · indicação",
+      "q": "Quando o selante de fibrina é especialmente indicado em odontologia?",
+      "options": [
+        "Cirurgias orais extensas, enxertos ósseos, implantes e pacientes anticoagulados quando as técnicas convencionais não controlam o sangramento",
+        "Como primeira medida de rotina em qualquer exodontia simples",
+        "Para reverter o INR elevado de um paciente em varfarina",
+        "Por via intravascular para tratar trombose"
+      ],
+      "correct": 0,
+      "expl": "O selante de fibrina é reservado para situações em que a hemostasia convencional é insuficiente: cirurgias orais extensas, enxerto ósseo, implantodontia, procedimentos periodontais amplos e pacientes anticoagulados. Início imediato e ação local. Limitações: custo elevado e risco de reação alérgica. Nunca usar intravascular.",
+      "difficulty": "medium",
+      "tags": ["fibrina", "indicacao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Gelatina hemostática · mecanismo",
+      "q": "Como a esponja de gelatina hemostática (tipo Gelfoam) controla o sangramento?",
+      "options": [
+        "Por tamponamento MECÂNICO: absorve sangue e forma uma matriz física que retém plaquetas, hemácias e fibrina, favorecendo o coágulo — sem ação na cascata nem antifibrinolítica",
+        "Inibindo a ativação do plasminogênio",
+        "Convertendo fibrinogênio em fibrina por conter trombina",
+        "Aumentando a síntese hepática de fatores de coagulação"
+      ],
+      "correct": 0,
+      "expl": "A gelatina hemostática absorvível (gelatina suína purificada, ex.: Gelfoam) age por TAMPONAMENTO MECÂNICO: forma matriz que retém plaquetas/hemácias/fibrina e estabiliza o coágulo. NÃO interfere na cascata, NÃO é antifibrinolítica e NÃO ativa plaquetas — depende da coagulação natural do paciente. Aplicação tópica, compressão leve por 1-2 min; absorção em 3-5 semanas.",
+      "difficulty": "easy",
+      "tags": ["gelatina", "mecanismo"]
+    },
+    {
+      "type": "mc",
+      "topic": "Gelatina hemostática · cuidados",
+      "q": "Qual cuidado é correto ao usar a esponja de gelatina hemostática no alvéolo?",
+      "options": [
+        "Adaptar ao tamanho da lesão, comprimir levemente e remover o excesso; não substitui sutura/ligadura e cuidado em alérgicos a derivados suínos",
+        "Compactar grande volume no alvéolo para 'preencher bem' o espaço",
+        "Usá-la por via intravascular para acelerar o efeito",
+        "Empregá-la como tratamento primário de um distúrbio de coagulação"
+      ],
+      "correct": 0,
+      "expl": "A gelatina deve ser adaptada ao tamanho da ferida, com compressão leve e remoção do EXCESSO (excesso comprime tecidos e pode causar necrose). NÃO substitui sutura/ligadura. Contraindicada em alérgicos a derivados suínos, em ferida infectada sem antibiótico, uso intravascular e como tratamento primário de coagulopatia. Pode ser usada em anticoagulados (hemostasia pode demorar mais).",
+      "difficulty": "medium",
+      "tags": ["gelatina", "cuidados"]
+    },
+    {
+      "type": "mc",
+      "topic": "Celulose oxidada (Surgicel)",
+      "q": "Sobre a celulose oxidada regenerada (Surgicel) como hemostático local, é correto afirmar:",
+      "options": [
+        "É malha absorvível que forma coágulo ao contato com o sangue e tem pH ácido com efeito bactericida leve; o meio ácido pode inativar a trombina, então não combiná-la com selante de fibrina/trombina",
+        "Age como antifibrinolítico sistêmico após absorção",
+        "Deve ser usada por via intravascular para maior eficácia",
+        "É um derivado suíno idêntico à gelatina, sem diferença prática"
+      ],
+      "correct": 0,
+      "expl": "A celulose oxidada regenerada (Surgicel) é malha/tecido absorvível derivado de celulose vegetal: ao contatar o sangue intumesce e forma uma massa gelatinosa que favorece o coágulo. Seu pH ácido confere leve efeito bactericida, MAS inativa a trombina — por isso NÃO deve ser combinada com selante de fibrina/trombina. Absorção em ~1-2 semanas; excesso pode comprometer cicatrização.",
+      "difficulty": "medium",
+      "tags": ["celulose-oxidada", "surgicel"]
+    },
+    {
+      "type": "mc",
+      "topic": "Gelatina vs celulose",
+      "q": "Qual a diferença prática entre a esponja de gelatina e a celulose oxidada regenerada?",
+      "options": [
+        "Ambas são barreiras mecânicas absorvíveis, mas a gelatina é de origem suína e pH neutro, enquanto a celulose tem pH ácido (leve ação bactericida e inativa trombina) — escolha conforme o contexto",
+        "A gelatina é antifibrinolítica e a celulose age na cascata de coagulação",
+        "A celulose é sistêmica e a gelatina é injetável",
+        "Não há nenhuma diferença entre elas"
+      ],
+      "correct": 0,
+      "expl": "Gelatina (suína, pH neutro) e celulose oxidada (vegetal, pH ácido) são ambas HEMOSTÁTICOS LOCAIS por matriz mecânica e absorvíveis, dependentes da coagulação do paciente. A celulose tem leve efeito bactericida pelo pH ácido, mas inativa a trombina (não combinar com selante de fibrina). A gelatina não tem ação antimicrobiana e é mais maleável. Nenhuma age na cascata ou na fibrinólise.",
+      "difficulty": "medium",
+      "tags": ["gelatina", "celulose-oxidada", "comparacao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Varfarina · não suspender",
+      "q": "Paciente em uso de varfarina vai fazer exodontia simples. Conduta sobre o anticoagulante?",
+      "options": [
+        "NÃO suspender de rotina — manter a varfarina, checar o INR recente e proceder com hemostasia local se o INR estiver na faixa adequada",
+        "Suspender a varfarina por 7 dias antes do procedimento sempre",
+        "Dobrar a dose de varfarina para 'estabilizar' a coagulação",
+        "Trocar a varfarina por AAS na semana da cirurgia"
+      ],
+      "correct": 0,
+      "expl": "Diretrizes atuais recomendam NÃO interromper a varfarina de rotina para procedimentos odontológicos com risco de sangramento baixo/moderado (como exodontia simples): o risco tromboembólico da suspensão (AVC, trombose) supera o de sangramento, que é manejável localmente. Conduta: verificar INR recente e usar medidas hemostáticas locais.",
+      "difficulty": "medium",
+      "tags": ["varfarina", "nao-suspender"]
+    },
+    {
+      "type": "mc",
+      "topic": "Varfarina · INR",
+      "q": "Qual valor de INR permite, em geral, exodontia com hemostasia local em paciente estável em varfarina?",
+      "options": [
+        "INR ≤ 3,0-3,5 (idealmente aferido até ~24-72h antes), com medidas locais; acima disso, avaliar adiamento e contato com o médico",
+        "Qualquer INR, pois o valor não interfere no risco de sangramento",
+        "Apenas INR < 1,0 (faixa de não anticoagulado)",
+        "INR > 5,0 é seguro desde que se use sutura"
+      ],
+      "correct": 0,
+      "expl": "Para procedimentos odontológicos, considera-se seguro extrair com INR ≤ 3,0-3,5 (faixa terapêutica), com aferição recente (até ~24-72h antes) em paciente estável, sempre com hemostasia local (sutura, compressão, esponja, ácido tranexâmico tópico). INR acima da faixa ou instável: adiar e discutir com o médico. INR < 1 NÃO é o alvo (significaria sub-anticoagulação).",
+      "difficulty": "medium",
+      "tags": ["varfarina", "inr"]
+    },
+    {
+      "type": "mc",
+      "topic": "DOAC · não dosar INR",
+      "q": "Paciente em rivaroxabana (DOAC) vai fazer exodontia. O que é correto sobre o manejo?",
+      "options": [
+        "Não usar o INR para guiar a conduta (não reflete o efeito dos DOACs); manejar com hemostasia local e considerar o timing da dose em relação ao procedimento",
+        "Solicitar INR e só operar se < 2,0, como na varfarina",
+        "Suspender o DOAC por 2 semanas antes de qualquer exodontia",
+        "Aplicar vitamina K antes para reverter o DOAC"
+      ],
+      "correct": 0,
+      "expl": "O INR NÃO monitora os DOACs (rivaroxabana, apixabana, dabigatrana) — não deve guiar a conduta odontológica. O manejo é por MEDIDAS LOCAIS e atenção ao TIMING da dose. A vitamina K não reverte DOACs (ela só atua sobre fatores dependentes de vitamina K, alvo da varfarina).",
+      "difficulty": "medium",
+      "tags": ["doac", "inr"]
+    },
+    {
+      "type": "mc",
+      "topic": "DOAC · timing da dose",
+      "q": "Como ajustar o horário do DOAC em procedimento odontológico com maior risco de sangramento?",
+      "options": [
+        "Idealmente realizar cedo no dia e tratar no 'vale' do fármaco (atrasar a dose do dia ou omiti-la conforme orientação), retomando após hemostasia segura — preferindo medidas locais a suspensões prolongadas",
+        "Tomar uma dose extra do DOAC logo antes do procedimento",
+        "Suspender o DOAC por 10 dias e fazer 'ponte' com AAS",
+        "Manter exatamente o mesmo horário e nunca ajustar, em nenhuma situação"
+      ],
+      "correct": 0,
+      "expl": "Para DOACs, em procedimentos de maior risco de sangramento, agenda-se o atendimento de manhã e aproveita-se o efeito mais baixo do fármaco (vale): pode-se atrasar/omitir a dose daquele dia conforme orientação médica e função renal, retomando após hemostasia segura (geralmente algumas horas depois). Em procedimentos de baixo risco, em geral não se altera a dose. Sempre priorizar hemostasia local.",
       "difficulty": "hard",
-      "tags": [
-        "doac",
-        "anticoagulante",
-        "exodontia"
-      ]
+      "tags": ["doac", "timing"]
+    },
+    {
+      "type": "mc",
+      "topic": "AAS / clopidogrel · não suspender",
+      "q": "Paciente em AAS (ou clopidogrel) por doença cardiovascular vai fazer exodontia. Conduta sobre o antiagregante?",
+      "options": [
+        "NÃO suspender de rotina — manter o antiplaquetário e controlar o sangramento com medidas locais; suspender aumenta o risco de eventos trombóticos graves",
+        "Suspender o AAS por 7 dias antes sempre, por segurança",
+        "Substituir por varfarina na véspera",
+        "Suspender clopidogrel e manter dose dupla de AAS"
+      ],
+      "correct": 0,
+      "expl": "Antiplaquetários (AAS, clopidogrel) NÃO devem ser suspensos de rotina para procedimentos odontológicos: o sangramento é geralmente leve e manejável com medidas locais, ao passo que a suspensão eleva o risco de trombose/IAM/AVC, especialmente em portadores de stent. Inclui dupla antiagregação — decisão de suspender, se houver, é do cardiologista.",
+      "difficulty": "medium",
+      "tags": ["aas", "clopidogrel", "nao-suspender"]
+    },
+    {
+      "type": "mc",
+      "topic": "Reversão de DOAC · emergência",
+      "q": "Em sangramento grave/emergência por DOAC, qual o agente de reversão específico?",
+      "options": [
+        "Idarucizumabe para dabigatrana; andexanet alfa para inibidores do fator Xa (rivaroxabana/apixabana) — em ambiente hospitalar",
+        "Vitamina K em dose alta resolve qualquer DOAC",
+        "Protamina, que reverte todos os DOACs",
+        "Ácido tranexâmico isolado é o antídoto específico dos DOACs"
+      ],
+      "correct": 0,
+      "expl": "Reversão específica de DOAC, em emergência hospitalar: IDARUCIZUMABE (anticorpo) para a dabigatrana e ANDEXANET ALFA para inibidores do fator Xa (rivaroxabana, apixabana). A vitamina K NÃO reverte DOACs (só age na via dependente de vitamina K). A protamina reverte heparina, não DOAC. O ácido tranexâmico é adjuvante, não antídoto específico.",
+      "difficulty": "hard",
+      "tags": ["doac", "reversao", "idarucizumabe", "andexanet"]
+    },
+    {
+      "type": "mc",
+      "topic": "Sutura e compressão",
+      "q": "Qual a base do controle hemostático local em qualquer exodontia, antes de recorrer a fármacos sistêmicos?",
+      "options": [
+        "Técnica atraumática, compressão com gaze, sutura e, se necessário, materiais locais (gelatina/celulose, selante de fibrina, ácido tranexâmico tópico)",
+        "Iniciar de imediato vitamina K intravenosa em todos",
+        "Solicitar transfusão de plasma para toda exodontia",
+        "Aplicar etamsilato sistêmico antes de qualquer compressão"
+      ],
+      "correct": 0,
+      "expl": "O pilar é a HEMOSTASIA LOCAL: técnica cirúrgica atraumática, compressão com gaze, sutura e, quando preciso, materiais locais (esponja de gelatina, celulose oxidada, selante de fibrina) e ácido tranexâmico tópico. Medidas sistêmicas (vitamina K, plasma, CCP) ficam para coagulopatias/emergências, não para o sangramento rotineiro pós-extração.",
+      "difficulty": "easy",
+      "tags": ["sutura", "compressao", "hemostasia-local"]
+    },
+    {
+      "type": "mc",
+      "topic": "Hemostasia local vs sistêmica",
+      "q": "Qual afirmação distingue corretamente hemostáticos LOCAIS de SISTÊMICOS?",
+      "options": [
+        "Locais (gelatina, celulose, selante de fibrina, ácido tranexâmico tópico) agem só no sítio do sangramento; sistêmicos (etamsilato, vitamina K, ácido tranexâmico VO/EV) agem em todo o organismo",
+        "Locais agem em todo o organismo e sistêmicos só no alvéolo",
+        "Todos os hemostáticos são sistêmicos por definição",
+        "A gelatina é sistêmica e o etamsilato é local"
+      ],
+      "correct": 0,
+      "expl": "HEMOSTÁTICOS LOCAIS (gelatina, celulose oxidada, selante de fibrina, ácido tranexâmico tópico) atuam apenas no sítio do sangramento, com mínima absorção sistêmica. SISTÊMICOS (etamsilato, vitamina K, ácido tranexâmico oral/EV) atuam no organismo todo. A escolha depende da etiologia do sangramento, do estado do paciente e do procedimento; frequentemente combinam-se as duas abordagens.",
+      "difficulty": "easy",
+      "tags": ["local", "sistemico", "comparacao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Heparina · vitamina K não reverte",
+      "q": "Por que a vitamina K NÃO serve como antídoto da heparina?",
+      "options": [
+        "A heparina age potencializando a antitrombina (independe de vitamina K); seu antídoto é a protamina, enquanto a vitamina K reverte apenas cumarínicos (varfarina)",
+        "Porque a vitamina K reverte a heparina, mas só em altas doses",
+        "Porque a heparina depende de vitamina K, igual à varfarina",
+        "Porque a heparina não tem antídoto conhecido"
+      ],
+      "correct": 0,
+      "expl": "A heparina não age pela via da vitamina K — potencializa a antitrombina, inibindo trombina e fator Xa. Logo, a vitamina K não a reverte; o antídoto da heparina é a PROTAMINA. A vitamina K reverte os anticoagulantes CUMARÍNICOS (varfarina), restaurando os fatores II, VII, IX e X. Cada anticoagulante tem sua lógica de reversão.",
+      "difficulty": "medium",
+      "tags": ["heparina", "protamina", "vitamina-k"]
+    },
+    {
+      "type": "mc",
+      "topic": "Ácido tranexâmico · segurança",
+      "q": "Qual cuidado/efeito adverso é relevante ao usar ácido tranexâmico sistêmico?",
+      "options": [
+        "Risco tromboembólico teórico (cautela em trombose ativa, histórico de trombose e CIVD) e atenção na insuficiência renal, pois a eliminação é renal",
+        "Causa hipertensão grave em todos os pacientes",
+        "É contraindicado em qualquer paciente anticoagulado",
+        "Provoca deficiência de vitamina K com uso prolongado"
+      ],
+      "correct": 0,
+      "expl": "O ácido tranexâmico é seguro quando bem indicado, mas como impede a degradação de coágulos há risco tromboembólico TEÓRICO — cautela em trombose ativa/recente, histórico trombótico e CIVD não controlada. Eliminação RENAL exige atenção na insuficiência renal. EA comuns: náusea, vômito, diarreia; infusão EV rápida pode causar hipotensão.",
+      "difficulty": "medium",
+      "tags": ["acido-tranexamico", "seguranca"]
+    },
+    {
+      "type": "mc",
+      "topic": "Selante de fibrina vs gelatina",
+      "q": "Qual a principal diferença entre o selante de fibrina e a esponja de gelatina hemostática?",
+      "options": [
+        "O selante de fibrina FORMA ativamente o coágulo (trombina + fibrinogênio), enquanto a gelatina apenas tampona mecanicamente e depende da coagulação do paciente",
+        "Ambos são antifibrinolíticos sistêmicos",
+        "A gelatina contém trombina e o selante de fibrina é só uma malha física",
+        "O selante de fibrina é sistêmico e a gelatina é injetável"
+      ],
+      "correct": 0,
+      "expl": "Diferença-chave: o selante de FIBRINA é ATIVO — sua trombina converte o fibrinogênio em fibrina, formando o coágulo independentemente da coagulação do paciente (útil em quem não coagula bem). A GELATINA é uma matriz PASSIVA que só tampona e retém os elementos do sangue, dependendo da coagulação fisiológica. Ambos são locais e absorvíveis.",
+      "difficulty": "medium",
+      "tags": ["fibrina", "gelatina", "comparacao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Vitamina K · limitação em emergência",
+      "q": "Paciente em varfarina com INR muito elevado precisa de cirurgia oral de emergência por sangramento. Por que a vitamina K isolada pode não bastar?",
+      "options": [
+        "Porque a vitamina K tem ação LENTA (horas) ao depender da síntese hepática de novos fatores; na emergência associa-se complexo protrombínico (CCP) ou plasma fresco para correção imediata",
+        "Porque a vitamina K acelera o sangramento ao inibir as plaquetas",
+        "Porque a vitamina K só funciona por via tópica no alvéolo",
+        "Porque a vitamina K reverte heparina, não varfarina"
+      ],
+      "correct": 0,
+      "expl": "A vitamina K corrige o INR de forma LENTA, pois precisa que o fígado sintetize novos fatores (horas a ~24h). Em hemorragia grave/emergência associa-se reversão IMEDIATA com complexo protrombínico (CCP) ou plasma fresco congelado, que repõem os fatores prontos. A vitamina K dá a correção sustentada; o CCP/plasma dá a correção rápida.",
+      "difficulty": "hard",
+      "tags": ["vitamina-k", "varfarina", "emergencia", "ccp"]
+    },
+    {
+      "type": "match",
+      "topic": "Hemostáticos: mecanismo / classe",
+      "prompt": "Associe cada hemostático ao seu mecanismo principal.",
+      "leftLabel": "Hemostático",
+      "rightLabel": "Mecanismo / classe",
+      "pairs": [
+        { "id": "txa", "left": "Ácido tranexâmico", "right": "Antifibrinolítico: inibe a ativação do plasminogênio (preserva a fibrina)" },
+        { "id": "etam", "left": "Etamsilato", "right": "Sistêmico: melhora adesão plaquetária e resistência capilar" },
+        { "id": "vitk", "left": "Vitamina K (fitomenadiona)", "right": "Cofator hepático dos fatores II, VII, IX e X; reverte varfarina" },
+        { "id": "fib", "left": "Selante de fibrina", "right": "Local ativo: trombina + fibrinogênio formam coágulo no local" },
+        { "id": "gel", "left": "Gelatina hemostática", "right": "Local passivo: matriz mecânica que tampona e retém o coágulo" },
+        { "id": "cel", "left": "Celulose oxidada (Surgicel)", "right": "Local: malha absorvível, pH ácido (não combinar com trombina)" }
+      ],
+      "expl": "Tranexâmico = antifibrinolítico. Etamsilato = plaqueta/capilar. Vitamina K = fatores II/VII/IX/X. Fibrina = forma coágulo ativamente. Gelatina = tampão mecânico passivo. Celulose = malha ácida que inativa trombina.",
+      "difficulty": "medium",
+      "tags": ["match", "mecanismo"]
+    },
+    {
+      "type": "match",
+      "topic": "Anticoagulantes/antiagregantes: manejo e reversão",
+      "prompt": "Associe o fármaco em uso à conduta/reversão correta no contexto odontológico.",
+      "leftLabel": "Fármaco em uso",
+      "rightLabel": "Conduta / reversão",
+      "pairs": [
+        { "id": "varf", "left": "Varfarina", "right": "Não suspender; guiar pelo INR (≤ 3-3,5); reversão com vitamina K (± CCP)" },
+        { "id": "doac", "left": "DOAC (rivaroxabana/apixabana/dabigatrana)", "right": "Não dosar INR; medidas locais e timing da dose" },
+        { "id": "dabi", "left": "Dabigatrana (emergência)", "right": "Reversão específica com idarucizumabe" },
+        { "id": "xa", "left": "Inibidor do fator Xa (emergência)", "right": "Reversão específica com andexanet alfa" },
+        { "id": "anti", "left": "AAS / clopidogrel", "right": "Não suspender de rotina; controle por hemostasia local" },
+        { "id": "hep", "left": "Heparina", "right": "Reversão com protamina (vitamina K não funciona)" }
+      ],
+      "expl": "Varfarina: INR + vitamina K. DOAC: sem INR, local + timing; reversão específica (idarucizumabe/andexanet). AAS/clopidogrel: não suspender. Heparina: protamina.",
+      "difficulty": "hard",
+      "tags": ["match", "anticoagulante", "reversao"]
+    },
+    {
+      "type": "case",
+      "topic": "Caso · exodontia em paciente anticoagulado",
+      "subtitle": "Mulher 68a em varfarina por fibrilação atrial, indicação de exodontia",
+      "specialty": "Odontologia · Cirurgia Oral",
+      "difficulty": "medium",
+      "vignette": "Mulher de 68 anos, em uso de varfarina há 4 anos por fibrilação atrial, comparece para exodontia do dente 36 (resto radicular). Está clinicamente estável, sem outras comorbidades de sangramento. Traz INR aferido há 24h: 2,6. Pergunta se 'precisa parar o remédio do coração' antes da extração.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Qual a conduta sobre a varfarina?",
+          "options": [
+            "Manter a varfarina (não suspender) — o INR de 2,6 está na faixa segura (≤ 3-3,5) para exodontia com hemostasia local; suspender aumentaria o risco tromboembólico",
+            "Suspender a varfarina por 5 dias e remarcar",
+            "Aplicar vitamina K antes para 'zerar' o INR e então extrair",
+            "Substituir a varfarina por AAS na véspera"
+          ],
+          "correct": 0,
+          "expl": "Não se suspende a varfarina de rotina para exodontia simples. Com INR estável e ≤ 3-3,5 (aqui 2,6, aferido nas últimas 24-72h), procede-se à extração com hemostasia local. Suspender exporia a paciente (FA) a tromboembolismo/AVC. Reverter com vitamina K sem necessidade é erro grave."
+        },
+        {
+          "id": "step2",
+          "question": "Quais medidas hemostáticas locais associar ao procedimento?",
+          "options": [
+            "Técnica atraumática, esponja de gelatina (ou celulose oxidada) no alvéolo, sutura e compressão com gaze; orientar bochecho com ácido tranexâmico no pós-operatório",
+            "Apenas deixar o alvéolo aberto, sem sutura nem material local",
+            "Iniciar etamsilato EV e vitamina K IM de rotina em todos",
+            "Cauterizar o alvéolo com solução concentrada de água oxigenada"
+          ],
+          "correct": 0,
+          "expl": "Hemostasia LOCAL é o pilar: técnica atraumática, material local no alvéolo (gelatina ou celulose oxidada), sutura e compressão com gaze. O bochecho com ácido tranexâmico age sobre a fibrina do coágulo e reduz resangramento — tudo sem alterar a anticoagulação. Medidas sistêmicas de rotina (etamsilato/vitamina K) não são necessárias aqui."
+        },
+        {
+          "id": "step3",
+          "prompt": "No 1º dia pós-operatório a paciente liga relatando sangramento difuso persistente apesar da gaze. Outra paciente do consultório, em rivaroxabana, faz a mesma pergunta sobre 'qual o INR ideal'.",
+          "question": "Quais orientações são corretas?",
+          "options": [
+            "Reforçar compressão com gaze embebida em ácido tranexâmico e revisar a sutura; e esclarecer que, na rivaroxabana (DOAC), o INR não guia a conduta — o manejo é local e por timing da dose",
+            "Prescrever vitamina K oral à paciente em varfarina para parar o sangramento imediatamente",
+            "Mandar a paciente em rivaroxabana medir o INR e só voltar se estiver < 2,0",
+            "Orientar ambas a suspender os anticoagulantes por conta própria"
+          ],
+          "correct": 0,
+          "expl": "Sangramento difuso pós-extração em anticoagulado: reforçar compressão (gaze com ácido tranexâmico), revisar sutura e, se preciso, reaplicar material local — medida LOCAL. A vitamina K não é para sangramento leve manejável localmente. Quanto à rivaroxabana (DOAC), o INR NÃO reflete o efeito do fármaco e não deve guiar conduta; manejo é local e por timing. Nunca orientar suspensão por conta própria."
+        }
+      ],
+      "outcome": "A exodontia do 36 é feita com a varfarina mantida (INR 2,6), esponja de gelatina, sutura e compressão. O sangramento do 1º dia cede com gaze embebida em ácido tranexâmico e revisão da sutura. A paciente em rivaroxabana é orientada de que não há INR-alvo para DOAC e que o controle é local. Ambas evoluem sem intercorrências."
+    },
+    {
+      "type": "flashcard",
+      "topic": "Ácido tranexâmico",
+      "front": "Ácido tranexâmico: classe, mecanismo e uso em anticoagulado?",
+      "back": "Antifibrinolítico: inibe a ativação do plasminogênio em plasmina → preserva a fibrina do coágulo. Não forma coágulo. Em anticoagulado: BOCHECHO tópico pós-exodontia (ação local), com sutura/compressão. Cautela: trombose, insuficiência renal (eliminação renal).",
+      "tags": ["acido-tranexamico"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Etamsilato",
+      "front": "Etamsilato: mecanismo e indicação?",
+      "back": "Hemostático sistêmico: melhora a adesão plaquetária e a resistência capilar (reduz PGI2) → favorece o tampão primário. Útil em sangramento capilar difuso/fragilidade vascular, como adjuvante. Não age na cascata nem na fibrinólise.",
+      "tags": ["etamsilato"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Vitamina K (fitomenadiona)",
+      "front": "Vitamina K: papel na coagulação e na reversão de varfarina?",
+      "back": "Cofator hepático dos fatores II, VII, IX e X. Reverte VARFARINA (que bloqueia a reciclagem da vitamina K). Ação LENTA (horas) — não serve para emergência imediata (associar CCP/plasma). NÃO reverte heparina (antídoto = protamina).",
+      "tags": ["vitamina-k"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Selante de fibrina",
+      "front": "Selante de fibrina: composição e ação?",
+      "back": "Hemostático local biológico: fibrinogênio + trombina (+ cálcio). A trombina converte fibrinogênio em fibrina → coágulo estável em segundos (reproduz a fase final da coagulação). Uso tópico (gota/spray), nunca intravascular. Indicado em cirurgia extensa, enxertos, implantes, anticoagulados.",
+      "tags": ["fibrina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Gelatina hemostática",
+      "front": "Esponja de gelatina (Gelfoam): mecanismo e cuidados?",
+      "back": "Hemostático local absorvível (gelatina suína). Tampão MECÂNICO: matriz que retém plaquetas/hemácias/fibrina, depende da coagulação do paciente. Compressão leve 1-2 min, remover excesso (necrose), não substitui sutura. Cuidado: alérgicos a derivados suínos. Absorção em 3-5 semanas.",
+      "tags": ["gelatina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Gelatina vs celulose oxidada",
+      "front": "Gelatina vs celulose oxidada (Surgicel): qual a diferença?",
+      "back": "Ambas: barreiras mecânicas absorvíveis, dependentes da coagulação do paciente. Gelatina = suína, pH neutro, maleável. Celulose = vegetal, pH ácido (leve ação bactericida, mas INATIVA a trombina → não combinar com selante de fibrina). Nenhuma age na cascata nem na fibrinólise.",
+      "tags": ["gelatina", "celulose-oxidada"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Varfarina · manejo",
+      "front": "Paciente em varfarina vai extrair dente: suspendo? Qual INR?",
+      "back": "NÃO suspender de rotina (risco tromboembólico). Guiar pelo INR recente: ≤ 3,0-3,5 permite exodontia com hemostasia local (sutura, compressão, gelatina/celulose, ácido tranexâmico tópico). INR acima/instável: adiar e contatar o médico.",
+      "tags": ["varfarina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "DOAC · manejo",
+      "front": "Paciente em DOAC (rivaroxabana/apixabana/dabigatrana): como manejar?",
+      "back": "NÃO dosar INR (não reflete o efeito). Manejo por HEMOSTASIA LOCAL e TIMING da dose (atender de manhã/no vale; em maior risco, atrasar ou omitir a dose conforme orientação, retomar após hemostasia). Vitamina K não reverte DOAC.",
+      "tags": ["doac"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "AAS / clopidogrel",
+      "front": "Suspendo AAS ou clopidogrel antes de exodontia?",
+      "back": "NÃO de rotina. O sangramento é geralmente leve e manejável com medidas locais; suspender aumenta o risco de trombose/IAM/AVC (sobretudo com stent). Dupla antiagregação: decisão de suspender, se houver, é do cardiologista.",
+      "tags": ["aas", "clopidogrel"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Reversão de anticoagulantes",
+      "front": "Reversão de emergência: varfarina, dabigatrana, fator Xa e heparina?",
+      "back": "Varfarina: vitamina K (± complexo protrombínico/plasma para correção rápida). Dabigatrana: idarucizumabe. Inibidores do fator Xa (rivaroxabana/apixabana): andexanet alfa. Heparina: protamina. Tudo em ambiente hospitalar.",
+      "tags": ["reversao", "idarucizumabe", "andexanet"]
     }
   ]
 }
