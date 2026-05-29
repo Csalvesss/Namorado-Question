@@ -54,9 +54,10 @@ const GRADES: Array<{ value: Grade; label: string; helper: string; classes: stri
 export default function Review() {
   const navigate = useNavigate();
   const { user } = useUser();
+  const userTrack = user?.track ?? 'medicina';
 
   const allCards = useMemo<ReviewItem[]>(() => {
-    const courses = db.courses.list();
+    const courses = db.courses.listByTrack(userTrack);
     const items: ReviewItem[] = [];
     courses.forEach((c) => {
       const cards = db.questions
@@ -65,14 +66,12 @@ export default function Review() {
       cards.forEach((card) => items.push({ card, course: c.title }));
     });
     return items;
-  }, []);
+  }, [userTrack]);
 
   const stats = useMemo(() => {
     if (!user) return null;
-    return srsStats(user.uid, allCards.map((i) => i.card.id));
-  }, [user, allCards]);
-
-  const userTrack = user?.track ?? 'medicina';
+    return srsStats(user.uid, allCards.map((i) => i.card.id), Date.now(), userTrack);
+  }, [user, allCards, userTrack]);
 
   const dueQueue = useMemo<ReviewItem[]>(() => {
     if (!user || allCards.length === 0) return [];

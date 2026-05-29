@@ -14,7 +14,8 @@ interface Item {
 
 export default function QuickReview() {
   const { user } = useUser();
-  const courses = useMemo(() => db.courses.list(), []);
+  const userTrack = user?.track ?? 'medicina';
+  const courses = useMemo(() => db.courses.listByTrack(userTrack), [userTrack]);
   const items = useMemo(() => {
     const out: Item[] = [];
     courses.forEach((c) => {

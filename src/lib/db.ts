@@ -103,6 +103,15 @@ export const db = {
     list(): Course[] {
       return read<Course[]>('courses', []);
     },
+    /**
+     * Lista cursos de UMA trilha apenas. Cursos antigos sem `track`
+     * contam como 'medicina'. Use isto em toda tela que varre vários
+     * cursos (intercalado, algoritmos, casos, passa-fácil, erros,
+     * revisar) para não vazar matéria entre medicina e odonto.
+     */
+    listByTrack(track: 'medicina' | 'odonto'): Course[] {
+      return this.list().filter((c) => (c.track ?? 'medicina') === track);
+    },
     get(id: string): Course | undefined {
       return this.list().find((c) => c.id === id);
     },

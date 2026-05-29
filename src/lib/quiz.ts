@@ -23,14 +23,17 @@ export interface InterleavedOptions {
   count: number;
   excludeCourseIds?: string[];
   typeFilter?: QuestionType;
+  /** Trilha do usuário. Só sorteia questões de cursos dessa trilha. */
+  track?: 'medicina' | 'odonto';
 }
 
 export function sampleQuestionsInterleaved({
   count,
   excludeCourseIds,
   typeFilter,
+  track = 'medicina',
 }: InterleavedOptions): Question[] {
-  const courses = db.courses.list();
+  const courses = db.courses.listByTrack(track);
   const byCourse = new Map<string, Question[]>();
   courses.forEach((c) => {
     if (excludeCourseIds?.includes(c.id)) return;

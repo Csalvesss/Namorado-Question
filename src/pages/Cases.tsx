@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Activity, Brain, HeartPulse, Siren, Stethoscope, type LucideIcon } from 'lucide-react';
 import PageContainer from '../components/ui/PageContainer';
 import { db } from '../lib/db';
+import { useUser } from '../lib/useUser';
 import type { CaseQuestion } from '../types';
 
 const SPECIALTY_ICON: Array<{ match: RegExp; icon: LucideIcon }> = [
@@ -26,8 +27,10 @@ function difficultyLabel(d?: string): { label: string; tone: 'soft' | 'medium' |
 }
 
 export default function Cases() {
+  const { user } = useUser();
+  const userTrack = user?.track ?? 'medicina';
   const cases = useMemo(() => {
-    const courses = db.courses.list();
+    const courses = db.courses.listByTrack(userTrack);
     const all: Array<{ q: CaseQuestion; courseTitle: string }> = [];
     courses.forEach((c) => {
       db.questions
@@ -40,7 +43,7 @@ export default function Cases() {
       const db = b.q.difficulty === 'hard' ? 0 : b.q.difficulty === 'medium' ? 1 : 2;
       return da - db;
     });
-  }, []);
+  }, [userTrack]);
 
   return (
     <PageContainer>
