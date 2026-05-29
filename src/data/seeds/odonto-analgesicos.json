@@ -23,17 +23,17 @@
     {
       "type": "mc",
       "topic": "Dipirona",
-      "q": "Dipirona em odontologia: indicação clássica e principal cuidado:",
+      "q": "Gestante de 22 semanas, 65 kg, pós-exodontia de 46 com dor moderada. AINE contraindicado no momento. Analgésico de escolha e cuidados?",
       "options": [
-        "Analgésica e antipirética não opioide, derivado pirazolônico, ampla na dor pós-extração; dose 500-1000 mg VO 6/6h até 4 g/dia; risco raro mas grave de agranulocitose (idiossincrásico)",
-        "Forte ação anti-inflamatória — alternativa ao ibuprofeno",
-        "Banida no Brasil em qualquer paciente",
-        "Sem qualquer risco hematológico"
+        "Dipirona 500-1000 mg VO 6/6h por 2-3 dias (até 4 g/dia). Permitida no 2º trimestre (CI no 1º e 3º); ação analgésica e antipirética não-opioide, sem efeito antiplaquetário relevante (não piora o sangramento do alvéolo). Risco raro de agranulocitose justifica não prescrever de rotina em paciente com história de discrasia sanguínea",
+        "Paracetamol 500 mg 6/6h é equivalente em potência analgésica e cobre dor moderada pós-exodontia sem necessidade de associar dipirona",
+        "Associar dipirona a cetorolaco aumenta a segurança em gestante por reduzir a dose individual de cada um",
+        "Codeína 30 mg 6/6h é a escolha em gestante por não ter os riscos hematológicos da dipirona"
       ],
       "correct": 0,
-      "expl": "Dipirona (metamizol) é amplamente usada no Brasil, boa analgesia e antipirexia. Risco raro mas grave de agranulocitose (~1:1500 expostos em estudos), idiossincrásico. Em pacientes com história de discrasia sanguínea evitar. Reação alérgica e hipotensão em IV rápida.",
-      "difficulty": "medium",
-      "tags": ["dipirona"]
+      "expl": "Dipirona no 2ºT é uma das opções permitidas na gestante quando AINE está contraindicado (3ºT principalmente, mas idealmente evitar AINE durante toda a gestação em extração). Diferenciais clínicos: paracetamol tem POTÊNCIA ANALGÉSICA INFERIOR à dipirona (mito de equivalência), associar a cetorolaco é absurdo (cetorolaco é AINE com forte efeito antiplaquetário — risco hemorrágico no alvéolo + CI em gestante), codeína cai em CYP2D6 + risco de depressão respiratória neonatal. Em odonto a dipirona é a 1ª escolha não-opioide quando AINE não pode entrar. Cuidado especial: hipotensão em IV rápida e agranulocitose idiossincrásica (raríssima).",
+      "difficulty": "hard",
+      "tags": ["dipirona", "gestante", "exodontia"]
     },
     {
       "type": "mc",
