@@ -94,7 +94,7 @@ export default function CadeiraAnsiosa() {
               </li>
               <li>
                 <strong className="font-display not-italic text-ink">3.</strong> Recebe feedback
-                educacional pra cada opção — não só "errou", mas{' '}
+                educacional para cada opção — não só "errou", mas{' '}
                 <em className="not-italic text-wine">por que</em> cada escolha foi boa ou ruim.
               </li>
               <li>

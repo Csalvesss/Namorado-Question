@@ -34,7 +34,7 @@
         "Tratar herpes labial"
       ],
       "correct": 0,
-      "expl": "Vit K (fitomenadiona) é cofator essencial pra carboxilação dos fatores II, VII, IX, X. Reverte varfarina mas demora 6-24h pra efeito completo. Em odontologia: papel limitado — situação de superdose com sangramento maior, sempre em conjunto com médico. Rotina é manejo local.",
+      "expl": "Vit K (fitomenadiona) é cofator essencial para carboxilação dos fatores II, VII, IX, X. Reverte varfarina mas demora 6-24h para efeito completo. Em odontologia: papel limitado — situação de superdose com sangramento maior, sempre em conjunto com médico. Rotina é manejo local.",
       "difficulty": "hard",
       "tags": [
         "vitamina-k"
@@ -105,7 +105,7 @@
         "Manter a rivaroxabana e não tomar nenhuma medida hemostática local, pois o efeito do DOAC é tão curto que o sangramento se autolimita sempre"
       ],
       "correct": 0,
-      "expl": "DOAC (rivaroxabana, apixabana, dabigatrana, edoxabana) NÃO se monitora por INR - esse exame só serve para varfarina. Para procedimentos de baixo risco hemorrágico como exodontia simples, mantém-se a droga, agenda-se no vale (12-24 h após dose) e usam-se medidas locais (ácido tranexâmico tópico é ouro). Ponte com heparina é desnecessária e perigosa. Take-home: pediu INR pra paciente em DOAC, errou o conceito.",
+      "expl": "DOAC (rivaroxabana, apixabana, dabigatrana, edoxabana) NÃO se monitora por INR - esse exame só serve para varfarina. Para procedimentos de baixo risco hemorrágico como exodontia simples, mantém-se a droga, agenda-se no vale (12-24 h após dose) e usam-se medidas locais (ácido tranexâmico tópico é ouro). Ponte com heparina é desnecessária e perigosa. Take-home: pediu INR para paciente em DOAC, errou o conceito.",
       "difficulty": "hard",
       "tags": [
         "doac",

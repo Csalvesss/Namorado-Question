@@ -1,10 +1,10 @@
 // Micro-pílulas clínicas — uma frase concreta de farmaco odonto
-// pra acompanhar o bilhete. Princípio: spaced exposure passiva +
+// para acompanhar o bilhete. Princípio: spaced exposure passiva +
 // reforço afetivo (o bilhete carinhoso "entrega" o conteúdo).
 
 export interface PilulaClinica {
   id: string;
-  /** Categoria pra futura filtragem por curso/tópico */
+  /** Categoria para futura filtragem por curso/tópico */
   topic: string;
   /** A pílula em si — 1 frase, fato concreto, fácil de gravar */
   body: string;
@@ -40,8 +40,8 @@ export const PILULAS_CLINICAS: PilulaClinica[] = [
   {
     id: 'mepi3',
     topic: 'Anestésicos locais',
-    body: 'Mepivacaína 3% SEM vaso: pra cardiopata isquêmico recente e HAS descompensada.',
-    hint: 'Duração curta (~20 min em mole) — replanejar pra procedimento longo.',
+    body: 'Mepivacaína 3% SEM vaso: para cardiopata isquêmico recente e HAS descompensada.',
+    hint: 'Duração curta (~20 min em mole) — replanejar para procedimento longo.',
   },
   {
     id: 'prilo-gest',
@@ -53,7 +53,7 @@ export const PILULAS_CLINICAS: PilulaClinica[] = [
     id: 'paracet-aine',
     topic: 'Analgésicos',
     body: 'Paracetamol NÃO é AINE — age na COX do SNC. Sem ação anti-inflamatória relevante.',
-    hint: 'Ideal pra gestante, úlcera, IRC.',
+    hint: 'Ideal para gestante, úlcera, IRC.',
   },
   {
     id: 'dipi-ges',
@@ -94,7 +94,7 @@ export const PILULAS_CLINICAS: PilulaClinica[] = [
   {
     id: 'amox-clav-falha',
     topic: 'Antibióticos',
-    body: 'Falha de amox em 72h → escalonar pra amox+clav (875/125 mg 12/12h) ou adicionar metronidazol.',
+    body: 'Falha de amox em 72h → escalonar para amox+clav (875/125 mg 12/12h) ou adicionar metronidazol.',
     hint: 'Suspeitar de anaeróbio produtor de β-lactamase.',
   },
   {

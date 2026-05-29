@@ -27,7 +27,7 @@ interface SessionState {
   /** marcador "sessão de revisão" — afeta copy de saída */
   isReviewSession: boolean;
   startedAt: number;
-  /** trava pra escrever no SRS uma única vez ao terminar */
+  /** trava para escrever no SRS uma única vez ao terminar */
   gradesWritten: boolean;
 }
 
@@ -184,7 +184,7 @@ export default function FarmacoMDC() {
                   </h3>
                   <p className="mt-1 font-body text-[14px] italic text-mute">
                     {dueScenarios.length} {dueScenarios.length === 1 ? 'caso' : 'casos'} marcado
-                    {dueScenarios.length === 1 ? '' : 's'} pra hoje. abre primeiro.
+                    {dueScenarios.length === 1 ? '' : 's'} para hoje. abre primeiro.
                   </p>
                 </div>
               </div>
@@ -600,7 +600,7 @@ function EndOfSession({
     .map((id) => dataset.getScenario(id))
     .filter((s): s is MdcScenario => Boolean(s));
 
-  // Coletar classes únicas das classes corretas dos cenários problemáticos pra mostrar
+  // Coletar classes únicas das classes corretas dos cenários problemáticos para mostrar
   const classesToReview = Array.from(
     new Set(revisitScenarios.map((s) => s.correctClassId)),
   )
@@ -672,7 +672,7 @@ function EndOfSession({
 }
 
 // ============================================================
-// Lógica das opções (separa pra ficar testável)
+// Lógica das opções (separa para ficar testável)
 // ============================================================
 
 function classOptionsFor(scenario: MdcScenario): string[] {

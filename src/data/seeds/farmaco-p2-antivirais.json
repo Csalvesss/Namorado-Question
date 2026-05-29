@@ -368,7 +368,7 @@
       "subtitle": "Mulher 32a, diagnóstico de HIV, CD4 380, virgem de tratamento",
       "specialty": "Infectologia ambulatorial",
       "difficulty": "medium",
-      "vignette": "Mulher 32 anos, sem comorbidades, diagnóstico recente de HIV em rastreio. CD4 380 cels/μL, carga viral 87.000 cópias/mL, genotipagem sem mutações de resistência. HbsAg negativo. Sem gestação atual. Vem pra consulta inicial pra iniciar TARV.",
+      "vignette": "Mulher 32 anos, sem comorbidades, diagnóstico recente de HIV em rastreio. CD4 380 cels/μL, carga viral 87.000 cópias/mL, genotipagem sem mutações de resistência. HbsAg negativo. Sem gestação atual. Vem para consulta inicial para iniciar TARV.",
       "steps": [
         {
           "id": "step1",

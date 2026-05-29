@@ -5,7 +5,7 @@ import IconChip from '../components/ui/IconChip';
 import { useUser } from '../lib/useUser';
 
 /**
- * Placeholder visual pra ferramentas odonto que ainda não estão prontas
+ * Placeholder visual para ferramentas odonto que ainda não estão prontas
  * (Simulações de consultório, Algoritmos clínicos). Substitui o
  * conteúdo medicina dessas rotas quando user.track === 'odonto'.
  */

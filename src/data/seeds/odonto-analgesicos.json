@@ -16,7 +16,7 @@
         "Sem risco de hepatotoxicidade em qualquer dose"
       ],
       "correct": 0,
-      "expl": "Paracetamol age na COX central → analgesia + antipirexia, sem efeito tecidual periférico (não é AINE). Ideal pra paciente com contraindicação a AINE (gestante, úlcera, IRC). Hepatotoxicidade: NAPQI normalmente neutralizado por glutationa; em sobredose esgota a glutationa → hepatotoxicidade. Máx 4 g/dia em saudável, 3 g em hepatopata leve.",
+      "expl": "Paracetamol age na COX central → analgesia + antipirexia, sem efeito tecidual periférico (não é AINE). Ideal para paciente com contraindicação a AINE (gestante, úlcera, IRC). Hepatotoxicidade: NAPQI normalmente neutralizado por glutationa; em sobredose esgota a glutationa → hepatotoxicidade. Máx 4 g/dia em saudável, 3 g em hepatopata leve.",
       "difficulty": "easy",
       "tags": [
         "paracetamol"

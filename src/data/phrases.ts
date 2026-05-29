@@ -90,53 +90,53 @@ export const FINAL_LOW_DOUTORA = [
 // ============================================================
 
 export const RIGHT_PHRASES_IRMAO = [
-  'Boa, mana. Você é fera mesmo.',
-  'Acertou, sua nerd metida. Continua assim.',
-  'Mandou bem, irmã. Tô orgulhoso aqui.',
-  'Caraca, isso foi quase injusto de tão fácil pra você.',
-  'Tu não erra, hein? Vou começar a colar nas suas respostas.',
-  'Eita, mandou bem demais. Vai pagar minha conta hoje, né?',
-  'Sabia que era essa. Quem te ensinou foi excelente (eu).',
-  'Tava fácil ou tu é genial? Aposto na segunda.',
-  'Boa, parça. Próxima questão, mesma energia.',
-  'Acertou rindo. Tô passado.',
+  'Olha só. Quem diria que aquela criança que comia tudo do prato dos outros virasse essa cabeça.',
+  'Acertou. Nem sei mais quem me orgulha mais, se você ou eu por ter te aturado.',
+  'Sabia que ia acertar. Conheço esse olhar de "isso eu sei" desde o jardim de infância.',
+  'Mandou bem. Vai ter que aturar elogio meu por uns 10 minutos.',
+  'Caramba, isso foi quase injusto de tão direto. Bom demais.',
+  'Você não erra essas, hein. Sabe ou sabe?',
+  'Acertou na cara. Bom dia para a parede que te ouviu estudar isso.',
+  'Mandou bem. Lembro de quando você não conseguia decorar a tabuada — olha onde chegou.',
+  'Acertou bonito. E ainda tem gente que duvida de você. Eu nunca duvidei.',
+  'Pronto. Mais uma na conta. Você tá dominando o assunto inteiro.',
 ];
 
 export const WRONG_PHRASES_IRMAO = [
-  'Calma, mana. Erra hoje pra não errar na prova de verdade.',
-  'Foi mal, irmã, deu ruim nessa. Mas tá tudo bem.',
-  'Ó o tropeço, hein? Bora ler de novo que tu pega.',
-  'Erro de quem tá estudando. Quem não estuda nem erra.',
-  'Respira fundo, mana. A próxima é tua, juro.',
-  'Eita, vacilou. Mas é vacilo pequeno, dá pra arrumar.',
-  'Calma aí — quase. Próxima a gente acerta.',
-  'Errou bonito, com convicção. Agora vê a explicação.',
-  'Foi mal, irmã. Esse aí tava pegadinho.',
-  'Tropeçou mas não caiu. Bora.',
+  'Errou. Mas erro estudando é só rascunho. Bora para a próxima.',
+  'Calma. Esse aí era pegadinha que eu também ia cair. Não conta nada.',
+  'Tropeçou. Mas ninguém tá vendo, só eu. E eu não conto.',
+  'Erro de quem está estudando. Quem não estuda nem erra.',
+  'Respira. Lembra quando você quebrou meu copo favorito e disse que ia consertar tudo? Consertou. Esse erro você também conserta.',
+  'Foi mal, esse aí escapuliu. Lê a explicação com calma e a próxima é sua.',
+  'Eita, escorregou. Mas tu sabe se levantar — sempre soube.',
+  'Errou com convicção. Pelo menos foi com personalidade.',
+  'Não foi essa. Mas ainda bem que tá errando aqui e não na prova.',
+  'Calma. Quem aprende rápido é quem erra primeiro.',
 ];
 
 export const FINAL_HIGH_IRMAO = [
-  'Irmã, você arrebenta. Quando virar profissional eu me consulto contigo de graça, né?',
-  'Tu sabe demais, mana. Pode dormir tranquila.',
-  'Boa demais, parça. Tô com inveja saudável.',
-  'Tu é genial demais. Continua.',
-  'Vai ter que dividir o crédito da prova com quem te aturou estudando (eu).',
+  'Olha você arrasando. Quando virar profissional eu vou contar para todo mundo que te conheci primeiro.',
+  'Pode dormir tranquila. Você sabe demais para essa altura do campeonato.',
+  'Boa demais. Sinceramente, inveja saudável dessa cabeça.',
+  'Você é boa. Não é elogio fácil vindo de mim, sabe.',
+  'Mata aula amanhã, descansa. Você merece — eu autorizo (mesmo sem ter autoridade nenhuma).',
 ];
 
 export const FINAL_MED_IRMAO = [
-  'Tá indo, mana. Não é o auge ainda mas tá no caminho.',
-  'Razoável, parça. Próxima rodada a gente afina.',
-  'Não tá ruim, irmã. Falta polir uns detalhes.',
-  'Foi bom, foi. Só não foi excelente. Bora pra outra.',
-  'Tô vendo evolução, mana. Sem desespero.',
+  'Tá indo. Não é o auge ainda, mas tá no caminho que importa.',
+  'Razoável. Próxima rodada a gente afina mais um pouco.',
+  'Não tá ruim. Tá faltando ajustar detalhe — você consegue.',
+  'Foi bom, foi. Só não foi excepcional. Mas excepcional não é todo dia.',
+  'Tô vendo evolução. Sem desespero, sem comparação com ninguém.',
 ];
 
 export const FINAL_LOW_IRMAO = [
-  'Calma aí, mana. Cada um tem seu dia. Hoje não foi.',
-  'Foi mal, irmã. Mas vacilo é parte do processo.',
-  'Respira. Não foi essa rodada mas não é o fim do mundo.',
-  'Boa pra aprender com os erros, mana. Bora de novo.',
-  'Errou bastante, mas tá vivendo. Bora estudar mais um pouco.',
+  'Cada um tem seu dia. Hoje não foi. Amanhã a gente revê.',
+  'Não foi a melhor rodada. Mas vacilo é parte do processo, irmã.',
+  'Respira. Não foi essa, mas tá longe de ser o fim do mundo.',
+  'Erra hoje, aprende hoje. Amanhã tu acerta.',
+  'Hoje deu errado bastante. Tudo bem. Janta direito e dorme — amanhã a gente tenta de novo.',
 ];
 
 export type DisplayMode = 'namorado' | 'doutora' | 'irmao';

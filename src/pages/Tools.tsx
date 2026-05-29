@@ -94,7 +94,7 @@ export default function Tools() {
               to="/calculadoras"
               icon={Calculator}
               title="Dose pediátrica"
-              description="Amox, paracetamol, ibuprofeno, dipirona por peso, com conversão pra gotas."
+              description="Amox, paracetamol, ibuprofeno, dipirona por peso, com conversão para gotas."
             />
             <ToolCard
               to="/calculadoras"
@@ -118,7 +118,7 @@ export default function Tools() {
               to="/bilhete-bancada"
               icon={Mail}
               title="Bilhete da Bancada"
-              description="Recado carinhoso a cada 5h + uma micro-pílula clínica de farmaco odonto pra fixar enquanto descansa."
+              description="Recado carinhoso a cada 5h + uma micro-pílula clínica de farmaco odonto para fixar enquanto descansa."
             />
             <ToolCard
               to="/intercalado"
@@ -178,7 +178,7 @@ export default function Tools() {
               to="/passa-facil"
               icon={Moon}
               title="Passa-fácil noturno"
-              description="Dez flashcards aleatórios, sem cobrança. Pra relembrar antes de dormir."
+              description="Dez flashcards aleatórios, sem cobrança. Para relembrar antes de dormir."
             />
           </div>
         )}
@@ -209,7 +209,7 @@ export default function Tools() {
           <Eyebrow>uma carta da casa</Eyebrow>
           <p className="mt-5 max-w-2xl font-body text-[17px] leading-relaxed text-txt/80">
             {isOdonto
-              ? 'Cada questão e cada cálculo aqui foi pensado pra você sentar com mais segurança na cadeira. Sem pressão de plantão — você tem o tempo do seu paciente. Erra, lê de novo, anota o tubete, segue.'
+              ? 'Cada questão e cada cálculo aqui foi pensado para você sentar com mais segurança na cadeira. Sem pressão de plantão — você tem o tempo do seu paciente. Erra, lê de novo, anota o tubete, segue.'
               : 'Cada questão aqui foi escolhida com cuidado, no seu tempo, para você revisar entre um descanso e outro. Estuda tranquila, respira quando precisar e lembra: a gente faz isso junto. Quando quiser uma pausa, abre um bilhete. Quando quiser acelerar, manda um simulado. O ritmo é seu.'}
           </p>
         </div>
