@@ -541,3 +541,110 @@ export const PROVA_BILHETES: Bilhete[] = [
     careIcon: 'comida',
   },
 ];
+
+// ============================================================
+// MODO IRMÃO — bilhetes de incentivo, brincadeira, apoio
+// (carinhoso com zoeira inteligente, sem palavrão)
+// ============================================================
+
+export const BILHETES_IRMAO: Bilhete[] = [
+  {
+    id: 'irmao-amor-01',
+    body: 'tô vendo daqui o tanto que tu tá estudando. orgulho de ser teu irmão (mesmo que de coração).',
+    mood: 'amor',
+  },
+  {
+    id: 'irmao-amor-02',
+    body: 'sabe quando alguém olha pra você e fala "essa vai longe"? então. já te falo isso fazem anos.',
+    mood: 'amor',
+  },
+  {
+    id: 'irmao-pausa-01',
+    body: 'pausa de 10 min agora. promete pra mim. cérebro não é máquina, e quem te disse o contrário tava enganado.',
+    mood: 'pausa',
+    care: 'levanta, anda até a janela, olha pra longe. seus olhos te agradecem.',
+    careIcon: 'caminhar',
+  },
+  {
+    id: 'irmao-pausa-02',
+    body: 'lembrete do irmão: bebe água. cérebro precisa de wi-fi líquido pra processar essa quantidade de matéria.',
+    mood: 'pausa',
+    care: 'um copo grande, agora. faz parte do estudo.',
+    careIcon: 'agua',
+  },
+  {
+    id: 'irmao-estudo-01',
+    body: 'errar enquanto estuda é trabalho. acertar na prova é resultado. tu tá fazendo o trabalho — relaxa.',
+    mood: 'estudo',
+  },
+  {
+    id: 'irmao-estudo-02',
+    body: 'para de comparar teu capítulo 3 com o capítulo 10 dos outros. cada um tem o ritmo dele. o teu tá correto.',
+    mood: 'estudo',
+  },
+  {
+    id: 'irmao-pausa-03',
+    body: 'se chegou nesse bilhete é porque tá no app — então tá estudando. ponto pra você. agora segue.',
+    mood: 'pausa',
+    care: 'respira fundo 3 vezes antes da próxima questão.',
+    careIcon: 'respirar',
+  },
+  {
+    id: 'irmao-amor-03',
+    body: 'quando tu te formar eu vou ter que aturar um monte de termo médico no jantar. já tô treinando.',
+    mood: 'amor',
+  },
+  {
+    id: 'irmao-estudo-03',
+    body: 'desafio do dia: explicar o que tu acabou de estudar pra alguém que não entende nada. se conseguir, dominou.',
+    mood: 'estudo',
+  },
+  {
+    id: 'irmao-pausa-04',
+    body: 'fim de tarde já? para um pouco. estuda mais 30 min e fecha. ninguém aprende cansado.',
+    mood: 'pausa',
+    care: 'janta direito. não é negociável.',
+    careIcon: 'comida',
+  },
+];
+
+export const PROVA_BILHETES_IRMAO: Bilhete[] = [
+  {
+    id: 'prova-irmao-01',
+    mood: 'pausa',
+    body: 'no meio da prova eu paro pra dizer: tá indo bem. continua nesse ritmo, sem pressa.',
+    care: 'bebe um gole de água. é sério.',
+    careIcon: 'agua',
+  },
+  {
+    id: 'prova-irmao-02',
+    mood: 'pausa',
+    body: 'respira. quem corre na prova é quem não estudou — tu não é esse caso.',
+    care: 'inspira 4, segura 4, solta 6. duas vezes.',
+    careIcon: 'respirar',
+  },
+  {
+    id: 'prova-irmao-03',
+    mood: 'estudo',
+    body: 'errou nas últimas? normal. agora a próxima é tua. eu garanto.',
+    care: 'estica os braços acima da cabeça por 10s. sério.',
+    careIcon: 'alongar',
+  },
+];
+
+// ============================================================
+// Modo DOUTORA — versões neutras (sem afeto)
+// ============================================================
+
+export const BILHETES_DOUTORA: Bilhete[] = [
+  {
+    id: 'dout-01',
+    body: 'pausa programada. hidrate-se e retome.',
+    mood: 'pausa',
+  },
+  {
+    id: 'dout-02',
+    body: 'erro também é estudo. revise a alternativa correta com calma.',
+    mood: 'estudo',
+  },
+];

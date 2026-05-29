@@ -1,5 +1,7 @@
 import {
   BILHETES,
+  BILHETES_DOUTORA,
+  BILHETES_IRMAO,
   GREETINGS,
   GREETINGS_DOUTORA,
   PERFORMANCE_QUOTES,
@@ -13,16 +15,24 @@ function bucket(now: number = Date.now()): number {
   return Math.floor(now / FIVE_HOURS_MS);
 }
 
-export function currentBilhete(now: number = Date.now()): Bilhete {
-  if (BILHETES.length === 0) {
-    return { id: 'empty', body: '', mood: 'amor' };
-  }
-  return BILHETES[bucket(now) % BILHETES.length];
+export type Tone = 'namorado' | 'doutora' | 'irmao';
+
+function poolFor(tone: Tone): Bilhete[] {
+  if (tone === 'doutora') return BILHETES_DOUTORA;
+  if (tone === 'irmao') return BILHETES_IRMAO;
+  return BILHETES;
 }
 
-export type Tone = 'namorado' | 'doutora';
+export function currentBilhete(tone: Tone = 'namorado', now: number = Date.now()): Bilhete {
+  const pool = poolFor(tone);
+  if (pool.length === 0) {
+    return { id: 'empty', body: '', mood: 'amor' };
+  }
+  return pool[bucket(now) % pool.length];
+}
 
 export function currentGreeting(tone: Tone = 'namorado', now: number = Date.now()): string {
+  // Modo doutora tem pool próprio; irmão e namorado compartilham (vibe afetiva)
   const pool = tone === 'doutora' ? GREETINGS_DOUTORA : GREETINGS;
   if (pool.length === 0) return '';
   return pool[bucket(now) % pool.length];
