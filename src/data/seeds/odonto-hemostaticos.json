@@ -18,7 +18,10 @@
       "correct": 0,
       "expl": "Evidência atual: extração simples em paciente anticoagulado com INR estável (<3,5 ou <4 em alguns guidelines) NÃO requer suspensão da varfarina. Risco trombótico da suspensão > risco hemorrágico local. Medidas locais resolvem: sutura, gelatina, bochecho com tranexâmico. Em cirurgias maiores ou múltiplas extrações, discutir com médico assistente.",
       "difficulty": "medium",
-      "tags": ["tranexamico", "varfarina"]
+      "tags": [
+        "tranexamico",
+        "varfarina"
+      ]
     },
     {
       "type": "mc",
@@ -33,7 +36,9 @@
       "correct": 0,
       "expl": "Vit K (fitomenadiona) é cofator essencial pra carboxilação dos fatores II, VII, IX, X. Reverte varfarina mas demora 6-24h pra efeito completo. Em odontologia: papel limitado — situação de superdose com sangramento maior, sempre em conjunto com médico. Rotina é manejo local.",
       "difficulty": "hard",
-      "tags": ["vitamina-k"]
+      "tags": [
+        "vitamina-k"
+      ]
     },
     {
       "type": "mc",
@@ -48,7 +53,65 @@
       "correct": 0,
       "expl": "Gelatina hemostática = matriz mecânica + superfície para coagulação. Não tem efeito sistêmico. Combinada com sutura e compressão é o padrão local em extração de paciente anticoagulado. Outras opções locais: celulose oxidada (Surgicel), colágeno microfibrilar, hemostático de fibrina (mais caro).",
       "difficulty": "easy",
-      "tags": ["gelatina"]
+      "tags": [
+        "gelatina"
+      ]
+    },
+    {
+      "type": "mc",
+      "topic": "Gelatina vs celulose oxidada",
+      "q": "Você precisa escolher entre esponja de gelatina absorvível (Gelfoam/Hemospon) e celulose oxidada regenerada (Surgicel) para hemostasia em alvéolo pós-exodontia. Qual a comparação correta de mecanismo e indicação?",
+      "options": [
+        "Gelatina: matriz física que retém coágulo (não tem ação química), pH neutro, reabsorve em 4-6 semanas, ideal em alvéolo simples e ao redor de feixe nervoso; Celulose oxidada: ácida (pH ~3), tem ação bactericida e provoca hemostasia química por desnaturação proteica, melhor em sangramento em lençol, MAS pode causar lesão neural por acidez se contato com nervo exposto e inibe osteogênese se em contato com osso de enxerto",
+        "Os dois têm mecanismo idêntico (matriz física), escolha é só por preço",
+        "Gelatina é hemostático químico ativo via cascata da coagulação; celulose é apenas tampão mecânico",
+        "Celulose oxidada deve ser sempre a primeira escolha em qualquer alvéolo, inclusive próximo ao canal mandibular"
+      ],
+      "correct": 0,
+      "expl": "Gelatina absorvível = scaffold mecânico passivo, retém ~45x seu peso em sangue, pH neutro, seguro perto de nervos e enxertos. Celulose oxidada = hemostático ativo (pH ácido desnatura proteínas plasmáticas e tem bactericida leve), mais eficaz em sangramento em lençol, mas a acidez é neurotóxica (cuidado em alveolar inferior exposto) e inibe osteoblastos. Take-home: gelatina = curinga seguro; celulose = mais potente mas com restrições anatômicas.",
+      "difficulty": "medium",
+      "tags": [
+        "hemostatico-local",
+        "comparacao"
+      ]
+    },
+    {
+      "type": "mc",
+      "topic": "Reversão de DOAC em emergência",
+      "q": "Paciente em uso de dabigatrana 150 mg 12/12h (FA não-valvar) sofre sangramento incoercível pós-exodontia múltipla, com queda de Hb e instabilidade hemodinâmica, sem resposta a hemostasia local (sutura, compressão, ácido tranexâmico tópico, celulose oxidada). Qual a conduta correta no PS?",
+      "options": [
+        "Idarucizumab 5 g IV (2x 2,5 g) — anticorpo monoclonal específico, reverte dabigatrana em minutos; para anti-Xa (rivaroxabana, apixabana, edoxabana) o antídoto específico é andexanet alfa; se indisponíveis, considerar CCP (concentrado de complexo protrombínico) 25-50 UI/kg e suporte hemoterápico",
+        "Vitamina K 10 mg IV — reverte qualquer anticoagulante oral em 6h",
+        "Sulfato de protamina 50 mg IV — antídoto universal de anticoagulantes orais",
+        "Plasma fresco congelado 4 unidades é suficiente e mais barato que os antídotos específicos"
+      ],
+      "correct": 0,
+      "expl": "DOACs têm antídotos específicos: idarucizumab (Praxbind) para dabigatrana — anticorpo monoclonal Fab, reversão em minutos, dose 5 g IV; andexanet alfa (Andexxa) para anti-Xa. Vitamina K reverte só varfarina (e em horas). Protamina reverte heparina, não DOAC. Plasma fresco tem papel limitado em DOAC. CCP é alternativa quando antídoto específico indisponível. Take-home: sangramento odontológico em DOAC — 95% resolve com hemostasia local + tranexâmico; antídoto IV é só na catástrofe hemodinâmica.",
+      "difficulty": "hard",
+      "tags": [
+        "DOAC",
+        "reversao",
+        "emergencia"
+      ]
+    },
+    {
+      "type": "mc",
+      "topic": "DOAC e exodontia - mito do INR",
+      "q": "Homem de 72 anos, FA crônica em uso de rivaroxabana 20 mg/dia, chega para exodontia simples do 24. Hipertenso controlado, sem outras comorbidades. Qual a conduta correta em relação ao anticoagulante?",
+      "options": [
+        "Para exodontia simples de baixo sangramento, manter a rivaroxabana e realizar o procedimento 18-24 h após a última dose (no vale do efeito), usando medidas hemostáticas locais (sutura, ácido tranexâmico 4,8% tópico, esponja de fibrina); não há indicação de dosar INR pois DOAC não é monitorado por esse exame",
+        "Solicitar INR no dia do procedimento e só extrair se INR <3,0, mesmo critério usado para varfarina",
+        "Suspender a rivaroxabana por 5 dias antes da extração e fazer ponte com enoxaparina, conduta padrão para qualquer anticoagulante oral",
+        "Manter a rivaroxabana e não tomar nenhuma medida hemostática local, pois o efeito do DOAC é tão curto que o sangramento se autolimita sempre"
+      ],
+      "correct": 0,
+      "expl": "DOAC (rivaroxabana, apixabana, dabigatrana, edoxabana) NÃO se monitora por INR - esse exame só serve para varfarina. Para procedimentos de baixo risco hemorrágico como exodontia simples, mantém-se a droga, agenda-se no vale (12-24 h após dose) e usam-se medidas locais (ácido tranexâmico tópico é ouro). Ponte com heparina é desnecessária e perigosa. Take-home: pediu INR pra paciente em DOAC, errou o conceito.",
+      "difficulty": "hard",
+      "tags": [
+        "doac",
+        "anticoagulante",
+        "exodontia"
+      ]
     }
   ]
 }

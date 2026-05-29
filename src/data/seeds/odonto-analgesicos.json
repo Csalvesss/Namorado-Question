@@ -18,7 +18,9 @@
       "correct": 0,
       "expl": "Paracetamol age na COX central → analgesia + antipirexia, sem efeito tecidual periférico (não é AINE). Ideal pra paciente com contraindicação a AINE (gestante, úlcera, IRC). Hepatotoxicidade: NAPQI normalmente neutralizado por glutationa; em sobredose esgota a glutationa → hepatotoxicidade. Máx 4 g/dia em saudável, 3 g em hepatopata leve.",
       "difficulty": "easy",
-      "tags": ["paracetamol"]
+      "tags": [
+        "paracetamol"
+      ]
     },
     {
       "type": "mc",
@@ -33,7 +35,11 @@
       "correct": 0,
       "expl": "Dipirona no 2ºT é uma das opções permitidas na gestante quando AINE está contraindicado (3ºT principalmente, mas idealmente evitar AINE durante toda a gestação em extração). Diferenciais clínicos: paracetamol tem POTÊNCIA ANALGÉSICA INFERIOR à dipirona (mito de equivalência), associar a cetorolaco é absurdo (cetorolaco é AINE com forte efeito antiplaquetário — risco hemorrágico no alvéolo + CI em gestante), codeína cai em CYP2D6 + risco de depressão respiratória neonatal. Em odonto a dipirona é a 1ª escolha não-opioide quando AINE não pode entrar. Cuidado especial: hipotensão em IV rápida e agranulocitose idiossincrásica (raríssima).",
       "difficulty": "hard",
-      "tags": ["dipirona", "gestante", "exodontia"]
+      "tags": [
+        "dipirona",
+        "gestante",
+        "exodontia"
+      ]
     },
     {
       "type": "mc",
@@ -48,7 +54,65 @@
       "correct": 0,
       "expl": "Codeína → morfina via CYP2D6. Cerca de 1-7% da população é metabolizadora ultrarrápida → níveis de morfina muito altos com doses normais. Mortes em crianças pós-adenoamigdalectomia foram relatadas. FDA contraindica codeína em <12 anos e em amamentação. Em odonto: alternativa tramadol ou ajustar conduta.",
       "difficulty": "hard",
-      "tags": ["codeina", "cyp2d6"]
+      "tags": [
+        "codeina",
+        "cyp2d6"
+      ]
+    },
+    {
+      "type": "mc",
+      "topic": "Tramadol vs codeína / interação ISRS",
+      "q": "Paciente em uso de sertralina 50 mg/d (depressão) apresenta dor intensa pós-exodontia de 3º molar não controlada por ibuprofeno + dipirona. Você considera adicionar opioide fraco. Qual a melhor escolha?",
+      "options": [
+        "Codeína 30 mg + paracetamol 500 mg 6/6h por 2-3 dias — evita tramadol pelo risco de síndrome serotoninérgica (tramadol inibe recaptação de serotonina/noradrenalina, somando ao ISRS); orientar sobre constipação e sedação",
+        "Tramadol 100 mg 8/8h, pois tem menor risco de dependência que codeína",
+        "Morfina 10 mg VO 4/4h, opioide forte é mais seguro que fracos em interações medicamentosas",
+        "Manter apenas dipirona em dose maior (2 g 6/6h), opioides são contraindicados em qualquer paciente com ISRS"
+      ],
+      "correct": 0,
+      "expl": "Tramadol tem ação dual: agonista μ fraco + inibidor de recaptação de serotonina/noradrenalina. Combinado com ISRS (sertralina, fluoxetina, escitalopram), IRSN, IMAO ou triptanos → risco de síndrome serotoninérgica (tríade: alteração mental + hiperatividade autonômica + neuromuscular). Codeína é opioide puro (pró-droga → morfina via CYP2D6), sem ação serotoninérgica — segura com ISRS. Take-home: paciente em ISRS = codeína, NÃO tramadol.",
+      "difficulty": "hard",
+      "tags": [
+        "tramadol",
+        "ISRS",
+        "sindrome-serotoninergica"
+      ]
+    },
+    {
+      "type": "mc",
+      "topic": "Paracetamol em hepatopata",
+      "q": "Paciente com cirrose hepática Child-Pugh B, etilista crônico em abstinência, necessita analgésico pós-raspagem subgengival sob anestesia. Qual a prescrição correta?",
+      "options": [
+        "Paracetamol 2-3 g/dia no máximo (idealmente ≤2 g/dia em etilista/cirrose), dividido em 500 mg 8/8h, por no máximo 5 dias — é o analgésico mais seguro no hepatopata desde que a dose seja reduzida; evitar AINEs (síndrome hepatorrenal) e dipirona (risco hematológico em hepatopata grave)",
+        "Paracetamol 750 mg 6/6h (4 g/dia) — dose padrão é segura desde que o paciente esteja abstêmio",
+        "Ibuprofeno 600 mg 8/8h, pois não é metabolizado no fígado",
+        "Tramadol 100 mg 8/8h em dose plena, opioide é a única opção em hepatopata"
+      ],
+      "correct": 0,
+      "expl": "Paracetamol em hepatopata é seguro com dose REDUZIDA (≤2-3 g/dia, alguns autores ≤2 g/dia em Child B/C e etilista). O metabólito tóxico NAPQI é gerado pelo CYP2E1 (induzido pelo álcool) e neutralizado por glutationa (depletada na desnutrição/cirrose) — daí o risco em etilista. AINEs causam síndrome hepatorrenal e sangramento por varizes. Take-home: hepatopata = paracetamol em dose baixa é a base; AINE é proibido.",
+      "difficulty": "hard",
+      "tags": [
+        "hepatopata",
+        "paracetamol"
+      ]
+    },
+    {
+      "type": "mc",
+      "topic": "Escala analgésica OMS aplicada à odontologia",
+      "q": "Como aplicar a escada analgésica da OMS adaptada à dor odontológica aguda pós-cirúrgica (ex.: exodontia de siso impactado)?",
+      "options": [
+        "Degrau 1: AINE (ibuprofeno 600 mg 8/8h) ± paracetamol/dipirona como adjuvantes; Degrau 2: adicionar opioide fraco (codeína 30 mg + paracetamol) se dor moderada-intensa; Degrau 3 (raro em odonto): opioide forte (morfina/oxicodona) reservado a dor refratária ou cirurgia ortognática maior — sempre por horário fixo nas primeiras 48-72h, não se dor",
+        "Começar sempre pelo degrau 3 (morfina) para garantir conforto absoluto e ir descendo conforme a dor cede",
+        "Usar apenas o degrau 1 em odontologia — opioides são proibidos pelo CFO para cirurgião-dentista",
+        "Alternar AINE e opioide forte desde a primeira dose, sem paracetamol, que não é analgésico verdadeiro"
+      ],
+      "correct": 0,
+      "expl": "A escada OMS adaptada à dor aguda odontológica funciona em modo analgesia multimodal preemptiva: base é AINE, com paracetamol/dipirona somando. Opioide fraco entra se insuficiente. Opioide forte é exceção. Princípio crítico: HORÁRIO FIXO nas primeiras 48-72h, não SOS — analgesia preemptiva evita o pico de dor. CD pode prescrever opioides no Brasil (notificação amarela B). Take-home: AINE + paracetamol em horário fixo resolve a esmagadora maioria das dores odontológicas.",
+      "difficulty": "medium",
+      "tags": [
+        "escada-OMS",
+        "analgesia-multimodal"
+      ]
     }
   ]
 }

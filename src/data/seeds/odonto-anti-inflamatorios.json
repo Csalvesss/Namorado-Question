@@ -18,7 +18,10 @@
       "correct": 0,
       "expl": "Ibuprofeno 400-600 mg 8/8h por 3-5 dias é o AINE padrão em pós-op odontológico leve a moderado. Tomar após refeição. Evitar em úlcera ativa, IRC avançada, gestante 3ºT, ICC descompensada. Limite máx 2,4 g/dia.",
       "difficulty": "easy",
-      "tags": ["ibuprofeno", "pos-op"]
+      "tags": [
+        "ibuprofeno",
+        "pos-op"
+      ]
     },
     {
       "type": "mc",
@@ -33,7 +36,10 @@
       "correct": 0,
       "expl": "Dexa 4-8 mg dose única pré-op reduz edema e trismo de forma significativa em cirurgia de siso. Inibe fosfolipase A2 — bloqueia AA, prostaglandinas e leucotrienos. Cuidados: hiperglicemia em diabético, evitar uso crônico (supressão HHA), CI relativa em úlcera ativa.",
       "difficulty": "medium",
-      "tags": ["dexametasona", "siso"]
+      "tags": [
+        "dexametasona",
+        "siso"
+      ]
     },
     {
       "type": "mc",
@@ -48,7 +54,100 @@
       "correct": 0,
       "expl": "Cetorolaco é AINE potente (analgesia comparável a morfina em alguns estudos), bom para dor aguda intensa. Inibe agregação plaquetária via COX-1 → risco hemorrágico relevante. Limite máx 5 dias VO. Evitar em cirurgia de risco hemorrágico, IRC, idoso frágil. CI absoluta na gestação.",
       "difficulty": "hard",
-      "tags": ["cetorolaco"]
+      "tags": [
+        "cetorolaco"
+      ]
+    },
+    {
+      "type": "mc",
+      "topic": "AINE em paciente cardiopata",
+      "q": "Paciente de 62 anos, pós-IAM há 8 meses, em uso de AAS 100 mg/d e clopidogrel, vem para exodontia de molar com indicação de AINE pós-operatório. Qual a conduta correta?",
+      "options": [
+        "Evitar AINEs (todos, COX-2 seletivos inclusive) — aumentam risco de novo evento cardiovascular e sangram com dupla antiagregação; preferir paracetamol 750 mg 6/6h + dipirona 1 g 6/6h alternados, reservando opioide fraco (codeína) se dor refratária",
+        "Ibuprofeno 600 mg 8/8h por 3 dias — meia-vida curta minimiza risco cardiovascular",
+        "Celecoxibe 200 mg 12/12h, pois COX-2 seletivos não afetam plaquetas nem coração",
+        "Diclofenaco 50 mg 8/8h IM dose única no consultório + AAS suspenso por 7 dias"
+      ],
+      "correct": 0,
+      "expl": "AINEs (não-seletivos e coxibes) aumentam risco de IAM/AVC, especialmente em coronariopatas — alerta black box do FDA. Diclofenaco e coxibes são os piores; naproxeno é o menos pior. Em paciente com IAM recente + dupla antiagregação, soma-se risco hemorrágico. Conduta: analgesia multimodal sem AINE — paracetamol + dipirona, opioide fraco se necessário, técnica anestésica caprichada (bupivacaína prolonga conforto). NUNCA suspender antiagregante por sangramento odontológico controlável com hemostasia local. Take-home: cardiopata grave = AINE é último recurso.",
+      "difficulty": "hard",
+      "tags": [
+        "cardiopata",
+        "AINE-risco"
+      ]
+    },
+    {
+      "type": "mc",
+      "topic": "AINE em asmático",
+      "q": "Paciente asmática de 28 anos relata alergia a AAS (broncoespasmo grave após cartela quando criança). Necessita analgésico pós-exodontia. Qual a conduta correta?",
+      "options": [
+        "Evitar TODOS os AINEs não-seletivos (ibuprofeno, naproxeno, diclofenaco, cetoprofeno) por reação cruzada na doença respiratória exacerbada por AAS (DREA) — usar paracetamol ou dipirona; se inflamação relevante, considerar etoricoxibe (COX-2 seletivo, geralmente tolerado) ou corticoide curto",
+        "Ibuprofeno é seguro, pois a alergia ao AAS é específica ao salicilato e não inclui propionatos",
+        "Naproxeno 550 mg 12/12h em dose baixa, monitorando ausculta pulmonar antes de cada dose",
+        "Prescrever AAS 500 mg 6/6h em dose dessensibilizante crescente para superar a alergia"
+      ],
+      "correct": 0,
+      "expl": "Intolerância ao AAS na DREA (doença respiratória exacerbada por AAS, antiga tríade de Samter) é reação cruzada de classe — inibição de COX-1 desvia ácido araquidônico para leucotrienos broncoconstritores. TODO AINE não-seletivo pode desencadear. Paracetamol em dose <1g é seguro; dipirona geralmente bem tolerada; COX-2 seletivos (etoricoxibe, celecoxibe) costumam ser tolerados. Take-home: alergia a AAS em asmático = evite a classe AINE inteira, não só o AAS.",
+      "difficulty": "hard",
+      "tags": [
+        "asma",
+        "DREA"
+      ]
+    },
+    {
+      "type": "mc",
+      "topic": "Corticoide em diabético",
+      "q": "Paciente diabético tipo 2 (HbA1c 7,2%, glicemia jejum 140) será submetido a exodontia de 3 sisos inclusos. Você considera prescrever dexametasona 8 mg pré-op para reduzir edema. Qual a conduta correta?",
+      "options": [
+        "Pode usar dexametasona 4-8 mg dose única pré-op (efeito glicêmico transitório, ~24-48h); orientar paciente a monitorar glicemia capilar mais frequente nas 48h seguintes e manter hidratação; evitar cursos prolongados (>3 dias) que descompensam de fato",
+        "Contraindicado qualquer corticoide em diabético — substituir por ibuprofeno 600 mg de 8/8h por 5 dias",
+        "Prednisona 40 mg/dia por 5 dias com desmame, mais eficaz que dexametasona em dose única",
+        "Dexametasona 8 mg IM imediatamente após a exo, com suspensão temporária da metformina por 7 dias"
+      ],
+      "correct": 0,
+      "expl": "Corticoide em dose única pré-operatória (dexa 4-8 mg IM/VO) reduz edema, trismo e dor pós-exo de siso com elevação glicêmica transitória aceitável em diabético compensado (HbA1c <8). O risco real está em cursos longos. Conduta: dose única, orientar monitoramento, NÃO suspender hipoglicemiante. Em diabético descompensado (HbA1c >9 ou glicemia >250) — adiar eletivo. Take-home: corticoide dose única é seguro no diabético controlado; o problema é o uso prolongado.",
+      "difficulty": "medium",
+      "tags": [
+        "corticoide",
+        "diabetes"
+      ]
+    },
+    {
+      "type": "mc",
+      "topic": "Nimesulida vs ibuprofeno em gastrite",
+      "q": "Paciente com gastrite crônica em uso de omeprazol necessita AINE pós-exo de molar inflamado. Entre nimesulida 100 mg 12/12h e ibuprofeno 600 mg 8/8h, qual a melhor escolha e por quê?",
+      "options": [
+        "Nimesulida tem perfil gástrico relativamente melhor (COX-2 preferencial) que ibuprofeno (COX não-seletivo), mas tem hepatotoxicidade descrita — limitar a 5-7 dias, manter IBP, evitar se hepatopatia; alternativa ainda mais segura é etoricoxibe 90 mg/dia (COX-2 seletivo) com IBP",
+        "Ibuprofeno é melhor pois meia-vida curta reduz exposição gástrica",
+        "Nimesulida é proibida no Brasil desde 2011 pela Anvisa — não pode prescrever",
+        "Os dois são igualmente seguros desde que tomados com leite após as refeições"
+      ],
+      "correct": 0,
+      "expl": "Nimesulida é COX-2 preferencial (não seletivo puro) — menos lesão gástrica que ibuprofeno/diclofenaco, mas com hepatotoxicidade idiossincrásica (retirada em alguns países europeus, mantida no Brasil com restrição de duração). Em gastropata: COX-2 seletivos (etoricoxibe, celecoxibe) + IBP são o padrão-ouro. Ibuprofeno em curso curto (3-5d) com IBP também é aceitável. Tomar com leite NÃO protege mucosa — o dano é sistêmico (inibição de PG protetoras). Take-home: gastropata → COX-2 + IBP, curso curto.",
+      "difficulty": "medium",
+      "tags": [
+        "gastrite",
+        "COX-2"
+      ]
+    },
+    {
+      "type": "mc",
+      "topic": "Glibenclamida + AINE em idoso",
+      "q": "Mulher de 76 anos, DM2 em uso de glibenclamida 5 mg/dia, foi submetida a exodontia do 46. O dentista prescreveu ibuprofeno 600 mg 8/8h por 5 dias para dor pós-operatória. No 2º dia, a paciente apresenta sudorese, tremor e glicemia capilar de 48 mg/dL. Qual o mecanismo e a conduta correta?",
+      "options": [
+        "AINEs deslocam a glibenclamida (sulfonilureia altamente ligada à albumina) das proteínas plasmáticas e reduzem sua excreção renal, potencializando a hipoglicemia, especialmente em idosos com função renal limítrofe; suspender o ibuprofeno, tratar a hipoglicemia com glicose VO/EV e trocar a analgesia por paracetamol 750 mg ou dipirona",
+        "O ibuprofeno causou pancreatite aguda com destruição de ilhotas e liberação maciça de insulina; manter o AINE e iniciar insulina basal",
+        "Trata-se de coincidência sem relação com o ibuprofeno; manter prescrição e apenas orientar lanches mais frequentes",
+        "O ibuprofeno induz o CYP2C9 e acelera o metabolismo da glibenclamida, exigindo aumento da dose da sulfonilureia para manter controle glicêmico"
+      ],
+      "correct": 0,
+      "expl": "AINEs (especialmente ibuprofeno, naproxeno) deslocam sulfonilureias da albumina e reduzem o clearance renal, somando-se à própria ação hipoglicemiante e ao risco já alto de hipoglicemia da glibenclamida em idosos. Em >65a com DM2, evitar a combinação: usar paracetamol ou dipirona como primeira linha pós-exodontia. Sempre revisar prescrição crônica antes de receitar AINE. Take-home: idoso + glibenclamida + AINE = receita de hipoglicemia.",
+      "difficulty": "hard",
+      "tags": [
+        "glibenc",
+        "aine",
+        "interacao"
+      ]
     }
   ]
 }

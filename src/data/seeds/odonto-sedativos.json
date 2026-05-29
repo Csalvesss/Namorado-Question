@@ -18,7 +18,10 @@
       "correct": 0,
       "expl": "Midazolam = BZD imidazo-benzodiazepínico, ação em GABA-A. Flumazenil é o antagonista específico (atenção: meia-vida curta → pode haver re-sedação após reversão). CYP3A4 metaboliza — interações com claritro, fluconazol, ritonavir, suco de toranja AUMENTAM níveis. Pré-medicação odonto: 7,5-15 mg VO em adulto, criança 0,3-0,5 mg/kg.",
       "difficulty": "medium",
-      "tags": ["midazolam", "flumazenil"]
+      "tags": [
+        "midazolam",
+        "flumazenil"
+      ]
     },
     {
       "type": "mc",
@@ -33,7 +36,10 @@
       "correct": 0,
       "expl": "Lorazepam (assim como oxazepam e temazepam) pula a fase de oxidação hepática — é conjugado direto a glicuronídeo inativo. Em idoso/hepatopata leve, mantém farmacocinética previsível. Diazepam vira nordiazepam (meia-vida 50-100h) → acumulação e sedação prolongada. Início mais lento (~2h VO) é a desvantagem do lorazepam.",
       "difficulty": "hard",
-      "tags": ["lorazepam", "idoso"]
+      "tags": [
+        "lorazepam",
+        "idoso"
+      ]
     },
     {
       "type": "mc",
@@ -48,7 +54,65 @@
       "correct": 0,
       "expl": "Midazolam (psicotrópico) exige Notificação de Receita B — talão azul numerado, retido na farmácia. Portaria 344/98 ANVISA regula. CFO 51/2004 autoriza dentista a prescrever no escopo odontológico. Conferir nome completo, CPF, endereço, data, dose, duração. Erros nesse fluxo são causa frequente de problemas éticos.",
       "difficulty": "medium",
-      "tags": ["receita-azul", "legal"]
+      "tags": [
+        "receita-azul",
+        "legal"
+      ]
+    },
+    {
+      "type": "mc",
+      "topic": "N2O em obstrução nasal",
+      "q": "Paciente de 9 anos com adenoide hipertrófica, respiração predominantemente bucal e rinite alérgica em crise (coriza, congestão nasal), agendado para sedação com óxido nitroso/oxigênio para tratamento restaurador. Qual a conduta?",
+      "options": [
+        "Contraindicado N2O/O2 neste momento — obstrução nasal impede o fluxo adequado pela máscara nasal, reduz eficácia, aumenta deglutição do gás e risco de hipóxia; adiar até resolução da crise ou optar por outra técnica (midazolam VO, sedação IV com anestesista)",
+        "Aumentar a concentração de N2O para 70% para compensar a obstrução",
+        "Trocar máscara nasal por cânula nasal de O2 simples para vencer a resistência",
+        "Prescrever vasoconstritor nasal (oximetazolina) por 10 dias e proceder normalmente"
+      ],
+      "correct": 0,
+      "expl": "N2O/O2 inalatório exige via aérea nasal pérvia — obstrução (rinite, adenoide, desvio septal, resfriado) é contraindicação relativa: gás não chega aos alvéolos, paciente respira pela boca diluindo a mistura, perde a sedação e ainda há risco de hipóxia. Também contraindicado em: gestante 1º trim, DPOC grave, pneumotórax, otite média recente (expande cavidades aéreas), deficiência de B12. Take-home: sem nariz funcionando = sem N2O.",
+      "difficulty": "medium",
+      "tags": [
+        "N2O",
+        "pediatria"
+      ]
+    },
+    {
+      "type": "mc",
+      "topic": "Midazolam oral pediátrico",
+      "q": "Criança de 4 anos, 18 kg, ASA I, não-colaborativa, indicada sedação mínima com midazolam oral para tratamento restaurador. Qual o cálculo, conduta e monitorização correta?",
+      "options": [
+        "Midazolam 0,5 mg/kg VO (dose 9 mg, máximo 15 mg) administrado 15-20 min antes; jejum 2h líquidos claros e 6h sólidos; monitorização contínua com oxímetro de pulso, O2 suplementar disponível, flumazenil de resgate, acompanhante para alta após recuperação completa",
+        "Midazolam 2 mg/kg VO (36 mg) para garantir sedação profunda, sem necessidade de jejum",
+        "Midazolam 0,05 mg/kg IM (0,9 mg) na coxa, sem monitorização adicional",
+        "Diazepam 10 mg VO dose única padrão para qualquer criança acima de 3 anos"
+      ],
+      "correct": 0,
+      "expl": "Midazolam oral pediátrico (AAPD/SOBRAPE): 0,3-0,75 mg/kg, dose usual 0,5 mg/kg, máximo 15-20 mg. Início 15-20 min, duração 45-60 min. Janela sedação mínima/moderada. Requisitos: jejum, oxímetro contínuo, O2 + ambu pediátrico, flumazenil (0,01 mg/kg IV), equipe treinada, alta com adulto responsável. NUNCA usar como cala-boca sem monitorização. Take-home: dose certa + jejum + oxímetro + antagonista = sedação segura.",
+      "difficulty": "hard",
+      "tags": [
+        "midazolam",
+        "pediatria"
+      ]
+    },
+    {
+      "type": "mc",
+      "topic": "Claritromicina + midazolam (CYP3A4)",
+      "q": "Paciente de 45 anos, ansiosa, agendada para exodontia de terceiros molares com sedação por midazolam 7,5 mg VO 1 h antes. Na anamnese revela que está no 4º dia de claritromicina 500 mg 12/12h prescrita pelo pneumologista para pneumonia atípica. Qual a conduta correta?",
+      "options": [
+        "Adiar a sedação com midazolam: a claritromicina é inibidor potente do CYP3A4 e bloqueia o metabolismo do midazolam, elevando ABC em 3-7x, com risco de sedação prolongada e depressão respiratória; opções são reagendar após término do ATB (e washout), trocar ATB com o médico, ou usar benzodiazepínico que não dependa de CYP3A4, como lorazepam (metabolizado por glicuronidação)",
+        "Manter o midazolam na dose habitual - claritromicina e midazolam não têm interação clinicamente relevante por agirem em sistemas enzimáticos diferentes",
+        "Dobrar a dose do midazolam para 15 mg VO, pois a claritromicina induz o CYP3A4 e acelera o metabolismo do benzodiazepínico, reduzindo seu efeito",
+        "Substituir o midazolam por diazepam VO na mesma dose, pois o diazepam é metabolizado exclusivamente por glicuronidação e não sofre interação com macrolídeos"
+      ],
+      "correct": 0,
+      "expl": "Claritromicina e eritromicina são inibidores potentes do CYP3A4, mesma via que metaboliza midazolam, triazolam e alprazolam - a coadministração eleva ABC do midazolam várias vezes, com sedação prolongada e risco respiratório. Diazepam também passa por CYP3A4/2C19 (não é safe). Lorazepam, oxazepam e temazepam (LOT) são metabolizados por glicuronidação e escapam dessa interação. Take-home: paciente em macrolídeo + midazolam = adiar ou trocar.",
+      "difficulty": "hard",
+      "tags": [
+        "cyp3a4",
+        "midazolam",
+        "interacao"
+      ]
     }
   ]
 }
