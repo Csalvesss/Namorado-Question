@@ -337,6 +337,7 @@ export default function Quiz() {
                 index={idx}
                 submitted={submitted}
                 phrase={phrase}
+                displayMode={displayMode}
                 onSelect={(optIdx) => selectOption(idx, optIdx)}
               />
             );
@@ -454,12 +455,12 @@ interface QuestionCardProps {
   index: number;
   submitted: boolean;
   phrase: string;
+  displayMode: 'namorado' | 'doutora' | 'irmao';
   onSelect: (optIdx: number) => void;
 }
 
-function QuestionCard({ question, index, submitted, phrase, onSelect }: QuestionCardProps) {
+function QuestionCard({ question, index, submitted, phrase, displayMode, onSelect }: QuestionCardProps) {
   const isRight = submitted && question.selected === question.correct;
-  const isNamorado = /amor|doutora|querida|carinho|mandou|boa,/i.test(phrase);
 
   return (
     <article className="card overflow-hidden p-8 sm:p-10">
@@ -536,7 +537,7 @@ function QuestionCard({ question, index, submitted, phrase, onSelect }: Question
               phrase={phrase}
               correctLetter={LETTERS[question.correct]}
               explanation={question.expl}
-              mode={isNamorado ? 'namorado' : 'doutora'}
+              mode={displayMode}
             />
           </motion.div>
         )}

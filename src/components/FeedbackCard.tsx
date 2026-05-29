@@ -5,7 +5,7 @@ interface FeedbackCardProps {
   phrase: string;
   correctLetter: string;
   explanation: string;
-  mode: 'namorado' | 'doutora';
+  mode: 'namorado' | 'doutora' | 'irmao';
 }
 
 export default function FeedbackCard({
@@ -16,11 +16,13 @@ export default function FeedbackCard({
   mode,
 }: FeedbackCardProps) {
   const isNamorado = mode === 'namorado';
+  const isIrmao = mode === 'irmao';
+  const isAffective = isNamorado || isIrmao;
 
   return (
     <div
       className={`mt-6 rounded-3xl border p-7 shadow-soft ${
-        isNamorado
+        isAffective
           ? 'bg-blush border-[var(--blush-stroke)]'
           : 'bg-card border-line'
       }`}
@@ -34,7 +36,7 @@ export default function FeedbackCard({
         )}
         <h4
           className={`font-display text-lg italic ${
-            isNamorado ? 'text-wine' : 'text-ink'
+            isAffective ? 'text-wine' : 'text-ink'
           }`}
         >
           {phrase}

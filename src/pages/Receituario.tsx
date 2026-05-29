@@ -36,7 +36,9 @@ const DURACAO_OPTIONS = [0, 1, 2, 3, 5, 7, 10, 14];
 
 export default function Receituario() {
   const { user } = useUser();
-  const isNamorado = user?.displayMode !== 'doutora';
+  const displayMode = user?.displayMode ?? 'namorado';
+  const isNamorado = displayMode === 'namorado';
+  const isIrmao = displayMode === 'irmao';
   const [stage, setStage] = useState<Stage>('intro');
   const [scenario, setScenario] = useState<ReceitaScenario | null>(null);
   const [sub, setSub] = useState<ReceitaSubmissao>(EMPTY_SUB);
@@ -91,7 +93,9 @@ export default function Receituario() {
           <p className="mt-4 max-w-xl font-body text-lg italic leading-relaxed text-mute">
             {isNamorado
               ? 'você monta a receita, doutora. eu vou checando campo a campo o que precisa rever.'
-              : 'construção estruturada de prescrição com validação clínica campo a campo.'}
+              : isIrmao
+                ? 'monta a receita aí. eu fico de olho e aponto onde escapou — sem drama.'
+                : 'construção estruturada de prescrição com validação clínica campo a campo.'}
           </p>
 
           <div className="card mt-10 p-8 sm:p-10">
