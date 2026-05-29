@@ -27,17 +27,19 @@ function firstNameOf(full: string | undefined): string {
 }
 
 function greetingFor(mode: DisplayMode, name: string | undefined): string {
+  const first = firstNameOf(name);
   switch (mode) {
     case 'namorado':
-      return 'olá, amor';
-    case 'doutora': {
-      const first = firstNameOf(name);
-      return first ? `olá, dra. ${first.toLowerCase()}` : 'olá, doutora';
-    }
+      // namorado fala carinhoso usando o nome dela
+      return first ? `oi, ${first.toLowerCase()}` : 'oi, amor';
+    case 'doutora':
+      // tom profissional respeitoso
+      return first ? `olá, ${first}` : 'olá';
     case 'irmao':
-      return 'olá, irmã';
+      // irmão chama pelo nome (não fica chamando de "irmã" toda hora)
+      return first ? `oi, ${first.toLowerCase()}` : 'oi, irmã';
     default:
-      return 'olá';
+      return first ? `olá, ${first}` : 'olá';
   }
 }
 
