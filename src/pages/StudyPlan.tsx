@@ -83,15 +83,26 @@ function describeDaysUntil(days: number): string {
   return `em ${Math.round(days / 30)} meses`;
 }
 
-function headlineFor(mode: DisplayMode): { mainPart: string; accentPart: string } {
+function firstNameOf(full: string | undefined): string {
+  if (!full) return '';
+  const part = full.trim().split(/\s+/)[0] ?? '';
+  if (!part) return '';
+  return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
+}
+
+function headlineFor(
+  mode: DisplayMode,
+  name: string | undefined,
+): { mainPart: string; accentPart: string } {
+  const first = firstNameOf(name);
   switch (mode) {
     case 'doutora':
       return { mainPart: 'sua agenda do', accentPart: 'semestre' };
     case 'irmao':
-      return { mainPart: 'agenda da', accentPart: 'irmã' };
+      return { mainPart: 'agenda da', accentPart: first ? first.toLowerCase() : 'irmã' };
     case 'namorado':
     default:
-      return { mainPart: 'sua agenda,', accentPart: 'amor' };
+      return { mainPart: 'sua agenda,', accentPart: first ? first.toLowerCase() : 'amor' };
   }
 }
 
@@ -270,7 +281,7 @@ export default function StudyPlan() {
 
   if (!user) return null;
 
-  const headline = headlineFor(displayMode);
+  const headline = headlineFor(displayMode, user.name);
   const subtitle = subtitleFor(displayMode);
 
   return (
