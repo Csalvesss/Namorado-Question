@@ -1,118 +1,580 @@
 {
-  "title": "Analgésicos",
-  "description": "Paracetamol, dipirona, codeína, tramadol e associações. Escalonamento da dor odontológica, CYP2D6, paciente pediátrico e idoso.",
+  "title": "Analgésicos em Odontologia",
+  "description": "Analgésicos na clínica odontológica: paracetamol, dipirona, codeína, tramadol e AAS. Mecanismo, dose, toxicidade, escala analgésica da OMS, analgesia preemptiva, manejo da dor pós-exodontia e situações especiais (hepatopata, gestante, criança).",
   "icon": "pill",
   "color": "wine",
   "track": "odonto",
   "questions": [
     {
       "type": "mc",
-      "topic": "Paracetamol",
-      "q": "Sobre o paracetamol em odontologia, a afirmação CORRETA é:",
+      "topic": "Paracetamol · mecanismo",
+      "q": "Qual o mecanismo de ação predominante do paracetamol (acetaminofeno)?",
       "options": [
-        "Analgésico e antipirético de ação CENTRAL (COX no SNC) — NÃO é AINE, não tem ação anti-inflamatória clinicamente relevante; dose adulto 750-1000 mg 6/6h, máx 4 g/dia; hepatotoxicidade na sobredose via metabólito NAPQI",
-        "Forte ação anti-inflamatória — equivalente ao ibuprofeno",
-        "Pode ser associado livremente com codeína em até 8 g/dia",
-        "Sem risco de hepatotoxicidade em qualquer dose"
+        "Ação predominantemente CENTRAL: inibição fraca/seletiva da COX no SNC e modulação de vias serotoninérgicas/endocanabinoides — analgésico e antipirético, com efeito anti-inflamatório periférico mínimo (NÃO é AINE)",
+        "Inibição potente e irreversível da COX-1 plaquetária no sangue periférico",
+        "Agonismo dos receptores opioides mu no corno dorsal da medula",
+        "Inibição da síntese da parede celular bacteriana"
       ],
       "correct": 0,
-      "expl": "Paracetamol age na COX central → analgesia + antipirexia, sem efeito tecidual periférico (não é AINE). Ideal para paciente com contraindicação a AINE (gestante, úlcera, IRC). Hepatotoxicidade: NAPQI normalmente neutralizado por glutationa; em sobredose esgota a glutationa → hepatotoxicidade. Máx 4 g/dia em saudável, 3 g em hepatopata leve.",
+      "expl": "O paracetamol age principalmente no SNC (inibição central de COX, modulação serotoninérgica/endocanabinoide). É bom analgésico e antipirético, mas tem efeito anti-inflamatório PERIFÉRICO desprezível — por isso não é AINE clássico. Vantagem em odontologia: não irrita a mucosa gástrica, não afeta plaquetas e é seguro na gestação.",
       "difficulty": "easy",
-      "tags": [
-        "paracetamol"
-      ]
+      "tags": ["paracetamol", "mecanismo"]
     },
     {
       "type": "mc",
-      "topic": "Dipirona",
-      "q": "Gestante de 22 semanas, 65 kg, pós-exodontia de 46 com dor moderada. AINE contraindicado no momento. Analgésico de escolha e cuidados?",
+      "topic": "Paracetamol · dose máxima",
+      "q": "Qual a dose máxima diária habitual de paracetamol em adulto saudável?",
       "options": [
-        "Dipirona 500-1000 mg VO 6/6h por 2-3 dias (até 4 g/dia). Permitida no 2º trimestre (CI no 1º e 3º); ação analgésica e antipirética não-opioide, sem efeito antiplaquetário relevante (não piora o sangramento do alvéolo). Risco raro de agranulocitose justifica não prescrever de rotina em paciente com história de discrasia sanguínea",
-        "Paracetamol 500 mg 6/6h é equivalente em potência analgésica e cobre dor moderada pós-exodontia sem necessidade de associar dipirona",
-        "Associar dipirona a cetorolaco aumenta a segurança em gestante por reduzir a dose individual de cada um",
-        "Codeína 30 mg 6/6h é a escolha em gestante por não ter os riscos hematológicos da dipirona"
+        "Até 4 g/dia (ex.: 500-1000 mg a cada 6-8h), respeitando o intervalo e a dose por tomada — em hepatopatas, etilistas ou uso crônico reduzir para 2-3 g/dia",
+        "Até 10 g/dia sem qualquer restrição",
+        "Não há limite, pois o paracetamol não é hepatotóxico",
+        "Máximo de 200 mg/dia"
       ],
       "correct": 0,
-      "expl": "Dipirona no 2ºT é uma das opções permitidas na gestante quando AINE está contraindicado (3ºT principalmente, mas idealmente evitar AINE durante toda a gestação em extração). Diferenciais clínicos: paracetamol tem POTÊNCIA ANALGÉSICA INFERIOR à dipirona (mito de equivalência), associar a cetorolaco é absurdo (cetorolaco é AINE com forte efeito antiplaquetário — risco hemorrágico no alvéolo + CI em gestante), codeína cai em CYP2D6 + risco de depressão respiratória neonatal. Em odonto a dipirona é a 1ª escolha não-opioide quando AINE não pode entrar. Cuidado especial: hipotensão em IV rápida e agranulocitose idiossincrásica (raríssima).",
-      "difficulty": "hard",
-      "tags": [
-        "dipirona",
-        "gestante",
-        "exodontia"
-      ]
+      "expl": "Dose máxima usual no adulto: 4 g/dia (frequentemente 500-1000 mg 6/6h ou 8/8h). Acima disso o risco de hepatotoxicidade aumenta muito. Em hepatopatas, etilistas crônicos, desnutridos ou uso prolongado, reduzir para 2-3 g/dia. Atenção a formulações ocultas (associações com codeína, antigripais) que somam paracetamol.",
+      "difficulty": "easy",
+      "tags": ["paracetamol", "dose"]
     },
     {
       "type": "mc",
-      "topic": "Codeína / CYP2D6",
-      "q": "Por que codeína é particularmente perigosa em criança pequena e em paciente com fenótipo CYP2D6 ultrarrápido?",
+      "topic": "Paracetamol · hepatotoxicidade",
+      "q": "Por que a superdose de paracetamol causa lesão hepática?",
       "options": [
-        "Codeína é pró-fármaco metabolizado a MORFINA pela CYP2D6 — em metabolizador ultrarrápido a conversão é exagerada e gera níveis tóxicos de morfina (depressão respiratória fatal descrita em crianças após adenoamigdalectomia); FDA contraindica codeína em <12 anos",
-        "Codeína não tem nenhum metabólito ativo — é sempre segura",
-        "Em ultrarrápido a codeína é inativa, sem efeito clínico",
-        "CYP2D6 só importa em paciente acima de 80 anos"
+        "O excesso satura a conjugação e gera o metabólito tóxico NAPQI, que esgota a glutationa hepática e causa necrose centrolobular — o antídoto é a N-acetilcisteína (repõe glutationa)",
+        "Forma cristais que obstruem os ductos biliares",
+        "Desencadeia hepatite autoimune aguda",
+        "Inibe diretamente a COX dentro do hepatócito"
       ],
       "correct": 0,
-      "expl": "Codeína → morfina via CYP2D6. Cerca de 1-7% da população é metabolizadora ultrarrápida → níveis de morfina muito altos com doses normais. Mortes em crianças pós-adenoamigdalectomia foram relatadas. FDA contraindica codeína em <12 anos e em amamentação. Em odonto: alternativa tramadol ou ajustar conduta.",
-      "difficulty": "hard",
-      "tags": [
-        "codeina",
-        "cyp2d6"
-      ]
-    },
-    {
-      "type": "mc",
-      "topic": "Tramadol vs codeína / interação ISRS",
-      "q": "Paciente em uso de sertralina 50 mg/d (depressão) apresenta dor intensa pós-exodontia de 3º molar não controlada por ibuprofeno + dipirona. Você considera adicionar opioide fraco. Qual a melhor escolha?",
-      "options": [
-        "Codeína 30 mg + paracetamol 500 mg 6/6h por 2-3 dias — evita tramadol pelo risco de síndrome serotoninérgica (tramadol inibe recaptação de serotonina/noradrenalina, somando ao ISRS); orientar sobre constipação e sedação",
-        "Tramadol 100 mg 8/8h, pois tem menor risco de dependência que codeína",
-        "Morfina 10 mg VO 4/4h, opioide forte é mais seguro que fracos em interações medicamentosas",
-        "Manter apenas dipirona em dose maior (2 g 6/6h), opioides são contraindicados em qualquer paciente com ISRS"
-      ],
-      "correct": 0,
-      "expl": "Tramadol tem ação dual: agonista μ fraco + inibidor de recaptação de serotonina/noradrenalina. Combinado com ISRS (sertralina, fluoxetina, escitalopram), IRSN, IMAO ou triptanos → risco de síndrome serotoninérgica (tríade: alteração mental + hiperatividade autonômica + neuromuscular). Codeína é opioide puro (pró-droga → morfina via CYP2D6), sem ação serotoninérgica — segura com ISRS. Take-home: paciente em ISRS = codeína, NÃO tramadol.",
-      "difficulty": "hard",
-      "tags": [
-        "tramadol",
-        "ISRS",
-        "sindrome-serotoninergica"
-      ]
-    },
-    {
-      "type": "mc",
-      "topic": "Paracetamol em hepatopata",
-      "q": "Paciente com cirrose hepática Child-Pugh B, etilista crônico em abstinência, necessita analgésico pós-raspagem subgengival sob anestesia. Qual a prescrição correta?",
-      "options": [
-        "Paracetamol 2-3 g/dia no máximo (idealmente ≤2 g/dia em etilista/cirrose), dividido em 500 mg 8/8h, por no máximo 5 dias — é o analgésico mais seguro no hepatopata desde que a dose seja reduzida; evitar AINEs (síndrome hepatorrenal) e dipirona (risco hematológico em hepatopata grave)",
-        "Paracetamol 750 mg 6/6h (4 g/dia) — dose padrão é segura desde que o paciente esteja abstêmio",
-        "Ibuprofeno 600 mg 8/8h, pois não é metabolizado no fígado",
-        "Tramadol 100 mg 8/8h em dose plena, opioide é a única opção em hepatopata"
-      ],
-      "correct": 0,
-      "expl": "Paracetamol em hepatopata é seguro com dose REDUZIDA (≤2-3 g/dia, alguns autores ≤2 g/dia em Child B/C e etilista). O metabólito tóxico NAPQI é gerado pelo CYP2E1 (induzido pelo álcool) e neutralizado por glutationa (depletada na desnutrição/cirrose) — daí o risco em etilista. AINEs causam síndrome hepatorrenal e sangramento por varizes. Take-home: hepatopata = paracetamol em dose baixa é a base; AINE é proibido.",
-      "difficulty": "hard",
-      "tags": [
-        "hepatopata",
-        "paracetamol"
-      ]
-    },
-    {
-      "type": "mc",
-      "topic": "Escala analgésica OMS aplicada à odontologia",
-      "q": "Como aplicar a escada analgésica da OMS adaptada à dor odontológica aguda pós-cirúrgica (ex.: exodontia de siso impactado)?",
-      "options": [
-        "Degrau 1: AINE (ibuprofeno 600 mg 8/8h) ± paracetamol/dipirona como adjuvantes; Degrau 2: adicionar opioide fraco (codeína 30 mg + paracetamol) se dor moderada-intensa; Degrau 3 (raro em odonto): opioide forte (morfina/oxicodona) reservado a dor refratária ou cirurgia ortognática maior — sempre por horário fixo nas primeiras 48-72h, não se dor",
-        "Começar sempre pelo degrau 3 (morfina) para garantir conforto absoluto e ir descendo conforme a dor cede",
-        "Usar apenas o degrau 1 em odontologia — opioides são proibidos pelo CFO para cirurgião-dentista",
-        "Alternar AINE e opioide forte desde a primeira dose, sem paracetamol, que não é analgésico verdadeiro"
-      ],
-      "correct": 0,
-      "expl": "A escada OMS adaptada à dor aguda odontológica funciona em modo analgesia multimodal preemptiva: base é AINE, com paracetamol/dipirona somando. Opioide fraco entra se insuficiente. Opioide forte é exceção. Princípio crítico: HORÁRIO FIXO nas primeiras 48-72h, não SOS — analgesia preemptiva evita o pico de dor. CD pode prescrever opioides no Brasil (notificação amarela B). Take-home: AINE + paracetamol em horário fixo resolve a esmagadora maioria das dores odontológicas.",
+      "expl": "Em doses normais, o paracetamol é conjugado (glicuronidação/sulfatação) e uma pequena fração vira NAPQI, neutralizado pela glutationa. Na superdose, as vias de conjugação saturam, acumula-se NAPQI, a glutationa esgota e ocorre necrose hepática centrolobular. Antídoto: N-ACETILCISTEÍNA (precursora da glutationa), tanto mais eficaz quanto mais precoce.",
       "difficulty": "medium",
-      "tags": [
-        "escada-OMS",
-        "analgesia-multimodal"
-      ]
+      "tags": ["paracetamol", "hepatotoxicidade", "napqi"]
+    },
+    {
+      "type": "mc",
+      "topic": "Paracetamol · hepatopata",
+      "q": "Paciente com cirrose hepática compensada precisa de analgésico após exodontia. Conduta mais segura?",
+      "options": [
+        "Paracetamol em dose reduzida (frequentemente ≤ 2 g/dia) costuma ser o analgésico de escolha, por evitar AINEs (sangramento/síndrome hepatorrenal) e opioides (encefalopatia) — sempre individualizado",
+        "Doses plenas de AINE, que são totalmente seguras no fígado",
+        "Nenhum analgésico pode ser usado no hepatopata",
+        "Altas doses de paracetamol (4 g/dia), pois o fígado doente metaboliza melhor"
+      ],
+      "correct": 0,
+      "expl": "Mesmo sendo de metabolismo hepático, o paracetamol em dose REDUZIDA (frequentemente ≤ 2 g/dia em Child B/C e etilista) é geralmente preferível no hepatopata, pois os AINEs aumentam o risco de sangramento gastrointestinal, síndrome hepatorrenal e retenção hídrica, e os opioides podem precipitar encefalopatia. A conduta é sempre individualizada e com cautela.",
+      "difficulty": "hard",
+      "tags": ["paracetamol", "hepatopata"]
+    },
+    {
+      "type": "mc",
+      "topic": "Paracetamol · gestante",
+      "q": "Qual o analgésico de primeira escolha para dor odontogênica em gestante?",
+      "options": [
+        "Paracetamol — considerado o analgésico mais seguro na gestação, na menor dose eficaz e pelo menor tempo possível",
+        "Ácido acetilsalicílico em dose plena no 3º trimestre",
+        "Ibuprofeno em uso contínuo no 3º trimestre",
+        "Codeína de uso prolongado próximo ao parto"
+      ],
+      "correct": 0,
+      "expl": "O PARACETAMOL é o analgésico de escolha na gestação (menor dose eficaz, menor tempo). AINEs devem ser evitados, sobretudo no 3º trimestre (fechamento precoce do ducto arterioso, oligoâmnio). AAS em dose plena é desaconselhado no fim da gestação. Opioides perto do parto podem causar depressão respiratória e abstinência neonatal.",
+      "difficulty": "easy",
+      "tags": ["paracetamol", "gestante"]
+    },
+    {
+      "type": "mc",
+      "topic": "Paracetamol · intoxicação oculta",
+      "q": "Por que é importante questionar sobre 'antigripais' e combinações ao prescrever paracetamol?",
+      "options": [
+        "Muitos antigripais e analgésicos combinados (ex.: paracetamol + codeína) já contêm paracetamol — somá-los à prescrição pode ultrapassar 4 g/dia sem o paciente perceber, causando hepatotoxicidade",
+        "Porque os antigripais contêm AAS que causa Reye no adulto",
+        "Porque os antigripais sempre contêm dipirona em excesso",
+        "Porque os antigripais anulam o efeito do paracetamol"
+      ],
+      "correct": 0,
+      "expl": "Uma causa frequente de intoxicação por paracetamol é a INADVERTIDA: o paciente toma o paracetamol prescrito + antigripais e combinações (paracetamol + codeína, paracetamol + cafeína) que também contêm paracetamol, somando além de 4 g/dia. Sempre questionar o uso de outros medicamentos e orientar quanto às formulações ocultas.",
+      "difficulty": "medium",
+      "tags": ["paracetamol", "intoxicacao", "formulacoes-ocultas"]
+    },
+    {
+      "type": "mc",
+      "topic": "Dipirona · uso",
+      "q": "Sobre a dipirona (metamizol) em odontologia, é correto afirmar:",
+      "options": [
+        "Analgésico e antipirético potente, com efeito espasmolítico e ação anti-inflamatória fraca; muito usada no Brasil para dor odontogênica aguda, com bom perfil gástrico comparado aos AINEs",
+        "É um opioide forte de ação central",
+        "É o mais hepatotóxico dos analgésicos comuns",
+        "Não possui qualquer efeito antipirético"
+      ],
+      "correct": 0,
+      "expl": "A dipirona (metamizol) é analgésica e antipirética potente, com efeito espasmolítico e ação anti-inflamatória fraca. Amplamente usada no Brasil e Europa para dor aguda, com menor agressão gástrica que os AINEs. Foi retirada de alguns países (EUA, Reino Unido) pelo risco raro de agranulocitose.",
+      "difficulty": "easy",
+      "tags": ["dipirona", "metamizol"]
+    },
+    {
+      "type": "mc",
+      "topic": "Dipirona · agranulocitose",
+      "q": "Qual é o efeito adverso raro, porém grave, mais associado à dipirona?",
+      "options": [
+        "Agranulocitose (queda intensa de neutrófilos) — reação idiossincrásica e imprevisível; orientar o paciente a procurar atendimento se febre alta, odinofagia/úlceras orais ou infecções",
+        "Hepatotoxicidade dose-dependente idêntica à do paracetamol",
+        "Surdez neurossensorial irreversível",
+        "Síndrome de Reye em crianças"
+      ],
+      "correct": 0,
+      "expl": "O risco mais temido da dipirona é a AGRANULOCITOSE — reação idiossincrásica, imprevisível e independente da dose, que reduz drasticamente os neutrófilos e predispõe a infecções graves. Sinais de alerta: febre alta, dor de garganta, úlceras orais/aftas, mal-estar. Orientar suspensão e avaliação com hemograma se houver suspeita.",
+      "difficulty": "medium",
+      "tags": ["dipirona", "agranulocitose"]
+    },
+    {
+      "type": "mc",
+      "topic": "Dipirona · reação aguda",
+      "q": "Além da agranulocitose, qual reação aguda deve ser lembrada com a dipirona, sobretudo por via injetável?",
+      "options": [
+        "Hipotensão e reações de hipersensibilidade (até anafilaxia), especialmente na administração endovenosa rápida — aplicar lentamente e com o paciente monitorado",
+        "Hipertensão grave em todos os pacientes",
+        "Constipação intestinal intensa",
+        "Hiperglicemia de difícil controle"
+      ],
+      "correct": 0,
+      "expl": "A dipirona pode causar HIPOTENSÃO (sobretudo EV rápida) e reações de hipersensibilidade que vão de urticária à anafilaxia. Por isso, a via parenteral deve ser administrada lentamente, com o paciente preferencialmente deitado e monitorado. Evitar em alérgicos a pirazolonas.",
+      "difficulty": "medium",
+      "tags": ["dipirona", "hipotensao", "anafilaxia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Dipirona · gestante",
+      "q": "Gestante de 22 semanas com dor moderada pós-exodontia, AINE contraindicado. Considerando a dipirona, qual conduta é correta?",
+      "options": [
+        "Dipirona pode ser uma opção não opioide no 2º trimestre quando AINE está contraindicado; evitar no 1º e 3º trimestres, não usar de rotina em história de discrasia sanguínea, e aplicar EV lentamente pelo risco de hipotensão",
+        "Dipirona é o AINE de escolha na gestação por ter forte ação anti-inflamatória",
+        "Associar dipirona a cetorolaco para 'reduzir a dose' de cada um",
+        "Dipirona é absolutamente contraindicada em qualquer fase da gestação"
+      ],
+      "correct": 0,
+      "expl": "A dipirona NÃO é AINE; é analgésico/antipirético não opioide e não tem efeito antiplaquetário relevante (não piora o sangramento do alvéolo). Pode ser usada com cautela no 2º trimestre quando o AINE não pode entrar, evitando 1º e 3º trimestres. Cuidados: risco raro de agranulocitose (evitar em discrasia) e hipotensão (EV lenta). Associar a cetorolaco é inadequado (cetorolaco é AINE com forte efeito antiplaquetário).",
+      "difficulty": "hard",
+      "tags": ["dipirona", "gestante", "exodontia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Codeína · pró-fármaco",
+      "q": "Por que a codeína é considerada um pró-fármaco?",
+      "options": [
+        "Ela própria tem baixa afinidade pelos receptores opioides; precisa ser convertida em MORFINA pela enzima CYP2D6 para produzir analgesia efetiva",
+        "Ela só age depois de conjugada com glutationa no fígado",
+        "Ela é inativa até reagir com o ácido gástrico",
+        "Ela é ativada exclusivamente pela COX-2"
+      ],
+      "correct": 0,
+      "expl": "A codeína é um PRÓ-FÁRMACO: em si tem afinidade fraca pelos receptores mu. Cerca de 10% é O-desmetilada pela CYP2D6 em MORFINA, o metabólito ativo responsável pela analgesia. Por isso, variações genéticas e inibição da CYP2D6 alteram muito a resposta analgésica.",
+      "difficulty": "medium",
+      "tags": ["codeina", "cyp2d6", "pro-farmaco"]
+    },
+    {
+      "type": "mc",
+      "topic": "Codeína · CYP2D6 ultrarrápido",
+      "q": "Um metabolizador ULTRARRÁPIDO da CYP2D6 que recebe codeína corre maior risco de:",
+      "options": [
+        "Toxicidade opioide (sedação intensa, miose, depressão respiratória), por converter codeína em morfina em excesso e muito rápido",
+        "Não sentir nenhum efeito, por não produzir morfina alguma",
+        "Hepatotoxicidade por acúmulo de NAPQI",
+        "Agranulocitose idiossincrásica"
+      ],
+      "correct": 0,
+      "expl": "O metabolizador ULTRARRÁPIDO da CYP2D6 converte codeína em morfina de forma exagerada e rápida → picos de morfina e risco de TOXICIDADE OPIOIDE (sedação, miose, depressão respiratória). Há relatos de óbito, inclusive em lactentes amamentados por mães ultrarrápidas. Já o metabolizador LENTO produz pouca morfina e tem analgesia insuficiente.",
+      "difficulty": "hard",
+      "tags": ["codeina", "cyp2d6", "ultrarrapido"]
+    },
+    {
+      "type": "mc",
+      "topic": "Codeína · metabolizador lento",
+      "q": "O que se espera ao prescrever codeína a um metabolizador LENTO da CYP2D6?",
+      "options": [
+        "Analgesia insuficiente, pois ele converte pouca codeína em morfina (o metabólito ativo)",
+        "Toxicidade opioide grave por excesso de morfina",
+        "Hepatotoxicidade aguda fulminante",
+        "Resposta analgésica idêntica à da população geral"
+      ],
+      "correct": 0,
+      "expl": "O metabolizador LENTO da CYP2D6 forma pouca morfina a partir da codeína → analgesia INSUFICIENTE ou ausente. Inibidores potentes da CYP2D6 (ex.: fluoxetina, paroxetina, bupropiona) podem 'transformar' farmacologicamente um paciente em metabolizador lento, reduzindo o efeito da codeína.",
+      "difficulty": "medium",
+      "tags": ["codeina", "cyp2d6", "lento"]
+    },
+    {
+      "type": "mc",
+      "topic": "Codeína · pediatria",
+      "q": "Por que a codeína é contraindicada em crianças, sobretudo após amigdalectomia/adenoidectomia?",
+      "options": [
+        "Risco de depressão respiratória e morte em metabolizadores ultrarrápidos da CYP2D6, agravado pela apneia obstrutiva — agências (FDA/EMA/Anvisa) contraindicam codeína em menores de 12 anos",
+        "Porque a codeína não tem qualquer efeito analgésico em crianças",
+        "Por causar síndrome de Reye em viroses",
+        "Por causar agranulocitose em crianças"
+      ],
+      "correct": 0,
+      "expl": "Após amigdalectomia/adenoidectomia (frequente em crianças com apneia obstrutiva), o uso de codeína se associou a casos fatais de depressão respiratória em metabolizadores ULTRARRÁPIDOS. Por isso a codeína é CONTRAINDICADA em menores de 12 anos (e desaconselhada até 18 anos pós-amigdalectomia ou com risco respiratório), conforme FDA/EMA/Anvisa.",
+      "difficulty": "hard",
+      "tags": ["codeina", "pediatria", "amigdalectomia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Codeína · efeitos adversos",
+      "q": "Quais efeitos adversos são típicos da codeína (e dos opioides em geral)?",
+      "options": [
+        "Constipação, náusea/vômito, sonolência, tontura e, em doses altas, depressão respiratória — a constipação não desenvolve tolerância",
+        "Sangramento gástrico e disfunção plaquetária",
+        "Hepatotoxicidade dose-dependente como a do paracetamol",
+        "Agranulocitose idiossincrásica"
+      ],
+      "correct": 0,
+      "expl": "A codeína (opioide) causa CONSTIPAÇÃO (efeito que NÃO desenvolve tolerância), náusea, vômito, sonolência, tontura, prurido e, em doses altas, depressão respiratória. Sangramento gástrico/disfunção plaquetária são dos AINEs; hepatotoxicidade é do paracetamol; agranulocitose é da dipirona.",
+      "difficulty": "medium",
+      "tags": ["codeina", "efeitos-adversos"]
+    },
+    {
+      "type": "mc",
+      "topic": "Paracetamol + codeína",
+      "q": "Qual a lógica da associação paracetamol + codeína na dor odontogênica moderada?",
+      "options": [
+        "Combinar analgésicos de mecanismos diferentes (central não opioide + opioide fraco) para somar eficácia em dor moderada que não respondeu ao analgésico simples, permitindo doses menores de cada componente",
+        "Potencializar o efeito anti-inflamatório periférico",
+        "Reduzir o risco de agranulocitose",
+        "Substituir totalmente a necessidade de tratar a causa da dor"
+      ],
+      "correct": 0,
+      "expl": "A associação PARACETAMOL + CODEÍNA combina dois mecanismos (analgesia central não opioide + agonista opioide fraco) — analgesia multimodal para dor moderada refratária ao analgésico simples, permitindo eficácia com doses menores de cada. Atenção: somar o paracetamol da combinação ao paracetamol avulso pode ultrapassar 4 g/dia. Não dispensa o tratamento da causa.",
+      "difficulty": "medium",
+      "tags": ["paracetamol", "codeina", "associacao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Tramadol · mecanismo",
+      "q": "Qual o duplo mecanismo de ação do tramadol?",
+      "options": [
+        "Agonista opioide FRACO no receptor mu + inibição da recaptação de serotonina e noradrenalina — analgesia de mecanismo central misto",
+        "Inibição potente e seletiva da COX-2 periférica",
+        "Agonista opioide forte puro, sem qualquer ação monoaminérgica",
+        "Bloqueio de canais de cálcio voltagem-dependentes no SNC"
+      ],
+      "correct": 0,
+      "expl": "O tramadol tem mecanismo MISTO: agonismo opioide FRACO no receptor mu (potencializado pelo metabólito O-desmetiltramadol, formado via CYP2D6) + inibição da recaptação de SEROTONINA e NORADRENALINA. Esse componente monoaminérgico explica parte da analgesia e também os riscos (síndrome serotoninérgica e convulsão).",
+      "difficulty": "medium",
+      "tags": ["tramadol", "mecanismo"]
+    },
+    {
+      "type": "mc",
+      "topic": "Tramadol · ISRS",
+      "q": "Paciente em uso de sertralina (ISRS) recebe tramadol pós-exodontia. Qual o principal risco da combinação?",
+      "options": [
+        "Síndrome serotoninérgica (agitação, hipertermia, hiper-reflexia/clônus, taquicardia, sudorese), pela soma do efeito serotoninérgico do tramadol ao do ISRS",
+        "Agranulocitose imediata",
+        "Hepatotoxicidade por NAPQI",
+        "Síndrome de Reye"
+      ],
+      "correct": 0,
+      "expl": "O tramadol aumenta a serotonina; somado a um ISRS (sertralina, fluoxetina, etc.), IRSN, IMAO ou triptanos, eleva o risco de SÍNDROME SEROTONINÉRGICA: agitação/confusão, hipertermia, taquicardia, sudorese, hiper-reflexia, clônus e tremor. Evitar a associação ou usar com extrema cautela; em paciente com ISRS, prefira outro analgésico (ex.: codeína, sem ação serotoninérgica).",
+      "difficulty": "hard",
+      "tags": ["tramadol", "isrs", "sindrome-serotoninergica"]
+    },
+    {
+      "type": "mc",
+      "topic": "Tramadol · convulsão",
+      "q": "Qual risco neurológico deve ser lembrado ao prescrever tramadol, sobretudo em doses altas ou pacientes predispostos?",
+      "options": [
+        "Redução do limiar convulsivo, podendo precipitar convulsões — cautela em epilépticos e na associação com outros fármacos que baixam o limiar (ex.: bupropiona, ISRS, antipsicóticos)",
+        "Aumento do limiar convulsivo, protegendo contra crises",
+        "Surdez neurossensorial súbita",
+        "Parkinsonismo irreversível"
+      ],
+      "correct": 0,
+      "expl": "O tramadol REDUZ o limiar convulsivo e pode precipitar CONVULSÕES, especialmente em doses altas, intoxicação, epilépticos e em uso concomitante de fármacos que também baixam o limiar (bupropiona, ISRS/IRSN, antipsicóticos). Usar com cautela e respeitar a dose máxima.",
+      "difficulty": "medium",
+      "tags": ["tramadol", "convulsao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Escala da OMS · degrau 1",
+      "q": "Na escala analgésica da OMS aplicada à odontologia, o que representa o 1º degrau?",
+      "options": [
+        "Dor leve: analgésicos não opioides (paracetamol, dipirona) e/ou AINEs, ± adjuvantes",
+        "Dor leve: opioides fortes como a morfina",
+        "Dor intensa: tramadol obrigatório já de início",
+        "Dor moderada: codeína isolada sempre"
+      ],
+      "correct": 0,
+      "expl": "Escala da OMS — 1º DEGRAU (dor leve): não opioides (paracetamol, dipirona) e/ou AINEs ± adjuvantes. 2º degrau (dor moderada): opioide FRACO (codeína, tramadol) ± não opioide. 3º degrau (dor intensa): opioide FORTE (morfina) ± não opioide. Na odontologia a maioria das dores se resolve nos degraus 1 e 2, sempre com controle da causa.",
+      "difficulty": "easy",
+      "tags": ["oms", "escala-analgesica", "degrau1"]
+    },
+    {
+      "type": "mc",
+      "topic": "Escala da OMS · degrau 2",
+      "q": "Conforme a escala da OMS, qual a conduta para dor MODERADA não controlada com analgésico simples?",
+      "options": [
+        "Subir para o 2º degrau: opioide FRACO (codeína ou tramadol), de preferência associado a um não opioide (analgesia multimodal)",
+        "Iniciar diretamente morfina (opioide forte)",
+        "Suspender qualquer analgésico e observar",
+        "Repetir indefinidamente o mesmo não opioide na mesma dose"
+      ],
+      "correct": 0,
+      "expl": "Quando a dor MODERADA não cede no 1º degrau, sobe-se para o 2º DEGRAU: opioide FRACO (codeína ou tramadol), idealmente associado a não opioide (paracetamol/AINE) — analgesia multimodal que melhora a eficácia e reduz a dose de opioide. Reservar o opioide forte (3º degrau) para dor intensa, situação incomum na rotina odontológica.",
+      "difficulty": "medium",
+      "tags": ["oms", "escala-analgesica", "degrau2"]
+    },
+    {
+      "type": "mc",
+      "topic": "Escala da OMS · aplicação odonto",
+      "q": "Como aplicar a escada analgésica da OMS adaptada à dor aguda pós-cirúrgica (ex.: exodontia de siso impactado)?",
+      "options": [
+        "Degrau 1 (AINE ± paracetamol/dipirona); Degrau 2 (adicionar opioide fraco se dor moderada-intensa); Degrau 3 (opioide forte, raro em odonto) — sempre por HORÁRIO FIXO nas primeiras 48-72h, não apenas 'se dor'",
+        "Começar sempre pelo degrau 3 (morfina) e ir descendo conforme a dor cede",
+        "Usar apenas o degrau 1, pois opioides são proibidos ao cirurgião-dentista",
+        "Alternar AINE e opioide forte desde a primeira dose, sem não opioides"
+      ],
+      "correct": 0,
+      "expl": "A escada da OMS adaptada à dor aguda odontológica funciona em analgesia multimodal e preemptiva: base é o AINE, com paracetamol/dipirona somando; opioide fraco entra se insuficiente; opioide forte é exceção. Princípio crítico: HORÁRIO FIXO nas primeiras 48-72h, não SOS — antecipar a dor é mais eficaz. O cirurgião-dentista pode prescrever opioides no Brasil (notificação adequada).",
+      "difficulty": "medium",
+      "tags": ["oms", "analgesia-multimodal", "pos-exodontia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Analgesia preemptiva",
+      "q": "O que é analgesia preemptiva em odontologia e qual sua justificativa?",
+      "options": [
+        "Administrar o analgésico (frequentemente AINE ou paracetamol/dipirona) ANTES do estímulo doloroso/procedimento, para reduzir a sensibilização central e periférica e diminuir a dor pós-operatória",
+        "Dar analgésico somente quando a dor já está intensa, no pós-operatório",
+        "Usar antibiótico antes do procedimento para prevenir a dor",
+        "Sedar profundamente o paciente em toda exodontia simples"
+      ],
+      "correct": 0,
+      "expl": "Analgesia PREEMPTIVA = administrar o analgésico ANTES do estímulo nociceptivo (antes da exodontia/procedimento), atuando antes da sensibilização central e periférica. A justificativa é reduzir a intensidade e a duração da dor pós-operatória e o consumo de analgésico depois. Costuma-se usar AINE ou paracetamol/dipirona no pré-operatório.",
+      "difficulty": "medium",
+      "tags": ["analgesia-preemptiva", "preemptiva"]
+    },
+    {
+      "type": "mc",
+      "topic": "Dor pós-exodontia",
+      "q": "Qual a estratégia analgésica de primeira linha para dor após exodontia simples em adulto saudável?",
+      "options": [
+        "Analgesia multimodal com não opioide (paracetamol ou dipirona) ± AINE em horário fixo nas primeiras 24-48h, reservando opioide fraco para falha, e reforçando os cuidados locais",
+        "Iniciar de rotina opioide forte (morfina) em toda exodontia",
+        "Usar apenas codeína isolada como primeira escolha",
+        "Prescrever antibiótico para controlar a dor"
+      ],
+      "correct": 0,
+      "expl": "Dor pós-exodontia simples: analgesia MULTIMODAL com não opioide (paracetamol/dipirona) associado a AINE quando não contraindicado, em horário FIXO nas primeiras 24-48h (não apenas 'se dor'). Opioide fraco fica para falha do esquema. Antibiótico não é analgésico. Reforçar cuidados locais (gelo, repouso, não bochechar vigorosamente, proteger o coágulo).",
+      "difficulty": "medium",
+      "tags": ["pos-exodontia", "multimodal"]
+    },
+    {
+      "type": "mc",
+      "topic": "Dor pós-exodontia · paciente em ISRS",
+      "q": "Dor intensa pós-exodontia não controlada por AINE + dipirona em paciente que usa sertralina (ISRS). Qual opioide fraco é mais adequado?",
+      "options": [
+        "Codeína (associada a paracetamol), pois é opioide sem ação serotoninérgica — evita o tramadol, que somaria efeito serotoninérgico ao ISRS",
+        "Tramadol, por ter 'menor risco' que a codeína em pacientes com ISRS",
+        "Morfina em dose alta, por ser mais segura em interações que os opioides fracos",
+        "Dobrar a dipirona indefinidamente, pois opioides são contraindicados com qualquer ISRS"
+      ],
+      "correct": 0,
+      "expl": "O tramadol inibe a recaptação de serotonina; com um ISRS (sertralina) o risco de síndrome serotoninérgica aumenta. A CODEÍNA é opioide (pró-fármaco → morfina via CYP2D6) sem ação serotoninérgica relevante, sendo preferível nesse paciente, geralmente associada ao paracetamol. Orientar sobre constipação e sedação. Take-home: paciente em ISRS = codeína, não tramadol.",
+      "difficulty": "hard",
+      "tags": ["pos-exodontia", "codeina", "isrs"]
+    },
+    {
+      "type": "mc",
+      "topic": "AAS · analgésico",
+      "q": "Sobre o ácido acetilsalicílico (AAS) como analgésico em odontologia, é correto:",
+      "options": [
+        "É analgésico/antipirético/anti-inflamatório que inibe IRREVERSIVELMENTE a COX-1 plaquetária, aumentando o risco de sangramento — cautela em procedimentos cirúrgicos e em quem já o usa como antiagregante",
+        "Não exerce qualquer efeito sobre as plaquetas",
+        "É o analgésico de escolha em crianças com quadro viral",
+        "Inibe a COX de forma reversível e de curtíssima duração"
+      ],
+      "correct": 0,
+      "expl": "O AAS inibe IRREVERSIVELMENTE a COX (acetilação), inclusive a COX-1 plaquetária — o efeito antiagregante dura toda a vida da plaqueta (~7-10 dias). Como analgésico, aumenta o risco de sangramento e de lesão gástrica. Em quem usa AAS como antiagregante, a decisão de suspender ou não antes de cirurgia é individualizada com o médico (em geral não se suspende para procedimentos odontológicos simples).",
+      "difficulty": "medium",
+      "tags": ["aas", "antiagregante", "cox"]
+    },
+    {
+      "type": "mc",
+      "topic": "AAS · síndrome de Reye",
+      "q": "Por que o AAS deve ser evitado em crianças e adolescentes com quadro febril viral?",
+      "options": [
+        "Risco de síndrome de Reye — encefalopatia aguda com disfunção/esteatose hepática associada ao uso de AAS em viroses (influenza, varicela) na infância",
+        "Risco de agranulocitose imediata",
+        "Risco de depressão respiratória central",
+        "Risco de síndrome serotoninérgica"
+      ],
+      "correct": 0,
+      "expl": "O AAS em crianças/adolescentes com infecção viral (especialmente influenza e varicela) se associa à SÍNDROME DE REYE: encefalopatia aguda + degeneração hepática gordurosa, potencialmente fatal. Por isso, evitar AAS nessa faixa etária com quadro viral; preferir paracetamol/dipirona como antitérmico/analgésico.",
+      "difficulty": "medium",
+      "tags": ["aas", "reye", "pediatria"]
+    },
+    {
+      "type": "mc",
+      "topic": "Analgésicos no hepatopata",
+      "q": "Quais cuidados gerais com analgésicos no paciente hepatopata?",
+      "options": [
+        "Preferir paracetamol em dose reduzida; evitar/limitar AINEs (sangramento, síndrome hepatorrenal) e usar opioides com muita cautela (risco de encefalopatia), na menor dose eficaz",
+        "Usar AINEs em dose plena, pois não dependem do fígado",
+        "Usar opioides fortes livremente, pois não causam encefalopatia",
+        "Suspender definitivamente todo e qualquer analgésico"
+      ],
+      "correct": 0,
+      "expl": "No hepatopata: o PARACETAMOL em dose reduzida (frequentemente ≤ 2 g/dia) costuma ser preferível; os AINEs aumentam o risco de sangramento gastrointestinal e disfunção renal (síndrome hepatorrenal, retenção hídrica); os OPIOIDES devem ser usados com muita cautela por risco de sedação/encefalopatia (metabolismo reduzido). Sempre individualizar e usar a menor dose eficaz pelo menor tempo.",
+      "difficulty": "hard",
+      "tags": ["hepatopata", "analgesia"]
+    },
+    {
+      "type": "match",
+      "topic": "Analgésicos: fármaco / característica-armadilha",
+      "prompt": "Associe cada analgésico à sua característica ou armadilha principal.",
+      "leftLabel": "Analgésico",
+      "rightLabel": "Característica / armadilha",
+      "pairs": [
+        { "id": "para", "left": "Paracetamol", "right": "Ação central; hepatotoxicidade por NAPQI; máx. 4 g/dia; seguro na gestação" },
+        { "id": "dip", "left": "Dipirona", "right": "Analgésico/antipirético potente; risco raro de agranulocitose" },
+        { "id": "cod", "left": "Codeína", "right": "Pró-fármaco ativado pela CYP2D6 em morfina; contraindicada em crianças" },
+        { "id": "tram", "left": "Tramadol", "right": "Opioide fraco + inibe recaptação de serotonina/NA; convulsão e síndrome serotoninérgica" },
+        { "id": "aas", "left": "AAS", "right": "Inibe a COX de forma irreversível (sangramento); síndrome de Reye em criança" }
+      ],
+      "expl": "Paracetamol = fígado/NAPQI. Dipirona = agranulocitose. Codeína = CYP2D6/pró-fármaco. Tramadol = serotonina/convulsão. AAS = plaqueta/Reye.",
+      "difficulty": "medium",
+      "tags": ["match"]
+    },
+    {
+      "type": "match",
+      "topic": "Analgésicos: escala da OMS / degraus",
+      "prompt": "Associe a intensidade da dor ao degrau da escala analgésica da OMS.",
+      "leftLabel": "Situação",
+      "rightLabel": "Conduta (OMS)",
+      "pairs": [
+        { "id": "leve", "left": "Dor leve", "right": "1º degrau: não opioide (paracetamol/dipirona) e/ou AINE ± adjuvante" },
+        { "id": "moderada", "left": "Dor moderada (falha do degrau 1)", "right": "2º degrau: opioide fraco (codeína/tramadol) ± não opioide" },
+        { "id": "intensa", "left": "Dor intensa", "right": "3º degrau: opioide forte (morfina) ± não opioide" },
+        { "id": "preempt", "left": "Antes do procedimento", "right": "Analgesia preemptiva: analgésico antes do estímulo doloroso" }
+      ],
+      "expl": "A OMS sobe degrau a degrau: não opioide → opioide fraco → opioide forte, sempre podendo associar não opioide e adjuvantes. A analgesia preemptiva antecede o estímulo doloroso.",
+      "difficulty": "medium",
+      "tags": ["match", "oms"]
+    },
+    {
+      "type": "case",
+      "topic": "Caso · dor pós-exodontia em paciente especial",
+      "subtitle": "Mulher 28a, exodontia de 3º molar, em uso de sertralina, gestante de 1º trimestre",
+      "specialty": "Odontologia · Farmacologia clínica",
+      "difficulty": "medium",
+      "vignette": "Mulher de 28 anos, gestante no 1º trimestre, em uso crônico de sertralina (ISRS) para transtorno de ansiedade. Será submetida à exodontia de terceiro molar inferior semi-incluso. Pergunta sobre o controle da dor no pós-operatório. Sem outras comorbidades, sem alergias conhecidas, função hepática e renal normais.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Qual a melhor estratégia de analgesia preemptiva/pós-operatória para esta paciente?",
+          "options": [
+            "Paracetamol como base da analgesia (seguro na gestação), na menor dose eficaz e por tempo curto, associado a cuidados locais",
+            "AINE em dose plena por 7 dias, por ser totalmente seguro na gestação",
+            "Tramadol como primeira escolha de rotina",
+            "AAS em dose analgésica plena"
+          ],
+          "correct": 0,
+          "expl": "Em gestante, o PARACETAMOL é o analgésico de escolha (menor dose eficaz, menor tempo). AINEs devem ser evitados, sobretudo no 1º e 3º trimestres. AAS em dose plena é desaconselhado. Associar cuidados locais (gelo, repouso). A analgesia preemptiva com paracetamol antes do procedimento ajuda a reduzir a dor pós-operatória."
+        },
+        {
+          "id": "step2",
+          "prompt": "A dor no 2º dia é moderada e o cirurgião cogita reforçar a analgesia com um opioide fraco.",
+          "question": "Por que o TRAMADOL é uma escolha problemática nesta paciente?",
+          "options": [
+            "Porque ela usa sertralina (ISRS) e o tramadol é serotoninérgico → risco de síndrome serotoninérgica; além disso, opioides na gestação exigem cautela",
+            "Porque o tramadol causa síndrome de Reye",
+            "Porque o tramadol é hepatotóxico por NAPQI",
+            "Porque o tramadol anula o efeito da sertralina"
+          ],
+          "correct": 0,
+          "expl": "O tramadol inibe a recaptação de serotonina; associado a um ISRS como a sertralina, aumenta o risco de SÍNDROME SEROTONINÉRGICA (agitação, hipertermia, clônus, taquicardia). Além disso, opioides na gestação devem ser usados com cautela. Preferir otimizar o paracetamol e reavaliar o controle local antes de escalonar para opioide."
+        },
+        {
+          "id": "step3",
+          "question": "Qual conduta é a mais adequada para esta paciente com dor moderada persistente?",
+          "options": [
+            "Otimizar o paracetamol em horário fixo (dentro da dose segura) e reforçar cuidados locais; se precisar escalonar, discutir com o pré-natal e evitar a combinação serotoninérgica",
+            "Iniciar morfina de imediato",
+            "Adicionar AAS para potencializar",
+            "Suspender qualquer analgésico e apenas observar"
+          ],
+          "correct": 0,
+          "expl": "A melhor conduta é otimizar o PARACETAMOL em horário fixo (dose segura na gestação) e reforçar o controle local, evitando o tramadol pela interação com o ISRS e os AINEs pela gestação. Se houver necessidade real de escalonar a analgesia, isso deve ser feito em conjunto com a equipe de pré-natal, escolhendo opções compatíveis com a gestação e sem somar efeito serotoninérgico."
+        }
+      ],
+      "outcome": "Mantida analgesia com paracetamol em horário fixo dentro da dose segura, associada a cuidados locais (gelo, repouso, higiene cuidadosa). A dor cedeu em 48-72h. Evitou-se o tramadol pelo risco de síndrome serotoninérgica com a sertralina e os AINEs pela gestação. Boa evolução, sem necessidade de opioide."
+    },
+    {
+      "type": "flashcard",
+      "topic": "Paracetamol",
+      "front": "Paracetamol: mecanismo, dose máxima e principal toxicidade?",
+      "back": "Ação predominantemente CENTRAL (analgésico/antipirético; anti-inflamatório periférico mínimo, não é AINE). Máx. 4 g/dia no adulto (2-3 g/dia no hepatopata). Toxicidade HEPÁTICA por NAPQI na superdose; antídoto = N-acetilcisteína. Seguro na gestação.",
+      "tags": ["paracetamol"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Dipirona",
+      "front": "Dipirona (metamizol): uso e principal risco?",
+      "back": "Analgésico/antipirético potente, espasmolítico, anti-inflamatório fraco; bom perfil gástrico. RISCO raro e grave: AGRANULOCITOSE (febre, odinofagia, úlceras orais → suspender e fazer hemograma). Também hipotensão/anafilaxia (EV rápida).",
+      "tags": ["dipirona"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Codeína · CYP2D6",
+      "front": "Por que a codeína é pró-fármaco e qual a importância da CYP2D6?",
+      "back": "Codeína vira MORFINA (metabólito ativo) pela CYP2D6. ULTRARRÁPIDO → excesso de morfina → toxicidade/depressão respiratória. LENTO → analgesia insuficiente. Inibidores da CYP2D6 (fluoxetina, paroxetina) reduzem o efeito.",
+      "tags": ["codeina", "cyp2d6"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Codeína · pediatria",
+      "front": "Codeína em criança: por que é contraindicada após amigdalectomia?",
+      "back": "Risco de depressão respiratória/morte em metabolizadores ULTRARRÁPIDOS, agravado pela apneia obstrutiva. FDA/EMA/Anvisa CONTRAINDICAM codeína em menores de 12 anos (e pós-amigdalectomia/adenoidectomia em menores).",
+      "tags": ["codeina", "pediatria"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tramadol",
+      "front": "Tramadol: mecanismo duplo e armadilhas?",
+      "back": "Opioide FRACO (mu) + inibe recaptação de SEROTONINA e NORADRENALINA. ARMADILHAS: síndrome serotoninérgica com ISRS/IRSN/IMAO e redução do limiar CONVULSIVO (cautela em epilépticos e doses altas).",
+      "tags": ["tramadol"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Paracetamol + codeína",
+      "front": "Qual a lógica da associação paracetamol + codeína?",
+      "back": "Analgesia multimodal: não opioide central + opioide fraco para dor moderada que não cedeu ao analgésico simples. Permite doses menores de cada. CUIDADO: o paracetamol da combinação soma com o avulso (risco de > 4 g/dia).",
+      "tags": ["paracetamol", "codeina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Escala da OMS",
+      "front": "Escala analgésica da OMS aplicada à odontologia?",
+      "back": "1º degrau (leve): não opioide (paracetamol/dipirona) ± AINE. 2º degrau (moderada): opioide FRACO (codeína/tramadol) ± não opioide. 3º degrau (intensa): opioide FORTE (morfina) ± não opioide. Sempre tratar a causa.",
+      "tags": ["oms"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Analgesia preemptiva",
+      "front": "O que é analgesia preemptiva?",
+      "back": "Administrar o analgésico ANTES do estímulo doloroso/procedimento (ex.: AINE ou paracetamol antes da exodontia), para reduzir a sensibilização central/periférica e diminuir a dor e o consumo de analgésico no pós-operatório. Idealmente em horário fixo nas primeiras 48-72h.",
+      "tags": ["analgesia-preemptiva"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "AAS",
+      "front": "AAS como analgésico: mecanismo e armadilhas?",
+      "back": "Inibe a COX de forma IRREVERSÍVEL → antiagregante por toda a vida da plaqueta (~7-10 dias), aumenta sangramento e lesão gástrica. EVITAR em criança/adolescente com virose: SÍNDROME DE REYE (encefalopatia + lesão hepática).",
+      "tags": ["aas", "reye"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Analgesia no hepatopata",
+      "front": "Como manejar a dor no paciente hepatopata?",
+      "back": "Preferir PARACETAMOL em dose reduzida (frequentemente ≤ 2 g/dia). EVITAR/limitar AINEs (sangramento, síndrome hepatorrenal) e usar opioides com muita cautela (risco de encefalopatia). Menor dose eficaz, sempre individualizar.",
+      "tags": ["hepatopata"]
     }
   ]
 }
