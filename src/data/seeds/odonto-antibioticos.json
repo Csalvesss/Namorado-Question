@@ -106,7 +106,7 @@
         "Amoxicilina 100 mg/kg/dia em qualquer infecção odonto"
       ],
       "correct": 0,
-      "expl": "Pediátrica: amox 50 mg/kg/dia ÷ 8/8h (até 90 mg/kg/dia em otite/sinusite, não rotineiro em abscesso dentário). 18 kg → 900 mg/dia → 300 mg de 8/8h. Suspensão pediátrica 250 mg/5 mL: 300/250 × 5 = 6 mL por dose. Sempre conferir alergia familiar antes.",
+      "expl": "Pediátrica: amox 40-50 mg/kg/dia ÷ 8/8h em infecção leve. Dose alta (80-90 mg/kg/dia) reservada a infecção moderada-grave com celulite extensa ou imunossupressão. 18 kg × 50 = 900 mg/dia → 300 mg de 8/8h. Suspensão pediátrica 250 mg/5 mL: 300/250 × 5 = 6 mL por dose. Sempre conferir alergia familiar antes.",
       "difficulty": "medium",
       "tags": ["pediatrico", "dose"]
     }

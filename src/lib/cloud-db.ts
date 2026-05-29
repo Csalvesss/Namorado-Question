@@ -24,31 +24,53 @@ function requireUid(): string {
   return uid;
 }
 
+type Track = 'medicina' | 'odonto';
+
+function sessionsCollectionName(track: Track): string {
+  return `sessions_${track}`;
+}
+
 export const cloudSessions = {
-  collectionRef(uid?: string) {
-    return collection(firestore, 'users', uid ?? requireUid(), 'sessions');
+  collectionRef(uid?: string, track: Track = 'medicina') {
+    return collection(firestore, 'users', uid ?? requireUid(), sessionsCollectionName(track));
   },
 
-  async list(uid?: string): Promise<QuizSession[]> {
+  /**
+   * Lê sessões da trilha. Migração transparente em medicina: se a coleção
+   * track-namespaced está vazia, lê da coleção antiga 'sessions' (legacy)
+   * — preserva dados das usuárias atuais sem mexer no Firestore.
+   */
+  async list(uid?: string, track: Track = 'medicina'): Promise<QuizSession[]> {
     const targetUid = uid ?? requireUid();
-    const q = query(
-      collection(firestore, 'users', targetUid, 'sessions'),
+    const trackedQ = query(
+      collection(firestore, 'users', targetUid, sessionsCollectionName(track)),
       orderBy('startedAt', 'desc'),
     );
-    const snap = await getDocs(q);
+    const snap = await getDocs(trackedQ);
+    if (snap.empty && track === 'medicina') {
+      const legacyQ = query(
+        collection(firestore, 'users', targetUid, 'sessions'),
+        orderBy('startedAt', 'desc'),
+      );
+      const legacy = await getDocs(legacyQ);
+      return legacy.docs.map((d) => d.data() as QuizSession);
+    }
     return snap.docs.map((d) => d.data() as QuizSession);
   },
 
-  async save(session: QuizSession) {
+  async save(session: QuizSession, track: Track = 'medicina') {
     const uid = requireUid();
-    const ref = doc(firestore, 'users', uid, 'sessions', session.id);
+    const ref = doc(firestore, 'users', uid, sessionsCollectionName(track), session.id);
     await setDoc(ref, session);
   },
 
-  async clearAll(uid?: string) {
+  async clearAll(uid?: string, track?: Track) {
     const targetUid = uid ?? requireUid();
-    const snap = await getDocs(collection(firestore, 'users', targetUid, 'sessions'));
-    await Promise.all(snap.docs.map((d) => deleteDoc(d.ref)));
+    const names = track ? [sessionsCollectionName(track)] : ['sessions', 'sessions_medicina', 'sessions_odonto'];
+    for (const name of names) {
+      const snap = await getDocs(collection(firestore, 'users', targetUid, name));
+      await Promise.all(snap.docs.map((d) => deleteDoc(d.ref)));
+    }
   },
 };
 
@@ -62,34 +84,47 @@ export interface CloudCardState {
   lastReviewed?: number;
 }
 
+function srsCollectionName(track: Track): string {
+  return `srs_${track}`;
+}
+
 export const cloudSrs = {
-  async getAll(uid?: string): Promise<Record<string, CloudCardState>> {
+  async getAll(uid?: string, track: Track = 'medicina'): Promise<Record<string, CloudCardState>> {
     const targetUid = uid ?? requireUid();
-    const snap = await getDocs(collection(firestore, 'users', targetUid, 'srs'));
+    const snap = await getDocs(collection(firestore, 'users', targetUid, srsCollectionName(track)));
     const out: Record<string, CloudCardState> = {};
     snap.docs.forEach((d) => {
       out[d.id] = d.data() as CloudCardState;
     });
+    if (Object.keys(out).length === 0 && track === 'medicina') {
+      const legacy = await getDocs(collection(firestore, 'users', targetUid, 'srs'));
+      legacy.docs.forEach((d) => {
+        out[d.id] = d.data() as CloudCardState;
+      });
+    }
     return out;
   },
 
-  async get(cardId: string): Promise<CloudCardState | null> {
+  async get(cardId: string, track: Track = 'medicina'): Promise<CloudCardState | null> {
     const uid = requireUid();
-    const ref = doc(firestore, 'users', uid, 'srs', cardId);
+    const ref = doc(firestore, 'users', uid, srsCollectionName(track), cardId);
     const snap = await getDoc(ref);
     return snap.exists() ? (snap.data() as CloudCardState) : null;
   },
 
-  async save(state: CloudCardState) {
+  async save(state: CloudCardState, track: Track = 'medicina') {
     const uid = requireUid();
-    const ref = doc(firestore, 'users', uid, 'srs', state.cardId);
+    const ref = doc(firestore, 'users', uid, srsCollectionName(track), state.cardId);
     await setDoc(ref, state);
   },
 
-  async clearAll(uid?: string) {
+  async clearAll(uid?: string, track?: Track) {
     const targetUid = uid ?? requireUid();
-    const snap = await getDocs(collection(firestore, 'users', targetUid, 'srs'));
-    await Promise.all(snap.docs.map((d) => deleteDoc(d.ref)));
+    const names = track ? [srsCollectionName(track)] : ['srs', 'srs_medicina', 'srs_odonto'];
+    for (const name of names) {
+      const snap = await getDocs(collection(firestore, 'users', targetUid, name));
+      await Promise.all(snap.docs.map((d) => deleteDoc(d.ref)));
+    }
   },
 };
 

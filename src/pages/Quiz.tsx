@@ -245,7 +245,7 @@ export default function Quiz() {
       completedAt,
       durationMs: completedAt - startedAt,
     };
-    db.sessions.save(sess);
+    db.sessions.save(sess, user.track ?? 'medicina');
     setSession(sess);
     setTimeout(() => resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 200);
 

@@ -80,16 +80,18 @@ export default function Mistakes() {
     return out.sort((a, b) => b.lastWrongAt - a.lastWrongAt);
   }, [sessions, user]);
 
+  const userTrack = user?.track ?? 'medicina';
+
   const stats = useMemo(() => {
     if (!user) return null;
-    return statsForQuestions(user.uid, rows.map((r) => r.question.id));
-  }, [user, rows]);
+    return statsForQuestions(user.uid, rows.map((r) => r.question.id), userTrack);
+  }, [user, rows, userTrack]);
 
   const filtered = useMemo(() => {
     if (!user) return rows;
     if (filterTag === 'all') return rows;
     return rows.filter((r) => {
-      const note = getMistakeNote(user.uid, r.question.id);
+      const note = getMistakeNote(user.uid, r.question.id, userTrack);
       if (filterTag === 'untagged') return !note?.tag;
       return note?.tag === filterTag;
     });
@@ -163,7 +165,7 @@ export default function Mistakes() {
           <ul className="space-y-3">
             {filtered.map((row) => {
               const isOpen = openId === row.question.id;
-              const note = getMistakeNote(user.uid, row.question.id);
+              const note = getMistakeNote(user.uid, row.question.id, userTrack);
               return (
                 <li key={row.question.id} className="rounded-2xl border border-line bg-paper shadow-soft">
                   <button
@@ -208,6 +210,7 @@ export default function Mistakes() {
                       <QuestionDetail
                         row={row}
                         uid={user.uid}
+                        track={userTrack}
                       />
                     </div>
                   )}
@@ -243,16 +246,24 @@ function FilterPill({ active, onClick, children }: { active: boolean; onClick: (
   );
 }
 
-function QuestionDetail({ row, uid }: { row: MistakeRow; uid: string }) {
-  const [note, setNote] = useState(() => getMistakeNote(uid, row.question.id)?.note ?? '');
-  const currentTag = getMistakeNote(uid, row.question.id)?.tag;
+function QuestionDetail({
+  row,
+  uid,
+  track,
+}: {
+  row: MistakeRow;
+  uid: string;
+  track: 'medicina' | 'odonto';
+}) {
+  const [note, setNote] = useState(() => getMistakeNote(uid, row.question.id, track)?.note ?? '');
+  const currentTag = getMistakeNote(uid, row.question.id, track)?.tag;
 
   function selectTag(tag: MistakeTag) {
-    setMistakeTag(uid, row.question.id, currentTag === tag ? null : tag);
+    setMistakeTag(uid, row.question.id, currentTag === tag ? null : tag, track);
   }
 
   function commitNote() {
-    setMistakeNote(uid, row.question.id, note);
+    setMistakeNote(uid, row.question.id, note, track);
   }
 
   return (

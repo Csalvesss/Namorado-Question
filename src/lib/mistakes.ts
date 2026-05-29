@@ -2,6 +2,8 @@ const STORAGE_PREFIX = 'guava.mistakes.';
 
 export const MISTAKES_CHANGE_EVENT = 'guava:mistakes-change';
 
+type Track = 'medicina' | 'odonto';
+
 export type MistakeTag =
   | 'nao-sabia'
   | 'leu-errado'
@@ -38,28 +40,51 @@ function emitChange() {
   }
 }
 
-function key(uid: string): string {
+function key(uid: string, track: Track): string {
+  return `${STORAGE_PREFIX}${uid}::${track}`;
+}
+
+function legacyKey(uid: string): string {
   return STORAGE_PREFIX + uid;
 }
 
-function loadAll(uid: string): Record<string, MistakeNote> {
+function loadAll(uid: string, track: Track): Record<string, MistakeNote> {
   try {
-    return JSON.parse(localStorage.getItem(key(uid)) ?? '{}');
+    const newKey = key(uid, track);
+    const raw = localStorage.getItem(newKey);
+    if (raw) return JSON.parse(raw);
+    if (track === 'medicina') {
+      const legacy = localStorage.getItem(legacyKey(uid));
+      if (legacy) {
+        localStorage.setItem(newKey, legacy);
+        return JSON.parse(legacy);
+      }
+    }
+    return {};
   } catch {
     return {};
   }
 }
 
-function saveAll(uid: string, data: Record<string, MistakeNote>) {
-  localStorage.setItem(key(uid), JSON.stringify(data));
+function saveAll(uid: string, track: Track, data: Record<string, MistakeNote>) {
+  localStorage.setItem(key(uid, track), JSON.stringify(data));
 }
 
-export function getMistakeNote(uid: string, questionId: string): MistakeNote | null {
-  return loadAll(uid)[questionId] ?? null;
+export function getMistakeNote(
+  uid: string,
+  questionId: string,
+  track: Track = 'medicina',
+): MistakeNote | null {
+  return loadAll(uid, track)[questionId] ?? null;
 }
 
-export function setMistakeTag(uid: string, questionId: string, tag: MistakeTag | null): void {
-  const all = loadAll(uid);
+export function setMistakeTag(
+  uid: string,
+  questionId: string,
+  tag: MistakeTag | null,
+  track: Track = 'medicina',
+): void {
+  const all = loadAll(uid, track);
   const existing = all[questionId] ?? { questionId, updatedAt: Date.now() };
   if (tag === null) {
     delete existing.tag;
@@ -72,12 +97,17 @@ export function setMistakeTag(uid: string, questionId: string, tag: MistakeTag |
   } else {
     all[questionId] = existing;
   }
-  saveAll(uid, all);
+  saveAll(uid, track, all);
   emitChange();
 }
 
-export function setMistakeNote(uid: string, questionId: string, note: string): void {
-  const all = loadAll(uid);
+export function setMistakeNote(
+  uid: string,
+  questionId: string,
+  note: string,
+  track: Track = 'medicina',
+): void {
+  const all = loadAll(uid, track);
   const existing = all[questionId] ?? { questionId, updatedAt: Date.now() };
   const trimmed = note.trim();
   if (!trimmed) {
@@ -91,7 +121,7 @@ export function setMistakeNote(uid: string, questionId: string, note: string): v
   } else {
     all[questionId] = existing;
   }
-  saveAll(uid, all);
+  saveAll(uid, track, all);
   emitChange();
 }
 
@@ -101,8 +131,12 @@ export interface MistakeStats {
   total: number;
 }
 
-export function statsForQuestions(uid: string, questionIds: string[]): MistakeStats {
-  const all = loadAll(uid);
+export function statsForQuestions(
+  uid: string,
+  questionIds: string[],
+  track: Track = 'medicina',
+): MistakeStats {
+  const all = loadAll(uid, track);
   const byTag: Record<MistakeTag, number> = {
     'nao-sabia': 0,
     'leu-errado': 0,

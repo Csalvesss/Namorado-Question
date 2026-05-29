@@ -140,8 +140,8 @@ export default function Home() {
         .forEach((card) => allCardIds.push(card.id));
     });
     if (allCardIds.length === 0) return 0;
-    return listDueCards(user.uid, allCardIds).length;
-  }, [user, courses, coursesTick]);
+    return listDueCards(user.uid, allCardIds, Date.now(), userTrack).length;
+  }, [user, courses, coursesTick, userTrack]);
 
   const completed = sessions.filter((s) => s.completedAt);
   const totalQuestions = completed.reduce((acc, s) => acc + s.answers.length, 0);
