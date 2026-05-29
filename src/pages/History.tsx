@@ -1,8 +1,10 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { ChevronRight } from 'lucide-react';
 import BarChart from '../components/BarChart';
 import EmptyState from '../components/EmptyState';
 import Eyebrow from '../components/ui/Eyebrow';
+import { modeConfig } from '../lib/quiz';
 import { useSessions } from '../lib/useSessions';
 
 const MONTHS_PT_SHORT = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
@@ -36,10 +38,11 @@ export default function History() {
       <div className="mx-auto w-full max-w-5xl px-6 py-14 sm:px-10 sm:py-20 lg:px-20">
         <Eyebrow>seu caminho</Eyebrow>
         <h1 className="mt-4 font-display font-light leading-[1.05] text-ink text-[clamp(2.5rem,7vw,4.5rem)]">
-          Histórico
+          Histórico de provas
         </h1>
         <p className="mt-4 max-w-xl font-body text-lg italic leading-relaxed text-mute">
-          como você vem indo, prova após prova.
+          toda prova que você fecha fica guardada aqui. toca em qualquer uma para rever o gabarito,
+          a explicação de cada questão e a dica do professor.
         </p>
 
         {sessions.length === 0 ? (
@@ -47,7 +50,7 @@ export default function History() {
             <EmptyState
               illustration="compass"
               title="Sem provas finalizadas ainda"
-              description="O histórico aparece aqui depois da sua primeira prova. Cada uma marca o caminho."
+              description="O histórico aparece aqui depois da sua primeira prova. Cada uma fica salva com gabarito completo para você revisar quando quiser."
               action={
                 <Link to="/cursos" className="btn-primary">
                   estudar agora
@@ -67,29 +70,46 @@ export default function History() {
               </div>
             </div>
 
-            {/* Provas recentes */}
-            <div className="card mt-6 p-7 sm:p-10">
-              <Eyebrow>provas recentes</Eyebrow>
-              <ul className="mt-5">
-                {sessions.slice(0, 12).map((s) => {
+            {/* Provas recentes — cada uma abre o gabarito comentado */}
+            <div className="card mt-6 p-5 sm:p-8">
+              <div className="px-2 sm:px-2">
+                <Eyebrow>todas as provas</Eyebrow>
+              </div>
+              <ul className="mt-4">
+                {sessions.map((s) => {
                   const pct = s.total > 0 ? Math.round((s.score / s.total) * 100) : 0;
                   const date = new Date(s.completedAt ?? s.startedAt);
                   const day = String(date.getDate()).padStart(2, '0');
                   const month = MONTHS_PT_SHORT[date.getMonth()].toUpperCase();
+                  const pctTone =
+                    pct >= 80 ? 'text-wine-deep' : pct >= 50 ? 'text-wine' : 'text-ink-soft';
                   return (
-                    <li
-                      key={s.id}
-                      className="flex items-center gap-6 border-b border-line/70 py-5 last:border-b-0"
-                    >
-                      <span className="w-16 shrink-0 font-display text-[11px] uppercase tracking-[0.2em] text-mute">
-                        {day} {month}
-                      </span>
-                      <span className="min-w-0 flex-1 truncate font-display text-lg italic text-ink">
-                        {s.courseTitle}
-                      </span>
-                      <span className="shrink-0 font-display text-lg italic text-wine">
-                        {pct}%
-                      </span>
+                    <li key={s.id}>
+                      <Link
+                        to={`/historico/prova/${s.id}`}
+                        className="group flex items-center gap-4 rounded-2xl border border-transparent px-3 py-4 transition hover:border-line hover:bg-blush/40 sm:gap-6"
+                      >
+                        <span className="w-12 shrink-0 text-center font-display text-[11px] uppercase leading-tight tracking-[0.16em] text-mute">
+                          {day}
+                          <br />
+                          {month}
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block truncate font-display text-lg italic text-ink">
+                            {s.courseTitle}
+                          </span>
+                          <span className="mt-0.5 block font-body text-[12px] italic text-mute">
+                            {modeConfig(s.mode).label} · {s.score}/{s.total} acertos
+                          </span>
+                        </span>
+                        <span className={`shrink-0 font-display text-xl italic ${pctTone}`}>
+                          {pct}%
+                        </span>
+                        <ChevronRight
+                          className="h-4 w-4 shrink-0 text-mute transition group-hover:translate-x-0.5 group-hover:text-wine"
+                          strokeWidth={2}
+                        />
+                      </Link>
                     </li>
                   );
                 })}
