@@ -114,14 +114,24 @@ export default function Profile() {
               onChange={(e) => setName(e.target.value)}
             />
             <Field id="email" label="e-mail" readonlyValue={user.email} />
-            <Field
-              id="partner"
-              label="nome do seu namorado(a)"
-              value={partner}
-              onChange={(e) => setPartner(e.target.value)}
-              placeholder="quem assina os bilhetes (ex: César)"
-              hint="aparece como assinatura nos bilhetes no modo namorado. No modo irmão a assinatura é sempre 'irmão'."
-            />
+            {currentMode !== 'doutora' && (
+              <Field
+                id="partner"
+                label={
+                  currentMode === 'irmao'
+                    ? 'nome do seu irmão'
+                    : 'nome do seu namorado(a)'
+                }
+                value={partner}
+                onChange={(e) => setPartner(e.target.value)}
+                placeholder={
+                  currentMode === 'irmao'
+                    ? 'quem assina os bilhetes (ex: João)'
+                    : 'quem assina os bilhetes (ex: César)'
+                }
+                hint="aparece como assinatura nos bilhetes. se deixar em branco, usa um nome genérico."
+              />
+            )}
           </div>
 
           {saveError && (
