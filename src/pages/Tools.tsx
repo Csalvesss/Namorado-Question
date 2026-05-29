@@ -3,6 +3,7 @@ import {
   BookOpen,
   Calculator,
   Droplet,
+  FileSignature,
   Heart,
   Mail,
   Moon,
@@ -64,6 +65,13 @@ export default function Tools() {
               variant="wine"
             />
             <ToolCard
+              to="/receituario"
+              icon={FileSignature}
+              title="Receituário Guiado"
+              description="Você monta a receita completa (medicamento, dose, intervalo, duração, orientações). Engine valida campo a campo."
+              variant="wine"
+            />
+            <ToolCard
               to="/calculadoras"
               icon={Syringe}
               title="Dose máx anestésico"
@@ -117,6 +125,18 @@ export default function Tools() {
               icon={Shuffle}
               title="Modo intercalado"
               description="Cenários sorteados entre os 6 cursos odonto. Treina discriminação entre classes parecidas."
+            />
+            <ToolCard
+              to="/simulacoes-odonto"
+              icon={Siren}
+              title="Simulações de consultório"
+              description="Casos clínicos imersivos do consultório (cardiopata + extração, gestante com dor, criança ansiosa). Em construção."
+            />
+            <ToolCard
+              to="/algoritmos-odonto"
+              icon={Workflow}
+              title="Algoritmos clínicos"
+              description="Fluxogramas: anticoagulado, profilaxia endocardite, abscesso com celulite, escalonamento de ATB. Em construção."
             />
           </div>
         ) : (

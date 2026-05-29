@@ -22,6 +22,8 @@ import StudyPlan from './pages/StudyPlan';
 import BilheteBancada from './pages/BilheteBancada';
 import CadeiraAnsiosa from './pages/CadeiraAnsiosa';
 import CalculoTubetes from './pages/CalculoTubetes';
+import OdontoEmBreve from './pages/OdontoEmBreve';
+import Receituario from './pages/Receituario';
 import Tools from './pages/Tools';
 import Welcome from './pages/Welcome';
 
@@ -47,6 +49,9 @@ export default function App() {
         <Route path="/cadeira-ansiosa" element={<CadeiraAnsiosa />} />
         <Route path="/calculo-tubetes" element={<CalculoTubetes />} />
         <Route path="/bilhete-bancada" element={<BilheteBancada />} />
+        <Route path="/receituario" element={<Receituario />} />
+        <Route path="/simulacoes-odonto" element={<OdontoEmBreve />} />
+        <Route path="/algoritmos-odonto" element={<OdontoEmBreve />} />
         <Route path="/passa-facil" element={<QuickReview />} />
         <Route path="/casos" element={<Cases />} />
         <Route path="/casos/:caseId" element={<CaseSimulator />} />
