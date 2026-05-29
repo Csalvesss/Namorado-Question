@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, Navigate, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
-import { signIn, signUp } from '../lib/auth';
+import { patchProfile, signIn, signUp } from '../lib/auth';
 import { useUser } from '../lib/useUser';
 
 type Mode = 'signin' | 'signup';
@@ -45,6 +45,17 @@ export default function Login() {
     if (!result.ok) {
       setError(result.error);
       return;
+    }
+    // Se a usuária chegou aqui via Welcome → trilha X, garante que o
+    // perfil tá nessa trilha (signIn não muda track sozinho — usuária
+    // existente que escolheu odonto no Welcome estava entrando como
+    // medicina). Patch só se diferente.
+    if (trackParam && result.user.track !== track) {
+      try {
+        await patchProfile({ track });
+      } catch (err) {
+        console.error('falha ao atualizar trilha pós-login:', err);
+      }
     }
     const from = (location.state as { from?: string } | null)?.from ?? '/app';
     navigate(from, { replace: true });

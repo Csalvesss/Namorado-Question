@@ -84,13 +84,15 @@ export const FINAL_LOW_DOUTORA = [
 ];
 
 // ============================================================
-// MODO IRMÃO — carinhoso com zoeira, engraçado, parça
+// MODO IRMÃO — carinhoso com zoeira inteligente, brincadeira, apoio
+// (sem palavrão, sem slang pesado — tom de irmão mais velho que zoa
+// mas torce muito)
 // ============================================================
 
 export const RIGHT_PHRASES_IRMAO = [
-  'Boa, mana. Você é foda mesmo.',
+  'Boa, mana. Você é fera mesmo.',
   'Acertou, sua nerd metida. Continua assim.',
-  'Mata essa, irmã. Tô orgulhoso aqui.',
+  'Mandou bem, irmã. Tô orgulhoso aqui.',
   'Caraca, isso foi quase injusto de tão fácil pra você.',
   'Tu não erra, hein? Vou começar a colar nas suas respostas.',
   'Eita, mandou bem demais. Vai pagar minha conta hoje, né?',
@@ -102,28 +104,28 @@ export const RIGHT_PHRASES_IRMAO = [
 
 export const WRONG_PHRASES_IRMAO = [
   'Calma, mana. Erra hoje pra não errar na prova de verdade.',
-  'Foi mal, irmã, tu deu ruim nessa. Mas tá tudo bem.',
+  'Foi mal, irmã, deu ruim nessa. Mas tá tudo bem.',
   'Ó o tropeço, hein? Bora ler de novo que tu pega.',
   'Erro de quem tá estudando. Quem não estuda nem erra.',
   'Respira fundo, mana. A próxima é tua, juro.',
   'Eita, vacilou. Mas é vacilo pequeno, dá pra arrumar.',
-  'Calma aí, doutora — quase. Próxima a gente acerta.',
+  'Calma aí — quase. Próxima a gente acerta.',
   'Errou bonito, com convicção. Agora vê a explicação.',
   'Foi mal, irmã. Esse aí tava pegadinho.',
   'Tropeçou mas não caiu. Bora.',
 ];
 
 export const FINAL_HIGH_IRMAO = [
-  'Irmã, você arrebenta. Quando tu virar médica eu vou me consultar contigo de graça, né?',
-  'Mata aula, mana, tu já sabe. Pode dormir tranquila.',
+  'Irmã, você arrebenta. Quando virar profissional eu me consulto contigo de graça, né?',
+  'Tu sabe demais, mana. Pode dormir tranquila.',
   'Boa demais, parça. Tô com inveja saudável.',
-  'Tu é nojenta de inteligente. Continua.',
+  'Tu é genial demais. Continua.',
   'Vai ter que dividir o crédito da prova com quem te aturou estudando (eu).',
 ];
 
 export const FINAL_MED_IRMAO = [
   'Tá indo, mana. Não é o auge ainda mas tá no caminho.',
-  'Razoável, doutora. Próxima rodada a gente afina.',
+  'Razoável, parça. Próxima rodada a gente afina.',
   'Não tá ruim, irmã. Falta polir uns detalhes.',
   'Foi bom, foi. Só não foi excelente. Bora pra outra.',
   'Tô vendo evolução, mana. Sem desespero.',

@@ -104,6 +104,38 @@ export default function Calculators() {
         track: 'odonto',
         render: () => <AnestesicoTool />,
       },
+      {
+        id: 'vasoconstritor',
+        name: 'Conversor de vasoconstritor',
+        short: 'µg de epinefrina por tubete (1:100.000 vs 1:200.000) e limite por comorbidade cardiovascular.',
+        Icon: Droplets,
+        track: 'odonto',
+        render: () => <VasoconstritorTool />,
+      },
+      {
+        id: 'profilaxia',
+        name: 'Profilaxia de endocardite',
+        short: 'amoxicilina 50 mg/kg até 2 g 30-60 min antes (ou clindamicina 600 mg se alérgico) — checklist AHA 2021.',
+        Icon: Heart,
+        track: 'odonto',
+        render: () => <ProfilaxiaEndocarditeTool />,
+      },
+      {
+        id: 'pediatrico',
+        name: 'Dose pediátrica',
+        short: 'amox, paracetamol, ibuprofeno e dipirona por peso, com conversão automática para suspensão (mL).',
+        Icon: Calculator,
+        track: 'odonto',
+        render: () => <PediatricoTool />,
+      },
+      {
+        id: 'anticoagulado',
+        name: 'Paciente anticoagulado',
+        short: 'decisão de manter/suspender varfarina por INR, manejo de DOAC + bochecho de ácido tranexâmico.',
+        Icon: Activity,
+        track: 'odonto',
+        render: () => <AnticoaguladoTool />,
+      },
     ],
     [],
   );
@@ -823,6 +855,482 @@ function AnestesicoTool() {
           </p>
         </>
       )}
+    </div>
+  );
+}
+
+// ============================================================
+// ODONTO — Conversor de vasoconstritor (epinefrina)
+// ============================================================
+
+function VasoconstritorTool() {
+  const [concentration, setConcentration] = useState<'100k' | '200k'>('100k');
+  const [tubetes, setTubetes] = useState('1');
+  const [asa, setAsa] = useState<'saudavel' | 'estavel' | 'descomp'>('saudavel');
+
+  const ugPerMl = concentration === '100k' ? 10 : 5;
+  const ugPerTubete = ugPerMl * 1.8;
+  const n = parseFloat(tubetes);
+  const totalUg = !isNaN(n) && n >= 0 ? n * ugPerTubete : 0;
+
+  const limitUg = asa === 'saudavel' ? 200 : asa === 'estavel' ? 40 : 0;
+  const maxTubetes = limitUg > 0 ? limitUg / ugPerTubete : 0;
+  const exceeded = limitUg > 0 && totalUg > limitUg;
+  const tone: 'good' | 'warn' | 'bad' =
+    asa === 'descomp' ? 'bad' : exceeded ? 'bad' : asa === 'estavel' ? 'warn' : 'good';
+  const hint =
+    asa === 'descomp'
+      ? 'Cardiopata descompensado: adiar procedimento. Vasoconstritor formalmente CI.'
+      : exceeded
+        ? `Excedeu o limite (${limitUg} µg). Máx ~${maxTubetes.toFixed(1)} tubetes nesse cenário.`
+        : `Limite seguro: ${limitUg} µg (≈ ${maxTubetes.toFixed(1)} tubetes).`;
+
+  return (
+    <div className="space-y-4">
+      <div>
+        <span className="mb-1 block text-[11px] uppercase tracking-wider text-muted">
+          concentração da epinefrina
+        </span>
+        <ToggleGroup<'100k' | '200k'>
+          value={concentration}
+          onChange={setConcentration}
+          options={[
+            { label: '1:100.000 (lido/articaína padrão)', value: '100k' },
+            { label: '1:200.000 (mepivacaína 2%, opção CV)', value: '200k' },
+          ]}
+        />
+      </div>
+
+      <NumberInput
+        label="número de tubetes usados"
+        value={tubetes}
+        onChange={setTubetes}
+        step="0.5"
+        min="0"
+      />
+
+      <div>
+        <span className="mb-1 block text-[11px] uppercase tracking-wider text-muted">
+          estado cardiovascular do paciente
+        </span>
+        <ToggleGroup<'saudavel' | 'estavel' | 'descomp'>
+          value={asa}
+          onChange={setAsa}
+          options={[
+            { label: 'saudável (ASA I-II)', value: 'saudavel' },
+            { label: 'cardiopata estável (ASA III)', value: 'estavel' },
+            { label: 'descompensado', value: 'descomp' },
+          ]}
+        />
+      </div>
+
+      <ResultBox
+        label="total de epinefrina"
+        value={`${totalUg.toFixed(0)} µg`}
+        hint={hint}
+        tone={tone}
+      />
+
+      <p className="font-body text-xs italic text-mute">
+        Referência ADA: 200 µg em saudável, 40 µg em cardiopata estável. Em angina instável,
+        IAM/AVC ≤6m, arritmia ativa ou hipertireoidismo descompensado: adiar ou usar mepivacaína 3%
+        sem vasoconstritor.
+      </p>
+    </div>
+  );
+}
+
+// ============================================================
+// ODONTO — Profilaxia de endocardite (AHA 2021)
+// ============================================================
+
+function ProfilaxiaEndocarditeTool() {
+  const [indicacao, setIndicacao] = useState({
+    valva: false,
+    eiPrevia: false,
+    congenitaCianoticaNaoCorrigida: false,
+    transplantadoComValvulopatia: false,
+  });
+  const [procedimentoSangra, setProcedimentoSangra] = useState(true);
+  const [alergia, setAlergia] = useState<'nenhuma' | 'tardia' | 'imediata'>('nenhuma');
+  const [pediatrico, setPediatrico] = useState(false);
+  const [peso, setPeso] = useState('25');
+
+  const temIndicacao =
+    indicacao.valva ||
+    indicacao.eiPrevia ||
+    indicacao.congenitaCianoticaNaoCorrigida ||
+    indicacao.transplantadoComValvulopatia;
+
+  const indicada = temIndicacao && procedimentoSangra;
+
+  function regimen(): { drug: string; dose: string; note: string } {
+    if (alergia === 'imediata') {
+      // CI a beta-lactâmicos: clinda 600 mg (criança 20 mg/kg) ou azitro 500 mg
+      const dose = pediatrico
+        ? `${Math.round(parseFloat(peso) * 20)} mg VO (20 mg/kg, máx 600 mg)`
+        : '600 mg VO dose única';
+      return {
+        drug: 'Clindamicina',
+        dose,
+        note: 'Alternativa: azitromicina 500 mg VO (15 mg/kg em criança).',
+      };
+    }
+    if (alergia === 'tardia') {
+      const dose = pediatrico
+        ? `${Math.round(parseFloat(peso) * 50)} mg VO (50 mg/kg, máx 2 g)`
+        : '2 g VO dose única';
+      return {
+        drug: 'Cefalexina',
+        dose,
+        note: 'Reação cruzada com penicilina ~1% (evitar se alergia imediata).',
+      };
+    }
+    const dose = pediatrico
+      ? `${Math.round(parseFloat(peso) * 50)} mg VO (50 mg/kg, máx 2 g)`
+      : '2 g VO dose única';
+    return {
+      drug: 'Amoxicilina',
+      dose,
+      note: 'Tomar 30-60 min antes do procedimento. Dose única, sem repetição.',
+    };
+  }
+
+  const reg = regimen();
+
+  return (
+    <div className="space-y-5">
+      <div className="space-y-2">
+        <span className="mb-1 block text-[11px] uppercase tracking-wider text-muted">
+          condição cardíaca de alto risco (AHA 2021)
+        </span>
+        <CheckCard
+          label="prótese valvar (mecânica ou biológica) ou reparo com material protético"
+          value={indicacao.valva}
+          onChange={(v) => setIndicacao({ ...indicacao, valva: v })}
+          points={1}
+        />
+        <CheckCard
+          label="endocardite infecciosa prévia"
+          value={indicacao.eiPrevia}
+          onChange={(v) => setIndicacao({ ...indicacao, eiPrevia: v })}
+          points={1}
+        />
+        <CheckCard
+          label="cardiopatia congênita cianótica não corrigida (ou corrigida há <6m)"
+          value={indicacao.congenitaCianoticaNaoCorrigida}
+          onChange={(v) =>
+            setIndicacao({ ...indicacao, congenitaCianoticaNaoCorrigida: v })
+          }
+          points={1}
+        />
+        <CheckCard
+          label="transplantado cardíaco com valvulopatia adquirida"
+          value={indicacao.transplantadoComValvulopatia}
+          onChange={(v) =>
+            setIndicacao({ ...indicacao, transplantadoComValvulopatia: v })
+          }
+          points={1}
+        />
+      </div>
+
+      <CheckCard
+        label="procedimento envolve manipulação de gengiva, periápice ou perfuração de mucosa oral (sangramento esperado)"
+        value={procedimentoSangra}
+        onChange={setProcedimentoSangra}
+        points={1}
+      />
+
+      <div>
+        <span className="mb-1 block text-[11px] uppercase tracking-wider text-muted">
+          alergia à penicilina
+        </span>
+        <ToggleGroup<'nenhuma' | 'tardia' | 'imediata'>
+          value={alergia}
+          onChange={setAlergia}
+          options={[
+            { label: 'nenhuma', value: 'nenhuma' },
+            { label: 'tardia (rash leve, há anos)', value: 'tardia' },
+            { label: 'imediata (urticária, anafilaxia)', value: 'imediata' },
+          ]}
+        />
+      </div>
+
+      <div>
+        <span className="mb-1 block text-[11px] uppercase tracking-wider text-muted">
+          paciente
+        </span>
+        <ToggleGroup<'adulto' | 'pediatrico'>
+          value={pediatrico ? 'pediatrico' : 'adulto'}
+          onChange={(v) => setPediatrico(v === 'pediatrico')}
+          options={[
+            { label: 'adulto', value: 'adulto' },
+            { label: 'pediátrico (até 40 kg)', value: 'pediatrico' },
+          ]}
+        />
+      </div>
+
+      {pediatrico && (
+        <NumberInput label="peso da criança" unit="kg" value={peso} onChange={setPeso} step="1" min="1" />
+      )}
+
+      {indicada ? (
+        <ResultBox
+          label={`indicada — ${reg.drug}`}
+          value={reg.dose}
+          hint={reg.note}
+          tone="warn"
+        />
+      ) : temIndicacao ? (
+        <ResultBox
+          label="NÃO indicada"
+          value="procedimento sem sangramento"
+          hint="Indicação cardíaca presente, mas profilaxia só é necessária se há manipulação gengival/periápice/mucosa."
+          tone="good"
+        />
+      ) : (
+        <ResultBox
+          label="NÃO indicada"
+          value="sem condição cardíaca de risco"
+          hint="A maioria dos pacientes (HAS isolada, sopro funcional, marcapasso, mitral prolapso simples, etc.) NÃO precisa de profilaxia."
+          tone="good"
+        />
+      )}
+    </div>
+  );
+}
+
+// ============================================================
+// ODONTO — Dose pediátrica de analgésicos / antibióticos
+// ============================================================
+
+interface PedDrugSpec {
+  id: string;
+  label: string;
+  mgPerKg: number;
+  intervalHoras: number;
+  suspensaoConc: string;
+  suspensaoMgPer5ml: number;
+  ceiling?: number; // mg por dose
+  notes?: string;
+}
+
+const PED_DRUGS: PedDrugSpec[] = [
+  {
+    id: 'amox',
+    label: 'Amoxicilina (infecção leve)',
+    mgPerKg: 50, // 50 mg/kg/dia ÷ 8/8h
+    intervalHoras: 8,
+    suspensaoConc: '250 mg / 5 mL',
+    suspensaoMgPer5ml: 250,
+    notes: 'Dose total diária 40-50 mg/kg/dia ÷ 8/8h. Em moderada-grave: 80-90 mg/kg/dia.',
+  },
+  {
+    id: 'paracet',
+    label: 'Paracetamol',
+    mgPerKg: 15, // 15 mg/kg por dose, 6/6h
+    intervalHoras: 6,
+    suspensaoConc: '200 mg/mL (gotas)',
+    suspensaoMgPer5ml: 1000, // 200 mg/mL × 5 mL pra cálculo mas usaremos gotas
+    notes: '15 mg/kg por dose, 6/6h. Apresentação gotas: 200 mg/mL → 1 gota = ~10 mg.',
+  },
+  {
+    id: 'ibu',
+    label: 'Ibuprofeno',
+    mgPerKg: 10, // 10 mg/kg por dose, 8/8h
+    intervalHoras: 8,
+    suspensaoConc: '50 mg/mL (gotas) ou 100 mg/5mL (xarope)',
+    suspensaoMgPer5ml: 100,
+    ceiling: 600,
+    notes: '10 mg/kg por dose, 8/8h, máx 600 mg/dose. Após refeição, hidratado.',
+  },
+  {
+    id: 'dipi',
+    label: 'Dipirona',
+    mgPerKg: 25, // 25 mg/kg por dose, 6/6h
+    intervalHoras: 6,
+    suspensaoConc: '500 mg/mL (gotas) ou 50 mg/mL (xarope)',
+    suspensaoMgPer5ml: 250,
+    notes: '25 mg/kg por dose, 6/6h. Gotas: 500 mg/mL → 1 gota = ~25 mg.',
+  },
+];
+
+function PediatricoTool() {
+  const [drugId, setDrugId] = useState('amox');
+  const [peso, setPeso] = useState('20');
+
+  const drug = PED_DRUGS.find((d) => d.id === drugId)!;
+  const w = parseFloat(peso);
+  const valid = !isNaN(w) && w > 0;
+
+  // Para amox, mgPerKg é por DIA dividido em /8h → dose por toma = mgPerKg*peso/3
+  // Para os outros, mgPerKg é por DOSE direta
+  const isAmox = drug.id === 'amox';
+  const dosePorTomaRaw = isAmox ? (w * drug.mgPerKg) / 3 : w * drug.mgPerKg;
+  const dosePorToma = drug.ceiling ? Math.min(dosePorTomaRaw, drug.ceiling) : dosePorTomaRaw;
+  const mlPorToma = (dosePorToma / drug.suspensaoMgPer5ml) * 5;
+
+  return (
+    <div className="space-y-4">
+      <div>
+        <span className="mb-1 block text-[11px] uppercase tracking-wider text-muted">
+          fármaco
+        </span>
+        <select
+          value={drugId}
+          onChange={(e) => setDrugId(e.target.value)}
+          className="input-elegant"
+        >
+          {PED_DRUGS.map((d) => (
+            <option key={d.id} value={d.id}>
+              {d.label}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <NumberInput label="peso da criança" unit="kg" value={peso} onChange={setPeso} step="1" min="1" />
+
+      {valid && (
+        <>
+          <ResultBox
+            label={`dose por toma (${drug.intervalHoras}/${drug.intervalHoras}h)`}
+            value={`${Math.round(dosePorToma)} mg`}
+            hint={`${mlPorToma.toFixed(1)} mL da suspensão ${drug.suspensaoConc}`}
+          />
+          {drug.notes && (
+            <p className="font-body text-xs italic text-mute">{drug.notes}</p>
+          )}
+        </>
+      )}
+    </div>
+  );
+}
+
+// ============================================================
+// ODONTO — Paciente anticoagulado (decisão de extração)
+// ============================================================
+
+function AnticoaguladoTool() {
+  const [tipo, setTipo] = useState<'varfarina' | 'doac' | 'antiagregante' | 'heparina'>('varfarina');
+  const [inr, setInr] = useState('2.5');
+  const [procedimento, setProcedimento] = useState<'simples' | 'multi' | 'cirurgico'>('simples');
+
+  function recommendation(): { headline: string; tone: 'good' | 'warn' | 'bad'; detail: string } {
+    if (tipo === 'varfarina') {
+      const inrVal = parseFloat(inr);
+      const validInr = !isNaN(inrVal);
+      if (!validInr) {
+        return {
+          headline: 'Aguardando INR',
+          tone: 'warn',
+          detail: 'Pedir INR de até 24-72h antes do procedimento.',
+        };
+      }
+      if (inrVal > 4) {
+        return {
+          headline: 'NÃO operar agora',
+          tone: 'bad',
+          detail: `INR ${inrVal} está acima da faixa. Discutir com cardio/clínico que segue o paciente — ajustar dose, reavaliar em 2-3 dias.`,
+        };
+      }
+      if (procedimento === 'simples' && inrVal <= 3.5) {
+        return {
+          headline: 'MANTER varfarina + medidas locais',
+          tone: 'good',
+          detail: `INR ${inrVal} dentro da faixa. Sutura, esponja de gelatina no alvéolo, bochecho de ácido tranexâmico 4,8-5% 4x/dia por 2 dias. NÃO suspender (risco trombótico > hemorrágico).`,
+        };
+      }
+      if (procedimento === 'multi' || procedimento === 'cirurgico') {
+        return {
+          headline: 'Discutir com médico assistente',
+          tone: 'warn',
+          detail: `Procedimento ${procedimento === 'cirurgico' ? 'cirúrgico extenso' : 'múltiplas extrações'}: avaliar suspensão temporária ou bridging com HBPM. Não suspender por conta própria.`,
+        };
+      }
+      return {
+        headline: 'MANTER + medidas locais',
+        tone: 'good',
+        detail: `INR ${inrVal}. Operar com gelatina + tranexâmico bochecho.`,
+      };
+    }
+    if (tipo === 'doac') {
+      if (procedimento === 'simples') {
+        return {
+          headline: 'PULAR a dose da manhã',
+          tone: 'warn',
+          detail:
+            'Apixabana/rivaroxabana/dabigatrana: pular a dose pré-procedimento da manhã, fazer extração, retomar 6h depois se hemostasia adequada. NÃO usar INR (DOAC não monitora por INR).',
+        };
+      }
+      return {
+        headline: 'Discutir com cardio',
+        tone: 'bad',
+        detail:
+          'DOAC + cirurgia de alto risco: suspender 24-48h antes (depende do ClCr e do fármaco). Sempre alinhar com o cardiologista assistente.',
+      };
+    }
+    if (tipo === 'antiagregante') {
+      return {
+        headline: 'MANTER AAS / clopidogrel',
+        tone: 'good',
+        detail:
+          'Antiagregante isolado em extração simples: manter. Risco de evento isquêmico ao suspender supera o sangramento. Medidas locais resolvem.',
+      };
+    }
+    return {
+      headline: 'Cuidado individualizado',
+      tone: 'warn',
+      detail:
+        'HBPM em uso terapêutico: alinhar com médico. Profilática (40 mg/dia SC): geralmente pode manter.',
+    };
+  }
+
+  const rec = recommendation();
+
+  return (
+    <div className="space-y-4">
+      <div>
+        <span className="mb-1 block text-[11px] uppercase tracking-wider text-muted">
+          o que o paciente está usando
+        </span>
+        <ToggleGroup<'varfarina' | 'doac' | 'antiagregante' | 'heparina'>
+          value={tipo}
+          onChange={setTipo}
+          options={[
+            { label: 'varfarina (Marevan)', value: 'varfarina' },
+            { label: 'DOAC (apixab/rivarox/dabig)', value: 'doac' },
+            { label: 'AAS / clopidogrel', value: 'antiagregante' },
+            { label: 'heparina (HBPM)', value: 'heparina' },
+          ]}
+        />
+      </div>
+
+      {tipo === 'varfarina' && (
+        <NumberInput label="INR" value={inr} onChange={setInr} step="0.1" min="0" />
+      )}
+
+      <div>
+        <span className="mb-1 block text-[11px] uppercase tracking-wider text-muted">
+          procedimento previsto
+        </span>
+        <ToggleGroup<'simples' | 'multi' | 'cirurgico'>
+          value={procedimento}
+          onChange={setProcedimento}
+          options={[
+            { label: 'extração simples (1 elemento)', value: 'simples' },
+            { label: 'múltiplas extrações', value: 'multi' },
+            { label: 'cirurgia extensa (siso, implante)', value: 'cirurgico' },
+          ]}
+        />
+      </div>
+
+      <ResultBox label={rec.headline} value="" hint={rec.detail} tone={rec.tone} />
+
+      <p className="font-body text-xs italic text-mute">
+        Material de apoio sempre disponível: esponja de gelatina hemostática, sutura, ácido
+        tranexâmico solução para bochecho 4,8-5%. Compressão local mantida por 30 min após.
+      </p>
     </div>
   );
 }

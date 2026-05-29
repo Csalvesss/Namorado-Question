@@ -3,11 +3,16 @@ import { Link, Navigate } from 'react-router-dom';
 import BilheteFocus from '../components/BilheteFocus';
 import Eyebrow from '../components/ui/Eyebrow';
 import NoteCard from '../components/NoteCard';
-import { BILHETES, type Bilhete } from '../data/bilhetes';
+import {
+  BILHETES,
+  BILHETES_IRMAO,
+  type Bilhete,
+} from '../data/bilhetes';
 import {
   currentBilhete,
   formatRotationCountdown,
   nextRotationIn,
+  type Tone,
 } from '../lib/bilhete';
 import { useUser } from '../lib/useUser';
 
@@ -45,12 +50,13 @@ interface FeedItem {
   timeLabel: string;
 }
 
-function buildFeed(now: number = Date.now()): FeedItem[] {
-  if (BILHETES.length === 0) return [];
+function buildFeed(tone: Tone, now: number = Date.now()): FeedItem[] {
+  const pool = tone === 'irmao' ? BILHETES_IRMAO : BILHETES;
+  if (pool.length === 0) return [];
   const baseBucket = bucketIndex(now);
   const out: FeedItem[] = [];
   for (let i = 0; i < FEED_SIZE; i++) {
-    const b = BILHETES[(baseBucket - i + BILHETES.length * 100) % BILHETES.length];
+    const b = pool[(baseBucket - i + pool.length * 100) % pool.length];
     const ts = (baseBucket - i) * FIVE_HOURS_MS;
     out.push({ bilhete: b, timeLabel: timeLabelFor(new Date(ts), i) });
   }
@@ -62,14 +68,17 @@ export default function Bilhetes() {
   const [rotationTick, setRotationTick] = useState(0);
   const [focusBilhete, setFocusBilhete] = useState<Bilhete | null>(null);
 
+  const tone: Tone =
+    user?.displayMode === 'irmao' ? 'irmao' : user?.displayMode === 'doutora' ? 'doutora' : 'namorado';
+
   useEffect(() => {
     const delay = nextRotationIn();
     const timer = setTimeout(() => setRotationTick((t) => t + 1), delay + 1000);
     return () => clearTimeout(timer);
   }, [rotationTick]);
 
-  const feed = useMemo(() => buildFeed(), [rotationTick]);
-  const current = useMemo(() => currentBilhete(), [rotationTick]);
+  const feed = useMemo(() => buildFeed(tone), [rotationTick, tone]);
+  const current = useMemo(() => currentBilhete(tone), [rotationTick, tone]);
   const nextIn = useMemo(() => formatRotationCountdown(nextRotationIn()), [rotationTick]);
 
   if (loading) return null;
@@ -77,7 +86,8 @@ export default function Bilhetes() {
     return <Navigate to="/app" replace />;
   }
 
-  const partner = user?.partnerName?.trim() || 'César';
+  const isIrmao = user?.displayMode === 'irmao';
+  const partner = user?.partnerName?.trim() || (isIrmao ? 'parça' : 'César');
 
   return (
     <section className="bg-paper">
@@ -88,7 +98,9 @@ export default function Bilhetes() {
           Bilhetes
         </h1>
         <p className="mt-4 max-w-xl font-body text-lg italic leading-relaxed text-mute">
-          recados do seu namorado pra te dar forças, doutora.
+          {isIrmao
+            ? 'recados do parça pra você não desanimar no caminho.'
+            : 'recados do seu namorado pra te dar forças, doutora.'}
         </p>
 
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -112,7 +124,7 @@ export default function Bilhetes() {
           <span>novo em {nextIn}</span>
           {(!user?.partnerName || user.partnerName.trim() === '') && (
             <Link to="/perfil" className="italic text-wine hover:text-[#5A0F22]">
-              configurar nome do namorado
+              {isIrmao ? 'configurar seu nome' : 'configurar nome do namorado'}
             </Link>
           )}
         </div>

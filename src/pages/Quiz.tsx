@@ -10,7 +10,7 @@ import CaseClinical, { type CaseState } from '../components/questions/CaseClinic
 import EcgInterpret, { type EcgState } from '../components/questions/EcgInterpret';
 import Matching, { type MatchState } from '../components/questions/Matching';
 import { ResultPanel } from '../components/ResultPanel';
-import { PROVA_BILHETES, type Bilhete } from '../data/bilhetes';
+import { PROVA_BILHETES, PROVA_BILHETES_IRMAO, type Bilhete } from '../data/bilhetes';
 import { getPhrases } from '../data/phrases';
 import { db } from '../lib/db';
 import { duration, easeOutExpo, palette } from '../lib/motion';
@@ -126,7 +126,8 @@ export default function Quiz() {
     setSession(null);
     setStartedAt(Date.now());
     if (mode === 'bilhete' && user.displayMode !== 'doutora') {
-      setProvaBilhete(PROVA_BILHETES[Math.floor(Math.random() * PROVA_BILHETES.length)]);
+      const pool = user.displayMode === 'irmao' ? PROVA_BILHETES_IRMAO : PROVA_BILHETES;
+      setProvaBilhete(pool[Math.floor(Math.random() * pool.length)]);
     } else {
       setProvaBilhete(null);
     }
@@ -302,7 +303,7 @@ export default function Quiz() {
           displayMode={displayMode}
           mode={mode}
           bilheteCount={
-            mode === 'bilhete' && displayMode === 'namorado' && provaBilhete ? 1 : 0
+            mode === 'bilhete' && displayMode !== 'doutora' && provaBilhete ? 1 : 0
           }
         />
       )}
@@ -323,7 +324,7 @@ export default function Quiz() {
           const bilheteSlot = Math.floor(questions.length / 2);
           const showBilheteAfter =
             mode === 'bilhete' &&
-            displayMode === 'namorado' &&
+            displayMode !== 'doutora' &&
             provaBilhete !== null &&
             idx === bilheteSlot - 1 &&
             idx + 1 < questions.length;
