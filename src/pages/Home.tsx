@@ -107,8 +107,15 @@ function courseProgressPct(courseId: string, sessions: QuizSession[], questionCo
 
 export default function Home() {
   const { user } = useUser();
+  const userTrack = user?.track ?? 'medicina';
   const [coursesTick, setCoursesTick] = useState(0);
-  const courses = useMemo(() => db.courses.list(), [coursesTick]);
+  const courses = useMemo(
+    () =>
+      db.courses
+        .list()
+        .filter((c) => (c.track ?? 'medicina') === userTrack),
+    [coursesTick, userTrack],
+  );
   const { sessions } = useSessions();
 
   useEffect(() => {

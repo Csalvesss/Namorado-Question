@@ -7,9 +7,11 @@ import {
   Heart,
   HeartPulse,
   Stethoscope,
+  Syringe,
   Wind,
   type LucideIcon,
 } from 'lucide-react';
+import { useUser } from '../lib/useUser';
 
 type Sex = 'M' | 'F';
 
@@ -18,18 +20,23 @@ interface ToolDef {
   name: string;
   short: string;
   Icon: LucideIcon;
+  track: 'medicina' | 'odonto';
   render: () => JSX.Element;
 }
 
 export default function Calculators() {
+  const { user } = useUser();
+  const userTrack = user?.track ?? 'medicina';
   const [active, setActive] = useState<string | null>(null);
-  const tools = useMemo<ToolDef[]>(
+  const allTools = useMemo<ToolDef[]>(
     () => [
+      // Medicina
       {
         id: 'ckd',
         name: 'CKD-EPI',
         short: 'taxa de filtração glomerular estimada (eGFR) pela equação CKD-EPI 2021.',
         Icon: Droplets,
+        track: 'medicina',
         render: () => <CkdEpiTool />,
       },
       {
@@ -37,6 +44,7 @@ export default function Calculators() {
         name: 'Wells (TVP)',
         short: 'probabilidade clínica de trombose venosa profunda.',
         Icon: Activity,
+        track: 'medicina',
         render: () => <WellsDvtTool />,
       },
       {
@@ -44,6 +52,7 @@ export default function Calculators() {
         name: 'Wells (TEP)',
         short: 'probabilidade clínica de tromboembolismo pulmonar.',
         Icon: Wind,
+        track: 'medicina',
         render: () => <WellsPeTool />,
       },
       {
@@ -51,6 +60,7 @@ export default function Calculators() {
         name: 'CHA₂DS₂-VASc',
         short: 'risco de AVC em fibrilação atrial não valvar.',
         Icon: HeartPulse,
+        track: 'medicina',
         render: () => <Cha2ds2VascTool />,
       },
       {
@@ -58,6 +68,7 @@ export default function Calculators() {
         name: 'MELD',
         short: 'gravidade de doença hepática crônica e priorização para transplante.',
         Icon: Stethoscope,
+        track: 'medicina',
         render: () => <MeldTool />,
       },
       {
@@ -65,6 +76,7 @@ export default function Calculators() {
         name: 'Glasgow',
         short: 'escala de coma de Glasgow (abertura ocular + verbal + motor).',
         Icon: Brain,
+        track: 'medicina',
         render: () => <GlasgowTool />,
       },
       {
@@ -72,6 +84,7 @@ export default function Calculators() {
         name: 'APGAR',
         short: 'avaliação do recém-nascido no 1º e 5º minuto.',
         Icon: Heart,
+        track: 'medicina',
         render: () => <ApgarTool />,
       },
       {
@@ -79,12 +92,23 @@ export default function Calculators() {
         name: 'IMC',
         short: 'índice de massa corporal com classificação.',
         Icon: Calculator,
+        track: 'medicina',
         render: () => <BmiTool />,
+      },
+      // Odonto
+      {
+        id: 'anest-local',
+        name: 'Dose máx anestésico local',
+        short: 'dose máxima e número de tubetes seguros por peso, escolhendo lidocaína, articaína, mepivacaína, prilocaína ou bupivacaína.',
+        Icon: Syringe,
+        track: 'odonto',
+        render: () => <AnestesicoTool />,
       },
     ],
     [],
   );
 
+  const tools = useMemo(() => allTools.filter((t) => t.track === userTrack), [allTools, userTrack]);
   const activeTool = tools.find((t) => t.id === active) ?? null;
 
   return (
@@ -607,6 +631,197 @@ function BmiTool() {
       </div>
       {bmi !== null && (
         <ResultBox label="IMC" value={bmi.toFixed(1)} hint={stage} tone={tone} />
+      )}
+    </div>
+  );
+}
+
+
+// ============================================================
+// ODONTO — Dose máxima de anestésico local + cálculo de tubetes
+// ============================================================
+
+interface AnestesicoSpec {
+  id: string;
+  label: string;
+  concentration: number; // % w/v
+  mgPerKg: number; // dose máx por kg
+  ceiling: number; // teto absoluto adulto
+  tubeteMl: number; // ml por tubete (1,8 padrão)
+  notes: string;
+}
+
+const ANESTESICOS: AnestesicoSpec[] = [
+  {
+    id: 'lido2',
+    label: 'Lidocaína 2% (c/ epinefrina)',
+    concentration: 2,
+    mgPerKg: 4.4,
+    ceiling: 300,
+    tubeteMl: 1.8,
+    notes: 'Tubete 1,8 mL = 36 mg. Padrão pra bloqueio do alveolar inferior.',
+  },
+  {
+    id: 'arti4',
+    label: 'Articaína 4% (c/ epinefrina)',
+    concentration: 4,
+    mgPerKg: 7,
+    ceiling: 500,
+    tubeteMl: 1.8,
+    notes: 'Tubete 1,8 mL = 72 mg. Excelente difusão óssea — preferir em infiltrativa. Evitar em bloqueio mandibular (parestesia).',
+  },
+  {
+    id: 'mepi2',
+    label: 'Mepivacaína 2% (c/ epinefrina)',
+    concentration: 2,
+    mgPerKg: 4.4,
+    ceiling: 300,
+    tubeteMl: 1.8,
+    notes: 'Tubete 1,8 mL = 36 mg. Início rápido.',
+  },
+  {
+    id: 'mepi3',
+    label: 'Mepivacaína 3% (SEM vasoconstritor)',
+    concentration: 3,
+    mgPerKg: 4.4,
+    ceiling: 300,
+    tubeteMl: 1.8,
+    notes: 'Tubete 1,8 mL = 54 mg. Para HAS descompensada, cardiopata isquêmico recente. Duração curta (~20 min em mole).',
+  },
+  {
+    id: 'prilo3',
+    label: 'Prilocaína 3% (c/ felipressina)',
+    concentration: 3,
+    mgPerKg: 6,
+    ceiling: 400,
+    tubeteMl: 1.8,
+    notes: 'Tubete 1,8 mL = 54 mg. Felipressina segura na gestante. Risco de meta-hemoglobinemia em dose alta ou G6PD.',
+  },
+  {
+    id: 'bupi05',
+    label: 'Bupivacaína 0,5% (c/ epinefrina)',
+    concentration: 0.5,
+    mgPerKg: 1.3,
+    ceiling: 90,
+    tubeteMl: 1.8,
+    notes: 'Tubete 1,8 mL = 9 mg. Longa duração (6-8h pulpar). Cardiotoxicidade em sobredose — respeitar o limite.',
+  },
+];
+
+function AnestesicoTool() {
+  const [drugId, setDrugId] = useState<string>('lido2');
+  const [weight, setWeight] = useState('70');
+  const [asa, setAsa] = useState<'saudavel' | 'comorbido'>('saudavel');
+
+  const drug = ANESTESICOS.find((d) => d.id === drugId)!;
+  const w = parseFloat(weight);
+  const valid = !isNaN(w) && w > 0;
+
+  // Cálculos
+  const doseMaxByKg = valid ? w * drug.mgPerKg : 0;
+  const doseMax = Math.min(doseMaxByKg, drug.ceiling);
+  // Em paciente com comorbidade, reduzir margem em 30%
+  const safeDose = asa === 'saudavel' ? doseMax : doseMax * 0.7;
+  const mgPerTubete = drug.concentration * 10 * drug.tubeteMl;
+  const tubetes = safeDose / mgPerTubete;
+  const tubetesInteiros = Math.floor(tubetes);
+
+  return (
+    <div className="space-y-5">
+      <div>
+        <span className="mb-2 block text-[11px] uppercase tracking-wider text-muted">
+          anestésico
+        </span>
+        <select
+          value={drugId}
+          onChange={(e) => setDrugId(e.target.value)}
+          className="input-elegant"
+        >
+          {ANESTESICOS.map((d) => (
+            <option key={d.id} value={d.id}>
+              {d.label}
+            </option>
+          ))}
+        </select>
+        <p className="mt-2 font-body text-xs italic text-mute">{drug.notes}</p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <NumberInput
+          label="peso do paciente"
+          unit="kg"
+          value={weight}
+          onChange={setWeight}
+          step="1"
+          min="1"
+        />
+        <div>
+          <span className="mb-1 block text-[11px] uppercase tracking-wider text-muted">
+            estado do paciente
+          </span>
+          <ToggleGroup<'saudavel' | 'comorbido'>
+            value={asa}
+            onChange={setAsa}
+            options={[
+              { label: 'saudável', value: 'saudavel' },
+              { label: 'cardiopata / idoso frágil', value: 'comorbido' },
+            ]}
+          />
+        </div>
+      </div>
+
+      {valid && (
+        <>
+          <ResultBox
+            label="dose máxima segura"
+            value={`${Math.round(safeDose)} mg`}
+            hint={
+              asa === 'comorbido'
+                ? `dose máx teórica ${Math.round(doseMax)} mg, reduzida ~30% pela comorbidade`
+                : `dose máx teórica = peso × ${drug.mgPerKg} mg/kg (teto ${drug.ceiling} mg)`
+            }
+            tone={asa === 'comorbido' ? 'warn' : 'good'}
+          />
+
+          <div className="rounded-2xl border border-line bg-paper-soft px-5 py-4">
+            <div className="text-[10px] uppercase tracking-wider text-muted">tubetes seguros</div>
+            <div className="mt-1 font-display text-3xl italic text-wine-deep sm:text-4xl">
+              {tubetesInteiros}{' '}
+              <span className="text-xl text-muted">
+                {tubetesInteiros === 1 ? 'tubete' : 'tubetes'}
+              </span>
+            </div>
+            <div className="mt-1 text-sm italic text-ink-soft">
+              cada tubete de 1,8 mL contém {mgPerTubete.toFixed(0)} mg. limite total ≈{' '}
+              {tubetes.toFixed(1)} tubetes.
+            </div>
+
+            {/* Visual: ícones de tubete cheios */}
+            <div className="mt-4 flex flex-wrap gap-1.5">
+              {Array.from({ length: Math.max(tubetesInteiros, 0) }).map((_, i) => (
+                <span
+                  key={i}
+                  className="inline-block h-6 w-3 rounded-sm bg-wine"
+                  title={`tubete ${i + 1}`}
+                />
+              ))}
+              {tubetes - tubetesInteiros >= 0.5 && (
+                <span
+                  className="inline-block h-6 w-3 overflow-hidden rounded-sm bg-rose-soft"
+                  title="parcial"
+                >
+                  <span className="block h-1/2 w-full bg-wine" />
+                </span>
+              )}
+            </div>
+          </div>
+
+          <p className="font-body text-xs italic text-mute">
+            Cálculo de referência. Sempre considere também o limite de vasoconstritor (epinefrina ≤
+            0,2 mg em saudável, ≤ 0,04 mg em cardiopata controlado) e o estado clínico real do
+            paciente.
+          </p>
+        </>
       )}
     </div>
   );
