@@ -4,8 +4,8 @@ import { useUser } from '../lib/useUser';
 
 /**
  * Tela inicial (pré-login OU seletor de trilha).
- * - Não logada: dois cards levam pra /login?track=X
- * - Logada: dois cards trocam a trilha ativa (patch user.track) e vai pra /app
+ * - Não logada: dois cards levam para /login?track=X
+ * - Logada: dois cards trocam a trilha ativa (patch user.track) e vai para /app
  * Mesma conta acessa as duas trilhas, dados completamente separados.
  */
 export default function Welcome() {
@@ -76,7 +76,7 @@ export default function Welcome() {
           </h1>
           <p className="mx-auto mt-5 max-w-xl font-body text-base italic leading-relaxed text-mute sm:text-lg">
             Plataforma de estudos com afeto e método.
-            <br className="hidden sm:inline" /> Selecione sua trilha pra começar.
+            <br className="hidden sm:inline" /> Selecione sua trilha para começar.
           </p>
         </div>
 

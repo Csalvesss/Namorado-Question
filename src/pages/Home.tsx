@@ -62,7 +62,7 @@ function lastCourseFromSessions(sessions: QuizSession[], courses: Course[]): Cou
     const c = courses.find((c) => c.id === s.courseId);
     if (c) return c;
   }
-  // 2) Fallback pra sessões de intercalado (courseId = '__interleaved__'):
+  // 2) Fallback para sessões de intercalado (courseId = '__interleaved__'):
   //    olha a 1ª question da sessão mais recente e descobre seu curso.
   //    Constrói o índice questionId → courseId uma vez só.
   if (sessions.length === 0 || courses.length === 0) return null;

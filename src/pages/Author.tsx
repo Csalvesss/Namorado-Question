@@ -22,7 +22,7 @@ export default function Author() {
         <h1 className="display-title-sm">Cursos</h1>
         <p className="mt-3 max-w-xl font-serif text-lg italic leading-relaxed text-ink-soft">
           os cursos que estão disponíveis no seu banco. precisa de mais? me peça novos
-          materiais e eu monto pra você.
+          materiais e eu monto para você.
         </p>
       </header>
 

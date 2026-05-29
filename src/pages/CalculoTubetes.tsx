@@ -7,7 +7,7 @@ import { useUser } from '../lib/useUser';
 
 // Versão dedicada e expandida da calculadora de anestésico local.
 // Diferença vs /calculadoras → mostra TODOS os anestésicos lado a lado
-// pra um mesmo peso, com visualização gráfica e recomendação por cenário.
+// para um mesmo peso, com visualização gráfica e recomendação por cenário.
 
 interface AnestesicoSpec {
   id: string;
@@ -139,7 +139,7 @@ export default function CalculoTubetes() {
 
         <p className="mt-4 max-w-xl font-body text-lg italic leading-relaxed text-mute">
           {isNamorado
-            ? 'pra você ver, no mesmo peso, quantos tubetes dá em cada anestésico. tubete é a unidade que conta na cadeira.'
+            ? 'para você ver, no mesmo peso, quantos tubetes dá em cada anestésico. tubete é a unidade que conta na cadeira.'
             : 'comparação lado a lado de dose máxima e número de tubetes seguros por anestésico.'}
         </p>
 

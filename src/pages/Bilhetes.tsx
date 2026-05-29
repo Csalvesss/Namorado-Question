@@ -87,7 +87,11 @@ export default function Bilhetes() {
   }
 
   const isIrmao = user?.displayMode === 'irmao';
-  const partner = user?.partnerName?.trim() || (isIrmao ? 'parça' : 'César');
+  // Em modo irmão NÃO usa partnerName (que é o namorado da usuária medicina).
+  // Voz é a do irmão — assinatura genérica de irmão/mano.
+  const partner = isIrmao
+    ? 'irmão'
+    : user?.partnerName?.trim() || 'César';
 
   return (
     <section className="bg-paper">
@@ -99,8 +103,8 @@ export default function Bilhetes() {
         </h1>
         <p className="mt-4 max-w-xl font-body text-lg italic leading-relaxed text-mute">
           {isIrmao
-            ? 'recados do parça pra você não desanimar no caminho.'
-            : 'recados do seu namorado pra te dar forças, doutora.'}
+            ? 'recados do irmão chato que torce de verdade. rolam a cada 5 horas.'
+            : 'recados do seu namorado para te dar forças, doutora.'}
         </p>
 
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -122,9 +126,9 @@ export default function Bilhetes() {
 
         <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-6 font-display text-[11px] uppercase tracking-[0.22em] text-mute">
           <span>novo em {nextIn}</span>
-          {(!user?.partnerName || user.partnerName.trim() === '') && (
+          {!isIrmao && (!user?.partnerName || user.partnerName.trim() === '') && (
             <Link to="/perfil" className="italic text-wine hover:text-[#5A0F22]">
-              {isIrmao ? 'configurar seu nome' : 'configurar nome do namorado'}
+              configurar nome do namorado
             </Link>
           )}
         </div>

@@ -8,7 +8,7 @@ import { useSessions } from '../lib/useSessions';
 const MONTHS_PT_SHORT = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
 
 function shortTitle(t: string): string {
-  // Pega a primeira palavra ou sigla útil pra label do gráfico
+  // Pega a primeira palavra ou sigla útil para label do gráfico
   const cleaned = t.replace(/[^A-Za-zÀ-ÖØ-öø-ÿ ]/g, '').trim();
   const first = cleaned.split(/[ /]+/)[0] ?? t;
   return first.toUpperCase().slice(0, 8);

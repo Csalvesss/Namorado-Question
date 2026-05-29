@@ -691,7 +691,7 @@ const ANESTESICOS: AnestesicoSpec[] = [
     mgPerKg: 4.4,
     ceiling: 300,
     tubeteMl: 1.8,
-    notes: 'Tubete 1,8 mL = 36 mg. Padrão pra bloqueio do alveolar inferior.',
+    notes: 'Tubete 1,8 mL = 36 mg. Padrão para bloqueio do alveolar inferior.',
   },
   {
     id: 'arti4',
@@ -1131,7 +1131,7 @@ const PED_DRUGS: PedDrugSpec[] = [
     mgPerKg: 15, // 15 mg/kg por dose, 6/6h
     intervalHoras: 6,
     suspensaoConc: '200 mg/mL (gotas)',
-    suspensaoMgPer5ml: 1000, // 200 mg/mL × 5 mL pra cálculo mas usaremos gotas
+    suspensaoMgPer5ml: 1000, // 200 mg/mL × 5 mL para cálculo mas usaremos gotas
     notes: '15 mg/kg por dose, 6/6h. Apresentação gotas: 200 mg/mL → 1 gota = ~10 mg.',
   },
   {

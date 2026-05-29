@@ -458,7 +458,7 @@ export default function Dashboard() {
               </h3>
             </div>
             <p className="text-sm leading-relaxed text-ink-soft">
-              Dez flashcards aleatórios, sem cobrança. Pra relembrar antes de dormir.
+              Dez flashcards aleatórios, sem cobrança. Para relembrar antes de dormir.
             </p>
           </Link>
         </div>

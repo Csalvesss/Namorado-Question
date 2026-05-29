@@ -2,7 +2,7 @@ import type { HTMLAttributes, ReactNode } from 'react';
 
 interface PageContainerProps extends HTMLAttributes<HTMLElement> {
   band?: boolean;
-  /** controla a largura máxima — default 5xl é seguro pra a maioria das telas. */
+  /** controla a largura máxima — default 5xl é seguro para a maioria das telas. */
   width?: 'md' | 'lg' | 'xl' | '2xl';
   children: ReactNode;
 }

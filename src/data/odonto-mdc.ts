@@ -71,13 +71,13 @@ export const ODONTO_CLASSES: OdontoDrugClass[] = [
     id: 'al-sem-vaso',
     name: 'AL sem vasoconstritor',
     system: 'anestesico',
-    short: 'mepi 3% — pra cardiopata',
+    short: 'mepi 3% — para cardiopata',
   },
   {
     id: 'al-felipressina',
     name: 'AL com felipressina',
     system: 'anestesico',
-    short: 'prilo 3% — pra gestante',
+    short: 'prilo 3% — para gestante',
   },
   {
     id: 'al-longa',
@@ -128,7 +128,7 @@ export const ODONTO_DRUGS: OdontoDrug[] = [
     name: 'Lidocaína 2% c/ epi',
     classId: 'al-amida-curta',
     mechanism: 'Amida, bloqueio Na⁺',
-    anchorIndication: 'Padrão pra infiltração e bloqueio do alveolar inferior',
+    anchorIndication: 'Padrão para infiltração e bloqueio do alveolar inferior',
     doseAnchor: '4,4 mg/kg, teto 300 mg adulto (8 tubetes em 60 kg)',
     redFlag: 'Tosse seca, parestesia rara em bloqueio mandibular',
     mnemonic: 'tubete 1,8 mL = 36 mg',
@@ -163,7 +163,7 @@ export const ODONTO_DRUGS: OdontoDrug[] = [
     mechanism: 'Amida sem vasoconstritor — duração ~20 min em tecido mole',
     anchorIndication: 'Cardiopata isquêmico recente, hipertenso descompensado, hipertireoideo',
     doseAnchor: '4,4 mg/kg, teto 300 mg. Tubete 1,8 mL = 54 mg',
-    redFlag: 'Curta duração — replanejar pra procedimento longo',
+    redFlag: 'Curta duração — replanejar para procedimento longo',
   },
 
   // AL felipressina
@@ -232,7 +232,7 @@ export const ODONTO_DRUGS: OdontoDrug[] = [
     name: 'Dexametasona',
     classId: 'corticoide',
     mechanism: 'Inibe fosfolipase A2 — bloqueia AA antes das PG',
-    anchorIndication: 'Pré-op pra reduzir edema e trismo em siso incluso',
+    anchorIndication: 'Pré-op para reduzir edema e trismo em siso incluso',
     doseAnchor: '4-8 mg VO/IM dose única, 1h antes',
     redFlag: 'Hiperglicemia em diabético; CI relativa em úlcera ativa',
   },
@@ -339,7 +339,7 @@ export const ODONTO_DRUGS: OdontoDrug[] = [
     mechanism: 'BZD 3-OH — conjugação direta, sem fase oxidativa',
     anchorIndication: 'Idoso, hepatopata — efeito previsível, sem metabólito ativo',
     doseAnchor: '1-2 mg VO 1-2h antes',
-    redFlag: 'Início lento (~2h) — não usar pra procedimento de última hora',
+    redFlag: 'Início lento (~2h) — não usar para procedimento de última hora',
   },
   {
     id: 'diazepam',
@@ -406,7 +406,7 @@ export const ODONTO_SCENARIOS: OdontoScenario[] = [
     correctDrugId: 'mepi3',
     drugDistractors: ['lido2', 'arti4'],
     teaching:
-      'Em cardiopata isquêmico recente (<6m) ou HAS descompensada: AL SEM vasoconstritor. Mepivacaína 3% é a clássica. Duração curta (~20 min) — replanejar pra procedimento longo.',
+      'Em cardiopata isquêmico recente (<6m) ou HAS descompensada: AL SEM vasoconstritor. Mepivacaína 3% é a clássica. Duração curta (~20 min) — replanejar para procedimento longo.',
   },
   {
     id: 'anest-bloqueio',
@@ -419,7 +419,7 @@ export const ODONTO_SCENARIOS: OdontoScenario[] = [
     correctDrugId: 'lido2',
     drugDistractors: ['mepi2', 'arti4'],
     teaching:
-      'Bloqueio do alveolar inferior (técnica de Halsted) com lidocaína 2% c/ epi. Articaína em bloqueio mandibular tem risco aumentado de parestesia — preferir lido pra essa técnica. Articaína fica reservada pra infiltrativa.',
+      'Bloqueio do alveolar inferior (técnica de Halsted) com lidocaína 2% c/ epi. Articaína em bloqueio mandibular tem risco aumentado de parestesia — preferir lido para essa técnica. Articaína fica reservada para infiltrativa.',
   },
   {
     id: 'anest-gestante',
@@ -438,13 +438,13 @@ export const ODONTO_SCENARIOS: OdontoScenario[] = [
     system: 'antiinflamatorio',
     vignette:
       'Adulto 28a, hígido, pós-exodontia complexa do siso (38 incluso). Dor moderada esperada, edema importante.',
-    question: 'Esquema pra prevenir edema/trismo?',
+    question: 'Esquema para prevenir edema/trismo?',
     correctClassId: 'corticoide',
     classDistractors: ['aine-naoselet', 'aine-cox2', 'aine-potente'],
     correctDrugId: 'dexa',
     drugDistractors: ['ibuprofeno', 'nimesulida'],
     teaching:
-      'Dexametasona 4-8 mg VO dose única 1h ANTES da cirurgia: inibe fosfolipase A2 (bloqueia AA antes das PG) → reduz edema e trismo significativamente. AINE entra DEPOIS pra dor. Cuidar em diabético.',
+      'Dexametasona 4-8 mg VO dose única 1h ANTES da cirurgia: inibe fosfolipase A2 (bloqueia AA antes das PG) → reduz edema e trismo significativamente. AINE entra DEPOIS para dor. Cuidar em diabético.',
   },
   {
     id: 'analg-gestante',
@@ -517,7 +517,7 @@ export const ODONTO_SCENARIOS: OdontoScenario[] = [
     correctDrugId: 'tranex',
     drugDistractors: ['gelatina', 'fitomena'],
     teaching:
-      'MANTER varfarina se INR estável (<3,5). Extração com técnica atraumática + sutura + gelatina + BOCHECHO de ácido tranexâmico 4,8-5%, 4×/dia por 2 dias. Suspender varfarina não é recomendado — risco trombótico > hemorrágico. Vit K só pra reversão emergencial.',
+      'MANTER varfarina se INR estável (<3,5). Extração com técnica atraumática + sutura + gelatina + BOCHECHO de ácido tranexâmico 4,8-5%, 4×/dia por 2 dias. Suspender varfarina não é recomendado — risco trombótico > hemorrágico. Vit K só para reversão emergencial.',
   },
 ];
 

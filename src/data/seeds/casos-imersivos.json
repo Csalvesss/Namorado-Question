@@ -1,6 +1,6 @@
 {
   "title": "Simulações Clínicas",
-  "description": "Casos imersivos como se você estivesse no plantão. Pressão real, decisões que pesam. Pra treinar conduta quando não dá pra adiar.",
+  "description": "Casos imersivos como se você estivesse no plantão. Pressão real, decisões que pesam. Para treinar conduta quando não dá para adiar.",
   "icon": "",
   "color": "wine",
   "questions": [
@@ -12,7 +12,7 @@
       "timeStamp": "03:14",
       "location": "Pronto-socorro · noite de sexta",
       "difficulty": "hard",
-      "vignette": "O alarme do telefone toca. Você acabou de fechar a evolução do leito 12. A enfermeira aparece na porta: 'doutora, chegou um homem de uns 50 anos pela ambulância. Tá branco, suando, dizendo que vai morrer.'\n\nVocê caminha até a sala vermelha. O paciente está sentado na maca, camisa aberta, mão esquerda apertando o esterno. Olha pra você com aquele olhar que você só viu nos casos clínicos do livro.\n\n— Doutora… começou faz uns 40 minutos. Tava na estrada, parei pra um café. A dor pega aqui no meio, abre pro braço esquerdo, parece que tem um aperto. Já vomitei duas vezes.\n\nVocê pede o ECG enquanto fala. Sinais vitais: FC 102, PA 154x92, FR 22, SpO₂ 96%. Pele fria, sudorese fria.\n\nFatores de risco: tabagismo 30 maços-ano, HAS sem tratamento, pai falecido de IAM aos 58.",
+      "vignette": "O alarme do telefone toca. Você acabou de fechar a evolução do leito 12. A enfermeira aparece na porta: 'doutora, chegou um homem de uns 50 anos pela ambulância. Tá branco, suando, dizendo que vai morrer.'\n\nVocê caminha até a sala vermelha. O paciente está sentado na maca, camisa aberta, mão esquerda apertando o esterno. Olha para você com aquele olhar que você só viu nos casos clínicos do livro.\n\n— Doutora… começou faz uns 40 minutos. Tava na estrada, parei para um café. A dor pega aqui no meio, abre pro braço esquerdo, parece que tem um aperto. Já vomitei duas vezes.\n\nVocê pede o ECG enquanto fala. Sinais vitais: FC 102, PA 154x92, FR 22, SpO₂ 96%. Pele fria, sudorese fria.\n\nFatores de risco: tabagismo 30 maços-ano, HAS sem tratamento, pai falecido de IAM aos 58.",
       "steps": [
         {
           "id": "step1",
@@ -24,7 +24,7 @@
             "Encaminhar imediatamente à hemodinâmica sem aguardar ECG"
           ],
           "correct": 0,
-          "expl": "AAS 300 mg mastigado é classe I em qualquer SCA suspeita. Monitorização + acesso + O₂ só se hipoxêmico (não rotineiro). Clopi/ticagrelor e morfina entram, mas DEPOIS de definir tipo de SCA pelo ECG. Não se espera troponina pra iniciar manejo."
+          "expl": "AAS 300 mg mastigado é classe I em qualquer SCA suspeita. Monitorização + acesso + O₂ só se hipoxêmico (não rotineiro). Clopi/ticagrelor e morfina entram, mas DEPOIS de definir tipo de SCA pelo ECG. Não se espera troponina para iniciar manejo."
         },
         {
           "id": "step2",
@@ -54,7 +54,7 @@
         },
         {
           "id": "step4",
-          "prompt": "Você está colocando a heparina quando a enfermeira grita: 'doutora, a PA caiu pra 78x40 e ele tá com bradicardia, 42 bpm'.",
+          "prompt": "Você está colocando a heparina quando a enfermeira grita: 'doutora, a PA caiu para 78x40 e ele tá com bradicardia, 42 bpm'.",
           "question": "Qual a hipótese mais provável e a conduta imediata?",
           "options": [
             "Reflexo de Bezold-Jarisch / acometimento de VD. Volume IV rápido, evitar nitrato, considerar atropina se sintomático",
@@ -63,17 +63,17 @@
             "Tamponamento cardíaco. Pericardiocentese de emergência"
           ],
           "correct": 0,
-          "expl": "IAM inferior frequentemente envolve VD (mesma irrigação por coronária direita). Hipotensão + bradicardia + IAM inferior = pensar em comprometimento de VD. Conduta: volume (cristaloide 250-500 mL), NÃO usar nitrato/morfina/diurético (vasodilatam e reduzem pré-carga), atropina se bradicardia sintomática. Sempre fazer ECG das derivações direitas (V3R, V4R) pra confirmar."
+          "expl": "IAM inferior frequentemente envolve VD (mesma irrigação por coronária direita). Hipotensão + bradicardia + IAM inferior = pensar em comprometimento de VD. Conduta: volume (cristaloide 250-500 mL), NÃO usar nitrato/morfina/diurético (vasodilatam e reduzem pré-carga), atropina se bradicardia sintomática. Sempre fazer ECG das derivações direitas (V3R, V4R) para confirmar."
         },
         {
           "id": "step5",
-          "prompt": "Hidratação iniciada, atropina 0,5 mg administrada. PA sobe pra 102x60, FC 78. Hemodinâmica liga: 'pode subir'.",
+          "prompt": "Hidratação iniciada, atropina 0,5 mg administrada. PA sobe para 102x60, FC 78. Hemodinâmica liga: 'pode subir'.",
           "question": "Como você passa o caso para o hemodinamicista (entrega segura)?",
           "options": [
             "Idade, FR, dor há 1h, ECG com supra de parede inferior + provável VD, AAS + ticagrelor + HNF feitos, episódio de hipo-bradi respondeu a volume + atropina, alergias e medicações habituais",
             "Apenas o nome do paciente e a queixa, hemodinâmica vai avaliar",
-            "Mostrar o ECG sem comentar a hipotensão, pra não preocupar a equipe",
-            "Pedir pra equipe aguardar troponina antes de subir"
+            "Mostrar o ECG sem comentar a hipotensão, para não preocupar a equipe",
+            "Pedir para equipe aguardar troponina antes de subir"
           ],
           "correct": 0,
           "expl": "Handoff estruturado salva vidas: identificação, evento agudo, tempo, exames-chave, drogas administradas (incluindo doses e horário), eventos críticos (hipotensão), comorbidades, alergias. Modelos como SBAR ou IDEAL ajudam. Nunca esconda episódios adversos da equipe que vai assumir."
@@ -89,7 +89,7 @@
       "timeStamp": "23:47",
       "location": "Pronto atendimento obstétrico",
       "difficulty": "hard",
-      "vignette": "Você acabou de evoluir o trabalho de parto do leito 3. A escriturária da triagem te chama: 'gestante esperando há uns 20 minutos, falou que tá com dor de cabeça.'\n\nVocê vai até a sala. Mulher de 28 anos, primigesta, 32 semanas pelo USG do início, sentada na cadeira com a mão na têmpora. Marido em pé do lado, segurando uma pastinha.\n\n— Doutora, começou hoje cedo. Achei que era enxaqueca, tomei dipirona, mas só piorou. Agora tá esticando o pescoço, e fica brilhando umas luzinhas no canto do olho.\n\nVocê pede pra ela deitar e mede a pressão: 184x118 mmHg. Repete depois de 5 minutos: 178x114. FC 92, FR 18, SpO₂ 98%.\n\nExame: reflexos patelares vivos (3+), edema importante em MMII (cacifo 3+), barriga indolor, BCF presente 140 bpm. Sumário de urina dipstick: proteínas 3+.",
+      "vignette": "Você acabou de evoluir o trabalho de parto do leito 3. A escriturária da triagem te chama: 'gestante esperando há uns 20 minutos, falou que tá com dor de cabeça.'\n\nVocê vai até a sala. Mulher de 28 anos, primigesta, 32 semanas pelo USG do início, sentada na cadeira com a mão na têmpora. Marido em pé do lado, segurando uma pastinha.\n\n— Doutora, começou hoje cedo. Achei que era enxaqueca, tomei dipirona, mas só piorou. Agora tá esticando o pescoço, e fica brilhando umas luzinhas no canto do olho.\n\nVocê pede para ela deitar e mede a pressão: 184x118 mmHg. Repete depois de 5 minutos: 178x114. FC 92, FR 18, SpO₂ 98%.\n\nExame: reflexos patelares vivos (3+), edema importante em MMII (cacifo 3+), barriga indolor, BCF presente 140 bpm. Sumário de urina dipstick: proteínas 3+.",
       "steps": [
         {
           "id": "step1",
@@ -140,7 +140,7 @@
             "Aguardar até a paciente acordar completamente"
           ],
           "correct": 0,
-          "expl": "Eclâmpsia é indicação de parto após estabilização materna, independente da idade gestacional. Não se prolonga gestação após convulsão. Via de parto depende das condições obstétricas (colo, apresentação, BCF). Corticoide pra maturação pulmonar entre 24-34 semanas se houver tempo."
+          "expl": "Eclâmpsia é indicação de parto após estabilização materna, independente da idade gestacional. Não se prolonga gestação após convulsão. Via de parto depende das condições obstétricas (colo, apresentação, BCF). Corticoide para maturação pulmonar entre 24-34 semanas se houver tempo."
         }
       ],
       "outcome": "Cesárea às 02:15 sob anestesia regional. RN feminino, 1.890 g, APGAR 6/8, UTIN. Mãe permanece em UTI obstétrica por 48h com MgSO₄, depois enfermaria. PA estabiliza em 140x90 com metildopa. Alta ao 5º dia com seguimento ambulatorial. Você só vai dormir às 06:00, mas com a sensação de ter feito tudo certo."
@@ -178,7 +178,7 @@
             "Azitromicina oral pela facilidade de administração"
           ],
           "correct": 0,
-          "expl": "Para crianças > 3 meses com suspeita de meningococcemia/meningite bacteriana, ceftriaxona 100 mg/kg IV (max 2g) cobre meningococo, pneumococo e Hib. Em RN < 1 mês precisa cobrir Listeria (ampicilina). Não esperar coleta de exames pra dar ATB — coletar hemoculturas em paralelo se viável."
+          "expl": "Para crianças > 3 meses com suspeita de meningococcemia/meningite bacteriana, ceftriaxona 100 mg/kg IV (max 2g) cobre meningococo, pneumococo e Hib. Em RN < 1 mês precisa cobrir Listeria (ampicilina). Não esperar coleta de exames para dar ATB — coletar hemoculturas em paralelo se viável."
         },
         {
           "id": "step3",
@@ -195,7 +195,7 @@
         },
         {
           "id": "step4",
-          "prompt": "Adrenalina iniciada. Você liga pra CTI pediátrica. Enquanto isso, a mãe pergunta: 'doutora, e os irmãos dele em casa? E a escola?'",
+          "prompt": "Adrenalina iniciada. Você liga para CTI pediátrica. Enquanto isso, a mãe pergunta: 'doutora, e os irmãos dele em casa? E a escola?'",
           "question": "O que orientar sobre profilaxia de contactantes?",
           "options": [
             "Rifampicina por 2 dias (10 mg/kg 12/12h em crianças, 600 mg 12/12h em adultos) para contatos íntimos do domicílio, creche, e profissionais de saúde com contato com secreções. Ceftriaxona IM dose única alternativa",
@@ -207,7 +207,7 @@
           "expl": "Profilaxia de contatos íntimos é mandatória em meningococcemia (notificação compulsória imediata). Rifampicina 2 dias para crianças (10 mg/kg 12/12h, max 600 mg). Ceftriaxona 250 mg IM dose única em gestantes. Ciprofloxacino 500 mg VO dose única é alternativa em adultos. Profissionais de saúde só fazem profilaxia se tiveram contato com secreções respiratórias (ex: IOT sem máscara)."
         }
       ],
-      "outcome": "Criança intubada em sala, transferida para CTIP. Diagnóstico confirmado por punção liquórica (cultura positiva pra N. meningitidis B). 5 dias intubada, evolui bem. Sequelas: amputação parcial de dois dedos do pé direito por necrose. Alta no 14º dia. Mãe e dois irmãos receberam rifampicina. Notificação SINAN realizada. Você não esquece esse plantão."
+      "outcome": "Criança intubada em sala, transferida para CTIP. Diagnóstico confirmado por punção liquórica (cultura positiva para N. meningitidis B). 5 dias intubada, evolui bem. Sequelas: amputação parcial de dois dedos do pé direito por necrose. Alta no 14º dia. Mãe e dois irmãos receberam rifampicina. Notificação SINAN realizada. Você não esquece esse plantão."
     },
     {
       "type": "case",
@@ -217,7 +217,7 @@
       "timeStamp": "14:22",
       "location": "Enfermaria cirúrgica · 3º andar",
       "difficulty": "hard",
-      "vignette": "Você está fazendo o round vespertino na enfermaria cirúrgica. A enfermeira te aborda: 'doutora, leito 308 tá com falta de ar há uns 20 minutos. É a paciente da bariátrica anteontem.'\n\nVocê vai até o quarto. Mulher de 38 anos, IMC pré-operatório 42, fez bypass em Y de Roux há 48h. Está sentada na cama, respirando rápido, com a mão no peito.\n\n— Doutora, do nada. Tava conversando com meu marido, levantei pra ir ao banheiro, e me apertou. Tô tonta, parece que vou desmaiar.\n\nSinais vitais: FC 124 · FR 32 · PA 96x58 · SpO₂ 88% em ar ambiente · Tax 37,2°C. Ausculta pulmonar: MV preservado bilateralmente, sem ruídos adventícios. Panturrilha direita levemente assimétrica, mais empastada. Ferida operatória limpa.",
+      "vignette": "Você está fazendo o round vespertino na enfermaria cirúrgica. A enfermeira te aborda: 'doutora, leito 308 tá com falta de ar há uns 20 minutos. É a paciente da bariátrica anteontem.'\n\nVocê vai até o quarto. Mulher de 38 anos, IMC pré-operatório 42, fez bypass em Y de Roux há 48h. Está sentada na cama, respirando rápido, com a mão no peito.\n\n— Doutora, do nada. Tava conversando com meu marido, levantei para ir ao banheiro, e me apertou. Tô tonta, parece que vou desmaiar.\n\nSinais vitais: FC 124 · FR 32 · PA 96x58 · SpO₂ 88% em ar ambiente · Tax 37,2°C. Ausculta pulmonar: MV preservado bilateralmente, sem ruídos adventícios. Panturrilha direita levemente assimétrica, mais empastada. Ferida operatória limpa.",
       "steps": [
         {
           "id": "step1",
@@ -233,7 +233,7 @@
         },
         {
           "id": "step2",
-          "prompt": "Você instala monitor, O₂ por máscara 6 L/min (SpO₂ sobe pra 94%). Pede ECG, gasometria, troponina, BNP e D-dímero.",
+          "prompt": "Você instala monitor, O₂ por máscara 6 L/min (SpO₂ sobe para 94%). Pede ECG, gasometria, troponina, BNP e D-dímero.",
           "question": "Em paciente de alto risco para TEP, qual exame de imagem e qual conduta sobre o D-dímero?",
           "options": [
             "Angio-TC de tórax o mais rápido possível. D-dímero perde valor em alta probabilidade (alto VPN só em probabilidade baixa/intermediária)",
@@ -242,7 +242,7 @@
             "Cintilografia V/Q como primeiro exame em qualquer caso"
           ],
           "correct": 0,
-          "expl": "Em alta probabilidade clínica para TEP, D-dímero não exclui (já é esperado positivo no pós-op). Vai direto pra imagem: angio-TC é gold standard. V/Q é alternativa se contraindicação ao contraste (IR avançada, alergia). USG Doppler ajuda mas não exclui TEP isolado pulmonar."
+          "expl": "Em alta probabilidade clínica para TEP, D-dímero não exclui (já é esperado positivo no pós-op). Vai direto para imagem: angio-TC é gold standard. V/Q é alternativa se contraindicação ao contraste (IR avançada, alergia). USG Doppler ajuda mas não exclui TEP isolado pulmonar."
         },
         {
           "id": "step3",
@@ -327,15 +327,15 @@
           "question": "O que dizer à família agora, e qual o destino do paciente?",
           "options": [
             "Explicar que é uma infecção urinária grave com choque, ele está respondendo ao tratamento mas precisa de UTI por instabilidade hemodinâmica e necessidade de drogas vasoativas",
-            "Dizer que está tudo bem e ele vai pra enfermaria comum",
+            "Dizer que está tudo bem e ele vai para enfermaria comum",
             "Falar pouco para não preocupar, esperar o quadro definir",
             "Sugerir cuidados paliativos imediatos sem discutir mais"
           ],
           "correct": 0,
-          "expl": "Comunicação clara e honesta com família é parte do cuidado: diagnóstico, gravidade, plano, prognóstico, próximos passos. Choque séptico sempre vai pra UTI mesmo se respondeu — pode descompensar novamente, exige monitorização invasiva e ajuste de drogas vasoativas. Conversa franca evita conflito posterior."
+          "expl": "Comunicação clara e honesta com família é parte do cuidado: diagnóstico, gravidade, plano, prognóstico, próximos passos. Choque séptico sempre vai para UTI mesmo se respondeu — pode descompensar novamente, exige monitorização invasiva e ajuste de drogas vasoativas. Conversa franca evita conflito posterior."
         }
       ],
-      "outcome": "Paciente transferido pra UTI às 11:30, NE retirada em 18h, ATB ajustado pra ceftriaxona após urocultura (E. coli sensível). Investigado HPB com retenção urinária; segue com sondagem de alívio + urologia. Alta no 7º dia, recupera nível mental. Voltou a contar piadas com a neta. Você documenta tudo, escreve um bom prontuário, e segue o plantão."
+      "outcome": "Paciente transferido para UTI às 11:30, NE retirada em 18h, ATB ajustado para ceftriaxona após urocultura (E. coli sensível). Investigado HPB com retenção urinária; segue com sondagem de alívio + urologia. Alta no 7º dia, recupera nível mental. Voltou a contar piadas com a neta. Você documenta tudo, escreve um bom prontuário, e segue o plantão."
     },
     {
       "type": "case",
@@ -357,7 +357,7 @@
             "Lavagem peritoneal diagnóstica imediata"
           ],
           "correct": 0,
-          "expl": "ATLS — A (Airway with cervical spine protection). Glasgow ≤ 8 é indicação de IOT (não consegue proteger via aérea). Manter colar até excluir lesão cervical com TC. Sequência rígida ABCDE existe pra não esquecer prioridade — quem morre, morre por A, B, C nessa ordem."
+          "expl": "ATLS — A (Airway with cervical spine protection). Glasgow ≤ 8 é indicação de IOT (não consegue proteger via aérea). Manter colar até excluir lesão cervical com TC. Sequência rígida ABCDE existe para não esquecer prioridade — quem morre, morre por A, B, C nessa ordem."
         },
         {
           "id": "step2",
@@ -374,7 +374,7 @@
         },
         {
           "id": "step3",
-          "prompt": "Punção feita, escape de ar, PA sobe pra 92x56. Dreno em selo d'água sendo passado. Você prossegue ao C: PA ainda baixa (90x52), abdome distendido e doloroso.",
+          "prompt": "Punção feita, escape de ar, PA sobe para 92x56. Dreno em selo d'água sendo passado. Você prossegue ao C: PA ainda baixa (90x52), abdome distendido e doloroso.",
           "question": "Próximo passo na avaliação do choque hemorrágico?",
           "options": [
             "FAST à beira do leito (líquido livre abdominal/pericárdico) + 2 acessos calibrosos + cristaloide aquecido + ácido tranexâmico (1g em 10 min) + tipagem para hemotransfusão",
@@ -387,7 +387,7 @@
         },
         {
           "id": "step4",
-          "prompt": "FAST positivo: muito líquido em hipocôndrio esquerdo e fundo de saco. PA cai pra 78x42 apesar de 2L de cristaloide. Cirurgião já está sendo chamado, hemácias O negativo pedidas.",
+          "prompt": "FAST positivo: muito líquido em hipocôndrio esquerdo e fundo de saco. PA cai para 78x42 apesar de 2L de cristaloide. Cirurgião já está sendo chamado, hemácias O negativo pedidas.",
           "question": "Conduta enquanto cirurgia se organiza?",
           "options": [
             "Protocolo de transfusão maciça (PTM): hemácias + plasma + plaquetas 1:1:1, manter PA permissiva (PAS 80-90 em trauma penetrante / 100-110 se TCE), encaminhar à sala cirúrgica",
@@ -396,7 +396,7 @@
             "Aguardar exames laboratoriais antes de transfundir"
           ],
           "correct": 0,
-          "expl": "Choque hemorrágico classe III/IV refratário a fluido → PTM imediato (1:1:1 hemácias:plasma:plaquetas). Reposição com cristaloide demais piora coagulopatia (diluição) e edema. Hipotensão permissiva (PAS 80-90) em trauma penetrante reduz sangramento. Em TCE associado, alvo é mais alto (PAS ≥ 100-110) pra perfusão cerebral."
+          "expl": "Choque hemorrágico classe III/IV refratário a fluido → PTM imediato (1:1:1 hemácias:plasma:plaquetas). Reposição com cristaloide demais piora coagulopatia (diluição) e edema. Hipotensão permissiva (PAS 80-90) em trauma penetrante reduz sangramento. Em TCE associado, alvo é mais alto (PAS ≥ 100-110) para perfusão cerebral."
         }
       ],
       "outcome": "Laparotomia exploradora às 22:35: laceração esplênica grau IV, esplenectomia. Hemotransfusão de 8 unidades de hemácias, 6 PFC, 1 pool de plaquetas. Fratura de fêmur estabilizada com tração no leito. TC de crânio sem hematoma agudo, contusões cerebrais discretas. UTI 6 dias. Quando recobra consciência, pergunta primeiro pela namorada. Você passa o caso na visita do dia seguinte com calma — sobreviveu graças ao ABCDE bem feito."

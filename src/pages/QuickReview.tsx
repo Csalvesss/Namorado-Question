@@ -48,7 +48,7 @@ export default function QuickReview() {
           </Link>
           <h1 className="font-serif text-3xl italic text-wine-deep">passa-fácil noturno</h1>
           <p className="font-serif text-base italic text-ink-soft">
-            ainda não temos flashcards no banco. quando os cursos ganharem cards, eles aparecem aqui pra uma revisão tranquila.
+            ainda não temos flashcards no banco. quando os cursos ganharem cards, eles aparecem aqui para uma revisão tranquila.
           </p>
         </div>
       </PageContainer>
@@ -135,7 +135,7 @@ export default function QuickReview() {
               <p className="mt-4 text-sm italic text-ink-soft">dica: {cur.card.hint}</p>
             )}
             <div className="mt-6 text-[11px] uppercase tracking-wider text-muted">
-              {flipped ? 'toca pra voltar' : 'toca pra virar'}
+              {flipped ? 'toca para voltar' : 'toca para virar'}
             </div>
           </button>
           <div className="flex flex-wrap items-center justify-center gap-3">

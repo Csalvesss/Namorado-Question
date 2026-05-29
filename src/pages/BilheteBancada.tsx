@@ -77,7 +77,7 @@ export default function BilheteBancada() {
 
         <p className="mt-4 max-w-xl font-body text-lg italic leading-relaxed text-mute">
           {isNamorado
-            ? 'um bilhete carinhoso a cada 5h — com uma pílula clínica anexada, pra fixar enquanto descansa.'
+            ? 'um bilhete carinhoso a cada 5h — com uma pílula clínica anexada, para fixar enquanto descansa.'
             : 'micro-revisão clínica embrulhada num recado curto. roda a cada 5 horas.'}
         </p>
 
@@ -89,7 +89,7 @@ export default function BilheteBancada() {
           </p>
           <div className="mt-5 flex items-end justify-between gap-3 border-t border-[var(--blush-stroke)] pt-4 font-display text-[11px] uppercase tracking-[0.22em] text-mute">
             <span>novo em {nextIn}</span>
-            <span className="italic text-rose">— {user?.partnerName?.trim() || (isIrmao ? 'parça' : 'César')}</span>
+            <span className="italic text-rose">— {isIrmao ? 'irmão' : user?.partnerName?.trim() || 'César'}</span>
           </div>
         </div>
 
@@ -108,7 +108,7 @@ export default function BilheteBancada() {
               onClick={() => setRevealed(true)}
               className="mt-4 flex w-full items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-line bg-paper px-6 py-8 text-center font-display italic text-mute transition hover:border-wine/40 hover:text-wine"
             >
-              <Pill className="h-4 w-4" strokeWidth={1.6} /> toca pra revelar
+              <Pill className="h-4 w-4" strokeWidth={1.6} /> toca para revelar
             </button>
           ) : (
             <>
@@ -144,8 +144,8 @@ export default function BilheteBancada() {
                       ? 'beleza, doutora. essa tá no bolso.'
                       : 'marcada como dominada.'
                     : isNamorado
-                      ? 'volta amanhã pra fechar. sem pressão.'
-                      : 'agendada pra revisão.'}
+                      ? 'volta amanhã para fechar. sem pressão.'
+                      : 'agendada para revisão.'}
                 </div>
               )}
             </>
