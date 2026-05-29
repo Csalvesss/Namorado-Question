@@ -5,9 +5,7 @@ import type {
   NotificationPermission,
 } from '../../lib/agenda-types';
 import { useUser } from '../../lib/useUser';
-// TODO(integrador): conectar à camada de copy quando o módulo existir.
-// O agente de copy expõe `renderInsight(insight, displayMode) => { title, body }`.
-// import { renderInsight } from './assistant-copy';
+import { renderInsight } from '../../data/assistant-copy';
 
 type DisplayMode = 'namorado' | 'doutora' | 'irmao';
 
@@ -63,43 +61,6 @@ function startsInLabel(startMs: number | undefined, nowMs: number): string | nul
 }
 
 // ---------------------------------------------------------------------------
-// Fallback insight copy — usado enquanto assistant-copy não chega
-// ---------------------------------------------------------------------------
-
-function fallbackInsightCopy(insight: AssistantInsight): { title: string; body: string } {
-  const code = insight.code;
-  const p = insight.params;
-  switch (code) {
-    case 'starting-soon':
-      return { title: 'próximo evento se aproxima', body: String(p.title ?? '') };
-    case 'exam-imminent':
-      return { title: 'prova nas próximas 48h', body: String(p.title ?? '') };
-    case 'exam-week-heavy':
-      return { title: 'semana de provas', body: `${p.count ?? ''} provas nos próximos dias` };
-    case 'exam-upcoming':
-      return { title: 'prova chegando', body: String(p.title ?? '') };
-    case 'conflict':
-      return { title: 'conflito de horário', body: 'dois eventos sobrepostos' };
-    case 'heavy-day':
-      return { title: 'dia cheio', body: 'várias horas de compromissos hoje' };
-    case 'free-day':
-      return { title: 'dia livre', body: 'aproveite' };
-    case 'free-block':
-      return { title: 'janela livre', body: String(p.label ?? '') };
-    case 'tip-no-exams':
-      return { title: 'sem provas no horizonte', body: 'momento bom pra revisar' };
-    case 'tip-empty-plan':
-      return { title: 'plano vazio', body: 'comece adicionando disciplinas' };
-    case 'tip-long-block':
-      return { title: 'bloco longo sem pausa', body: 'considere uma respiração' };
-    case 'tip-enable-reminders':
-      return { title: 'lembretes desativados', body: 'ative pra não esquecer nada' };
-    default:
-      return { title: 'aviso', body: '' };
-  }
-}
-
-// ---------------------------------------------------------------------------
 // Component
 // ---------------------------------------------------------------------------
 
@@ -128,7 +89,7 @@ export default function AssistantBanner({
     return sorted.find((i) => i.severity === 'urgent') ?? sorted[0];
   }, [summary.insights]);
 
-  const insightCopy = featuredInsight ? fallbackInsightCopy(featuredInsight) : null;
+  const insightCopy = featuredInsight ? renderInsight(featuredInsight, mode) : null;
 
   return (
     <section
