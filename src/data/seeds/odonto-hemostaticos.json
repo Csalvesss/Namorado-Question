@@ -1,0 +1,54 @@
+{
+  "title": "Hemostáticos e Paciente Anticoagulado",
+  "description": "Ácido tranexâmico, etamsilato, vitamina K, hemostático de fibrina, gelatina hemostática. Manejo do paciente em uso de varfarina ou DOAC.",
+  "icon": "droplet",
+  "color": "wine",
+  "track": "odonto",
+  "questions": [
+    {
+      "type": "mc",
+      "topic": "Ácido tranexâmico",
+      "q": "Paciente em uso de varfarina com INR 2,5 vai fazer extração simples. Qual o manejo hemostático apropriado?",
+      "options": [
+        "MANTER varfarina se INR estável dentro da faixa terapêutica (<3,5), realizar a extração com técnica atraumática, sutura cuidadosa, esponja de gelatina no alvéolo e BOCHECHO de ácido tranexâmico 4,8% (250 mg/5 mL) por 2 min, 4×/dia por 2 dias. Ácido tranexâmico atua inibindo a conversão de plasminogênio em plasmina (antifibrinolítico) — preserva o coágulo",
+        "Suspender varfarina por 7 dias antes — risco trombótico aceitável",
+        "Trocar por heparina e aguardar 30 dias",
+        "Encaminhar para cirurgia hospitalar — extração simples não pode ser feita em consultório"
+      ],
+      "correct": 0,
+      "expl": "Evidência atual: extração simples em paciente anticoagulado com INR estável (<3,5 ou <4 em alguns guidelines) NÃO requer suspensão da varfarina. Risco trombótico da suspensão > risco hemorrágico local. Medidas locais resolvem: sutura, gelatina, bochecho com tranexâmico. Em cirurgias maiores ou múltiplas extrações, discutir com médico assistente.",
+      "difficulty": "medium",
+      "tags": ["tranexamico", "varfarina"]
+    },
+    {
+      "type": "mc",
+      "topic": "Vitamina K",
+      "q": "Em qual cenário a fitomenadiona (vitamina K) tem papel em odontologia?",
+      "options": [
+        "Reversão de superdosagem de cumarínico (varfarina) com INR muito elevado e sangramento ativo significativo — coordenada com o médico; via oral 1-5 mg para reversão lenta, IV para sangramento grave. NÃO usar de rotina em odontologia",
+        "Hemostático tópico de rotina pós-extração",
+        "Substituto da varfarina em qualquer paciente",
+        "Tratar herpes labial"
+      ],
+      "correct": 0,
+      "expl": "Vit K (fitomenadiona) é cofator essencial pra carboxilação dos fatores II, VII, IX, X. Reverte varfarina mas demora 6-24h pra efeito completo. Em odontologia: papel limitado — situação de superdose com sangramento maior, sempre em conjunto com médico. Rotina é manejo local.",
+      "difficulty": "hard",
+      "tags": ["vitamina-k"]
+    },
+    {
+      "type": "mc",
+      "topic": "Gelatina hemostática",
+      "q": "Esponja de gelatina hemostática (ex: Hemostop, Gelfoam) atua por qual mecanismo?",
+      "options": [
+        "Hemostático LOCAL passivo: forma uma matriz porosa que retém o coágulo mecanicamente e oferece superfície para agregação plaquetária; absorvida em 4-6 semanas; combinada com sutura no alvéolo aumenta significativamente o controle do sangramento",
+        "Antifibrinolítico sistêmico que age no fígado",
+        "Vasoconstritor com epinefrina embutida",
+        "Antibiótico tópico"
+      ],
+      "correct": 0,
+      "expl": "Gelatina hemostática = matriz mecânica + superfície para coagulação. Não tem efeito sistêmico. Combinada com sutura e compressão é o padrão local em extração de paciente anticoagulado. Outras opções locais: celulose oxidada (Surgicel), colágeno microfibrilar, hemostático de fibrina (mais caro).",
+      "difficulty": "easy",
+      "tags": ["gelatina"]
+    }
+  ]
+}

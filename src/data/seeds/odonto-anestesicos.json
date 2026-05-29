@@ -1,0 +1,114 @@
+{
+  "title": "Anestésicos Locais",
+  "description": "Lidocaína, articaína, mepivacaína, prilocaína, bupivacaína. Mecanismo, escolha amida vs éster, vasoconstritor, dose máxima por peso, técnica infiltrativa e bloqueio regional.",
+  "icon": "syringe",
+  "color": "wine",
+  "track": "odonto",
+  "questions": [
+    {
+      "type": "mc",
+      "topic": "Lidocaína",
+      "q": "Sobre a lidocaína 2% com epinefrina 1:100.000, assinale a CORRETA:",
+      "options": [
+        "É anestésico amida; dose máxima 4,4 mg/kg até 300 mg; tubete 1,8 mL contém 36 mg; bloqueia canais de sódio voltagem-dependentes",
+        "É anestésico éster metabolizado por colinesterase plasmática",
+        "Tem dose máxima de 7 mg/kg, igual à articaína",
+        "Não pode ser associada a vasoconstritor"
+      ],
+      "correct": 0,
+      "expl": "Lidocaína é amida (metabolizada no fígado por CYP3A4), bloqueia canais de Na+ rápidos. Dose máxima com epi: 4,4 mg/kg, teto absoluto 300 mg em adulto saudável. Cada tubete 1,8 mL de lidocaína 2% = 36 mg (calcule: 2% = 20 mg/mL × 1,8 mL). Logo um paciente de 60 kg suporta até 300 mg / 36 mg = 8 tubetes.",
+      "difficulty": "easy",
+      "tags": ["lidocaina", "dose"]
+    },
+    {
+      "type": "mc",
+      "topic": "Articaína",
+      "q": "Articaína 4% com epinefrina apresenta perfil farmacológico distinto da lidocaína. Qual a CORRETA?",
+      "options": [
+        "Dose máxima 7 mg/kg (até 500 mg); metabolização extra-hepática por esterase plasmática (apesar de ser amida); maior risco de parestesia em bloqueio do alveolar inferior",
+        "Não pode ser usada em adultos saudáveis",
+        "Não atravessa mucosa, sendo exclusiva para via tópica",
+        "Tem mesma dose máxima que a lidocaína (4,4 mg/kg)"
+      ],
+      "correct": 0,
+      "expl": "Articaína é amida atípica com grupo éster acessório → 90% metabolizada por esterases plasmáticas (rápida inativação, baixa toxicidade sistêmica). Dose máx 7 mg/kg até 500 mg. Tubete 1,8 mL 4% = 72 mg. Maior risco de parestesia descrito em bloqueios mandibulares — preferida em infiltrativos. Excelente difusão óssea.",
+      "difficulty": "medium",
+      "tags": ["articaina"]
+    },
+    {
+      "type": "mc",
+      "topic": "Mepivacaína",
+      "q": "Mepivacaína 2% com epinefrina ou 3% SEM vasoconstritor é especialmente útil em qual cenário?",
+      "options": [
+        "Hipertenso descompensado, cardiopata isquêmico recente ou hipertireoideo — formulação 3% sem vasoconstritor permite anestesia de curta duração (~20 min) sem risco cardiovascular adicional",
+        "Cirurgia longa em paciente saudável jovem",
+        "Anestesia para bebê de 6 meses",
+        "Substituir a articaína em qualquer caso"
+      ],
+      "correct": 0,
+      "expl": "Mepivacaína 3% sem vasoconstritor é a escolha quando o vasoconstritor é contraindicado: HAS não controlada, IAM/AVC recente (<6m), arritmia instável, hipertireoidismo descompensado. Duração curta (~20 min de tecido mole). Para procedimento longo, planejar reaplicação ou trocar.",
+      "difficulty": "medium",
+      "tags": ["mepivacaina", "cardiopata"]
+    },
+    {
+      "type": "mc",
+      "topic": "Bupivacaína",
+      "q": "Bupivacaína 0,5% com epinefrina tem indicação específica em odontologia. Qual é a melhor descrição?",
+      "options": [
+        "Anestesia de longa duração (6–8h em tecido pulpar, até 12h em tecido mole) — útil em pós-operatório de cirurgia de siso ou implante; dose máx 1,3 mg/kg",
+        "Anestesia ultracurta para procedimento de 5 minutos",
+        "Sem vasoconstritor disponível comercialmente",
+        "Indicada para anestesia tópica"
+      ],
+      "correct": 0,
+      "expl": "Bupivacaína 0,5% com epi 1:200.000 = anestésico de longa duração. Ideal pra exodontia de siso, cirurgia periodontal, controle de dor pós-op nas primeiras horas. Cuidado: cardiotoxicidade grave em sobredose (mais grave que outras amidas) — respeitar dose máx 1,3 mg/kg / teto 90 mg.",
+      "difficulty": "hard",
+      "tags": ["bupivacaina", "pos-op"]
+    },
+    {
+      "type": "mc",
+      "topic": "Vasoconstritor",
+      "q": "Epinefrina 1:100.000 num tubete de 1,8 mL contém quantos microgramas? E qual é o limite seguro em paciente saudável vs cardiopata controlado?",
+      "options": [
+        "18 µg por tubete (1:100.000 = 0,01 mg/mL = 10 µg/mL × 1,8 mL). Limites: saudável até 0,2 mg (≈11 tubetes), cardiopata controlado até 0,04 mg (≈2 tubetes)",
+        "180 µg por tubete; limite saudável de 1 mg",
+        "1,8 µg por tubete; sem limite em cardiopata",
+        "Não há padronização de dose máxima de epinefrina"
+      ],
+      "correct": 0,
+      "expl": "1:100.000 significa 1 g em 100.000 mL = 10 µg/mL. Tubete 1,8 mL = 18 µg. Limite ADA: 0,2 mg (200 µg) em saudável = ~11 tubetes; 0,04 mg (40 µg) em cardiopata controlado = ~2 tubetes. Em angina instável/IAM <6m, idealmente 1:200.000 ou sem vasoconstritor.",
+      "difficulty": "hard",
+      "tags": ["vasoconstritor", "epinefrina"]
+    },
+    {
+      "type": "mc",
+      "topic": "Bloqueio do alveolar inferior",
+      "q": "Paciente precisa exodontia de 36. Qual técnica anestésica + qual escolha preferencial?",
+      "options": [
+        "Bloqueio do nervo alveolar inferior (técnica de Halsted) — anestesia molares inferiores, pré-molares, incisivos e lábio inferior ipsilateral; lidocaína 2% c/ epi é padrão (articaína evitada por maior risco de parestesia em bloqueio)",
+        "Infiltrativa vestibular isolada — suficiente em molares inferiores",
+        "Anestesia tópica — basta pra extração",
+        "Bloqueio do mentual — cobre os molares inferiores"
+      ],
+      "correct": 0,
+      "expl": "Molares inferiores têm cortical óssea espessa → infiltração não atinge bem; precisa bloqueio do alveolar inferior. Lidocaína 2% c/ epi 1:100.000 é a clássica. Articaína em bloqueio mandibular tem risco aumentado de parestesia descrito na literatura — preferir infiltrativa.",
+      "difficulty": "medium",
+      "tags": ["bloqueio", "molar"]
+    },
+    {
+      "type": "mc",
+      "topic": "Prilocaína",
+      "q": "Prilocaína 3% com felipressina é a única opção em odontologia para qual paciente, e qual o cuidado clássico?",
+      "options": [
+        "Gestante (felipressina não causa contração uterina como a epi nas doses altas); cuidado com meta-hemoglobinemia em doses elevadas (>600 mg) ou em pacientes com deficiência de G6PD",
+        "Diabético tipo 1 — é o único anestésico permitido",
+        "Criança de qualquer idade — sem ajuste de dose",
+        "Cirurgia ultracurta de 30 segundos"
+      ],
+      "correct": 0,
+      "expl": "Prilocaína 3% c/ felipressina (Citanest) é alternativa em gestante porque a felipressina não tem efeito uterotônico significativo nas doses clínicas. Risco: meta-hemoglobinemia (metabólito o-toluidina oxida hemoglobina) — limitar 600 mg/dia e evitar em deficiência de G6PD ou anemia significativa. Dose máx 6 mg/kg.",
+      "difficulty": "hard",
+      "tags": ["prilocaina", "gestante"]
+    }
+  ]
+}

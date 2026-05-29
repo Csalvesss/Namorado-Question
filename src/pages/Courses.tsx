@@ -17,6 +17,7 @@ import Eyebrow from '../components/ui/Eyebrow';
 import EmptyState from '../components/EmptyState';
 import { COURSES_CHANGE_EVENT, db } from '../lib/db';
 import { useSessions } from '../lib/useSessions';
+import { useUser } from '../lib/useUser';
 import type { Course, QuizSession } from '../types';
 
 const COURSE_ICONS: Array<{ match: RegExp; icon: LucideIcon }> = [
@@ -76,8 +77,16 @@ function buildAccuracyMap(sessions: QuizSession[]): Map<string, number | null> {
 }
 
 export default function Courses() {
+  const { user } = useUser();
+  const userTrack = user?.track ?? 'medicina';
   const [coursesTick, setCoursesTick] = useState(0);
-  const courses = useMemo(() => db.courses.list(), [coursesTick]);
+  const courses = useMemo(
+    () =>
+      db.courses
+        .list()
+        .filter((c) => (c.track ?? 'medicina') === userTrack),
+    [coursesTick, userTrack],
+  );
   const { sessions } = useSessions();
   const [filter, setFilter] = useState<string>('all');
 

@@ -1,0 +1,54 @@
+{
+  "title": "Anti-inflamatórios",
+  "description": "AINEs (ibuprofeno, nimesulida, diclofenaco K, cetorolaco) e corticoide (dexametasona) em odontologia. Mecanismo COX-1/COX-2, indicação pós-op, contraindicações.",
+  "icon": "shield-plus",
+  "color": "wine",
+  "track": "odonto",
+  "questions": [
+    {
+      "type": "mc",
+      "topic": "Ibuprofeno",
+      "q": "Adulto 70 kg pós-exodontia de molar, sem alergia, sem úlcera péptica. AINE de escolha?",
+      "options": [
+        "Ibuprofeno 400-600 mg VO 8/8h por 3-5 dias, após refeição. AINE não seletivo (COX-1 e COX-2), bom controle de dor e edema pós-operatório, perfil de segurança bem estabelecido",
+        "Cetorolaco 30 mg EV/IM como 1ª linha por 14 dias",
+        "Dexametasona 4 mg 8/8h por 30 dias",
+        "Sem AINE — paracetamol cobre toda dor odontológica"
+      ],
+      "correct": 0,
+      "expl": "Ibuprofeno 400-600 mg 8/8h por 3-5 dias é o AINE padrão em pós-op odontológico leve a moderado. Tomar após refeição. Evitar em úlcera ativa, IRC avançada, gestante 3ºT, ICC descompensada. Limite máx 2,4 g/dia.",
+      "difficulty": "easy",
+      "tags": ["ibuprofeno", "pos-op"]
+    },
+    {
+      "type": "mc",
+      "topic": "Dexametasona",
+      "q": "Pré-exodontia de siso incluso complexa. Dexametasona é indicada para quê?",
+      "options": [
+        "Reduzir edema, trismo e dor pós-op via inibição da fosfolipase A2 (bloqueia a cascata inflamatória ANTES das prostaglandinas). Dose: 4-8 mg VO/IM 1h antes do procedimento, em dose única (pré-medicação)",
+        "Substituir o antibiótico no pós-operatório",
+        "Tratar herpes labial pós-cirúrgico",
+        "Promover hemostasia"
+      ],
+      "correct": 0,
+      "expl": "Dexa 4-8 mg dose única pré-op reduz edema e trismo de forma significativa em cirurgia de siso. Inibe fosfolipase A2 — bloqueia AA, prostaglandinas e leucotrienos. Cuidados: hiperglicemia em diabético, evitar uso crônico (supressão HHA), CI relativa em úlcera ativa.",
+      "difficulty": "medium",
+      "tags": ["dexametasona", "siso"]
+    },
+    {
+      "type": "mc",
+      "topic": "Cetorolaco",
+      "q": "Sobre o cetorolaco de trometamol em odontologia:",
+      "options": [
+        "Potência analgésica próxima a opioides leves; AINE não seletivo com forte inibição COX-1; máximo 5 dias de uso pelo risco aumentado de sangramento e nefrotoxicidade; evitar em pós-op com risco hemorrágico",
+        "Seguro por 30 dias seguidos sem efeitos adversos",
+        "Não tem ação analgésica significativa",
+        "Indicado em gestante 3ºT como 1ª linha"
+      ],
+      "correct": 0,
+      "expl": "Cetorolaco é AINE potente (analgesia comparável a morfina em alguns estudos), bom para dor aguda intensa. Inibe agregação plaquetária via COX-1 → risco hemorrágico relevante. Limite máx 5 dias VO. Evitar em cirurgia de risco hemorrágico, IRC, idoso frágil. CI absoluta na gestação.",
+      "difficulty": "hard",
+      "tags": ["cetorolaco"]
+    }
+  ]
+}

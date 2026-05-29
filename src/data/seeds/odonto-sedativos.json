@@ -1,0 +1,54 @@
+{
+  "title": "Sedativos e Manejo do Ansioso",
+  "description": "Midazolam, diazepam, lorazepam, clonazepam e óxido nitroso. Sedação consciente em consultório, receita azul, manejo do paciente ansioso.",
+  "icon": "moon",
+  "color": "wine",
+  "track": "odonto",
+  "questions": [
+    {
+      "type": "mc",
+      "topic": "Midazolam",
+      "q": "Midazolam VO 7,5–15 mg 30-60 min antes do procedimento. Qual o antagonista em caso de depressão respiratória, e por que CYP3A4 importa?",
+      "options": [
+        "Antagonista: flumazenil 0,2 mg EV (titular). CYP3A4 metaboliza o midazolam → inibidores como claritromicina, fluconazol, suco de toranja aumentam níveis e o risco de sedação excessiva; cuidar de interações",
+        "Antagonista: naloxona (mesmo mecanismo dos opioides)",
+        "Não tem antagonista — só intubação",
+        "CYP3A4 é irrelevante na clínica"
+      ],
+      "correct": 0,
+      "expl": "Midazolam = BZD imidazo-benzodiazepínico, ação em GABA-A. Flumazenil é o antagonista específico (atenção: meia-vida curta → pode haver re-sedação após reversão). CYP3A4 metaboliza — interações com claritro, fluconazol, ritonavir, suco de toranja AUMENTAM níveis. Pré-medicação odonto: 7,5-15 mg VO em adulto, criança 0,3-0,5 mg/kg.",
+      "difficulty": "medium",
+      "tags": ["midazolam", "flumazenil"]
+    },
+    {
+      "type": "mc",
+      "topic": "Lorazepam",
+      "q": "Por que lorazepam é preferido sobre diazepam em IDOSO ou HEPATOPATA leve?",
+      "options": [
+        "Lorazepam é 3-OH BZD: metabolizado por CONJUGAÇÃO DIRETA (glicuronidação), sem fase de oxidação e sem metabólitos ativos — efeito previsível mesmo em hepatopata e idoso (em que CYP cai). Diazepam tem metabólito ativo (nordiazepam) com meia-vida longa, acumula no idoso",
+        "Lorazepam é mais barato",
+        "Diazepam não é BZD",
+        "Lorazepam tem mais ação anticonvulsivante que diazepam"
+      ],
+      "correct": 0,
+      "expl": "Lorazepam (assim como oxazepam e temazepam) pula a fase de oxidação hepática — é conjugado direto a glicuronídeo inativo. Em idoso/hepatopata leve, mantém farmacocinética previsível. Diazepam vira nordiazepam (meia-vida 50-100h) → acumulação e sedação prolongada. Início mais lento (~2h VO) é a desvantagem do lorazepam.",
+      "difficulty": "hard",
+      "tags": ["lorazepam", "idoso"]
+    },
+    {
+      "type": "mc",
+      "topic": "Receita Azul / Portaria 344",
+      "q": "Quais aspectos legais são OBRIGATÓRIOS na prescrição de midazolam em consultório odontológico?",
+      "options": [
+        "Notificação de Receita B (talão azul, Portaria 344/98 ANVISA), válida por 30 dias, com limite de até 60 dias de tratamento. Resolução CFO 51/2004 autoriza o cirurgião-dentista a prescrever psicotrópicos no exercício da odontologia. Receita 2 vias (1 farmácia, 1 paciente)",
+        "Receita branca comum, igual ao paracetamol",
+        "Receita Amarela (Notificação A), exclusiva pra entorpecentes",
+        "Não pode ser prescrita por cirurgião-dentista"
+      ],
+      "correct": 0,
+      "expl": "Midazolam (psicotrópico) exige Notificação de Receita B — talão azul numerado, retido na farmácia. Portaria 344/98 ANVISA regula. CFO 51/2004 autoriza dentista a prescrever no escopo odontológico. Conferir nome completo, CPF, endereço, data, dose, duração. Erros nesse fluxo são causa frequente de problemas éticos.",
+      "difficulty": "medium",
+      "tags": ["receita-azul", "legal"]
+    }
+  ]
+}
