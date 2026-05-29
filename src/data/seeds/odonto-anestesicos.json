@@ -16,7 +16,7 @@
         "Não pode ser associada a vasoconstritor"
       ],
       "correct": 0,
-      "expl": "Lidocaína é amida (metabolizada no fígado por CYP3A4), bloqueia canais de Na+ rápidos. Dose máxima com epi: 4,4 mg/kg, teto absoluto 300 mg em adulto saudável. Cada tubete 1,8 mL de lidocaína 2% = 36 mg (calcule: 2% = 20 mg/mL × 1,8 mL). Logo um paciente de 60 kg suporta até 300 mg / 36 mg = 8 tubetes.",
+      "expl": "Lidocaína é amida (metabolizada no fígado — CYP1A2 principal, CYP3A4 secundária), bloqueia canais de Na+ rápidos. Dose máxima com epi: 4,4 mg/kg, teto absoluto 300 mg em adulto saudável. Cada tubete 1,8 mL de lidocaína 2% = 36 mg (calcule: 2% = 20 mg/mL × 1,8 mL). Logo um paciente de 60 kg suporta até 300 mg / 36 mg = 8 tubetes.",
       "difficulty": "easy",
       "tags": ["lidocaina", "dose"]
     },
@@ -70,13 +70,13 @@
       "topic": "Vasoconstritor",
       "q": "Epinefrina 1:100.000 num tubete de 1,8 mL contém quantos microgramas? E qual é o limite seguro em paciente saudável vs cardiopata controlado?",
       "options": [
-        "18 µg por tubete (1:100.000 = 0,01 mg/mL = 10 µg/mL × 1,8 mL). Limites: saudável até 0,2 mg (≈11 tubetes), cardiopata controlado até 0,04 mg (≈2 tubetes)",
+        "18 µg por tubete (1:100.000 = 0,01 mg/mL = 10 µg/mL × 1,8 mL). Limites: saudável até 0,2 mg (≈11 tubetes); cardiopata estável (ASA III estável) até 0,04 mg (≈2 tubetes); descompensado → adiar procedimento",
         "180 µg por tubete; limite saudável de 1 mg",
         "1,8 µg por tubete; sem limite em cardiopata",
         "Não há padronização de dose máxima de epinefrina"
       ],
       "correct": 0,
-      "expl": "1:100.000 significa 1 g em 100.000 mL = 10 µg/mL. Tubete 1,8 mL = 18 µg. Limite ADA: 0,2 mg (200 µg) em saudável = ~11 tubetes; 0,04 mg (40 µg) em cardiopata controlado = ~2 tubetes. Em angina instável/IAM <6m, idealmente 1:200.000 ou sem vasoconstritor.",
+      "expl": "1:100.000 significa 1 g em 100.000 mL = 10 µg/mL. Tubete 1,8 mL = 18 µg. Limite ADA: 0,2 mg (200 µg) em saudável = ~11 tubetes; 0,04 mg (40 µg) em cardiopata estável (ASA III) = ~2 tubetes. Cardiopata descompensado: adiar procedimento. Em angina instável/IAM <6m, idealmente 1:200.000 ou sem vasoconstritor.",
       "difficulty": "hard",
       "tags": ["vasoconstritor", "epinefrina"]
     },
