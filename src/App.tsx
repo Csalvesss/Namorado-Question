@@ -20,6 +20,7 @@ import Quiz from './pages/Quiz';
 import Review from './pages/Review';
 import StudyPlan from './pages/StudyPlan';
 import Tools from './pages/Tools';
+import Welcome from './pages/Welcome';
 
 export default function App() {
   return (
@@ -53,8 +54,8 @@ export default function App() {
         <Route path="/autor" element={<Author />} />
         <Route path="/perfil" element={<Profile />} />
       </Route>
-      <Route path="/" element={<Navigate to="/app" replace />} />
-      <Route path="*" element={<Navigate to="/app" replace />} />
+      <Route path="/" element={<Welcome />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 import { signIn, signUp } from '../lib/auth';
 import { useUser } from '../lib/useUser';
 
@@ -8,8 +9,11 @@ type Mode = 'signin' | 'signup';
 export default function Login() {
   const navigate = useNavigate();
   const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const trackParam = searchParams.get('track');
+  const track: 'medicina' | 'odonto' = trackParam === 'odonto' ? 'odonto' : 'medicina';
   const { user, loading } = useUser();
-  const [mode, setMode] = useState<Mode>('signin');
+  const [mode, setMode] = useState<Mode>(trackParam ? 'signup' : 'signin');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
@@ -35,7 +39,7 @@ export default function Login() {
     setWorking(true);
     const result =
       mode === 'signup'
-        ? await signUp({ email, password, name })
+        ? await signUp({ email, password, name, track })
         : await signIn({ email, password });
     setWorking(false);
     if (!result.ok) {
@@ -48,14 +52,28 @@ export default function Login() {
 
   const isSignup = mode === 'signup';
 
+  const trackLabel = track === 'odonto' ? 'Odontologia' : 'Medicina';
+
   return (
     <div className="flex min-h-screen items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
+        <Link
+          to="/"
+          className="mb-6 inline-flex items-center gap-2 font-display text-[11px] uppercase tracking-[0.22em] text-mute transition hover:text-wine"
+        >
+          <ArrowLeft className="h-3 w-3" strokeWidth={2} /> trocar trilha
+        </Link>
         <div className="mb-8 text-center">
-          <div className="divider-dots mb-2">· · ·</div>
-          <h1 className="display-title">Guava Education</h1>
-          <p className="mt-3 font-serif text-lg italic text-ink-soft">
-            estudar com afeto, estudar com método
+          <div className="font-display text-[11px] uppercase tracking-[0.28em] text-gold">
+            trilha · {trackLabel}
+          </div>
+          <h1 className="mt-3 font-display font-light italic leading-[1.05] text-ink text-[clamp(2.25rem,5vw,3rem)]">
+            Guava Education
+          </h1>
+          <p className="mt-3 font-body text-lg italic text-mute">
+            {track === 'odonto'
+              ? 'estudar farmaco odonto com afeto e método'
+              : 'estudar com afeto, estudar com método'}
           </p>
         </div>
 

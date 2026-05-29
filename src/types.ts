@@ -190,7 +190,9 @@ export interface UserProfile {
   uid: string;
   email: string;
   name: string;
-  displayMode: 'namorado' | 'doutora';
+  displayMode: 'namorado' | 'doutora' | 'irmao';
+  /** Trilha de estudo. Default `medicina` para usuários existentes sem o campo. */
+  track?: 'medicina' | 'odonto';
   dailyGoal?: number;
   partnerName?: string;
   createdAt: number;

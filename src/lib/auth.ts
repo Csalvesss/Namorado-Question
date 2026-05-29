@@ -43,6 +43,7 @@ export interface AuthInput {
   email: string;
   password: string;
   name?: string;
+  track?: 'medicina' | 'odonto';
 }
 
 export type AuthResult =
@@ -62,13 +63,19 @@ async function fetchProfile(uid: string): Promise<UserProfile | null> {
     email: data.email,
     name: data.name,
     displayMode: data.displayMode ?? 'namorado',
+    // Backward-compat: usuários existentes sem track ficam em 'medicina'
+    track: data.track === 'odonto' ? 'odonto' : 'medicina',
     dailyGoal: typeof data.dailyGoal === 'number' ? data.dailyGoal : undefined,
     partnerName: typeof data.partnerName === 'string' ? data.partnerName : undefined,
     createdAt: typeof data.createdAt === 'number' ? data.createdAt : Date.now(),
   };
 }
 
-async function ensureProfile(fbUser: FirebaseUser, fallbackName?: string): Promise<UserProfile> {
+async function ensureProfile(
+  fbUser: FirebaseUser,
+  fallbackName?: string,
+  fallbackTrack: 'medicina' | 'odonto' = 'medicina',
+): Promise<UserProfile> {
   const existing = await fetchProfile(fbUser.uid);
   if (existing) return existing;
   const profile: UserProfile = {
@@ -76,6 +83,7 @@ async function ensureProfile(fbUser: FirebaseUser, fallbackName?: string): Promi
     email: (fbUser.email ?? '').toLowerCase(),
     name: fallbackName?.trim() || fbUser.displayName || fbUser.email?.split('@')[0] || 'doutora',
     displayMode: 'namorado',
+    track: fallbackTrack,
     createdAt: Date.now(),
   };
   await setDoc(userDocRef(fbUser.uid), {
@@ -123,9 +131,10 @@ export async function signIn({ email, password }: AuthInput): Promise<AuthResult
   }
 }
 
-export async function signUp({ email, password, name }: AuthInput): Promise<AuthResult> {
+export async function signUp({ email, password, name, track }: AuthInput): Promise<AuthResult> {
   const cleanEmail = email.trim().toLowerCase();
   const cleanName = (name ?? '').trim();
+  const safeTrack: 'medicina' | 'odonto' = track === 'odonto' ? 'odonto' : 'medicina';
   if (!cleanEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
     return { ok: false, error: 'E-mail inválido.' };
   }
@@ -148,6 +157,7 @@ export async function signUp({ email, password, name }: AuthInput): Promise<Auth
         email: cleanEmail,
         name: cleanName,
         displayMode: 'namorado',
+        track: safeTrack,
         createdAt: Date.now(),
         createdAtServer: serverTimestamp(),
       },
@@ -158,6 +168,7 @@ export async function signUp({ email, password, name }: AuthInput): Promise<Auth
       email: cleanEmail,
       name: cleanName,
       displayMode: 'namorado',
+      track: safeTrack,
       createdAt: Date.now(),
     };
     emitChange();

@@ -9,7 +9,7 @@ import type { QuizMode, QuizSession } from '../types';
 interface ResultPanelProps {
   session: QuizSession;
   questions: PreparedQuestion[];
-  displayMode: 'namorado' | 'doutora';
+  displayMode: 'namorado' | 'doutora' | 'irmao';
   mode?: QuizMode;
   bilheteCount?: number;
 }
