@@ -70,8 +70,8 @@ export default function Welcome() {
         {/* Hero */}
         <div className="text-center">
           <h1 className="font-display font-light leading-[1.05] text-ink text-[clamp(2.25rem,6vw,4rem)]">
-            O cuidado começa em{' '}
-            <span className="italic text-rose">quem você estuda</span>
+            O cuidado começa{' '}
+            <span className="italic text-rose">pela sua dedicação</span>
             <span className="text-ink">.</span>
           </h1>
           <p className="mx-auto mt-5 max-w-xl font-body text-base italic leading-relaxed text-mute sm:text-lg">
