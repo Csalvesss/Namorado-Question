@@ -1,0 +1,589 @@
+{
+  "title": "Endocardite, Pericardite e Tamponamento",
+  "description": "Aula do Prof. Henrique Lane Staniak (UTI-HU USP / Uninove). Endocardite infecciosa (critérios Duke 2023, esquemas ATB, profilaxia AHA), pericardite aguda (ECG dos 4 estágios) e tamponamento cardíaco (tríade de Beck, pulso paradoxal).",
+  "icon": "",
+  "color": "wine",
+  "questions": [
+    {
+      "type": "mc",
+      "topic": "EI · conceitos",
+      "q": "Sobre a endocardite infecciosa (EI), assinale a CORRETA:",
+      "options": [
+        "Infecção microbiana do endocárdio ou endotélio vascular; lesão característica é a VEGETAÇÃO (plaquetas + fibrina + microorganismos). Forma AGUDA evolui em dias a 1-2 semanas, com toxemia importante e infecção metastática, geralmente por S. aureus; SUBAGUDA evolui em semanas a meses, raramente metastática",
+        "Sempre causada por fungos",
+        "Lesão característica é o granuloma de Aschoff",
+        "Forma aguda evolui em meses, sem destruição valvar"
+      ],
+      "correct": 0,
+      "expl": "EI = infecção do endocárdio. Lesão = vegetação (plaquetas + fibrina + microorganismos aderidos a endocárdio lesado). AGUDA: S. aureus, dias-2 semanas, destrutiva, embolização metastática. SUBAGUDA: estreptococos viridans/enterococos, semanas-meses, fenômenos imunológicos predominantes. A patogênese exige lesão endotelial + bacteremia + adesão.",
+      "difficulty": "easy",
+      "tags": ["ei", "conceitos"]
+    },
+    {
+      "type": "mc",
+      "topic": "EI · fatores predisponentes",
+      "q": "Segundo a casuística do InCor (1978-1998, 703 episódios), qual condição predisponente é MAIS frequente em EI no adulto?",
+      "options": [
+        "Cardiopatia subjacente em ~81%, distribuída em: valva nativa 37%, prótese 30,6%, cardiopatia congênita 10,6%, marca-passo 0,8%, outras 1,9%",
+        "Drogas IV em 80% dos casos",
+        "Sempre prótese valvar",
+        "Hemodiálise em 60% dos casos"
+      ],
+      "correct": 0,
+      "expl": "InCor 1978-1998 (703 episódios): 81% portadores de cardiopatia — valva nativa 37%, prótese 30,6%, cardiopatia congênita 10,6%, marca-passo 0,8%, outras 1,9%. Em endocardite de valva nativa (EVN), 36-75% têm condição predisponente (RHD, CHD, MVP, DHD, drogas IV).",
+      "difficulty": "medium",
+      "tags": ["ei", "epidemiologia"]
+    },
+    {
+      "type": "mc",
+      "topic": "EI · saúde bucal",
+      "q": "Em portadores de valvopatia, qual a prevalência aproximada de MÁ saúde bucal segundo o serviço de odontologia do InCor?",
+      "options": [
+        "~96% (a má saúde bucal é a regra; a boa saúde bucal é minoria, ~4%) — daí a importância da profilaxia em procedimentos odontológicos invasivos",
+        "Apenas 10%",
+        "Em torno de 40%",
+        "Não há relação entre saúde bucal e EI"
+      ],
+      "correct": 0,
+      "expl": "Levantamento do serviço de odontologia do InCor mostrou que 96% dos valvopatas têm má saúde bucal (gengivopatia, cárie) — apenas 4% têm boa saúde bucal. Isso justifica a profilaxia antibiótica e o cuidado odontológico rotineiro em pacientes de alto risco.",
+      "difficulty": "easy",
+      "tags": ["ei", "saude-bucal"]
+    },
+    {
+      "type": "mc",
+      "topic": "EI · agente etiológico",
+      "q": "Qual o agente etiológico MAIS frequente em endocardite infecciosa geral (casuística clássica)?",
+      "options": [
+        "Estreptococos viridans (~39,6%), seguidos por S. aureus (~18,7%); a hemocultura é negativa em ~11% dos casos",
+        "S. aureus em 80% dos casos",
+        "Cândida em 50% dos casos",
+        "Sempre HACEK"
+      ],
+      "correct": 0,
+      "expl": "Distribuição clássica: estreptococos (~57% somados — viridans 39,6%, enterococo 6,5%, D não-enterococo 7,1%, outros 3,6%), estafilococos (~25% — S. aureus 18,7%, S. epidermidis 6,5%), gram-negativos ~6,3%, fungos ~2,6%, hemocultura negativa ~11%. S. aureus é o agente mais agressivo (EI aguda); S. viridans é o mais comum em subaguda.",
+      "difficulty": "medium",
+      "tags": ["ei", "microbiologia"]
+    },
+    {
+      "type": "mc",
+      "topic": "EI · critérios Duke",
+      "q": "Pelos critérios de Duke modificados (Duke-ISCVID 2023), o diagnóstico DEFINITIVO de EI exige:",
+      "options": [
+        "2 critérios MAIORES, OU 1 maior + 3 menores, OU 5 menores",
+        "Apenas 1 critério menor",
+        "3 maiores obrigatoriamente",
+        "2 critérios menores apenas"
+      ],
+      "correct": 0,
+      "expl": "Duke modificado (ISCVID 2023): DEFINITIVO = 2 maiores OU 1 maior + 3 menores OU 5 menores. POSSÍVEL = 1 maior + 1 menor OU 3 menores. REJEITADO = diagnóstico alternativo firme, resolução com < 4 dias de ATB, sem evidência patológica em cirurgia/autópsia ou não preenche critérios de possível.",
+      "difficulty": "medium",
+      "tags": ["ei", "duke"]
+    },
+    {
+      "type": "mc",
+      "topic": "EI · critério maior microbiológico",
+      "q": "Qual é critério MAIOR microbiológico de Duke para EI?",
+      "options": [
+        "Hemocultura positiva em 2 amostras de sítios DIFERENTES com germe clássico (S. viridans, S. bovis, S. aureus, enterococos, grupo HACEK); ou 3 hemoculturas positivas para germes que raramente causam EI; ou PCR positiva para Coxiella, Bartonella ou Tropheryma whipplei",
+        "Uma única hemocultura para qualquer germe",
+        "PCR para qualquer bactéria",
+        "Cultura de urina positiva"
+      ],
+      "correct": 0,
+      "expl": "Critério MAIOR microbiológico: 2 hemoculturas (+) de sítios diferentes para germe CLÁSSICO de EI (S. viridans, S. bovis/gallolyticus, S. aureus, enterococos adquiridos na comunidade sem foco primário, grupo HACEK). Para germes que ocasionalmente causam EI: precisa de 3 hemoculturas (+). Testes laboratoriais positivos: PCR Coxiella burnetii, Bartonella, Tropheryma whipplei. Sorologia para Coxiella (IgG fase I > 1:800) também é critério.",
+      "difficulty": "medium",
+      "tags": ["ei", "duke", "hemocultura"]
+    },
+    {
+      "type": "mc",
+      "topic": "EI · HACEK",
+      "q": "O grupo HACEK reúne bactérias gram-negativas exigentes (fastidiosas) que causam EI. Quais são?",
+      "options": [
+        "Haemophilus spp · Aggregatibacter spp · Cardiobacterium spp · Eikenella corrodens · Kingella spp",
+        "Haemophilus, Acinetobacter, Cândida, Escherichia, Klebsiella",
+        "Helicobacter, Acinetobacter, Coxiella, Enterococo, Klebsiella",
+        "Apenas Haemophilus influenzae"
+      ],
+      "correct": 0,
+      "expl": "HACEK (versão atualizada): H = Haemophilus (H. influenzae, H. aegyptius, H. haemolyticus, parainfluenzae); A = Aggregatibacter (A. actinomycetemcomitans, A. aphrophilus); C = Cardiobacterium (hominis, valvarum); E = Eikenella corrodens; K = Kingella (K. kingae). São gram-negativos fastidiosos que exigem hemocultura prolongada (até 5 dias) — uma das causas clássicas de hemocultura negativa em EI.",
+      "difficulty": "medium",
+      "tags": ["ei", "hacek"]
+    },
+    {
+      "type": "mc",
+      "topic": "EI · critério maior imagem",
+      "q": "Quais critérios MAIORES de imagem para EI segundo Duke modificado?",
+      "options": [
+        "ECO e/ou TC cardíaca com envolvimento endocárdico (vegetação, abscesso, fístula, perfuração de folheto, nova regurgitação valvar significativa); PET Scan positivo; achado cirúrgico positivo",
+        "Apenas radiografia de tórax alterada",
+        "ECG com supra de ST",
+        "Hemograma com leucocitose"
+      ],
+      "correct": 0,
+      "expl": "Critérios maiores de IMAGEM (Duke 2023): (1) ECO transtorácico/transesofágico ou TC cardíaca com sinais de envolvimento endocárdico — vegetação, abscesso, pseudoaneurisma, fístula, perfuração de folheto, nova regurgitação valvar significativa; (2) PET-CT com 18-FDG mostrando captação patológica em prótese > 3 meses ou material intracardíaco; (3) Achado cirúrgico positivo.",
+      "difficulty": "medium",
+      "tags": ["ei", "duke", "imagem"]
+    },
+    {
+      "type": "mc",
+      "topic": "EI · critérios menores",
+      "q": "Sobre os critérios MENORES de Duke para EI, é CORRETO afirmar:",
+      "options": [
+        "Incluem: cardiopatia predisponente OU drogas IV; febre > 38°C; fenômenos vasculares (embolia, Janeway, hemorragia conjuntival); fenômenos imunológicos (Osler, Roth, glomerulonefrite, FR+); evidência microbiológica que não preenche maior",
+        "Apenas febre > 39°C",
+        "Apenas vegetação no eco",
+        "Hemocultura única positiva é critério menor automaticamente"
+      ],
+      "correct": 0,
+      "expl": "Critérios MENORES: (1) Cardiopatia predisponente (EI prévia, prótese, cirurgia valvar, estenose/insuficiência mod-grave, CC, miocardiopatia hipertrófica obstrutiva, MP/CDI) OU uso de drogas IV; (2) Febre > 38°C; (3) Fenômeno VASCULAR (embolia arterial, abscesso cerebral/esplênico, aneurisma micótico, lesão de Janeway, púrpura, hemorragia conjuntival, hemorragia intracraniana); (4) Fenômeno IMUNITÁRIO (glomerulonefrite, nódulo de Osler, mancha de Roth, fator reumatoide); (5) Evidência microbiológica que não preenche maior; (6) Nova regurgitação valvar à ausculta se eco não disponível.",
+      "difficulty": "medium",
+      "tags": ["ei", "duke", "menores"]
+    },
+    {
+      "type": "mc",
+      "topic": "EI · Osler vs Janeway",
+      "q": "Como diferenciar nódulos de Osler de lesões de Janeway?",
+      "options": [
+        "OSLER: nódulos DOLOROSOS nas polpas digitais, evolução em horas-dias, mais em EI SUBAGUDA, histologia de vasculite. JANEWEY: máculas INDOLORES em palmas/plantas, evolução em dias-semanas, mais em EI AGUDA, histologia de microêmbolos sépticos",
+        "Ambas são dolorosas e idênticas",
+        "Osler em palmas, Janeway nas polpas digitais",
+        "Não têm relação com EI"
+      ],
+      "correct": 0,
+      "expl": "Pegadinha clássica de prova. NÓDULOS DE OSLER: intradérmicos, DOLOROSOS, polpas digitais e eminências tenar/hipotenar, nódulos de 1mm a >1cm, evolução em horas-dias, mais em EI SUBAGUDA, mecanismo imune (vasculite), cultura geralmente negativa. LESÕES DE JANEWAY: máculas INDOLORES, planas, eritematosas/hemorrágicas em palmas, plantas, eminências tenar/hipotenar e plantas dos dedos do pé, evolução em dias-semanas, mais em EI AGUDA, mecanismo embólico (microêmbolos sépticos), cultura geralmente positiva. Mnemônico: 'Osler = Ouch' (dói), 'Janeway = sem dor (plano)'.",
+      "difficulty": "hard",
+      "tags": ["ei", "osler", "janeway"]
+    },
+    {
+      "type": "mc",
+      "topic": "EI · hemocultura negativa",
+      "q": "Quais as principais causas de hemocultura NEGATIVA em paciente com suspeita de EI?",
+      "options": [
+        "Uso prévio de antibiótico (mais frequente), aspectos técnicos inadequados, agentes exigentes (Brucella, Legionella, HACEK, Coxiella, Bartonella) e fungos",
+        "Sempre indica que não há EI",
+        "Apenas falha técnica",
+        "Sempre vírus"
+      ],
+      "correct": 0,
+      "expl": "Hemocultura negativa ocorre em ~11% das EI. Causas: (1) USO PRÉVIO de ATB (causa mais comum — sempre questionar uso recente); (2) Técnica inadequada (volume baixo, momento errado); (3) AGENTE EXIGENTE / fastidioso (Brucella, Legionella, HACEK, Coxiella burnetii, Bartonella, Tropheryma whipplei); (4) FUNGOS (Candida, Aspergillus); (5) EI mural ou parietal. Em hemocultura negativa: solicitar PCR específicos e sorologias.",
+      "difficulty": "medium",
+      "tags": ["ei", "hemocultura-negativa"]
+    },
+    {
+      "type": "mc",
+      "topic": "EI · complicações",
+      "q": "Sobre as complicações da endocardite infecciosa, é CORRETO afirmar:",
+      "options": [
+        "Cardíacas: insuficiência cardíaca é a principal (~44%). Neurológicas: isquêmicas 80% > hemorrágicas 20% > reação meníngea 7-15%. Embolização: cérebro 20% > pulmão 15% > coronárias/baço/membros 6% > intestino 3%",
+        "Embolização é rara, ocorrendo em < 1% dos casos",
+        "Complicações neurológicas só hemorrágicas",
+        "Não há complicações cardíacas"
+      ],
+      "correct": 0,
+      "expl": "Complicações CARDÍACAS (InCor): insuficiência 44,4%, IAo/IMi aguda 17,6%, edema agudo de pulmão 14,4%, disfunção de prótese 6,4%, BAV 4,7%, efusão pericárdica/tamponamento 4,7%, abscesso de anel 3,2%, parada 2,8%, fístula intracardíaca 1,8%. NEUROLÓGICAS: isquêmicas 80% (embolia para ACM mais comum), hemorrágicas 20% (aneurisma micótico), reação meníngea 7-15%. Embolização sistêmica: cérebro 20%, pulmão 15% (em EI direita), outros sítios menores.",
+      "difficulty": "medium",
+      "tags": ["ei", "complicacoes"]
+    },
+    {
+      "type": "mc",
+      "topic": "EI · tratamento empírico",
+      "q": "Em paciente com EI suspeita em valva nativa COM TOXEMIA, enquanto aguarda hemocultura, qual o esquema empírico clássico?",
+      "options": [
+        "Penicilina + Gentamicina + Oxacilina (cobre estreptococos, enterococos e estafilococos meticilina-sensíveis); ajustar após identificação do agente e antibiograma",
+        "Apenas amoxicilina VO",
+        "Vancomicina monoterapia sempre",
+        "Aguardar resultado para iniciar ATB"
+      ],
+      "correct": 0,
+      "expl": "Em EI com toxemia (paciente grave): NÃO esperar hemocultura para iniciar ATB. Esquema empírico clássico do InCor: PENI + GENTA + OXA (cobre amplamente). Se prótese > 3 meses, suspeitar MRSA → trocar oxacilina por VANCO. Após identificação: estrepto-S → Pen G ou ceftriaxona 4 sem; estrepto-R → Pen G + genta 4 sem; estafilo-S → oxa 4-6 sem; MRSA → vanco 4-6 sem; HACEK → ceftriaxona 4 sem; enterococo → ampi + genta 4-6 sem.",
+      "difficulty": "medium",
+      "tags": ["ei", "atb-empirico"]
+    },
+    {
+      "type": "mc",
+      "topic": "EI · indicação cirúrgica",
+      "q": "Quando indicar tratamento CIRÚRGICO em EI?",
+      "options": [
+        "Disfunção valvar aguda com ICC CF III-IV (mortalidade 50-90% só com tratamento clínico), prótese instável, infecção não controlada com ATB (ex: Candida, Pseudomonas), complicações cardíacas (abscesso, fístulas). EI de prótese geralmente combina clínico + cirúrgico; EI de valva nativa geralmente é clínica",
+        "Sempre operar todos os casos",
+        "Nunca operar — só ATB resolve",
+        "Operar só após 6 semanas de ATB"
+      ],
+      "correct": 0,
+      "expl": "Indicações cirúrgicas: (1) DISFUNÇÃO VALVAR AGUDA com ICC CF III-IV (mortalidade 50-90% só clínico); (2) PRÓTESE INSTÁVEL/disfuncionante; (3) INFECÇÃO NÃO CONTROLADA (Candida, Pseudomonas, MRSA refratário, bacteremia persistente > 7 dias); (4) COMPLICAÇÕES CARDÍACAS (abscesso de anel, fístulas, BAV de alto grau, vegetação > 10mm com embolia recorrente). EI de prótese: geralmente combina clínico+cirúrgico. EI valva nativa não complicada: clínico.",
+      "difficulty": "medium",
+      "tags": ["ei", "cirurgia"]
+    },
+    {
+      "type": "mc",
+      "topic": "EI · profilaxia AHA",
+      "q": "Segundo a Diretriz AHA 2007, quais pacientes têm condição cardíaca de ALTÍSSIMO risco que indica profilaxia para EI?",
+      "options": [
+        "Prótese valvar; EI prévia; cardiopatia congênita cianótica não reparada OU reparada com material protético (até 6 meses pós-cirurgia); receptor de transplante cardíaco que desenvolveu valvopatia",
+        "Todo paciente com qualquer cardiopatia",
+        "Apenas idosos > 70 anos",
+        "Apenas atletas"
+      ],
+      "correct": 0,
+      "expl": "AHA 2007 reduziu drasticamente as indicações. ALTÍSSIMO RISCO (mantém profilaxia): (1) prótese valvar (mecânica ou biológica); (2) EI prévia; (3) cardiopatia congênita CIANÓTICA não reparada (inclui shunts paliativos); CC reparada com material protético (nos primeiros 6 meses); CC com defeitos residuais adjacentes ao patch; (4) receptor de TX cardíaco com valvopatia. Procedimentos com risco: odontológicos (extração, implante, drenagem de abscesso, manipulação gengival/periapical), do trato respiratório superior com biópsia/incisão. Esquema: AMOXICILINA 2g VO 1h antes; alérgico: azitromicina 500mg VO 1h antes (ou cefalexina 2g, clindamicina 600mg).",
+      "difficulty": "medium",
+      "tags": ["ei", "profilaxia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pericardite · causas",
+      "q": "Qual a causa MAIS frequente de pericardite aguda em adultos?",
+      "options": [
+        "Viral ou idiopática (~90% dos casos juntos); outras: bacteriana, pós-IAM, pós-pericardiotomia, uremia, invasão neoplásica, colagenoses",
+        "Sempre bacteriana",
+        "Sempre por dissecção de aorta",
+        "Sempre neoplásica"
+      ],
+      "correct": 0,
+      "expl": "Pericardite aguda: viral/idiopática em ~90% (Coxsackie, echo, adeno, EBV). Outras causas: bacteriana (S. pneumoniae, S. aureus, Mycobacterium tuberculosis em endêmica), pós-IAM (pericardite epistenocárdica precoce ou Dressler tardia), pós-pericardiotomia, uremia (DRC), invasão neoplásica (pulmão, mama, linfoma), colagenoses (LES, AR). As causas MAIS COMUNS de TAMPONAR são: bacterianas, neoplásicas e dissecção de aorta (com hemopericárdio).",
+      "difficulty": "easy",
+      "tags": ["pericardite", "causas"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pericardite · quadro clínico",
+      "q": "Qual o quadro clínico típico da pericardite aguda?",
+      "options": [
+        "Dor torácica retroesternal, súbita, pleurítica, que PIORA em decúbito e MELHORA sentando inclinando para frente; pode ter síndrome febril, atrito pericárdico audível em ~85%",
+        "Dor que piora ao sentar e melhora em decúbito",
+        "Dor surda em queimação, sem fatores de alívio",
+        "Indolor"
+      ],
+      "correct": 0,
+      "expl": "TRÍADE de pericardite aguda: (1) DOR torácica — retroesternal, súbita, pleurítica (piora com inspiração), PIORA com decúbito DORSAL e MELHORA SENTADO INCLINANDO PARA FRENTE (sinal de Pott); (2) ATRITO pericárdico (~85%) — som de 'lixa' ou 'couro raspando', mais audível na borda esternal esquerda; pode ter 3 componentes (sistólico, diastólico precoce, pré-sistólico); (3) síndrome febril em algumas causas, mal-estar, mialgias. Pode evoluir para derrame pericárdico e tamponamento.",
+      "difficulty": "medium",
+      "tags": ["pericardite", "clinica"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pericardite · ECG",
+      "q": "Sobre o ECG da pericardite aguda, é CORRETO afirmar:",
+      "options": [
+        "Estágio I (horas-dias): supra de ST DIFUSO, CÔNCAVO (face 'feliz') + infra de PR + onda T concordante com supra. Estágio II: normalização. Estágio III: inversão de T difusa. Estágio IV: normalização (após 3 semanas). Sem ondas Q nem reciprocidade",
+        "Sempre supra de ST localizado em V1-V4 com reciprocidade",
+        "Sempre infra de ST difuso",
+        "ECG é normal sempre"
+      ],
+      "correct": 0,
+      "expl": "ECG da pericardite (4 estágios clássicos): ESTÁGIO I (horas-dias) — SUPRA ST difuso CÔNCAVO ('feliz', tipo sorriso), infra de PR (deslocamento atrial), onda T concordante (positiva) com supra ST, infra ST em V1 e/ou aVR. ESTÁGIO II (dias-semanas) — normalização do ST e PR, achatamento de T. ESTÁGIO III (2-3 semanas) — inversão DIFUSA de T. ESTÁGIO IV (após 3 semanas) — normalização. Sem onda Q (vs IAM), sem reciprocidade (vs IAM — onde supra em parede gera infra em parede oposta). Pegadinha: TAMPONAMENTO tem BAIXA VOLTAGEM e alternância elétrica (swinging heart).",
+      "difficulty": "hard",
+      "tags": ["pericardite", "ecg"]
+    },
+    {
+      "type": "mc",
+      "topic": "Tamponamento · tríade de Beck",
+      "q": "Qual a TRÍADE clássica de Beck para tamponamento cardíaco?",
+      "options": [
+        "Hipotensão + estase jugular + hipofonese de bulhas",
+        "Bradicardia + sudorese + hipertensão",
+        "Febre + tosse + dispneia",
+        "Sopro + cianose + sopro diastólico"
+      ],
+      "correct": 0,
+      "expl": "Tríade de BECK (tamponamento cardíaco): (1) HIPOTENSÃO; (2) ESTASE jugular (turgência); (3) HIPOFONESE de bulhas. Outros sinais: taquicardia (compensatória), pulso paradoxal, alternância elétrica no ECG, equalização das pressões diastólicas (CD = AE = VE). Tamponamento = queda do débito cardíaco por restrição ao enchimento ventricular pelo líquido pericárdico. EMERGÊNCIA — eco à beira do leito + pericardiocentese de alívio.",
+      "difficulty": "easy",
+      "tags": ["tamponamento", "beck"]
+    },
+    {
+      "type": "mc",
+      "topic": "Tamponamento · pulso paradoxal",
+      "q": "Sobre o PULSO PARADOXAL no tamponamento cardíaco, é CORRETO afirmar:",
+      "options": [
+        "Queda > 10 mmHg da PAS na inspiração. Mecanismo: inspiração ↑ retorno venoso → sobrecarga de VD → abaulamento do septo → reduz enchimento de VE → ↓ volume sistólico → ↓ PA. Também ocorre em asma grave, DPOC e pericardite constritiva (sinal de Kussmaul)",
+        "Queda > 10 mmHg da PAS na expiração",
+        "Aumento da PA na inspiração",
+        "Indolor"
+      ],
+      "correct": 0,
+      "expl": "PULSO PARADOXAL: queda > 10 mmHg da PAS na INSPIRAÇÃO. Mecanismo (5 etapas): (1) inspiração aumenta o retorno venoso ao VD; (2) sobrecarga de VD; (3) abaulamento do septo interventricular para o VE (interdependência ventricular acentuada pela restrição pericárdica); (4) redução do enchimento de VE; (5) redução do volume sistólico → ↓ PAS. Também em asma/DPOC grave (pressão pleural muito negativa). Diferente de SINAL DE KUSSMAUL (aumento paradoxal da pressão venosa jugular na inspiração) — clássico de pericardite constritiva.",
+      "difficulty": "hard",
+      "tags": ["tamponamento", "pulso-paradoxal"]
+    },
+    {
+      "type": "mc",
+      "topic": "Tamponamento · tratamento",
+      "q": "Qual o tratamento de EMERGÊNCIA para tamponamento cardíaco?",
+      "options": [
+        "Pericardiocentese de ALÍVIO (técnica de Marfan, subxifoidiana guiada por eco) — descompressão imediata. Em recidiva ou pericardite purulenta/neoplásica: drenagem pericárdica cirúrgica (janela pericárdica)",
+        "Apenas furosemida IV",
+        "Cirurgia cardíaca aberta sempre",
+        "Trombolítico"
+      ],
+      "correct": 0,
+      "expl": "Tamponamento é EMERGÊNCIA. Tratamento: PERICARDIOCENTESE de alívio (técnica de Marfan — punção subxifoidiana, ângulo 15° em direção ao ombro esquerdo, idealmente guiada por ECO). Retirar 50-100mL já alivia o quadro. INDICAÇÕES de drenagem pericárdica/janela: recidiva pós-pericardiocentese, pericardite purulenta, neoplásica, ou tamponamento com derrame loculado. Em hemopericárdio agudo (dissecção de aorta): cirurgia de emergência, NÃO drenar (esvaziar tampão pode acelerar sangramento).",
+      "difficulty": "medium",
+      "tags": ["tamponamento", "pericardiocentese"]
+    },
+    {
+      "type": "match",
+      "topic": "EI · critérios Duke pareados",
+      "prompt": "Associe o critério à categoria (MAIOR ou MENOR).",
+      "leftLabel": "Critério",
+      "rightLabel": "Categoria Duke",
+      "pairs": [
+        { "id": "hemo", "left": "2 hemoculturas (+) em sítios diferentes para germe clássico (S. aureus, S. viridans, HACEK)", "right": "MAIOR (microbiológico)" },
+        { "id": "veg", "left": "Vegetação, abscesso ou nova regurgitação valvar ao ECO/TC", "right": "MAIOR (imagem)" },
+        { "id": "pet", "left": "PET-CT com captação anormal em prótese > 3 meses", "right": "MAIOR (imagem)" },
+        { "id": "febre", "left": "Febre > 38°C", "right": "MENOR" },
+        { "id": "predisp", "left": "Cardiopatia predisponente ou uso de drogas IV", "right": "MENOR" },
+        { "id": "vasc", "left": "Embolia, lesão de Janeway, hemorragia conjuntival", "right": "MENOR (fenômeno vascular)" },
+        { "id": "imune", "left": "Nódulo de Osler, mancha de Roth, glomerulonefrite, FR+", "right": "MENOR (fenômeno imunitário)" },
+        { "id": "microdup", "left": "Evidência microbiológica que não preenche maior", "right": "MENOR" }
+      ],
+      "expl": "Duke 2023 (ISCVID): saber separar maiores de menores é o passo 1 do diagnóstico. Maiores = microbiológicos + imagem. Menores = clínicos (cardiopatia, febre, fenômenos vasculares e imunes) + microbiologia não-clássica.",
+      "difficulty": "medium",
+      "tags": ["duke"]
+    },
+    {
+      "type": "match",
+      "topic": "Manifestações da EI",
+      "prompt": "Associe a manifestação à sua característica.",
+      "leftLabel": "Manifestação",
+      "rightLabel": "Característica",
+      "pairs": [
+        { "id": "osler", "left": "Nódulos de Osler", "right": "DOLOROSOS nas polpas digitais (vasculite imune, EI subaguda)" },
+        { "id": "janeway", "left": "Lesões de Janeway", "right": "INDOLORES em palmas/plantas (microêmbolos, EI aguda)" },
+        { "id": "roth", "left": "Manchas de Roth", "right": "Lesões hemorrágicas retinianas com palidez central" },
+        { "id": "splinter", "left": "Hemorragias de Splinter", "right": "Lesões lineares sob as unhas" },
+        { "id": "embol", "left": "Embolia cerebral", "right": "Complicação neurológica mais comum (~80% das neurológicas)" },
+        { "id": "abscesso", "left": "Abscesso de anel valvar", "right": "BAV / alteração na condução AV — ECG com sensibilidade 45% mas VPP 88%" }
+      ],
+      "expl": "Manifestações periféricas da EI são CLÁSSICAS de prova. Osler = ouch (dói). Janeway = sem dor. Roth = retina. Splinter = sob a unha.",
+      "difficulty": "medium",
+      "tags": ["manifestacoes"]
+    },
+    {
+      "type": "match",
+      "topic": "ATB empírico em EI",
+      "prompt": "Associe o agente ao esquema antimicrobiano clássico.",
+      "leftLabel": "Agente / cenário",
+      "rightLabel": "Esquema ATB",
+      "pairs": [
+        { "id": "estS", "left": "Estreptococo viridans/bovis penicilina-sensível em valva nativa", "right": "Penicilina G ou ceftriaxona por 4 semanas" },
+        { "id": "estR", "left": "Estreptococo relativamente resistente à penicilina", "right": "Pen G + gentamicina por 4 + 2 semanas" },
+        { "id": "ent", "left": "Enterococo / Streptococcus de MIC alto", "right": "Pen G ou ampicilina + gentamicina por 4-6 semanas" },
+        { "id": "estafS", "left": "S. aureus meticilina-sensível em valva nativa", "right": "Oxacilina por 4-6 semanas" },
+        { "id": "estafR", "left": "S. aureus meticilina-resistente (MRSA)", "right": "Vancomicina por 4-6 semanas" },
+        { "id": "hacek", "left": "HACEK", "right": "Ceftriaxona por 4 semanas" },
+        { "id": "empirico", "left": "Empírico com toxemia em valva nativa", "right": "Penicilina + gentamicina + oxacilina (InCor)" }
+      ],
+      "expl": "Tempo total de ATB depende da valva (nativa: 4 semanas; prótese: 6 semanas) e da MIC. Gentamicina como sinergia para estreptococos resistentes e enterococos. MRSA: vanco (alvo trough 15-20). Em prótese, SEMPRE 6 semanas.",
+      "difficulty": "hard",
+      "tags": ["atb"]
+    },
+    {
+      "type": "case",
+      "topic": "Caso · EI subaguda com AVC",
+      "subtitle": "Homem 55a com PVM, hemiparesia E + disartria súbita, febre há 1 mês, extração dentária recente",
+      "specialty": "Cardiologia · Infectologia · Emergência",
+      "difficulty": "hard",
+      "vignette": "Homem de 55 anos com PROLAPSO de valva mitral conhecido, chega ao PS com HEMIPARESIA à ESQUERDA e DISARTRIA SÚBITAS há 2 horas. Refere febre intermitente há 1 mês e foi submetido a extração dentária no último mês. Exame físico: cardio = 2 BRNF com click mesossistólico e sopro sistólico em FM que irradia para axila esquerda. Neuro = orientado, consciente, Glasgow 15, disártrico. Força motora grau I em MIE, grau II em MSE, grau V à D. TC de crânio: AVC isquêmico em território de ACM direita.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Qual a hipótese sindrômica que liga os achados (AVC + febre + PVM + extração dentária)?",
+          "options": [
+            "Endocardite infecciosa SUBAGUDA com embolia cerebral séptica — a extração dentária explica a bacteremia (porta de entrada oral), o PVM é fator predisponente, a febre prolongada é o quadro infeccioso indolente e o AVC é a complicação embólica",
+            "AVC isquêmico aterotrombótico simples",
+            "Encefalite viral",
+            "Tumor cerebral primário"
+          ],
+          "correct": 0,
+          "expl": "Tríade clássica de prova: cardiopatia predisponente (PVM) + bacteremia transitória (extração dentária) + manifestação embólica (AVC) + febre = EI subaguda com embolia cerebral. PVM com regurgitação é predisposição clássica (10-30% das EI em adulto jovem). Extração dentária é fonte comum de bacteremia por estreptococos viridans da flora oral (50-60% de bacteremia transitória em extração). Embolia cerebral ocorre em ~20% das EI."
+        },
+        {
+          "id": "step2",
+          "question": "Qual a abordagem diagnóstica IMEDIATA?",
+          "options": [
+            "Hemoculturas (3 amostras, idealmente em momentos diferentes mas com no máximo 1h entre elas), ECO transtorácico inicial e transesofágico (mais sensível para vegetação, especialmente em valva mitral); iniciar ATB empírico após coletar hemoculturas",
+            "Aguardar 48h sem nenhum exame",
+            "Apenas radiografia de tórax e alta",
+            "Cintilografia óssea como prioridade"
+          ],
+          "correct": 0,
+          "expl": "Em EI suspeita: (1) HEMOCULTURAS 3 amostras de sítios diferentes (em paciente estável: intervalos de 30 min a 1h; em séptico: coletar todas em uma vez e iniciar ATB sem demora). (2) ECO TT inicial — sensibilidade ~60-70% para vegetações; em valvas mitrais e em prótese é fraco. (3) ECO TE — sensibilidade > 90%, padrão-ouro para vegetação, abscesso, perfuração. Iniciar ATB empírico após coletar hemoculturas, sem aguardar resultado."
+        },
+        {
+          "id": "step3",
+          "prompt": "Hemoculturas voltam positivas (3/3) para S. aureus oxacilina-SENSÍVEL. ECO TE: vegetação de 12mm em valva mitral nativa com regurgitação importante, sem abscesso. Paciente está estável hemodinamicamente após o AVC.",
+          "question": "Qual o esquema antibiótico e a conduta?",
+          "options": [
+            "Oxacilina IV em dose plena por 4-6 semanas em valva nativa; discutir indicação cirúrgica precoce com cirurgia cardíaca pelo tamanho da vegetação (>10mm) e embolia prévia; manter suporte neurológico do AVC",
+            "Apenas amoxicilina VO ambulatorial",
+            "Trombolítico imediatamente",
+            "Vancomicina monoterapia indefinidamente"
+          ],
+          "correct": 0,
+          "expl": "S. aureus meticilina-sensível: OXACILINA IV por 4-6 semanas em valva nativa (em prótese: 6 sem + rifampicina + genta nos primeiros dias). Indicação CIRÚRGICA PRECOCE em EI: (1) ICC III-IV; (2) vegetação > 10mm + episódio embólico prévio (RISCO de NOVA embolia alto); (3) infecção não controlada; (4) abscesso/fístula. O AVC PRÉVIO não é contraindicação a cirurgia se isquêmico SEM transformação hemorrágica (em hemorrágico, aguardar 4 semanas)."
+        }
+      ],
+      "outcome": "Paciente recebe oxacilina 12g/dia IV. Cirurgia cardíaca opta por troca valvar mitral 7 dias após o AVC (TC de controle sem transformação hemorrágica). Pós-op estável, completa 6 semanas de ATB. Alta no 35º dia com déficit motor residual leve em MIE, em reabilitação. Acompanhamento odontológico para tratar foco e profilaxia AHA em procedimentos futuros (passou a ter prótese valvar = altíssimo risco)."
+    },
+    {
+      "type": "case",
+      "topic": "Caso · Pericardite aguda com tamponamento",
+      "subtitle": "Homem 42a, dor torácica que piora deitado, febre há 4 dias, ECG com supra ST difuso côncavo",
+      "specialty": "Cardiologia · Emergência",
+      "difficulty": "medium",
+      "vignette": "Homem de 42 anos chega ao PS com dor precordial há 2 horas, ventilatório-dependente (PIORA com inspiração), piora ao deitar e melhora em pé. Refere febre e mal-estar há 4 dias, com melhora após paracetamol. Exame: T 38°C, PA 112x86, FC 112, FR 21. Coração: atrito de alta frequência, mais audível no final da expiração. Troponina 123 ng/mL. ECG: supra ST difuso côncavo + infra PR difuso.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Qual o diagnóstico mais provável?",
+          "options": [
+            "Pericardite aguda (provável miopericardite pela troponina elevada) — quadro de dor pleurítica que piora em decúbito e melhora sentado, atrito pericárdico, febre + alteração viral típica e ECG com supra ST difuso CÔNCAVO + infra PR",
+            "Infarto agudo do miocárdio",
+            "Tromboembolismo pulmonar",
+            "Endocardite bacteriana aguda"
+          ],
+          "correct": 0,
+          "expl": "Quadro clínico clássico de PERICARDITE AGUDA: dor pleurítica que piora em decúbito e melhora sentado/inclinado, atrito pericárdico (~85%), pródromo viral. ECG com supra ST DIFUSO (várias derivações) CÔNCAVO (face 'feliz') + infra PR difuso (sinal sensível, devido inflamação atrial) descarta IAM (que seria localizado, com reciprocidade, e convexo). Troponina ELEVADA indica MIOPERICARDITE (acometimento miocárdico associado) — não muda o tratamento mas precisa observar arritmia/disfunção. TEP teria mais dispneia, sinais de TVP, ECG com S1Q3T3 ou T invertidas em V1-V3. EI aguda exigiria sopro de regurgitação aguda + sinais embólicos."
+        },
+        {
+          "id": "step2",
+          "prompt": "Após 6h em observação, paciente evolui com queda de PA para 78x52, taquicardia 132, jugulares ingurgitadas, hipofonese de bulhas. ECG: baixa voltagem e alternância elétrica. Cabeceira mostra pulso paradoxal de 18 mmHg.",
+          "question": "Qual a complicação e a conduta imediata?",
+          "options": [
+            "Tamponamento cardíaco (tríade de Beck + pulso paradoxal + alternância elétrica) — eco à beira do leito + pericardiocentese de alívio EMERGENCIAL (técnica de Marfan subxifoidiana guiada por eco)",
+            "Choque séptico — apenas antibiótico",
+            "Choque cardiogênico por IAM — trombólise",
+            "Crise hipertensiva — nitroprussiato"
+          ],
+          "correct": 0,
+          "expl": "TAMPONAMENTO CARDÍACO: tríade de Beck (hipotensão + estase jugular + hipofonese) + pulso paradoxal > 10 mmHg + alternância elétrica e baixa voltagem no ECG (swinging heart). É EMERGÊNCIA. Conduta: (1) eco à beira do leito confirma derrame e sinais de tamponamento (colapso atrial direito, colapso ventricular direito na diástole, IVC dilatada sem variação respiratória); (2) PERICARDIOCENTESE de alívio (técnica de Marfan — subxifoidiana, ângulo 15°, em direção ao ombro esquerdo, guiada por eco). Volume IV pode ser ponte enquanto prepara. NÃO usar diurético (piora!) nem nitrato (cai pré-carga)."
+        },
+        {
+          "id": "step3",
+          "prompt": "Pericardiocentese retira 350mL de líquido seroso. PA sobe para 118x76, FC cai para 96, melhora dos sintomas. Análise do líquido: predomínio linfocítico, glicose normal, PCR e cultura para bactérias e BK enviados.",
+          "question": "Tratamento da pericardite viral/idiopática estabelecida?",
+          "options": [
+            "AAS em dose anti-inflamatória 750-1000mg 3x/dia OU AINE (ibuprofeno 600mg 3x/dia) por 1-2 semanas + COLCHICINA 0,5mg 1-2x/dia por 3 meses (reduz recidiva). Evitar corticoide (favorece recidiva). Restringir exercício até remissão dos sintomas e normalização da PCR",
+            "Apenas observação sem medicação",
+            "Corticoide em alta dose como primeira escolha",
+            "Antibiótico amplo espectro indefinido"
+          ],
+          "correct": 0,
+          "expl": "Pericardite viral/idiopática: AINE em dose anti-inflamatória (AAS 750-1000mg 3x/dia se pós-IAM ou outras situações; ibuprofeno 600mg 3x/dia; indometacina alternativa) por 1-2 semanas + COLCHICINA 0,5mg 1-2x/dia por 3 MESES — colchicina reduz risco de recidiva em ~50% (CORE, CORP, ICAP). CORTICOIDE só em situações especiais (refratário, contraindicação a AINE, doença autoimune) — paradoxalmente AUMENTA risco de recidiva. Restrição de exercício até resolução. Em miopericardite com troponina elevada: monitorizar arritmia, fração de ejeção, repouso prolongado."
+        }
+      ],
+      "outcome": "Pericardiocentese alivia o tamponamento. PCR viral identifica Coxsackie B3. Inicia ibuprofeno + colchicina. Em 7 dias está assintomático, PCR normaliza, alta no 8º dia. Mantém colchicina por 3 meses. Sem recidiva no follow-up de 6 meses. Volta progressivamente à atividade física após alta."
+    },
+    {
+      "type": "flashcard",
+      "topic": "EI · conceito",
+      "front": "Endocardite infecciosa: definição e lesão característica?",
+      "back": "Infecção microbiana do endocárdio ou endotélio vascular. Lesão característica = VEGETAÇÃO (plaquetas + fibrina + microorganismos). Forma aguda (S. aureus, dias-2 sem, destrutiva) vs subaguda (estrepto viridans/enterococos, semanas-meses).",
+      "tags": ["ei"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "EI · etiologia",
+      "front": "Agente mais comum em EI e em qual subtipo cada um predomina?",
+      "back": "Estreptococos viridans ~39,6% (mais comum global, EI subaguda, flora oral). S. aureus ~18,7% (EI aguda, drogas IV, prótese precoce). Enterococos ~6,5%. S. epidermidis ~6,5% (prótese tardia). Hemocultura negativa ~11% (uso prévio de ATB, HACEK, Coxiella, fungos).",
+      "tags": ["ei"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "EI · Duke",
+      "front": "Critérios de Duke 2023: definitivo vs possível?",
+      "back": "DEFINITIVO = 2 maiores OU 1 maior + 3 menores OU 5 menores. POSSÍVEL = 1 maior + 1 menor OU 3 menores. Maiores: microbiológicos (hemocultura clássica, PCR) + imagem (ECO/TC/PET com envolvimento endocárdico). Menores: cardiopatia ou drogas IV, febre > 38, fenômeno vascular, fenômeno imune, microbiologia não-clássica.",
+      "tags": ["duke"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "EI · HACEK",
+      "front": "HACEK: o que é e por que importa em EI?",
+      "back": "Grupo de gram-negativos fastidiosos: Haemophilus, Aggregatibacter, Cardiobacterium, Eikenella, Kingella. Causam EI com hemocultura inicialmente NEGATIVA (precisa cultura prolongada > 5 dias). Tratamento: CEFTRIAXONA 4-6 semanas (4 nativa, 6 prótese).",
+      "tags": ["hacek"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "EI · Osler vs Janeway",
+      "front": "Como diferenciar Osler de Janeway?",
+      "back": "OSLER = DÓI (ouch). Nódulos dolorosos em polpas digitais, evolução horas-dias, EI subaguda, vasculite imune. JANEWAY = INDOLOR. Máculas planas em palmas/plantas, dias-semanas, EI aguda, microêmbolos sépticos (cultura+).",
+      "tags": ["ei"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "EI · hemocultura negativa",
+      "front": "Causas de hemocultura negativa em EI?",
+      "back": "1) ATB prévio (mais comum); 2) Técnica inadequada; 3) Agentes exigentes (HACEK, Brucella, Legionella, Coxiella, Bartonella, Tropheryma whipplei); 4) Fungos (Candida, Aspergillus). Conduta: PCR específico + sorologia, ECO TE.",
+      "tags": ["hemocultura"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "EI · ATB clássicos",
+      "front": "Esquemas de ATB padrão em EI por agente?",
+      "back": "Estrepto S pen: Pen G ou ceftriaxona 4 sem. Estrepto R pen: Pen G + genta 4+2 sem. Enterococo: Pen/ampi + genta 4-6 sem. MSSA: oxacilina 4-6 sem. MRSA: vancomicina 4-6 sem. HACEK: ceftriaxona 4-6 sem. EI de PRÓTESE: sempre 6 semanas + rifampicina (estafilo).",
+      "tags": ["atb"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "EI · indicação cirúrgica",
+      "front": "Quando operar EI?",
+      "back": "1) Disfunção valvar aguda com ICC III-IV (mortalidade 50-90% só clínico); 2) Prótese instável; 3) Infecção não controlada com ATB (Candida, Pseudomonas, MRSA refratário); 4) Complicações cardíacas (abscesso, fístula, BAV); 5) Vegetação > 10mm com embolia prévia ou recorrente.",
+      "tags": ["cirurgia"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "EI · profilaxia AHA 2007",
+      "front": "Quais condições mantém profilaxia para EI segundo AHA 2007?",
+      "back": "Altíssimo risco apenas: 1) prótese valvar; 2) EI prévia; 3) CC cianótica não reparada ou reparada com material protético (até 6 meses); 4) TX cardíaco com valvopatia. Procedimentos: odontológicos invasivos, trato respiratório com biópsia. Esquema: amoxicilina 2g VO 1h antes (azitromicina 500mg se alérgico).",
+      "tags": ["profilaxia"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Pericardite · causas",
+      "front": "Causas de pericardite aguda em ordem de frequência?",
+      "back": "Viral/idiopática ~90% (Coxsackie, echo). Outras: bacteriana, pós-IAM (epistenocárdica precoce ou Dressler), pós-pericardiotomia, uremia, neoplásica, colagenoses. As que mais tamponam: bacteriana, neoplásica e dissecção de aorta (hemopericárdio).",
+      "tags": ["pericardite"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Pericardite · clínica",
+      "front": "Tríade clínica da pericardite aguda?",
+      "back": "1) Dor torácica retroesternal, pleurítica, PIORA em decúbito, MELHORA sentado inclinado (sinal de Pott); 2) Atrito pericárdico em ~85% (som de couro); 3) Febre/pródromo viral. Pode ter síndrome febril, mialgias.",
+      "tags": ["pericardite"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Pericardite · ECG 4 estágios",
+      "front": "ECG da pericardite aguda nos 4 estágios?",
+      "back": "I (horas-dias): SUPRA ST difuso CÔNCAVO ('feliz') + infra PR + T concordante + infra ST V1/aVR. II (dias-sem): normalização ST e PR, achatamento T. III (2-3 sem): inversão T difusa. IV (>3 sem): normalização. Sem onda Q, sem reciprocidade (diferencia de IAM).",
+      "tags": ["ecg"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Pericardite · tratamento",
+      "front": "Tratamento da pericardite viral/idiopática?",
+      "back": "AINE (ibuprofeno 600mg 3x/dia) OU AAS (750-1000mg 3x/dia se pós-IAM) por 1-2 sem + COLCHICINA 0,5mg 1-2x/dia por 3 MESES (reduz recidiva ~50%). EVITAR CORTICOIDE (aumenta recidiva). Restrição de exercício até melhora e PCR normal.",
+      "tags": ["tratamento"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tamponamento · Beck",
+      "front": "Tríade de Beck no tamponamento cardíaco?",
+      "back": "1) HIPOTENSÃO; 2) ESTASE jugular; 3) HIPOFONESE de bulhas. + Taquicardia, pulso paradoxal, alternância elétrica e baixa voltagem no ECG (swinging heart), equalização das pressões diastólicas.",
+      "tags": ["tamponamento"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tamponamento · pulso paradoxal",
+      "front": "Pulso paradoxal: definição e mecanismo?",
+      "back": "Queda > 10 mmHg da PAS na INSPIRAÇÃO. Mecanismo: inspiração ↑ retorno venoso → sobrecarga VD → abaulamento septo para VE → ↓ enchimento VE → ↓ volume sistólico → ↓ PAS. Também em asma/DPOC grave. Sinal de KUSSMAUL (↑ pressão venosa na inspiração) é diferente — característico de pericardite constritiva.",
+      "tags": ["tamponamento"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Tamponamento · tratamento",
+      "front": "Tratamento do tamponamento cardíaco?",
+      "back": "EMERGÊNCIA. PERICARDIOCENTESE de alívio — técnica de Marfan (subxifoidiana, 15°, ombro esquerdo, idealmente guiada por eco). Volume IV como ponte. NÃO usar diurético nem nitrato. Em recidiva ou pericardite purulenta/neoplásica: janela pericárdica cirúrgica. Em hemopericárdio agudo por dissecção: cirurgia cardíaca de emergência, NÃO drenar antes.",
+      "tags": ["tamponamento"]
+    }
+  ]
+}
