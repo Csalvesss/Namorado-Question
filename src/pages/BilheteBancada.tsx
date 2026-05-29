@@ -92,7 +92,7 @@ export default function BilheteBancada() {
           </p>
           <div className="mt-5 flex items-end justify-between gap-3 border-t border-[var(--blush-stroke)] pt-4 font-display text-[11px] uppercase tracking-[0.22em] text-mute">
             <span>novo em {nextIn}</span>
-            <span className="italic text-rose">— {isIrmao ? 'irmão' : user?.partnerName?.trim() || 'César'}</span>
+            <span className="italic text-rose">— {user?.partnerName?.trim() || (isIrmao ? 'irmão' : 'César')}</span>
           </div>
         </div>
 
