@@ -1,36 +1,77 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { CalendarDays, Clock3, MapPin, Pencil, Plus, Trash2 } from 'lucide-react';
 import PageContainer from '../components/ui/PageContainer';
+import AssistantBanner from '../components/agenda/AssistantBanner';
+import WeekTimeline from '../components/agenda/WeekTimeline';
+import WeekNavigator from '../components/agenda/WeekNavigator';
+import EventEditor, {
+  type EventEditorInitial,
+} from '../components/agenda/EventEditor';
+import SubjectEditor from '../components/agenda/SubjectEditor';
+import { getOccurrencesByDay } from '../lib/agenda';
+import { buildAssistantSummary } from '../lib/assistant';
+import {
+  getPermission,
+  requestPermission,
+  scheduleReminders,
+} from '../lib/notifications';
 import {
   STUDY_PLAN_CHANGE_EVENT,
-  SUBJECT_PALETTE,
   daysUntil,
   listClasses,
   listExams,
   listSubjects,
-  newId,
-  removeClass,
-  removeExam,
+  listTasks,
   removeSubject,
-  saveClass,
-  saveExam,
-  saveSubject,
   todayISO,
 } from '../lib/studyPlan';
+import {
+  ORGANIZATION_TIPS,
+  type DisplayMode,
+} from '../data/assistant-copy';
 import { useUser } from '../lib/useUser';
-import type { ClassEvent, DayOfWeek, ExamEvent, Subject } from '../types';
+import type {
+  AgendaOccurrence,
+  NotificationPermission as AppNotificationPermission,
+} from '../lib/agenda-types';
+import type { ExamEvent, Subject } from '../types';
 
-const DAY_LABELS = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
-const DAY_LABELS_SHORT = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'];
-const MONTH_LABELS = [
+const MONTH_LABELS_SHORT = [
   'jan', 'fev', 'mar', 'abr', 'mai', 'jun',
   'jul', 'ago', 'set', 'out', 'nov', 'dez',
 ];
+const WEEKDAYS_SHORT = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'];
+
+// ---------------------------------------------------------------------------
+// Helpers de data
+// ---------------------------------------------------------------------------
+
+function startOfWeek(d: Date): Date {
+  // Segunda-feira da semana de `d` (00:00 local).
+  const day = d.getDay(); // 0..6, dom..sáb
+  const diff = day === 0 ? -6 : 1 - day; // dom→-6, seg→0, ter→-1, ...
+  const start = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  start.setDate(start.getDate() + diff);
+  return start;
+}
+
+function addDays(d: Date, n: number): Date {
+  const r = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  r.setDate(r.getDate() + n);
+  return r;
+}
+
+function toISODateLocal(d: Date): string {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${dd}`;
+}
 
 function formatExamDate(iso: string): string {
   const [y, m, d] = iso.split('-').map(Number);
   const date = new Date(y, (m ?? 1) - 1, d ?? 1);
-  return `${date.getDate()} ${MONTH_LABELS[date.getMonth()]} · ${DAY_LABELS_SHORT[date.getDay()]}`;
+  return `${date.getDate()} ${MONTH_LABELS_SHORT[date.getMonth()]} · ${WEEKDAYS_SHORT[date.getDay()]}`;
 }
 
 function describeDaysUntil(days: number): string {
@@ -42,13 +83,59 @@ function describeDaysUntil(days: number): string {
   return `em ${Math.round(days / 30)} meses`;
 }
 
+function headlineFor(mode: DisplayMode): { mainPart: string; accentPart: string } {
+  switch (mode) {
+    case 'doutora':
+      return { mainPart: 'sua agenda do', accentPart: 'semestre' };
+    case 'irmao':
+      return { mainPart: 'agenda da', accentPart: 'irmã' };
+    case 'namorado':
+    default:
+      return { mainPart: 'sua agenda,', accentPart: 'amor' };
+  }
+}
+
+function subtitleFor(mode: DisplayMode): string {
+  switch (mode) {
+    case 'doutora':
+      return 'aulas, provas e atividades — tudo num só lugar.';
+    case 'irmao':
+      return 'tudo que tem na sua semana — aula, prova, plantão, almoço, qualquer coisa.';
+    case 'namorado':
+    default:
+      return 'tudo o que tem na sua semana, num lugar só. eu te lembro do que importa.';
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Página
+// ---------------------------------------------------------------------------
+
+type EditorState =
+  | null
+  | { kind: 'event'; initial: EventEditorInitial }
+  | { kind: 'subject'; initial: Subject | null };
+
 export default function StudyPlan() {
   const { user } = useUser();
-  const [, setTick] = useState(0);
-  const [subjectModal, setSubjectModal] = useState<Subject | 'new' | null>(null);
-  const [classModal, setClassModal] = useState<ClassEvent | 'new' | null>(null);
-  const [examModal, setExamModal] = useState<ExamEvent | 'new' | null>(null);
+  const uid = user?.uid;
+  const displayMode: DisplayMode = (user?.displayMode ?? 'namorado') as DisplayMode;
 
+  // tick para re-render quando STUDY_PLAN_CHANGE_EVENT dispara
+  const [, setTick] = useState(0);
+
+  // semana exibida no timeline
+  const [weekStart, setWeekStart] = useState<Date>(() => startOfWeek(new Date()));
+
+  // modal de edição (evento ou disciplina)
+  const [editor, setEditor] = useState<EditorState>(null);
+
+  // permission de notificação
+  const [permission, setPermission] = useState<AppNotificationPermission>(() =>
+    getPermission(),
+  );
+
+  // re-render quando dados mudam
   useEffect(() => {
     function bump() {
       setTick((t) => t + 1);
@@ -57,303 +144,385 @@ export default function StudyPlan() {
     return () => window.removeEventListener(STUDY_PLAN_CHANGE_EVENT, bump);
   }, []);
 
-  const uid = user?.uid;
+  // dados
   const subjects = useMemo(() => (uid ? listSubjects(uid) : []), [uid]);
   const classes = useMemo(() => (uid ? listClasses(uid) : []), [uid]);
   const exams = useMemo(() => (uid ? listExams(uid) : []), [uid]);
+  const tasks = useMemo(() => (uid ? listTasks(uid) : []), [uid]);
   const subjectById = useMemo(() => {
     const m = new Map<string, Subject>();
     subjects.forEach((s) => m.set(s.id, s));
     return m;
   }, [subjects]);
 
-  const upcomingExams = useMemo(() => {
-    const today = todayISO();
-    return exams.filter((e) => e.date >= today);
-  }, [exams]);
+  const todayIso = todayISO();
+  const weekEnd = useMemo(() => addDays(weekStart, 6), [weekStart]);
+  const weekStartIso = useMemo(() => toISODateLocal(weekStart), [weekStart]);
+  const weekEndIso = useMemo(() => toISODateLocal(weekEnd), [weekEnd]);
 
-  const pastExams = useMemo(() => {
-    const today = todayISO();
-    return exams.filter((e) => e.date < today).slice(-5).reverse();
-  }, [exams]);
+  const occurrencesByDay = useMemo(
+    () =>
+      getOccurrencesByDay(weekStartIso, weekEndIso, {
+        subjects: subjectById,
+        classes,
+        exams,
+        tasks,
+      }),
+    [weekStartIso, weekEndIso, subjectById, classes, exams, tasks],
+  );
+
+  // sumário do assistente — recalcula a cada minuto pra countdowns ficarem vivos
+  const [now, setNow] = useState<Date>(() => new Date());
+  useEffect(() => {
+    const i = setInterval(() => setNow(new Date()), 60 * 1000);
+    return () => clearInterval(i);
+  }, []);
+
+  const summary = useMemo(
+    () =>
+      buildAssistantSummary(
+        {
+          subjects,
+          classes,
+          exams,
+          tasks,
+          reminderPermission: permission,
+        },
+        now,
+      ),
+    [subjects, classes, exams, tasks, permission, now],
+  );
+
+  // agenda de lembretes — reroda quando dados mudam ou permission muda
+  useEffect(() => {
+    if (!uid) return;
+    // pega as ocorrências dos próximos 2 dias (janela ampla pro scheduler interno)
+    const todayDate = new Date();
+    const horizon = addDays(todayDate, 2);
+    const occs = getOccurrencesByDay(
+      toISODateLocal(todayDate),
+      toISODateLocal(horizon),
+      { subjects: subjectById, classes, exams, tasks },
+    );
+    const flat: AgendaOccurrence[] = [];
+    occs.forEach((arr) => arr.forEach((o) => flat.push(o)));
+    scheduleReminders(flat, todayDate);
+  }, [uid, subjectById, classes, exams, tasks, permission]);
+
+  // dicas de organização — rotacionam por dia para dar frescor
+  const orgTips = useMemo(() => {
+    const pool = ORGANIZATION_TIPS[displayMode] ?? ORGANIZATION_TIPS.doutora;
+    if (pool.length === 0) return [];
+    // semente determinística pelo dia: mesma dica até a meia-noite
+    const epoch = Math.floor(now.getTime() / (24 * 60 * 60 * 1000));
+    return [
+      pool[epoch % pool.length],
+      pool[(epoch + 1) % pool.length],
+    ];
+  }, [displayMode, now]);
+
+  // provas próximas e passadas (mantém formato editorial do bloco anterior)
+  const upcomingExams = useMemo(
+    () => exams.filter((e) => e.date >= todayIso),
+    [exams, todayIso],
+  );
+  const pastExams = useMemo(
+    () => exams.filter((e) => e.date < todayIso).slice(-5).reverse(),
+    [exams, todayIso],
+  );
+
+  // handlers
+  const handleEnableReminders = useCallback(async () => {
+    const result = await requestPermission();
+    setPermission(result);
+  }, []);
+
+  const openNewEventForSlot = useCallback((dateISO: string, hour: number) => {
+    setEditor({
+      kind: 'event',
+      initial: { mode: 'new', kind: 'class', dateISO, hour },
+    });
+  }, []);
+
+  const openEventFromOccurrence = useCallback(
+    (occ: AgendaOccurrence) => {
+      if (occ.kind === 'class') {
+        const cls = classes.find((c) => c.id === occ.sourceId);
+        if (cls) {
+          setEditor({ kind: 'event', initial: { mode: 'edit', kind: 'class', data: cls } });
+        }
+        return;
+      }
+      if (occ.kind === 'exam') {
+        const ex = exams.find((e) => e.id === occ.sourceId);
+        if (ex) {
+          setEditor({ kind: 'event', initial: { mode: 'edit', kind: 'exam', data: ex } });
+        }
+        return;
+      }
+      const tk = tasks.find((t) => t.id === occ.sourceId);
+      if (tk) {
+        setEditor({ kind: 'event', initial: { mode: 'edit', kind: 'task', data: tk } });
+      }
+    },
+    [classes, exams, tasks],
+  );
 
   if (!user) return null;
 
+  const headline = headlineFor(displayMode);
+  const subtitle = subtitleFor(displayMode);
+
   return (
     <PageContainer>
-    <div className="space-y-12">
-      <section>
-        <div className="eyebrow-gold">{todayISO().split('-').reverse().join('.')}</div>
-        <h1 className="mt-3 font-serif italic leading-[1.05] text-wine-deep">
-          <span className="text-[clamp(1.75rem,4vw,2.75rem)]">plano de estudo,</span>{' '}
-          <span className="text-[clamp(1.75rem,4vw,2.75rem)] text-rose">doutora</span>
-          <span className="text-[clamp(1.75rem,4vw,2.75rem)]">.</span>
-        </h1>
-        <p className="mt-3 max-w-xl font-serif text-base italic leading-relaxed text-ink-soft sm:text-lg">
-          suas matérias, suas aulas e suas provas do semestre.
-        </p>
-      </section>
+      <div className="space-y-10">
+        {/* I — Assistente */}
+        <AssistantBanner
+          summary={summary}
+          onEnableReminders={handleEnableReminders}
+          permission={permission}
+        />
 
-      <section>
-        <div className="mb-4 flex items-baseline justify-between gap-3">
-          <div>
-            <div className="text-[10px] uppercase tracking-[0.32em] text-gold opacity-70">
-              capítulo um
-            </div>
-            <h2 className="mt-1 font-serif text-2xl italic text-wine-deep sm:text-3xl">
-              Disciplinas do semestre
-            </h2>
+        {/* II — Header da página */}
+        <section>
+          <div className="eyebrow-gold">
+            {todayIso.split('-').reverse().join('.')}
           </div>
-          <button
-            onClick={() => setSubjectModal('new')}
-            className="inline-flex min-h-touch items-center gap-1.5 rounded-full bg-wine px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-wine transition hover:bg-wine-deep active:scale-[0.98]"
-          >
-            <Plus className="h-3.5 w-3.5" strokeWidth={2.25} />
-            nova
-          </button>
-        </div>
-
-        {subjects.length === 0 ? (
-          <p className="rounded-2xl border border-dashed border-line bg-paper-soft px-5 py-8 text-center font-serif text-base italic text-ink-soft">
-            nenhuma disciplina ainda. comece adicionando as matérias do semestre.
+          <h1 className="mt-3 font-serif italic leading-[1.05] text-wine-deep">
+            <span className="text-[clamp(1.75rem,4vw,2.75rem)]">{headline.mainPart}</span>{' '}
+            <span className="text-[clamp(1.75rem,4vw,2.75rem)] text-rose">{headline.accentPart}</span>
+            <span className="text-[clamp(1.75rem,4vw,2.75rem)]">.</span>
+          </h1>
+          <p className="mt-3 max-w-xl font-serif text-base italic leading-relaxed text-ink-soft sm:text-lg">
+            {subtitle}
           </p>
-        ) : (
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {subjects.map((s) => (
-              <SubjectCard
-                key={s.id}
-                subject={s}
-                classCount={classes.filter((c) => c.subjectId === s.id).length}
-                examCount={exams.filter((e) => e.subjectId === s.id).length}
-                onEdit={() => setSubjectModal(s)}
-                onDelete={() => {
-                  if (confirm(`Remover ${s.name}? Aulas e provas dessa disciplina também serão removidas.`)) {
-                    removeSubject(uid!, s.id);
-                  }
-                }}
+        </section>
+
+        {/* III — Semana */}
+        <section>
+          <div className="mb-4 flex flex-wrap items-baseline justify-between gap-3">
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.32em] text-gold opacity-70">
+                capítulo um
+              </div>
+              <h2 className="mt-1 font-serif text-2xl italic text-wine-deep sm:text-3xl">
+                Sua semana
+              </h2>
+            </div>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() =>
+                  setEditor({
+                    kind: 'event',
+                    initial: {
+                      mode: 'new',
+                      kind: 'class',
+                      dateISO: todayIso,
+                    },
+                  })
+                }
+                className="inline-flex min-h-touch items-center gap-1.5 rounded-full bg-wine px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-wine transition hover:bg-wine-deep active:scale-[0.98]"
+              >
+                <Plus className="h-3.5 w-3.5" strokeWidth={2.25} />
+                novo evento
+              </button>
+            </div>
+          </div>
+
+          <WeekNavigator
+            weekStart={weekStart}
+            onPrev={() => setWeekStart((d) => addDays(d, -7))}
+            onNext={() => setWeekStart((d) => addDays(d, 7))}
+            onToday={() => setWeekStart(startOfWeek(new Date()))}
+          />
+
+          <div className="mt-4">
+            {subjects.length === 0 && classes.length === 0 && exams.length === 0 && tasks.length === 0 ? (
+              <p className="rounded-2xl border border-dashed border-line bg-paper-soft px-5 py-8 text-center font-serif text-base italic text-ink-soft">
+                comece adicionando suas disciplinas e o que tem na sua semana.
+              </p>
+            ) : (
+              <WeekTimeline
+                weekStart={weekStart}
+                occurrencesByDay={occurrencesByDay}
+                onEventClick={openEventFromOccurrence}
+                onSlotClick={openNewEventForSlot}
+                todayISO={todayIso}
               />
-            ))}
+            )}
           </div>
-        )}
-      </section>
+        </section>
 
-      <section>
-        <div className="mb-4 flex items-baseline justify-between gap-3">
-          <div>
-            <div className="text-[10px] uppercase tracking-[0.32em] text-gold opacity-70">
-              capítulo dois
+        {/* IV — Provas */}
+        <section>
+          <div className="mb-4 flex items-baseline justify-between gap-3">
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.32em] text-gold opacity-70">
+                capítulo dois
+              </div>
+              <h2 className="mt-1 font-serif text-2xl italic text-wine-deep sm:text-3xl">
+                Próximas provas
+              </h2>
             </div>
-            <h2 className="mt-1 font-serif text-2xl italic text-wine-deep sm:text-3xl">
-              Agenda da semana
-            </h2>
+            <button
+              onClick={() =>
+                setEditor({
+                  kind: 'event',
+                  initial: { mode: 'new', kind: 'exam', dateISO: todayIso },
+                })
+              }
+              disabled={subjects.length === 0}
+              className="inline-flex min-h-touch items-center gap-1.5 rounded-full bg-wine px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-wine transition hover:bg-wine-deep active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-line disabled:text-muted disabled:shadow-none"
+            >
+              <Plus className="h-3.5 w-3.5" strokeWidth={2.25} />
+              nova prova
+            </button>
           </div>
-          <button
-            onClick={() => setClassModal('new')}
-            disabled={subjects.length === 0}
-            className="inline-flex min-h-touch items-center gap-1.5 rounded-full bg-wine px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-wine transition hover:bg-wine-deep active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-line disabled:text-muted disabled:shadow-none"
-          >
-            <Plus className="h-3.5 w-3.5" strokeWidth={2.25} />
-            nova aula
-          </button>
-        </div>
 
-        {classes.length === 0 ? (
-          <p className="rounded-2xl border border-dashed border-line bg-paper-soft px-5 py-8 text-center font-serif text-base italic text-ink-soft">
-            {subjects.length === 0
-              ? 'crie uma disciplina primeiro.'
-              : 'nenhuma aula cadastrada ainda.'}
-          </p>
-        ) : (
-          <div className="overflow-x-auto">
-            <div className="grid min-w-[700px] grid-cols-7 gap-2">
-              {DAY_LABELS.slice(1).concat(DAY_LABELS[0]).map((label, i) => {
-                const dayIdx = (i + 1) % 7;
-                const dayClasses = classes.filter((c) => c.dayOfWeek === dayIdx);
-                return (
-                  <div key={label} className="rounded-2xl border border-line bg-paper-soft p-3">
-                    <div className="mb-2 font-serif text-[11px] uppercase tracking-[0.22em] text-gold">
-                      {label}
-                    </div>
-                    {dayClasses.length === 0 ? (
-                      <div className="text-[11px] italic text-muted">livre</div>
-                    ) : (
-                      <ul className="space-y-2">
-                        {dayClasses.map((c) => {
-                          const s = subjectById.get(c.subjectId);
-                          return (
-                            <li key={c.id}>
-                              <button
-                                type="button"
-                                onClick={() => setClassModal(c)}
-                                className="w-full rounded-xl border border-line bg-paper px-2.5 py-2 text-left transition hover:shadow-card"
-                                style={{ borderLeftColor: s?.color, borderLeftWidth: 3 }}
-                              >
-                                <div className="truncate font-serif text-sm italic text-wine-deep">
-                                  {s?.name ?? 'disciplina removida'}
-                                </div>
-                                <div className="mt-0.5 flex items-center gap-1 text-[10px] uppercase tracking-wider text-muted">
-                                  <Clock3 className="h-2.5 w-2.5" strokeWidth={1.75} />
-                                  {c.startTime} a {c.endTime}
-                                </div>
-                                {c.location && (
-                                  <div className="mt-0.5 flex items-center gap-1 text-[10px] italic text-ink-soft">
-                                    <MapPin className="h-2.5 w-2.5" strokeWidth={1.75} />
-                                    {c.location}
-                                  </div>
-                                )}
-                              </button>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-      </section>
-
-      <section>
-        <div className="mb-4 flex items-baseline justify-between gap-3">
-          <div>
-            <div className="text-[10px] uppercase tracking-[0.32em] text-gold opacity-70">
-              capítulo três
-            </div>
-            <h2 className="mt-1 font-serif text-2xl italic text-wine-deep sm:text-3xl">
-              Próximas provas
-            </h2>
-          </div>
-          <button
-            onClick={() => setExamModal('new')}
-            disabled={subjects.length === 0}
-            className="inline-flex min-h-touch items-center gap-1.5 rounded-full bg-wine px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-wine transition hover:bg-wine-deep active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-line disabled:text-muted disabled:shadow-none"
-          >
-            <Plus className="h-3.5 w-3.5" strokeWidth={2.25} />
-            nova prova
-          </button>
-        </div>
-
-        {upcomingExams.length === 0 ? (
-          <p className="rounded-2xl border border-dashed border-line bg-paper-soft px-5 py-8 text-center font-serif text-base italic text-ink-soft">
-            sem provas marcadas para os próximos dias.
-          </p>
-        ) : (
-          <ul className="space-y-3">
-            {upcomingExams.map((e) => {
-              const s = subjectById.get(e.subjectId);
-              const days = daysUntil(e.date);
-              const urgent = days <= 7;
-              return (
-                <li key={e.id}>
-                  <button
-                    type="button"
-                    onClick={() => setExamModal(e)}
-                    className={`flex w-full items-center gap-4 rounded-2xl border bg-paper px-4 py-4 text-left transition hover:shadow-card sm:px-5 ${
-                      urgent ? 'border-rose' : 'border-line'
-                    }`}
-                  >
-                    <div className="flex w-20 shrink-0 flex-col items-center justify-center rounded-xl bg-paper-soft px-2 py-2.5">
-                      <div className="font-serif text-2xl font-semibold leading-none text-wine-deep">
-                        {Number(e.date.split('-')[2])}
-                      </div>
-                      <div className="mt-1 text-[10px] uppercase tracking-wider text-muted">
-                        {MONTH_LABELS[Number(e.date.split('-')[1]) - 1]}
-                      </div>
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-2">
-                        <span
-                          aria-hidden
-                          className="h-2 w-2 shrink-0 rounded-full"
-                          style={{ background: s?.color ?? '#999' }}
-                        />
-                        <div className="truncate font-serif text-lg italic text-wine-deep sm:text-xl">
-                          {s?.name ?? 'disciplina removida'}
-                        </div>
-                      </div>
-                      {e.label && (
-                        <div className="mt-0.5 truncate text-sm italic text-ink-soft">{e.label}</div>
-                      )}
-                      <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] uppercase tracking-wider text-muted">
-                        <span>{formatExamDate(e.date)}</span>
-                        {e.time && (
-                          <span className="inline-flex items-center gap-1">
-                            <Clock3 className="h-2.5 w-2.5" strokeWidth={1.75} />
-                            {e.time}
-                          </span>
-                        )}
-                        {e.location && (
-                          <span className="inline-flex items-center gap-1">
-                            <MapPin className="h-2.5 w-2.5" strokeWidth={1.75} />
-                            {e.location}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                    <div
-                      className={`shrink-0 rounded-full px-3 py-1 font-serif text-[11px] italic ${
-                        urgent ? 'bg-rose-soft text-wine-deep' : 'bg-paper-soft text-muted'
-                      }`}
-                    >
-                      {describeDaysUntil(days)}
-                    </div>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        )}
-
-        {pastExams.length > 0 && (
-          <details className="mt-6 rounded-2xl border border-line bg-paper-soft px-4 py-3">
-            <summary className="cursor-pointer text-[11px] uppercase tracking-[0.22em] text-muted">
-              provas que já passaram ({pastExams.length})
-            </summary>
-            <ul className="mt-3 space-y-2 text-sm text-ink-soft">
-              {pastExams.map((e) => (
-                <li key={e.id} className="flex items-center justify-between gap-3">
-                  <div className="truncate font-serif italic">
-                    {subjectById.get(e.subjectId)?.name ?? '·'} {e.label && <span className="text-muted">· {e.label}</span>}
-                  </div>
-                  <div className="shrink-0 text-[11px] uppercase tracking-wider text-muted">
-                    {formatExamDate(e.date)}
-                  </div>
-                </li>
+          {upcomingExams.length === 0 ? (
+            <p className="rounded-2xl border border-dashed border-line bg-paper-soft px-5 py-8 text-center font-serif text-base italic text-ink-soft">
+              sem provas marcadas para os próximos dias.
+            </p>
+          ) : (
+            <ul className="space-y-3">
+              {upcomingExams.map((e) => (
+                <ExamRow
+                  key={e.id}
+                  exam={e}
+                  subject={subjectById.get(e.subjectId)}
+                  onClick={() =>
+                    setEditor({
+                      kind: 'event',
+                      initial: { mode: 'edit', kind: 'exam', data: e },
+                    })
+                  }
+                />
               ))}
             </ul>
-          </details>
-        )}
-      </section>
+          )}
 
-      {subjectModal && (
-        <SubjectFormModal
-          uid={uid!}
-          initial={subjectModal === 'new' ? null : subjectModal}
-          onClose={() => setSubjectModal(null)}
-        />
-      )}
-      {classModal && (
-        <ClassFormModal
-          uid={uid!}
+          {pastExams.length > 0 && (
+            <details className="mt-6 rounded-2xl border border-line bg-paper-soft px-4 py-3">
+              <summary className="cursor-pointer text-[11px] uppercase tracking-[0.22em] text-muted">
+                provas que já passaram ({pastExams.length})
+              </summary>
+              <ul className="mt-3 space-y-2 text-sm text-ink-soft">
+                {pastExams.map((e) => (
+                  <li key={e.id} className="flex items-center justify-between gap-3">
+                    <div className="truncate font-serif italic">
+                      {subjectById.get(e.subjectId)?.name ?? '·'}{' '}
+                      {e.label && <span className="text-muted">· {e.label}</span>}
+                    </div>
+                    <div className="shrink-0 text-[11px] uppercase tracking-wider text-muted">
+                      {formatExamDate(e.date)}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
+        </section>
+
+        {/* V — Disciplinas */}
+        <section>
+          <div className="mb-4 flex items-baseline justify-between gap-3">
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.32em] text-gold opacity-70">
+                capítulo três
+              </div>
+              <h2 className="mt-1 font-serif text-2xl italic text-wine-deep sm:text-3xl">
+                Disciplinas
+              </h2>
+            </div>
+            <button
+              onClick={() => setEditor({ kind: 'subject', initial: null })}
+              className="inline-flex min-h-touch items-center gap-1.5 rounded-full bg-wine px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-wine transition hover:bg-wine-deep active:scale-[0.98]"
+            >
+              <Plus className="h-3.5 w-3.5" strokeWidth={2.25} />
+              nova
+            </button>
+          </div>
+
+          {subjects.length === 0 ? (
+            <p className="rounded-2xl border border-dashed border-line bg-paper-soft px-5 py-8 text-center font-serif text-base italic text-ink-soft">
+              nenhuma disciplina ainda. comece adicionando as matérias do semestre.
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {subjects.map((s) => (
+                <SubjectCard
+                  key={s.id}
+                  subject={s}
+                  classCount={classes.filter((c) => c.subjectId === s.id).length}
+                  examCount={exams.filter((e) => e.subjectId === s.id).length}
+                  onEdit={() => setEditor({ kind: 'subject', initial: s })}
+                  onDelete={() => {
+                    if (
+                      confirm(
+                        `Remover ${s.name}? Aulas e provas dessa disciplina também serão removidas.`,
+                      )
+                    ) {
+                      if (uid) removeSubject(uid, s.id);
+                    }
+                  }}
+                />
+              ))}
+            </div>
+          )}
+        </section>
+
+        {/* VI — Como organizar */}
+        {orgTips.length > 0 && (
+          <section>
+            <div className="mb-4">
+              <div className="text-[10px] uppercase tracking-[0.32em] text-gold opacity-70">
+                capítulo quatro
+              </div>
+              <h2 className="mt-1 font-serif text-2xl italic text-wine-deep sm:text-3xl">
+                Como organizar
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+              {orgTips.map((t, i) => (
+                <div
+                  key={i}
+                  className="rounded-2xl border border-line bg-paper-soft p-5"
+                >
+                  <h3 className="font-serif text-lg italic text-wine-deep">{t.title}</h3>
+                  <p className="mt-2 font-serif text-sm italic leading-relaxed text-ink-soft">
+                    {t.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+
+      {/* Modais e drawers */}
+      {editor?.kind === 'event' && uid && (
+        <EventEditor
+          uid={uid}
           subjects={subjects}
-          initial={classModal === 'new' ? null : classModal}
-          onClose={() => setClassModal(null)}
+          initial={editor.initial}
+          onRequestNewSubject={() => setEditor({ kind: 'subject', initial: null })}
+          onClose={() => setEditor(null)}
         />
       )}
-      {examModal && (
-        <ExamFormModal
-          uid={uid!}
-          subjects={subjects}
-          initial={examModal === 'new' ? null : examModal}
-          onClose={() => setExamModal(null)}
+      {editor?.kind === 'subject' && uid && (
+        <SubjectEditor
+          uid={uid}
+          initial={editor.initial}
+          onClose={() => setEditor(null)}
         />
       )}
-    </div>
     </PageContainer>
   );
 }
+
+// ---------------------------------------------------------------------------
+// SubjectCard (mantido inline — mesma estética do anterior)
+// ---------------------------------------------------------------------------
 
 interface SubjectCardProps {
   subject: Subject;
@@ -416,353 +585,75 @@ function SubjectCard({ subject, classCount, examCount, onEdit, onDelete }: Subje
   );
 }
 
-interface ModalShellProps {
-  title: string;
-  onClose: () => void;
-  onSubmit: (e: React.FormEvent) => void;
-  onDelete?: () => void;
-  children: React.ReactNode;
-  submitLabel?: string;
+// ---------------------------------------------------------------------------
+// ExamRow
+// ---------------------------------------------------------------------------
+
+interface ExamRowProps {
+  exam: ExamEvent;
+  subject: Subject | undefined;
+  onClick: () => void;
 }
 
-function ModalShell({ title, onClose, onSubmit, onDelete, children, submitLabel = 'salvar' }: ModalShellProps) {
-  useEffect(() => {
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') onClose();
-    }
-    window.addEventListener('keydown', onKey);
-    return () => {
-      document.body.style.overflow = prev;
-      window.removeEventListener('keydown', onKey);
-    };
-  }, [onClose]);
-
+function ExamRow({ exam, subject, onClick }: ExamRowProps) {
+  const days = daysUntil(exam.date);
+  const urgent = days <= 7;
   return (
-    <div className="fixed inset-0 z-[60] flex items-end justify-center bg-ink/40 px-3 pt-6 pb-safe sm:items-center sm:py-6">
-      <form
-        onSubmit={onSubmit}
-        className="w-full max-w-md overflow-hidden rounded-3xl border border-line bg-paper shadow-card sm:max-w-lg"
+    <li>
+      <button
+        type="button"
+        onClick={onClick}
+        className={`flex w-full items-center gap-4 rounded-2xl border bg-paper px-4 py-4 text-left transition hover:shadow-card sm:px-5 ${
+          urgent ? 'border-rose' : 'border-line'
+        }`}
       >
-        <div className="border-b border-line px-5 py-4">
-          <h3 className="font-serif text-xl italic text-wine-deep">{title}</h3>
-        </div>
-        <div className="space-y-3 px-5 py-4">{children}</div>
-        <div className="flex items-center justify-between gap-3 border-t border-line bg-paper-soft px-5 py-3">
-          {onDelete ? (
-            <button
-              type="button"
-              onClick={onDelete}
-              className="text-[11px] uppercase tracking-wider text-red transition hover:underline"
-            >
-              remover
-            </button>
-          ) : (
-            <span />
-          )}
-          <div className="flex gap-2">
-            <button
-              type="button"
-              onClick={onClose}
-              className="inline-flex items-center rounded-full border border-line bg-paper px-4 py-2 text-xs font-semibold uppercase tracking-wider text-ink-soft transition hover:bg-paper-soft"
-            >
-              cancelar
-            </button>
-            <button
-              type="submit"
-              className="inline-flex items-center rounded-full bg-wine px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-wine transition hover:bg-wine-deep active:scale-[0.98]"
-            >
-              {submitLabel}
-            </button>
+        <div className="flex w-20 shrink-0 flex-col items-center justify-center rounded-xl bg-paper-soft px-2 py-2.5">
+          <div className="font-serif text-2xl font-semibold leading-none text-wine-deep">
+            {Number(exam.date.split('-')[2])}
+          </div>
+          <div className="mt-1 text-[10px] uppercase tracking-wider text-muted">
+            {MONTH_LABELS_SHORT[Number(exam.date.split('-')[1]) - 1]}
           </div>
         </div>
-      </form>
-    </div>
-  );
-}
-
-interface SubjectFormProps {
-  uid: string;
-  initial: Subject | null;
-  onClose: () => void;
-}
-
-function SubjectFormModal({ uid, initial, onClose }: SubjectFormProps) {
-  const [name, setName] = useState(initial?.name ?? '');
-  const [professor, setProfessor] = useState(initial?.professor ?? '');
-  const [semester, setSemester] = useState(initial?.semester ?? '');
-  const [color, setColor] = useState(initial?.color ?? SUBJECT_PALETTE[0]);
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!name.trim()) return;
-    const subject: Subject = {
-      id: initial?.id ?? newId('subj'),
-      name: name.trim(),
-      color,
-      professor: professor.trim() || undefined,
-      semester: semester.trim() || undefined,
-      createdAt: initial?.createdAt ?? Date.now(),
-    };
-    saveSubject(uid, subject);
-    onClose();
-  }
-
-  function handleDelete() {
-    if (!initial) return;
-    if (confirm(`Remover ${initial.name}? Aulas e provas dessa disciplina também serão removidas.`)) {
-      removeSubject(uid, initial.id);
-      onClose();
-    }
-  }
-
-  return (
-    <ModalShell
-      title={initial ? 'editar disciplina' : 'nova disciplina'}
-      onClose={onClose}
-      onSubmit={handleSubmit}
-      onDelete={initial ? handleDelete : undefined}
-    >
-      <Field label="nome">
-        <input
-          autoFocus
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Ex.: Cardiologia"
-          className="input-elegant"
-        />
-      </Field>
-      <Field label="professor (opcional)">
-        <input
-          value={professor}
-          onChange={(e) => setProfessor(e.target.value)}
-          placeholder="Ex.: Dra. Andrea"
-          className="input-elegant"
-        />
-      </Field>
-      <Field label="semestre (opcional)">
-        <input
-          value={semester}
-          onChange={(e) => setSemester(e.target.value)}
-          placeholder="Ex.: 2026.1"
-          className="input-elegant"
-        />
-      </Field>
-      <Field label="cor">
-        <div className="flex flex-wrap gap-2">
-          {SUBJECT_PALETTE.map((c) => (
-            <button
-              key={c}
-              type="button"
-              onClick={() => setColor(c)}
-              aria-label={`cor ${c}`}
-              className={`h-9 w-9 rounded-full border-2 transition ${
-                color === c ? 'border-wine-deep scale-110' : 'border-paper'
-              }`}
-              style={{ background: c }}
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center gap-2">
+            <span
+              aria-hidden
+              className="h-2 w-2 shrink-0 rounded-full"
+              style={{ background: subject?.color ?? '#999' }}
             />
-          ))}
+            <div className="truncate font-serif text-lg italic text-wine-deep sm:text-xl">
+              {subject?.name ?? 'disciplina removida'}
+            </div>
+          </div>
+          {exam.label && (
+            <div className="mt-0.5 truncate text-sm italic text-ink-soft">{exam.label}</div>
+          )}
+          <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] uppercase tracking-wider text-muted">
+            <span>{formatExamDate(exam.date)}</span>
+            {exam.time && (
+              <span className="inline-flex items-center gap-1">
+                <Clock3 className="h-2.5 w-2.5" strokeWidth={1.75} />
+                {exam.time}
+              </span>
+            )}
+            {exam.location && (
+              <span className="inline-flex items-center gap-1">
+                <MapPin className="h-2.5 w-2.5" strokeWidth={1.75} />
+                {exam.location}
+              </span>
+            )}
+          </div>
         </div>
-      </Field>
-    </ModalShell>
-  );
-}
-
-interface ClassFormProps {
-  uid: string;
-  subjects: Subject[];
-  initial: ClassEvent | null;
-  onClose: () => void;
-}
-
-function ClassFormModal({ uid, subjects, initial, onClose }: ClassFormProps) {
-  const [subjectId, setSubjectId] = useState(initial?.subjectId ?? subjects[0]?.id ?? '');
-  const [dayOfWeek, setDayOfWeek] = useState<DayOfWeek>(initial?.dayOfWeek ?? 1);
-  const [startTime, setStartTime] = useState(initial?.startTime ?? '08:00');
-  const [endTime, setEndTime] = useState(initial?.endTime ?? '10:00');
-  const [location, setLocation] = useState(initial?.location ?? '');
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!subjectId) return;
-    const event: ClassEvent = {
-      id: initial?.id ?? newId('cls'),
-      subjectId,
-      dayOfWeek,
-      startTime,
-      endTime,
-      location: location.trim() || undefined,
-      createdAt: initial?.createdAt ?? Date.now(),
-    };
-    saveClass(uid, event);
-    onClose();
-  }
-
-  function handleDelete() {
-    if (!initial) return;
-    if (confirm('Remover essa aula?')) {
-      removeClass(uid, initial.id);
-      onClose();
-    }
-  }
-
-  return (
-    <ModalShell
-      title={initial ? 'editar aula' : 'nova aula'}
-      onClose={onClose}
-      onSubmit={handleSubmit}
-      onDelete={initial ? handleDelete : undefined}
-    >
-      <Field label="disciplina">
-        <select
-          value={subjectId}
-          onChange={(e) => setSubjectId(e.target.value)}
-          className="input-elegant"
+        <div
+          className={`shrink-0 rounded-full px-3 py-1 font-serif text-[11px] italic ${
+            urgent ? 'bg-rose-soft text-wine-deep' : 'bg-paper-soft text-muted'
+          }`}
         >
-          {subjects.map((s) => (
-            <option key={s.id} value={s.id}>{s.name}</option>
-          ))}
-        </select>
-      </Field>
-      <Field label="dia da semana">
-        <select
-          value={dayOfWeek}
-          onChange={(e) => setDayOfWeek(Number(e.target.value) as DayOfWeek)}
-          className="input-elegant"
-        >
-          {DAY_LABELS.map((label, idx) => (
-            <option key={label} value={idx}>{label}</option>
-          ))}
-        </select>
-      </Field>
-      <div className="grid grid-cols-2 gap-3">
-        <Field label="começa">
-          <input
-            type="time"
-            value={startTime}
-            onChange={(e) => setStartTime(e.target.value)}
-            className="input-elegant"
-          />
-        </Field>
-        <Field label="termina">
-          <input
-            type="time"
-            value={endTime}
-            onChange={(e) => setEndTime(e.target.value)}
-            className="input-elegant"
-          />
-        </Field>
-      </div>
-      <Field label="onde (opcional)">
-        <input
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-          placeholder="Ex.: sala 304"
-          className="input-elegant"
-        />
-      </Field>
-    </ModalShell>
+          {describeDaysUntil(days)}
+        </div>
+      </button>
+    </li>
   );
 }
 
-interface ExamFormProps {
-  uid: string;
-  subjects: Subject[];
-  initial: ExamEvent | null;
-  onClose: () => void;
-}
-
-function ExamFormModal({ uid, subjects, initial, onClose }: ExamFormProps) {
-  const [subjectId, setSubjectId] = useState(initial?.subjectId ?? subjects[0]?.id ?? '');
-  const [date, setDate] = useState(initial?.date ?? todayISO());
-  const [time, setTime] = useState(initial?.time ?? '');
-  const [label, setLabel] = useState(initial?.label ?? '');
-  const [location, setLocation] = useState(initial?.location ?? '');
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!subjectId || !date) return;
-    const event: ExamEvent = {
-      id: initial?.id ?? newId('exam'),
-      subjectId,
-      date,
-      time: time || undefined,
-      label: label.trim() || undefined,
-      location: location.trim() || undefined,
-      createdAt: initial?.createdAt ?? Date.now(),
-    };
-    saveExam(uid, event);
-    onClose();
-  }
-
-  function handleDelete() {
-    if (!initial) return;
-    if (confirm('Remover essa prova?')) {
-      removeExam(uid, initial.id);
-      onClose();
-    }
-  }
-
-  return (
-    <ModalShell
-      title={initial ? 'editar prova' : 'nova prova'}
-      onClose={onClose}
-      onSubmit={handleSubmit}
-      onDelete={initial ? handleDelete : undefined}
-    >
-      <Field label="disciplina">
-        <select
-          value={subjectId}
-          onChange={(e) => setSubjectId(e.target.value)}
-          className="input-elegant"
-        >
-          {subjects.map((s) => (
-            <option key={s.id} value={s.id}>{s.name}</option>
-          ))}
-        </select>
-      </Field>
-      <Field label="data">
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          className="input-elegant"
-        />
-      </Field>
-      <Field label="hora (opcional)">
-        <input
-          type="time"
-          value={time}
-          onChange={(e) => setTime(e.target.value)}
-          className="input-elegant"
-        />
-      </Field>
-      <Field label="o que é (opcional)">
-        <input
-          value={label}
-          onChange={(e) => setLabel(e.target.value)}
-          placeholder="Ex.: P1 ou Final"
-          className="input-elegant"
-        />
-      </Field>
-      <Field label="onde (opcional)">
-        <input
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-          placeholder="Ex.: sala 102"
-          className="input-elegant"
-        />
-      </Field>
-    </ModalShell>
-  );
-}
-
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <label className="block">
-      <span className="mb-1 block text-[11px] uppercase tracking-wider text-muted">{label}</span>
-      {children}
-    </label>
-  );
-}
