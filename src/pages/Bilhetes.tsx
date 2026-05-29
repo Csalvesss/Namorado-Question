@@ -87,10 +87,8 @@ export default function Bilhetes() {
   }
 
   const isIrmao = user?.displayMode === 'irmao';
-  // Em modo irmão NÃO usa partnerName (que é o namorado da usuária medicina).
-  // Voz é a do irmão — assinatura genérica de irmão/mano.
   const partner = isIrmao
-    ? 'irmão'
+    ? user?.partnerName?.trim() || 'irmão'
     : user?.partnerName?.trim() || 'César';
 
   return (
