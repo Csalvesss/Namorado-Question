@@ -171,7 +171,7 @@ export default function Profile() {
               active={currentMode === 'irmao'}
               Icon={Laugh}
               label="modo irmão"
-              sample="boa, mana, você é foda mesmo"
+              sample="boa, mana, você é fera mesmo"
               onClick={() => setDisplayMode('irmao')}
             />
             <ModeOption

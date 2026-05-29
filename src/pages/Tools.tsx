@@ -55,6 +55,13 @@ export default function Tools() {
           // ============ TRILHA ODONTO ============
           <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             <ToolCard
+              to="/farmaco-mdc"
+              icon={Pill}
+              title="Mapa de Decisão Clínica"
+              description="Decora fármaco pelo cenário, não pela lista. Anestésico, antibiótico, AINE, sedativo, hemostático."
+              variant="wine"
+            />
+            <ToolCard
               to="/calculadoras"
               icon={Syringe}
               title="Dose máx anestésico"

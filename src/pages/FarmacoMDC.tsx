@@ -5,25 +5,17 @@ import Eyebrow from '../components/ui/Eyebrow';
 import IconChip from '../components/ui/IconChip';
 import { useUser } from '../lib/useUser';
 import { hasCardHistory, listDueCards, reviewCard, SRS_CHANGE_EVENT } from '../lib/srs';
+import { shuffle } from '../data/farmaco-mdc';
 import {
-  CLASSES,
-  SYSTEM_LABEL,
-  SCENARIOS,
-  getClass,
-  getDrug,
-  getScenario,
-  mdcCardId,
-  pickSameClassDrugs,
-  pickScenarios,
-  shuffle,
-  type FarmacoSystem,
-  type Scenario,
-} from '../data/farmaco-mdc';
+  getMdcDataset,
+  type MdcDataset,
+  type MdcScenario,
+} from '../data/mdc-data';
 
 type Step = 'class' | 'drug' | 'closing';
 
 interface SessionState {
-  scenarios: Scenario[];
+  scenarios: MdcScenario[];
   index: number;
   step: Step;
   classChoice: string | null;
@@ -43,8 +35,10 @@ const SESSION_SIZE = 8;
 
 export default function FarmacoMDC() {
   const { user } = useUser();
+  const userTrack = user?.track ?? 'medicina';
+  const dataset = useMemo<MdcDataset>(() => getMdcDataset(userTrack), [userTrack]);
   const isNamorado = user?.displayMode !== 'doutora';
-  const [system, setSystem] = useState<FarmacoSystem | 'mix' | 'review' | null>(null);
+  const [system, setSystem] = useState<string | 'mix' | 'review' | null>(null);
   const [state, setState] = useState<SessionState | null>(null);
   const [now, setNow] = useState(Date.now());
   const [srsTick, setSrsTick] = useState(0);
@@ -68,20 +62,16 @@ export default function FarmacoMDC() {
   /** Cenários que já têm card no SRS e estão vencidos (due ≤ now).
    *  Cenários NUNCA estudados não entram aqui — eles vêm via botões de sistema.
    *  Isso evita que "revisar pendentes" mostre o catálogo inteiro no primeiro dia. */
-  const dueScenarios = useMemo<Scenario[]>(() => {
+  const dueScenarios = useMemo<MdcScenario[]>(() => {
     if (!user) return [];
-    const userTrack = user.track ?? 'medicina';
-    const allCardIds = SCENARIOS.map((s) => mdcCardId(s.id));
+    const allCardIds = dataset.scenarios.map((s) => dataset.mdcCardId(s.id));
     const dueIds = new Set(listDueCards(user.uid, allCardIds, Date.now(), userTrack));
-    // raw map cards → scenarios, filtrando os que NÃO são "novos"
-    // (listDueCards trata ausência como due=0, então cenários novos vêm também;
-    //  para a fila de revisão queremos apenas os que JÁ foram vistos antes).
-    return SCENARIOS.filter((s) => {
-      const cardId = mdcCardId(s.id);
+    return dataset.scenarios.filter((s) => {
+      const cardId = dataset.mdcCardId(s.id);
       if (!dueIds.has(cardId)) return false;
       return hasCardHistory(user.uid, cardId, userTrack);
     });
-  }, [user, srsTick]);
+  }, [user, srsTick, dataset, userTrack]);
 
   // CRÍTICO: useMemos têm que vir ANTES de qualquer early return, senão
   // a ordem dos hooks muda entre renders (home → sessão) e o React quebra
@@ -92,16 +82,16 @@ export default function FarmacoMDC() {
     [activeScenario?.id],
   );
   const drugOptions = useMemo(
-    () => (activeScenario ? drugOptionsFor(activeScenario) : []),
-    [activeScenario?.id],
+    () => (activeScenario ? drugOptionsFor(activeScenario, dataset) : []),
+    [activeScenario?.id, dataset],
   );
 
-  function startSession(sys: FarmacoSystem | 'mix' | 'review') {
-    let scenarios: Scenario[];
+  function startSession(sys: string | 'mix' | 'review') {
+    let scenarios: MdcScenario[];
     if (sys === 'review') {
       scenarios = shuffle(dueScenarios).slice(0, SESSION_SIZE);
     } else {
-      scenarios = pickScenarios(sys, SESSION_SIZE);
+      scenarios = dataset.pickScenarios(sys, SESSION_SIZE);
     }
     if (scenarios.length === 0) return;
     setSystem(sys);
@@ -128,10 +118,7 @@ export default function FarmacoMDC() {
 
   // Tela inicial — seleção de sistema
   if (!state) {
-    const systems: Array<FarmacoSystem | 'mix'> = [
-      'mix',
-      ...(Array.from(new Set(SCENARIOS.map((s) => s.system))) as FarmacoSystem[]),
-    ];
+    const systems: Array<string | 'mix'> = ['mix', ...dataset.systems];
 
     return (
       <section className="bg-paper">
@@ -213,9 +200,9 @@ export default function FarmacoMDC() {
               {systems.map((sys) => {
                 const count =
                   sys === 'mix'
-                    ? SCENARIOS.length
-                    : SCENARIOS.filter((s) => s.system === sys).length;
-                const label = sys === 'mix' ? 'Mistura do dia' : SYSTEM_LABEL[sys];
+                    ? dataset.scenarios.length
+                    : dataset.scenarios.filter((s) => s.system === sys).length;
+                const label = sys === 'mix' ? 'Mistura do dia' : dataset.systemLabel[sys];
                 const desc =
                   sys === 'mix'
                     ? '8 cenários sorteados entre todos os sistemas'
@@ -278,6 +265,7 @@ export default function FarmacoMDC() {
         }
         uid={user?.uid}
         track={user?.track ?? 'medicina'}
+        dataset={dataset}
       />
     );
   }
@@ -286,13 +274,13 @@ export default function FarmacoMDC() {
   if (state.step === 'class') {
     return (
       <SessionLayout state={state} now={now} systemLabel={systemLabelOf(system)}>
-        <Vignette scenario={scenario} />
+        <Vignette scenario={scenario} dataset={dataset} />
 
         <div className="mt-8">
           <Eyebrow>qual classe?</Eyebrow>
           <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {classOptions.map((classId) => {
-              const cls = getClass(classId);
+              const cls = dataset.getClass(classId);
               if (!cls) return null;
               return (
                 <button
@@ -331,11 +319,11 @@ export default function FarmacoMDC() {
   // Etapa: droga
   if (state.step === 'drug') {
     const classCorrect = state.classChoice === scenario.correctClassId;
-    const correctClass = getClass(scenario.correctClassId);
+    const correctClass = dataset.getClass(scenario.correctClassId);
 
     return (
       <SessionLayout state={state} now={now} systemLabel={systemLabelOf(system)}>
-        <Vignette scenario={scenario} />
+        <Vignette scenario={scenario} dataset={dataset} />
 
         {!classCorrect && correctClass && (
           <div className="mt-6 rounded-2xl border border-line bg-blush/60 p-4 font-body text-sm italic text-txt/85">
@@ -349,7 +337,7 @@ export default function FarmacoMDC() {
           <Eyebrow>qual molécula?</Eyebrow>
           <div className="mt-4 grid grid-cols-1 gap-3">
             {drugOptions.map((drugId) => {
-              const d = getDrug(drugId);
+              const d = dataset.getDrug(drugId);
               if (!d) return null;
               return (
                 <button
@@ -392,15 +380,15 @@ export default function FarmacoMDC() {
   }
 
   // Etapa: fechamento
-  const correctDrug = getDrug(scenario.correctDrugId);
-  const correctClass = getClass(scenario.correctClassId);
+  const correctDrug = dataset.getDrug(scenario.correctDrugId);
+  const correctClass = dataset.getClass(scenario.correctClassId);
   const userPickedDrugRight = state.drugChoice === scenario.correctDrugId;
   const userPickedClassRight = state.classChoice === scenario.correctClassId;
   const both = userPickedClassRight && userPickedDrugRight;
 
   return (
     <SessionLayout state={state} now={now} systemLabel={systemLabelOf(system)}>
-      <Vignette scenario={scenario} compact />
+      <Vignette scenario={scenario} dataset={dataset} compact />
 
       <div className="card mt-6 border-[var(--blush-stroke)] bg-blush p-7 shadow-lift">
         <div className="flex items-center gap-3">
@@ -489,11 +477,11 @@ export default function FarmacoMDC() {
     );
   }
 
-  function systemLabelOf(sys: FarmacoSystem | 'mix' | 'review' | null): string {
+  function systemLabelOf(sys: string | 'mix' | 'review' | null): string {
     if (sys === null) return '';
     if (sys === 'mix') return 'Mistura';
     if (sys === 'review') return 'Revisão';
-    return SYSTEM_LABEL[sys];
+    return dataset.systemLabel[sys] ?? sys;
   }
 }
 
@@ -501,11 +489,19 @@ export default function FarmacoMDC() {
 // Subcomponentes
 // ============================================================
 
-function Vignette({ scenario, compact = false }: { scenario: Scenario; compact?: boolean }) {
+function Vignette({
+  scenario,
+  dataset,
+  compact = false,
+}: {
+  scenario: MdcScenario;
+  dataset: MdcDataset;
+  compact?: boolean;
+}) {
   return (
     <div className={`card ${compact ? 'p-6' : 'p-7 sm:p-9'}`}>
       <div className="font-display text-[11px] uppercase tracking-[0.22em] text-gold">
-        {SYSTEM_LABEL[scenario.system]}
+        {dataset.systemLabel[scenario.system] ?? scenario.system}
       </div>
       <p
         className={`mt-3 font-body leading-relaxed text-txt ${
@@ -572,6 +568,7 @@ function EndOfSession({
   onGradesWritten,
   uid,
   track,
+  dataset,
 }: {
   state: SessionState;
   isNamorado: boolean;
@@ -579,6 +576,7 @@ function EndOfSession({
   onGradesWritten: () => void;
   uid: string | undefined;
   track: 'medicina' | 'odonto';
+  dataset: MdcDataset;
 }) {
   // Grava as grades no SRS uma única vez ao montar este componente.
   // Cenário errado vira 'hard' (≈ 1 dia); acertado vira 'good' (1d na 1ª rep,
@@ -587,10 +585,10 @@ function EndOfSession({
   useEffect(() => {
     if (state.gradesWritten || !uid) return;
     for (const id of state.cleared) {
-      reviewCard(uid, mdcCardId(id), 'good', track);
+      reviewCard(uid, dataset.mdcCardId(id), 'good', track);
     }
     for (const id of state.revisitTomorrow) {
-      reviewCard(uid, mdcCardId(id), 'hard', track);
+      reviewCard(uid, dataset.mdcCardId(id), 'hard', track);
     }
     onGradesWritten();
   }, [state.gradesWritten, state.cleared, state.revisitTomorrow, uid, onGradesWritten]);
@@ -599,15 +597,15 @@ function EndOfSession({
   const mm = Math.max(1, Math.round(elapsedSec / 60));
   const revisitCount = state.revisitTomorrow.length;
   const revisitScenarios = state.revisitTomorrow
-    .map((id) => getScenario(id))
-    .filter((s): s is Scenario => Boolean(s));
+    .map((id) => dataset.getScenario(id))
+    .filter((s): s is MdcScenario => Boolean(s));
 
   // Coletar classes únicas das classes corretas dos cenários problemáticos pra mostrar
   const classesToReview = Array.from(
     new Set(revisitScenarios.map((s) => s.correctClassId)),
   )
-    .map((id) => getClass(id))
-    .filter((c): c is NonNullable<ReturnType<typeof getClass>> => Boolean(c));
+    .map((id) => dataset.getClass(id))
+    .filter((c): c is NonNullable<ReturnType<typeof dataset.getClass>> => Boolean(c));
 
   return (
     <section className="bg-paper">
@@ -677,17 +675,17 @@ function EndOfSession({
 // Lógica das opções (separa pra ficar testável)
 // ============================================================
 
-function classOptionsFor(scenario: Scenario): string[] {
+function classOptionsFor(scenario: MdcScenario): string[] {
   const ids = [scenario.correctClassId, ...scenario.classDistractors];
   return shuffle(ids);
 }
 
-function drugOptionsFor(scenario: Scenario): string[] {
+function drugOptionsFor(scenario: MdcScenario, dataset: MdcDataset): string[] {
   // Distractor preferido: drogas da MESMA classe da droga correta.
   // Isso é o que faz a etapa "qual molécula?" testar recall do nome,
   // não eliminação por classe. Fallback nos distractors manuais se a
   // classe não tiver drogas suficientes no catálogo.
-  const sameClass = pickSameClassDrugs(scenario.correctDrugId, 2);
+  const sameClass = dataset.pickSameClassDrugs(scenario.correctDrugId, 2);
   const distractors =
     sameClass.length >= 2
       ? sameClass.map((d) => d.id)
@@ -696,6 +694,3 @@ function drugOptionsFor(scenario: Scenario): string[] {
   // dedup defensivo (se classe pequena pode haver colisão com manual)
   return shuffle(Array.from(new Set(ids)));
 }
-
-// Suprime warning de "CLASSES não usado" se vier — está sendo usado via getClass
-void CLASSES;
