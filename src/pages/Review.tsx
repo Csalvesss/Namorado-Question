@@ -72,11 +72,15 @@ export default function Review() {
     return srsStats(user.uid, allCards.map((i) => i.card.id));
   }, [user, allCards]);
 
+  const userTrack = user?.track ?? 'medicina';
+
   const dueQueue = useMemo<ReviewItem[]>(() => {
     if (!user || allCards.length === 0) return [];
-    const dueIds = new Set(listDueCards(user.uid, allCards.map((i) => i.card.id)));
+    const dueIds = new Set(
+      listDueCards(user.uid, allCards.map((i) => i.card.id), Date.now(), userTrack),
+    );
     return allCards.filter((i) => dueIds.has(i.card.id));
-  }, [user, allCards]);
+  }, [user, allCards, userTrack]);
 
   const [order, setOrder] = useState<string[]>([]);
   const [cursor, setCursor] = useState(0);
@@ -189,12 +193,12 @@ export default function Review() {
   }
 
   const { card } = currentItem;
-  const state = getCardState(user.uid, card.id);
+  const state = getCardState(user.uid, card.id, userTrack);
   const previews = previewIntervals(state);
 
   function grade(value: Grade) {
     if (!user || !currentItem) return;
-    reviewCard(user.uid, currentItem.card.id, value);
+    reviewCard(user.uid, currentItem.card.id, value, userTrack);
     forceRender((n) => n + 1);
     setDoneCount((n) => n + 1);
     setFlipped(false);

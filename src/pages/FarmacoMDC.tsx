@@ -70,15 +70,16 @@ export default function FarmacoMDC() {
    *  Isso evita que "revisar pendentes" mostre o catálogo inteiro no primeiro dia. */
   const dueScenarios = useMemo<Scenario[]>(() => {
     if (!user) return [];
+    const userTrack = user.track ?? 'medicina';
     const allCardIds = SCENARIOS.map((s) => mdcCardId(s.id));
-    const dueIds = new Set(listDueCards(user.uid, allCardIds));
+    const dueIds = new Set(listDueCards(user.uid, allCardIds, Date.now(), userTrack));
     // raw map cards → scenarios, filtrando os que NÃO são "novos"
     // (listDueCards trata ausência como due=0, então cenários novos vêm também;
     //  para a fila de revisão queremos apenas os que JÁ foram vistos antes).
     return SCENARIOS.filter((s) => {
       const cardId = mdcCardId(s.id);
       if (!dueIds.has(cardId)) return false;
-      return hasCardHistory(user.uid, cardId);
+      return hasCardHistory(user.uid, cardId, userTrack);
     });
   }, [user, srsTick]);
 
@@ -276,6 +277,7 @@ export default function FarmacoMDC() {
           setState((s) => (s ? { ...s, gradesWritten: true } : s))
         }
         uid={user?.uid}
+        track={user?.track ?? 'medicina'}
       />
     );
   }
@@ -569,12 +571,14 @@ function EndOfSession({
   onRestart,
   onGradesWritten,
   uid,
+  track,
 }: {
   state: SessionState;
   isNamorado: boolean;
   onRestart: () => void;
   onGradesWritten: () => void;
   uid: string | undefined;
+  track: 'medicina' | 'odonto';
 }) {
   // Grava as grades no SRS uma única vez ao montar este componente.
   // Cenário errado vira 'hard' (≈ 1 dia); acertado vira 'good' (1d na 1ª rep,
@@ -583,10 +587,10 @@ function EndOfSession({
   useEffect(() => {
     if (state.gradesWritten || !uid) return;
     for (const id of state.cleared) {
-      reviewCard(uid, mdcCardId(id), 'good');
+      reviewCard(uid, mdcCardId(id), 'good', track);
     }
     for (const id of state.revisitTomorrow) {
-      reviewCard(uid, mdcCardId(id), 'hard');
+      reviewCard(uid, mdcCardId(id), 'hard', track);
     }
     onGradesWritten();
   }, [state.gradesWritten, state.cleared, state.revisitTomorrow, uid, onGradesWritten]);

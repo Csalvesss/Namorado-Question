@@ -1,15 +1,34 @@
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { useUser } from '../lib/useUser';
 
 /**
- * Pré-login público. Quem já está logado vai direto pro app.
- * Inspirado no estilo "Guava Health" — dois cards (medicina/odonto)
- * adaptados pra tipografia editorial Fraunces+Newsreader do Guava Education.
+ * Tela inicial (pré-login OU seletor de trilha).
+ * - Não logada: dois cards levam pra /login?track=X
+ * - Logada: dois cards trocam a trilha ativa (patch user.track) e vai pra /app
+ * Mesma conta acessa as duas trilhas, dados completamente separados.
  */
 export default function Welcome() {
-  const { user, loading } = useUser();
+  const { user, loading, updateUser } = useUser();
+  const navigate = useNavigate();
+  const [switching, setSwitching] = useState<'medicina' | 'odonto' | null>(null);
   if (loading) return null;
-  if (user) return <Navigate to="/app" replace />;
+
+  async function pickTrack(track: 'medicina' | 'odonto') {
+    if (user) {
+      setSwitching(track);
+      try {
+        if (user.track !== track) {
+          await updateUser({ track });
+        }
+        navigate('/app', { replace: true });
+      } finally {
+        setSwitching(null);
+      }
+    } else {
+      navigate(`/login?track=${track}`);
+    }
+  }
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-paper">
@@ -64,12 +83,19 @@ export default function Welcome() {
         {/* Dois cards */}
         <div className="mt-14 grid grid-cols-1 gap-6 sm:mt-20 md:grid-cols-2 md:gap-8">
           <TrackCard
-            to="/login?track=medicina"
             number="01"
             tag="Medicina"
             title="Sou estudante de medicina."
             body="Casos clínicos, calculadoras (CKD-EPI, Wells, CHA₂DS₂-VASc), algoritmos, MDC para fixar fármacos. Cursos de HIV a Insuficiência Cardíaca."
-            footer="Entrar como medicina"
+            footer={
+              user
+                ? user.track === 'medicina'
+                  ? 'Continuar em medicina'
+                  : 'Entrar em medicina'
+                : 'Entrar como medicina'
+            }
+            loading={switching === 'medicina'}
+            onClick={() => pickTrack('medicina')}
             icon={
               <svg
                 viewBox="0 0 24 24"
@@ -86,12 +112,19 @@ export default function Welcome() {
           />
 
           <TrackCard
-            to="/login?track=odonto"
             number="02"
             tag="Odontologia"
             title="Sou estudante de odonto."
             body="Anestésicos locais, antibióticos, AINEs, sedação consciente, hemostáticos. Cálculo de tubete, receituário guiado, profilaxia de endocardite."
-            footer="Entrar como odonto"
+            footer={
+              user
+                ? user.track === 'odonto'
+                  ? 'Continuar em odonto'
+                  : 'Entrar em odonto'
+                : 'Entrar como odonto'
+            }
+            loading={switching === 'odonto'}
+            onClick={() => pickTrack('odonto')}
             variant="wine"
             icon={
               <svg
@@ -120,31 +153,35 @@ export default function Welcome() {
 }
 
 interface TrackCardProps {
-  to: string;
   number: string;
   tag: string;
   title: string;
   body: string;
   footer: string;
+  loading?: boolean;
+  onClick: () => void;
   icon: React.ReactNode;
   variant?: 'default' | 'wine';
 }
 
 function TrackCard({
-  to,
   number,
   tag,
   title,
   body,
   footer,
+  loading = false,
+  onClick,
   icon,
   variant = 'default',
 }: TrackCardProps) {
   const isWine = variant === 'wine';
   return (
-    <Link
-      to={to}
-      className={`group relative flex flex-col gap-8 overflow-hidden rounded-[28px] border p-7 transition hover:-translate-y-1 active:scale-[0.99] sm:p-9 ${
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={loading}
+      className={`group relative flex flex-col gap-8 overflow-hidden rounded-[28px] border p-7 text-left transition hover:-translate-y-1 active:scale-[0.99] disabled:cursor-wait disabled:opacity-70 sm:p-9 ${
         isWine
           ? 'border-wine bg-wine text-[#FBEFEC] shadow-lift'
           : 'border-line bg-card text-txt shadow-soft hover:shadow-lift'
@@ -195,8 +232,8 @@ function TrackCard({
             : 'border-line text-wine'
         }`}
       >
-        {footer}
+        {loading ? 'entrando…' : footer}
       </div>
-    </Link>
+    </button>
   );
 }

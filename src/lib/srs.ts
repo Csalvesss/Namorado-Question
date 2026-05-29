@@ -5,6 +5,8 @@ const STORAGE_PREFIX = 'guava.srs.';
 
 export const SRS_CHANGE_EVENT = 'guava:srs-change';
 
+type Track = 'medicina' | 'odonto';
+
 function emitSrsChange() {
   if (typeof window !== 'undefined') {
     window.dispatchEvent(new CustomEvent(SRS_CHANGE_EVENT));
@@ -27,57 +29,91 @@ export function defaultState(cardId: string): CardState {
   return { cardId, ease: 2.5, interval: 0, reps: 0, due: 0, lapses: 0 };
 }
 
-function storageKey(userId: string): string {
+function storageKey(userId: string, track: Track): string {
+  return `${STORAGE_PREFIX}${userId}::${track}`;
+}
+
+function legacyStorageKey(userId: string): string {
   return STORAGE_PREFIX + userId;
 }
 
-function load(userId: string): Record<string, CardState> {
+function load(userId: string, track: Track): Record<string, CardState> {
   try {
-    return JSON.parse(localStorage.getItem(storageKey(userId)) ?? '{}');
+    const newKey = storageKey(userId, track);
+    const raw = localStorage.getItem(newKey);
+    if (raw) return JSON.parse(raw);
+    if (track === 'medicina') {
+      const legacy = localStorage.getItem(legacyStorageKey(userId));
+      if (legacy) {
+        const parsed = JSON.parse(legacy);
+        localStorage.setItem(newKey, legacy);
+        return parsed;
+      }
+    }
+    return {};
   } catch {
     return {};
   }
 }
 
-function save(userId: string, data: Record<string, CardState>) {
-  localStorage.setItem(storageKey(userId), JSON.stringify(data));
+function save(userId: string, track: Track, data: Record<string, CardState>) {
+  localStorage.setItem(storageKey(userId, track), JSON.stringify(data));
 }
 
-export function getCardState(userId: string, cardId: string): CardState {
-  return load(userId)[cardId] ?? defaultState(cardId);
+export function getCardState(
+  userId: string,
+  cardId: string,
+  track: Track = 'medicina',
+): CardState {
+  return load(userId, track)[cardId] ?? defaultState(cardId);
 }
 
 /** True se o card já foi revisado pelo menos uma vez (existe estado salvo). */
-export function hasCardHistory(userId: string, cardId: string): boolean {
-  return Boolean(load(userId)[cardId]);
+export function hasCardHistory(
+  userId: string,
+  cardId: string,
+  track: Track = 'medicina',
+): boolean {
+  return Boolean(load(userId, track)[cardId]);
 }
 
-export function reviewCard(userId: string, cardId: string, grade: Grade): CardState {
-  const data = load(userId);
+export function reviewCard(
+  userId: string,
+  cardId: string,
+  grade: Grade,
+  track: Track = 'medicina',
+): CardState {
+  const data = load(userId, track);
   const next = applyGrade(data[cardId] ?? defaultState(cardId), grade);
   data[cardId] = next;
-  save(userId, data);
+  save(userId, track, data);
   emitSrsChange();
   void cloudSrs
-    .save({
-      cardId: next.cardId,
-      ease: next.ease,
-      interval: next.interval,
-      reps: next.reps,
-      due: next.due,
-      lapses: next.lapses,
-      lastReviewed: next.lastReviewed,
-    })
+    .save(
+      {
+        cardId: next.cardId,
+        ease: next.ease,
+        interval: next.interval,
+        reps: next.reps,
+        due: next.due,
+        lapses: next.lapses,
+        lastReviewed: next.lastReviewed,
+      },
+      track,
+    )
     .catch(() => {
       // best-effort sync; local cache holds the truth offline
     });
   return next;
 }
 
-export async function hydrateSrsFromCloud(userId: string): Promise<void> {
+export async function hydrateSrsFromCloud(
+  userId: string,
+  track: Track = 'medicina',
+): Promise<void> {
   try {
-    const all = await cloudSrs.getAll(userId);
-    save(userId, all);
+    const all = await cloudSrs.getAll(userId, track);
+    save(userId, track, all);
     emitSrsChange();
   } catch {
     // ignore — local cache continues working offline
@@ -152,16 +188,18 @@ export function listDueCards(
   userId: string,
   cardIds: string[],
   now: number = Date.now(),
+  track: Track = 'medicina',
 ): string[] {
-  const data = load(userId);
+  const data = load(userId, track);
   return cardIds.filter((id) => (data[id]?.due ?? 0) <= now);
 }
 
 export function listNewCards(
   userId: string,
   cardIds: string[],
+  track: Track = 'medicina',
 ): string[] {
-  const data = load(userId);
+  const data = load(userId, track);
   return cardIds.filter((id) => !data[id]);
 }
 
@@ -173,8 +211,13 @@ export interface SRSStats {
   mature: number;
 }
 
-export function srsStats(userId: string, cardIds: string[], now: number = Date.now()): SRSStats {
-  const data = load(userId);
+export function srsStats(
+  userId: string,
+  cardIds: string[],
+  now: number = Date.now(),
+  track: Track = 'medicina',
+): SRSStats {
+  const data = load(userId, track);
   let due = 0;
   let learning = 0;
   let mature = 0;
