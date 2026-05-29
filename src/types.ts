@@ -149,6 +149,8 @@ export interface Course {
   color: string;
   icon: string;
   questionCount: number;
+  /** Trilha de estudo. Default 'medicina' pra cursos antigos sem o campo. */
+  track?: 'medicina' | 'odonto';
   createdBy: string;
   sharedWith: string[];
   createdAt: number;
@@ -317,5 +319,7 @@ export interface ImportPayload {
   description?: string;
   icon?: string;
   color?: string;
+  /** Trilha do curso. Default 'medicina' se omitido. */
+  track?: 'medicina' | 'odonto';
   questions: ImportQuestion[];
 }

@@ -27,6 +27,13 @@ import flashcardsAntibioticos from '../data/seeds/flashcards-antibioticos.json';
 import flashcardsHivAids from '../data/seeds/flashcards-hiv-aids.json';
 import flashcardsIc from '../data/seeds/flashcards-insuficiencia-cardiaca.json';
 import flashcardsMeningites from '../data/seeds/flashcards-meningites.json';
+// Odonto
+import odontoAnestesicos from '../data/seeds/odonto-anestesicos.json';
+import odontoAntibioticos from '../data/seeds/odonto-antibioticos.json';
+import odontoAntiInflamatorios from '../data/seeds/odonto-anti-inflamatorios.json';
+import odontoAnalgesicos from '../data/seeds/odonto-analgesicos.json';
+import odontoSedativos from '../data/seeds/odonto-sedativos.json';
+import odontoHemostaticos from '../data/seeds/odonto-hemostaticos.json';
 
 const SEEDS: ImportPayload[] = [
   hivAids as ImportPayload,
@@ -55,6 +62,13 @@ const SEEDS: ImportPayload[] = [
   flashcardsHivAids as ImportPayload,
   flashcardsIc as ImportPayload,
   flashcardsMeningites as ImportPayload,
+  // Odonto track
+  odontoAnestesicos as ImportPayload,
+  odontoAntibioticos as ImportPayload,
+  odontoAntiInflamatorios as ImportPayload,
+  odontoAnalgesicos as ImportPayload,
+  odontoSedativos as ImportPayload,
+  odontoHemostaticos as ImportPayload,
 ];
 
 function buildQuestion(q: ImportQuestion, courseId: string, now: number): Question {
@@ -170,6 +184,7 @@ export function importCourse(payload: ImportPayload, opts: { createdBy?: string 
     color: payload.color ?? 'wine',
     icon: payload.icon ?? '',
     questionCount: payload.questions.length,
+    track: payload.track ?? 'medicina',
     createdBy: opts.createdBy ?? 'system',
     sharedWith: [],
     createdAt: now,
@@ -190,7 +205,7 @@ export function importCourse(payload: ImportPayload, opts: { createdBy?: string 
 }
 
 const SEED_VERSION_KEY = 'guava.seedVersion';
-const SEED_VERSION = 18;
+const SEED_VERSION = 19;
 
 export function ensureSeed() {
   const storedVersion = Number(localStorage.getItem(SEED_VERSION_KEY) ?? '0');
