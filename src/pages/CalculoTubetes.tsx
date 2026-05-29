@@ -174,7 +174,7 @@ export default function CalculoTubetes() {
                     key={o.v}
                     type="button"
                     onClick={() => setAsa(o.v as 'saudavel' | 'cardiopata' | 'descomp')}
-                    className={`rounded-full border px-3.5 py-1.5 font-display text-[12px] italic transition ${
+                    className={`inline-flex min-h-touch items-center rounded-full border px-3.5 py-1.5 font-display text-[12px] italic transition ${
                       asa === o.v
                         ? 'border-wine bg-wine text-[#FBEFEC]'
                         : 'border-line bg-card text-mute hover:border-wine/40'
@@ -191,16 +191,17 @@ export default function CalculoTubetes() {
         {/* Tabela comparativa */}
         {valid && (
           <div className="card mt-6 overflow-hidden p-0">
-            <table className="w-full table-auto text-left text-sm">
-              <thead className="bg-blush/60">
-                <tr className="font-display text-[11px] uppercase tracking-[0.18em] text-wine">
-                  <th className="px-4 py-3">anestésico</th>
-                  <th className="px-4 py-3 text-right">mg/kg</th>
-                  <th className="px-4 py-3 text-right">teto</th>
-                  <th className="px-4 py-3 text-right">tubetes</th>
-                  <th className="hidden px-4 py-3 sm:table-cell">indicação</th>
-                </tr>
-              </thead>
+            <div className="no-scrollbar overflow-x-auto">
+              <table className="w-full min-w-[480px] table-auto text-left text-sm">
+                <thead className="bg-blush/60">
+                  <tr className="font-display text-[11px] uppercase tracking-[0.18em] text-wine">
+                    <th className="px-4 py-3">anestésico</th>
+                    <th className="px-4 py-3 text-right">mg/kg</th>
+                    <th className="px-4 py-3 text-right">teto</th>
+                    <th className="px-4 py-3 text-right">tubetes</th>
+                    <th className="hidden px-4 py-3 sm:table-cell">indicação</th>
+                  </tr>
+                </thead>
               <tbody className="font-body text-[14px] text-txt">
                 {rows.map(({ spec, tubetes, tubetesInteiros, blocked }) => (
                   <tr key={spec.id} className="border-t border-line/70">
@@ -235,8 +236,9 @@ export default function CalculoTubetes() {
                     </td>
                   </tr>
                 ))}
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
 
