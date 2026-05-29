@@ -21,8 +21,9 @@ function bucketIndex(now: number) {
  */
 export default function BilheteBancada() {
   const { user } = useUser();
-  const isNamorado = user?.displayMode !== 'doutora';
-  const isIrmao = user?.displayMode === 'irmao';
+  const displayMode = user?.displayMode ?? 'namorado';
+  const isNamorado = displayMode === 'namorado';
+  const isIrmao = displayMode === 'irmao';
   const [tick, setTick] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [marked, setMarked] = useState<null | 'sabe' | 'revisar'>(null);
@@ -78,7 +79,9 @@ export default function BilheteBancada() {
         <p className="mt-4 max-w-xl font-body text-lg italic leading-relaxed text-mute">
           {isNamorado
             ? 'um bilhete carinhoso a cada 5h — com uma pílula clínica anexada, para fixar enquanto descansa.'
-            : 'micro-revisão clínica embrulhada num recado curto. roda a cada 5 horas.'}
+            : isIrmao
+              ? 'recado curto a cada 5h e uma pílula clínica de quebra. fixa enquanto descansa.'
+              : 'micro-revisão clínica embrulhada num recado curto. roda a cada 5 horas.'}
         </p>
 
         {/* Bilhete carinhoso */}
@@ -142,10 +145,14 @@ export default function BilheteBancada() {
                   {marked === 'sabe'
                     ? isNamorado
                       ? 'beleza, doutora. essa tá no bolso.'
-                      : 'marcada como dominada.'
+                      : isIrmao
+                        ? 'beleza, essa tá no bolso.'
+                        : 'marcada como dominada.'
                     : isNamorado
                       ? 'volta amanhã para fechar. sem pressão.'
-                      : 'agendada para revisão.'}
+                      : isIrmao
+                        ? 'volta amanhã para fechar. sem drama.'
+                        : 'agendada para revisão.'}
                 </div>
               )}
             </>

@@ -23,6 +23,7 @@ import {
   type PreparedMCQuestion,
   type PreparedQuestion,
 } from '../lib/quiz';
+import { buildReviewItem } from '../lib/review';
 import { useUser } from '../lib/useUser';
 import type { QuizMode, QuizSession } from '../types';
 
@@ -232,6 +233,9 @@ export default function Quiz() {
       };
     });
     const score = answers.filter((a) => a.isRight).length;
+    // Retrato fiel das questões (alternativas na ordem mostrada + escolha dela),
+    // para o gabarito do Histórico ficar idêntico ao que ela viu.
+    const review = questions.map((q) => buildReviewItem(q));
     const sess: QuizSession = {
       id: db.ids.session(),
       userId: user.uid,
@@ -240,6 +244,7 @@ export default function Quiz() {
       mode,
       questionIds: questions.map((q) => q.id),
       answers,
+      review,
       score,
       total: questions.length,
       startedAt,
@@ -337,6 +342,7 @@ export default function Quiz() {
                 index={idx}
                 submitted={submitted}
                 phrase={phrase}
+                displayMode={displayMode}
                 onSelect={(optIdx) => selectOption(idx, optIdx)}
               />
             );
@@ -454,12 +460,12 @@ interface QuestionCardProps {
   index: number;
   submitted: boolean;
   phrase: string;
+  displayMode: 'namorado' | 'doutora' | 'irmao';
   onSelect: (optIdx: number) => void;
 }
 
-function QuestionCard({ question, index, submitted, phrase, onSelect }: QuestionCardProps) {
+function QuestionCard({ question, index, submitted, phrase, displayMode, onSelect }: QuestionCardProps) {
   const isRight = submitted && question.selected === question.correct;
-  const isNamorado = /amor|doutora|querida|carinho|mandou|boa,/i.test(phrase);
 
   return (
     <article className="card overflow-hidden p-8 sm:p-10">
@@ -536,7 +542,7 @@ function QuestionCard({ question, index, submitted, phrase, onSelect }: Question
               phrase={phrase}
               correctLetter={LETTERS[question.correct]}
               explanation={question.expl}
-              mode={isNamorado ? 'namorado' : 'doutora'}
+              mode={displayMode}
             />
           </motion.div>
         )}

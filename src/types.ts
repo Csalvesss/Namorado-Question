@@ -173,6 +173,42 @@ export interface QuizAnswer {
   isRight: boolean;
 }
 
+/** Uma alternativa exatamente como foi mostrada na prova, com marcação de
+ *  qual era a correta e qual a usuária escolheu. */
+export interface ReviewOption {
+  text: string;
+  correct: boolean;
+  picked: boolean;
+}
+
+/** Um bloco pergunta → alternativas → explicação. Questões objetivas (mc),
+ *  ECG e associação têm 1 bloco; casos clínicos têm um bloco por etapa. */
+export interface ReviewBlock {
+  question: string;
+  options: ReviewOption[];
+  expl: string;
+  answered: boolean;
+  right: boolean;
+}
+
+/** Retrato fiel de uma questão como foi apresentada, guardado junto da sessão
+ *  para reconstruir o gabarito exatamente como a usuária viu — independente de
+ *  edição ou remoção posterior da questão no banco. */
+export interface SessionReviewItem {
+  questionId: string;
+  type: QuestionType;
+  topic: string;
+  isRight: boolean;
+  answered: boolean;
+  /** contexto clínico opcional (vinheta do caso, contexto do ECG) */
+  context?: string;
+  /** enunciado principal (pergunta da objetiva, prompt da associação) */
+  prompt?: string;
+  blocks: ReviewBlock[];
+  imageUrl?: string;
+  imageCaption?: string;
+}
+
 export interface QuizSession {
   id: string;
   userId: string;
@@ -181,6 +217,9 @@ export interface QuizSession {
   mode: QuizMode;
   questionIds: string[];
   answers: QuizAnswer[];
+  /** Retrato fiel das questões para revisão do gabarito. Opcional: sessões
+   *  antigas (anteriores a esta feature) não têm e usam reconstrução do banco. */
+  review?: SessionReviewItem[];
   score: number;
   total: number;
   startedAt: number;

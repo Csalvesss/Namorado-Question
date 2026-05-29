@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { browserLocalPersistence, getAuth, setPersistence } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { initializeFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCjJSeTmZ_dVbFEWgwDYw-1b6W5cReTEhU',
@@ -13,7 +13,11 @@ const firebaseConfig = {
 
 export const firebaseApp = initializeApp(firebaseConfig);
 export const firebaseAuth = getAuth(firebaseApp);
-export const firestore = getFirestore(firebaseApp);
+// ignoreUndefinedProperties: campos opcionais (ex.: imageUrl no snapshot do
+// gabarito) podem vir undefined — sem isso o Firestore lança e quebra o sync.
+export const firestore = initializeFirestore(firebaseApp, {
+  ignoreUndefinedProperties: true,
+});
 
 setPersistence(firebaseAuth, browserLocalPersistence).catch(() => {
   // ignore — fallback to session persistence is fine for SPA
