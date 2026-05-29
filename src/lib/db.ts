@@ -30,7 +30,9 @@ function genId(prefix: string) {
   return `${prefix}_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
 }
 
-const sessionsKey = (uid: string) => `sessions.${uid}`;
+const sessionsKey = (uid: string, track: 'medicina' | 'odonto') =>
+  `sessions.${uid}::${track}`;
+const sessionsLegacyKey = (uid: string) => `sessions.${uid}`;
 
 export const SESSIONS_CHANGE_EVENT = 'guava:sessions-change';
 
@@ -40,11 +42,14 @@ function emitSessionsChange() {
   }
 }
 
-export function hydrateSessionsFromCloud(uid: string): Promise<void> {
+export function hydrateSessionsFromCloud(
+  uid: string,
+  track: 'medicina' | 'odonto' = 'medicina',
+): Promise<void> {
   return cloudSessions
-    .list(uid)
+    .list(uid, track)
     .then((list) => {
-      write(sessionsKey(uid), list);
+      write(sessionsKey(uid, track), list);
       emitSessionsChange();
     })
     .catch(() => {
@@ -152,25 +157,38 @@ export const db = {
   },
 
   sessions: {
-    list(userId: string): QuizSession[] {
-      const all = read<QuizSession[]>(sessionsKey(userId), []);
+    /**
+     * Lê sessões da trilha. Migração transparente: pra medicina, se a key
+     * track-namespaced está vazia mas existe a key antiga (sem track),
+     * usa os dados antigos como medicina E persiste na key nova.
+     */
+    list(userId: string, track: 'medicina' | 'odonto' = 'medicina'): QuizSession[] {
+      const newKey = sessionsKey(userId, track);
+      let all = read<QuizSession[]>(newKey, []);
+      if (all.length === 0 && track === 'medicina') {
+        const legacy = read<QuizSession[]>(sessionsLegacyKey(userId), []);
+        if (legacy.length > 0) {
+          write(newKey, legacy);
+          all = legacy;
+        }
+      }
       return [...all].sort(
         (a, b) => (b.completedAt ?? b.startedAt) - (a.completedAt ?? a.startedAt),
       );
     },
-    get(userId: string, id: string): QuizSession | undefined {
-      return this.list(userId).find((s) => s.id === id);
+    get(userId: string, id: string, track: 'medicina' | 'odonto' = 'medicina'): QuizSession | undefined {
+      return this.list(userId, track).find((s) => s.id === id);
     },
-    save(session: QuizSession) {
+    save(session: QuizSession, track: 'medicina' | 'odonto' = 'medicina') {
       const uid = session.userId;
-      const key = sessionsKey(uid);
+      const key = sessionsKey(uid, track);
       const all = read<QuizSession[]>(key, []);
       const idx = all.findIndex((s) => s.id === session.id);
       if (idx >= 0) all[idx] = session;
       else all.push(session);
       write(key, all);
       emitSessionsChange();
-      void cloudSessions.save(session).catch(() => {
+      void cloudSessions.save(session, track).catch(() => {
         // best-effort sync; local cache holds the truth offline
       });
     },

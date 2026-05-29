@@ -6,6 +6,7 @@ import type { QuizSession } from '../types';
 export function useSessions(): { sessions: QuizSession[]; loading: boolean } {
   const { user, loading: userLoading } = useUser();
   const [sessions, setSessions] = useState<QuizSession[]>([]);
+  const userTrack = user?.track ?? 'medicina';
 
   useEffect(() => {
     if (!user) {
@@ -13,12 +14,12 @@ export function useSessions(): { sessions: QuizSession[]; loading: boolean } {
       return;
     }
     function refresh() {
-      if (user) setSessions(db.sessions.list(user.uid));
+      if (user) setSessions(db.sessions.list(user.uid, userTrack));
     }
     refresh();
     window.addEventListener(SESSIONS_CHANGE_EVENT, refresh);
     return () => window.removeEventListener(SESSIONS_CHANGE_EVENT, refresh);
-  }, [user]);
+  }, [user, userTrack]);
 
   return { sessions, loading: userLoading };
 }

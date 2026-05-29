@@ -1,5 +1,5 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { LogOut } from 'lucide-react';
+import { ArrowLeftRight, LogOut } from 'lucide-react';
 import { logout } from '../lib/auth';
 import { useUser } from '../lib/useUser';
 
@@ -52,9 +52,17 @@ export default function NavBar() {
           </nav>
         )}
 
-        {/* Direita: olá (só em xl+) + sair (ícone sempre; texto só em xl+) */}
+        {/* Direita: trilha + olá (xl+) + sair */}
         {user && (
-          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+            <Link
+              to="/"
+              title="Trocar trilha"
+              className="inline-flex min-h-touch items-center gap-1.5 rounded-full bg-blush/60 px-2.5 py-1.5 font-display text-[11px] italic uppercase tracking-[0.18em] text-wine transition hover:bg-blush"
+            >
+              <ArrowLeftRight className="h-3 w-3" strokeWidth={1.75} />
+              {user.track === 'odonto' ? 'odonto' : 'medicina'}
+            </Link>
             {firstName && (
               <span className="hidden font-display text-sm italic text-mute xl:inline">
                 olá, {firstName}

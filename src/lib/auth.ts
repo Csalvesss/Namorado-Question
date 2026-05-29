@@ -196,12 +196,13 @@ export async function getCurrentProfile(): Promise<UserProfile | null> {
 
 let hydratedFor: string | null = null;
 
-async function hydrateUserData(uid: string) {
-  if (hydratedFor === uid) return;
-  hydratedFor = uid;
+async function hydrateUserData(uid: string, track: 'medicina' | 'odonto' = 'medicina') {
+  const key = `${uid}::${track}`;
+  if (hydratedFor === key) return;
+  hydratedFor = key;
   await Promise.all([
-    hydrateSessionsFromCloud(uid),
-    hydrateSrsFromCloud(uid),
+    hydrateSessionsFromCloud(uid, track),
+    hydrateSrsFromCloud(uid, track),
     hydrateCoursesFromCloud(uid),
     hydrateStudyPlanFromCloud(uid),
   ]);
@@ -225,13 +226,18 @@ export function onAuthChange(callback: (user: UserProfile | null) => void) {
     lastUid = fbUser.uid;
     const profile = await ensureProfile(fbUser);
     callback(profile);
-    void hydrateUserData(fbUser.uid);
+    void hydrateUserData(fbUser.uid, profile.track ?? 'medicina');
   });
 
   async function handleManualChange() {
     if (!lastUid) return;
     const profile = await fetchProfile(lastUid);
-    if (profile) callback(profile);
+    if (profile) {
+      callback(profile);
+      // Re-hidratar quando o track muda — invalida o cache de hidratação
+      hydratedFor = null;
+      void hydrateUserData(lastUid, profile.track ?? 'medicina');
+    }
   }
 
   if (typeof window !== 'undefined') {
