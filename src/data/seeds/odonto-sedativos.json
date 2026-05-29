@@ -1,118 +1,537 @@
 {
   "title": "Sedativos e Manejo do Ansioso",
-  "description": "Midazolam, diazepam, lorazepam, clonazepam e óxido nitroso. Sedação consciente em consultório, receita azul, manejo do paciente ansioso.",
-  "icon": "moon",
+  "description": "Sedação e manejo farmacológico do paciente ansioso em odontologia: benzodiazepínicos (midazolam, diazepam, lorazepam), óxido nitroso, hidroxizina, flumazenil, interações CYP3A4, controle legal (Portaria 344/98 e Receita Azul B1) e populações especiais (idoso, gestante). Mecanismo, escolha clínica, segurança e armadilhas.",
+  "icon": "pill",
   "color": "wine",
   "track": "odonto",
   "questions": [
     {
       "type": "mc",
+      "topic": "Benzodiazepínicos · mecanismo",
+      "q": "Qual o mecanismo de ação dos benzodiazepínicos?",
+      "options": [
+        "Agonistas alostéricos do receptor GABA-A: ligam-se a um sítio próprio e aumentam a FREQUÊNCIA de abertura do canal de cloreto (Cl-) na presença de GABA → hiperpolarização e depressão do SNC",
+        "Aumentam o TEMPO de abertura do canal de cloreto, como os barbitúricos",
+        "Bloqueiam diretamente os receptores NMDA do glutamato",
+        "Inibem a recaptação de serotonina na fenda sináptica"
+      ],
+      "correct": 0,
+      "expl": "Benzodiazepínicos são moduladores alostéricos positivos do receptor GABA-A. Não abrem o canal sozinhos: na presença do GABA, aumentam a FREQUÊNCIA de abertura do canal de Cl- (os barbitúricos aumentam o TEMPO/duração de abertura). O influxo de Cl- hiperpolariza o neurônio → efeito ansiolítico, sedativo, hipnótico, anticonvulsivante e relaxante muscular.",
+      "difficulty": "medium",
+      "tags": ["benzodiazepinicos", "mecanismo", "gaba"]
+    },
+    {
+      "type": "mc",
+      "topic": "Benzo vs barbitúrico",
+      "q": "O que diferencia o efeito dos benzodiazepínicos do dos barbitúricos no receptor GABA-A?",
+      "options": [
+        "Benzodiazepínicos aumentam a FREQUÊNCIA de abertura do canal de Cl- (precisam de GABA); barbitúricos aumentam a DURAÇÃO de abertura e em dose alta abrem o canal mesmo sem GABA, por isso são mais letais",
+        "Ambos têm exatamente o mesmo efeito e a mesma margem de segurança",
+        "Benzodiazepínicos abrem o canal sem precisar de GABA; barbitúricos não atuam no GABA-A",
+        "Barbitúricos aumentam a frequência e os benzodiazepínicos não atuam no canal de cloreto"
+      ],
+      "correct": 0,
+      "expl": "Pegadinha clássica de prova. Benzodiazepínicos = aumentam a FREQUÊNCIA de abertura do canal de Cl- e dependem da presença de GABA (efeito teto → maior segurança). Barbitúricos = aumentam a DURAÇÃO de abertura e, em doses altas, abrem o canal mesmo sem GABA, sem efeito teto → depressão respiratória e morte mais fáceis. Por isso os benzodiazepínicos substituíram os barbitúricos.",
+      "difficulty": "medium",
+      "tags": ["benzodiazepinicos", "barbituricos", "gaba"]
+    },
+    {
+      "type": "mc",
+      "topic": "Midazolam · farmacocinética",
+      "q": "Quais características farmacocinéticas tornam o midazolam atraente para procedimentos odontológicos curtos?",
+      "options": [
+        "Início rápido, meia-vida e duração curtas (1-2 h) e amnésia anterógrada — bom para procedimentos curtos, com recuperação relativamente rápida",
+        "Meia-vida muito longa, ideal para sedação que dure o dia inteiro",
+        "Metabólitos ativos de longa duração que prolongam o efeito por dias",
+        "Ausência total de depressão respiratória, mesmo em doses elevadas"
+      ],
+      "correct": 0,
+      "expl": "Midazolam é benzodiazepínico (imidazobenzodiazepínico) de duração curta (1-2 h), início rápido e que produz amnésia anterógrada — útil em procedimentos curtos. Metabolização hepática (CYP3A4), excreção renal. Atenção: ainda causa depressão respiratória dose-dependente, agravada por opioides/álcool. Tem antídoto: flumazenil.",
+      "difficulty": "easy",
+      "tags": ["midazolam", "farmacocinetica"]
+    },
+    {
+      "type": "mc",
+      "topic": "Midazolam · odontopediatria",
+      "q": "Em odontopediatria, qual é um uso clássico do midazolam para sedação consciente de procedimentos curtos?",
+      "options": [
+        "Midazolam por via oral em dose calculada por peso, para sedação consciente de criança ansiosa não colaboradora em procedimento curto, sob monitoração",
+        "Midazolam em altas doses para anestesia geral domiciliar sem monitoração",
+        "Midazolam é contraindicado em qualquer criança",
+        "Midazolam intramuscular de rotina, em casa, sem acompanhamento profissional"
+      ],
+      "correct": 0,
+      "expl": "Midazolam oral é amplamente usado em odontopediatria para sedação consciente de crianças ansiosas/não colaboradoras em procedimentos curtos, com dose por peso. Exige jejum adequado, monitoração de sinais vitais/oximetria e ambiente preparado. Não substitui o manejo comportamental e nunca deve ser feito sem monitoração. Antídoto disponível: flumazenil.",
+      "difficulty": "medium",
+      "tags": ["midazolam", "pediatria", "sedacao-consciente"]
+    },
+    {
+      "type": "mc",
+      "topic": "Midazolam · via EV",
+      "q": "Sobre o midazolam endovenoso (EV) em sedação odontológica, é correto afirmar:",
+      "options": [
+        "Tem início rápido e titulação fácil, mas exige monitoração contínua (oximetria), via aérea/ressuscitação disponíveis e profissional habilitado, pelo risco de depressão respiratória",
+        "Pode ser administrado por qualquer pessoa, sem monitoração, por ser muito seguro",
+        "Não causa depressão respiratória por via EV",
+        "É a via de escolha para sedação caseira sem equipe de suporte"
+      ],
+      "correct": 0,
+      "expl": "Midazolam EV permite início rápido e titulação dose a dose, mas é o cenário de maior risco de depressão respiratória e apneia, sobretudo se associado a opioides. Requer profissional habilitado, monitoração contínua (oximetria/capnografia), oxigênio, material de via aérea e flumazenil disponíveis. Sedação moderada/profunda exige treinamento e estrutura adequados.",
+      "difficulty": "medium",
+      "tags": ["midazolam", "endovenoso", "monitoracao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Diazepam · duração",
+      "q": "Por que o diazepam tende a causar sedação residual prolongada e sonolência no dia seguinte?",
+      "options": [
+        "É de longa duração e gera metabólitos ATIVOS (nordiazepam/desmetildiazepam), com meia-vida muito prolongada, acumulando efeito sedativo",
+        "Não é metabolizado e é excretado inalterado em poucos minutos",
+        "Não possui metabólitos e tem meia-vida curtíssima",
+        "Sofre conjugação direta sem nenhum metabólito ativo"
+      ],
+      "correct": 0,
+      "expl": "Diazepam é benzodiazepínico de LONGA duração e gera metabólitos ATIVOS (principalmente nordiazepam/desmetildiazepam) com meia-vida muito longa, além de oxazepam e temazepam. Isso prolonga o efeito, causa sedação residual/sonolência e acumula em idosos e hepatopatas. Usos: trismo, disfunção da ATM, ansiedade prolongada.",
+      "difficulty": "medium",
+      "tags": ["diazepam", "metabolitos-ativos", "duracao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Lorazepam · vantagem",
+      "q": "Por que o lorazepam é frequentemente a melhor escolha de benzodiazepínico em hepatopata e idoso?",
+      "options": [
+        "É metabolizado por conjugação direta (glicuronidação), SEM metabólitos ativos — efeito mais previsível e menos acúmulo nessas populações",
+        "Por ter os metabólitos ativos mais potentes de todos os benzodiazepínicos",
+        "Porque é o de início mais rápido e duração mais curta entre todos",
+        "Porque depende intensamente do CYP3A4, o que protege o fígado"
+      ],
+      "correct": 0,
+      "expl": "Lorazepam (benzodiazepínico 3-OH) sofre conjugação direta por glicuronidação, gerando metabólito inativo, SEM metabólitos ativos. Isso o torna mais seguro e previsível em hepatopatas e idosos (menos dependente do metabolismo oxidativo/CYP). Desvantagens: início mais lento (~2 h por VO) e recuperação mais lenta, menos prático em procedimentos muito curtos.",
+      "difficulty": "medium",
+      "tags": ["lorazepam", "hepatopata", "idoso"]
+    },
+    {
+      "type": "mc",
+      "topic": "Lorazepam · conjugação",
+      "q": "Junto ao lorazepam, quais outros benzodiazepínicos compartilham metabolismo por conjugação direta (sem oxidação hepática significativa), sendo preferidos em hepatopatas?",
+      "options": [
+        "Oxazepam e temazepam — como o lorazepam, sofrem glicuronidação direta e são mais seguros na disfunção hepática",
+        "Diazepam e clordiazepóxido — não dependem do fígado",
+        "Midazolam e clonazepam — são os mais seguros no hepatopata por conjugação direta",
+        "Nenhum benzodiazepínico depende do fígado para ser eliminado"
+      ],
+      "correct": 0,
+      "expl": "Regra mnemônica 'LOT' (Lorazepam, Oxazepam, Temazepam): esses benzodiazepínicos são eliminados por conjugação/glicuronidação direta, sem oxidação hepática relevante e sem metabólitos ativos, por isso são preferidos em hepatopatas e idosos. Diazepam, midazolam e clonazepam dependem do metabolismo oxidativo (CYP), com risco de acúmulo.",
+      "difficulty": "hard",
+      "tags": ["lorazepam", "conjugacao", "hepatopata"]
+    },
+    {
+      "type": "mc",
+      "topic": "Escolha do benzodiazepínico",
+      "q": "Paciente adulto, ansioso, para um procedimento odontológico CURTO, sem hepatopatia. Qual benzodiazepínico oral tende a ser preferido pela cinética?",
+      "options": [
+        "Midazolam — início rápido e curta duração, recuperação relativamente rápida e amnésia anterógrada útil para o procedimento",
+        "Diazepam — pela longa duração e metabólitos ativos que prolongam a sedação",
+        "Clonazepam — pela meia-vida longa e sedação residual prolongada",
+        "Lorazepam — pelo início mais lento (~2 h) que retarda o procedimento"
+      ],
+      "correct": 0,
+      "expl": "Para procedimento CURTO, prioriza-se cinética com início rápido e curta duração: midazolam é o mais adequado (recuperação relativamente rápida, amnésia anterógrada). Diazepam e clonazepam, de longa duração com metabólitos ativos, deixam sedação residual. Lorazepam tem início lento (~2 h), menos prático para procedimentos curtos, embora seja melhor em hepatopata/idoso.",
+      "difficulty": "medium",
+      "tags": ["benzodiazepinicos", "escolha", "cinetica"]
+    },
+    {
+      "type": "mc",
+      "topic": "Óxido nitroso · mecanismo e via",
+      "q": "Sobre o óxido nitroso (N2O) na sedação consciente em odontologia, é correto afirmar:",
+      "options": [
+        "É sedativo inalatório, atua em receptores NMDA com efeito ansiolítico E analgésico próprio, tem início e recuperação rápidos e baixa depressão respiratória",
+        "É um benzodiazepínico oral que atua no receptor GABA-A sem analgesia",
+        "Tem recuperação muito lenta, com sedação residual por horas",
+        "É administrado por via endovenosa e não causa analgesia"
+      ],
+      "correct": 0,
+      "expl": "O óxido nitroso é sedativo INALATÓRIO. Atua principalmente em receptores NMDA (com liberação de opioides endógenos), conferindo efeito ansiolítico E analgésico próprio (diferente dos benzodiazepínicos, que não têm analgesia). Início (2-5 min) e recuperação rápidos por eliminação pulmonar, pouca depressão respiratória. Permite sedação consciente, com o paciente colaborativo.",
+      "difficulty": "medium",
+      "tags": ["oxido-nitroso", "nmda", "sedacao-inalatoria"]
+    },
+    {
+      "type": "mc",
+      "topic": "Óxido nitroso · contraindicações",
+      "q": "Em qual paciente o óxido nitroso é CONTRAINDICADO ou deve ser evitado?",
+      "options": [
+        "Obstrução nasal/respiração bucal, DPOC grave, pneumotórax, cirurgia oftálmica/otológica recente e 1º trimestre de gestação — situações com espaços aéreos fechados ou que impedem a inalação nasal",
+        "Qualquer paciente ansioso colaborativo, sem comorbidades",
+        "Apenas pacientes destros",
+        "Pacientes que toleram bem a máscara nasal"
+      ],
+      "correct": 0,
+      "expl": "O N2O depende de inalação NASAL, então obstrução nasal/respiração bucal o inviabiliza. É contraindicado/evitado em DPOC grave, pneumotórax, obstrução intestinal, cirurgia oftálmica recente (gás SF6) e otológica, otite média, e no 1º trimestre da gestação. Também exige cooperação do paciente e equipamento específico com sistema de exaustão.",
+      "difficulty": "medium",
+      "tags": ["oxido-nitroso", "contraindicacao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Óxido nitroso · difusão",
+      "q": "Por que o óxido nitroso é perigoso em paciente com pneumotórax, obstrução intestinal ou bolha de ar após cirurgia ocular?",
+      "options": [
+        "O N2O difunde-se para espaços aéreos fechados mais rápido do que o nitrogênio sai, aumentando volume/pressão nessas cavidades",
+        "Porque ele se transforma em CO2 dentro do sangue e causa acidose",
+        "Porque precipita nos tecidos formando cristais",
+        "Porque não é absorvido e fica todo no pulmão sem causar efeito"
+      ],
+      "correct": 0,
+      "expl": "O N2O é muito mais solúvel no sangue que o nitrogênio. Ao chegar a uma cavidade aérea fechada (pneumotórax, alça intestinal obstruída, bolha de gás intraocular, ouvido médio), ele difunde para dentro mais rápido do que o N2 difunde para fora → aumenta o volume e/ou a pressão da cavidade, podendo agravar pneumotórax, distensão ou pressão ocular. Daí as contraindicações.",
+      "difficulty": "hard",
+      "tags": ["oxido-nitroso", "difusao", "espacos-aereos"]
+    },
+    {
+      "type": "mc",
+      "topic": "Hidroxizina",
+      "q": "Qual o papel da hidroxizina como ansiolítico/sedativo leve em odontologia?",
+      "options": [
+        "É anti-histamínico (anti-H1) de 1ª geração com efeito sedativo e ansiolítico leve, sem depressão respiratória significativa, útil como sedação leve, inclusive em crianças, e sem o controle legal dos benzodiazepínicos",
+        "É um benzodiazepínico potente que exige Receita Azul (B1)",
+        "É um opioide com forte risco de depressão respiratória",
+        "É um antagonista do GABA usado como antídoto de sedação"
+      ],
+      "correct": 0,
+      "expl": "Hidroxizina é anti-histamínico H1 de 1ª geração que atravessa a barreira hematoencefálica → sedação e ansiólise leve, além de efeito antiemético e antipruriginoso. Vantagens: pouca depressão respiratória, útil em crianças e como adjuvante. Efeitos: sonolência, boca seca, efeitos anticolinérgicos. Não é benzodiazepínico, portanto sem o controle de Receita Azul.",
+      "difficulty": "medium",
+      "tags": ["hidroxizina", "anti-histaminico"]
+    },
+    {
+      "type": "mc",
+      "topic": "Flumazenil · antídoto",
+      "q": "Paciente sedado com midazolam evolui com depressão respiratória e rebaixamento. Qual o antídoto específico?",
+      "options": [
+        "Flumazenil — antagonista competitivo do receptor benzodiazepínico, que reverte a sedação/depressão respiratória induzida por benzodiazepínicos",
+        "Naloxona — pois reverte qualquer sedação, inclusive por benzodiazepínicos",
+        "Flumazenil reverte também o óxido nitroso e os opioides",
+        "Não existe antídoto para benzodiazepínicos"
+      ],
+      "correct": 0,
+      "expl": "Flumazenil é o antagonista competitivo do sítio benzodiazepínico do receptor GABA-A — antídoto dos benzodiazepínicos (midazolam, diazepam, lorazepam, clonazepam). NÃO reverte opioides (antídoto = naloxona) nem o óxido nitroso (sem antagonista específico). Atenção: tem meia-vida curta (risco de ressedação, exigindo monitoração) e pode precipitar convulsão em usuário crônico ou em superdosagem mista.",
+      "difficulty": "medium",
+      "tags": ["flumazenil", "antidoto"]
+    },
+    {
+      "type": "mc",
+      "topic": "Flumazenil · cuidados",
+      "q": "Qual cuidado é essencial após administrar flumazenil para reverter sedação por benzodiazepínico?",
+      "options": [
+        "Manter monitoração prolongada pelo risco de RESSEDAÇÃO — o flumazenil tem meia-vida mais curta que muitos benzodiazepínicos e o efeito sedativo pode retornar",
+        "Liberar o paciente imediatamente, pois o efeito do flumazenil dura o dia todo",
+        "Administrar opioide em seguida para garantir conforto",
+        "Repetir o benzodiazepínico para evitar abstinência"
+      ],
+      "correct": 0,
+      "expl": "O flumazenil tem meia-vida curta (cerca de 1 h), frequentemente menor que a do benzodiazepínico que se quer reverter (ex.: diazepam/lorazepam). Por isso, após a reversão, há risco de RESSEDAÇÃO quando o flumazenil é depurado, exigindo monitoração prolongada e, às vezes, doses repetidas. Também pode desencadear convulsões em dependentes crônicos.",
+      "difficulty": "medium",
+      "tags": ["flumazenil", "ressedacao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Interação CYP3A4",
+      "q": "Paciente em uso de claritromicina (ou um antifúngico azólico como o cetoconazol/fluconazol) recebe midazolam para sedação. Qual o risco?",
+      "options": [
+        "Sedação prolongada e mais intensa — esses fármacos INIBEM o CYP3A4 e reduzem o metabolismo do midazolam, aumentando seus níveis e o risco de depressão respiratória",
+        "Falha da sedação por aceleração do metabolismo do midazolam",
+        "Nenhuma interação, pois o midazolam não passa pelo CYP3A4",
+        "Aumento do metabolismo do midazolam, encurtando muito o efeito"
+      ],
+      "correct": 0,
+      "expl": "Midazolam (e em parte diazepam) é metabolizado pelo CYP3A4. Inibidores potentes do CYP3A4 — macrolídeos (claritromicina, eritromicina), antifúngicos azólicos (cetoconazol, itraconazol, fluconazol em menor grau), inibidores de protease, suco de toranja/grapefruit — reduzem seu metabolismo → níveis mais altos, sedação prolongada e maior risco de depressão respiratória. Já indutores (rifampicina, carbamazepina) reduzem o efeito.",
+      "difficulty": "hard",
+      "tags": ["cyp3a4", "interacao", "midazolam"]
+    },
+    {
+      "type": "mc",
+      "topic": "Interação · depressores do SNC",
+      "q": "Por que é perigoso associar benzodiazepínicos a álcool ou opioides na sedação?",
+      "options": [
+        "Há potencialização aditiva/sinérgica da depressão do SNC e respiratória — maior risco de sedação excessiva, apneia e parada respiratória",
+        "Eles se antagonizam, então a sedação some por completo",
+        "Não há nenhuma interação entre esses depressores do SNC",
+        "Apenas a pressão arterial sobe, sem risco respiratório"
+      ],
+      "correct": 0,
+      "expl": "Álcool, opioides e outros depressores do SNC somam-se aos benzodiazepínicos, potencializando depressão central e respiratória. É uma das principais causas de eventos graves na sedação (apneia, parada respiratória). Sempre investigar uso de álcool, opioides e outros sedativos antes da sedação e ajustar/evitar a associação.",
+      "difficulty": "easy",
+      "tags": ["interacao", "opioides", "alcool"]
+    },
+    {
+      "type": "mc",
+      "topic": "Portaria 344/98 · Receita Azul",
+      "q": "Para prescrever um benzodiazepínico (ex.: midazolam, diazepam) ambulatorialmente no Brasil, qual o documento de notificação exigido?",
+      "options": [
+        "Notificação de Receita B (Receita Azul, B1), conforme a Portaria 344/98 da ANVISA, que controla as substâncias psicotrópicas",
+        "Receita simples branca, sem qualquer controle",
+        "Notificação de Receita A (Receita Amarela), exclusiva de entorpecentes",
+        "Receita de Controle Especial em duas vias é dispensada para benzodiazepínicos"
+      ],
+      "correct": 0,
+      "expl": "Benzodiazepínicos são psicotrópicos da lista B1 da Portaria 344/98 (ANVISA) → exigem Notificação de Receita B, a 'Receita Azul' (B1). A Receita Amarela (Notificação A) é para entorpecentes (lista A1/A2, ex.: opioides). Em odontologia, prescrever benzodiazepínico segue esse controle (validade e quantidade limitadas), além das normas do conselho profissional.",
+      "difficulty": "medium",
+      "tags": ["portaria-344", "receita-azul", "legal"]
+    },
+    {
+      "type": "mc",
+      "topic": "Controle legal · armadilha",
+      "q": "Qual afirmação sobre o controle legal dos sedativos em odontologia está CORRETA?",
+      "options": [
+        "Benzodiazepínicos exigem Receita Azul (Notificação B/B1) pela Portaria 344/98; já a hidroxizina (anti-histamínico) e o óxido nitroso não seguem esse mesmo controle de notificação",
+        "Nenhum sedativo no Brasil precisa de receita controlada",
+        "O óxido nitroso exige obrigatoriamente Receita Amarela (Notificação A)",
+        "A hidroxizina exige Receita Azul (B1) por ser benzodiazepínico"
+      ],
+      "correct": 0,
+      "expl": "Benzodiazepínicos (midazolam, diazepam, lorazepam, clonazepam) são lista B1 → Receita Azul (Notificação B), Portaria 344/98. A hidroxizina é anti-histamínico e não exige Notificação B. O óxido nitroso é gás de uso profissional no consultório, não dispensado por receita controlada ao paciente. Confundir hidroxizina/N2O com benzodiazepínico é erro frequente.",
+      "difficulty": "medium",
+      "tags": ["legal", "portaria-344", "armadilha"]
+    },
+    {
+      "type": "mc",
+      "topic": "Escala de sedação",
+      "q": "Na sedação CONSCIENTE (mínima/moderada) em odontologia, o que se espera do paciente e da monitoração?",
+      "options": [
+        "Paciente relaxado, mas responsivo a comando verbal/estímulo, com reflexos protetores das vias aéreas preservados e ventilação espontânea, sob monitoração de sinais vitais e oximetria",
+        "Paciente em coma, sem resposta a estímulos e sem reflexos protetores",
+        "Paciente totalmente acordado e ansioso, sem qualquer efeito do fármaco",
+        "Anestesia geral com via aérea artificial obrigatória"
+      ],
+      "correct": 0,
+      "expl": "Sedação consciente (mínima a moderada): o paciente está calmo mas responde a comando verbal e/ou estímulo tátil leve, mantém ventilação espontânea e reflexos protetores das vias aéreas. Difere da sedação profunda/anestesia geral (sem resposta, possível perda dos reflexos). Escalas como a de Ramsay/Observer's (OAA/S) ajudam a graduar. Monitoração: sinais vitais e oximetria.",
+      "difficulty": "medium",
+      "tags": ["escala-sedacao", "sedacao-consciente"]
+    },
+    {
+      "type": "mc",
+      "topic": "Escala de sedação · níveis",
+      "q": "Qual a sequência correta dos níveis de sedação, do mais leve ao mais profundo?",
+      "options": [
+        "Sedação mínima (ansiólise) → sedação moderada (consciente) → sedação profunda → anestesia geral",
+        "Anestesia geral → sedação profunda → sedação mínima → sedação moderada",
+        "Sedação profunda → sedação mínima → anestesia geral → sedação moderada",
+        "Sedação moderada → anestesia geral → sedação mínima → sedação profunda"
+      ],
+      "correct": 0,
+      "expl": "O contínuo de sedação vai de: sedação MÍNIMA (ansiólise — responde normalmente ao comando), sedação MODERADA/CONSCIENTE (responde a comando verbal/tátil, mantém via aérea), sedação PROFUNDA (despertar difícil, pode precisar de suporte de via aérea) até ANESTESIA GERAL (não desperta, suporte ventilatório). É um contínuo: o paciente pode aprofundar além do planejado, exigindo capacidade de resgate.",
+      "difficulty": "medium",
+      "tags": ["escala-sedacao", "niveis"]
+    },
+    {
+      "type": "mc",
+      "topic": "Paciente idoso",
+      "q": "Por que é preciso reduzir a dose e ter cautela com benzodiazepínicos no paciente idoso?",
+      "options": [
+        "Alteração farmacocinética/farmacodinâmica (menor metabolismo, maior gordura corporal, maior sensibilidade do SNC) → maior risco de sedação prolongada, confusão, quedas e depressão respiratória; preferir agentes sem metabólito ativo, como o lorazepam",
+        "O idoso metaboliza mais rápido, então precisa de doses muito maiores",
+        "Não há diferença alguma em relação ao adulto jovem",
+        "Diazepam é a melhor escolha por seus metabólitos ativos de longa duração no idoso"
+      ],
+      "correct": 0,
+      "expl": "No idoso há redução do metabolismo hepático/renal, aumento da gordura corporal (acúmulo de fármacos lipofílicos) e maior sensibilidade do SNC → sedação prolongada, confusão/delirium, quedas e depressão respiratória. Regra: 'começar baixo, ir devagar'. Evitar benzodiazepínicos de longa duração com metabólito ativo (diazepam); preferir os de conjugação direta, sem metabólito ativo, como o lorazepam.",
+      "difficulty": "medium",
+      "tags": ["idoso", "geriatria"]
+    },
+    {
+      "type": "mc",
+      "topic": "Gestação",
+      "q": "Qual a conduta quanto a benzodiazepínicos e óxido nitroso na gestante ansiosa?",
+      "options": [
+        "Evitar benzodiazepínicos (risco de malformações no 1º trimestre, hipotonia/depressão neonatal próximo ao parto) e evitar N2O no 1º trimestre; priorizar manejo comportamental e adiar procedimentos eletivos",
+        "Benzodiazepínicos são totalmente seguros em qualquer fase da gestação",
+        "Diazepam é o ansiolítico de escolha na gravidez",
+        "Pode-se sedar livremente, pois nada atravessa a placenta"
+      ],
+      "correct": 0,
+      "expl": "Benzodiazepínicos atravessam a placenta: associam-se a risco de malformações (debatido) no 1º trimestre e a hipotonia/sedação/síndrome do 'floppy infant' e depressão respiratória neonatal perto do parto — por isso devem ser EVITADOS na gestação. O óxido nitroso é evitado no 1º trimestre. Preferir manejo comportamental/não farmacológico e adiar procedimentos eletivos; decisões em conjunto com o obstetra.",
+      "difficulty": "medium",
+      "tags": ["gestacao", "seguranca"]
+    },
+    {
+      "type": "mc",
+      "topic": "Manejo não farmacológico",
+      "q": "Antes de recorrer à sedação farmacológica no paciente ansioso, qual abordagem deve ser priorizada?",
+      "options": [
+        "Manejo comportamental e ambiental (comunicação empática, técnica 'dizer-mostrar-fazer', controle do ruído/dor, anestesia eficaz, sessões curtas) — a base do atendimento, com a sedação reservada quando isso é insuficiente",
+        "Sedação endovenosa de rotina para todo paciente, independentemente do nível de ansiedade",
+        "Ignorar a ansiedade e apenas acelerar o procedimento",
+        "Iniciar sempre por anestesia geral"
+      ],
+      "correct": 0,
+      "expl": "O pilar do manejo do paciente ansioso é não farmacológico: relação de confiança, comunicação empática, técnica 'dizer-mostrar-fazer', controle de estímulos (ruído, dor, espera), anestesia local eficaz e sessões curtas. A sedação (mínima, com hidroxizina/N2O, ou com benzodiazepínico) é reservada para quando o manejo comportamental é insuficiente, sempre individualizada e com monitoração.",
+      "difficulty": "easy",
+      "tags": ["manejo-ansioso", "comportamental"]
+    },
+    {
+      "type": "mc",
+      "topic": "Segurança · jejum e monitoração",
+      "q": "Quais cuidados de segurança são fundamentais ao planejar sedação consciente em consultório?",
+      "options": [
+        "Avaliação clínica/ASA prévia, jejum adequado, monitoração de sinais vitais e oximetria, oxigênio e material de via aérea disponíveis, antídoto (flumazenil) à mão e acompanhante para o retorno",
+        "Nenhum preparo é necessário, basta administrar o sedativo",
+        "Dispensar a oximetria e o oxigênio, pois a sedação consciente não tem riscos",
+        "Liberar o paciente para dirigir logo após a sedação"
+      ],
+      "correct": 0,
+      "expl": "Segurança na sedação: anamnese e avaliação de risco (classificação ASA), jejum apropriado, consentimento, monitoração contínua (PA, FC, oximetria), oxigênio e equipamento de via aérea/ressuscitação prontos, flumazenil disponível e plano de resgate. Orientar acompanhante e NÃO liberar para dirigir/operar máquinas até recuperação completa (sedação residual).",
+      "difficulty": "medium",
+      "tags": ["seguranca", "jejum", "monitoracao"]
+    },
+    {
+      "type": "match",
+      "topic": "Sedativos: característica-chave",
+      "prompt": "Associe o sedativo à sua característica marcante.",
+      "leftLabel": "Sedativo",
+      "rightLabel": "Característica",
+      "pairs": [
+        { "id": "mida", "left": "Midazolam", "right": "Curta duração, início rápido, amnésia anterógrada; metabolismo CYP3A4" },
+        { "id": "diaz", "left": "Diazepam", "right": "Longa duração, metabólitos ATIVOS (nordiazepam); sedação residual" },
+        { "id": "lora", "left": "Lorazepam", "right": "Conjugação direta, SEM metabólito ativo; melhor em hepatopata/idoso" },
+        { "id": "n2o", "left": "Óxido nitroso", "right": "Inalatório, receptor NMDA, analgesia própria; recuperação rápida" },
+        { "id": "hidro", "left": "Hidroxizina", "right": "Anti-histamínico H1, sedação leve, sem controle de Receita Azul" },
+        { "id": "flu", "left": "Flumazenil", "right": "Antagonista do receptor benzodiazepínico — antídoto" }
+      ],
+      "expl": "Midazolam = curto + CYP3A4. Diazepam = longo + metabólito ativo. Lorazepam = sem metabólito ativo (hepatopata/idoso). N2O = inalatório + analgesia (NMDA). Hidroxizina = anti-H1. Flumazenil = antídoto.",
+      "difficulty": "medium",
+      "tags": ["match"]
+    },
+    {
+      "type": "match",
+      "topic": "Sedativos: mecanismo, antídoto e controle",
+      "prompt": "Associe cada conceito à sua descrição correta.",
+      "leftLabel": "Conceito",
+      "rightLabel": "Descrição",
+      "pairs": [
+        { "id": "gaba", "left": "Benzodiazepínicos (GABA-A)", "right": "Aumentam a FREQUÊNCIA de abertura do canal de Cl-" },
+        { "id": "nmda", "left": "Óxido nitroso", "right": "Atua em receptores NMDA, com analgesia própria" },
+        { "id": "flumaz", "left": "Flumazenil", "right": "Antagoniza benzodiazepínicos; NÃO reverte opioides nem N2O" },
+        { "id": "cyp", "left": "Claritromicina/azólico + midazolam", "right": "Inibição do CYP3A4 → sedação prolongada" },
+        { "id": "azul", "left": "Receita Azul (B1) / Portaria 344/98", "right": "Notificação exigida para prescrever benzodiazepínicos" }
+      ],
+      "expl": "Benzo = frequência do canal de Cl- (GABA-A). N2O = NMDA + analgesia. Flumazenil = antídoto só de benzo. Inibidor de CYP3A4 prolonga o midazolam. Benzodiazepínico = Receita Azul (B1) pela Portaria 344/98.",
+      "difficulty": "medium",
+      "tags": ["match", "mecanismo", "legal"]
+    },
+    {
+      "type": "case",
+      "topic": "Caso · sedação no idoso polimedicado",
+      "subtitle": "Mulher 74a, muito ansiosa, em uso de claritromicina, para exodontia",
+      "specialty": "Odontologia · Farmacologia clínica",
+      "difficulty": "hard",
+      "vignette": "Mulher de 74 anos, hipertensa controlada, muito ansiosa, com indicação de exodontia simples. Está no 4º dia de claritromicina prescrita pelo clínico para uma infecção respiratória. Relata episódios prévios de 'sonolência o dia todo' após tomar diazepam. Sem hepatopatia conhecida, sem alergias. Você considera uma sedação leve para o procedimento.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Considerando a idade e o uso de claritromicina, qual a maior preocupação ao escolher um benzodiazepínico como o midazolam?",
+          "options": [
+            "A claritromicina inibe o CYP3A4 e reduz o metabolismo do midazolam, e a idade aumenta a sensibilidade do SNC → risco de sedação prolongada e depressão respiratória",
+            "A claritromicina acelera o metabolismo do midazolam, anulando o efeito",
+            "Não há interação, pois o midazolam não passa pelo CYP3A4",
+            "O único problema é o gosto metálico do midazolam"
+          ],
+          "correct": 0,
+          "expl": "Midazolam é metabolizado pelo CYP3A4; a claritromicina é inibidor potente dessa enzima → níveis mais altos e sedação prolongada/depressão respiratória, efeito amplificado pela maior sensibilidade do SNC do idoso. É justamente a interação clássica claritromicina/azólico + midazolam."
+        },
+        {
+          "id": "step2",
+          "question": "Diante do histórico de sonolência prolongada com diazepam e do uso de claritromicina, qual a conduta mais segura para sedação leve?",
+          "options": [
+            "Preferir manejo comportamental e/ou sedação leve com baixo risco de interação (ex.: óxido nitroso, se sem contraindicação), evitando o midazolam enquanto usa claritromicina e evitando diazepam pela sedação residual",
+            "Usar diazepam em dose alta, já que a paciente 'está acostumada'",
+            "Manter o midazolam na dose padrão, ignorando a claritromicina",
+            "Indicar anestesia geral de rotina para qualquer exodontia simples"
+          ],
+          "correct": 0,
+          "expl": "Melhor estratégia: priorizar manejo comportamental; se sedação for necessária, optar por via de baixo risco de interação como o óxido nitroso (recuperação rápida, sem CYP3A4), desde que sem contraindicação. Evitar o midazolam enquanto usa claritromicina (interação CYP3A4) e o diazepam (sedação residual, metabólitos ativos, ruim no idoso). Se um benzodiazepínico for indispensável, considerar lorazepam em dose reduzida (conjugação direta), individualizando."
+        },
+        {
+          "id": "step3",
+          "prompt": "Durante uma sedação leve, a paciente fica excessivamente sonolenta, com queda da saturação e respiração superficial.",
+          "question": "Conduta imediata?",
+          "options": [
+            "Suporte (oxigênio, estímulo, posicionar via aérea, monitorar) e, se foi benzodiazepínico, administrar flumazenil, mantendo monitoração prolongada pelo risco de ressedação",
+            "Liberar a paciente para casa imediatamente, pois 'vai passar'",
+            "Administrar naloxona, que é o antídoto dos benzodiazepínicos",
+            "Aumentar a dose do sedativo para 'estabilizar'"
+          ],
+          "correct": 0,
+          "expl": "Depressão respiratória por benzodiazepínico: primeiro o suporte (oxigênio, estímulo, abertura/posicionamento de via aérea, monitoração) e, se a causa for benzodiazepínico, flumazenil (antídoto específico). Naloxona é antídoto de OPIOIDE, não de benzodiazepínico. Após o flumazenil, manter monitoração prolongada pelo risco de RESSEDAÇÃO (meia-vida curta do antídoto)."
+        }
+      ],
+      "outcome": "Optou-se por manejo comportamental com óxido nitroso (sem contraindicação), evitando midazolam durante o uso de claritromicina e o diazepam pela sedação residual. O procedimento transcorreu bem, com recuperação rápida do N2O, e a paciente foi liberada acompanhada, orientada a não dirigir. Decisão de sedação sempre individualizada, considerando idade e interações."
+    },
+    {
+      "type": "flashcard",
+      "topic": "Benzodiazepínicos · mecanismo",
+      "front": "Mecanismo dos benzodiazepínicos no receptor GABA-A?",
+      "back": "Moduladores alostéricos positivos: na presença de GABA, aumentam a FREQUÊNCIA de abertura do canal de Cl- (barbitúricos aumentam a DURAÇÃO). Influxo de Cl- → hiperpolarização → ansiólise, sedação, anticonvulsivante, relaxante muscular. Efeito teto = mais seguros que barbitúricos.",
+      "tags": ["benzodiazepinicos", "mecanismo"]
+    },
+    {
+      "type": "flashcard",
       "topic": "Midazolam",
-      "q": "Midazolam VO 7,5–15 mg 30-60 min antes do procedimento. Qual o antagonista em caso de depressão respiratória, e por que CYP3A4 importa?",
-      "options": [
-        "Antagonista: flumazenil 0,2 mg EV (titular). CYP3A4 metaboliza o midazolam → inibidores como claritromicina, fluconazol, suco de toranja aumentam níveis e o risco de sedação excessiva; cuidar de interações",
-        "Antagonista: naloxona (mesmo mecanismo dos opioides)",
-        "Não tem antagonista — só intubação",
-        "CYP3A4 é irrelevante na clínica"
-      ],
-      "correct": 0,
-      "expl": "Midazolam = BZD imidazo-benzodiazepínico, ação em GABA-A. Flumazenil é o antagonista específico (atenção: meia-vida curta → pode haver re-sedação após reversão). CYP3A4 metaboliza — interações com claritro, fluconazol, ritonavir, suco de toranja AUMENTAM níveis. Pré-medicação odonto: 7,5-15 mg VO em adulto, criança 0,3-0,5 mg/kg.",
-      "difficulty": "medium",
-      "tags": [
-        "midazolam",
-        "flumazenil"
-      ]
+      "front": "Midazolam: classe, cinética e usos em odontologia?",
+      "back": "Benzodiazepínico (imidazo-BZD) de curta duração (1-2 h), início rápido, amnésia anterógrada. Metabolismo CYP3A4, excreção renal. Usos: ansiedade odontológica, odontopediatria (oral), procedimentos curtos; EV exige monitoração. Risco: depressão respiratória (pior com opioides/álcool). Antídoto: flumazenil.",
+      "tags": ["midazolam"]
     },
     {
-      "type": "mc",
+      "type": "flashcard",
+      "topic": "Diazepam",
+      "front": "Diazepam: por que dá sedação residual?",
+      "back": "Benzodiazepínico de LONGA duração com metabólitos ATIVOS (nordiazepam, meia-vida muito longa) → sedação residual, sonolência, acúmulo em idoso/hepatopata. Usos: trismo, disfunção da ATM, ansiedade prolongada, anticonvulsivante, relaxante muscular. Antídoto: flumazenil.",
+      "tags": ["diazepam"]
+    },
+    {
+      "type": "flashcard",
       "topic": "Lorazepam",
-      "q": "Por que lorazepam é preferido sobre diazepam em IDOSO ou HEPATOPATA leve?",
-      "options": [
-        "Lorazepam é 3-OH BZD: metabolizado por CONJUGAÇÃO DIRETA (glicuronidação), sem fase de oxidação e sem metabólitos ativos — efeito previsível mesmo em hepatopata e idoso (em que CYP cai). Diazepam tem metabólito ativo (nordiazepam) com meia-vida longa, acumula no idoso",
-        "Lorazepam é mais barato",
-        "Diazepam não é BZD",
-        "Lorazepam tem mais ação anticonvulsivante que diazepam"
-      ],
-      "correct": 0,
-      "expl": "Lorazepam (assim como oxazepam e temazepam) pula a fase de oxidação hepática — é conjugado direto a glicuronídeo inativo. Em idoso/hepatopata leve, mantém farmacocinética previsível. Diazepam vira nordiazepam (meia-vida 50-100h) → acumulação e sedação prolongada. Início mais lento (~2h VO) é a desvantagem do lorazepam.",
-      "difficulty": "hard",
-      "tags": [
-        "lorazepam",
-        "idoso"
-      ]
+      "front": "Lorazepam: por que é melhor em hepatopata e idoso?",
+      "back": "Benzodiazepínico 3-OH com conjugação direta (glicuronidação), SEM metabólito ativo → efeito previsível, menos acúmulo no hepatopata/idoso. Grupo 'LOT' (Lorazepam, Oxazepam, Temazepam). Desvantagem: início (~2 h) e recuperação lentos, menos prático em procedimento curto.",
+      "tags": ["lorazepam"]
     },
     {
-      "type": "mc",
-      "topic": "Receita Azul / Portaria 344",
-      "q": "Quais aspectos legais são OBRIGATÓRIOS na prescrição de midazolam em consultório odontológico?",
-      "options": [
-        "Notificação de Receita B (talão azul, Portaria 344/98 ANVISA), válida por 30 dias, com limite de até 60 dias de tratamento. Resolução CFO 51/2004 autoriza o cirurgião-dentista a prescrever psicotrópicos no exercício da odontologia. Receita 2 vias (1 farmácia, 1 paciente)",
-        "Receita branca comum, igual ao paracetamol",
-        "Receita Amarela (Notificação A), exclusiva para entorpecentes",
-        "Não pode ser prescrita por cirurgião-dentista"
-      ],
-      "correct": 0,
-      "expl": "Midazolam (psicotrópico) exige Notificação de Receita B — talão azul numerado, retido na farmácia. Portaria 344/98 ANVISA regula. CFO 51/2004 autoriza dentista a prescrever no escopo odontológico. Conferir nome completo, CPF, endereço, data, dose, duração. Erros nesse fluxo são causa frequente de problemas éticos.",
-      "difficulty": "medium",
-      "tags": [
-        "receita-azul",
-        "legal"
-      ]
+      "type": "flashcard",
+      "topic": "Óxido nitroso",
+      "front": "Óxido nitroso (N2O): mecanismo, vantagens e contraindicações?",
+      "back": "Sedativo INALATÓRIO, receptor NMDA, com analgesia E ansiólise próprias. Início/recuperação rápidos, pouca depressão respiratória, exige cooperação. CONTRAINDICADO: obstrução nasal/DPOC grave/pneumotórax/obstrução intestinal/cirurgia ocular ou otológica recente/1º trimestre. Difunde para espaços aéreos fechados. Sem antídoto específico.",
+      "tags": ["oxido-nitroso"]
     },
     {
-      "type": "mc",
-      "topic": "N2O em obstrução nasal",
-      "q": "Paciente de 9 anos com adenoide hipertrófica, respiração predominantemente bucal e rinite alérgica em crise (coriza, congestão nasal), agendado para sedação com óxido nitroso/oxigênio para tratamento restaurador. Qual a conduta?",
-      "options": [
-        "Contraindicado N2O/O2 neste momento — obstrução nasal impede o fluxo adequado pela máscara nasal, reduz eficácia, aumenta deglutição do gás e risco de hipóxia; adiar até resolução da crise ou optar por outra técnica (midazolam VO, sedação IV com anestesista)",
-        "Aumentar a concentração de N2O para 70% para compensar a obstrução",
-        "Trocar máscara nasal por cânula nasal de O2 simples para vencer a resistência",
-        "Prescrever vasoconstritor nasal (oximetazolina) por 10 dias e proceder normalmente"
-      ],
-      "correct": 0,
-      "expl": "N2O/O2 inalatório exige via aérea nasal pérvia — obstrução (rinite, adenoide, desvio septal, resfriado) é contraindicação relativa: gás não chega aos alvéolos, paciente respira pela boca diluindo a mistura, perde a sedação e ainda há risco de hipóxia. Também contraindicado em: gestante 1º trim, DPOC grave, pneumotórax, otite média recente (expande cavidades aéreas), deficiência de B12. Take-home: sem nariz funcionando = sem N2O.",
-      "difficulty": "medium",
-      "tags": [
-        "N2O",
-        "pediatria"
-      ]
+      "type": "flashcard",
+      "topic": "Hidroxizina",
+      "front": "Hidroxizina na sedação odontológica?",
+      "back": "Anti-histamínico H1 de 1ª geração com efeito sedativo/ansiolítico leve, antiemético e antipruriginoso. Pouca depressão respiratória, útil em crianças e como adjuvante. EA: sonolência, boca seca, anticolinérgicos. NÃO é benzodiazepínico → sem Receita Azul.",
+      "tags": ["hidroxizina"]
     },
     {
-      "type": "mc",
-      "topic": "Midazolam oral pediátrico",
-      "q": "Criança de 4 anos, 18 kg, ASA I, não-colaborativa, indicada sedação mínima com midazolam oral para tratamento restaurador. Qual o cálculo, conduta e monitorização correta?",
-      "options": [
-        "Midazolam 0,5 mg/kg VO (dose 9 mg, máximo 15 mg) administrado 15-20 min antes; jejum 2h líquidos claros e 6h sólidos; monitorização contínua com oxímetro de pulso, O2 suplementar disponível, flumazenil de resgate, acompanhante para alta após recuperação completa",
-        "Midazolam 2 mg/kg VO (36 mg) para garantir sedação profunda, sem necessidade de jejum",
-        "Midazolam 0,05 mg/kg IM (0,9 mg) na coxa, sem monitorização adicional",
-        "Diazepam 10 mg VO dose única padrão para qualquer criança acima de 3 anos"
-      ],
-      "correct": 0,
-      "expl": "Midazolam oral pediátrico (AAPD/SOBRAPE): 0,3-0,75 mg/kg, dose usual 0,5 mg/kg, máximo 15-20 mg. Início 15-20 min, duração 45-60 min. Janela sedação mínima/moderada. Requisitos: jejum, oxímetro contínuo, O2 + ambu pediátrico, flumazenil (0,01 mg/kg IV), equipe treinada, alta com adulto responsável. NUNCA usar como cala-boca sem monitorização. Take-home: dose certa + jejum + oxímetro + antagonista = sedação segura.",
-      "difficulty": "hard",
-      "tags": [
-        "midazolam",
-        "pediatria"
-      ]
+      "type": "flashcard",
+      "topic": "Flumazenil",
+      "front": "Flumazenil: o que reverte e qual a armadilha?",
+      "back": "Antagonista competitivo do receptor benzodiazepínico → antídoto dos BENZODIAZEPÍNICOS. NÃO reverte opioides (= naloxona) nem N2O. Armadilha: meia-vida curta → risco de RESSEDAÇÃO (monitorar). Pode precipitar convulsão em dependente crônico.",
+      "tags": ["flumazenil"]
     },
     {
-      "type": "mc",
-      "topic": "Claritromicina + midazolam (CYP3A4)",
-      "q": "Paciente de 45 anos, ansiosa, agendada para exodontia de terceiros molares com sedação por midazolam 7,5 mg VO 1 h antes. Na anamnese revela que está no 4º dia de claritromicina 500 mg 12/12h prescrita pelo pneumologista para pneumonia atípica. Qual a conduta correta?",
-      "options": [
-        "Adiar a sedação com midazolam: a claritromicina é inibidor potente do CYP3A4 e bloqueia o metabolismo do midazolam, elevando ABC em 3-7x, com risco de sedação prolongada e depressão respiratória; opções são reagendar após término do ATB (e washout), trocar ATB com o médico, ou usar benzodiazepínico que não dependa de CYP3A4, como lorazepam (metabolizado por glicuronidação)",
-        "Manter o midazolam na dose habitual - claritromicina e midazolam não têm interação clinicamente relevante por agirem em sistemas enzimáticos diferentes",
-        "Dobrar a dose do midazolam para 15 mg VO, pois a claritromicina induz o CYP3A4 e acelera o metabolismo do benzodiazepínico, reduzindo seu efeito",
-        "Substituir o midazolam por diazepam VO na mesma dose, pois o diazepam é metabolizado exclusivamente por glicuronidação e não sofre interação com macrolídeos"
-      ],
-      "correct": 0,
-      "expl": "Claritromicina e eritromicina são inibidores potentes do CYP3A4, mesma via que metaboliza midazolam, triazolam e alprazolam - a coadministração eleva ABC do midazolam várias vezes, com sedação prolongada e risco respiratório. Diazepam também passa por CYP3A4/2C19 (não é safe). Lorazepam, oxazepam e temazepam (LOT) são metabolizados por glicuronidação e escapam dessa interação. Take-home: paciente em macrolídeo + midazolam = adiar ou trocar.",
-      "difficulty": "hard",
-      "tags": [
-        "cyp3a4",
-        "midazolam",
-        "interacao"
-      ]
+      "type": "flashcard",
+      "topic": "Interação CYP3A4",
+      "front": "Claritromicina ou azólico + midazolam: qual o risco?",
+      "back": "Esses fármacos INIBEM o CYP3A4 e reduzem o metabolismo do midazolam → níveis mais altos, sedação PROLONGADA e maior risco de depressão respiratória. Outros inibidores: eritromicina, cetoconazol/itraconazol, inibidores de protease, suco de toranja. Indutores (rifampicina, carbamazepina) reduzem o efeito.",
+      "tags": ["cyp3a4", "interacao"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Receita Azul · Portaria 344/98",
+      "front": "Como se prescreve um benzodiazepínico no Brasil?",
+      "back": "Notificação de Receita B = 'Receita Azul' (B1), conforme a Portaria 344/98 da ANVISA (substâncias psicotrópicas). Receita Amarela (Notificação A) = entorpecentes/opioides. Hidroxizina (anti-H1) e óxido nitroso NÃO seguem esse mesmo controle de notificação.",
+      "tags": ["legal", "receita-azul", "portaria-344"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Populações especiais",
+      "front": "Benzodiazepínicos no idoso e na gestante?",
+      "back": "IDOSO: maior sensibilidade do SNC e menor metabolismo → começar baixo, ir devagar; evitar diazepam (metabólito ativo), preferir lorazepam (sem metabólito ativo). GESTANTE: EVITAR benzodiazepínicos (malformação no 1º trimestre, floppy infant/depressão neonatal) e N2O no 1º trimestre; priorizar manejo comportamental.",
+      "tags": ["idoso", "gestacao"]
     }
   ]
 }
