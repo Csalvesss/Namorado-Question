@@ -17,6 +17,7 @@ import type {
   QuizSession,
   Subject,
 } from '../types';
+import type { TaskEvent } from './agenda-types';
 
 function requireUid(): string {
   const uid = firebaseAuth.currentUser?.uid;
@@ -199,5 +200,22 @@ export const cloudStudyPlan = {
   async removeExam(eventId: string) {
     const uid = requireUid();
     await deleteDoc(doc(firestore, 'users', uid, 'exams', eventId));
+  },
+
+  async listTasks(uid?: string): Promise<TaskEvent[]> {
+    const targetUid = uid ?? requireUid();
+    const snap = await getDocs(collection(firestore, 'users', targetUid, 'tasks'));
+    return snap.docs.map((d) => d.data() as TaskEvent);
+  },
+
+  async saveTask(task: TaskEvent) {
+    const uid = requireUid();
+    const ref = doc(firestore, 'users', uid, 'tasks', task.id);
+    await setDoc(ref, task);
+  },
+
+  async removeTask(taskId: string) {
+    const uid = requireUid();
+    await deleteDoc(doc(firestore, 'users', uid, 'tasks', taskId));
   },
 };

@@ -9,6 +9,7 @@ import Courses from './pages/Courses';
 import FarmacoMDC from './pages/FarmacoMDC';
 import Home from './pages/Home';
 import History from './pages/History';
+import ProvaReview from './pages/ProvaReview';
 import Login from './pages/Login';
 import AlgorithmPlayer, { AlgorithmsList } from './pages/Algorithms';
 import CaseSimulator from './pages/CaseSimulator';
@@ -59,6 +60,7 @@ export default function App() {
         <Route path="/algoritmos" element={<AlgorithmsList />} />
         <Route path="/algoritmos/:algoId" element={<AlgorithmPlayer />} />
         <Route path="/historico" element={<History />} />
+        <Route path="/historico/prova/:sessionId" element={<ProvaReview />} />
         <Route path="/revisar" element={<Review />} />
         <Route path="/plano" element={<StudyPlan />} />
         <Route path="/bilhetes" element={<Bilhetes />} />

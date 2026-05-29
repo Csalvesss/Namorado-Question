@@ -1,9 +1,11 @@
 import { cloudStudyPlan } from './cloud-db';
 import type { ClassEvent, ExamEvent, Subject } from '../types';
+import type { TaskEvent } from './agenda-types';
 
 const SUBJECTS_PREFIX = 'guava.subjects.';
 const CLASSES_PREFIX = 'guava.classes.';
 const EXAMS_PREFIX = 'guava.exams.';
+const TASKS_PREFIX = 'guava.tasks.';
 
 export const STUDY_PLAN_CHANGE_EVENT = 'guava:study-plan-change';
 
@@ -44,6 +46,9 @@ function classesKey(uid: string) {
 }
 function examsKey(uid: string) {
   return EXAMS_PREFIX + uid;
+}
+function tasksKey(uid: string) {
+  return TASKS_PREFIX + uid;
 }
 
 export function listSubjects(uid: string): Subject[] {
@@ -130,16 +135,45 @@ export function removeExam(uid: string, eventId: string) {
   cloudStudyPlan.removeExam(eventId).catch(() => {});
 }
 
+export function listTasks(uid: string): TaskEvent[] {
+  return loadJson<TaskEvent>(tasksKey(uid)).sort((a, b) => {
+    const cmp = a.date.localeCompare(b.date);
+    if (cmp !== 0) return cmp;
+    return (a.startTime ?? '').localeCompare(b.startTime ?? '');
+  });
+}
+
+export function saveTask(uid: string, task: TaskEvent) {
+  const list = loadJson<TaskEvent>(tasksKey(uid));
+  const idx = list.findIndex((t) => t.id === task.id);
+  if (idx >= 0) list[idx] = task;
+  else list.push(task);
+  saveJson(tasksKey(uid), list);
+  emitChange();
+  cloudStudyPlan.saveTask(task).catch(() => {});
+}
+
+export function removeTask(uid: string, taskId: string) {
+  saveJson(
+    tasksKey(uid),
+    loadJson<TaskEvent>(tasksKey(uid)).filter((t) => t.id !== taskId),
+  );
+  emitChange();
+  cloudStudyPlan.removeTask(taskId).catch(() => {});
+}
+
 export async function hydrateStudyPlanFromCloud(uid: string): Promise<void> {
   try {
-    const [subjects, classes, exams] = await Promise.all([
+    const [subjects, classes, exams, tasks] = await Promise.all([
       cloudStudyPlan.listSubjects(uid),
       cloudStudyPlan.listClasses(uid),
       cloudStudyPlan.listExams(uid),
+      cloudStudyPlan.listTasks(uid),
     ]);
     saveJson(subjectsKey(uid), subjects);
     saveJson(classesKey(uid), classes);
     saveJson(examsKey(uid), exams);
+    saveJson(tasksKey(uid), tasks);
     emitChange();
   } catch {
     // ignore, local cache continues working offline
