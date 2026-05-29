@@ -391,7 +391,7 @@
         { "id": "nime", "left": "Nimesulida", "right": "Sulfonanilida COX-2 preferencial; metabólito ativo; risco de hepatotoxicidade" },
         { "id": "diclo", "left": "Diclofenaco potássico", "right": "Ácido acético; início rápido (sal K+); maior sinal cardiovascular" },
         { "id": "ceto", "left": "Cetorolaco de trometamol", "right": "AINE muito potente; dor intensa; uso por poucos dias (risco GI/renal/sangramento)" },
-        { "id": "dexa", "left": "Dexametasona", "right": "Corticoide; inibe fosfolipase A2 (CYP3A4); controla edema/trismo" }
+        { "id": "dexa", "left": "Dexametasona", "right": "Corticoide; inibe fosfolipase A2 via anexina-1 (metabolizada pela CYP3A4); controla edema/trismo" }
       ],
       "expl": "Ibuprofeno = 1ª linha, propiônico. Nimesulida = COX-2 preferencial, hepatotoxicidade. Diclofenaco K+ = início rápido, risco CV. Cetorolaco = potente, curto prazo. Dexametasona = corticoide para edema (fosfolipase A2).",
       "difficulty": "medium",
