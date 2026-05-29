@@ -165,7 +165,7 @@ export default function CadeiraAnsiosa() {
                 key={choice}
                 type="button"
                 onClick={() => answer(choice)}
-                className="group flex items-start gap-4 rounded-2xl border border-line bg-card p-5 text-left shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift active:scale-[0.99]"
+                className="group flex min-h-touch items-start gap-4 rounded-2xl border border-line bg-card p-5 text-left shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift active:scale-[0.99]"
               >
                 <span className="font-display text-base italic text-ink">
                   {SEDACAO_LABEL[choice]}
