@@ -225,7 +225,7 @@
         "Apenas atletas"
       ],
       "correct": 0,
-      "expl": "AHA 2007 reduziu drasticamente as indicações. ALTÍSSIMO RISCO (mantém profilaxia): (1) prótese valvar (mecânica ou biológica); (2) EI prévia; (3) cardiopatia congênita CIANÓTICA não reparada (inclui shunts paliativos); CC reparada com material protético (nos primeiros 6 meses); CC com defeitos residuais adjacentes ao patch; (4) receptor de TX cardíaco com valvopatia. Procedimentos com risco: odontológicos (extração, implante, drenagem de abscesso, manipulação gengival/periapical), do trato respiratório superior com biópsia/incisão. Esquema: AMOXICILINA 2g VO 1h antes; alérgico: azitromicina 500mg VO 1h antes (ou cefalexina 2g, clindamicina 600mg).",
+      "expl": "AHA 2007 reduziu drasticamente as indicações. ALTÍSSIMO RISCO (mantém profilaxia): (1) prótese valvar (mecânica ou biológica); (2) EI prévia; (3) cardiopatia congênita CIANÓTICA não reparada (inclui shunts paliativos); CC reparada com material protético (nos primeiros 6 meses); CC com defeitos residuais adjacentes ao patch; (4) receptor de TX cardíaco com valvopatia. Procedimentos com risco: odontológicos (extração, implante, drenagem de abscesso, manipulação gengival/periapical), do trato respiratório superior com biópsia/incisão. ESQUEMA DO PROF.: AMOXICILINA 2g VO 1h antes; alérgico: azitromicina 500mg VO 1h antes (outras opções da AHA: cefalexina 2g ou clindamicina 600mg).",
       "difficulty": "medium",
       "tags": ["ei", "profilaxia"]
     },
@@ -273,6 +273,21 @@
       "expl": "ECG da pericardite (4 estágios clássicos): ESTÁGIO I (horas-dias) — SUPRA ST difuso CÔNCAVO ('feliz', tipo sorriso), infra de PR (deslocamento atrial), onda T concordante (positiva) com supra ST, infra ST em V1 e/ou aVR. ESTÁGIO II (dias-semanas) — normalização do ST e PR, achatamento de T. ESTÁGIO III (2-3 semanas) — inversão DIFUSA de T. ESTÁGIO IV (após 3 semanas) — normalização. Sem onda Q (vs IAM), sem reciprocidade (vs IAM — onde supra em parede gera infra em parede oposta). Pegadinha: TAMPONAMENTO tem BAIXA VOLTAGEM e alternância elétrica (swinging heart).",
       "difficulty": "hard",
       "tags": ["pericardite", "ecg"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pericardite × IAM × repolarização precoce",
+      "q": "Jovem 28a chega com dor torácica. ECG mostra supra de ST côncavo em DI, DII, V2-V6. Como diferenciar pericardite de IAM e de repolarização precoce?",
+      "options": [
+        "PERICARDITE = supra ST DIFUSO côncavo + INFRA de PR + sem reciprocidade + sem onda Q; razão ST/T em V6 ≥ 0,25. IAM = supra LOCALIZADO convexo (em cúpula) + RECIPROCIDADE + onda Q tardia. REPOLARIZAÇÃO PRECOCE = supra côncavo LOCALIZADO + entalhe em ponto J + razão ST/T em V6 < 0,25",
+        "Não dá pra diferenciar pelo ECG",
+        "Pericardite tem reciprocidade, IAM não",
+        "Repolarização precoce tem infra de PR"
+      ],
+      "correct": 0,
+      "expl": "Pegadinha clássica e cobrada com frequência. PERICARDITE: supra de ST DIFUSO (em múltiplas paredes), CÔNCAVO ('feliz'), infra de PR (DII, aVF, V2-V6) com supra de PR em aVR — sinal sensível para inflamação atrial — SEM reciprocidade, SEM onda Q. IAM: supra LOCALIZADO em parede específica (anterior/inferior/lateral), CONVEXO (em cúpula), COM reciprocidade na parede oposta, onda Q tardia. REPOLARIZAÇÃO PRECOCE (frequente em jovem atlético): supra côncavo LOCALIZADO em V2-V5, com entalhe ou pontilhado no ponto J, SEM infra de PR. Critério útil: razão entre amplitude de ST (em mm a 80ms após o ponto J) e amplitude da onda T em V6 — pericardite tem RAZÃO ≥ 0,25 (ST relativamente alto vs T); repolarização precoce tem razão < 0,25.",
+      "difficulty": "hard",
+      "tags": ["pericardite", "ecg", "diferencial"]
     },
     {
       "type": "mc",
@@ -365,7 +380,7 @@
       "rightLabel": "Esquema ATB",
       "pairs": [
         { "id": "estS", "left": "Estreptococo viridans/bovis penicilina-sensível em valva nativa", "right": "Penicilina G ou ceftriaxona por 4 semanas" },
-        { "id": "estR", "left": "Estreptococo relativamente resistente à penicilina", "right": "Pen G + gentamicina por 4 + 2 semanas" },
+        { "id": "estR", "left": "Estreptococo relativamente resistente à penicilina", "right": "Pen G por 4 semanas + gentamicina apenas nas 2 primeiras semanas (sinergia)" },
         { "id": "ent", "left": "Enterococo / Streptococcus de MIC alto", "right": "Pen G ou ampicilina + gentamicina por 4-6 semanas" },
         { "id": "estafS", "left": "S. aureus meticilina-sensível em valva nativa", "right": "Oxacilina por 4-6 semanas" },
         { "id": "estafR", "left": "S. aureus meticilina-resistente (MRSA)", "right": "Vancomicina por 4-6 semanas" },
@@ -533,7 +548,7 @@
       "type": "flashcard",
       "topic": "EI · profilaxia AHA 2007",
       "front": "Quais condições mantém profilaxia para EI segundo AHA 2007?",
-      "back": "Altíssimo risco apenas: 1) prótese valvar; 2) EI prévia; 3) CC cianótica não reparada ou reparada com material protético (até 6 meses); 4) TX cardíaco com valvopatia. Procedimentos: odontológicos invasivos, trato respiratório com biópsia. Esquema: amoxicilina 2g VO 1h antes (azitromicina 500mg se alérgico).",
+      "back": "Altíssimo risco apenas: 1) prótese valvar; 2) EI prévia; 3) CC cianótica não reparada ou reparada com material protético (até 6 meses); 4) TX cardíaco com valvopatia. Procedimentos: odontológicos invasivos, trato respiratório com biópsia. ESQUEMA DO PROF.: amoxicilina 2g VO 1h antes; azitromicina 500mg se alérgico (AHA também lista cefalexina 2g ou clindamicina 600mg).",
       "tags": ["profilaxia"]
     },
     {

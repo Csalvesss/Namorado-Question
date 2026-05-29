@@ -207,7 +207,7 @@ export function importCourse(payload: ImportPayload, opts: { createdBy?: string 
 }
 
 const SEED_VERSION_KEY = 'guava.seedVersion';
-const SEED_VERSION = 22;
+const SEED_VERSION = 23;
 
 export function ensureSeed() {
   const storedVersion = Number(localStorage.getItem(SEED_VERSION_KEY) ?? '0');
