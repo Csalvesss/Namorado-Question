@@ -1,153 +1,537 @@
 {
-  "title": "Anti-inflamatórios",
-  "description": "AINEs (ibuprofeno, nimesulida, diclofenaco K, cetorolaco) e corticoide (dexametasona) em odontologia. Mecanismo COX-1/COX-2, indicação pós-op, contraindicações.",
-  "icon": "shield-plus",
+  "title": "Anti-inflamatórios em Odontologia",
+  "description": "Anti-inflamatórios na clínica odontológica: AINEs (ibuprofeno, nimesulida, diclofenaco potássico, cetorolaco) e corticoides (dexametasona). Mecanismo COX/fosfolipase A2, dose pré-emptiva, escolha em pós-operatório de exodontia, efeitos adversos GI/renal/cardiovascular, asmático/AERD, cardiopata, diabético e interações medicamentosas.",
+  "icon": "pill",
   "color": "wine",
   "track": "odonto",
   "questions": [
     {
       "type": "mc",
-      "topic": "Ibuprofeno",
-      "q": "Adulto 70 kg pós-exodontia de molar, sem alergia, sem úlcera péptica. AINE de escolha?",
+      "topic": "Mecanismo · AINE",
+      "q": "Qual o mecanismo de ação comum aos AINEs (ibuprofeno, diclofenaco, cetorolaco)?",
       "options": [
-        "Ibuprofeno 400-600 mg VO 8/8h por 3-5 dias, após refeição. AINE não seletivo (COX-1 e COX-2), bom controle de dor e edema pós-operatório, perfil de segurança bem estabelecido",
-        "Cetorolaco 30 mg EV/IM como 1ª linha por 14 dias",
-        "Dexametasona 4 mg 8/8h por 30 dias",
-        "Sem AINE — paracetamol cobre toda dor odontológica"
+        "Inibem a enzima ciclo-oxigenase (COX-1 e COX-2), reduzindo a síntese de prostaglandinas e tromboxanos a partir do ácido araquidônico → efeito analgésico, anti-inflamatório e antipirético",
+        "Inibem a fosfolipase A2, bloqueando a liberação do ácido araquidônico",
+        "Bloqueiam canais de sódio nas fibras nervosas, impedindo a condução do impulso doloroso",
+        "Ativam receptores opioides no SNC, elevando o limiar de dor"
       ],
       "correct": 0,
-      "expl": "Ibuprofeno 400-600 mg 8/8h por 3-5 dias é o AINE padrão em pós-op odontológico leve a moderado. Tomar após refeição. Evitar em úlcera ativa, IRC avançada, gestante 3ºT, ICC descompensada. Limite máx 2,4 g/dia.",
+      "expl": "Os AINEs inibem a COX, enzima que converte ácido araquidônico em prostaglandinas e tromboxano. Menos prostaglandinas = menos dor, inflamação e febre. Quem inibe a fosfolipase A2 (etapa anterior, via anexina-1) é o CORTICOIDE — por isso o corticoide bloqueia toda a cascata (prostaglandinas E leucotrienos). Bloqueio de canal de sódio = anestésico local; receptor opioide = opioide.",
       "difficulty": "easy",
-      "tags": [
-        "ibuprofeno",
-        "pos-op"
-      ]
+      "tags": ["aine", "mecanismo", "cox"]
     },
     {
       "type": "mc",
-      "topic": "Dexametasona",
-      "q": "Pré-exodontia de siso incluso complexa. Dexametasona é indicada para quê?",
+      "topic": "COX-1 vs COX-2",
+      "q": "Por que a inibição da COX-1 pelos AINEs não-seletivos causa efeitos adversos gástricos?",
       "options": [
-        "Reduzir edema, trismo e dor pós-op via inibição da fosfolipase A2 (bloqueia a cascata inflamatória ANTES das prostaglandinas). Dose: 4-8 mg VO/IM 1h antes do procedimento, em dose única (pré-medicação)",
-        "Substituir o antibiótico no pós-operatório",
-        "Tratar herpes labial pós-cirúrgico",
-        "Promover hemostasia"
+        "A COX-1 é constitutiva e produz prostaglandinas que protegem a mucosa gástrica (muco, bicarbonato, fluxo sanguíneo); inibi-la reduz essa proteção e favorece gastrite e úlcera",
+        "A COX-1 produz exclusivamente prostaglandinas inflamatórias, e bloqueá-la aumenta a acidez",
+        "A COX-1 só existe no rim, e seu bloqueio causa refluxo ácido",
+        "A COX-1 estimula a produção de leucotrienos gástricos protetores"
       ],
       "correct": 0,
-      "expl": "Dexa 4-8 mg dose única pré-op reduz edema e trismo de forma significativa em cirurgia de siso. Inibe fosfolipase A2 — bloqueia AA, prostaglandinas e leucotrienos. Cuidados: hiperglicemia em diabético, evitar uso crônico (supressão HHA), CI relativa em úlcera ativa.",
+      "expl": "A COX-1 é constitutiva ('do bem'): mantém prostaglandinas que protegem a mucosa gástrica (estimulam muco e bicarbonato, mantêm o fluxo sanguíneo), regulam a função renal e ativam plaquetas (tromboxano A2). A COX-2 é induzida na inflamação. AINEs não-seletivos inibem ambas → o bloqueio da COX-1 explica a toxicidade gástrica e o efeito antiplaquetário.",
       "difficulty": "medium",
-      "tags": [
-        "dexametasona",
-        "siso"
-      ]
+      "tags": ["cox-1", "cox-2", "gastrico"]
     },
     {
       "type": "mc",
+      "topic": "Coxibes · COX-2 seletivo",
+      "q": "Qual a principal vantagem e o principal risco dos inibidores seletivos da COX-2 (coxibes, ex.: celecoxibe)?",
+      "options": [
+        "Vantagem: menor toxicidade gastrointestinal (poupam a COX-1 protetora); risco: maior risco cardiovascular/trombótico (desequilíbrio entre prostaciclina e tromboxano)",
+        "Vantagem: são antiplaquetários potentes; risco: sangramento excessivo em cirurgia",
+        "Vantagem: não têm nenhum efeito renal; risco: hepatotoxicidade exclusiva",
+        "Vantagem: podem ser usados livremente em asmáticos; risco: causam broncoespasmo grave"
+      ],
+      "correct": 0,
+      "expl": "Coxibes inibem seletivamente a COX-2 (induzida na inflamação) e poupam a COX-1 → MENOS lesão gástrica. Porém deslocam o equilíbrio vascular: a COX-2 endotelial produz prostaciclina (antiagregante/vasodilatadora), enquanto a COX-1 plaquetária segue produzindo tromboxano (pró-agregante) — resultado é MAIOR risco cardiovascular/trombótico. Por isso são evitados em cardiopatas. O efeito renal persiste.",
+      "difficulty": "medium",
+      "tags": ["coxibe", "cox-2", "cardiovascular"]
+    },
+    {
+      "type": "mc",
+      "topic": "Ibuprofeno",
+      "q": "Sobre o ibuprofeno em odontologia, é correto afirmar:",
+      "options": [
+        "AINE derivado do ácido propiônico, inibidor não-seletivo de COX-1/COX-2, metabolizado pela CYP2C9; é um dos analgésicos/anti-inflamatórios de 1ª linha para dor odontológica leve a moderada e edema pós-operatório",
+        "É um corticoide que inibe a fosfolipase A2 e não causa lesão gástrica",
+        "É um inibidor seletivo da COX-2 sem risco gastrointestinal",
+        "Não sofre metabolismo hepático e é eliminado intacto pelos rins"
+      ],
+      "correct": 0,
+      "expl": "Ibuprofeno é AINE do grupo ácido propiônico, inibidor NÃO-seletivo de COX-1 e COX-2, com boa biodisponibilidade oral (~80%, alimento não atrapalha de forma relevante), pico em 1-2 h e meia-vida curta (~2 h). É metabolizado no fígado pela CYP2C9. É 1ª linha em dor odontológica leve-moderada. EA: gastrite, náusea, retenção hídrica, risco renal e cardiovascular.",
+      "difficulty": "easy",
+      "tags": ["ibuprofeno", "cyp2c9", "propionico"]
+    },
+    {
+      "type": "mc",
+      "topic": "Ibuprofeno · CYP2C9",
+      "q": "O ibuprofeno é metabolizado principalmente por qual enzima, e qual a implicação clínica?",
+      "options": [
+        "CYP2C9 hepática — polimorfismos ou inibidores dessa enzima (ex.: fluconazol) podem reduzir o metabolismo e aumentar a exposição ao fármaco e seus efeitos adversos",
+        "CYP3A4 — por isso interage fortemente com claritromicina e suco de toranja",
+        "Não tem metabolismo hepático, sendo excretado intacto na urina",
+        "Monoaminoxidase (MAO), explicando a interação com antidepressivos IMAO"
+      ],
+      "correct": 0,
+      "expl": "Ibuprofeno (como diclofenaco e nimesulida) é metabolizado pela CYP2C9 hepática. Inibidores da CYP2C9 (ex.: fluconazol, amiodarona) ou variantes genéticas de metabolizador lento elevam os níveis do AINE e o risco de toxicidade. A CYP3A4 é a via da dexametasona, não do ibuprofeno. AINEs sofrem sim metabolismo hepático.",
+      "difficulty": "medium",
+      "tags": ["ibuprofeno", "cyp2c9", "interacao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Nimesulida",
+      "q": "Qual característica diferencia a nimesulida dos demais AINEs do trabalho?",
+      "options": [
+        "É uma sulfonanilida com ação preferencial sobre a COX-2 e gera metabólito ativo (hidroxinimesulida); exige cautela pelo risco de hepatotoxicidade",
+        "É o único AINE que inibe a fosfolipase A2 em vez da COX",
+        "É um corticoide de uso tópico sem efeito sistêmico",
+        "É um inibidor irreversível da COX plaquetária, como o AAS"
+      ],
+      "correct": 0,
+      "expl": "Nimesulida é uma SULFONANILIDA com inibição PREFERENCIAL da COX-2 (relativamente poupadora de COX-1, com menor agressão gástrica do que AINEs clássicos). Metabolizada pela CYP2C9, gera metabólito ATIVO (hidroxinimesulida). O ponto de atenção é a HEPATOTOXICIDADE — evitar em hepatopatas e em uso prolongado. Não age na fosfolipase A2 (isso é corticoide) e não é corticoide.",
+      "difficulty": "medium",
+      "tags": ["nimesulida", "sulfonanilida", "hepatotoxicidade"]
+    },
+    {
+      "type": "mc",
+      "topic": "Nimesulida · hepatotoxicidade",
+      "q": "Qual o cuidado mais relevante ao prescrever nimesulida?",
+      "options": [
+        "Risco de hepatotoxicidade — evitar em pacientes com hepatopatia, não usar por períodos prolongados e orientar sinais de alerta (icterícia, urina escura, dor em hipocôndrio direito)",
+        "Risco de surdez irreversível, exigindo audiometria prévia",
+        "Risco de osteonecrose dos maxilares com dose única",
+        "Risco de broncoaspiração por sedação intensa"
+      ],
+      "correct": 0,
+      "expl": "A nimesulida tem alerta de HEPATOTOXICIDADE (já levou a restrições regulatórias em alguns países). Por isso: evitar em hepatopatas, usar pelo menor tempo possível e suspender se surgirem sinais de lesão hepática (icterícia, colúria, anorexia, dor em hipocôndrio direito). Surdez/ototoxicidade é mais associada a salicilatos em altas doses; osteonecrose a antirreabsortivos.",
+      "difficulty": "medium",
+      "tags": ["nimesulida", "hepatotoxicidade"]
+    },
+    {
+      "type": "mc",
+      "topic": "Diclofenaco potássico",
+      "q": "Por que o diclofenaco POTÁSSICO é frequentemente escolhido para dor aguda pós-operatória, em vez do sódico?",
+      "options": [
+        "O sal potássico tem absorção e início de ação mais rápidos, sendo útil para alívio rápido da dor aguda; é AINE do grupo ácido acético, inibidor de COX-1/COX-2, metabolizado pela CYP2C9",
+        "O sal potássico é um corticoide de liberação lenta, ideal para uso crônico",
+        "O potássio o torna seletivo para COX-2, eliminando o risco gástrico",
+        "O sal potássico não tem efeito anti-inflamatório, apenas antitérmico"
+      ],
+      "correct": 0,
+      "expl": "O diclofenaco POTÁSSICO tem dissolução/absorção mais rápida que o sódico → início de ação mais precoce, vantajoso na dor aguda (ex.: pós-exodontia). É AINE potente do grupo ácido acético, inibidor não-seletivo de COX-1/COX-2, com forte ligação à albumina e metabolismo pela CYP2C9. EA: gastrite, sangramento GI, alteração renal e risco cardiovascular (entre os AINEs com mais sinal CV).",
+      "difficulty": "medium",
+      "tags": ["diclofenaco", "acetico", "agudo"]
+    },
+    {
+      "type": "mc",
+      "topic": "Cetorolaco de trometamol",
+      "q": "Qual a indicação característica do cetorolaco de trometamol e seu principal limite de uso?",
+      "options": [
+        "AINE muito potente para dor aguda intensa de curta duração (ex.: pós-cirurgia de terceiros molares); uso limitado a poucos dias pelo alto risco de toxicidade GI, renal e sangramento",
+        "Anti-inflamatório fraco indicado para uso crônico prolongado em dores leves",
+        "Corticoide injetável para controle de edema em cirurgias longas",
+        "AINE seletivo para COX-2 sem risco de sangramento, ideal no transoperatório"
+      ],
+      "correct": 0,
+      "expl": "Cetorolaco (sal trometamol) é um AINE do grupo ácido acético com potência analgésica elevada, comparável a opioides em algumas dores agudas — útil em DOR INTENSA pós-operatória (terceiros molares, exodontias complexas). Porém o uso é restrito a CURTO PRAZO (geralmente até ~5 dias) por alto risco de úlcera/sangramento GI, toxicidade renal e prolongamento do sangramento. Não é seletivo de COX-2.",
+      "difficulty": "medium",
+      "tags": ["cetorolaco", "potente", "dor-intensa"]
+    },
+    {
+      "type": "mc",
+      "topic": "Dexametasona · mecanismo",
+      "q": "Qual o mecanismo de ação anti-inflamatório da dexametasona?",
+      "options": [
+        "Como glicocorticoide, induz a anexina-1 (lipocortina) que inibe a fosfolipase A2 → reduz a liberação de ácido araquidônico, bloqueando tanto prostaglandinas quanto leucotrienos",
+        "Inibe seletivamente a COX-2, sem efeito sobre leucotrienos",
+        "Inibe a ciclo-oxigenase de forma irreversível, como o AAS",
+        "Antagoniza diretamente os receptores de histamina H1"
+      ],
+      "correct": 0,
+      "expl": "A dexametasona é glicocorticoide sintético potente. Atua 'a montante' da cascata: induz a anexina-1/lipocortina que INIBE a FOSFOLIPASE A2, reduzindo a formação de ácido araquidônico. Com isso bloqueia AMBAS as vias — prostaglandinas (COX) E leucotrienos (lipo-oxigenase) — além de ações imunossupressoras gênicas. Por isso é tão eficaz no controle do EDEMA pós-operatório. Os AINEs só bloqueiam a via da COX.",
+      "difficulty": "medium",
+      "tags": ["dexametasona", "corticoide", "fosfolipase-a2"]
+    },
+    {
+      "type": "mc",
+      "topic": "Dexametasona · edema em exodontia",
+      "q": "Em cirurgia de terceiros molares inclusos, qual o papel da dexametasona?",
+      "options": [
+        "Reduzir edema e trismo pós-operatórios — usada em dose única pré-operatória ou perioperatória (oral, IM ou na infiltração), por seu potente efeito anti-inflamatório e meia-vida longa",
+        "Substituir totalmente o anestésico local durante a cirurgia",
+        "Servir como antibiótico profilático contra alveolite",
+        "Promover hemostasia local por vasoconstrição direta"
+      ],
+      "correct": 0,
+      "expl": "A dexametasona é muito usada em exodontia de sisos para reduzir EDEMA e TRISMO. É um corticoide de longa duração e alta potência, lipossolúvel (atravessa membranas com facilidade). Costuma ser dada em dose única pré/perioperatória (VO, IM ou submucosa). Não é anestésico, não é antibiótico e não faz hemostasia — esse é o papel do vasoconstritor/agentes hemostáticos.",
+      "difficulty": "medium",
+      "tags": ["dexametasona", "exodontia", "edema"]
+    },
+    {
+      "type": "mc",
+      "topic": "Corticoide · diabético",
+      "q": "Por que a dexametasona exige cautela em paciente diabético?",
+      "options": [
+        "Glicocorticoides aumentam a glicemia (gliconeogênese, resistência à insulina) e podem descompensar o diabetes; usar a menor dose/menor tempo e orientar monitorização da glicemia",
+        "Glicocorticoides causam hipoglicemia grave, exigindo glicose endovenosa",
+        "Não há qualquer efeito do corticoide sobre a glicemia",
+        "Corticoides reduzem a glicemia ao aumentar a secreção de insulina"
+      ],
+      "correct": 0,
+      "expl": "Glicocorticoides são HIPERGLICEMIANTES: estimulam a gliconeogênese hepática e induzem resistência periférica à insulina, podendo descompensar o diabetes. Em diabético, usar dose única/curta com cautela, preferir alternativas quando possível e orientar monitorização da glicemia. Também são imunossupressores → atenção a infecções (risco de agravar/mascarar). Não causam hipoglicemia.",
+      "difficulty": "medium",
+      "tags": ["dexametasona", "diabetes", "glicemia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Corticoide · infecção/imunossupressão",
+      "q": "Qual cuidado é necessário ao usar corticoide em paciente com infecção odontogênica ativa?",
+      "options": [
+        "O efeito imunossupressor pode agravar ou mascarar a infecção — controlar o foco e usar antibiótico quando indicado; não usar corticoide isoladamente para 'tratar' uma infecção",
+        "O corticoide tem ação antibiótica direta e dispensa o antimicrobiano",
+        "O corticoide deve ser usado em dose alta e prolongada para 'curar' a infecção",
+        "Corticoide é contraindicado em qualquer paciente, sem exceção"
+      ],
+      "correct": 0,
+      "expl": "Glicocorticoides são imunossupressores: reduzem a resposta inflamatória/imune, podendo MASCARAR sinais e AGRAVAR infecções. Em infecção ativa, o pilar é controle do foco (drenagem/endodontia/exodontia) + antibiótico quando indicado; o corticoide não trata infecção e não substitui antibiótico. Quando usado para edema, deve vir acompanhado do controle do processo infeccioso.",
+      "difficulty": "medium",
+      "tags": ["dexametasona", "imunossupressao", "infeccao"]
+    },
+    {
+      "type": "mc",
+      "topic": "AINE · efeito renal",
+      "q": "Qual o mecanismo da nefrotoxicidade dos AINEs?",
+      "options": [
+        "As prostaglandinas mantêm a vasodilatação da arteríola aferente e o fluxo renal; ao inibi-las, o AINE reduz a perfusão glomerular, podendo causar retenção hídrica e lesão renal, sobretudo em hipovolemia ou rim já comprometido",
+        "Os AINEs destroem diretamente os túbulos renais por toxicidade celular imediata",
+        "Os AINEs aumentam excessivamente o fluxo renal, levando a poliúria e desidratação",
+        "Os AINEs precipitam cristais nos túbulos, como ocorre com sulfas"
+      ],
+      "correct": 0,
+      "expl": "No rim, prostaglandinas (via COX-2 renal) mantêm a vasodilatação da arteríola AFERENTE, preservando a filtração quando há hipoperfusão. AINEs inibem essas prostaglandinas → vasoconstrição aferente → queda da TFG, retenção de sódio/água e risco de lesão renal aguda — especialmente em desidratados, idosos, nefropatas ou em combinação com IECA/diurético. Por isso cuidado em renais e em uso prolongado.",
+      "difficulty": "medium",
+      "tags": ["aine", "renal", "prostaglandina"]
+    },
+    {
+      "type": "mc",
+      "topic": "AINE · cardiopata/HAS",
+      "q": "Por que os AINEs devem ser evitados ou usados com cautela em hipertensos e cardiopatas?",
+      "options": [
+        "Causam retenção de sódio e água (elevando a pressão arterial e reduzindo a eficácia de anti-hipertensivos) e aumentam o risco de eventos cardiovasculares trombóticos com uso prolongado",
+        "Reduzem perigosamente a pressão arterial, causando hipotensão grave",
+        "São vasodilatadores potentes que precipitam edema agudo de pulmão por queda de pressão",
+        "Não têm nenhuma interação com o sistema cardiovascular"
+      ],
+      "correct": 0,
+      "expl": "AINEs retêm sódio e água (efeito renal) → ELEVAM a PA e podem reduzir a resposta a anti-hipertensivos, além de piorar insuficiência cardíaca. Com uso prolongado há aumento do risco trombótico (IAM/AVC), maior com diclofenaco e coxibes. Em cardiopata/HAS, preferir o menor tempo e a menor dose; muitas vezes o paracetamol ou corticoide em dose curta são alternativas mais seguras para o controle da dor/edema.",
+      "difficulty": "medium",
+      "tags": ["aine", "hipertensao", "cardiovascular"]
+    },
+    {
+      "type": "mc",
+      "topic": "AINE · asma / AERD",
+      "q": "Paciente relata broncoespasmo grave após tomar AAS. Pode receber ibuprofeno para dor pós-exodontia?",
+      "options": [
+        "Não — há risco de reação cruzada (doença respiratória exacerbada por AINE / AERD); evitar AINEs não-seletivos e preferir paracetamol; corticoide pode ser opção para o componente inflamatório",
+        "Sim, qualquer AINE é seguro porque a reação foi só ao AAS",
+        "Sim, desde que associado a anti-histamínico",
+        "Não, mas a nimesulida e o diclofenaco são totalmente seguros nesse paciente"
+      ],
+      "correct": 0,
+      "expl": "Na doença respiratória exacerbada por AINE (AERD/'tríade de Samter': asma + polipose nasal + intolerância a AAS), a inibição da COX-1 desvia o ácido araquidônico para a via dos leucotrienos → broncoespasmo. Há REAÇÃO CRUZADA entre AAS e demais AINEs não-seletivos (ibuprofeno, diclofenaco, etc.). Conduta: EVITAR AINEs; usar paracetamol para dor; corticoide ajuda no componente inflamatório. Não confiar em anti-histamínico como proteção.",
+      "difficulty": "hard",
+      "tags": ["aine", "asma", "aerd"]
+    },
+    {
+      "type": "mc",
+      "topic": "AINE + anti-hipertensivo · tríade",
+      "q": "Qual combinação é conhecida como 'tríade nefrotóxica' e deve ser evitada?",
+      "options": [
+        "AINE + IECA (ou BRA) + diurético — a soma compromete a autorregulação renal e aumenta muito o risco de lesão renal aguda",
+        "AINE + paracetamol + dipirona, por somar hepatotoxicidade",
+        "AINE + amoxicilina + clorexidina, por sinergismo renal",
+        "Corticoide + anestésico local + vasoconstritor, por crise hipertensiva"
+      ],
+      "correct": 0,
+      "expl": "A 'tríade' (triple whammy) é AINE + IECA/BRA + DIURÉTICO. O AINE contrai a aferente (menos prostaglandina), o IECA/BRA dilata a eferente (menos angiotensina II) e o diurético reduz o volume — a combinação derruba a perfusão e a filtração glomerular → lesão renal aguda. Em paciente nessa associação, evitar AINE; preferir paracetamol e, se preciso, corticoide curto, sempre com hidratação adequada.",
+      "difficulty": "hard",
+      "tags": ["aine", "interacao", "triade", "renal"]
+    },
+    {
+      "type": "mc",
+      "topic": "AINE + lítio",
+      "q": "Qual o risco de associar AINE a um paciente em uso de lítio?",
+      "options": [
+        "Os AINEs reduzem a excreção renal do lítio e elevam seus níveis séricos, podendo causar intoxicação (tremor, confusão, arritmias) — evitar ou monitorar a litemia",
+        "Os AINEs aceleram a eliminação do lítio, tornando-o ineficaz",
+        "Não há interação entre AINEs e lítio",
+        "Os AINEs convertem o lítio em metabólito tóxico hepático"
+      ],
+      "correct": 0,
+      "expl": "AINEs reduzem o fluxo renal e a excreção de lítio → AUMENTAM a litemia, com risco de intoxicação (tremor, ataxia, confusão, náusea, arritmia). Em paciente sob lítio, evitar AINE ou usar com monitorização da litemia; paracetamol é alternativa mais segura para dor leve-moderada. A interação é farmacocinética (excreção renal), não de hepatotoxicidade.",
+      "difficulty": "hard",
+      "tags": ["aine", "litio", "interacao"]
+    },
+    {
+      "type": "mc",
+      "topic": "AINE + varfarina",
+      "q": "Por que a associação de AINE com varfarina é perigosa?",
+      "options": [
+        "Aumenta o risco de sangramento — os AINEs inibem plaquetas e lesam a mucosa GI, e ainda deslocam a varfarina da albumina e competem pela CYP2C9, potencializando a anticoagulação",
+        "Os AINEs antagonizam a varfarina, exigindo dobrar a dose do anticoagulante",
+        "Não há interação, pois agem em vias totalmente diferentes",
+        "A varfarina aumenta o metabolismo do AINE, tornando-o ineficaz"
+      ],
+      "correct": 0,
+      "expl": "Risco de SANGRAMENTO somado: AINEs inibem a função plaquetária (tromboxano) e causam lesão/erosão da mucosa GI; além disso competem pela ligação à albumina e pela via da CYP2C9 (que também metaboliza a varfarina), aumentando o INR e a anticoagulação. Em anticoagulado, evitar AINE; preferir paracetamol. Se AINE for imprescindível, fazer com cautela e controle do INR.",
+      "difficulty": "hard",
+      "tags": ["aine", "varfarina", "sangramento"]
+    },
+    {
+      "type": "mc",
+      "topic": "AINE + metotrexato",
+      "q": "Qual a preocupação ao usar AINE em paciente em uso de metotrexato?",
+      "options": [
+        "Os AINEs reduzem a excreção renal do metotrexato, elevando seus níveis e o risco de toxicidade (mielossupressão, mucosite, hepato e nefrotoxicidade), sobretudo em doses altas de MTX",
+        "Os AINEs neutralizam o metotrexato, anulando seu efeito imunossupressor",
+        "Não há interação relevante entre AINEs e metotrexato",
+        "Os AINEs aumentam a excreção do metotrexato, exigindo dose dobrada"
+      ],
+      "correct": 0,
+      "expl": "AINEs competem pela secreção tubular renal e reduzem a depuração do metotrexato → ELEVAM seus níveis e o risco de toxicidade (mielossupressão, mucosite/estomatite, hepato e nefrotoxicidade). O risco é maior com metotrexato em dose alta (oncologia). Em pacientes sob MTX, cautela com AINE e preferência por analgésico alternativo (paracetamol), avaliando a dose do MTX.",
+      "difficulty": "hard",
+      "tags": ["aine", "metotrexato", "interacao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Analgesia pré-emptiva",
+      "q": "O que é analgesia pré-emptiva (preemptive) em odontologia?",
+      "options": [
+        "Administrar o analgésico/AINE ANTES do estímulo doloroso (antes do procedimento ou antes do fim do efeito anestésico) para reduzir a sensibilização e a intensidade da dor pós-operatória",
+        "Dar o analgésico apenas quando a dor já estiver intensa, para não 'mascarar' sintomas",
+        "Usar somente analgésico endovenoso durante a anestesia geral",
+        "Prescrever antibiótico antes do procedimento para prevenir dor"
+      ],
+      "correct": 0,
+      "expl": "Analgesia pré-emptiva = medicar ANTES do estímulo doloroso (p.ex., AINE administrado antes da cirurgia ou antes de o anestésico local perder efeito). A ideia é prevenir/atenuar a sensibilização central e periférica, resultando em menor dor pós-operatória e menor necessidade de resgate. Esperar a dor instalar piora o controle. Antibiótico não tem papel analgésico.",
+      "difficulty": "medium",
+      "tags": ["pre-emptiva", "dor", "pos-operatorio"]
+    },
+    {
+      "type": "mc",
+      "topic": "Escolha pós-exodontia",
+      "q": "Adulto saudável, sem comorbidades, após exodontia simples com dor/edema moderados. Escolha racional de anti-inflamatório?",
+      "options": [
+        "Ibuprofeno em curso curto (ex.: 400-600 mg em doses regulares por poucos dias), com proteção gástrica se necessário — bom controle de dor e inflamação, baixo custo, perfil conhecido",
+        "Cetorolaco por 14 dias, por ser o mais potente disponível",
+        "Dexametasona em dose alta por 10 dias para qualquer exodontia",
+        "Antibiótico de amplo espectro como anti-inflamatório de rotina"
+      ],
+      "correct": 0,
+      "expl": "Em paciente hígido com dor/edema moderados, o ibuprofeno em CURSO CURTO é uma escolha racional (eficaz, barato, perfil conhecido). Cetorolaco é potente mas restrito a curto prazo (poucos dias) e dor intensa — 14 dias é inadequado pelo risco GI/renal/sangramento. Dexametasona em dose alta/prolongada não se justifica em exodontia simples. Antibiótico não é anti-inflamatório.",
+      "difficulty": "medium",
+      "tags": ["pos-operatorio", "exodontia", "ibuprofeno"]
+    },
+    {
+      "type": "mc",
+      "topic": "AINE · proteção gástrica",
+      "q": "Paciente com fatores de risco para úlcera (idoso, história de úlcera, uso de corticoide) precisa de AINE. Qual a conduta?",
+      "options": [
+        "Associar um inibidor de bomba de prótons (ex.: omeprazol) para gastroproteção e/ou preferir o AINE de menor risco, na menor dose, pelo menor tempo possível",
+        "Aumentar a dose do AINE para 'resolver mais rápido' e suspender depois",
+        "Associar dois AINEs diferentes para reduzir a dose de cada um",
+        "Administrar o AINE em jejum para acelerar a absorção"
+      ],
+      "correct": 0,
+      "expl": "Em risco gastrointestinal, fazer gastroproteção com IBP (omeprazol) e usar o AINE de menor risco, na menor dose, pelo menor tempo. A associação AINE + corticoide aumenta muito o risco de úlcera/sangramento. NUNCA combinar dois AINEs (soma toxicidade sem ganho de eficácia). Tomar com alimento melhora a tolerância. Em alto risco, considerar paracetamol ou coxibe + IBP.",
+      "difficulty": "medium",
+      "tags": ["aine", "gastroprotecao", "ibp"]
+    },
+    {
+      "type": "mc",
+      "topic": "AINE vs paracetamol/dipirona",
+      "q": "Quando preferir paracetamol (ou dipirona) ao AINE para dor odontológica?",
+      "options": [
+        "Quando há contraindicação ou alto risco com AINE — gastropatia, doença renal, anticoagulação, asma por AINE, gestante, cardiopata/HAS — pois são analgésicos/antitérmicos com menor toxicidade GI/renal e sem efeito antiplaquetário relevante",
+        "Sempre, pois paracetamol é mais anti-inflamatório que qualquer AINE",
+        "Apenas em crianças, nunca em adultos",
+        "Quando se deseja o máximo efeito anti-inflamatório no edema"
+      ],
+      "correct": 0,
+      "expl": "Paracetamol e dipirona são analgésicos/antitérmicos com fraco ou nulo efeito anti-inflamatório, mas com menor toxicidade GI/renal e sem efeito antiplaquetário relevante — por isso são preferidos quando o AINE é arriscado: úlcera/gastropatia, nefropatia, anticoagulação, AERD/asma por AINE, cardiopata/HAS e gestação. Para EDEMA inflamatório, porém, o AINE/corticoide é mais eficaz (paracetamol quase não atua na inflamação).",
+      "difficulty": "medium",
+      "tags": ["paracetamol", "dipirona", "alternativa"]
+    },
+    {
+      "type": "mc",
+      "topic": "AINE · gestante",
+      "q": "Por que se deve evitar AINE no terceiro trimestre da gestação?",
+      "options": [
+        "Risco de fechamento precoce do ducto arterioso fetal e de oligodrâmnio/disfunção renal fetal por inibição das prostaglandinas — preferir paracetamol para dor na gestante",
+        "Risco de causar hiperglicemia materna grave",
+        "Risco de descolorir os dentes do feto, como as tetraciclinas",
+        "Não há restrição: AINE é a primeira escolha em qualquer fase da gestação"
+      ],
+      "correct": 0,
+      "expl": "No 3º trimestre, AINEs são contraindicados pelo risco de FECHAMENTO PRECOCE DO DUCTO ARTERIOSO fetal (prostaglandinas mantêm o ducto aberto) e de oligodrâmnio/disfunção renal fetal. Em gestantes, o analgésico preferido é o PARACETAMOL na menor dose/tempo. A descoloração dentária fetal é efeito das tetraciclinas (antibiótico), não dos AINEs.",
+      "difficulty": "hard",
+      "tags": ["aine", "gestante", "ducto-arterioso"]
+    },
+    {
+      "type": "match",
+      "topic": "Anti-inflamatórios: fármaco / característica",
+      "prompt": "Associe cada anti-inflamatório à sua característica em odontologia.",
+      "leftLabel": "Fármaco",
+      "rightLabel": "Característica",
+      "pairs": [
+        { "id": "ibu", "left": "Ibuprofeno", "right": "AINE propiônico não-seletivo (CYP2C9); 1ª linha em dor/edema leve-moderado" },
+        { "id": "nime", "left": "Nimesulida", "right": "Sulfonanilida COX-2 preferencial; metabólito ativo; risco de hepatotoxicidade" },
+        { "id": "diclo", "left": "Diclofenaco potássico", "right": "Ácido acético; início rápido (sal K+); maior sinal cardiovascular" },
+        { "id": "ceto", "left": "Cetorolaco de trometamol", "right": "AINE muito potente; dor intensa; uso por poucos dias (risco GI/renal/sangramento)" },
+        { "id": "dexa", "left": "Dexametasona", "right": "Corticoide; inibe fosfolipase A2 via anexina-1 (metabolizada pela CYP3A4); controla edema/trismo" }
+      ],
+      "expl": "Ibuprofeno = 1ª linha, propiônico. Nimesulida = COX-2 preferencial, hepatotoxicidade. Diclofenaco K+ = início rápido, risco CV. Cetorolaco = potente, curto prazo. Dexametasona = corticoide para edema (fosfolipase A2).",
+      "difficulty": "medium",
+      "tags": ["match"]
+    },
+    {
+      "type": "match",
+      "topic": "Anti-inflamatórios: interações e situações de risco",
+      "prompt": "Associe a situação/interação ao seu risco ou conduta.",
+      "leftLabel": "Situação",
+      "rightLabel": "Risco / Conduta",
+      "pairs": [
+        { "id": "triade", "left": "AINE + IECA/BRA + diurético", "right": "Tríade nefrotóxica → lesão renal aguda; evitar AINE" },
+        { "id": "litio", "left": "AINE + lítio", "right": "Aumenta a litemia → intoxicação; monitorar/evitar" },
+        { "id": "varf", "left": "AINE + varfarina", "right": "Aumenta sangramento (plaquetas + GI + CYP2C9); preferir paracetamol" },
+        { "id": "aerd", "left": "Asmático com intolerância a AAS (AERD)", "right": "Reação cruzada → broncoespasmo; evitar AINE, usar paracetamol" },
+        { "id": "diab", "left": "Corticoide em diabético", "right": "Hiperglicemia/descompensação; menor dose/tempo e monitorar glicemia" }
+      ],
+      "expl": "Tríade = nefrotoxicidade. Lítio = sobe a litemia. Varfarina = sangramento. AERD = broncoespasmo cruzado. Corticoide + diabetes = hiperglicemia.",
+      "difficulty": "hard",
+      "tags": ["match", "interacao"]
+    },
+    {
+      "type": "case",
+      "topic": "Caso · escolha de anti-inflamatório no pós-operatório",
+      "subtitle": "Mulher 58a, HAS e DM2, exodontia de terceiro molar inferior com edema esperado",
+      "specialty": "Odontologia · Cirurgia oral menor",
+      "difficulty": "medium",
+      "vignette": "Mulher de 58 anos será submetida a exodontia de terceiro molar inferior incluso. Tem hipertensão arterial em uso de enalapril (IECA) + hidroclorotiazida (diurético) e diabetes tipo 2 controlado com metformina. Sem alergias. Espera-se dor e edema pós-operatórios moderados. Ela pergunta qual remédio vai tomar 'para a dor e o inchaço'.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Considerando o perfil da paciente, qual a melhor estratégia analgésica de base?",
+          "options": [
+            "Preferir paracetamol (e/ou dipirona) como analgésico de base, EVITANDO AINE de rotina pelo risco renal (tríade enalapril + hidroclorotiazida + AINE) e pela HAS",
+            "Cetorolaco em dose plena por 10 dias, por ser o mais potente",
+            "Ibuprofeno em dose alta contínua, ignorando os anti-hipertensivos",
+            "Não prescrever nenhum analgésico e orientar apenas gelo"
+          ],
+          "correct": 0,
+          "expl": "A paciente usa IECA + diurético: somar um AINE forma a 'tríade nefrotóxica' (alto risco de lesão renal aguda), além de o AINE elevar a PA e reduzir a eficácia do anti-hipertensivo. Logo, o analgésico de base deve ser PARACETAMOL/dipirona. Cetorolaco por 10 dias é inadequado (uso só de curto prazo) e perigoso aqui. Gelo ajuda, mas não substitui analgesia."
+        },
+        {
+          "id": "step2",
+          "question": "Para controlar o EDEMA/trismo pós-operatório com segurança, qual opção é mais adequada?",
+          "options": [
+            "Dexametasona em dose única pré/perioperatória, com cautela e monitorização da glicemia por ser diabética, evitando curso prolongado",
+            "Ibuprofeno em dose máxima por 14 dias, associado a outro AINE",
+            "Antibiótico de amplo espectro como anti-inflamatório",
+            "Corticoide em dose alta por 3 semanas para 'garantir'"
+          ],
+          "correct": 0,
+          "expl": "Para o edema, a dexametasona (corticoide) é eficaz e, em DOSE ÚNICA pré/perioperatória, tem impacto pequeno e transitório na glicemia — aceitável com cautela e monitorização em diabético controlado. Evitar curso prolongado (hiperglicemia, imunossupressão). Dois AINEs juntos é erro (toxicidade). Antibiótico não é anti-inflamatório. Corticoide alto por semanas é injustificado e arriscado."
+        },
+        {
+          "id": "step3",
+          "prompt": "Dois dias depois, a paciente liga relatando ter tomado por conta própria ibuprofeno 600 mg de 8/8h que tinha em casa, e agora apresenta redução do volume urinário e inchaço nas pernas.",
+          "question": "Conduta?",
+          "options": [
+            "Orientar suspensão imediata do ibuprofeno, hidratação e avaliação médica/laboratorial (função renal) — quadro sugestivo de lesão renal pela tríade AINE + IECA + diurético",
+            "Aumentar a dose do ibuprofeno para controlar melhor a dor",
+            "Adicionar um segundo AINE e um diurético extra",
+            "Ignorar, pois AINE não afeta os rins"
+          ],
+          "correct": 0,
+          "expl": "Oligúria + edema de membros após introduzir AINE em paciente sob IECA + diurético = sinal de alarme de lesão renal aguda (tríade nefrotóxica). Conduta: SUSPENDER o AINE imediatamente, orientar hidratação e encaminhar para avaliação médica com dosagem de função renal (creatinina/ureia). Jamais aumentar o AINE ou somar outro AINE/diurético."
+        }
+      ],
+      "outcome": "Suspenso o ibuprofeno, a paciente é avaliada pelo médico; a função renal normaliza com hidratação e ajuste. A dor é controlada com paracetamol/dipirona e o edema cede com a dose de dexametasona perioperatória. Reforça-se a orientação de NÃO se automedicar com AINE pelo risco renal associado aos seus medicamentos.",
+      "tags": ["case"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "AINE · mecanismo",
+      "front": "Mecanismo dos AINEs e diferença para o corticoide?",
+      "back": "AINE inibe a ciclo-oxigenase (COX) → menos prostaglandinas/tromboxano (dor, inflamação, febre). Corticoide age antes: inibe a fosfolipase A2 (via anexina-1) → bloqueia prostaglandinas E leucotrienos. Por isso o corticoide é mais potente no edema.",
+      "tags": ["aine", "mecanismo", "cox"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "COX-1 vs COX-2",
+      "front": "COX-1 vs COX-2: qual a importância clínica?",
+      "back": "COX-1 = constitutiva (protege estômago, mantém rim, ativa plaquetas) → bloqueio causa gastrite/sangramento. COX-2 = induzida na inflamação. AINE não-seletivo inibe ambas; coxibe poupa COX-1 (menos GI) mas tem mais risco cardiovascular.",
+      "tags": ["cox-1", "cox-2"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Ibuprofeno",
+      "front": "Ibuprofeno: classe, enzima e uso?",
+      "back": "AINE propiônico, não-seletivo COX-1/COX-2, metabolizado pela CYP2C9. 1ª linha em dor odontológica leve-moderada e edema. Meia-vida curta (~2h). EA: gastrite, retenção hídrica, risco renal/cardiovascular.",
+      "tags": ["ibuprofeno", "cyp2c9"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Nimesulida",
+      "front": "Nimesulida: o que diferencia e qual o cuidado?",
+      "back": "Sulfonanilida, COX-2 PREFERENCIAL (menos agressão gástrica), CYP2C9, gera metabólito ativo (hidroxinimesulida). CUIDADO: hepatotoxicidade — evitar em hepatopatas e em uso prolongado.",
+      "tags": ["nimesulida", "hepatotoxicidade"]
+    },
+    {
+      "type": "flashcard",
       "topic": "Cetorolaco",
-      "q": "Sobre o cetorolaco de trometamol em odontologia:",
-      "options": [
-        "Potência analgésica próxima a opioides leves; AINE não seletivo com forte inibição COX-1; máximo 5 dias de uso pelo risco aumentado de sangramento e nefrotoxicidade; evitar em pós-op com risco hemorrágico",
-        "Seguro por 30 dias seguidos sem efeitos adversos",
-        "Não tem ação analgésica significativa",
-        "Indicado em gestante 3ºT como 1ª linha"
-      ],
-      "correct": 0,
-      "expl": "Cetorolaco é AINE potente (analgesia comparável a morfina em alguns estudos), bom para dor aguda intensa. Inibe agregação plaquetária via COX-1 → risco hemorrágico relevante. Limite máx 5 dias VO. Evitar em cirurgia de risco hemorrágico, IRC, idoso frágil. CI absoluta na gestação.",
-      "difficulty": "hard",
-      "tags": [
-        "cetorolaco"
-      ]
+      "front": "Cetorolaco de trometamol: indicação e limite?",
+      "back": "AINE muito potente (ácido acético) para DOR AGUDA INTENSA (ex.: pós-siso). Uso por POUCOS DIAS pelo alto risco de úlcera/sangramento GI, toxicidade renal e prolongamento do sangramento. Não é seletivo de COX-2.",
+      "tags": ["cetorolaco", "dor-intensa"]
     },
     {
-      "type": "mc",
-      "topic": "AINE em paciente cardiopata",
-      "q": "Paciente de 62 anos, pós-IAM há 8 meses, em uso de AAS 100 mg/d e clopidogrel, vem para exodontia de molar com indicação de AINE pós-operatório. Qual a conduta correta?",
-      "options": [
-        "Evitar AINEs (todos, COX-2 seletivos inclusive) — aumentam risco de novo evento cardiovascular e sangram com dupla antiagregação; preferir paracetamol 750 mg 6/6h + dipirona 1 g 6/6h alternados, reservando opioide fraco (codeína) se dor refratária",
-        "Ibuprofeno 600 mg 8/8h por 3 dias — meia-vida curta minimiza risco cardiovascular",
-        "Celecoxibe 200 mg 12/12h, pois COX-2 seletivos não afetam plaquetas nem coração",
-        "Diclofenaco 50 mg 8/8h IM dose única no consultório + AAS suspenso por 7 dias"
-      ],
-      "correct": 0,
-      "expl": "AINEs (não-seletivos e coxibes) aumentam risco de IAM/AVC, especialmente em coronariopatas — alerta black box do FDA. Diclofenaco e coxibes são os piores; naproxeno é o menos pior. Em paciente com IAM recente + dupla antiagregação, soma-se risco hemorrágico. Conduta: analgesia multimodal sem AINE — paracetamol + dipirona, opioide fraco se necessário, técnica anestésica caprichada (bupivacaína prolonga conforto). NUNCA suspender antiagregante por sangramento odontológico controlável com hemostasia local. Take-home: cardiopata grave = AINE é último recurso.",
-      "difficulty": "hard",
-      "tags": [
-        "cardiopata",
-        "AINE-risco"
-      ]
+      "type": "flashcard",
+      "topic": "Dexametasona",
+      "front": "Dexametasona em odontologia: mecanismo e uso?",
+      "back": "Glicocorticoide potente, inibe fosfolipase A2 (anexina-1), CYP3A4, muito lipossolúvel. Dose única pré/perioperatória reduz edema e trismo em exodontia de sisos. Cautela em diabético (hiperglicemia) e infecção (imunossupressão).",
+      "tags": ["dexametasona", "corticoide"]
     },
     {
-      "type": "mc",
-      "topic": "AINE em asmático",
-      "q": "Paciente asmática de 28 anos relata alergia a AAS (broncoespasmo grave após cartela quando criança). Necessita analgésico pós-exodontia. Qual a conduta correta?",
-      "options": [
-        "Evitar TODOS os AINEs não-seletivos (ibuprofeno, naproxeno, diclofenaco, cetoprofeno) por reação cruzada na doença respiratória exacerbada por AAS (DREA) — usar paracetamol ou dipirona; se inflamação relevante, considerar etoricoxibe (COX-2 seletivo, geralmente tolerado) ou corticoide curto",
-        "Ibuprofeno é seguro, pois a alergia ao AAS é específica ao salicilato e não inclui propionatos",
-        "Naproxeno 550 mg 12/12h em dose baixa, monitorando ausculta pulmonar antes de cada dose",
-        "Prescrever AAS 500 mg 6/6h em dose dessensibilizante crescente para superar a alergia"
-      ],
-      "correct": 0,
-      "expl": "Intolerância ao AAS na DREA (doença respiratória exacerbada por AAS, antiga tríade de Samter) é reação cruzada de classe — inibição de COX-1 desvia ácido araquidônico para leucotrienos broncoconstritores. TODO AINE não-seletivo pode desencadear. Paracetamol em dose <1g é seguro; dipirona geralmente bem tolerada; COX-2 seletivos (etoricoxibe, celecoxibe) costumam ser tolerados. Take-home: alergia a AAS em asmático = evite a classe AINE inteira, não só o AAS.",
-      "difficulty": "hard",
-      "tags": [
-        "asma",
-        "DREA"
-      ]
+      "type": "flashcard",
+      "topic": "AINE · renal/cardio",
+      "front": "Por que evitar AINE em renal, cardiopata e hipertenso?",
+      "back": "AINE inibe prostaglandinas renais → vasoconstrição aferente, queda da TFG, retenção de sódio/água (sobe a PA, piora IC e nefropatia). Uso prolongado eleva o risco trombótico (IAM/AVC). Preferir paracetamol nesses pacientes.",
+      "tags": ["aine", "renal", "cardiovascular"]
     },
     {
-      "type": "mc",
-      "topic": "Corticoide em diabético",
-      "q": "Paciente diabético tipo 2 (HbA1c 7,2%, glicemia jejum 140) será submetido a exodontia de 3 sisos inclusos. Você considera prescrever dexametasona 8 mg pré-op para reduzir edema. Qual a conduta correta?",
-      "options": [
-        "Pode usar dexametasona 4-8 mg dose única pré-op (efeito glicêmico transitório, ~24-48h); orientar paciente a monitorar glicemia capilar mais frequente nas 48h seguintes e manter hidratação; evitar cursos prolongados (>3 dias) que descompensam de fato",
-        "Contraindicado qualquer corticoide em diabético — substituir por ibuprofeno 600 mg de 8/8h por 5 dias",
-        "Prednisona 40 mg/dia por 5 dias com desmame, mais eficaz que dexametasona em dose única",
-        "Dexametasona 8 mg IM imediatamente após a exo, com suspensão temporária da metformina por 7 dias"
-      ],
-      "correct": 0,
-      "expl": "Corticoide em dose única pré-operatória (dexa 4-8 mg IM/VO) reduz edema, trismo e dor pós-exo de siso com elevação glicêmica transitória aceitável em diabético compensado (HbA1c <8). O risco real está em cursos longos. Conduta: dose única, orientar monitoramento, NÃO suspender hipoglicemiante. Em diabético descompensado (HbA1c >9 ou glicemia >250) — adiar eletivo. Take-home: corticoide dose única é seguro no diabético controlado; o problema é o uso prolongado.",
-      "difficulty": "medium",
-      "tags": [
-        "corticoide",
-        "diabetes"
-      ]
+      "type": "flashcard",
+      "topic": "AINE · AERD/asma",
+      "front": "AINE em asmático com intolerância a AAS (AERD)?",
+      "back": "Evitar. Inibir a COX-1 desvia o araquidônico para leucotrienos → broncoespasmo, com REAÇÃO CRUZADA entre AAS e demais AINEs. Tríade de Samter: asma + polipose nasal + intolerância a AAS. Usar paracetamol; corticoide para a inflamação.",
+      "tags": ["aine", "asma", "aerd"]
     },
     {
-      "type": "mc",
-      "topic": "Nimesulida vs ibuprofeno em gastrite",
-      "q": "Paciente com gastrite crônica em uso de omeprazol necessita AINE pós-exo de molar inflamado. Entre nimesulida 100 mg 12/12h e ibuprofeno 600 mg 8/8h, qual a melhor escolha e por quê?",
-      "options": [
-        "Nimesulida tem perfil gástrico relativamente melhor (COX-2 preferencial) que ibuprofeno (COX não-seletivo), mas tem hepatotoxicidade descrita — limitar a 5-7 dias, manter IBP, evitar se hepatopatia; alternativa ainda mais segura é etoricoxibe 90 mg/dia (COX-2 seletivo) com IBP",
-        "Ibuprofeno é melhor pois meia-vida curta reduz exposição gástrica",
-        "Nimesulida é proibida no Brasil desde 2011 pela Anvisa — não pode prescrever",
-        "Os dois são igualmente seguros desde que tomados com leite após as refeições"
-      ],
-      "correct": 0,
-      "expl": "Nimesulida é COX-2 preferencial (não seletivo puro) — menos lesão gástrica que ibuprofeno/diclofenaco, mas com hepatotoxicidade idiossincrásica (retirada em alguns países europeus, mantida no Brasil com restrição de duração). Em gastropata: COX-2 seletivos (etoricoxibe, celecoxibe) + IBP são o padrão-ouro. Ibuprofeno em curso curto (3-5d) com IBP também é aceitável. Tomar com leite NÃO protege mucosa — o dano é sistêmico (inibição de PG protetoras). Take-home: gastropata → COX-2 + IBP, curso curto.",
-      "difficulty": "medium",
-      "tags": [
-        "gastrite",
-        "COX-2"
-      ]
+      "type": "flashcard",
+      "topic": "Interações dos AINEs",
+      "front": "Interações perigosas dos AINEs (decorar)?",
+      "back": "Tríade nefrotóxica: AINE + IECA/BRA + diurético = lesão renal. AINE + lítio = sobe a litemia (intoxicação). AINE + varfarina = sangramento. AINE + metotrexato = reduz excreção, toxicidade do MTX. AINE + corticoide = úlcera.",
+      "tags": ["aine", "interacao"]
     },
     {
-      "type": "mc",
-      "topic": "Glibenclamida + AINE em idoso",
-      "q": "Mulher de 76 anos, DM2 em uso de glibenclamida 5 mg/dia, foi submetida a exodontia do 46. O dentista prescreveu ibuprofeno 600 mg 8/8h por 5 dias para dor pós-operatória. No 2º dia, a paciente apresenta sudorese, tremor e glicemia capilar de 48 mg/dL. Qual o mecanismo e a conduta correta?",
-      "options": [
-        "AINEs deslocam a glibenclamida (sulfonilureia altamente ligada à albumina) das proteínas plasmáticas e reduzem sua excreção renal, potencializando a hipoglicemia, especialmente em idosos com função renal limítrofe; suspender o ibuprofeno, tratar a hipoglicemia com glicose VO/EV e trocar a analgesia por paracetamol 750 mg ou dipirona",
-        "O ibuprofeno causou pancreatite aguda com destruição de ilhotas e liberação maciça de insulina; manter o AINE e iniciar insulina basal",
-        "Trata-se de coincidência sem relação com o ibuprofeno; manter prescrição e apenas orientar lanches mais frequentes",
-        "O ibuprofeno induz o CYP2C9 e acelera o metabolismo da glibenclamida, exigindo aumento da dose da sulfonilureia para manter controle glicêmico"
-      ],
-      "correct": 0,
-      "expl": "AINEs (especialmente ibuprofeno, naproxeno) deslocam sulfonilureias da albumina e reduzem o clearance renal, somando-se à própria ação hipoglicemiante e ao risco já alto de hipoglicemia da glibenclamida em idosos. Em >65a com DM2, evitar a combinação: usar paracetamol ou dipirona como primeira linha pós-exodontia. Sempre revisar prescrição crônica antes de receitar AINE. Take-home: idoso + glibenclamida + AINE = receita de hipoglicemia.",
-      "difficulty": "hard",
-      "tags": [
-        "glibenc",
-        "aine",
-        "interacao"
-      ]
+      "type": "flashcard",
+      "topic": "Analgesia pré-emptiva",
+      "front": "O que é analgesia pré-emptiva e a escolha pós-exodontia?",
+      "back": "Dar o analgésico/AINE ANTES do estímulo doloroso (ou antes de passar o anestésico) para reduzir a dor pós-operatória. Em adulto hígido pós-exodontia: ibuprofeno em curso curto. Em comorbidades de risco: paracetamol/dipirona ± dexametasona para o edema.",
+      "tags": ["pre-emptiva", "pos-operatorio"]
     }
   ]
 }

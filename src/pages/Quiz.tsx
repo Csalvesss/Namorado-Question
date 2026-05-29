@@ -114,6 +114,7 @@ export default function Quiz() {
       ? sampleQuestionsInterleaved({
           count: config.count,
           typeFilter: mode === 'clinical' ? 'case' : undefined,
+          track: user.track ?? 'medicina',
         })
       : sampleQuestions({
           courseId,

@@ -1,6 +1,6 @@
 {
   "title": "Antibióticos em Odontologia",
-  "description": "Amoxicilina, amox+clavulanato, clindamicina, metronidazol, azitromicina. Infecção odontogênica, paciente alérgico à penicilina, profilaxia de endocardite.",
+  "description": "Antibióticos na clínica odontológica: amoxicilina, associações, metronidazol, alérgicos à penicilina, profilaxia de endocardite, pediatria e situações especiais. Mecanismo, indicação, dose e armadilhas.",
   "icon": "pill",
   "color": "wine",
   "track": "odonto",
@@ -16,193 +16,491 @@
         "Sem antibiótico — basta drenagem"
       ],
       "correct": 0,
-      "expl": "Infecção odontogênica leve-moderada em paciente sem alergia: amoxicilina 500 mg 8/8h por 7 dias. SEMPRE associada a remoção da causa (drenagem, tratamento endodôntico ou exodontia). Antibiótico isolado sem controle do foco não resolve.",
+      "expl": "Infecção odontogênica leve-moderada em paciente sem alergia: amoxicilina 500 mg 8/8h por 7 dias. SEMPRE associada à remoção da causa (drenagem, tratamento endodôntico ou exodontia). Antibiótico isolado sem controle do foco não resolve.",
       "difficulty": "easy",
-      "tags": [
-        "amoxicilina",
-        "abscesso"
-      ]
+      "tags": ["amoxicilina", "abscesso"]
+    },
+    {
+      "type": "mc",
+      "topic": "Amoxicilina · mecanismo",
+      "q": "Qual o mecanismo de ação da amoxicilina?",
+      "options": [
+        "Beta-lactâmico: liga-se às PBP (proteínas ligadoras de penicilina) e inibe a síntese da parede celular bacteriana → lise (bactericida tempo-dependente)",
+        "Inibe a síntese proteica na subunidade 30S do ribossomo",
+        "Inibe a DNA girase bacteriana",
+        "Forma radicais livres que danificam o DNA"
+      ],
+      "correct": 0,
+      "expl": "Amoxicilina é aminopenicilina (beta-lactâmico). Liga-se às PBP, inibindo a transpeptidação que monta a parede de peptidoglicano → bactéria lisa. É bactericida e tempo-dependente (eficácia depende do tempo acima da CIM, daí 8/8h). EA: alergia, diarreia, candidíase.",
+      "difficulty": "easy",
+      "tags": ["amoxicilina", "mecanismo"]
+    },
+    {
+      "type": "mc",
+      "topic": "Amox + clavulanato",
+      "q": "Em qual situação a amoxicilina + clavulanato é preferível à amoxicilina isolada?",
+      "options": [
+        "Infecção odontogênica grave, refratária ou com suspeita de produção de beta-lactamase — o clavulanato inibe a beta-lactamase e amplia a cobertura para anaeróbios resistentes",
+        "Sempre, em qualquer infecção dentária leve",
+        "Apenas em alérgicos à penicilina",
+        "Quando se quer reduzir a cobertura de anaeróbios"
+      ],
+      "correct": 0,
+      "expl": "Clavulanato é inibidor de beta-lactamase: protege a amoxicilina da degradação por bactérias produtoras da enzima e amplia cobertura para anaeróbios. Reservar para infecções graves/refratárias ou falha da amoxicilina isolada. Maior EA gastrointestinal (diarreia pelo clavulanato).",
+      "difficulty": "medium",
+      "tags": ["amox-clavulanato", "beta-lactamase"]
     },
     {
       "type": "mc",
       "topic": "Alergia à penicilina",
-      "q": "Paciente com história documentada de alergia à penicilina (urticária generalizada). Precisa antibiótico para abscesso periapical. Qual prescrever?",
+      "q": "Paciente com história de urticária após amoxicilina precisa de antibiótico para abscesso. Melhor escolha?",
       "options": [
-        "Clindamicina 300 mg VO 6/6h por 7 dias — boa cobertura de Gram+ e anaeróbios orais, sem reação cruzada com β-lactâmicos",
-        "Amoxicilina+clavulanato — clavulanato neutraliza a alergia",
-        "Cefalexina — cefalosporina nunca tem reação cruzada com penicilina",
-        "Sulfametoxazol-trimetoprima — cobre tudo de infecção odontogênica"
+        "Clindamicina 300 mg VO 6/6h — boa cobertura de anaeróbios e Streptococcus orais, alternativa clássica em alérgicos a beta-lactâmicos",
+        "Cefalexina em dose dobrada",
+        "Outra penicilina, pois a alergia não se mantém",
+        "Amoxicilina com anti-histamínico associado"
       ],
       "correct": 0,
-      "expl": "Em alérgico a penicilina (especialmente reação imediata como urticária), clindamicina é a alternativa clássica em odontologia: cobre Strep oral e anaeróbios, sem reação cruzada. Cefalexina tem ~1-3% de reação cruzada — evitar em alergia grave. Azitromicina 500 mg 1x/dia também é opção.",
+      "expl": "Em alérgico a penicilina, a clindamicina é a alternativa clássica em odontologia (cobre anaeróbios e cocos gram-positivos orais). Azitromicina/claritromicina são alternativas. Cefalosporinas têm reatividade cruzada de ~1-2% — evitar em reação imediata grave (anafilaxia). EA da clinda: diarreia e risco de colite por C. difficile.",
       "difficulty": "medium",
-      "tags": [
-        "alergia",
-        "clindamicina"
-      ]
+      "tags": ["alergia", "clindamicina"]
     },
     {
       "type": "mc",
-      "topic": "Amox+clavulanato",
-      "q": "Quando a associação amoxicilina+clavulanato é preferida sobre amoxicilina pura em odontologia?",
+      "topic": "Clindamicina · risco",
+      "q": "Qual o efeito adverso mais temido da clindamicina?",
       "options": [
-        "Infecção grave, paciente que falhou em amoxicilina nas últimas 72h, abscesso com extensão para espaços fasciais ou paciente imunocomprometido — o clavulanato inibe β-lactamases produzidas por anaeróbios resistentes",
-        "Sempre, em qualquer infecção odontogênica",
-        "Apenas em criança menor de 2 anos",
-        "Em paciente alérgico à penicilina"
+        "Colite pseudomembranosa por Clostridioides difficile (diarreia grave, pode ser fatal) — orientar o paciente a procurar atendimento se diarreia intensa",
+        "Surdez irreversível",
+        "Síndrome do homem vermelho",
+        "Fotossensibilidade"
       ],
       "correct": 0,
-      "expl": "Amox+clav cobre cepas produtoras de β-lactamase (algumas Prevotella, Fusobacterium). Indicação: infecção grave/espaços fasciais, falha de amox em 72h, imunossupressão, diabético descompensado. Não use rotineiramente em quadro leve — escalonar gera resistência.",
+      "expl": "Clindamicina tem associação clássica com colite por C. difficile (a flora intestinal é suprimida e o C. difficile prolifera, liberando toxinas). Quadro: diarreia aquosa/sanguinolenta, dor abdominal, febre. Suspeitar e investigar se diarreia importante. Tratamento: suspender, vancomicina oral ou fidaxomicina.",
       "difficulty": "medium",
-      "tags": [
-        "amox-clav"
-      ]
+      "tags": ["clindamicina", "c-difficile"]
     },
     {
       "type": "mc",
       "topic": "Metronidazol",
-      "q": "Em que situação adicionar metronidazol à amoxicilina em odontologia?",
+      "q": "Em qual cenário o metronidazol é especialmente indicado em odontologia?",
       "options": [
-        "Periodontite agressiva ou peri-implantite associada a Aggregatibacter actinomycetemcomitans e anaeróbios — metronidazol cobre anaeróbios estritos (Bacteroides, Prevotella), complementando o espectro da amoxicilina contra Gram+",
-        "Infecção viral por herpes labial",
-        "Profilaxia de endocardite",
-        "Como monoterapia em qualquer abscesso"
+        "Infecções por anaeróbios estritos (ex.: doença periodontal necrosante, GUNA, abscesso refratário) — geralmente ASSOCIADO à amoxicilina para ampliar a cobertura",
+        "Infecção por Streptococcus orais isolada",
+        "Profilaxia de endocardite de primeira escolha",
+        "Candidíase oral"
       ],
       "correct": 0,
-      "expl": "Esquema clássico em periodontite agressiva: amoxicilina 500 mg + metronidazol 400 mg, ambos 8/8h por 7 dias, sempre associado a raspagem subgengival. Metronidazol é nitroimidazólico, cobre anaeróbios estritos. Cuidados: efeito antabuse com álcool, gosto metálico, ajuste hepático.",
-      "difficulty": "hard",
-      "tags": [
-        "metronidazol",
-        "periodontite"
-      ]
+      "expl": "Metronidazol cobre anaeróbios ESTRITOS (Bacteroides, Fusobacterium, Prevotella). Em odontologia, é usado em periodontite agressiva/necrosante (GUNA) e infecções anaeróbias, frequentemente ASSOCIADO à amoxicilina (esquema amox + metronidazol, muito usado em periodontia). Não cobre aeróbios. EA: gosto metálico, náusea.",
+      "difficulty": "medium",
+      "tags": ["metronidazol", "anaerobios"]
+    },
+    {
+      "type": "mc",
+      "topic": "Metronidazol + álcool",
+      "q": "Qual orientação obrigatória ao prescrever metronidazol?",
+      "options": [
+        "Abstinência de álcool durante o tratamento e por 48-72h após — efeito tipo dissulfiram (inibe a aldeído desidrogenase → acúmulo de acetaldeído: náusea, vômito, rubor, taquicardia)",
+        "Tomar sempre em jejum absoluto",
+        "Pode beber moderadamente",
+        "Evitar exposição solar"
+      ],
+      "correct": 0,
+      "expl": "Pegadinha clássica: metronidazol (e tinidazol, secnidazol) tem efeito tipo DISSULFIRAM com álcool — inibe a aldeído desidrogenase → acúmulo de acetaldeído → rubor, náusea, vômito, cefaleia, taquicardia, hipotensão. Orientar abstinência durante e 48-72h após o término.",
+      "difficulty": "easy",
+      "tags": ["metronidazol", "alcool"]
     },
     {
       "type": "mc",
       "topic": "Profilaxia de endocardite",
-      "q": "Paciente com prótese valvar mecânica vai fazer extração de molar. Qual a profilaxia antibiótica conforme AHA 2021?",
+      "q": "Antes de extração dentária em paciente com prótese valvar cardíaca, qual a profilaxia de endocardite?",
       "options": [
-        "Amoxicilina 2 g VO, dose única, 30–60 min antes do procedimento. Se alérgico: clindamicina 600 mg, azitromicina 500 mg ou cefalexina 2 g (se alergia não imediata)",
+        "Amoxicilina 2 g VO em dose única, 30-60 min antes do procedimento (alérgicos: clindamicina 600 mg ou azitromicina 500 mg)",
         "Amoxicilina 500 mg 8/8h por 7 dias antes",
-        "Vancomicina EV de manutenção por 14 dias",
-        "Sem necessidade de profilaxia — extração é procedimento de baixo risco"
+        "Nenhuma profilaxia é necessária",
+        "Vancomicina EV de rotina ambulatorial"
       ],
       "correct": 0,
-      "expl": "Profilaxia de endocardite indicada em: prótese valvar, EI prévia, cardiopatia congênita cianótica não corrigida, transplante cardíaco com valvulopatia. Esquema: amoxicilina 2 g VO 30-60 min antes do procedimento que sangre. Em criança: 50 mg/kg até 2 g. Em alérgico: clinda 600 mg ou azitro 500 mg.",
+      "expl": "Profilaxia de endocardite (AHA): apenas condições de ALTÍSSIMO risco (prótese valvar, EI prévia, cardiopatia congênita cianótica não reparada/reparada < 6 meses, transplante cardíaco com valvopatia) + procedimentos com manipulação gengival/periapical ou perfuração da mucosa. Esquema: AMOXICILINA 2 g VO dose única 30-60 min antes. Alérgicos: clindamicina 600 mg ou azitromicina/claritromicina 500 mg.",
       "difficulty": "medium",
-      "tags": [
-        "profilaxia",
-        "endocardite"
-      ]
+      "tags": ["profilaxia", "endocardite"]
+    },
+    {
+      "type": "mc",
+      "topic": "Profilaxia · quem NÃO precisa",
+      "q": "Qual paciente NÃO tem indicação de profilaxia antibiótica para endocardite antes de procedimento odontológico invasivo?",
+      "options": [
+        "Paciente com sopro inocente, prolapso de valva mitral sem regurgitação ou CIA isolada — não são condições de altíssimo risco pela AHA",
+        "Portador de prótese valvar mecânica",
+        "Paciente com endocardite infecciosa prévia",
+        "Cardiopatia congênita cianótica não reparada"
+      ],
+      "correct": 0,
+      "expl": "A AHA 2007 restringiu a profilaxia a condições de ALTÍSSIMO risco. Sopro inocente, PVM sem regurgitação, CIA, CIV reparada sem defeito residual, doença reumática isolada e marca-passo NÃO indicam profilaxia. Indicam: prótese valvar, EI prévia, CC cianótica não reparada / reparada com material protético < 6 meses, e TX cardíaco com valvopatia.",
+      "difficulty": "medium",
+      "tags": ["profilaxia", "indicacao"]
+    },
+    {
+      "type": "mc",
+      "topic": "Profilaxia · prótese ortopédica",
+      "q": "Paciente com prótese de quadril há 3 anos vai fazer exodontia. Conduta sobre profilaxia antibiótica?",
+      "options": [
+        "Não está indicada de rotina — diretrizes atuais (ADA/AAOS) não recomendam profilaxia antibiótica para prótese articular antes de procedimento odontológico na maioria dos casos",
+        "Amoxicilina 2 g dose única sempre, indefinidamente",
+        "Clindamicina por 7 dias antes",
+        "Adiar a exodontia até a prótese ser removida"
+      ],
+      "correct": 0,
+      "expl": "Mito frequente. As diretrizes atuais (ADA 2015 / AAOS) NÃO recomendam profilaxia antibiótica de rotina para portadores de prótese articular antes de procedimentos odontológicos — não há evidência de que reduza infecção protética e o risco de resistência/efeitos adversos supera o benefício. Decisão individualizada em casos selecionados com o ortopedista.",
+      "difficulty": "hard",
+      "tags": ["profilaxia", "protese-ortopedica"]
+    },
+    {
+      "type": "mc",
+      "topic": "ACO + antibiótico",
+      "q": "Mulher usa anticoncepcional oral e vai receber amoxicilina por infecção dentária. O que orientar?",
+      "options": [
+        "Antibióticos não-indutores enzimáticos (amoxicilina, etc.) NÃO reduzem comprovadamente a eficácia do ACO; o cuidado real é com a RIFAMPICINA (indutor potente). Por precaução, alguns orientam método de barreira adicional, mas a interação clínica relevante é restrita à rifampicina",
+        "A amoxicilina anula completamente o ACO — suspender o ACO",
+        "Trocar o ACO por dose dupla durante o antibiótico",
+        "Nenhum antibiótico interage com ACO, incluindo rifampicina"
+      ],
+      "correct": 0,
+      "expl": "Mito clássico. Antibióticos comuns de odontologia (amoxicilina, clindamicina, metronidazol) NÃO reduzem de forma comprovada a eficácia do ACO. O único com interação estabelecida é a RIFAMPICINA (indutor do CYP que acelera o metabolismo do estrogênio/progestínico). Orientação de barreira adicional é mais por precaução do que por evidência forte, exceto com rifampicina.",
+      "difficulty": "medium",
+      "tags": ["aco", "interacao", "mito"]
+    },
+    {
+      "type": "mc",
+      "topic": "Pediátrico · dose",
+      "q": "Como se calcula a dose de amoxicilina em criança com infecção odontogênica?",
+      "options": [
+        "Por peso: 50 mg/kg/dia dividido em 3 tomadas (8/8h), respeitando a dose máxima do adulto",
+        "Sempre meio comprimido de adulto, independente do peso",
+        "A mesma dose do adulto para qualquer idade",
+        "Por altura, não por peso"
+      ],
+      "correct": 0,
+      "expl": "Em pediatria a dose é por PESO: amoxicilina 50 mg/kg/dia divididos em 3 doses (até dose de adulto). Suspensão facilita a administração. Sempre confirmar peso atual e máximo. Em infecções mais graves pode-se usar até 80-90 mg/kg/dia (alta dose).",
+      "difficulty": "medium",
+      "tags": ["pediatria", "dose"]
     },
     {
       "type": "mc",
       "topic": "Pericoronarite",
-      "q": "Adulta 25 anos, pericoronarite em 38 (siso semi-incluso) com edema local, trismo discreto, sem febre. Conduta?",
+      "q": "Pericoronarite aguda em 3º molar inferior com trismo e febre. Conduta farmacológica?",
       "options": [
-        "Irrigação local + AINE + amoxicilina 500 mg 8/8h por 7 dias; reavaliar em 7 dias e programar exodontia do siso após resolução do quadro agudo",
-        "Exodontia imediata sob anestesia geral",
-        "Apenas analgesia, sem antibiótico nem irrigação",
-        "Ciprofloxacino 500 mg 12/12h como primeira escolha"
+        "Controle local (irrigação, remoção de detritos) + amoxicilina (± metronidazol se anaeróbios) + analgesia; antibiótico só se sinais sistêmicos/disseminação, não para inflamação localizada simples",
+        "Antibiótico de amplo espectro EV ambulatorial sempre",
+        "Apenas bochecho com clorexidina, nunca antibiótico",
+        "Corticoide isolado resolve"
       ],
       "correct": 0,
-      "expl": "Pericoronarite leve-moderada: limpeza do capuz pericoronário, AINE, amoxicilina por 7d se sinais inflamatórios significativos. Exodontia eletiva após resolução. Em pericoronarite grave (febre, celulite, trismo intenso) considerar amox+clav e drenagem.",
+      "expl": "Pericoronarite: o pilar é o controle LOCAL (irrigação sob o capuz pericoronário, remoção de detritos, ajuste oclusal do antagonista, eventual exodontia). Antibiótico (amoxicilina ± metronidazol) é reservado para quadros com comprometimento sistêmico (febre, linfadenopatia, trismo importante, disseminação). Inflamação localizada sem sinais sistêmicos não exige antibiótico.",
+      "difficulty": "medium",
+      "tags": ["pericoronarite"]
+    },
+    {
+      "type": "mc",
+      "topic": "Abscesso refratário",
+      "q": "Abscesso que não melhora após amoxicilina e drenagem adequada. Próximo passo mais correto?",
+      "options": [
+        "Reavaliar drenagem/controle do foco e considerar coleta para cultura e antibiograma + ampliar cobertura (ex.: amox+clavulanato ou amox+metronidazol)",
+        "Repetir o mesmo esquema por mais 14 dias sem reavaliar",
+        "Suspender qualquer antibiótico",
+        "Iniciar antifúngico"
+      ],
+      "correct": 0,
+      "expl": "Falha terapêutica: primeiro reavaliar o CONTROLE DO FOCO (drenagem incompleta, dente não tratado, corpo estranho). Coletar material para cultura/antibiograma em refratários e ampliar a cobertura empírica (amox+clavulanato ou amox+metronidazol). Antibiótico não substitui o controle cirúrgico da causa.",
+      "difficulty": "hard",
+      "tags": ["refratario", "cultura"]
+    },
+    {
+      "type": "mc",
+      "topic": "MRONJ · bifosfonato",
+      "q": "Paciente em uso crônico de alendronato (bifosfonato oral) precisa de exodontia. Principal preocupação?",
+      "options": [
+        "Risco de osteonecrose dos maxilares associada a medicamentos (MRONJ) — avaliar risco, técnica atraumática e considerar conduta com o médico; antibiótico conforme protocolo institucional",
+        "Não há risco algum, basta extrair normalmente",
+        "Bifosfonato impede qualquer anestesia local",
+        "Sempre suspender o bifosfonato por 5 anos antes"
+      ],
+      "correct": 0,
+      "expl": "Bifosfonatos (alendronato) e outros antirreabsortivos (denosumabe) e antiangiogênicos podem causar MRONJ (osteonecrose dos maxilares associada a medicamentos). Em exodontia: técnica atraumática, cobertura antibiótica conforme protocolo, acompanhamento. A 'pausa do bifosfonato' (drug holiday) é discutível e decidida com o médico — não suspender por conta própria.",
+      "difficulty": "hard",
+      "tags": ["mronj", "bifosfonato"]
+    },
+    {
+      "type": "mc",
+      "topic": "Azitromicina",
+      "q": "Sobre a azitromicina em odontologia, é correto afirmar:",
+      "options": [
+        "Macrolídeo de meia-vida longa (regime curto, ex.: 500 mg/dia por 3 dias); alternativa em alérgicos a penicilina; cuidado com prolongamento do intervalo QT",
+        "É um beta-lactâmico de primeira escolha",
+        "Não serve para alérgicos a penicilina",
+        "Não tem nenhuma interação cardíaca"
+      ],
+      "correct": 0,
+      "expl": "Azitromicina é macrolídeo: inibe a subunidade 50S do ribossomo, bacteriostático. Meia-vida longa permite regime curto. Útil em alérgicos a penicilina e na profilaxia de endocardite (500 mg dose única). Cuidado: prolonga o QT (atenção a outras drogas QTcáveis) e inibe CYP3A4 (menos que a claritromicina).",
+      "difficulty": "medium",
+      "tags": ["azitromicina", "macrolideo"]
+    },
+    {
+      "type": "mc",
+      "topic": "Cefalexina",
+      "q": "Quando a cefalexina pode ser usada em odontologia?",
+      "options": [
+        "Como alternativa em alérgicos a penicilina SEM reação imediata grave (a reatividade cruzada é baixa, ~1-2%); cobre cocos gram-positivos. Evitar se houve anafilaxia à penicilina",
+        "É a primeira escolha em qualquer infecção odontogênica",
+        "É segura mesmo em paciente com anafilaxia prévia a penicilina",
+        "Cobre anaeróbios estritos melhor que o metronidazol"
+      ],
+      "correct": 0,
+      "expl": "Cefalexina é cefalosporina de 1ª geração. Pode ser alternativa em alérgicos a penicilina com reação NÃO grave/não imediata (reatividade cruzada ~1-2%, maior com cefalosporinas de 1ª geração). CONTRAINDICADA se houve anafilaxia/reação imediata grave à penicilina. Cobre gram-positivos; cobertura fraca de anaeróbios.",
+      "difficulty": "medium",
+      "tags": ["cefalexina", "alergia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Amox + metronidazol periodontia",
+      "q": "Em periodontite agressiva/estágio avançado, qual associação antibiótica adjuvante é classicamente descrita?",
+      "options": [
+        "Amoxicilina + metronidazol (esquema de van Winkelhoff) como adjuvante ao tratamento mecânico, cobrindo Aggregatibacter actinomycetemcomitans e anaeróbios",
+        "Ciprofloxacino isolado",
+        "Vancomicina oral",
+        "Nistatina + amoxicilina"
+      ],
+      "correct": 0,
+      "expl": "A associação AMOXICILINA + METRONIDAZOL (esquema de van Winkelhoff) é o adjuvante antibiótico clássico em periodontite agressiva, sempre COMO COADJUVANTE à raspagem/desbridamento mecânico — cobre A. actinomycetemcomitans (amox) e anaeróbios estritos (metronidazol). Nunca substitui a terapia mecânica.",
+      "difficulty": "medium",
+      "tags": ["periodontia", "amox-metronidazol"]
+    },
+    {
+      "type": "mc",
+      "topic": "Resistência · uso racional",
+      "q": "Qual conduta representa o uso RACIONAL de antibiótico em odontologia?",
+      "options": [
+        "Prescrever antibiótico apenas quando há sinais de disseminação/comprometimento sistêmico, sempre com controle do foco, na menor duração eficaz",
+        "Prescrever antibiótico para toda dor de dente",
+        "Antibiótico para pulpite irreversível sem infecção",
+        "Manter antibiótico por 21 dias 'para garantir'"
+      ],
+      "correct": 0,
+      "expl": "Uso racional: antibiótico NÃO trata dor isolada nem pulpite (que é tratada com endodontia/exodontia). Indicado quando há sinais sistêmicos ou disseminação (febre, celulite, linfadenopatia, trismo, disfagia). Sempre com controle do foco e na menor duração eficaz.",
+      "difficulty": "medium",
+      "tags": ["uso-racional", "resistencia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Celulite facial / Ludwig",
+      "q": "Paciente com infecção odontogênica disseminada, edema submandibular bilateral, elevação de língua e disfagia. Conduta?",
+      "options": [
+        "Emergência (suspeita de angina de Ludwig) — encaminhamento hospitalar imediato, via aérea, antibiótico EV de amplo espectro e drenagem cirúrgica",
+        "Amoxicilina oral em casa e reavaliar em 7 dias",
+        "Apenas analgésico",
+        "Bochecho com clorexidina e alta"
+      ],
+      "correct": 0,
+      "expl": "Angina de Ludwig é celulite difusa bilateral dos espaços submandibular, sublingual e submentual — EMERGÊNCIA com risco de obstrução de via aérea. Conduta: hospitalar, proteção/avaliação da via aérea, antibiótico EV de amplo espectro (ex.: ampicilina-sulbactam ou clinda) e drenagem cirúrgica. Não tratar ambulatorialmente.",
+      "difficulty": "hard",
+      "tags": ["ludwig", "emergencia"]
+    },
+    {
+      "type": "mc",
+      "topic": "Gestante",
+      "q": "Antibiótico seguro para infecção odontogênica em gestante?",
+      "options": [
+        "Amoxicilina (e penicilinas em geral) é considerada segura na gestação; clindamicina é alternativa. Evitar tetraciclinas (alteração dentária/óssea fetal) e usar metronidazol com cautela",
+        "Tetraciclina é a primeira escolha na gestação",
+        "Nenhum antibiótico pode ser usado em gestante",
+        "Ciprofloxacino é o mais seguro na gravidez"
+      ],
+      "correct": 0,
+      "expl": "Na gestação: penicilinas (amoxicilina) e cefalosporinas são consideradas seguras; clindamicina e azitromicina são alternativas. EVITAR tetraciclinas/doxiciclina (deposição em dentes e ossos do feto, descoloração). Metronidazol: evitar no 1º trimestre quando possível, usar com cautela depois. Quinolonas: evitar (cartilagem).",
+      "difficulty": "medium",
+      "tags": ["gestante"]
+    },
+    {
+      "type": "mc",
+      "topic": "Duração de tratamento",
+      "q": "Sobre a duração da antibioticoterapia em infecção odontogênica não complicada:",
+      "options": [
+        "Tende a ser curta, guiada pela resolução clínica (frequentemente 3-7 dias após controle do foco), evitando cursos prolongados desnecessários",
+        "Sempre exatamente 21 dias",
+        "Apenas 1 dia em qualquer caso",
+        "Indefinida até o paciente decidir parar"
+      ],
+      "correct": 0,
+      "expl": "Tendência atual: cursos mais CURTOS guiados pela resposta clínica (muitas vezes 3-7 dias) após controle adequado do foco. Cursos prolongados aumentam resistência e efeitos adversos sem benefício. A chave do sucesso é o controle cirúrgico/endodôntico da causa, não o tempo de antibiótico.",
       "difficulty": "easy",
-      "tags": [
-        "pericoronarite",
-        "siso"
-      ]
+      "tags": ["duracao"]
     },
     {
       "type": "mc",
-      "topic": "Pediátrico",
-      "q": "Criança 4 anos, 18 kg, com abscesso dentoalveolar agudo sem alergia. Dose de amoxicilina?",
+      "topic": "Candidíase pós-antibiótico",
+      "q": "Após uso de antibiótico de amplo espectro, paciente apresenta placas brancas removíveis na mucosa oral e ardência. Diagnóstico e conduta?",
       "options": [
-        "Amoxicilina 50 mg/kg/dia VO divididos em 8/8h → 18 kg × 50 = 900 mg/dia ÷ 3 = 300 mg por dose. Suspensão 250 mg/5 mL → 6 mL por dose, 8/8h, por 7 dias",
-        "Mesma dose do adulto (500 mg 8/8h)",
-        "Apenas dipirona em criança — antibiótico só após 7 dias",
-        "Amoxicilina 100 mg/kg/dia em qualquer infecção odonto"
+        "Candidíase pseudomembranosa (sapinho) por desequilíbrio da flora — tratar com antifúngico (nistatina tópica ou fluconazol em casos extensos) e revisar higiene/uso de antibiótico",
+        "Líquen plano — corticoide sistêmico",
+        "Leucoplasia — biópsia imediata e quimioterapia",
+        "Apenas resíduo alimentar — nenhuma conduta"
       ],
       "correct": 0,
-      "expl": "Pediátrica: amox 40-50 mg/kg/dia ÷ 8/8h em infecção leve. Dose alta (80-90 mg/kg/dia) reservada a infecção moderada-grave com celulite extensa ou imunossupressão. 18 kg × 50 = 900 mg/dia → 300 mg de 8/8h. Suspensão pediátrica 250 mg/5 mL: 300/250 × 5 = 6 mL por dose. Sempre conferir alergia familiar antes.",
+      "expl": "Antibiótico de amplo espectro reduz a flora bacteriana competidora e favorece Candida albicans → candidíase pseudomembranosa (placas brancas removíveis que deixam base eritematosa). Tratamento: nistatina suspensão tópica (bochechar e engolir) ou fluconazol em casos extensos/imunossuprimidos. Revisar fatores predisponentes.",
       "difficulty": "medium",
-      "tags": [
-        "pediatrico",
-        "dose"
-      ]
+      "tags": ["candidiase"]
     },
     {
-      "type": "mc",
-      "topic": "Profilaxia em prótese articular ortopédica",
-      "q": "Paciente de 68 anos com prótese total de quadril implantada há 3 anos, sem complicações, agendada para raspagem subgengival com sangramento esperado. Ortopedista solicitou cobertura com amoxicilina. Qual a conduta baseada em evidência atual (ADA/AAOS)?",
-      "options": [
-        "Profilaxia antibiótica NÃO está indicada de rotina para pacientes com prótese articular ortopédica; explicar ao ortopedista e ao paciente que o consenso ADA/AAOS desde 2014 não recomenda, exceto em casos individualizados (imunossupressão grave, infecção articular prévia)",
-        "Amoxicilina 2 g VO 1h antes — mesmo esquema da AHA para endocardite, aplicável a qualquer prótese",
-        "Cefalexina 2 g VO 1h antes por ser mais específica para Staphylococcus, principal agente da infecção peri-protética",
-        "Clindamicina 600 mg 1h antes durante os primeiros 5 anos pós-artroplastia, depois suspender"
+      "type": "match",
+      "topic": "Antibióticos: indicação / classe",
+      "prompt": "Associe o antibiótico à sua característica em odontologia.",
+      "leftLabel": "Antibiótico",
+      "rightLabel": "Característica",
+      "pairs": [
+        { "id": "amox", "left": "Amoxicilina", "right": "1ª escolha em infecção odontogênica; beta-lactâmico que inibe PBP" },
+        { "id": "clav", "left": "Amox + clavulanato", "right": "Infecção grave/refratária; clavulanato inibe beta-lactamase" },
+        { "id": "metro", "left": "Metronidazol", "right": "Anaeróbios estritos; efeito dissulfiram com álcool" },
+        { "id": "clinda", "left": "Clindamicina", "right": "Alérgicos a penicilina; risco de colite por C. difficile" },
+        { "id": "azitro", "left": "Azitromicina", "right": "Macrolídeo; regime curto; prolonga QT" },
+        { "id": "cefa", "left": "Cefalexina", "right": "Cefalosporina 1ª geração; evitar se anafilaxia à penicilina" }
       ],
-      "correct": 0,
-      "expl": "Desde a diretriz conjunta ADA/AAOS (2014, reafirmada 2017) NÃO há indicação rotineira de profilaxia ATB antes de procedimentos odontológicos em portadores de prótese articular — falta evidência de que bacteremia transitória oral cause infecção peri-protética e há risco de resistência/anafilaxia. Conduta: comunicar ortopedista com cópia da diretriz. Exceções: imunocomprometidos graves, histórico de infecção articular. Take-home: profilaxia odontológica para prótese ortopédica = mito clínico desatualizado.",
+      "expl": "Amoxicilina = padrão. Clavulanato amplia para beta-lactamase. Metronidazol = anaeróbio + álcool. Clindamicina = alérgico + C. difficile. Azitromicina = QT. Cefalexina = reatividade cruzada.",
       "difficulty": "medium",
-      "tags": [
-        "profilaxia",
-        "protese-articular"
-      ]
+      "tags": ["match"]
     },
     {
-      "type": "mc",
-      "topic": "Antibiograma em abscesso refratário",
-      "q": "Paciente com abscesso periapical no 36, drenado por via endodôntica, em uso de amoxicilina 500 mg 8/8h há 72h, retorna com piora: edema progressivo em loja submandibular, trismo de 25 mm, febre 38,5°C. Qual a conduta correta?",
-      "options": [
-        "Coletar pus por punção aspirativa para cultura e antibiograma (aeróbios + anaeróbios), escalonar empiricamente para amoxicilina-clavulanato 875/125 mg 12/12h ou associar metronidazol 400 mg 8/8h, avaliar drenagem extraoral e considerar internação se sinais de fasciíte cervical",
-        "Trocar amoxicilina por azitromicina 500 mg/dia por 3 dias, que tem melhor penetração tecidual",
-        "Dobrar a dose de amoxicilina para 1 g 8/8h e aguardar mais 72h antes de reavaliar",
-        "Suspender ATB e prescrever apenas ibuprofeno 600 mg 8/8h — a falha indica que era infecção viral"
+      "type": "match",
+      "topic": "Antibióticos: profilaxia de endocardite",
+      "prompt": "Associe a situação ao esquema de profilaxia de endocardite (AHA).",
+      "leftLabel": "Situação",
+      "rightLabel": "Esquema",
+      "pairs": [
+        { "id": "padrao", "left": "Adulto sem alergia, VO possível", "right": "Amoxicilina 2 g VO dose única, 30-60 min antes" },
+        { "id": "alergico", "left": "Alérgico a penicilina, VO", "right": "Clindamicina 600 mg OU azitromicina 500 mg VO" },
+        { "id": "semvo", "left": "Não tolera VO", "right": "Ampicilina 2 g IM/EV (ou cefazolina/ceftriaxona)" },
+        { "id": "naoindica", "left": "PVM sem regurgitação / sopro inocente", "right": "SEM profilaxia (não é altíssimo risco)" }
       ],
-      "correct": 0,
-      "expl": "Falha clínica em 48-72h de amoxicilina em infecção odontogênica sugere: (1) anaeróbio produtor de β-lactamase (Prevotella, Fusobacterium), (2) drenagem inadequada, ou (3) progressão para espaço fascial. Conduta: drenagem cirúrgica + cultura/antibiograma + escalonar (amox-clav cobre β-lactamases, ou associar metronidazol para anaeróbios resistentes). Sinais de alerta para internação: trismo grave, disfagia, elevação assoalho boca, comprometimento via aérea. Take-home: ATB não substitui drenagem; falha = revise diagnóstico, drene, escalone.",
-      "difficulty": "hard",
-      "tags": [
-        "falha-terapeutica",
-        "abscesso"
-      ]
+      "expl": "Profilaxia só em altíssimo risco + procedimento invasivo. Padrão: amoxicilina 2 g. Alérgico: clinda/azitro. Sem VO: ampicilina IM/EV. Condições de baixo risco não recebem profilaxia.",
+      "difficulty": "medium",
+      "tags": ["match", "profilaxia"]
     },
     {
-      "type": "mc",
-      "topic": "MRONJ - bifosfonato oral crônico",
-      "q": "Mulher de 68 anos, em uso de alendronato 70 mg VO semanal há 5 anos para osteoporose, precisa de exodontia do 36 por doença periodontal avançada. Nega corticoide, quimioterapia ou bifosfonato EV. Qual a conduta mais adequada antes da extração?",
-      "options": [
-        "Solicitar parecer ao médico assistente, discutir drug holiday de 2 meses antes e 2 meses após o procedimento (protocolo AAOMS, opcional em uso >4 anos), usar técnica atraumática, sutura primária do alvéolo e antibioticoprofilaxia, pois o risco de MRONJ com bifosfonato oral é baixo (<1%) mas real após 4 anos de uso",
-        "Contraindicar a exodontia em definitivo - paciente em uso de bifosfonato nunca pode ser submetida a cirurgia óssea pelo risco proibitivo de MRONJ",
-        "Realizar a exodontia normalmente sem nenhuma precaução, pois apenas bifosfonatos endovenosos (zoledronato, pamidronato) causam MRONJ; a via oral não tem risco descrito",
-        "Suspender o alendronato apenas no dia do procedimento e reintroduzir no dia seguinte, sem necessidade de avisar o médico nem alterar a técnica cirúrgica"
+      "type": "case",
+      "topic": "Caso · abscesso com disseminação",
+      "subtitle": "Homem 34a, dor e edema facial em evolução, febre 38,5°C",
+      "specialty": "Odontologia · Estomatologia",
+      "difficulty": "medium",
+      "vignette": "Homem de 34 anos chega à clínica com dor intensa no molar inferior direito há 4 dias, agora com edema facial em região submandibular, febre de 38,5°C, trismo leve (abertura ~25 mm) e linfonodo cervical doloroso. Sem alergias conhecidas. Ao exame: dente 46 com cárie extensa, percussão muito dolorosa, sem mobilidade. Sem disfagia ou dispneia.",
+      "steps": [
+        {
+          "id": "step1",
+          "question": "Qual a conduta inicial mais correta?",
+          "options": [
+            "Controle do foco (drenagem do abscesso + tratamento endodôntico ou exodontia do 46) associado a antibiótico, por haver sinais sistêmicos (febre, linfadenopatia, trismo)",
+            "Apenas antibiótico oral sem mexer no dente",
+            "Apenas analgésico e reavaliar em 1 semana",
+            "Encaminhar para UTI imediatamente"
+          ],
+          "correct": 0,
+          "expl": "Há sinais de disseminação/comprometimento sistêmico (febre, linfadenopatia, trismo) → indica antibiótico, MAS o pilar é o controle do foco (drenagem + endodontia ou exodontia). Antibiótico sem controle do foco falha. O quadro ainda não tem critérios de via aérea ameaçada (sem disfagia/dispneia), então não é UTI neste momento."
+        },
+        {
+          "id": "step2",
+          "question": "Qual antibiótico empírico de escolha (sem alergia)?",
+          "options": [
+            "Amoxicilina 500 mg 8/8h (± metronidazol se suspeita de anaeróbios); amox+clavulanato se quadro mais grave/refratário",
+            "Ciprofloxacino isolado",
+            "Vancomicina oral",
+            "Nistatina"
+          ],
+          "correct": 0,
+          "expl": "Empírico de escolha: amoxicilina (cobre flora odontogênica). Associar metronidazol amplia para anaeróbios estritos. Em quadro mais grave ou refratário, amox+clavulanato. Sempre reavaliar resposta em 48-72h."
+        },
+        {
+          "id": "step3",
+          "prompt": "No retorno em 48h, o edema progrediu para região sublingual bilateral, com elevação de língua e início de disfagia.",
+          "question": "Conduta?",
+          "options": [
+            "Encaminhamento hospitalar imediato (suspeita de angina de Ludwig) — proteção de via aérea, antibiótico EV de amplo espectro e drenagem cirúrgica",
+            "Manter o mesmo esquema oral e reavaliar em mais 7 dias",
+            "Suspender antibiótico",
+            "Apenas aumentar o analgésico"
+          ],
+          "correct": 0,
+          "expl": "Edema sublingual bilateral + elevação de língua + disfagia = sinais de angina de Ludwig (emergência com risco de obstrução de via aérea). Conduta imediata: hospital, avaliação/proteção da via aérea, antibiótico EV de amplo espectro e drenagem cirúrgica. Não manejar ambulatorialmente."
+        }
       ],
-      "correct": 0,
-      "expl": "Bifosfonato oral por >4 anos eleva o risco de MRONJ, embora absoluto baixo (<1%). AAOMS recomenda discutir drug holiday de ~2 meses pré e pós com o médico (não obrigatório, baseado em CTX), técnica atraumática, alveoloplastia, sutura primária e ATB profilática. Não se contraindica nem se ignora - se maneja. Take-home: tempo de uso e via (VO vs EV) definem o risco; sempre articular com o médico.",
-      "difficulty": "hard",
-      "tags": [
-        "mronj",
-        "bifosfonato",
-        "exodontia"
-      ]
+      "outcome": "Encaminhado ao hospital, recebe ampicilina-sulbactam EV e drenagem cirúrgica dos espaços cervicais, com proteção de via aérea. Evolui bem, recebe alta em 4 dias e retorna para finalizar o tratamento do 46. Reforço de higiene e controle de foco."
     },
     {
-      "type": "mc",
-      "topic": "ACO + antibiótico - mito da interação",
-      "q": "Estudante prescreve amoxicilina 500 mg 8/8h por 7 dias para abscesso periapical em paciente de 24 anos que usa anticoncepcional oral combinado (etinilestradiol + levonorgestrel). A paciente pergunta se precisa usar preservativo durante o tratamento. Qual a orientação correta baseada em evidência?",
-      "options": [
-        "Não há necessidade de método contraceptivo adicional - a única classe de antibiótico com evidência consistente de reduzir a eficácia do ACO combinado é a das rifamicinas (rifampicina, rifabutina), que induzem fortemente o CYP3A4; amoxicilina, cefalosporinas, clindamicina, azitromicina e metronidazol não comprometem a eficácia contraceptiva",
-        "Orientar uso de preservativo durante todo o ciclo do antibiótico e por mais 7 dias após, pois todo antibiótico de amplo espectro reduz a eficácia do ACO ao alterar a flora intestinal",
-        "Trocar a amoxicilina por clindamicina, que é o único antibiótico seguro para usuárias de ACO",
-        "Suspender o ACO durante o uso do antibiótico e reintroduzir só na próxima cartela, sem método de barreira nesse intervalo"
-      ],
-      "correct": 0,
-      "expl": "Mito clássico repetido em bulas e consultórios: somente rifampicina/rifabutina (e alguns antirretrovirais/anticonvulsivantes indutores de CYP3A4) reduzem eficácia de ACO de forma comprovada. A teoria da flora intestinal com amoxi/cefalo/azitro/clinda/metronidazol foi refutada em estudos farmacocinéticos. Orientar barreira sem necessidade gera ansiedade e descrença. Take-home: ATB odontológico de rotina NÃO derruba ACO.",
-      "difficulty": "hard",
-      "tags": [
-        "anticoncepcional",
-        "antibiotico",
-        "interacao"
-      ]
+      "type": "flashcard",
+      "topic": "Amoxicilina",
+      "front": "Amoxicilina: classe, mecanismo, uso em odontologia?",
+      "back": "Aminopenicilina (beta-lactâmico). Inibe PBP → bloqueia síntese da parede. 1ª escolha em infecção odontogênica leve-moderada (500 mg 8/8h). Sempre com controle do foco. EA: alergia, diarreia, candidíase.",
+      "tags": ["amoxicilina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Amox + clavulanato",
+      "front": "Quando usar amoxicilina + clavulanato?",
+      "back": "Infecção grave/refratária ou suspeita de beta-lactamase. Clavulanato = inibidor de beta-lactamase, amplia para anaeróbios. Mais diarreia. Não é 1ª escolha em quadro leve.",
+      "tags": ["amox-clavulanato"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Metronidazol",
+      "front": "Metronidazol em odontologia: alvo, uso e pegadinha?",
+      "back": "Anaeróbios ESTRITOS. Usado em periodontite necrosante/agressiva, geralmente associado à amoxicilina. PEGADINHA: efeito dissulfiram com álcool (abstinência durante + 48-72h após). EA: gosto metálico.",
+      "tags": ["metronidazol"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Clindamicina",
+      "front": "Clindamicina: indicação e risco principal?",
+      "back": "Alternativa em alérgicos a penicilina (cobre anaeróbios + gram+ orais). RISCO: colite pseudomembranosa por C. difficile (diarreia grave). Orientar paciente.",
+      "tags": ["clindamicina"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Profilaxia de endocardite",
+      "front": "Profilaxia de endocardite em odontologia: quem e qual esquema?",
+      "back": "Só altíssimo risco (prótese valvar, EI prévia, CC cianótica, TX cardíaco com valvopatia) + procedimento invasivo. Amoxicilina 2 g VO dose única 30-60 min antes. Alérgico: clindamicina 600 mg ou azitromicina 500 mg.",
+      "tags": ["profilaxia"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "ACO + antibiótico",
+      "front": "Antibiótico reduz a eficácia do anticoncepcional oral?",
+      "back": "Mito para a maioria. Amoxicilina/clinda/metronidazol NÃO reduzem comprovadamente. A interação real é com RIFAMPICINA (indutor enzimático). Barreira adicional é mais precaução do que evidência.",
+      "tags": ["aco", "mito"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Prótese ortopédica",
+      "front": "Precisa de profilaxia antibiótica antes de exodontia em portador de prótese de quadril?",
+      "back": "Não de rotina. ADA/AAOS NÃO recomendam profilaxia para prótese articular antes de procedimento odontológico na maioria dos casos. Individualizar com o ortopedista.",
+      "tags": ["protese-ortopedica", "mito"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Gestante",
+      "front": "Antibióticos em gestante na odontologia?",
+      "back": "Seguros: penicilinas (amoxicilina), cefalosporinas, clindamicina, azitromicina. EVITAR: tetraciclinas/doxiciclina (dentes/ossos fetais), quinolonas (cartilagem). Metronidazol com cautela (evitar 1º trimestre).",
+      "tags": ["gestante"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Uso racional",
+      "front": "Quando NÃO prescrever antibiótico em odontologia?",
+      "back": "Dor isolada, pulpite irreversível, periodontite apical sintomática sem infecção sistêmica, gengivite, pericoronarite localizada sem febre. Antibiótico só com sinais sistêmicos/disseminação + controle do foco.",
+      "tags": ["uso-racional"]
+    },
+    {
+      "type": "flashcard",
+      "topic": "Angina de Ludwig",
+      "front": "Angina de Ludwig: o que é e conduta?",
+      "back": "Celulite difusa bilateral dos espaços submandibular/sublingual/submentual de origem odontogênica. EMERGÊNCIA (via aérea). Hospital + ATB EV amplo espectro + drenagem cirúrgica + proteção de via aérea.",
+      "tags": ["ludwig"]
     }
   ]
 }

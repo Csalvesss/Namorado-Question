@@ -5,11 +5,14 @@ import { ArrowLeft, ChevronRight, GitBranch, RotateCw, Workflow } from 'lucide-r
 import PageContainer from '../components/ui/PageContainer';
 import { db } from '../lib/db';
 import { duration as motionDuration, easeOutExpo } from '../lib/motion';
+import { useUser } from '../lib/useUser';
 import type { AlgorithmNode, AlgorithmOutcome, AlgorithmQuestion } from '../types';
 
 export function AlgorithmsList() {
+  const { user } = useUser();
+  const userTrack = user?.track ?? 'medicina';
   const algos = useMemo(() => {
-    const courses = db.courses.list();
+    const courses = db.courses.listByTrack(userTrack);
     const out: Array<{ q: AlgorithmQuestion; courseTitle: string }> = [];
     courses.forEach((c) => {
       db.questions
@@ -18,7 +21,7 @@ export function AlgorithmsList() {
         .forEach((q) => out.push({ q, courseTitle: c.title }));
     });
     return out;
-  }, []);
+  }, [userTrack]);
 
   return (
     <PageContainer>
