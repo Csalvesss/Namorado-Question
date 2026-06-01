@@ -237,6 +237,66 @@ export interface UserProfile {
   dailyGoal?: number;
   partnerName?: string;
   createdAt: number;
+  // Ausência de status = usuária antiga (grandfathered, tratada como approved).
+  // Novos cadastros nascem 'pending' até admin liberar com código.
+  status?: 'pending' | 'approved' | 'blocked';
+  // Papel. Default 'user'. 'admin' é fixado por e-mail (ver lib/admin.ts).
+  role?: 'user' | 'admin';
+  approvedAt?: number;
+  approvedBy?: string;
+}
+
+export interface AccessGeo {
+  city?: string;
+  region?: string;
+  country?: string;
+  countryCode?: string;
+  lat?: number;
+  lon?: number;
+  org?: string;
+  timezone?: string;
+}
+
+export interface SignupRequest {
+  id: string;
+  uid: string;
+  email: string;
+  name: string;
+  requestedAt: number;
+  status: 'pending' | 'approved' | 'denied' | 'expired';
+  ip?: string;
+  geo?: AccessGeo;
+  userAgent?: string;
+  approvalCode?: string;
+  approvedAt?: number;
+  approvedBy?: string;
+  deniedAt?: number;
+  deniedReason?: string;
+}
+
+export interface AccessLog {
+  id: string;
+  uid: string;
+  email: string;
+  when: number;
+  ip?: string;
+  geo?: AccessGeo;
+  userAgent?: string;
+  kind: 'signin' | 'signup' | 'session' | 'impersonate';
+  // Se um admin estava impersonando, uid dele.
+  impersonatedBy?: string;
+}
+
+export interface Material {
+  id: string;
+  ownerUid: string;
+  name: string;
+  storagePath: string;
+  size: number;
+  contentType: string;
+  uploadedAt: number;
+  uploadedBy: string;
+  notes?: string;
 }
 
 export interface Subject {
