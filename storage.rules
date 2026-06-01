@@ -1,0 +1,31 @@
+// Regras do Firebase Storage para Guava Education.
+// Aplicar com `firebase deploy --only storage`.
+//
+// Estrutura:
+//   /materials/{ownerUid}/{filename}   — arquivos enviados pelo admin pra cada usuária
+//
+// Admin escreve/lê tudo. Cada usuária só lê os arquivos do próprio path
+// (e só se status no Firestore for 'approved' — checado via cross-doc).
+
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isAdmin() {
+      return request.auth != null
+        && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.get('role', 'user') == 'admin';
+    }
+
+    function isApproved() {
+      return request.auth != null
+        && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.get('status', 'approved') == 'approved';
+    }
+
+    match /materials/{ownerUid}/{filename=**} {
+      allow read: if request.auth != null && (
+        (request.auth.uid == ownerUid && isApproved()) || isAdmin()
+      );
+      allow write: if isAdmin();
+    }
+  }
+}
