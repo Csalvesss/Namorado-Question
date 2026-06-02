@@ -1,42 +1,134 @@
-// Regras de seguranca do Firestore para Guava Education.
+// Regras de segurança do Firestore para Guava Education.
 // Aplicar no Firebase Console -> Firestore -> Regras.
 //
-// Como funciona:
-// - /users/{uid}             : doc do perfil. So o dono le e escreve.
-// - /users/{uid}/sessions/*  : sessoes de prova. So o dono.
-// - /users/{uid}/srs/*       : estado de repeticao espacada por card. So o dono.
+// Modelo:
+// - /users/{uid}                : perfil. Self read/write; admin lê tudo.
+// - /users/{uid}/<subcols>      : progresso. Self apenas, e só se status approved.
+// - /signup_requests/{uid}      : solicitação de acesso. Self cria; admin lê/edita.
+// - /access_logs/{logId}        : log de acessos. Qualquer auth cria pra si; admin lê.
+// - /materials/{matId}          : conteúdos. Dono lê; admin escreve/lê.
+//
+// Grandfathering: docs antigos sem campo `status` são tratados como 'approved'.
+// Cadastros novos nascem 'pending' e ficam barrados até admin liberar.
 
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Usuaria autenticada le e escreve apenas o proprio perfil
-    match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+    function isSignedIn() {
+      return request.auth != null;
+    }
 
-      // Subcolecoes: sessions e srs sao dados de progresso por usuaria
+    function selfUserDoc() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function isAdmin() {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && selfUserDoc().get('role', 'user') == 'admin';
+    }
+
+    // Status efetivo: ausência = approved (grandfathering).
+    function isApproved() {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && selfUserDoc().get('status', 'approved') == 'approved';
+    }
+
+    function selfAndApproved(uid) {
+      return isSignedIn() && request.auth.uid == uid && (isApproved() || isAdmin());
+    }
+
+    // Usuária comum não pode escalar privilégio nem mudar o próprio status pra approved.
+    function safeUserWrite(uid) {
+      let incoming = request.resource.data;
+      let isSelfNonAdmin = request.auth.uid == uid && !isAdmin();
+      let roleOk = !isSelfNonAdmin || incoming.get('role', 'user') == 'user';
+      let statusOk = !isSelfNonAdmin
+        || !('status' in incoming)
+        || incoming.status == resource.data.get('status', 'pending');
+      return roleOk && statusOk;
+    }
+
+    // ---- /users/{uid} ---------------------------------------------------
+    match /users/{userId} {
+      allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
+
+      // Criação do próprio doc no signup: status inicial precisa ser 'pending'.
+      // Exceção: e-mail admin pode nascer aprovado (será 'admin' role).
+      allow create: if isSignedIn() && (
+        (request.auth.uid == userId
+          && (request.resource.data.get('status', 'pending') == 'pending'
+              || request.resource.data.get('role', 'user') == 'admin')
+          && safeUserWrite(userId))
+        || isAdmin()
+      );
+
+      allow update: if isSignedIn() && (
+        (request.auth.uid == userId && safeUserWrite(userId)) || isAdmin()
+      );
+
+      allow delete: if isAdmin();
+
       match /sessions/{sessionId} {
-        allow read, write: if request.auth != null && request.auth.uid == userId;
+        allow read: if selfAndApproved(userId) || isAdmin();
+        allow write: if selfAndApproved(userId);
       }
       match /srs/{cardId} {
-        allow read, write: if request.auth != null && request.auth.uid == userId;
+        allow read: if selfAndApproved(userId) || isAdmin();
+        allow write: if selfAndApproved(userId);
       }
-
-      // Cursos criados pela usuaria (com flashcards/questoes embarcados)
       match /customCourses/{courseId} {
-        allow read, write: if request.auth != null && request.auth.uid == userId;
+        allow read: if selfAndApproved(userId) || isAdmin();
+        allow write: if selfAndApproved(userId);
       }
-
-      // Plano de estudo: disciplinas, aulas semanais e provas
       match /subjects/{subjectId} {
-        allow read, write: if request.auth != null && request.auth.uid == userId;
+        allow read: if selfAndApproved(userId) || isAdmin();
+        allow write: if selfAndApproved(userId);
       }
       match /classes/{classId} {
-        allow read, write: if request.auth != null && request.auth.uid == userId;
+        allow read: if selfAndApproved(userId) || isAdmin();
+        allow write: if selfAndApproved(userId);
       }
       match /exams/{examId} {
-        allow read, write: if request.auth != null && request.auth.uid == userId;
+        allow read: if selfAndApproved(userId) || isAdmin();
+        allow write: if selfAndApproved(userId);
       }
+    }
+
+    // ---- /signup_requests/{uid} ----------------------------------------
+    match /signup_requests/{requestId} {
+      allow read: if isSignedIn() && (request.auth.uid == requestId || isAdmin());
+
+      allow create: if isSignedIn()
+        && request.auth.uid == requestId
+        && request.resource.data.status == 'pending';
+
+      // Dono pode atualizar sem mexer no status; admin pode tudo.
+      allow update: if isAdmin() || (
+        isSignedIn()
+        && request.auth.uid == requestId
+        && request.resource.data.status == resource.data.status
+      );
+
+      allow delete: if isAdmin();
+    }
+
+    // ---- /access_logs/{logId} ------------------------------------------
+    match /access_logs/{logId} {
+      allow read: if isAdmin();
+      allow create: if isSignedIn()
+        && request.resource.data.uid == request.auth.uid;
+      allow update, delete: if isAdmin();
+    }
+
+    // ---- /materials/{materialId} ---------------------------------------
+    match /materials/{materialId} {
+      allow read: if isSignedIn() && (
+        (resource.data.ownerUid == request.auth.uid && isApproved()) || isAdmin()
+      );
+      allow create, update, delete: if isAdmin();
     }
   }
 }

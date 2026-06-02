@@ -1,6 +1,9 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
+import RequireAdmin from './components/RequireAdmin';
 import RequireAuth from './components/RequireAuth';
+import Admin from './pages/Admin';
+import PendingApproval from './pages/PendingApproval';
 import Author from './pages/Author';
 import Bilhetes from './pages/Bilhetes';
 import Calculators from './pages/Calculators';
@@ -32,6 +35,15 @@ export default function App() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
+      <Route path="/aguardando" element={<PendingApproval />} />
+      <Route
+        path="/admin"
+        element={
+          <RequireAdmin>
+            <Admin />
+          </RequireAdmin>
+        }
+      />
       <Route
         element={
           <RequireAuth>
