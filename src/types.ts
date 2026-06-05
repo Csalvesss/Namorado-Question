@@ -464,6 +464,11 @@ interface ExamBaseQuestion {
   references: ExamReference[];
   /** Marca pendente de revisão. UI pinta em amarelo. */
   needsReview: boolean;
+  /** Parecer do agente revisor (prof médico sênior UNINOVE). */
+  reviewedBy?: string;
+  reviewedAt?: number;
+  reviewerVerdict?: 'approved' | 'approved_with_edits' | 'rejected';
+  reviewerNotes?: string;
 }
 
 export interface ExamMCQuestion extends ExamBaseQuestion {

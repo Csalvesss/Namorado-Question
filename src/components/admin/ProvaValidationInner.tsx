@@ -167,6 +167,22 @@ function ValidationCard({
         </span>
       </div>
 
+      {question.reviewedBy && (
+        <div className="mt-3 rounded-xl border-l-2 border-emerald-600 bg-emerald-50/60 px-3 py-2">
+          <p className="font-display text-[10px] uppercase tracking-[0.18em] text-emerald-900">
+            parecer do {question.reviewedBy} ·{' '}
+            {question.reviewerVerdict === 'approved'
+              ? 'aprovada'
+              : question.reviewerVerdict === 'approved_with_edits'
+              ? 'aprovada com ajustes (aplicados)'
+              : 'rejeitada'}
+          </p>
+          {question.reviewerNotes && (
+            <p className="mt-1 font-body text-xs text-txt">{question.reviewerNotes}</p>
+          )}
+        </div>
+      )}
+
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
