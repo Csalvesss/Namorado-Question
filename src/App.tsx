@@ -4,6 +4,7 @@ import RequireAdmin from './components/RequireAdmin';
 import RequireAuth from './components/RequireAuth';
 import Admin from './pages/Admin';
 import PendingApproval from './pages/PendingApproval';
+import ProvaIntegrada from './pages/ProvaIntegrada';
 import Author from './pages/Author';
 import Bilhetes from './pages/Bilhetes';
 import Calculators from './pages/Calculators';
@@ -78,6 +79,7 @@ export default function App() {
         <Route path="/bilhetes" element={<Bilhetes />} />
         <Route path="/autor" element={<Author />} />
         <Route path="/perfil" element={<Profile />} />
+        <Route path="/prova-integrada" element={<ProvaIntegrada />} />
       </Route>
       <Route path="/" element={<Welcome />} />
       <Route path="*" element={<Navigate to="/" replace />} />

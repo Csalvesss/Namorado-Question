@@ -422,3 +422,143 @@ export interface ImportPayload {
   track?: 'medicina' | 'odonto';
   questions: ImportQuestion[];
 }
+
+// ============================================================================
+// Prova Integrada — avaliação no formato UNINOVE Medicina.
+// Banco estático em /src/data/prova-integrada/exam-vN.json.
+// Cada questão começa em status='draft' e precisa ser marcada 'validated' pelo
+// prof sênior antes de aparecer pras alunas. A validação fica em Firestore
+// (/exam_validations/{questionId}) pra ser persistente entre devices.
+// ============================================================================
+
+export interface ExamReference {
+  /** Ex: "Diretrizes SBD 2024" ou "Goldman-Cecil Medicina" */
+  work: string;
+  authors?: string;
+  edition?: string;
+  publisher?: string;
+  year?: number;
+  chapter?: string;
+  /** Origem no material do prof (nome do PDF/aula). */
+  sourcePdf?: string;
+  professor?: string;
+}
+
+export interface ExamRubricItem {
+  /** Critério avaliado (1 linha objetiva). */
+  criterion: string;
+  /** Pontos atribuídos se acertar esse item. */
+  points: number;
+}
+
+interface ExamBaseQuestion {
+  id: string;
+  /** Disciplinas integradas nesta questão (ex: ['endocrinologia', 'infectologia']). */
+  disciplines: string[];
+  /** Origem do conteúdo: sem1 (Drive), sem2 (app), ou mixed (integra os dois). */
+  semester: 'sem1' | 'sem2' | 'mixed';
+  /** Status de validação pelo prof sênior. */
+  status: 'draft' | 'validated' | 'rejected';
+  feedback: string;
+  justification: string;
+  references: ExamReference[];
+  /** Marca pendente de revisão. UI pinta em amarelo. */
+  needsReview: boolean;
+}
+
+export interface ExamMCQuestion extends ExamBaseQuestion {
+  kind: 'mc';
+  prompt: string;
+  options: string[];
+  correctIndex: number;
+  points: 20;
+}
+
+export interface ExamDiscursiveQuestion extends ExamBaseQuestion {
+  kind: 'discursive';
+  prompt: string;
+  /** Resposta-modelo completa, mostrada na correção. */
+  expectedAnswer: string;
+  /** Itens de rubrica. Soma = points (25). */
+  rubric: ExamRubricItem[];
+  points: 25;
+}
+
+export type ExamQuestion = ExamMCQuestion | ExamDiscursiveQuestion;
+
+export interface ExamLabResult {
+  name: string;
+  value: string;
+  refRange?: string;
+  /** true se for valor alterado — pra UI destacar. */
+  abnormal?: boolean;
+}
+
+export interface ExamCase {
+  id: string;
+  title: string;
+  /** Disciplinas integradas no caso inteiro. */
+  disciplines: string[];
+  patient: {
+    age: number;
+    sex: 'F' | 'M';
+    context: string;
+    complaint: string;
+  };
+  history: string;
+  evolution?: string;
+  physicalExam: {
+    vitals: string;
+    findings: string;
+  };
+  labs?: ExamLabResult[];
+  imaging?: string;
+  questions: ExamQuestion[];
+  needsReview: boolean;
+}
+
+export interface IntegratedExam {
+  id: string;
+  version: string;
+  title: string;
+  subtitle?: string;
+  totalPoints: 1000;
+  estimatedMinutes: number;
+  cases: ExamCase[];
+  /** Texto institucional/legal mostrado na abertura. */
+  instructions: string[];
+}
+
+export interface ExamAttemptAnswer {
+  /** MC: índice escolhido. Discursiva: texto livre. */
+  mcSelected?: number;
+  discursiveText?: string;
+  /** Pra discursiva, itens da rubrica que a aluna se auto-avaliou como tendo acertado. */
+  selfAssessedRubric?: number[];
+}
+
+export interface ExamAttempt {
+  id: string;
+  examId: string;
+  examVersion: string;
+  startedAt: number;
+  completedAt?: number;
+  studentName?: string;
+  studentRA?: string;
+  /** Mapa questionId → resposta. */
+  answers: Record<string, ExamAttemptAnswer>;
+  /** Pontuação final calculada na correção (0–1000). */
+  score?: number;
+  /** Tempo total gasto em ms. */
+  durationMs?: number;
+}
+
+export interface ExamValidation {
+  questionId: string;
+  examId: string;
+  status: 'draft' | 'validated' | 'rejected';
+  reviewedBy: string;
+  reviewedByName?: string;
+  reviewedAt: number;
+  notes?: string;
+}

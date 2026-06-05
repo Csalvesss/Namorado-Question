@@ -38,6 +38,7 @@ export default function Header() {
             <NavItem to="/revisar">Revisar</NavItem>
             {showBilhetes && <NavItem to="/bilhetes">Bilhetes</NavItem>}
             <NavItem to="/historico">Histórico</NavItem>
+            <NavItem to="/prova-integrada">Prova Integrada</NavItem>
             <NavItem to="/autor">Autor</NavItem>
             <NavItem to="/perfil">Perfil</NavItem>
             {showAdmin && <NavItem to="/admin">Admin</NavItem>}
@@ -67,6 +68,7 @@ export default function Header() {
           <NavItem to="/revisar">Revisar</NavItem>
           {showBilhetes && <NavItem to="/bilhetes">Bilhetes</NavItem>}
           <NavItem to="/historico">Histórico</NavItem>
+          <NavItem to="/prova-integrada">Prova Integrada</NavItem>
           <NavItem to="/autor">Autor</NavItem>
           <NavItem to="/perfil">Perfil</NavItem>
           {showAdmin && <NavItem to="/admin">Admin</NavItem>}
