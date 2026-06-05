@@ -115,6 +115,15 @@ service cloud.firestore {
       allow delete: if isAdmin();
     }
 
+    // ---- /exam_validations/{docId} -------------------------------------
+    // Validações de questões da Prova Integrada feitas pelo prof médico sênior.
+    // Qualquer usuária aprovada pode LER (pra mostrar status na tela da prova),
+    // mas só admin escreve.
+    match /exam_validations/{validationId} {
+      allow read: if isSignedIn() && isApproved();
+      allow create, update, delete: if isAdmin();
+    }
+
     // ---- /access_logs/{logId} ------------------------------------------
     match /access_logs/{logId} {
       allow read: if isAdmin();

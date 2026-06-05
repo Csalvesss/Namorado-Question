@@ -19,9 +19,10 @@ import {
 import { signInWithCustomToken } from 'firebase/auth';
 import { firebaseAuth } from '../lib/firebase';
 import { effectiveStatus } from '../lib/admin';
+import ProvaValidationInner from '../components/admin/ProvaValidationInner';
 import type { AccessLog, Material, SignupRequest, UserProfile } from '../types';
 
-type Tab = 'users' | 'requests' | 'logs' | 'materials';
+type Tab = 'users' | 'requests' | 'logs' | 'materials' | 'prova';
 
 export default function Admin() {
   const { user } = useUser();
@@ -47,6 +48,7 @@ export default function Admin() {
               ['users', 'usuárias'],
               ['logs', 'logs de acesso'],
               ['materials', 'conteúdos'],
+              ['prova', 'validar prova integrada'],
             ] as const
           ).map(([k, label]) => (
             <button
@@ -79,6 +81,7 @@ export default function Admin() {
           {tab === 'users' && <UsersTab />}
           {tab === 'logs' && <LogsTab />}
           {tab === 'materials' && <MaterialsTab />}
+          {tab === 'prova' && <ProvaValidationTab />}
         </div>
       </div>
     </section>
@@ -592,3 +595,12 @@ function MaterialsForUser({
     </div>
   );
 }
+
+// ===========================================================================
+// Aba: Validar Prova Integrada — componente em src/components/admin/
+// ===========================================================================
+
+function ProvaValidationTab() {
+  return <ProvaValidationInner />;
+}
+

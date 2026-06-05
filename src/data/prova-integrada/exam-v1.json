@@ -1,0 +1,334 @@
+{
+  "id": "prova-integrada-v1",
+  "version": "v1.0.0-draft",
+  "title": "Prova Integrada — Medicina UNINOVE",
+  "subtitle": "Integração 5º M — Clínica Médica & Cirúrgica",
+  "totalPoints": 1000,
+  "estimatedMinutes": 210,
+  "instructions": [
+    "Esta é uma prova INTEGRADA: as questões não estão separadas por matéria. Cada caso clínico cobra disciplinas diferentes ao mesmo tempo.",
+    "A prova vale 1000 pontos. Há dois tipos de questão: objetivas de múltipla escolha (5 alternativas, 1 correta, 20 pontos) e discursivas (25 pontos, com pontuação parcial por etapa).",
+    "Cada caso traz história, evolução, exame físico e exames complementares com valores de referência. A interpretação do texto faz parte da avaliação.",
+    "Você pode navegar entre os casos e revisar antes de enviar. O cronômetro fica visível durante toda a prova.",
+    "Ao final, você preenche Nome completo e RA e confirma o envio. Depois disso, cada questão mostra Feedback, Justificativa e Referência bibliográfica.",
+    "Para discursivas, após enviar você verá o gabarito modelo e fará auto-avaliação por rubrica (marca quais itens acertou; o sistema soma os pontos).",
+    "Não é permitida consulta a materiais externos."
+  ],
+  "cases": [
+    {
+      "id": "caso-A",
+      "title": "Caso A — Diabética descompensada com pielonefrite obstrutiva e AKI",
+      "disciplines": ["endocrinologia", "infectologia", "nefrologia", "urologia", "farmacologia"],
+      "needsReview": false,
+      "patient": {
+        "age": 58,
+        "sex": "F",
+        "context": "DM2 há 12 anos em uso irregular de metformina e glibenclamida. HAS, dislipidemia. Obesidade grau I.",
+        "complaint": "Febre, dor lombar à direita e mal-estar há 3 dias."
+      },
+      "history": "Procura PS por febre de 39 °C iniciada há 3 dias, associada a dor lombar direita em cólica intermitente, disúria, polaciúria, náuseas e dois episódios de vômito. Refere ainda redução do volume urinário nas últimas 24h. Glicemia capilar em casa nos últimos dias entre 280–340 mg/dL. Última HbA1c (4 meses atrás): 9,8%. Suspendeu metformina por conta própria há 1 semana por 'dor de estômago'.",
+      "evolution": "À chegada no PS: prostrada, taquipneica, hipotensa, com Giordano positivo à direita. Diurese horária <0,5 mL/kg/h nas primeiras 6h de observação.",
+      "physicalExam": {
+        "vitals": "PA 92/58 mmHg · FC 118 bpm · FR 26 irpm · T 38,9 °C · SpO₂ 95% em ar ambiente · TEC 4s · glicemia capilar 318 mg/dL",
+        "findings": "REG, descorada 1+/4+, hipohidratada 2+/4+. Pulmões limpos. Bulhas taquicárdicas, sem sopros. Abdome flácido, dor à palpação em flanco direito, Giordano positivo à direita. MMII sem edema. Glasgow 15."
+      },
+      "labs": [
+        { "name": "Glicemia", "value": "318 mg/dL", "refRange": "70–99 (jejum)", "abnormal": true },
+        { "name": "HbA1c", "value": "10,2%", "refRange": "<5,7%", "abnormal": true },
+        { "name": "Leucócitos", "value": "19.400/mm³ (12% bastões)", "refRange": "4.000–10.000", "abnormal": true },
+        { "name": "Creatinina sérica", "value": "2,1 mg/dL", "refRange": "0,6–1,2 (basal da paciente: 1,3)", "abnormal": true },
+        { "name": "Ureia", "value": "92 mg/dL", "refRange": "10–50", "abnormal": true },
+        { "name": "PCR", "value": "188 mg/L", "refRange": "<5", "abnormal": true },
+        { "name": "Lactato arterial", "value": "3,8 mmol/L", "refRange": "<2", "abnormal": true },
+        { "name": "Gasometria arterial", "value": "pH 7,31 · HCO₃⁻ 17 · pCO₂ 32 · BE −7", "refRange": "pH 7,35–7,45", "abnormal": true },
+        { "name": "Sódio / Potássio", "value": "Na 134 / K 5,2", "refRange": "Na 135–145 / K 3,5–5,0" },
+        { "name": "Urina 1", "value": "Piúria intensa, nitrito +, leuco-esterase +, proteinúria 1+, glicosúria 4+", "abnormal": true },
+        { "name": "Urocultura", "value": "Pendente (coletada antes do ATB)" },
+        { "name": "Hemocultura", "value": "Pendente (2 pares)" }
+      ],
+      "imaging": "USG de vias urinárias à beira-leito: hidronefrose moderada à direita, cálculo de ~1,2 cm em junção ureteropélvica direita com dilatação ureteral proximal.",
+      "questions": [
+        {
+          "id": "A-q1",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": ["infectologia", "nefrologia", "urologia"],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Gabarito correto e seguro; distratores plausíveis sem segunda resposta defensável. Feedback ajustado: qSOFA é triagem (Sepsis-3), sepse sustentada por disfunção orgânica (lactato, AKI, hipotensão).",
+          "prompt": "Considerando o quadro clínico, laboratorial e de imagem, qual é a hipótese diagnóstica MAIS provável?",
+          "options": [
+            "Cistite não complicada em paciente diabética",
+            "Pielonefrite aguda não complicada à direita",
+            "Cólica renal não-complicada por litíase em junção ureteropélvica",
+            "Urossepse complicada por obstrução litiásica e AKI em paciente DM",
+            "Necrose papilar isolada por DM descompensado"
+          ],
+          "correctIndex": 3,
+          "feedback": "A paciente tem sepse de foco urinário: foco comprovado (clínica + Urina 1) com DISFUNÇÃO ORGÂNICA real (lactato 3,8, AKI, hipotensão = aumento do SOFA), na presença de obstrução litiásica documentada e DM descompensado. O qSOFA alterado (FR ≥ 22 + PAS ≤ 100) é apenas sinalizador de triagem à beira-leito — desde o Sepsis-3/SSC 2021 ele NÃO é critério diagnóstico isolado. Não é pielonefrite não complicada nem cistite — há obstrução, AKI, sepse e comorbidade descompensada.",
+          "justification": "Urossepse complicada exige TRÊS elementos presentes neste caso: (1) foco urinário comprovado, (2) repercussão sistêmica (qSOFA, hipotensão, lactato > 2), (3) fator complicador (obstrução + DM + AKI). Por isso difere de pielonefrite simples — que tem febre e Giordano, mas sem repercussão sistêmica nem fator complicador.",
+          "references": [
+            { "work": "Surviving Sepsis Campaign — International Guidelines", "year": 2021, "chapter": "Initial Resuscitation" },
+            { "work": "Veronesi-Focaccia Tratado de Infectologia", "edition": "6ª ed", "publisher": "Atheneu", "year": 2020, "chapter": "Infecções urinárias" },
+            { "work": "Aula ITU UNINOVE 5º M", "professor": "Mariana B. Pereira", "sourcePdf": "Infecção Urinária 2026" }
+          ]
+        },
+        {
+          "id": "A-q2",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": ["infectologia", "emergência"],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Hour-1 bundle correto; a ordem volume → vasopressor é o ponto bem cobrado. Distratores educativos (aguardar cultura, inverter ordem, VO ambulatorial, TC antes de tudo).",
+          "prompt": "Sobre a conduta na PRIMEIRA HORA segundo o pacote da Surviving Sepsis Campaign, qual sequência é a MAIS adequada?",
+          "options": [
+            "Aguardar urocultura antes de iniciar antibiótico, evitando uso empírico",
+            "Coletar hemoculturas pareadas, dosar lactato, iniciar antibiótico empírico amplo e ressuscitar com 30 mL/kg de cristaloide",
+            "Iniciar noradrenalina antes da ressuscitação volêmica para garantir PAM ≥ 65",
+            "Iniciar antibiótico VO ambulatorial e reavaliar em 24h",
+            "Realizar TC com contraste antes de qualquer outra conduta para confirmar pielonefrite enfisematosa"
+          ],
+          "correctIndex": 1,
+          "feedback": "O bundle da 1ª hora (Hour-1 bundle) inclui: medir lactato, coletar hemoculturas ANTES do ATB, iniciar ATB de amplo espectro, ressuscitar com 30 mL/kg de cristaloide se hipotensão/lactato ≥ 4, e iniciar vasopressor SE persistir hipotensão APÓS volume.",
+          "justification": "Em sepse com hipotensão (PAM < 65) ou lactato > 2, a ressuscitação volêmica precede o vasopressor. ATB nunca deve ser adiado por exame de imagem. TC contrastada pode piorar a AKI já instalada e não muda a conduta inicial.",
+          "references": [
+            { "work": "Surviving Sepsis Campaign 2021 — Hour-1 Bundle", "year": 2021 },
+            { "work": "Goldman-Cecil Medicina", "edition": "26ª ed", "publisher": "Elsevier", "year": 2020, "chapter": "Sepse e choque séptico" }
+          ]
+        },
+        {
+          "id": "A-q3",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": ["infectologia", "farmacologia"],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Ajuste aplicado: distrator oral (cefalexina) trocado por ceftriaxona EV para a questão discriminar ESPECTRO e não só via; feedback relativiza pip-tazo vs carbapenêmico (este igualmente defensável em choque, mas não listado).",
+          "prompt": "Qual é a melhor escolha de ANTIBIÓTICO empírico INTRAVENOSO para esta paciente até o resultado da urocultura?",
+          "options": [
+            "Nitrofurantoína 100 mg VO 6/6h por 5 dias",
+            "Sulfametoxazol-trimetoprima VO 12/12h por 7 dias",
+            "Ceftriaxona 2 g EV 1×/dia",
+            "Piperacilina-tazobactam 4,5 g EV 6/6h",
+            "Ciprofloxacino 400 mg EV 12/12h"
+          ],
+          "correctIndex": 3,
+          "feedback": "ITU complicada com sepse, obstrução e disfunção renal exige espectro amplo. Entre as opções listadas, piperacilina-tazobactam é a mais adequada — em choque séptico com risco de MDR, um carbapenêmico é igualmente (ou mais) defensável, mas não está entre as alternativas. Ceftriaxona cobre boa parte das Enterobacteriaceae, mas NÃO cobre Pseudomonas nem ESBL — é o erro 'por um detalhe' de espectro. Nitrofurantoína NÃO atinge nível tecidual/parenquimatoso renal (serve só para cistite). Quinolonas estão sendo evitadas no Brasil pela alta resistência da E. coli urinária e risco em DM.",
+          "justification": "A escolha respeita: (1) gravidade (EV, amplo espectro com cobertura de Pseudomonas/ESBL), (2) penetração renal/tecidual, (3) padrão local de resistência, (4) comorbidade (DM e AKI contraindicam aminoglicosídeo isolado e quinolona). Ceftriaxona seria adequada para pielonefrite não complicada, mas é insuficiente diante do risco de germes resistentes nesta paciente grave.",
+          "references": [
+            { "work": "Aula ITU UNINOVE 5º M", "professor": "Mariana B. Pereira" },
+            { "work": "Mandell, Douglas, and Bennett's Principles and Practice of Infectious Diseases", "edition": "9ª ed", "publisher": "Elsevier", "year": 2020, "chapter": "Urinary Tract Infections" },
+            { "work": "Diretriz SBI — Infecção Urinária Complicada", "year": 2023 }
+          ]
+        },
+        {
+          "id": "A-q4",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": ["endocrinologia", "farmacologia"],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Suspender ADO + insulina correto. Confirmado: metformina contraindicada em AKI/sepse (acidose láctica), iSGLT2 → cetoacidose euglicêmica no agudo, sulfonilureia com risco de hipoglicemia grave. Meta intra-hospitalar 140–180 compatível com o gatilho >180.",
+          "prompt": "Sobre o manejo do controle glicêmico nas próximas horas, qual conduta é a CORRETA?",
+          "options": [
+            "Manter metformina e adicionar dapagliflozina pela proteção cardiorrenal",
+            "Suspender todos os antidiabéticos orais e iniciar insulina, preferencialmente regular EV em bomba se glicemia > 180 mg/dL com monitorização capilar 1/1h",
+            "Manter glibenclamida em dose plena para evitar cetoacidose",
+            "Iniciar liraglutida subcutânea para controle agudo da glicemia",
+            "Acrescentar pioglitazona para reduzir resistência insulínica imediatamente"
+          ],
+          "correctIndex": 1,
+          "feedback": "Em paciente séptica, com AKI e instabilidade hemodinâmica, todos os antidiabéticos orais devem ser suspensos. Metformina é CONTRAINDICADA em AKI/sepse pelo risco de acidose láctica. iSGLT2 é CONTRAINDICADO em AKI/sepse pelo risco de cetoacidose euglicêmica. O controle agudo é feito com insulina (preferência por bomba EV de regular ou esquema de cobertura subcutânea, conforme protocolo institucional).",
+          "justification": "A regra de ouro em paciente internado/sepse/AKI é: 'paciente grave = insulina'. Os ADO ficam suspensos até estabilização, função renal recuperada e via oral confiável.",
+          "references": [
+            { "work": "Aula Diabetes Mellitus UNINOVE 5º M", "professor": "Prof. Matheus Salgado / Profa. Luciana Brito / Profa. Adriana Bosco" },
+            { "work": "Diretrizes da Sociedade Brasileira de Diabetes", "year": 2024, "chapter": "Manejo intra-hospitalar" },
+            { "work": "Standards of Medical Care in Diabetes (ADA)", "year": 2024 }
+          ]
+        },
+        {
+          "id": "A-q5",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": ["nefrologia"],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Ajuste OBRIGATÓRIO aplicado: dado de diurese do caso corrigido de <0,3 (em 2h) para <0,5 mL/kg/h (em 6h), eliminando a ambiguidade KDIGO — antes o aluno que dominava o critério de débito urinário podia marcar estágio 3 com fundamento. Agora todos os critérios (Cr e DU) convergem para estágio 1.",
+          "prompt": "Considerando a creatinina basal de 1,3 mg/dL e atual de 2,1 mg/dL, em que ESTÁGIO de lesão renal aguda (KDIGO) a paciente se encontra?",
+          "options": [
+            "Sem critérios para AKI",
+            "AKI estágio 1",
+            "AKI estágio 2",
+            "AKI estágio 3",
+            "DRC estágio 3a (sem AKI)"
+          ],
+          "correctIndex": 1,
+          "feedback": "KDIGO 2012: AKI estágio 1 = aumento de Cr ≥ 0,3 mg/dL em 48h OU aumento de 1,5–1,9× basal em 7 dias OU débito urinário < 0,5 mL/kg/h por 6–12h. A paciente teve aumento de 0,8 mg/dL (≥ 0,3), relação 2,1/1,3 = 1,62× (faixa 1,5–1,9) e diurese <0,5 mL/kg/h por 6h — todos compatíveis com estágio 1. O critério de estágio 3 por débito urinário exigiria <0,3 mL/kg/h por ≥ 24h OU anúria ≥ 12h, ainda NÃO preenchidos; por isso a função renal e a diurese devem ser reavaliadas seriadamente.",
+          "justification": "O reconhecimento precoce do estágio define agressividade da expansão volêmica, ajuste de doses e necessidade de avaliação para terapia substitutiva.",
+          "references": [
+            { "work": "KDIGO Clinical Practice Guideline for Acute Kidney Injury", "year": 2012 },
+            { "work": "Aula Avaliação da função renal e DRC UNINOVE 5º M", "sourcePdf": "Avaliacao_da_funo_renal_e_DRC" }
+          ]
+        },
+        {
+          "id": "A-q6",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": ["urologia", "infectologia", "emergência"],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Trinômio drenagem + ATB + suporte correto; ponto de ouro (sepse de foco obstruído não resolve sem desobstrução) bem cobrado. Rubrica soma 25 com maior peso na drenagem — calibragem adequada.",
+          "prompt": "Considerando a obstrução litiásica documentada na USG e o quadro de sepse, descreva TRÊS condutas que devem ser tomadas ainda na sala de emergência. Justifique cada uma em uma frase.",
+          "expectedAnswer": "1) Drenagem urgente da via excretora (cateter duplo-J por endoscopia OU nefrostomia percutânea), porque sepse de foco obstruído NÃO se resolve sem desobstrução — antibiótico isolado pode levar a deterioração rápida e choque refratário. 2) Antibioticoterapia empírica de amplo espectro (piperacilina-tazobactam ou carbapenêmico) após coleta de hemoculturas pareadas e urocultura, idealmente na primeira hora, pra reduzir mortalidade. 3) Ressuscitação volêmica com 30 mL/kg de cristaloide nas primeiras 3h e monitorização contínua de lactato/PA/diurese, com reavaliação para uso de noradrenalina se PAM < 65 após o volume.",
+          "rubric": [
+            { "criterion": "Cita drenagem urológica urgente (DJ ou nefrostomia percutânea) e justifica que sepse obstrutiva não se resolve sem desobstrução", "points": 10 },
+            { "criterion": "Cita ATB empírico amplo (pip-tazo ou carbapenêmico) após culturas, dentro da 1ª hora", "points": 8 },
+            { "criterion": "Cita ressuscitação volêmica (30 mL/kg cristaloide) e monitorização hemodinâmica/lactato", "points": 7 }
+          ],
+          "feedback": "A pegadinha clássica nesta integrada: lembrar que ATB isolado NÃO resolve foco obstruído. Sem drenagem da via excretora, a paciente piora apesar do antibiótico. A urologia precisa ser acionada no PS.",
+          "justification": "É o trinômio clássico de urossepse com obstrução: drenagem + ATB + suporte. A ordem prática costuma ser: cultura → ATB → volume → drenagem o quanto antes (idealmente nas primeiras horas).",
+          "references": [
+            { "work": "Surviving Sepsis Campaign", "year": 2021 },
+            { "work": "Aula Litíase Urinária UNINOVE 5º M", "sourcePdf": "LITÍASE URINÁRIA 2025" },
+            { "work": "EAU Guidelines on Urological Infections", "year": 2024 }
+          ]
+        },
+        {
+          "id": "A-q7",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": ["endocrinologia", "infectologia", "fisiopatologia"],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Três mecanismos (glicosúria/substrato, disfunção de neutrófilos, bexiga neurogênica/estase) corretos e bem fundamentados. Rubrica objetiva, soma 25. Integração fisiopatologia + endócrino + infecto genuína.",
+          "prompt": "Explique TRÊS mecanismos pelos quais o Diabetes Mellitus mal controlado predispõe a infecção urinária complicada e progressão para urossepse.",
+          "expectedAnswer": "1) Hiperglicemia e glicosúria criam meio rico em substrato pra crescimento bacteriano no trato urinário, facilitando colonização por E. coli e outros uropatógenos. 2) Disfunção imune do DM compromete função de neutrófilos (quimiotaxia, fagocitose, burst oxidativo) e da imunidade adaptativa, prolongando e agravando a infecção. 3) Neuropatia autonômica diabética causa bexiga neurogênica com resíduo pós-miccional elevado, criando estase urinária e nicho pra proliferação bacteriana ascendente.",
+          "rubric": [
+            { "criterion": "Cita glicosúria/hiperglicemia favorecendo crescimento bacteriano", "points": 8 },
+            { "criterion": "Cita disfunção imune do DM (neutrófilos / imunidade adaptativa)", "points": 8 },
+            { "criterion": "Cita bexiga neurogênica / resíduo pós-miccional / neuropatia autonômica", "points": 9 }
+          ],
+          "feedback": "São os três pilares fisiopatológicos que ligam DM a infecções graves. Outros mecanismos válidos: microangiopatia renal predispondo a necrose papilar, alteração da microbiota perineal, comprometimento da barreira mucosa.",
+          "justification": "Compreender estes mecanismos justifica o tratamento mais agressivo (ATB EV de amplo espectro, internação, drenagem precoce) em ITU de paciente diabético.",
+          "references": [
+            { "work": "Aula Diabetes Mellitus UNINOVE 5º M", "professor": "Salgado / Brito / Bosco" },
+            { "work": "Aula ITU UNINOVE 5º M", "professor": "Mariana B. Pereira" },
+            { "work": "Harrison's Principles of Internal Medicine", "edition": "21ª ed", "publisher": "McGraw-Hill", "year": 2022, "chapter": "Complications of Diabetes Mellitus" }
+          ]
+        },
+        {
+          "id": "A-q8",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": ["endocrinologia", "farmacologia", "nefrologia"],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Ajuste aplicado: feedback suavizado — GLP-1 e iSGLT2 são complementares (sem superioridade categórica de um sobre o outro). Pontos de corte de metformina por TFGe corretos; coerência com A-q4 mantida (iSGLT2 só APÓS resolução da AKI, condição pontuada na rubrica).",
+          "prompt": "Após estabilização clínica e resolução da AKI, qual seria sua estratégia farmacológica de LONGO PRAZO para o controle glicêmico desta paciente? Justifique as escolhas considerando o perfil: obesidade grau I, alto risco cardiovascular e DRC estágio G3a esperado.",
+          "expectedAnswer": "1) Reintroduzir metformina como base do tratamento, ajustando dose à TFGe (dose plena se TFGe ≥ 45; reduzir 50% entre 30–45; suspender se < 30). 2) Adicionar análogo de GLP-1 (semaglutida 1,0 mg SC/semana ou liraglutida 1,8 mg/dia) pelo benefício de redução de eventos cardiovasculares maiores, perda ponderal significativa e segurança renal. 3) Adicionar inibidor de SGLT2 (dapagliflozina 10 mg/dia ou empagliflozina 10 mg/dia) APÓS resolução completa da AKI, pelo duplo benefício cardiorrenal (redução de progressão da DRC e de hospitalizações por IC). Meta de HbA1c ~ 7%, individualizada.",
+          "rubric": [
+            { "criterion": "Metformina como base com ajuste por TFGe (citar pontos de corte 45 e 30)", "points": 8 },
+            { "criterion": "Análogo GLP-1 (semaglutida/liraglutida) por proteção CV e perda de peso", "points": 8 },
+            { "criterion": "iSGLT2 (dapagli/empagliflozina) APÓS resolução da AKI, com proteção cardiorrenal", "points": 9 }
+          ],
+          "feedback": "Esta tripla (metformina + GLP-1 + iSGLT2) é o esquema preferencial atual em DM2 com alto RCV/DRC. iSGLT2 é diferencial: protege rim e reduz hospitalização por IC mesmo SEM controle glicêmico ótimo. GLP-1 e iSGLT2 são COMPLEMENTARES — GLP-1 tende a maior perda de peso e benefício em doença aterosclerótica, iSGLT2 maior proteção renal e em IC; a escolha (ou associação) se individualiza pelo perfil, não há superioridade categórica de um sobre o outro.",
+          "justification": "A SBD 2024 e o ADA 2024 elegeram GLP-1 e iSGLT2 como classes preferenciais em DM2 com aterosclerose / IC / DRC, INDEPENDENTEMENTE do nível de HbA1c. Isto é mudança de paradigma vs guidelines de 2015.",
+          "references": [
+            { "work": "Diretrizes da Sociedade Brasileira de Diabetes", "year": 2024 },
+            { "work": "Standards of Medical Care in Diabetes (ADA)", "year": 2024, "chapter": "Pharmacologic Approaches to Glycemic Treatment" },
+            { "work": "Aula Diabetes Mellitus UNINOVE 5º M", "professor": "Salgado / Brito / Bosco" },
+            { "work": "KDIGO Clinical Practice Guideline for Diabetes Management in CKD", "year": 2022 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caso-B",
+      "title": "Caso B — Homem 65a com HPB, ITU recorrente e disfunção renal",
+      "disciplines": ["urologia", "infectologia", "nefrologia"],
+      "needsReview": true,
+      "patient": {
+        "age": 65,
+        "sex": "M",
+        "context": "STUB — caso em construção. Aguardando validação do Prof. Sênior antes de finalizar.",
+        "complaint": "STUB"
+      },
+      "history": "Este caso ainda não foi finalizado. Vai integrar HPB (Sem 1), ITU complicada (Sem 1) e antibioticoterapia em paciente com DRC (Sem 2 — Antibióticos / Sem 1 — função renal).",
+      "physicalExam": { "vitals": "STUB", "findings": "STUB" },
+      "questions": []
+    },
+    {
+      "id": "caso-C",
+      "title": "Caso C — Câncer de próstata metastático em tratamento",
+      "disciplines": ["urologia", "oncologia", "endocrinologia", "farmacologia"],
+      "needsReview": true,
+      "patient": { "age": 72, "sex": "M", "context": "STUB — aguardando finalização.", "complaint": "STUB" },
+      "history": "Vai integrar: câncer de próstata (Sem 1), antineoplásicos (Sem 2), bloqueio androgênico, dor óssea, paratireoide/cálcio (Sem 1).",
+      "physicalExam": { "vitals": "STUB", "findings": "STUB" },
+      "questions": []
+    },
+    {
+      "id": "caso-D",
+      "title": "Caso D — Hipertireoidismo com fibrilação atrial e IC",
+      "disciplines": ["endocrinologia", "cardiologia", "farmacologia"],
+      "needsReview": true,
+      "patient": { "age": 48, "sex": "F", "context": "STUB — aguardando finalização.", "complaint": "STUB" },
+      "history": "Vai integrar: doenças da tireoide (Sem 1), insuficiência cardíaca + anti-hipertensivos + anticoagulação (Sem 2).",
+      "physicalExam": { "vitals": "STUB", "findings": "STUB" },
+      "questions": []
+    },
+    {
+      "id": "caso-E",
+      "title": "Caso E — Cefaleia + HAS resistente → feocromocitoma",
+      "disciplines": ["neurologia", "endocrinologia", "cardiologia", "farmacologia"],
+      "needsReview": true,
+      "patient": { "age": 42, "sex": "F", "context": "STUB — aguardando finalização.", "complaint": "STUB" },
+      "history": "Vai integrar: cefaleias (Sem 1), adrenal/feocromocitoma (Sem 1), HAS + anti-hipertensivos (Sem 2).",
+      "physicalExam": { "vitals": "STUB", "findings": "STUB" },
+      "questions": []
+    },
+    {
+      "id": "caso-F",
+      "title": "Caso F — Síndrome nefrótica com complicação cardiovascular",
+      "disciplines": ["nefrologia", "cardiologia", "farmacologia"],
+      "needsReview": true,
+      "patient": { "age": 55, "sex": "M", "context": "STUB — aguardando finalização.", "complaint": "STUB" },
+      "history": "Vai integrar: glomerulopatias + DRC (Sem 1), IC + anti-hipertensivos (Sem 2).",
+      "physicalExam": { "vitals": "STUB", "findings": "STUB" },
+      "questions": []
+    }
+  ]
+}
