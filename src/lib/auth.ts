@@ -17,6 +17,8 @@ import { clearUserCustomData, hydrateCoursesFromCloud, hydrateSessionsFromCloud 
 import { hydrateSrsFromCloud } from './srs';
 import { hydrateStudyPlanFromCloud } from './studyPlan';
 import type { UserProfile } from '../types';
+import { isAdminEmail } from './admin';
+import { recordSignupRequest, recordAccess } from './access';
 
 export const USER_CHANGE_EVENT = 'guava:user-change';
 const ALLOWED_EMAILS_ENV = (import.meta.env.VITE_ALLOWED_EMAILS ?? '').toString();
@@ -58,9 +60,13 @@ async function fetchProfile(uid: string): Promise<UserProfile | null> {
   const snap = await getDoc(userDocRef(uid));
   if (!snap.exists()) return null;
   const data = snap.data();
+  const email = (data.email ?? '').toString();
+  const explicitRole = data.role === 'admin' ? 'admin' : data.role === 'user' ? 'user' : undefined;
+  // Self-heal: e-mail admin sempre lê como role=admin mesmo se o doc ainda não foi atualizado.
+  const role: 'admin' | 'user' | undefined = isAdminEmail(email) ? 'admin' : explicitRole;
   return {
     uid,
-    email: data.email,
+    email,
     name: data.name,
     displayMode: data.displayMode ?? 'namorado',
     // Backward-compat: usuários existentes sem track ficam em 'medicina'
@@ -68,7 +74,32 @@ async function fetchProfile(uid: string): Promise<UserProfile | null> {
     dailyGoal: typeof data.dailyGoal === 'number' ? data.dailyGoal : undefined,
     partnerName: typeof data.partnerName === 'string' ? data.partnerName : undefined,
     createdAt: typeof data.createdAt === 'number' ? data.createdAt : Date.now(),
+    // Grandfathering: docs antigos sem `status` ficam undefined aqui — admin/lib/effectiveStatus
+    // trata ausência como 'approved'. Novos cadastros gravam 'pending' explicitamente.
+    status:
+      data.status === 'pending' || data.status === 'approved' || data.status === 'blocked'
+        ? data.status
+        : undefined,
+    role,
+    approvedAt: typeof data.approvedAt === 'number' ? data.approvedAt : undefined,
+    approvedBy: typeof data.approvedBy === 'string' ? data.approvedBy : undefined,
   };
+}
+
+/**
+ * Self-heal pro admin: se o usuário logou e o e-mail está na lista de admins,
+ * garante role='admin' + status='approved' no doc. Idempotente.
+ */
+async function ensureAdminFields(profile: UserProfile): Promise<UserProfile> {
+  if (!isAdminEmail(profile.email)) return profile;
+  const needsRole = profile.role !== 'admin';
+  const needsStatus = profile.status !== 'approved';
+  if (!needsRole && !needsStatus) return profile;
+  await updateDoc(userDocRef(profile.uid), {
+    ...(needsRole ? { role: 'admin' } : {}),
+    ...(needsStatus ? { status: 'approved' } : {}),
+  });
+  return { ...profile, role: 'admin', status: 'approved' };
 }
 
 async function ensureProfile(
@@ -78,13 +109,21 @@ async function ensureProfile(
 ): Promise<UserProfile> {
   const existing = await fetchProfile(fbUser.uid);
   if (existing) return existing;
+  const email = (fbUser.email ?? '').toLowerCase();
+  const isAdmin = isAdminEmail(email);
+  // Quando o doc não existe mas o usuário Auth já existe, dois casos:
+  //   1. Admin logando pela primeira vez — entra como approved.
+  //   2. Usuária antiga cujo doc sumiu — vamos por seguranção tratar como approved
+  //      (grandfathering). Cadastros novos passam pelo `signUp` e gravam pending lá.
   const profile: UserProfile = {
     uid: fbUser.uid,
-    email: (fbUser.email ?? '').toLowerCase(),
+    email,
     name: fallbackName?.trim() || fbUser.displayName || fbUser.email?.split('@')[0] || 'doutora',
     displayMode: 'namorado',
     track: fallbackTrack,
     createdAt: Date.now(),
+    status: 'approved',
+    role: isAdmin ? 'admin' : 'user',
   };
   await setDoc(userDocRef(fbUser.uid), {
     ...profile,
@@ -122,7 +161,12 @@ export async function signIn({ email, password }: AuthInput): Promise<AuthResult
   if (!password) return { ok: false, error: 'Digita sua senha.' };
   try {
     const cred = await signInWithEmailAndPassword(firebaseAuth, cleanEmail, password);
-    const profile = await ensureProfile(cred.user);
+    const profile = await ensureAdminFields(await ensureProfile(cred.user));
+    try {
+      await recordAccess({ uid: profile.uid, email: profile.email, kind: 'signin' });
+    } catch (err) {
+      console.warn('[auth] recordAccess(signin) falhou:', err);
+    }
     emitChange();
     return { ok: true, user: profile };
   } catch (e) {
@@ -150,6 +194,10 @@ export async function signUp({ email, password, name, track }: AuthInput): Promi
   }
   try {
     const cred = await createUserWithEmailAndPassword(firebaseAuth, cleanEmail, password);
+    const isAdmin = isAdminEmail(cleanEmail);
+    // Admin nasce já liberado. Qualquer outra usuária cai em 'pending' e fica presa
+    // na tela de aguardar liberação até o admin aprovar com código.
+    const initialStatus: 'pending' | 'approved' = isAdmin ? 'approved' : 'pending';
     await setDoc(
       userDocRef(cred.user.uid),
       {
@@ -160,9 +208,30 @@ export async function signUp({ email, password, name, track }: AuthInput): Promi
         track: safeTrack,
         createdAt: Date.now(),
         createdAtServer: serverTimestamp(),
+        status: initialStatus,
+        role: isAdmin ? 'admin' : 'user',
       },
       { merge: true },
     );
+    // Cria a solicitação só pra não-admin — admin entra direto.
+    if (!isAdmin) {
+      try {
+        await recordSignupRequest({
+          uid: cred.user.uid,
+          email: cleanEmail,
+          name: cleanName,
+        });
+      } catch (err) {
+        // Falha de telemetria não deve quebrar o cadastro — log e segue.
+        console.warn('[auth] recordSignupRequest falhou:', err);
+      }
+    } else {
+      try {
+        await recordAccess({ uid: cred.user.uid, email: cleanEmail, kind: 'signup' });
+      } catch (err) {
+        console.warn('[auth] recordAccess(signup admin) falhou:', err);
+      }
+    }
     const profile = (await fetchProfile(cred.user.uid)) ?? {
       uid: cred.user.uid,
       email: cleanEmail,
@@ -170,6 +239,8 @@ export async function signUp({ email, password, name, track }: AuthInput): Promi
       displayMode: 'namorado',
       track: safeTrack,
       createdAt: Date.now(),
+      status: initialStatus,
+      role: isAdmin ? ('admin' as const) : ('user' as const),
     };
     emitChange();
     return { ok: true, user: profile };
@@ -224,7 +295,7 @@ export function onAuthChange(callback: (user: UserProfile | null) => void) {
       hydratedFor = null;
     }
     lastUid = fbUser.uid;
-    const profile = await ensureProfile(fbUser);
+    const profile = await ensureAdminFields(await ensureProfile(fbUser));
     callback(profile);
     void hydrateUserData(fbUser.uid, profile.track ?? 'medicina');
   });

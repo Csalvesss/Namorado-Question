@@ -1,11 +1,13 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { logout } from '../lib/auth';
 import { useUser } from '../lib/useUser';
+import { isAdmin as isAdminUser } from '../lib/admin';
 
 export default function Header() {
   const navigate = useNavigate();
   const { user, refresh } = useUser();
   const showBilhetes = user?.displayMode !== 'doutora';
+  const showAdmin = isAdminUser(user);
 
   function handleLogout() {
     logout();
@@ -36,8 +38,10 @@ export default function Header() {
             <NavItem to="/revisar">Revisar</NavItem>
             {showBilhetes && <NavItem to="/bilhetes">Bilhetes</NavItem>}
             <NavItem to="/historico">Histórico</NavItem>
+            <NavItem to="/prova-integrada">Prova Integrada</NavItem>
             <NavItem to="/autor">Autor</NavItem>
             <NavItem to="/perfil">Perfil</NavItem>
+            {showAdmin && <NavItem to="/admin">Admin</NavItem>}
           </nav>
         )}
         <div className="flex shrink-0 items-center gap-2">
@@ -64,8 +68,10 @@ export default function Header() {
           <NavItem to="/revisar">Revisar</NavItem>
           {showBilhetes && <NavItem to="/bilhetes">Bilhetes</NavItem>}
           <NavItem to="/historico">Histórico</NavItem>
+          <NavItem to="/prova-integrada">Prova Integrada</NavItem>
           <NavItem to="/autor">Autor</NavItem>
           <NavItem to="/perfil">Perfil</NavItem>
+          {showAdmin && <NavItem to="/admin">Admin</NavItem>}
         </nav>
       )}
     </header>

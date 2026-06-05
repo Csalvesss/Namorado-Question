@@ -57,6 +57,13 @@ export default function Login() {
         console.error('falha ao atualizar trilha pós-login:', err);
       }
     }
+    // Se a conta acabou de ser criada (ou ainda não foi liberada), manda direto
+    // pra tela de aguardando — RequireAuth também faria isso, mas evita um flash.
+    const status = result.user.status;
+    if (status === 'pending' || status === 'blocked') {
+      navigate('/aguardando', { replace: true });
+      return;
+    }
     const from = (location.state as { from?: string } | null)?.from ?? '/app';
     navigate(from, { replace: true });
   }

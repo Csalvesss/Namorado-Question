@@ -1,0 +1,2540 @@
+{
+  "id": "prova-integrada-v1",
+  "version": "v1.0.0-draft",
+  "title": "Prova Integrada — Medicina UNINOVE",
+  "subtitle": "Integração 5º M — Clínica Médica & Cirúrgica",
+  "totalPoints": 1000,
+  "estimatedMinutes": 210,
+  "instructions": [
+    "Esta é uma prova INTEGRADA: as questões não estão separadas por matéria. Cada caso clínico cobra disciplinas diferentes ao mesmo tempo.",
+    "A prova vale 1000 pontos. Há dois tipos de questão: objetivas de múltipla escolha (5 alternativas, 1 correta, 20 pontos) e discursivas (25 pontos, com pontuação parcial por etapa).",
+    "Cada caso traz história, evolução, exame físico e exames complementares com valores de referência. A interpretação do texto faz parte da avaliação.",
+    "Você pode navegar entre os casos e revisar antes de enviar. O cronômetro fica visível durante toda a prova.",
+    "Ao final, você preenche Nome completo e RA e confirma o envio. Depois disso, cada questão mostra Feedback, Justificativa e Referência bibliográfica.",
+    "Para discursivas, após enviar você verá o gabarito modelo e fará auto-avaliação por rubrica (marca quais itens acertou; o sistema soma os pontos).",
+    "Não é permitida consulta a materiais externos."
+  ],
+  "cases": [
+    {
+      "id": "caso-A",
+      "title": "Caso A — Diabética descompensada com pielonefrite obstrutiva e AKI",
+      "disciplines": [
+        "endocrinologia",
+        "infectologia",
+        "nefrologia",
+        "urologia",
+        "farmacologia"
+      ],
+      "needsReview": false,
+      "patient": {
+        "age": 58,
+        "sex": "F",
+        "context": "DM2 há 12 anos em uso irregular de metformina e glibenclamida. HAS, dislipidemia. Obesidade grau I.",
+        "complaint": "Febre, dor lombar à direita e mal-estar há 3 dias."
+      },
+      "history": "Procura PS por febre de 39 °C iniciada há 3 dias, associada a dor lombar direita em cólica intermitente, disúria, polaciúria, náuseas e dois episódios de vômito. Refere ainda redução do volume urinário nas últimas 24h. Glicemia capilar em casa nos últimos dias entre 280–340 mg/dL. Última HbA1c (4 meses atrás): 9,8%. Suspendeu metformina por conta própria há 1 semana por 'dor de estômago'.",
+      "evolution": "À chegada no PS: prostrada, taquipneica, hipotensa, com Giordano positivo à direita. Diurese horária <0,5 mL/kg/h nas primeiras 6h de observação.",
+      "physicalExam": {
+        "vitals": "PA 92/58 mmHg · FC 118 bpm · FR 26 irpm · T 38,9 °C · SpO₂ 95% em ar ambiente · TEC 4s · glicemia capilar 318 mg/dL",
+        "findings": "REG, descorada 1+/4+, hipohidratada 2+/4+. Pulmões limpos. Bulhas taquicárdicas, sem sopros. Abdome flácido, dor à palpação em flanco direito, Giordano positivo à direita. MMII sem edema. Glasgow 15."
+      },
+      "labs": [
+        {
+          "name": "Glicemia",
+          "value": "318 mg/dL",
+          "refRange": "70–99 (jejum)",
+          "abnormal": true
+        },
+        {
+          "name": "HbA1c",
+          "value": "10,2%",
+          "refRange": "<5,7%",
+          "abnormal": true
+        },
+        {
+          "name": "Leucócitos",
+          "value": "19.400/mm³ (12% bastões)",
+          "refRange": "4.000–10.000",
+          "abnormal": true
+        },
+        {
+          "name": "Creatinina sérica",
+          "value": "2,1 mg/dL",
+          "refRange": "0,6–1,2 (basal da paciente: 1,3)",
+          "abnormal": true
+        },
+        {
+          "name": "Ureia",
+          "value": "92 mg/dL",
+          "refRange": "10–50",
+          "abnormal": true
+        },
+        {
+          "name": "PCR",
+          "value": "188 mg/L",
+          "refRange": "<5",
+          "abnormal": true
+        },
+        {
+          "name": "Lactato arterial",
+          "value": "3,8 mmol/L",
+          "refRange": "<2",
+          "abnormal": true
+        },
+        {
+          "name": "Gasometria arterial",
+          "value": "pH 7,31 · HCO₃⁻ 17 · pCO₂ 32 · BE −7",
+          "refRange": "pH 7,35–7,45",
+          "abnormal": true
+        },
+        {
+          "name": "Sódio / Potássio",
+          "value": "Na 134 / K 5,2",
+          "refRange": "Na 135–145 / K 3,5–5,0"
+        },
+        {
+          "name": "Urina 1",
+          "value": "Piúria intensa, nitrito +, leuco-esterase +, proteinúria 1+, glicosúria 4+",
+          "abnormal": true
+        },
+        {
+          "name": "Urocultura",
+          "value": "Pendente (coletada antes do ATB)"
+        },
+        {
+          "name": "Hemocultura",
+          "value": "Pendente (2 pares)"
+        }
+      ],
+      "imaging": "USG de vias urinárias à beira-leito: hidronefrose moderada à direita, cálculo de ~1,2 cm em junção ureteropélvica direita com dilatação ureteral proximal.",
+      "questions": [
+        {
+          "id": "A-q1",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "infectologia",
+            "nefrologia",
+            "urologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Gabarito correto e seguro; distratores plausíveis sem segunda resposta defensável. Feedback ajustado: qSOFA é triagem (Sepsis-3), sepse sustentada por disfunção orgânica (lactato, AKI, hipotensão).",
+          "prompt": "Considerando o quadro clínico, laboratorial e de imagem, qual é a hipótese diagnóstica MAIS provável?",
+          "options": [
+            "Cistite não complicada em paciente diabética",
+            "Pielonefrite aguda não complicada à direita",
+            "Cólica renal não-complicada por litíase em junção ureteropélvica",
+            "Urossepse complicada por obstrução litiásica e AKI em paciente DM",
+            "Necrose papilar isolada por DM descompensado"
+          ],
+          "correctIndex": 3,
+          "feedback": "A paciente tem sepse de foco urinário: foco comprovado (clínica + Urina 1) com DISFUNÇÃO ORGÂNICA real (lactato 3,8, AKI, hipotensão = aumento do SOFA), na presença de obstrução litiásica documentada e DM descompensado. O qSOFA alterado (FR ≥ 22 + PAS ≤ 100) é apenas sinalizador de triagem à beira-leito — desde o Sepsis-3/SSC 2021 ele NÃO é critério diagnóstico isolado. Não é pielonefrite não complicada nem cistite — há obstrução, AKI, sepse e comorbidade descompensada.",
+          "justification": "Urossepse complicada exige TRÊS elementos presentes neste caso: (1) foco urinário comprovado, (2) repercussão sistêmica (qSOFA, hipotensão, lactato > 2), (3) fator complicador (obstrução + DM + AKI). Por isso difere de pielonefrite simples — que tem febre e Giordano, mas sem repercussão sistêmica nem fator complicador.",
+          "references": [
+            {
+              "work": "Surviving Sepsis Campaign — International Guidelines",
+              "year": 2021,
+              "chapter": "Initial Resuscitation"
+            },
+            {
+              "work": "Veronesi-Focaccia Tratado de Infectologia",
+              "edition": "6ª ed",
+              "publisher": "Atheneu",
+              "year": 2020,
+              "chapter": "Infecções urinárias"
+            },
+            {
+              "work": "Aula ITU UNINOVE 5º M",
+              "professor": "Mariana B. Pereira",
+              "sourcePdf": "Infecção Urinária 2026"
+            }
+          ]
+        },
+        {
+          "id": "A-q2",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "infectologia",
+            "emergência"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Hour-1 bundle correto; a ordem volume → vasopressor é o ponto bem cobrado. Distratores educativos (aguardar cultura, inverter ordem, VO ambulatorial, TC antes de tudo).",
+          "prompt": "Sobre a conduta na PRIMEIRA HORA segundo o pacote da Surviving Sepsis Campaign, qual sequência é a MAIS adequada?",
+          "options": [
+            "Aguardar urocultura antes de iniciar antibiótico, evitando uso empírico",
+            "Coletar hemoculturas pareadas, dosar lactato, iniciar antibiótico empírico amplo e ressuscitar com 30 mL/kg de cristaloide",
+            "Iniciar noradrenalina antes da ressuscitação volêmica para garantir PAM ≥ 65",
+            "Iniciar antibiótico VO ambulatorial e reavaliar em 24h",
+            "Realizar TC com contraste antes de qualquer outra conduta para confirmar pielonefrite enfisematosa"
+          ],
+          "correctIndex": 1,
+          "feedback": "O bundle da 1ª hora (Hour-1 bundle) inclui: medir lactato, coletar hemoculturas ANTES do ATB, iniciar ATB de amplo espectro, ressuscitar com 30 mL/kg de cristaloide se hipotensão/lactato ≥ 4, e iniciar vasopressor SE persistir hipotensão APÓS volume.",
+          "justification": "Em sepse com hipotensão (PAM < 65) ou lactato > 2, a ressuscitação volêmica precede o vasopressor. ATB nunca deve ser adiado por exame de imagem. TC contrastada pode piorar a AKI já instalada e não muda a conduta inicial.",
+          "references": [
+            {
+              "work": "Surviving Sepsis Campaign 2021 — Hour-1 Bundle",
+              "year": 2021
+            },
+            {
+              "work": "Goldman-Cecil Medicina",
+              "edition": "26ª ed",
+              "publisher": "Elsevier",
+              "year": 2020,
+              "chapter": "Sepse e choque séptico"
+            }
+          ]
+        },
+        {
+          "id": "A-q3",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "infectologia",
+            "farmacologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Ajuste aplicado: distrator oral (cefalexina) trocado por ceftriaxona EV para a questão discriminar ESPECTRO e não só via; feedback relativiza pip-tazo vs carbapenêmico (este igualmente defensável em choque, mas não listado).",
+          "prompt": "Qual é a melhor escolha de ANTIBIÓTICO empírico INTRAVENOSO para esta paciente até o resultado da urocultura?",
+          "options": [
+            "Nitrofurantoína 100 mg VO 6/6h por 5 dias",
+            "Sulfametoxazol-trimetoprima VO 12/12h por 7 dias",
+            "Ceftriaxona 2 g EV 1×/dia",
+            "Piperacilina-tazobactam 4,5 g EV 6/6h",
+            "Ciprofloxacino 400 mg EV 12/12h"
+          ],
+          "correctIndex": 3,
+          "feedback": "ITU complicada com sepse, obstrução e disfunção renal exige espectro amplo. Entre as opções listadas, piperacilina-tazobactam é a mais adequada — em choque séptico com risco de MDR, um carbapenêmico é igualmente (ou mais) defensável, mas não está entre as alternativas. Ceftriaxona cobre boa parte das Enterobacteriaceae, mas NÃO cobre Pseudomonas nem ESBL — é o erro 'por um detalhe' de espectro. Nitrofurantoína NÃO atinge nível tecidual/parenquimatoso renal (serve só para cistite). Quinolonas estão sendo evitadas no Brasil pela alta resistência da E. coli urinária e risco em DM.",
+          "justification": "A escolha respeita: (1) gravidade (EV, amplo espectro com cobertura de Pseudomonas/ESBL), (2) penetração renal/tecidual, (3) padrão local de resistência, (4) comorbidade (DM e AKI contraindicam aminoglicosídeo isolado e quinolona). Ceftriaxona seria adequada para pielonefrite não complicada, mas é insuficiente diante do risco de germes resistentes nesta paciente grave.",
+          "references": [
+            {
+              "work": "Aula ITU UNINOVE 5º M",
+              "professor": "Mariana B. Pereira"
+            },
+            {
+              "work": "Mandell, Douglas, and Bennett's Principles and Practice of Infectious Diseases",
+              "edition": "9ª ed",
+              "publisher": "Elsevier",
+              "year": 2020,
+              "chapter": "Urinary Tract Infections"
+            },
+            {
+              "work": "Diretriz SBI — Infecção Urinária Complicada",
+              "year": 2023
+            }
+          ]
+        },
+        {
+          "id": "A-q4",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "endocrinologia",
+            "farmacologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Suspender ADO + insulina correto. Confirmado: metformina contraindicada em AKI/sepse (acidose láctica), iSGLT2 → cetoacidose euglicêmica no agudo, sulfonilureia com risco de hipoglicemia grave. Meta intra-hospitalar 140–180 compatível com o gatilho >180.",
+          "prompt": "Sobre o manejo do controle glicêmico nas próximas horas, qual conduta é a CORRETA?",
+          "options": [
+            "Manter metformina e adicionar dapagliflozina pela proteção cardiorrenal",
+            "Suspender todos os antidiabéticos orais e iniciar insulina, preferencialmente regular EV em bomba se glicemia > 180 mg/dL com monitorização capilar 1/1h",
+            "Manter glibenclamida em dose plena para evitar cetoacidose",
+            "Iniciar liraglutida subcutânea para controle agudo da glicemia",
+            "Acrescentar pioglitazona para reduzir resistência insulínica imediatamente"
+          ],
+          "correctIndex": 1,
+          "feedback": "Em paciente séptica, com AKI e instabilidade hemodinâmica, todos os antidiabéticos orais devem ser suspensos. Metformina é CONTRAINDICADA em AKI/sepse pelo risco de acidose láctica. iSGLT2 é CONTRAINDICADO em AKI/sepse pelo risco de cetoacidose euglicêmica. O controle agudo é feito com insulina (preferência por bomba EV de regular ou esquema de cobertura subcutânea, conforme protocolo institucional).",
+          "justification": "A regra de ouro em paciente internado/sepse/AKI é: 'paciente grave = insulina'. Os ADO ficam suspensos até estabilização, função renal recuperada e via oral confiável.",
+          "references": [
+            {
+              "work": "Aula Diabetes Mellitus UNINOVE 5º M",
+              "professor": "Prof. Matheus Salgado / Profa. Luciana Brito / Profa. Adriana Bosco"
+            },
+            {
+              "work": "Diretrizes da Sociedade Brasileira de Diabetes",
+              "year": 2024,
+              "chapter": "Manejo intra-hospitalar"
+            },
+            {
+              "work": "Standards of Medical Care in Diabetes (ADA)",
+              "year": 2024
+            }
+          ]
+        },
+        {
+          "id": "A-q5",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "nefrologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Ajuste OBRIGATÓRIO aplicado: dado de diurese do caso corrigido de <0,3 (em 2h) para <0,5 mL/kg/h (em 6h), eliminando a ambiguidade KDIGO — antes o aluno que dominava o critério de débito urinário podia marcar estágio 3 com fundamento. Agora todos os critérios (Cr e DU) convergem para estágio 1.",
+          "prompt": "Considerando a creatinina basal de 1,3 mg/dL e atual de 2,1 mg/dL, em que ESTÁGIO de lesão renal aguda (KDIGO) a paciente se encontra?",
+          "options": [
+            "Sem critérios para AKI",
+            "AKI estágio 1",
+            "AKI estágio 2",
+            "AKI estágio 3",
+            "DRC estágio 3a (sem AKI)"
+          ],
+          "correctIndex": 1,
+          "feedback": "KDIGO 2012: AKI estágio 1 = aumento de Cr ≥ 0,3 mg/dL em 48h OU aumento de 1,5–1,9× basal em 7 dias OU débito urinário < 0,5 mL/kg/h por 6–12h. A paciente teve aumento de 0,8 mg/dL (≥ 0,3), relação 2,1/1,3 = 1,62× (faixa 1,5–1,9) e diurese <0,5 mL/kg/h por 6h — todos compatíveis com estágio 1. O critério de estágio 3 por débito urinário exigiria <0,3 mL/kg/h por ≥ 24h OU anúria ≥ 12h, ainda NÃO preenchidos; por isso a função renal e a diurese devem ser reavaliadas seriadamente.",
+          "justification": "O reconhecimento precoce do estágio define agressividade da expansão volêmica, ajuste de doses e necessidade de avaliação para terapia substitutiva.",
+          "references": [
+            {
+              "work": "KDIGO Clinical Practice Guideline for Acute Kidney Injury",
+              "year": 2012
+            },
+            {
+              "work": "Aula Avaliação da função renal e DRC UNINOVE 5º M",
+              "sourcePdf": "Avaliacao_da_funo_renal_e_DRC"
+            }
+          ]
+        },
+        {
+          "id": "A-q6",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "urologia",
+            "infectologia",
+            "emergência"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Trinômio drenagem + ATB + suporte correto; ponto de ouro (sepse de foco obstruído não resolve sem desobstrução) bem cobrado. Rubrica soma 25 com maior peso na drenagem — calibragem adequada.",
+          "prompt": "Considerando a obstrução litiásica documentada na USG e o quadro de sepse, descreva TRÊS condutas que devem ser tomadas ainda na sala de emergência. Justifique cada uma em uma frase.",
+          "expectedAnswer": "1) Drenagem urgente da via excretora (cateter duplo-J por endoscopia OU nefrostomia percutânea), porque sepse de foco obstruído NÃO se resolve sem desobstrução — antibiótico isolado pode levar a deterioração rápida e choque refratário. 2) Antibioticoterapia empírica de amplo espectro (piperacilina-tazobactam ou carbapenêmico) após coleta de hemoculturas pareadas e urocultura, idealmente na primeira hora, pra reduzir mortalidade. 3) Ressuscitação volêmica com 30 mL/kg de cristaloide nas primeiras 3h e monitorização contínua de lactato/PA/diurese, com reavaliação para uso de noradrenalina se PAM < 65 após o volume.",
+          "rubric": [
+            {
+              "criterion": "Cita drenagem urológica urgente (DJ ou nefrostomia percutânea) e justifica que sepse obstrutiva não se resolve sem desobstrução",
+              "points": 10
+            },
+            {
+              "criterion": "Cita ATB empírico amplo (pip-tazo ou carbapenêmico) após culturas, dentro da 1ª hora",
+              "points": 8
+            },
+            {
+              "criterion": "Cita ressuscitação volêmica (30 mL/kg cristaloide) e monitorização hemodinâmica/lactato",
+              "points": 7
+            }
+          ],
+          "feedback": "A pegadinha clássica nesta integrada: lembrar que ATB isolado NÃO resolve foco obstruído. Sem drenagem da via excretora, a paciente piora apesar do antibiótico. A urologia precisa ser acionada no PS.",
+          "justification": "É o trinômio clássico de urossepse com obstrução: drenagem + ATB + suporte. A ordem prática costuma ser: cultura → ATB → volume → drenagem o quanto antes (idealmente nas primeiras horas).",
+          "references": [
+            {
+              "work": "Surviving Sepsis Campaign",
+              "year": 2021
+            },
+            {
+              "work": "Aula Litíase Urinária UNINOVE 5º M",
+              "sourcePdf": "LITÍASE URINÁRIA 2025"
+            },
+            {
+              "work": "EAU Guidelines on Urological Infections",
+              "year": 2024
+            }
+          ]
+        },
+        {
+          "id": "A-q7",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "endocrinologia",
+            "infectologia",
+            "fisiopatologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Três mecanismos (glicosúria/substrato, disfunção de neutrófilos, bexiga neurogênica/estase) corretos e bem fundamentados. Rubrica objetiva, soma 25. Integração fisiopatologia + endócrino + infecto genuína.",
+          "prompt": "Explique TRÊS mecanismos pelos quais o Diabetes Mellitus mal controlado predispõe a infecção urinária complicada e progressão para urossepse.",
+          "expectedAnswer": "1) Hiperglicemia e glicosúria criam meio rico em substrato pra crescimento bacteriano no trato urinário, facilitando colonização por E. coli e outros uropatógenos. 2) Disfunção imune do DM compromete função de neutrófilos (quimiotaxia, fagocitose, burst oxidativo) e da imunidade adaptativa, prolongando e agravando a infecção. 3) Neuropatia autonômica diabética causa bexiga neurogênica com resíduo pós-miccional elevado, criando estase urinária e nicho pra proliferação bacteriana ascendente.",
+          "rubric": [
+            {
+              "criterion": "Cita glicosúria/hiperglicemia favorecendo crescimento bacteriano",
+              "points": 8
+            },
+            {
+              "criterion": "Cita disfunção imune do DM (neutrófilos / imunidade adaptativa)",
+              "points": 8
+            },
+            {
+              "criterion": "Cita bexiga neurogênica / resíduo pós-miccional / neuropatia autonômica",
+              "points": 9
+            }
+          ],
+          "feedback": "São os três pilares fisiopatológicos que ligam DM a infecções graves. Outros mecanismos válidos: microangiopatia renal predispondo a necrose papilar, alteração da microbiota perineal, comprometimento da barreira mucosa.",
+          "justification": "Compreender estes mecanismos justifica o tratamento mais agressivo (ATB EV de amplo espectro, internação, drenagem precoce) em ITU de paciente diabético.",
+          "references": [
+            {
+              "work": "Aula Diabetes Mellitus UNINOVE 5º M",
+              "professor": "Salgado / Brito / Bosco"
+            },
+            {
+              "work": "Aula ITU UNINOVE 5º M",
+              "professor": "Mariana B. Pereira"
+            },
+            {
+              "work": "Harrison's Principles of Internal Medicine",
+              "edition": "21ª ed",
+              "publisher": "McGraw-Hill",
+              "year": 2022,
+              "chapter": "Complications of Diabetes Mellitus"
+            }
+          ]
+        },
+        {
+          "id": "A-q8",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "endocrinologia",
+            "farmacologia",
+            "nefrologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Ajuste aplicado: feedback suavizado — GLP-1 e iSGLT2 são complementares (sem superioridade categórica de um sobre o outro). Pontos de corte de metformina por TFGe corretos; coerência com A-q4 mantida (iSGLT2 só APÓS resolução da AKI, condição pontuada na rubrica).",
+          "prompt": "Após estabilização clínica e resolução da AKI, qual seria sua estratégia farmacológica de LONGO PRAZO para o controle glicêmico desta paciente? Justifique as escolhas considerando o perfil: obesidade grau I, alto risco cardiovascular e DRC estágio G3a esperado.",
+          "expectedAnswer": "1) Reintroduzir metformina como base do tratamento, ajustando dose à TFGe (dose plena se TFGe ≥ 45; reduzir 50% entre 30–45; suspender se < 30). 2) Adicionar análogo de GLP-1 (semaglutida 1,0 mg SC/semana ou liraglutida 1,8 mg/dia) pelo benefício de redução de eventos cardiovasculares maiores, perda ponderal significativa e segurança renal. 3) Adicionar inibidor de SGLT2 (dapagliflozina 10 mg/dia ou empagliflozina 10 mg/dia) APÓS resolução completa da AKI, pelo duplo benefício cardiorrenal (redução de progressão da DRC e de hospitalizações por IC). Meta de HbA1c ~ 7%, individualizada.",
+          "rubric": [
+            {
+              "criterion": "Metformina como base com ajuste por TFGe (citar pontos de corte 45 e 30)",
+              "points": 8
+            },
+            {
+              "criterion": "Análogo GLP-1 (semaglutida/liraglutida) por proteção CV e perda de peso",
+              "points": 8
+            },
+            {
+              "criterion": "iSGLT2 (dapagli/empagliflozina) APÓS resolução da AKI, com proteção cardiorrenal",
+              "points": 9
+            }
+          ],
+          "feedback": "Esta tripla (metformina + GLP-1 + iSGLT2) é o esquema preferencial atual em DM2 com alto RCV/DRC. iSGLT2 é diferencial: protege rim e reduz hospitalização por IC mesmo SEM controle glicêmico ótimo. GLP-1 e iSGLT2 são COMPLEMENTARES — GLP-1 tende a maior perda de peso e benefício em doença aterosclerótica, iSGLT2 maior proteção renal e em IC; a escolha (ou associação) se individualiza pelo perfil, não há superioridade categórica de um sobre o outro.",
+          "justification": "A SBD 2024 e o ADA 2024 elegeram GLP-1 e iSGLT2 como classes preferenciais em DM2 com aterosclerose / IC / DRC, INDEPENDENTEMENTE do nível de HbA1c. Isto é mudança de paradigma vs guidelines de 2015.",
+          "references": [
+            {
+              "work": "Diretrizes da Sociedade Brasileira de Diabetes",
+              "year": 2024
+            },
+            {
+              "work": "Standards of Medical Care in Diabetes (ADA)",
+              "year": 2024,
+              "chapter": "Pharmacologic Approaches to Glycemic Treatment"
+            },
+            {
+              "work": "Aula Diabetes Mellitus UNINOVE 5º M",
+              "professor": "Salgado / Brito / Bosco"
+            },
+            {
+              "work": "KDIGO Clinical Practice Guideline for Diabetes Management in CKD",
+              "year": 2022
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caso-B",
+      "title": "Caso B — Homem 68a com HPB obstrutiva, ITU complicada por ESBL e piora da DRC",
+      "disciplines": [
+        "urologia",
+        "infectologia",
+        "nefrologia",
+        "farmacologia"
+      ],
+      "needsReview": false,
+      "patient": {
+        "age": 68,
+        "sex": "M",
+        "context": "HPB sintomática há 6 anos em uso irregular de tansulosina; HAS controlada com losartana; DRC G3b conhecida (creatinina basal 1,8 mg/dL, TFGe ~38 mL/min/1,73m²). Três episódios de ITU sintomática nos últimos 12 meses (E. coli e Klebsiella).",
+        "complaint": "Febre, disúria, dor lombar bilateral e diminuição importante do jato urinário há 4 dias."
+      },
+      "history": "Procura PS com febre 38,5 °C, calafrios, disúria, polaciúria e jato muito fraco há 4 dias, com sensação de esvaziamento incompleto e gotejamento terminal. Refere noctúria 4x/noite há meses. No último mês precisou suspender por conta própria a tansulosina (\"deu tontura\"). Sem alergia conhecida a antibióticos. Já usou nas ITUs anteriores ceftriaxona EV e ciprofloxacino VO.",
+      "evolution": "Mantém débito urinário arrastado, com sensação contínua de retenção e abaulamento suprapúbico.",
+      "physicalExam": {
+        "vitals": "PA 138/86 mmHg · FC 96 bpm · FR 20 irpm · T 38,5 °C · SpO₂ 97% AA",
+        "findings": "REG, hidratado. Abdome flácido com globo vesical palpável e doloroso até cicatriz umbilical. Giordano positivo bilateral, mais intenso à direita. Toque retal: próstata fibroelástica, aumentada (~90g estimadas), sem nódulos, indolor."
+      },
+      "labs": [
+        {
+          "name": "Creatinina sérica",
+          "value": "2,8 mg/dL",
+          "refRange": "0,6–1,2 (basal do paciente: 1,8)",
+          "abnormal": true
+        },
+        {
+          "name": "Ureia",
+          "value": "118 mg/dL",
+          "refRange": "10–50",
+          "abnormal": true
+        },
+        {
+          "name": "TFGe (CKD-EPI)",
+          "value": "~24 mL/min/1,73m²",
+          "refRange": ">60",
+          "abnormal": true
+        },
+        {
+          "name": "Potássio",
+          "value": "5,4 mEq/L",
+          "refRange": "3,5–5,0",
+          "abnormal": true
+        },
+        {
+          "name": "Leucócitos",
+          "value": "17.200/mm³ (10% bastões)",
+          "refRange": "4.000–10.000",
+          "abnormal": true
+        },
+        {
+          "name": "PCR",
+          "value": "146 mg/L",
+          "refRange": "<5",
+          "abnormal": true
+        },
+        {
+          "name": "PSA total",
+          "value": "8,4 ng/mL",
+          "refRange": "Idade-ajustada (61–70): <4,5",
+          "abnormal": true
+        },
+        {
+          "name": "Urina 1",
+          "value": "Piúria intensa, nitrito +, proteinúria 1+, hemácias 30/campo",
+          "abnormal": true
+        },
+        {
+          "name": "Urocultura prévia (último mês)",
+          "value": "Klebsiella pneumoniae ESBL: R a ceftriaxona, cipro, SMX-TMP; S a meropenem, ertapenem, amicacina, fosfomicina urinária",
+          "abnormal": true
+        },
+        {
+          "name": "Hemocultura",
+          "value": "Coletada (pendente)"
+        }
+      ],
+      "imaging": "USG vias urinárias: próstata 92 g, resíduo pós-miccional 410 mL, paredes vesicais espessadas com trabeculação e divertículos; hidronefrose moderada bilateral (mais à direita).",
+      "questions": [
+        {
+          "id": "B-q1",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "urologia",
+            "infectologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Qual é a HIPÓTESE DIAGNÓSTICA mais provável para o quadro?",
+          "options": [
+            "Cistite bacteriana não complicada em paciente idoso",
+            "Pielonefrite aguda complicada em paciente com HPB obstrutiva e DRC, com agravamento agudo da função renal por obstrução infravesical",
+            "Cólica nefrética bilateral simultânea por nefrolitíase",
+            "Carcinoma prostático localmente avançado com obstrução",
+            "Bacteriúria assintomática em paciente diabético"
+          ],
+          "correctIndex": 1,
+          "feedback": "O quadro reúne TRÊS componentes: (1) infecção do trato urinário ALTA (febre, Giordano bilateral, leucocitose, PCR alta, piúria) — não é cistite isolada; (2) obstrução infravesical por HPB (jato fraco, RP 410 mL, globo vesical, hidronefrose bilateral, próstata 92 g); (3) lesão renal aguda (Cr 1,8→2,8) somando-se à DRC G3b já existente. O conjunto define pielonefrite COMPLICADA por obstrução em paciente com DRC.",
+          "justification": "A combinação obstrução + ITU + DRC obriga TRÊS condutas paralelas: ATB empírico amplo e ajustado à TFGe, ALÍVIO MECÂNICO da obstrução (SVD ou cistostomia) e avaliação urológica para tratamento definitivo da HPB. Bacteriúria assintomática se exclui pela febre + repercussão sistêmica.",
+          "references": [
+            {
+              "work": "Aula HPB UNINOVE 5º M",
+              "professor": "Prof. Plínio Moreira de Góes"
+            },
+            {
+              "work": "Aula ITU UNINOVE 5º M",
+              "professor": "Mariana B. Pereira"
+            },
+            {
+              "work": "EAU Guidelines on Urological Infections",
+              "year": 2024
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Pielonefrite complicada bem caracterizada; distratores plausíveis; bacteriúria assintomática é a pegadinha clássica."
+        },
+        {
+          "id": "B-q2",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "urologia",
+            "emergência"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Qual é a CONDUTA IMEDIATA na chegada ao PS, antes mesmo do resultado da urocultura?",
+          "options": [
+            "Iniciar antibiótico oral, prescrever AINE para a febre e liberar pra casa com reavaliação em 48h",
+            "Solicitar tomografia com contraste para confirmar pielonefrite enfisematosa antes de qualquer outra conduta",
+            "Aliviar a obstrução (passagem de sonda vesical de demora ou cistostomia se SVD impossível), coletar urocultura e hemoculturas, dosar lactato e iniciar antibiótico EV empírico amplo",
+            "Iniciar diurético de alça em altas doses pra forçar diurese e \"lavar\" a infecção",
+            "Indicar prostatectomia aberta de urgência na mesma internação"
+          ],
+          "correctIndex": 2,
+          "feedback": "Obstrução com foco infeccioso quente NÃO se resolve sem desobstrução. O alívio mecânico (SVD; se impossível por próstata muito volumosa, cistostomia suprapúbica) é parte do tratamento — junto com ATB EV e culturas. TC com contraste pioraria a AKI e não muda a conduta imediata. Diurético em paciente com retenção e AKI obstrutiva é erro grave (piora a sobrecarga e não vence a obstrução).",
+          "justification": "A regra prática é: 'infecção obstrutiva = drenar + tratar'. Para HPB, a drenagem é uretral (SVD); para obstrução litiásica seria DJ/nefrostomia (vide Caso A).",
+          "references": [
+            {
+              "work": "Aula HPB UNINOVE 5º M",
+              "professor": "Prof. Plínio Moreira de Góes"
+            },
+            {
+              "work": "Surviving Sepsis Campaign 2021 — Hour-1 Bundle"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "\"Drenar + tratar\" como regra de ouro em ITU obstrutiva; ATB EV empírico amplo na 1ª hora; AKI contraindica TC com contraste eletivo."
+        },
+        {
+          "id": "B-q3",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "infectologia",
+            "farmacologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Considerando o ANTIBIOGRAMA da urocultura prévia (Klebsiella ESBL: R ceftriaxona/cipro/SMX-TMP; S meropenem/ertapenem/amicacina/fosfomicina urinária), qual é a melhor escolha empírica EV para tratar a pielonefrite atual?",
+          "options": [
+            "Ceftriaxona 2 g EV 1×/dia — cobre Enterobacteriaceae habituais",
+            "Ciprofloxacino 400 mg EV 12/12h — boa penetração renal",
+            "Nitrofurantoína 100 mg VO 6/6h — preferida em paciente com DRC",
+            "Ertapenem 1 g EV 1×/dia (ou meropenem 1 g EV 8/8h em quadro grave), com ajuste posterior pela TFGe",
+            "Fosfomicina trometamol 3 g VO dose única"
+          ],
+          "correctIndex": 3,
+          "feedback": "Paciente com ITU prévia documentada por germe ESBL multirresistente. O empírico deve cobrir ESBL — escolha de carbapenêmico. Ertapenem (1 g 1×/dia) é razoável em pielonefrite ESBL sem critério de choque ou Pseudomonas suspeita; meropenem é preferível se houver sinais de gravidade ou risco de Pseudomonas. Ceftriaxona e ciprofloxacino são RESISTENTES (antibiograma). Nitrofurantoína e fosfomicina NÃO atingem nível tecidual renal e são para CISTITE, não pielonefrite — além disso nitrofurantoína é CONTRAINDICADA com TFGe < 30 (risco de pneumonite + falha terapêutica).",
+          "justification": "Sempre que houver microbiologia prévia documentada, ela GUIA a escolha empírica subsequente. Ignorar o antibiograma anterior é dos erros mais comuns de prescrição em ITU recorrente.",
+          "references": [
+            {
+              "work": "Aula ITU UNINOVE 5º M",
+              "professor": "Mariana B. Pereira"
+            },
+            {
+              "work": "Mandell, Douglas, and Bennett's Principles and Practice of Infectious Diseases",
+              "edition": "9ª ed",
+              "publisher": "Elsevier",
+              "year": 2020
+            },
+            {
+              "work": "EAU Guidelines on Urological Infections — ESBL section",
+              "year": 2024
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Escolha de carbapenêmico para ESBL conhecida correta. Ajuste aplicado: feedback de ertapenem em pielonefrite sem choque vs meropenem em quadro grave."
+        },
+        {
+          "id": "B-q4",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "nefrologia",
+            "farmacologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "O paciente tem TFGe atual ~24 mL/min/1,73m². Qual ajuste farmacológico é o MAIS APROPRIADO neste momento?",
+          "options": [
+            "Manter losartana e iniciar nitrofurantoína conforme protocolo de ITU",
+            "Suspender losartana de imediato e adicionar diurético de alça em alta dose",
+            "Suspender NSAIDs/AINE (se em uso), reavaliar losartana (suspender temporariamente em AKI hipovolêmica/séptica), ajustar dose do carbapenêmico pela TFGe e EVITAR nefrotóxicos (aminoglicosídeo isolado, contraste iodado eletivo)",
+            "Manter todas as medicações atuais e apenas dobrar a hidratação venosa",
+            "Iniciar metformina para profilaxia cardiovascular"
+          ],
+          "correctIndex": 2,
+          "feedback": "Em AKI sobre DRC, três princípios: (1) suspender nefrotóxicos modificáveis (AINE, IECA/BRA em hipovolemia ou sepse — pelo menos temporariamente até resolver a AKI), (2) ajustar dose de drogas excretadas pelo rim — MEROPENEM: CrCl 26–50 → 1 g 12/12h; CrCl 10–25 → 500 mg 12/12h (1 g 12/12h só pode ser mantido em infecção grave/com Pseudomonas a critério clínico, com atenção ao risco de neurotoxicidade); ERTAPENEM: CrCl < 30 → 500 mg/dia. (3) Evitar acrescentar nefrotóxicos (contraste iodado eletivo, aminoglicosídeo em monoterapia prolongada). Nitrofurantoína em TFGe < 30 é contraindicada.",
+          "justification": "O ajuste medicamentoso pela TFGe é uma das competências centrais da clínica integrada. Errar dose de carbapenêmico em paciente nefropata aumenta toxicidade neurológica e o risco de superinfeção.",
+          "references": [
+            {
+              "work": "Aula Avaliação da função renal e DRC UNINOVE 5º M",
+              "sourcePdf": "Avaliacao_da_funo_renal_e_DRC"
+            },
+            {
+              "work": "KDIGO Clinical Practice Guideline for AKI",
+              "year": 2012
+            },
+            {
+              "work": "Goldman-Cecil Medicina",
+              "edition": "26ª ed",
+              "publisher": "Elsevier",
+              "year": 2020
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Ajuste OBRIGATÓRIO aplicado: meropenem em CrCl<25 → 500 mg 12/12h (1 g só em infecção grave a critério). Correção de segurança — evita neurotoxicidade."
+        },
+        {
+          "id": "B-q5",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "urologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Após resolução do quadro agudo, qual é a MELHOR INDICAÇÃO terapêutica para o tratamento DEFINITIVO da HPB deste paciente?",
+          "options": [
+            "Manter alfa-bloqueador + 5-alfa-redutase indefinidamente, sem indicação cirúrgica",
+            "Indicar tratamento cirúrgico — próstata >100 g estimada, ITU de repetição, retenção urinária e dilatação de vias excretoras configuram INDICAÇÃO ABSOLUTA. Considerar prostatectomia aberta/laparoscópica (ou enucleação com HoLEP) pelo volume",
+            "Manter SVD permanente como tratamento definitivo, com troca a cada 30 dias",
+            "Indicar antimicrobiano profilático contínuo por 12 meses sem cirurgia",
+            "Indicar radioterapia externa da próstata"
+          ],
+          "correctIndex": 1,
+          "feedback": "As indicações cirúrgicas absolutas em HPB são: (1) retenção urinária persistente, (2) alteração de função renal por obstrução, (3) dilatação de vias excretoras, (4) ITU de repetição, (5) hematúria persistente, (6) cálculo/divertículo vesical, (7) sintomas graves refratários. O paciente preenche pelo menos quatro. Como a próstata é >100 g, a RTUP padrão é tecnicamente difícil — opções são prostatectomia aberta/laparoscópica/robótica (transvesical) ou enucleação por HoLEP (laser).",
+          "justification": "A escolha entre técnicas considera volume prostático (RTUP até ~100 g; acima disso, enucleação ou cirurgia aberta) e disponibilidade local. PSA elevado (8,4) será reavaliado após resolução da inflamação — ITU, retenção e cateterismo aumentam PSA.",
+          "references": [
+            {
+              "work": "Aula HPB UNINOVE 5º M",
+              "professor": "Prof. Plínio Moreira de Góes",
+              "sourcePdf": "HPB 2025"
+            },
+            {
+              "work": "EAU Guidelines on Non-neurogenic Male LUTS",
+              "year": 2024
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Indicações cirúrgicas absolutas em HPB corretamente listadas; HoLEP/aberta/laparoscópica para próstata >80 g alinhado com EAU 2024."
+        },
+        {
+          "id": "B-q6",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "urologia",
+            "infectologia",
+            "fisiopatologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Explique TRÊS mecanismos fisiopatológicos pelos quais a HPB obstrutiva predispõe a ITU complicada e RECORRENTE neste paciente.",
+          "expectedAnswer": "1) Resíduo pós-miccional elevado → estase urinária crônica na bexiga e nas vias excretoras altas (hidronefrose por refluxo retrógrado pela hiperpressão vesical), criando meio de cultura constante para uropatógenos ascendentes. 2) Obstrução crônica → bexiga de esforço com trabeculação e divertículos vesicais; os divertículos são reservatórios de urina infectada não esvaziada que perpetuam a colonização e dificultam a erradicação bacteriana. 3) Cateterismos repetidos e uso prévio de antibióticos selecionam flora resistente (ESBL, multirresistente), facilitando recidiva por germes não cobertos por empíricos habituais e exigindo escolhas cada vez mais amplas.",
+          "rubric": [
+            {
+              "criterion": "Cita resíduo pós-miccional / estase urinária como meio de proliferação bacteriana",
+              "points": 8
+            },
+            {
+              "criterion": "Cita alteração anatômica vesical (trabeculação/divertículos) como reservatório de germes",
+              "points": 9
+            },
+            {
+              "criterion": "Cita seleção de flora resistente (ESBL) por cateterismo/ATB prévios",
+              "points": 8
+            }
+          ],
+          "feedback": "Outros mecanismos válidos: redução das defesas locais (uromodulina) com idade, deficiência estrogênica (não se aplica a homem) e alteração imune por DRC. Mas os três acima são os mais cobrados no contexto HPB + ITU recorrente.",
+          "justification": "Sem corrigir o componente OBSTRUTIVO, antibiótico isolado vira ciclo de recidiva → resistência crescente. É a razão pela qual a indicação cirúrgica passa a ser absoluta em ITU de repetição.",
+          "references": [
+            {
+              "work": "Aula HPB UNINOVE 5º M",
+              "professor": "Prof. Plínio Moreira de Góes"
+            },
+            {
+              "work": "Aula ITU UNINOVE 5º M",
+              "professor": "Mariana B. Pereira"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Três mecanismos fisiopatológicos (estase, divertículos, seleção de resistência) corretos e bem integrados."
+        },
+        {
+          "id": "B-q7",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "urologia",
+            "infectologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Cite e justifique CINCO INDICAÇÕES de tratamento cirúrgico da HPB segundo a aula de Urologia da UNINOVE.",
+          "expectedAnswer": "(1) Retenção urinária persistente — falha de esvaziamento mesmo com tratamento farmacológico otimizado; (2) Alteração de função renal por obstrução — risco de DRC progressiva; (3) Dilatação de vias excretoras (hidronefrose) — sinal de hiperpressão vesical retrógrada; (4) ITU de repetição — perpetuação por estase/divertículos, com risco crescente de resistência; (5) Hematúria persistente — risco de sangramento volumoso e exclusão de outras causas; (6) Cálculo ou divertículo vesical — complicação anatômica do esforço miccional crônico; (7) Sintomas graves/refratários ao tratamento clínico. O candidato precisa nominar 5 das 7.",
+          "rubric": [
+            {
+              "criterion": "1ª indicação nomeada corretamente + justificativa breve (3 pts nomeação + 2 pts justificativa)",
+              "points": 5
+            },
+            {
+              "criterion": "2ª indicação nomeada corretamente + justificativa breve (3 pts nomeação + 2 pts justificativa)",
+              "points": 5
+            },
+            {
+              "criterion": "3ª indicação nomeada corretamente + justificativa breve (3 pts nomeação + 2 pts justificativa)",
+              "points": 5
+            },
+            {
+              "criterion": "4ª indicação nomeada corretamente + justificativa breve (3 pts nomeação + 2 pts justificativa)",
+              "points": 5
+            },
+            {
+              "criterion": "5ª indicação nomeada corretamente + justificativa breve (3 pts nomeação + 2 pts justificativa)",
+              "points": 5
+            }
+          ],
+          "feedback": "Decorar essas indicações é um dos pontos de prova mais cobrados em integrada. As 7 indicações vêm direto da aula do Prof. Plínio e refletem prática urológica BR. Cada indicação vale 5 pts (3 pela nomeação correta + 2 pela justificativa breve); marcar 5 dos 7 itens fecha os 25 pontos.",
+          "justification": "Identificar QUEM precisa de cirurgia é o que separa a abordagem clínica eficaz da que apenas posterga complicações.",
+          "references": [
+            {
+              "work": "Aula HPB UNINOVE 5º M",
+              "professor": "Prof. Plínio Moreira de Góes",
+              "sourcePdf": "HPB 2025"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Rubrica REESTRUTURADA: 5 sub-itens explícitos de 5 pts cada (3 nomeação + 2 justificativa), objetivamente avaliáveis."
+        }
+      ]
+    },
+    {
+      "id": "caso-C",
+      "title": "Caso C — Câncer de próstata metastático com dor óssea e hipercalcemia",
+      "disciplines": [
+        "urologia",
+        "oncologia",
+        "endocrinologia",
+        "farmacologia"
+      ],
+      "needsReview": false,
+      "patient": {
+        "age": 72,
+        "sex": "M",
+        "context": "Aposentado, ex-tabagista, HAS controlada. Sem rastreio prostático prévio. Pai falecido por câncer de próstata aos 68 anos.",
+        "complaint": "Dor lombar progressiva há 4 meses, perda ponderal de 11 kg em 6 meses, jato urinário muito fraco e episódios de retenção."
+      },
+      "history": "Há 4 meses iniciou dor lombar contínua, em peso, com piora à mobilização, sem irradiação, refratária a paracetamol e dipirona. Há 2 meses passou a apresentar dor em quadril e fêmur direito. Refere perda ponderal involuntária de ~11 kg, fadiga importante, anorexia e constipação. Nas últimas semanas houve agravamento dos sintomas urinários obstrutivos com jato muito fraco e dois episódios de retenção urinária aguda manejados com SVD em PA.",
+      "evolution": "Chega ambulatorialmente com SVD, encaminhado pela UBS após exames alterados.",
+      "physicalExam": {
+        "vitals": "PA 128/78 mmHg · FC 92 bpm · FR 18 irpm · T 36,8 °C · SpO₂ 96% AA",
+        "findings": "Caquético (IMC 19,2), descorado 2+/4+. Dor à palpação profunda em coluna lombar e crista ilíaca direita. Toque retal: próstata pétrea, com nódulos endurecidos em ambos os lobos e perda de mobilidade, sulco mediano apagado. Sem sinais neurológicos focais."
+      },
+      "labs": [
+        {
+          "name": "PSA total",
+          "value": "418 ng/mL",
+          "refRange": "Idade-ajustada 61–70 a: <4,5",
+          "abnormal": true
+        },
+        {
+          "name": "Hemoglobina",
+          "value": "8,9 g/dL",
+          "refRange": "13,5–17,5",
+          "abnormal": true
+        },
+        {
+          "name": "Creatinina sérica",
+          "value": "1,6 mg/dL",
+          "refRange": "0,6–1,2",
+          "abnormal": true
+        },
+        {
+          "name": "Cálcio total / Cálcio iônico",
+          "value": "12,8 mg/dL / 6,7 mg/dL",
+          "refRange": "8,5–10,5 / 4,5–5,3",
+          "abnormal": true
+        },
+        {
+          "name": "Albumina",
+          "value": "3,1 g/dL",
+          "refRange": "3,5–5,2",
+          "abnormal": true
+        },
+        {
+          "name": "Fosfatase alcalina",
+          "value": "612 U/L",
+          "refRange": "40–129",
+          "abnormal": true
+        },
+        {
+          "name": "PTH intacto",
+          "value": "8 pg/mL (suprimido)",
+          "refRange": "15–65",
+          "abnormal": true
+        },
+        {
+          "name": "25-OH Vitamina D",
+          "value": "22 ng/mL",
+          "refRange": ">30"
+        },
+        {
+          "name": "PTHrP",
+          "value": "Pendente"
+        },
+        {
+          "name": "Biópsia transretal de próstata (12 fragmentos)",
+          "value": "Adenocarcinoma acinar, Gleason 9 (4+5), Grupo ISUP 5, em 11/12 fragmentos, com invasão perineural extensa",
+          "abnormal": true
+        }
+      ],
+      "imaging": "Cintilografia óssea (Tc-99m MDP): múltiplas captações hiperintensas em esqueleto axial (coluna torácica e lombar, sacro, bacia, fêmures proximais) — padrão de metástases blásticas difusas. RM de coluna: lesões em corpos vertebrais L2–L5 sem comprometimento medular. TC abdome/pelve: próstata aumentada, espessamento de vesículas seminais bilaterais, linfonodomegalia ilíaca interna direita (2,4 cm).",
+      "questions": [
+        {
+          "id": "C-q1",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "urologia",
+            "oncologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Considerando os achados, qual é o ESTADIAMENTO TNM mais provável (UICC/AJCC 8ª ed.)?",
+          "options": [
+            "T2c N0 M0 — doença localizada bilateral",
+            "T3b N1 M1b — extensão extracapsular com invasão de vesículas seminais, linfonodos regionais positivos e metástases ósseas",
+            "T1c N0 M0 — diagnóstico por biópsia, sem doença palpável",
+            "T4 N1 M1c — invasão de tecidos adjacentes, linfonodos não regionais e metástases não ósseas",
+            "T3a N0 M1a — extensão extracapsular, linfonodos não regionais"
+          ],
+          "correctIndex": 1,
+          "feedback": "TR: próstata pétrea com nódulos bilaterais → pelo menos T2c. Espessamento de vesículas seminais bilateral na TC → T3b (invasão de vesícula). Linfonodomegalia ilíaca interna (cadeia regional) → N1. Cintilografia óssea com captações ósseas difusas → M1b (metástases ósseas). T4 exigiria invasão de estruturas adjacentes (esfíncter, reto, bexiga); M1c exigiria metástases viscerais.",
+          "justification": "O reconhecimento do estágio M1b é crítico — define doença metastática óssea, modifica completamente a estratégia terapêutica (de curativa para sistêmica/paliativa) e dispara avaliações específicas (cálcio, alívio da dor, prevenção de eventos esqueléticos).",
+          "references": [
+            {
+              "work": "Aula Câncer de Próstata UNINOVE 5º M",
+              "professor": "Prof. Plínio Moreira de Góes"
+            },
+            {
+              "work": "AJCC Cancer Staging Manual",
+              "edition": "8ª ed",
+              "year": 2017
+            },
+            {
+              "work": "EAU Guidelines on Prostate Cancer",
+              "year": 2024
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "TNM T3b N1 M1b correto pela AJCC 8ª ed.; integração com Plinio Moreira de Góes."
+        },
+        {
+          "id": "C-q2",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "oncologia",
+            "farmacologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Qual é o TRATAMENTO SISTÊMICO inicial mais adequado para câncer de próstata metastático hormônio-sensível (mHSPC)?",
+          "options": [
+            "Prostatectomia radical seguida de radioterapia adjuvante",
+            "Cirurgia paliativa local (RTUP) isolada",
+            "Bloqueio androgênico (BA) — agonista de LHRH (gosserrelina/leuprolide) ou antagonista (degarelix), associado a INTENSIFICAÇÃO precoce com docetaxel ou inibidor da via androgênica de 2ª geração (abiraterona, enzalutamida, apalutamida)",
+            "Imunoterapia com inibidor de checkpoint (pembrolizumabe) em monoterapia",
+            "Quimioterapia com cisplatina + etoposídeo"
+          ],
+          "correctIndex": 2,
+          "feedback": "Em mHSPC, o padrão atual NÃO é mais bloqueio androgênico isolado — os estudos CHAARTED, STAMPEDE, LATITUDE, TITAN, ENZAMET, ARCHES, PEACE-1 estabeleceram intensificação precoce com docetaxel ou inibidores de 2ª geração (abiraterona/enzalutamida/apalutamida), com ganho significativo de sobrevida global. Cirurgia local não é indicação na doença metastática. Imunoterapia em monoterapia e cisplatina não fazem parte do esquema de 1ª linha em adenocarcinoma de próstata.",
+          "justification": "É o paradigma da última década em uro-oncologia: 'doublet/triplet therapy' (BA + docetaxel ± abiraterona) substituiu BA isolado em quase todos os mHSPC.",
+          "references": [
+            {
+              "work": "Aula Câncer de Próstata UNINOVE 5º M",
+              "professor": "Prof. Plínio Moreira de Góes"
+            },
+            {
+              "work": "Sweeney CJ et al. CHAARTED — NEJM 2015",
+              "year": 2015
+            },
+            {
+              "work": "Fizazi K et al. LATITUDE — NEJM 2017",
+              "year": 2017
+            },
+            {
+              "work": "EAU Guidelines on Prostate Cancer — mHSPC",
+              "year": 2024
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "mHSPC com intensificação (CHAARTED/STAMPEDE/LATITUDE/PEACE-1) confirmada. Ajuste: corrigido typo \"doublet/triplet therapy\"."
+        },
+        {
+          "id": "C-q3",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "farmacologia",
+            "endocrinologia"
+          ],
+          "semester": "sem2",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Sobre os AGONISTAS de LHRH (gosserrelina, leuprolide), qual é o mecanismo de ação que justifica a recomendação de associar um ANTIANDRÓGENO PERIFÉRICO (bicalutamida) nas primeiras 2–4 semanas?",
+          "options": [
+            "Agonistas de LHRH inibem diretamente a 5α-redutase prostática, sem efeito hipotalâmico",
+            "Agonistas de LHRH provocam SURTO inicial (\"flare\") de LH/FSH com aumento transitório da testosterona nos primeiros dias, podendo piorar a dor óssea, causar compressão medular e obstrução; o antiandrógeno bloqueia o receptor androgênico periférico nesse período crítico",
+            "Antiandrógenos periféricos potencializam diretamente a ação dos agonistas LHRH no hipotálamo",
+            "Antiandrógenos têm efeito anti-emético específico para QT com docetaxel",
+            "Antiandrógenos previnem hipercalcemia paraneoplásica diretamente"
+          ],
+          "correctIndex": 1,
+          "feedback": "Agonistas de LHRH, no início do uso, ESTIMULAM a hipófise antes de dessensibilizar — \"flare-up\" com pico de LH/FSH e testosterona, podendo durar 1–3 semanas. Em paciente com doença óssea extensa ou risco de compressão medular esse pico pode ser desastroso. Por isso se associa um antiandrógeno periférico (bicalutamida 50 mg/dia) iniciado 7 dias antes ou junto, e mantido por 2–4 semanas. Antagonistas de GnRH (degarelix) NÃO produzem flare e dispensam essa associação.",
+          "justification": "É um exemplo clássico de farmacologia clínica em uro-oncologia: entender o mecanismo evita evento adverso grave.",
+          "references": [
+            {
+              "work": "Aula Câncer de Próstata UNINOVE 5º M",
+              "professor": "Prof. Plínio Moreira de Góes"
+            },
+            {
+              "work": "Aula Farmaco P2 Antineoplásicos (banco do app)",
+              "sourcePdf": "farmaco-p2-antineoplasicos"
+            },
+            {
+              "work": "Goodman & Gilman's The Pharmacological Basis of Therapeutics",
+              "edition": "14ª ed",
+              "publisher": "McGraw-Hill",
+              "year": 2023
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Mecanismo do flare LHRH + bicalutamida como antiandrógeno periférico tecnicamente correto."
+        },
+        {
+          "id": "C-q4",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "endocrinologia",
+            "emergência",
+            "oncologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Sobre a HIPERCALCEMIA (Ca total 12,8 / Ca iônico 6,7) com PTH SUPRIMIDO, qual é a conduta INICIAL correta?",
+          "options": [
+            "Reposição agressiva de cálcio EV pela suspeita de hipercalcemia espúria",
+            "Hidratação venosa vigorosa com solução salina isotônica (200–300 mL/h se função cardíaca permitir), associada a bisfosfonato endovenoso (ácido zoledrônico 4 mg) ou denosumabe 120 mg SC — calcitonina pode ser usada na fase aguda para resposta rápida (24–48h)",
+            "Furosemida em alta dose como medida de primeira linha, sem hidratação prévia",
+            "Aguardar resposta apenas ao bloqueio androgênico, sem terapia específica para o cálcio",
+            "Suplementar vitamina D em alta dose imediatamente para corrigir o nível baixo de 25-OH-D"
+          ],
+          "correctIndex": 1,
+          "feedback": "Hipercalcemia da malignidade com PTH suprimido define hipercalcemia PTH-independente — mecanismos: osteólise direta por metástases ósseas e PTHrP secretado pelo tumor. Conduta padrão: (1) hidratação salina isotônica para restaurar volemia e aumentar excreção renal de cálcio; (2) bisfosfonato EV (zoledrônico) ou denosumabe, que reduzem reabsorção óssea e atuam em 48–72h; (3) calcitonina (4 UI/kg SC ou IM 12/12h) para resposta rápida; (4) furosemida APENAS após volemia restabelecida e se houver sobrecarga, NUNCA como primeira medida. Reposição de cálcio é erro grave.",
+          "justification": "É emergência metabólica oncológica. Reconhecer a tríade hipercalcemia + PTH suprimido + neoplasia avançada é obrigatório no ciclo clínico.",
+          "references": [
+            {
+              "work": "Aula Paratireoide, distúrbios do cálcio e osteoporose UNINOVE 5º M",
+              "sourcePdf": "9Paratireoide"
+            },
+            {
+              "work": "Goldman-Cecil Medicina",
+              "edition": "26ª ed",
+              "publisher": "Elsevier",
+              "year": 2020,
+              "chapter": "Hipercalcemia da malignidade"
+            },
+            {
+              "work": "NCCN Guidelines — Cancer-related complications",
+              "year": 2024
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Hidratação + bisfosfonato/denosumabe + calcitonina; doses corretas (zoledrônico 4 mg, denosumabe 120 mg SC, calcitonina 4 UI/kg)."
+        },
+        {
+          "id": "C-q5",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "oncologia",
+            "ortopedia",
+            "neurologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Considerando as METÁSTASES ÓSSEAS difusas em coluna torácica e lombar, qual é a complicação mais TEMIDA que justifica vigilância clínica rigorosa e indicação precoce de RM?",
+          "options": [
+            "Hipercalcemia maligna assintomática",
+            "Compressão medular metastática — emergência neuro-oncológica, com janela terapêutica curta (corticoide alta dose + RT urgente ± descompressão cirúrgica)",
+            "Fratura patológica do colo do fêmur isoladamente, sem outras consequências",
+            "Anemia normocítica leve",
+            "Infecção urinária por estase ureteral"
+          ],
+          "correctIndex": 1,
+          "feedback": "Compressão medular por metástase é EMERGÊNCIA — recuperação neurológica depende de tratamento nas primeiras 24–48h. Dor que piora à noite/deitado, déficit motor, alteração esfincteriana ou sensitiva são red flags. Conduta: dexametasona em alta dose imediata + RM urgente + radioterapia (ou cirurgia descompressiva se instabilidade ou diagnóstico oncológico desconhecido). As outras opções são reais, mas a compressão medular é a que demanda ação em horas, não em dias.",
+          "justification": "Diagnóstico tardio = paraplegia permanente. Por isso a tríade dor noturna progressiva + déficit + perda esfincteriana em paciente oncológico precisa de RM no mesmo dia.",
+          "references": [
+            {
+              "work": "Aula Câncer de Próstata UNINOVE 5º M",
+              "professor": "Prof. Plínio Moreira de Góes"
+            },
+            {
+              "work": "NCCN Guidelines — Adult Cancer Pain / Bone Metastases",
+              "year": 2024
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Compressão medular metastática como emergência neuro-oncológica; janela 24-48h; dexametasona + RM + RT/cirurgia."
+        },
+        {
+          "id": "C-q6",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "oncologia",
+            "endocrinologia",
+            "farmacologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Explique o EIXO HIPOTÁLAMO-HIPÓFISE-GÔNADA e descreva, em 3 ETAPAS, o mecanismo pelo qual o BLOQUEIO ANDROGÊNICO suprime a testosterona circulante.",
+          "expectedAnswer": "Etapa 1 — Hipotálamo: o GnRH/LHRH é liberado em pulsos pelos neurônios hipotalâmicos e atinge a hipófise anterior pelo sistema porta-hipofisário, estimulando a liberação de LH (e FSH). Etapa 2 — Hipófise: o LH age sobre as células de Leydig testiculares, estimulando a síntese e secreção de testosterona (responsável por ~90–95% da testosterona circulante; a fração restante vem da adrenal). Etapa 3 — Mecanismo do bloqueio: ANÁLOGOS de LHRH (gosserrelina/leuprolide), por estimulação contínua (não-pulsátil) dos receptores hipofisários, levam a DESSENSIBILIZAÇÃO e DOWNREGULATION desses receptores em 2–4 semanas, com queda secundária do LH e da testosterona a níveis de castração (<50 ng/dL). ANTAGONISTAS de LHRH (degarelix) bloqueiam diretamente o receptor sem flare. Inibidores da via androgênica de 2ª geração (abiraterona — inibe CYP17 adrenal/intratumoral; enzalutamida/apalutamida — antagonistas do receptor androgênico) atacam as outras fontes de andrógenos.",
+          "rubric": [
+            {
+              "criterion": "Descreve corretamente eixo HHG (GnRH → LH → testosterona testicular)",
+              "points": 8
+            },
+            {
+              "criterion": "Explica mecanismo de análogos LHRH por dessensibilização de receptores hipofisários",
+              "points": 9
+            },
+            {
+              "criterion": "Diferencia mecanismos (análogo x antagonista x antiandrógenos x abiraterona)",
+              "points": 8
+            }
+          ],
+          "feedback": "Entender o eixo é o que permite escolher entre as classes e antecipar efeitos colaterais (ondas de calor, perda de libido, sarcopenia, osteoporose, síndrome metabólica — todos por privação androgênica).",
+          "justification": "Integração endócrino + farmaco + onco — exatamente o objetivo da prova integrada.",
+          "references": [
+            {
+              "work": "Aula Farmaco P2 Antineoplásicos (banco do app)",
+              "sourcePdf": "farmaco-p2-antineoplasicos"
+            },
+            {
+              "work": "Goodman & Gilman",
+              "edition": "14ª ed",
+              "publisher": "McGraw-Hill",
+              "year": 2023,
+              "chapter": "Hormonal Agents in Prostate Cancer"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Eixo HHG e mecanismo dessensibilização LHRH descritos corretamente. Rubrica balanceada."
+        },
+        {
+          "id": "C-q7",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "oncologia",
+            "farmacologia",
+            "ortopedia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Descreva TRÊS CONDUTAS para o manejo da DOR ÓSSEA METASTÁTICA neste paciente, com base fisiopatológica.",
+          "expectedAnswer": "1) Analgesia escalonada (escada da OMS adaptada) — opioides fortes (morfina/oxicodona) são pilares na dor oncológica moderada a grave; AINEs com cautela em DRC; coanalgésicos (gabapentina para componente neuropático, corticoide para dor com componente inflamatório/compressivo). 2) Radioterapia PALIATIVA (8 Gy em fração única ou 20–30 Gy fracionado) — altamente eficaz em metástases ósseas dolorosas, com resposta em 50–80% e tempo de início 2–4 semanas. 3) Agentes ANTIRREABSORTIVOS — bisfosfonato (ácido zoledrônico 4 mg EV 4/4 semanas) ou denosumabe (120 mg SC 4/4 semanas) reduzem eventos esqueléticos (fratura, compressão medular, hipercalcemia) e a dor; ambos exigem avaliação odontológica prévia (risco de osteonecrose mandibular) e suplementação de cálcio + vit D.",
+          "rubric": [
+            {
+              "criterion": "Analgesia escalonada com opioide + coanalgésicos, considerando DRC",
+              "points": 8
+            },
+            {
+              "criterion": "Radioterapia paliativa óssea (dose e mecanismo)",
+              "points": 8
+            },
+            {
+              "criterion": "Bisfosfonato/denosumabe — esquema, cuidado odontológico, suplementação",
+              "points": 9
+            }
+          ],
+          "feedback": "Outros válidos: radioisótopos (Ra-223 em mCRPC), procedimentos analgésicos (bloqueio nervoso), suporte psicossocial. No contexto deste paciente, o ácido zoledrônico requer redução de dose pela TFGe (Cr 1,6 ≈ ClCr 45 mL/min: dose 3,3 mg; CONTRAINDICADO se ClCr <30); por isso DENOSUMABE 120 mg SC 4/4 semanas é PREFERÍVEL em paciente com DRC — não é eliminado renalmente, mas exige vigilância de hipocalcemia (suplementar cálcio + vitamina D ativos).",
+          "justification": "Manejo da dor crônica oncológica integra farmaco, onco e cuidado paliativo. Subtratar dor é desumano e clinicamente errado.",
+          "references": [
+            {
+              "work": "Aula Paratireoide, distúrbios do cálcio e osteoporose UNINOVE 5º M",
+              "sourcePdf": "9Paratireoide"
+            },
+            {
+              "work": "NCCN Adult Cancer Pain Guidelines",
+              "year": 2024
+            },
+            {
+              "work": "OMS — Escada analgésica"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Ajuste aplicado: corrigido gênero \"este paciente\" e explicitado denosumabe como preferível em DRC (Cr 1,6, ClCr ~45). Ácido zoledrônico requer redução de dose."
+        },
+        {
+          "id": "C-q8",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "endocrinologia",
+            "oncologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Explique os DOIS MECANISMOS principais da hipercalcemia da malignidade e como diferenciá-los laboratorialmente.",
+          "expectedAnswer": "Mecanismo 1 — Osteólise local mediada por metástases ósseas: as células tumorais ósseas produzem citocinas (IL-1, IL-6, TNF-α) e RANKL que ATIVAM osteoclastos via via RANK/RANKL/OPG, com reabsorção óssea direta e liberação de cálcio. É típica de carcinomas com metástases ósseas extensas (mama, mieloma múltiplo, próstata avançada). Mecanismo 2 — Hipercalcemia humoral (PTHrP — peptídeo relacionado ao PTH): produzido por células tumorais (carcinoma de pulmão escamoso, rim, mama), age em receptores PTH1R causando reabsorção óssea e reabsorção tubular renal de cálcio + redução da excreção. Diferenciação laboratorial: ambos têm PTH SUPRIMIDO (<10 pg/mL); a dosagem de PTHrP é o que separa — elevado em hipercalcemia humoral, normal em osteólise pura. Em raras situações há produção tumoral de calcitriol (1,25-vitD) — linfomas e granulomatoses. Ressalva clínica importante: hipercalcemia em câncer de PRÓSTATA é MENOS frequente do que em mama/mieloma — apesar do padrão radiológico predominantemente OSTEOBLÁSTICO das metástases prostáticas (FA, PSA), o componente lítico ativo coexiste em doença muito avançada, e a hipercalcemia geralmente aparece em fase tardia, com doença extensa, imobilização concomitante ou produção ectópica de PTHrP. Conhecer essa peculiaridade é parte da integração onco + endócrino. Como agir clinicamente é o que importa: PTH suprimido + neoplasia avançada = hipercalcemia maligna até prova em contrário; dosar PTHrP confirma o subtipo humoral.",
+          "rubric": [
+            {
+              "criterion": "Descreve osteólise local mediada por citocinas/RANKL em metástases ósseas",
+              "points": 9
+            },
+            {
+              "criterion": "Descreve PTHrP como mecanismo humoral",
+              "points": 9
+            },
+            {
+              "criterion": "Cita PTH suprimido em ambas e PTHrP como diferenciação",
+              "points": 7
+            }
+          ],
+          "feedback": "Hipercalcemia com PTH normal/elevado direciona pra hiperparatireoidismo primário. PTH suprimido direciona pra causas paratireoide-independentes — neoplasias, intoxicação por vitamina D, sarcoidose etc.",
+          "justification": "A dosagem do PTH separa as duas grandes categorias e é o primeiro passo de toda investigação de hipercalcemia.",
+          "references": [
+            {
+              "work": "Aula Paratireoide UNINOVE 5º M"
+            },
+            {
+              "work": "Harrison's Principles of Internal Medicine",
+              "edition": "21ª ed",
+              "publisher": "McGraw-Hill",
+              "year": 2022,
+              "chapter": "Disorders of Calcium Metabolism"
+            },
+            {
+              "work": "Stewart AF. NEJM 2005 — Hypercalcemia Associated with Cancer",
+              "year": 2005
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Ajuste aplicado: ressalva sobre hipercalcemia em CaP avançado (menos frequente que mama/mieloma; metástases predominantemente osteoblásticas com componente lítico ativo). RANK/RANKL explicitado."
+        }
+      ]
+    },
+    {
+      "id": "caso-D",
+      "title": "Caso D — Doença de Graves com fibrilação atrial e IC de fração reduzida",
+      "disciplines": [
+        "endocrinologia",
+        "cardiologia",
+        "farmacologia"
+      ],
+      "needsReview": false,
+      "patient": {
+        "age": 48,
+        "sex": "F",
+        "context": "Sem comorbidades prévias conhecidas. Histórico familiar materno de hipotireoidismo. Sem uso regular de medicações.",
+        "complaint": "Palpitações, perda de peso de 9 kg em 3 meses, irritabilidade e dispneia aos médios esforços há 6 semanas."
+      },
+      "history": "Há 3 meses iniciou perda ponderal involuntária, polifagia, intolerância importante ao calor, sudorese, tremor fino de extremidades, insônia, labilidade emocional e episódios de palpitação em repouso. Nas últimas 6 semanas associaram-se dispneia progressiva (NYHA III), ortopneia e edema vespertino de MMII. Refere ainda olhos \"ardendo\" e sensação de \"olhar parado\" notada pela família.",
+      "evolution": "Chega à emergência por palpitação contínua, dispneia em repouso e tontura nas últimas 12 horas.",
+      "physicalExam": {
+        "vitals": "PA 148/64 mmHg (PA divergente) · FC 142 bpm IRREGULAR · FR 26 irpm · T 36,9 °C · SpO₂ 93% AA",
+        "findings": "Magra, agitada, hipertelorismo aparente com proptose bilateral discreta e lid lag. Pele quente e úmida. Tireoide difusamente aumentada, indolor, com SOPRO à ausculta. Pulso irregularmente irregular, déficit de pulso. Ritmo cardíaco irregular, B3 audível. Estertores crepitantes em bases bilaterais. Edema 2+/4+ em MMII. Tremor fino bilateral de extremidades. Reflexos profundos hiperativos."
+      },
+      "labs": [
+        {
+          "name": "TSH",
+          "value": "<0,01 µUI/mL",
+          "refRange": "0,5–4,5",
+          "abnormal": true
+        },
+        {
+          "name": "T4 livre",
+          "value": "5,8 ng/dL",
+          "refRange": "0,8–1,8",
+          "abnormal": true
+        },
+        {
+          "name": "T3 total",
+          "value": "412 ng/dL",
+          "refRange": "80–200",
+          "abnormal": true
+        },
+        {
+          "name": "TRAb (anti-receptor TSH)",
+          "value": "12 UI/L (positivo)",
+          "refRange": "<1,75",
+          "abnormal": true
+        },
+        {
+          "name": "Anti-TPO",
+          "value": "180 UI/mL",
+          "refRange": "<34",
+          "abnormal": true
+        },
+        {
+          "name": "BNP",
+          "value": "1.820 pg/mL",
+          "refRange": "<100",
+          "abnormal": true
+        },
+        {
+          "name": "Troponina I",
+          "value": "0,02 ng/mL",
+          "refRange": "<0,04"
+        },
+        {
+          "name": "Creatinina",
+          "value": "0,9 mg/dL",
+          "refRange": "0,6–1,2"
+        },
+        {
+          "name": "TGO/TGP",
+          "value": "62 / 78 U/L",
+          "refRange": "<40",
+          "abnormal": true
+        },
+        {
+          "name": "Hemograma",
+          "value": "Hb 13,1 / Leuco 6.800 / Plaquetas 220k",
+          "refRange": "—"
+        }
+      ],
+      "imaging": "ECG: fibrilação atrial com resposta ventricular rápida (FC ~140), sem isquemia aguda. Ecocardiograma transtorácico: FE 32% (IC de FE reduzida), aumento biatrial moderado, sem trombo visível, sem valvopatia significativa, hipertensão pulmonar leve (PSAP 42 mmHg). USG de tireoide: glândula difusamente aumentada (~70 g), hipoecóica, com aumento marcante de vascularização ao Doppler (\"inferno tireoidiano\").",
+      "questions": [
+        {
+          "id": "D-q1",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "endocrinologia",
+            "cardiologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Qual é a HIPÓTESE DIAGNÓSTICA mais provável que UNIFICA o quadro clínico?",
+          "options": [
+            "Bócio multinodular tóxico com FA secundária",
+            "Doença de Graves com tireotoxicose grave complicada por fibrilação atrial e insuficiência cardíaca (cardiomiopatia tireotóxica de FE reduzida)",
+            "Tireoidite subaguda de De Quervain com IC viral concomitante",
+            "Adenoma hipofisário produtor de TSH (TSHoma)",
+            "Tireotoxicose factícia por uso clandestino de levotiroxina"
+          ],
+          "correctIndex": 1,
+          "feedback": "A presença de bócio difuso com sopro + oftalmopatia (proptose, lid lag) + TRAb positivo + USG com aumento difuso de vascularização (\"inferno tireoidiano\") confirma Doença de Graves. As manifestações cardíacas (FA com RVR, IC FEr) são consequência direta da tireotoxicose — \"cardiomiopatia tireotóxica\". BMNT não cursa com oftalmopatia, TSHoma teria TSH não suprimido, tireoidite subaguda cursa com dor cervical e provas inflamatórias, factícia teria tireoglobulina baixa.",
+          "justification": "Os achados oftalmológicos + TRAb são patognomônicos de Graves; o conjunto cardiológico não é doença \"a parte\", é manifestação da tireotoxicose grave.",
+          "references": [
+            {
+              "work": "Aula Doenças da Tireoide UNINOVE 5º M",
+              "professor": "Profa. Adriana Bosco / Profa. Luciana Brito / Prof. Matheus Salgado",
+              "sourcePdf": "4 Doenças da Tireoide"
+            },
+            {
+              "work": "Vilar L. Endocrinologia Clínica",
+              "edition": "7ª ed",
+              "year": 2021
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Doença de Graves + cardiomiopatia tireotóxica REVERSÍVEL bem caracterizada; TRAb, inferno tireoidiano, oftalmopatia."
+        },
+        {
+          "id": "D-q2",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "endocrinologia",
+            "farmacologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Qual é o TRATAMENTO FARMACOLÓGICO INICIAL adequado da tireotoxicose grave nesta paciente?",
+          "options": [
+            "Levotiroxina em altas doses para suprimir TRAb",
+            "Iodo radioativo (I-131) imediato, sem preparo",
+            "Tionamida (metimazol 30–40 mg/dia OU propiltiouracil [PTU] em situações específicas como tireotoxicose grave/crise, T1 da gestação, intolerância a metimazol) + betabloqueador (preferência propranolol 40–80 mg 6/6h ou 8/8h, pelo efeito sobre conversão T4→T3) + monitorização hepática/hematológica",
+            "Corticoide em alta dose isolado, sem antitireoidiano",
+            "Apenas betabloqueador, sem tionamida, até realizar tireoidectomia"
+          ],
+          "correctIndex": 2,
+          "feedback": "Doença de Graves grave: tionamida (metimazol é primeira escolha na maioria; PTU é preferido na tireotoxicose grave/crise, T1 gestacional e intolerância ao metimazol). Tionamidas inibem a peroxidase tireoidiana (organificação do iodo e acoplamento) e o PTU adicionalmente inibe a 5'-deiodinase periférica (conversão T4→T3 — vantagem na crise tireotóxica). Betabloqueador (propranolol) controla os sintomas adrenérgicos e, por inibir a 5'-deiodinase, reduz a conversão T4→T3. Iodo radioativo é tratamento DEFINITIVO, mas exige preparo (tionamida + betabloq) e está contraindicado em oftalmopatia ativa/moderada-grave sem pré-corticoide. Corticoide isolado e betabloq isolado são inadequados.",
+          "justification": "A combinação tionamida + betabloq é o protocolo padrão; uma sem a outra deixa a paciente exposta a evento cardiovascular grave por descontrole do componente adrenérgico ou hormonal.",
+          "references": [
+            {
+              "work": "Aula Doenças da Tireoide UNINOVE 5º M",
+              "professor": "Bosco / Brito / Salgado"
+            },
+            {
+              "work": "ATA Guidelines for Diagnosis and Management of Hyperthyroidism",
+              "year": 2016
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Metimazol primeira escolha (PTU em tireotoxicose grave/T1 gestação) + propranolol; padrão ATA 2016."
+        },
+        {
+          "id": "D-q3",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "cardiologia",
+            "farmacologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Sobre a ANTICOAGULAÇÃO na fibrilação atrial associada a hipertireoidismo, qual conduta é a MAIS adequada nesta paciente?",
+          "options": [
+            "Não anticoagular — FA secundária a hipertireoidismo NÃO tem risco tromboembólico aumentado",
+            "Iniciar anticoagulação plena (DOAC — apixabana, rivaroxabana, dabigatrana OU varfarina) — FA associada a tireotoxicose tem risco embólico semelhante ou maior que FA não-valvar; risco e benefício avaliados em conjunto com a paciente",
+            "Iniciar AAS 100 mg/dia em monoterapia, equivalente a DOAC",
+            "Iniciar heparina não fracionada EV e manter indefinidamente",
+            "Aguardar normalização hormonal espontânea antes de qualquer anticoagulação"
+          ],
+          "correctIndex": 1,
+          "feedback": "FA na tireotoxicose tem risco embólico independente — evidências mostram benefício de anticoagulação plena, com escolha entre DOAC e varfarina. DOAC são preferenciais em FA não-valvar pelo perfil de segurança e ausência de necessidade de monitorização de INR. Cuidados: o hipertireoidismo aumenta a depuração da varfarina e reduz necessidade de dose; com tratamento da tireotoxicose, a necessidade aumenta — exige reajuste. AAS NÃO é equivalente a anticoagulante em FA. Aguardar o controle hormonal é arriscado pelo período de tromboembolismo até a reversão.",
+          "justification": "Pelas ESC AF 2024 o escore aplicável é o CHA₂DS₂-VA (abandonou o sexo F como ponto inicial): esta paciente tem VA = 1 (IC). Pelo CHA₂DS₂-VASc clássico (ATA 2016, SBC) seriam 2 pontos (IC + sexo F). A indicação de anticoagular se sustenta por DOIS fatores complementares: (a) componente IC pelos dois escores; (b) estado pró-trombótico ESPECÍFICO da tireotoxicose com FA, com risco embólico aumentado independentemente do escore — até resolução do hipertireoidismo.",
+          "references": [
+            {
+              "work": "ESC Guidelines on Atrial Fibrillation",
+              "year": 2024
+            },
+            {
+              "work": "ATA Guidelines for Hyperthyroidism — Cardiac complications",
+              "year": 2016
+            },
+            {
+              "work": "Aula Farmaco Antiagregantes/Anticoag (banco do app)",
+              "sourcePdf": "farmaco-p2-cardio-coag"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Ajuste aplicado: justification revisada para CHA₂DS₂-VA (ESC 2024) — paciente VA=1; indicação sustenta-se por IC + estado pró-trombótico da tireotoxicose."
+        },
+        {
+          "id": "D-q4",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "cardiologia",
+            "farmacologia"
+          ],
+          "semester": "sem2",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Sobre a INSUFICIÊNCIA CARDÍACA de FE REDUZIDA (FE 32%) na fase de estabilização (após controle da tireotoxicose e FA), qual é a TERAPIA QUÁDRUPLA atual (\"quatro pilares\") indicada?",
+          "options": [
+            "Furosemida + digoxina + nitrato + hidralazina",
+            "Inibidor do SRAA (preferência sacubitril-valsartana — INRA; alternativas iECA ou BRA) + betabloqueador (carvedilol, bisoprolol ou metoprolol-succinato) + antagonista do receptor mineralocorticoide (espironolactona ou eplerenona) + inibidor de SGLT2 (dapagliflozina ou empagliflozina)",
+            "Apenas diurético de alça e digoxina",
+            "AAS + estatina + iECA, sem necessidade de betabloqueador em FA",
+            "Bloqueador de canal de cálcio diidropiridínico (anlodipina) como classe principal"
+          ],
+          "correctIndex": 1,
+          "feedback": "Os quatro pilares de IC FEr (ICFER) com benefício de mortalidade comprovado: (1) INRA/iECA/BRA, (2) betabloqueador, (3) antagonista MR, (4) iSGLT2 — iniciados em paralelo, em titulação progressiva. Diuréticos são pra congestão (sintomático, não de mortalidade). Digoxina pode ajudar no controle de frequência da FA mas não é pilar de mortalidade. Em paciente tireotóxica, betabloqueador deve ser SEM efeito vasodilatador inicialmente (preferir carvedilol/bisoprolol/metoprolol-succinato).",
+          "justification": "Os ensaios PARADIGM-HF, DAPA-HF, EMPEROR-Reduced e RALES/EPHESUS sustentam essa quádrupla terapia.",
+          "references": [
+            {
+              "work": "ESC Heart Failure Guidelines",
+              "year": 2021
+            },
+            {
+              "work": "Aula Farmaco Anti-hipertensivos/IC (banco do app)",
+              "sourcePdf": "farmaco-p2-cardio-has"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Terapia quádrupla da ICFER correta: INRA + BB + antagonista MR + iSGLT2 (ESC HF 2021/2023, STRONG-HF)."
+        },
+        {
+          "id": "D-q5",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "endocrinologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Após estabilização clínica e controle agudo, qual é a melhor opção de TRATAMENTO DEFINITIVO da Doença de Graves desta paciente, considerando que apresenta OFTALMOPATIA ATIVA MODERADA (proptose bilateral, lid lag, sintomas locais)?",
+          "options": [
+            "Iodo radioativo (I-131) sem pré-tratamento — primeira escolha sempre",
+            "Tireoidectomia total cirúrgica — preferida em paciente com oftalmopatia ativa moderada/grave, bócio grande, intolerância a tionamidas ou contraindicação ao iodo radioativo; com preparo pré-operatório (tionamida + betabloq + iodeto de potássio/Lugol)",
+            "Manter tionamida indefinidamente, sem nunca indicar tratamento definitivo",
+            "Embolização da artéria tireoidea como primeira opção",
+            "Lobectomia parcial unilateral"
+          ],
+          "correctIndex": 1,
+          "feedback": "Três opções de tratamento definitivo do Graves: tionamida prolongada (12–18 meses, recidiva ~50%), I-131 e tireoidectomia. Em OFTALMOPATIA ATIVA moderada/grave, o I-131 pode AGRAVAR a oftalmopatia (liberação antigênica) — exige pré-tratamento com corticoide (prednisona 0,3–0,5 mg/kg/dia) e é, em geral, EVITADO. Tireoidectomia é preferencial em: bócio grande (>80 g), nódulo suspeito, oftalmopatia ativa moderada/grave, gestação planejada, intolerância a tionamidas, falha de iodo. Preparo: euteridiano com tionamida + betabloq + iodeto (Lugol 5–7 dias pré-op para reduzir vascularização).",
+          "justification": "A escolha individualizada do tratamento definitivo é um ponto típico de prova integrada: relaciona endocrinologia, oftalmologia e cirurgia de cabeça e pescoço.",
+          "references": [
+            {
+              "work": "Aula Doenças da Tireoide UNINOVE 5º M",
+              "professor": "Bosco / Brito / Salgado"
+            },
+            {
+              "work": "ATA Guidelines for Hyperthyroidism",
+              "year": 2016
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Ajuste aplicado: oftalmopatia padronizada como \"ativa MODERADA\" (proptose + lid lag + sintomas). Tireoidectomia preferencial mantém-se; preparo com Lugol."
+        },
+        {
+          "id": "D-q6",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "endocrinologia",
+            "cardiologia",
+            "fisiopatologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Explique TRÊS mecanismos pelos quais a TIREOTOXICOSE GRAVE provoca repercussão cardiovascular (FA com RVR + IC FEr).",
+          "expectedAnswer": "1) Aumento do AUTOMATISMO atrial e da condução do nó AV — T3 estimula direta e indiretamente os receptores β-adrenérgicos cardíacos, aumenta a expressão de canais iônicos (If) e reduz o período refratário atrial, favorecendo focos ectópicos e arritmias supraventriculares (FA — incidência 5–15% em hipertireoidismo, até 25% em idosos). 2) Aumento do DÉBITO CARDÍACO e do consumo de O₂ miocárdico — T3 aumenta cronotropismo, inotropismo, expressão de cadeia pesada de miosina-α e atividade da Ca-ATPase do retículo, com elevação do DC e redução da RVP. Em longo prazo a sobrecarga crônica leva à exaustão miocárdica e disfunção sistólica (cardiomiopatia tireotóxica de FE reduzida — reversível com tratamento). 3) Taquicardiomiopatia — FA com resposta ventricular muito rápida (>110 bpm) sustentada por semanas/meses causa por si só disfunção sistólica reversível; somada à ação direta do T3 acelera o desenvolvimento da IC.",
+          "rubric": [
+            {
+              "criterion": "Cita aumento de automatismo e arritmogênese atrial (mecanismo celular/elétrico)",
+              "points": 9
+            },
+            {
+              "criterion": "Cita aumento de DC e consumo miocárdico → exaustão sistólica",
+              "points": 8
+            },
+            {
+              "criterion": "Cita taquicardiomiopatia por FA com RVR sustentada",
+              "points": 8
+            }
+          ],
+          "feedback": "Reconhecer o componente REVERSÍVEL muda o prognóstico. Após eutireoidismo, FE costuma recuperar — é importante para a paciente e para evitar implante precipitado de DAI.",
+          "justification": "Integração endócrino + cardio + farmaco — a fisiopatologia explica por que controlar o hormônio resolve a arritmia E a IC.",
+          "references": [
+            {
+              "work": "Aula Doenças da Tireoide UNINOVE 5º M",
+              "professor": "Bosco / Brito / Salgado"
+            },
+            {
+              "work": "Klein I, Danzi S. NEJM 2007 — Thyroid Disease and the Heart",
+              "year": 2007
+            },
+            {
+              "work": "Goldman-Cecil Medicina",
+              "edition": "26ª ed",
+              "publisher": "Elsevier",
+              "year": 2020
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Três mecanismos cardiovasculares (eletrofisiológico, hemodinâmico, taquicardiomiopatia) descritos com fisiopatologia correta."
+        },
+        {
+          "id": "D-q7",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "endocrinologia",
+            "oftalmologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Compare as opções de TRATAMENTO DEFINITIVO da Doença de Graves (iodo radioativo X tireoidectomia X tionamida prolongada). Cite VANTAGENS e DESVANTAGENS de cada uma e o cenário em que cada uma seria PREFERIDA.",
+          "expectedAnswer": "TIONAMIDA prolongada (12–18 meses): VANTAGENS — não invasiva, pode levar a remissão (taxa de cura ~30–50%, melhor se TRAb baixo, bócio pequeno, doença leve). DESVANTAGENS — recidiva alta, risco de agranulocitose (rara), hepatotoxicidade (PTU > metimazol). PREFERIDA em: doença leve, bócio pequeno, TRAb baixo, gestante (T1 — PTU; T2/T3 — metimazol), criança pequena. IODO RADIOATIVO (I-131): VANTAGENS — ambulatorial, eficaz, sem cirurgia. DESVANTAGENS — hipotireoidismo posterior quase certo (necessidade de levotiroxina vitalícia), PODE AGRAVAR oftalmopatia ativa moderada/grave (exige pré-corticoide), contraindicado em gestação/lactação e em planejamento de gestação próximo (6–12 m). PREFERIDA em: BMNT, adenoma tóxico, recidiva pós-tionamida, sem oftalmopatia ativa significativa. TIREOIDECTOMIA total: VANTAGENS — cura definitiva imediata, retira antígeno, evita risco de agravar oftalmopatia, retira tireoide volumosa, preferida em gestação planejada próxima. DESVANTAGENS — riscos cirúrgicos (lesão de nervo laríngeo recorrente, hipoparatireoidismo definitivo ~1–2%), hipotireoidismo posterior obrigatório, preparo pré-op exigente (Lugol). PREFERIDA em: oftalmopatia ativa moderada/grave, bócio grande, suspeita de nódulo maligno, intolerância a tionamidas, gestação planejada próxima.",
+          "rubric": [
+            {
+              "criterion": "Discute tionamida (vantagens, recidiva, cenários)",
+              "points": 8
+            },
+            {
+              "criterion": "Discute I-131 (vantagens, agravamento oftalmopatia, contraindicações)",
+              "points": 9
+            },
+            {
+              "criterion": "Discute tireoidectomia (vantagens, complicações, indicações específicas)",
+              "points": 8
+            }
+          ],
+          "feedback": "A escolha integra endócrino + oftalmo + decisão compartilhada. Em pacientes mulheres em idade fértil, planejamento gestacional é fator crítico — cirurgia OU tionamida prolongada com transição cuidadosa.",
+          "justification": "Decisão clinicamente complexa que exige conhecer as três opções a fundo.",
+          "references": [
+            {
+              "work": "Aula Doenças da Tireoide UNINOVE 5º M",
+              "professor": "Bosco / Brito / Salgado"
+            },
+            {
+              "work": "ATA Guidelines for Hyperthyroidism",
+              "year": 2016
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Comparação tionamida x I-131 x tireoidectomia completa e correta; cenários de preferência bem delineados."
+        },
+        {
+          "id": "D-q8",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "farmacologia",
+            "endocrinologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Explique POR QUE o betabloqueador (propranolol) é parte ESSENCIAL do tratamento agudo da tireotoxicose grave, e por que ele NÃO substitui a tionamida.",
+          "expectedAnswer": "O betabloqueador atua em DUAS frentes complementares no agudo: (1) Bloqueio adrenérgico — reduz a hiperatividade simpática que potencializa os efeitos do T3 sobre coração (taquicardia, FA, contratilidade), músculo (tremor) e SNC (ansiedade, agitação). Propranolol é preferido porque bloqueia β1 + β2 e tem ação inibidora ADICIONAL sobre a 5'-deiodinase periférica (D1) em DOSES ALTAS (≥160 mg/dia) — efeito CLINICAMENTE MODESTO, compartilhado por PTU, dexametasona e contraste iodado; explica por que propranolol é o BB preferido, mas a base do mecanismo continua sendo o bloqueio β. (2) Esse efeito agudo é SINTOMÁTICO/de RESCATE — o betabloq NÃO REDUZ a produção hormonal pela tireoide nem corrige a doença de base. A TIONAMIDA é que age na fonte: inibe a peroxidase tireoidiana (organificação do iodo + acoplamento das iodotirosinas), reduzindo a SÍNTESE hormonal; PTU também inibe a D1 periférica. Por isso o tratamento agudo eficaz exige AS DUAS classes em paralelo: betabloq para controle imediato (horas) e tionamida para controle progressivo da fonte (semanas) até preparo de tratamento definitivo. Cuidados nesta paciente com IC FEr e congestão (FE 32%, NYHA III): NÃO se usa BCC não-diidropiridínico (verapamil/diltiazem) — ESTÃO CONTRAINDICADOS em IC FEr pelo inotropismo negativo. O manejo é estabilizar primeiro a congestão (diurético, oxigênio), iniciar BB em dose BAIXA com titulação progressiva conforme tolerância, e considerar DIGOXINA transitória para controle de FC enquanto se ajusta tireotoxicose e se titula BB. Em quem realmente não tolera BB, considera-se amiodarona (com cautela — ela contém iodo e pode piorar a tireotoxicose) ou estratégias de controle de ritmo cardíaco.",
+          "rubric": [
+            {
+              "criterion": "Descreve mecanismo simpaticolítico do propranolol + inibição de D1 periférica",
+              "points": 9
+            },
+            {
+              "criterion": "Diferencia ação do betabloq (sintomático) da ação da tionamida (síntese hormonal)",
+              "points": 9
+            },
+            {
+              "criterion": "Cita cuidado em IC FEr / cenário de contraindicação ao betabloq",
+              "points": 7
+            }
+          ],
+          "feedback": "É um dos pontos farmacológicos mais cobrados em prova integrada de medicina: classes complementares, cada uma em um nível diferente do eixo.",
+          "justification": "Confundir betabloq com tratamento da tireotoxicose levaria a manter síntese hormonal descontrolada e perpetuar a doença.",
+          "references": [
+            {
+              "work": "Aula Farmaco Anti-hipertensivos (banco do app)",
+              "sourcePdf": "farmaco-p2-cardio-has"
+            },
+            {
+              "work": "Aula Doenças da Tireoide UNINOVE 5º M",
+              "professor": "Bosco / Brito / Salgado"
+            },
+            {
+              "work": "Goodman & Gilman",
+              "edition": "14ª ed",
+              "publisher": "McGraw-Hill",
+              "year": 2023,
+              "chapter": "Drugs Affecting Thyroid Function"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Ajuste CRÍTICO de segurança aplicado: removida sugestão errada de verapamil/diltiazem em IC FEr (contraindicados). Manejo correto: BB em dose baixa pós-compensação + digoxina transitória. Inibição de D1 pelo propranolol contextualizada como modesta."
+        }
+      ]
+    },
+    {
+      "id": "caso-E",
+      "title": "Caso E — Cefaleia paroxística com HAS resistente: investigação de feocromocitoma",
+      "disciplines": [
+        "neurologia",
+        "endocrinologia",
+        "cardiologia",
+        "farmacologia"
+      ],
+      "needsReview": false,
+      "patient": {
+        "age": 42,
+        "sex": "F",
+        "context": "Hipertensa de difícil controle há 2 anos, em uso de losartana 100 mg + anlodipina 10 mg + hidroclorotiazida 25 mg, sem normalização da PA. Sem outras comorbidades conhecidas. Sem uso de anticoncepcional. Pai com nódulo adrenal sem caracterização.",
+        "complaint": "Cefaleia paroxística intensa, com sudorese, palpitações e tremores há 8 meses."
+      },
+      "history": "Há 8 meses iniciou episódios PAROXÍSTICOS de cefaleia pulsátil holocraniana, intensa (EVA 9/10), associada a sudorese profusa, palpitações, tremor de extremidades, sensação de morte iminente e pico hipertensivo. Os episódios duram 15–60 minutos, ocorrem 2–3 vezes por semana, são desencadeados por exercício, esforço evacuatório, refeições copiosas e estresse, e melhoram espontaneamente. Refere perda ponderal de 6 kg em 4 meses, intolerância ao calor e ansiedade. Pesquisou cefaleia com neurologista — RM de crânio normal há 3 meses.",
+      "evolution": "Procura PS após episódio paroxístico mais intenso, com PA 220/130 mmHg medida no atendimento, e cefaleia 10/10.",
+      "physicalExam": {
+        "vitals": "PA 198/118 mmHg em pé / 210/130 mmHg sentada · FC 124 bpm · FR 22 irpm · T 36,7 °C · SpO₂ 98% AA",
+        "findings": "Magra (IMC 20,8), ansiosa, sudorese fria, tremor fino bilateral, sem sinais de Cushing. Tireoide normopalpável. Sem sopros abdominais. Ausência de bócio, sem proptose, sem estrias violáceas, sem face em lua cheia. Exame neurológico sem déficit focal."
+      },
+      "labs": [
+        {
+          "name": "Sódio / Potássio",
+          "value": "Na 140 / K 4,2 mEq/L",
+          "refRange": "Na 135–145 / K 3,5–5,0"
+        },
+        {
+          "name": "Glicemia capilar",
+          "value": "168 mg/dL (não jejum)",
+          "abnormal": true
+        },
+        {
+          "name": "TSH / T4 livre",
+          "value": "TSH 1,8 / T4L 1,1",
+          "refRange": "Normais"
+        },
+        {
+          "name": "Cortisol às 8h",
+          "value": "14 µg/dL",
+          "refRange": "5–25"
+        },
+        {
+          "name": "Metanefrinas plasmáticas LIVRES (NMN + MN)",
+          "value": "NMN 3,4 nmol/L · MN 2,1 nmol/L",
+          "refRange": "NMN <0,9 / MN <0,5",
+          "abnormal": true
+        },
+        {
+          "name": "Cromogranina A",
+          "value": "412 ng/mL",
+          "refRange": "<102",
+          "abnormal": true
+        },
+        {
+          "name": "Cálcio sérico",
+          "value": "9,8 mg/dL",
+          "refRange": "8,5–10,5"
+        },
+        {
+          "name": "Creatinina",
+          "value": "0,8 mg/dL",
+          "refRange": "0,6–1,2"
+        },
+        {
+          "name": "RM crânio (há 3 meses)",
+          "value": "Sem lesões expansivas, sem hidrocefalia, sem alterações vasculares"
+        }
+      ],
+      "imaging": "TC de abdome com contraste: massa adrenal direita de 4,8 cm, densidade pré-contraste 38 UH, washout absoluto de 42% em 10 min, sólida, heterogênea. Cintilografia com 123I-MIBG: captação intensa em massa adrenal direita, sem outros focos.",
+      "questions": [
+        {
+          "id": "E-q1",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "endocrinologia",
+            "cardiologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Considerando a TRÍADE clínica (cefaleia, sudorese, palpitação) + HAS RESISTENTE + paroxismos, qual é a hipótese diagnóstica MAIS PROVÁVEL antes mesmo dos exames complementares?",
+          "options": [
+            "Hipertireoidismo (Doença de Graves)",
+            "Síndrome do pânico primária",
+            "Feocromocitoma — tumor cromafim secretor de catecolaminas",
+            "Hiperaldosteronismo primário (síndrome de Conn)",
+            "Hipertensão essencial mal controlada"
+          ],
+          "correctIndex": 2,
+          "feedback": "A TRÍADE clássica do feocromocitoma é Cefaleia + Sudorese + Palpitação (presente em 55–60% dos casos), com paroxismos, na presença de HAS (90% — paroxística ou persistente, com grandes oscilações). Outras pistas: emagrecimento, intolerância ao calor, ansiedade, hipotensão ortostática (40%), ITG. Hipertireoidismo é diferencial mas TSH/T4L normais excluem. Hiperaldosteronismo cursa com hipocalemia + HAS, paroxismos não são típicos. Síndrome do pânico não cursa com HAS sustentada e essa intensidade. HAS essencial não tem paroxismos com tríade.",
+          "justification": "A pista mnemônica de \"prova\" é: tríade clássica + HAS resistente + paroxismos = feo até prova em contrário.",
+          "references": [
+            {
+              "work": "Aula Glândulas Adrenais — Feocromocitoma UNINOVE 5º M",
+              "professor": "Bosco / Brito / Salgado",
+              "sourcePdf": "7 Adrenal"
+            },
+            {
+              "work": "Lenders JWM et al. JCEM 2014 — Pheochromocytoma Guidelines"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Tríade clássica + HAS resistente + paroxismos = feo até prova em contrário. Distratores plausíveis."
+        },
+        {
+          "id": "E-q2",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "endocrinologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Qual é o EXAME LABORATORIAL DE ESCOLHA para rastrear feocromocitoma com a melhor combinação de sensibilidade e especificidade?",
+          "options": [
+            "Dosagem de catecolaminas plasmáticas (adrenalina e noradrenalina) ao acaso",
+            "Metanefrinas LIVRES plasmáticas OU metanefrinas FRACIONADAS na urina de 24h",
+            "Ácido vanilmandélico (VMA) urinário isolado",
+            "Cortisol urinário de 24h",
+            "Aldosterona/renina (RAR)"
+          ],
+          "correctIndex": 1,
+          "feedback": "Os exames com melhor desempenho são METANEFRINAS LIVRES PLASMÁTICAS e metanefrinas fracionadas na urina de 24h (sensibilidade ~95–99% e especificidade ~85–95% no plasmático). Catecolaminas plasmáticas têm meia-vida curta e oscilam pelo estresse — alta taxa de falsos. VMA tem boa especificidade mas baixa sensibilidade — foi superado. Aldosterona/renina e cortisol são para outras suspeitas de HAS secundária. Em rastreio com metanefrinas LEVEMENTE aumentadas (1–3× o LSN), pode-se confirmar com teste de supressão pela clonidina; aumentos >3× já são bastante específicos para feo.",
+          "justification": "Acertar o exame de rastreio é metade do diagnóstico. Pedir catecolaminas como triagem é erro frequente em prova.",
+          "references": [
+            {
+              "work": "Aula Glândulas Adrenais UNINOVE 5º M",
+              "professor": "Bosco / Brito / Salgado"
+            },
+            {
+              "work": "Lenders JWM et al. JCEM 2014 — Pheochromocytoma Guidelines"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Metanefrinas plasmáticas livres OU urinárias fracionadas como rastreio — alinhado com Lenders JCEM 2014."
+        },
+        {
+          "id": "E-q3",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "farmacologia",
+            "endocrinologia",
+            "cardiologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Sobre o PREPARO PRÉ-OPERATÓRIO do feocromocitoma, qual é a SEQUÊNCIA correta de bloqueio adrenérgico?",
+          "options": [
+            "Iniciar BETA-BLOQUEADOR primeiro, e só depois adicionar alfa-bloqueador conforme necessidade",
+            "Iniciar ALFA-BLOQUEADOR primeiro (fenoxibenzamina ou doxazosina), atingir alvo de PA e volemia, e SÓ DEPOIS adicionar betabloqueador SE houver taquicardia/arritmia",
+            "Iniciar bloqueador de canal de cálcio diidropiridínico isolado, sem alfa nem beta",
+            "Iniciar IECA + diurético em alta dose antes da cirurgia",
+            "Sem preparo medicamentoso — operar diretamente assim que disponível centro cirúrgico"
+          ],
+          "correctIndex": 1,
+          "feedback": "A REGRA DE OURO do preparo do feocromocitoma é: ALFA-BLOQUEIO ANTES de qualquer beta-bloqueador. Iniciar beta isolado em paciente com feo causa CRISE HIPERTENSIVA GRAVE — o betabloqueio remove o efeito vasodilatador β2-mediado e o feo passa a agir SÓ via α1 (vasoconstrição sem oposição). O alfa-bloq (fenoxibenzamina não-seletivo, ou alfa-1 seletivos como doxazosina/prazosina/terazosina) é iniciado e titulado até alvo de PA e expansão volêmica adequada (orientar ingesta liberal de sal e água), em 7–14 dias. SE houver taquicardia/arritmia após alfa-bloqueio estabelecido, ADICIONA-SE betabloqueador.",
+          "justification": "Este é um dos erros mais clássicos cobrados em prova — beta antes de alfa = crise hipertensiva mortal.",
+          "references": [
+            {
+              "work": "Aula Glândulas Adrenais UNINOVE 5º M",
+              "professor": "Bosco / Brito / Salgado",
+              "sourcePdf": "7 Adrenal"
+            },
+            {
+              "work": "Fagundes GFC, Almeida MQ. JES 2022 — Preoperative Management of Pheochromocytoma"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Regra de ouro alfa-bloqueio ANTES de beta-bloqueio bem cobrada — ponto crítico de segurança."
+        },
+        {
+          "id": "E-q4",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "farmacologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Sobre o ALFA-BLOQUEADOR usado no preparo do feocromocitoma, qual afirmação é a CORRETA?",
+          "options": [
+            "Fenoxibenzamina é um alfa-bloqueador SELETIVO α1, de meia-vida curta",
+            "Doxazosina é um alfa-bloqueador NÃO-SELETIVO e bloqueia preferencialmente α2 pré-sináptico",
+            "Fenoxibenzamina é alfa-bloqueador NÃO-SELETIVO (α1 + α2), com efeito IRREVERSÍVEL e prolongado (suspender ~24–48h antes da cirurgia para evitar hipotensão prolongada no pós-op); doxazosina/prazosina são alfa-1 seletivos, de curta duração",
+            "Verapamil é o alfa-bloqueador preferencial pelo perfil de meia-vida",
+            "Espironolactona, por antagonizar receptor mineralocorticoide, é o alfa-bloqueador padrão"
+          ],
+          "correctIndex": 2,
+          "feedback": "Fenoxibenzamina (α-bloq não-seletivo, ligação covalente — bloqueio irreversível, longa duração) é o tradicional; alvo PA sentada <120–130/80, em ortostase PAS >90 e FC 70–80. Suspender 24–48h antes pela duração de ação. Em ausência de fenoxibenzamina (não disponível no Brasil rotineiramente), usam-se α-1 seletivos: doxazosina 1–16 mg/dia ou prazosina/terazosina, iniciados à noite (risco de hipotensão ortostática), com aumento progressivo em 7–15 dias. Verapamil é BCC (não alfa); espironolactona é antagonista MR (não alfa).",
+          "justification": "Saber a farmacologia exata do α-bloq é frequentemente cobrado em prova integrada, com pegadinha clássica sobre seletividade.",
+          "references": [
+            {
+              "work": "Aula Glândulas Adrenais UNINOVE 5º M",
+              "professor": "Bosco / Brito / Salgado"
+            },
+            {
+              "work": "Goodman & Gilman",
+              "edition": "14ª ed",
+              "publisher": "McGraw-Hill",
+              "year": 2023,
+              "chapter": "Adrenergic Antagonists"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Fenoxibenzamina (não-seletivo, irreversível) vs doxazosina (alfa-1 seletivo, curta). Farmacologia precisa."
+        },
+        {
+          "id": "E-q5",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "neurologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Sobre a CEFALEIA da paciente, quais RED FLAGS (sinais de alarme) presentes nesta apresentação JUSTIFICAM investigação ativa de cefaleia SECUNDÁRIA?",
+          "options": [
+            "Apenas a idade da paciente",
+            "Cefaleia aguda intensa associada a hipertensão grave, paroxística, com sintomas autonômicos sistêmicos (sudorese, palpitação) — padrão MAL EXPLICADO por cefaleia primária; PA muito elevada e perda ponderal são red flags adicionais",
+            "Não há red flags — a apresentação é típica de migrânea",
+            "Apenas presença de tremor de extremidades",
+            "RM normal afasta toda necessidade de investigação adicional"
+          ],
+          "correctIndex": 1,
+          "feedback": "SINAIS DE ALARME de cefaleia secundária (mnemônico SNOOP/SNOOP10): Sistêmico (febre, perda ponderal, neoplasia), Neurológico (déficit focal, alteração de consciência), Início súbito ou após 50 anos, Outro tipo (mudança do padrão habitual), Padrão progressivo OU desencadeada por esforço (tussígena, sexual, manobra de Valsalva). A paciente apresenta: cefaleia paroxística desencadeada por esforço/Valsalva, perda ponderal, sintomas autonômicos sistêmicos, HAS grave — esse conjunto pede investigação de causa secundária (no caso, FEO). RM normal afasta tumor cerebral/HSA, mas NÃO afasta causa secundária extracraniana (como feo).",
+          "justification": "Cefaleia desencadeada por esforço/Valsalva é red flag clássica (HSA, tumor de fossa posterior, malformação Chiari, feocromocitoma).",
+          "references": [
+            {
+              "work": "Aula Cefaleias UNINOVE 5º M",
+              "sourcePdf": "Aula_Cefaleias_Graduacao_Medicina"
+            },
+            {
+              "work": "International Classification of Headache Disorders (ICHD-3)",
+              "year": 2018
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Red flags de cefaleia secundária presentes: paroxismos, sintomas autonômicos, HAS grave, deflagrada por Valsalva. RM normal não exclui causa extracraniana."
+        },
+        {
+          "id": "E-q6",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "farmacologia",
+            "endocrinologia",
+            "fisiopatologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Explique POR QUE o uso ISOLADO de betabloqueador (sem alfa-bloqueio prévio) em paciente com feocromocitoma pode precipitar uma CRISE HIPERTENSIVA GRAVE. Descreva o mecanismo passo a passo.",
+          "expectedAnswer": "1) O feocromocitoma libera grandes quantidades de catecolaminas (predominantemente noradrenalina e adrenalina) que estimulam SIMULTANEAMENTE receptores α-adrenérgicos (vasoconstrição arterial e venosa) e β-adrenérgicos (β1 → ↑ FC e contratilidade; β2 → vasodilatação arteriolar parcial em vasos com receptores β2, reduzindo o efeito vasoconstritor α). 2) Em condições de feo, há um EQUILÍBRIO PRECÁRIO: a vasoconstrição α-mediada é parcialmente atenuada pela vasodilatação β2. 3) Ao introduzir um BETABLOQUEADOR ISOLADO, especialmente não-seletivo (como propranolol), bloqueiam-se OS RECEPTORES β2 vasodilatadores — a vasoconstrição α1 (NÃO bloqueada) passa a atuar SEM OPOSIÇÃO, com aumento dramático da RVP e CRISE HIPERTENSIVA potencialmente letal (\"oposição alfa sem oposição beta\"). 4) Por isso a regra inviolável é INICIAR alfa-bloqueador primeiro, atingir alvo pressórico e expansão volêmica adequada, e SÓ ENTÃO adicionar betabloqueador SE necessário (taquicardia/arritmia). 5) O alfa-bloq deve ser usado por 7–14 dias antes da cirurgia, com orientação de alta ingesta hídrica e salina para expandir volume intravascular contraído pela vasoconstrição crônica.",
+          "rubric": [
+            {
+              "criterion": "Explica balanço α1 (vasoconstrição) x β2 (vasodilatação) na fisiologia normal e no feo",
+              "points": 9
+            },
+            {
+              "criterion": "Explica o mecanismo da crise: bloqueio β2 → α1 sem oposição",
+              "points": 9
+            },
+            {
+              "criterion": "Cita a regra prática (alfa antes de beta) e o tempo de preparo",
+              "points": 7
+            }
+          ],
+          "feedback": "Esse mecanismo é exemplo clássico de prova integrada em farmaco + endócrino. Memorizar a regra sem entender o mecanismo deixa o aluno vulnerável a variações da pergunta (\"e se for alfa seletivo?\", \"e se for betabloq cardioseletivo?\").",
+          "justification": "Mesmo betabloq β1-seletivo, em altas doses ou em paciente com feo, perde seletividade — a regra continua válida.",
+          "references": [
+            {
+              "work": "Aula Glândulas Adrenais UNINOVE 5º M",
+              "professor": "Bosco / Brito / Salgado"
+            },
+            {
+              "work": "Goodman & Gilman",
+              "edition": "14ª ed",
+              "publisher": "McGraw-Hill",
+              "year": 2023
+            },
+            {
+              "work": "Lenders JWM et al. JCEM 2014"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Mecanismo da crise por beta-bloqueio isolado (α1 sem oposição β2) descrito com precisão fisiopatológica."
+        },
+        {
+          "id": "E-q7",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "neurologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Cite CINCO RED FLAGS (sinais de alarme) que devem fazer suspeitar de CEFALEIA SECUNDÁRIA e que JUSTIFICAM investigação adicional além do diagnóstico de cefaleia primária.",
+          "expectedAnswer": "(1) Início súbito, em segundos a minutos (\"thunderclap\") — suspeita de hemorragia subaracnóide, dissecção arterial, trombose venosa cerebral. (2) Sintomas sistêmicos associados — febre, perda ponderal, suores noturnos, neoplasia conhecida, imunossupressão (sugere meningite, neoplasia, vasculite, abscesso). (3) Sinais ou sintomas NEUROLÓGICOS — déficit focal, alteração de consciência, convulsão, papiledema (sugere tumor, AVC, hipertensão intracraniana). (4) Início APÓS os 50 anos OU mudança importante do padrão habitual da cefaleia em paciente com cefaleia prévia (sugere arterite temporal em idosos, tumor). (5) Padrão progressivo persistente, ou desencadeada por esforço, tosse, Valsalva, mudança de posição (sugere malformação de Chiari, tumor de fossa posterior, HSA, feocromocitoma). Outros válidos: cefaleia em paciente gestante ou puerpério (trombose venosa, eclâmpsia); HIV/imunossuprimido (toxoplasmose, criptococose); resposta atípica à analgesia.",
+          "rubric": [
+            {
+              "criterion": "1ª red flag nomeada corretamente (ex: thunderclap / início súbito)",
+              "points": 5
+            },
+            {
+              "criterion": "2ª red flag nomeada corretamente (ex: sintomas sistêmicos — febre, perda ponderal, neoplasia)",
+              "points": 5
+            },
+            {
+              "criterion": "3ª red flag nomeada corretamente (ex: sintomas/sinais neurológicos focais)",
+              "points": 5
+            },
+            {
+              "criterion": "4ª red flag nomeada corretamente (ex: início >50 anos OU mudança de padrão)",
+              "points": 5
+            },
+            {
+              "criterion": "5ª red flag nomeada corretamente (ex: padrão progressivo / desencadeada por esforço/Valsalva)",
+              "points": 5
+            }
+          ],
+          "feedback": "A mnemônica SNNOOP10 (Do TP et al., Neurology 2019) é a referência canônica dos sinais de alarme. Identificar pelo menos uma em paciente com cefaleia obriga investigação adicional (RM, AngioRM, líquor, exames sistêmicos). Cada red flag vale 5 pontos pela nomeação correta — citar 5 fecha os 25 pontos.",
+          "justification": "Subdiagnóstico de cefaleia secundária pode atrasar tratamento de HSA, tumor, vasculite — com sequelas graves.",
+          "references": [
+            {
+              "work": "Aula Cefaleias UNINOVE 5º M",
+              "sourcePdf": "Aula_Cefaleias_Graduacao_Medicina"
+            },
+            {
+              "work": "Do TP et al. Red and orange flags for secondary headaches in clinical practice — SNNOOP10 list",
+              "publisher": "Neurology",
+              "year": 2019
+            },
+            {
+              "work": "International Classification of Headache Disorders (ICHD-3)",
+              "year": 2018
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Ajuste aplicado: rubrica reestruturada em 5 sub-itens explícitos de 5 pts cada; adicionada referência canônica Do TP et al. Neurology 2019 (SNNOOP10)."
+        }
+      ]
+    },
+    {
+      "id": "caso-F",
+      "title": "Caso F — Glomerulonefrite rapidamente progressiva por nefrite lúpica classe IV",
+      "disciplines": [
+        "nefrologia",
+        "reumatologia",
+        "imunologia",
+        "farmacologia"
+      ],
+      "needsReview": false,
+      "patient": {
+        "age": 26,
+        "sex": "F",
+        "context": "Sem comorbidades prévias conhecidas. Refere artralgias e fadiga arrastadas há 6 meses, não investigadas. Sem uso regular de medicações.",
+        "complaint": "Edema generalizado, oligúria, hematúria macroscópica e dispneia há 5 dias."
+      },
+      "history": "Há 5 dias iniciou edema progressivo de face, pernas e abdome, com piora dos sintomas até anasarca. Refere urina escura (\"cor de coca-cola\") em pequeno volume, dispneia aos pequenos esforços e em decúbito, cefaleia intensa nas últimas 48h e turvação visual. Refere febre baixa intermitente, dor articular em punhos e joelhos há semanas, rash facial vespertino \"em borboleta\" desde o início do ano e queda de cabelo. Última menstruação há 6 semanas — beta-HCG negativo no PS.",
+      "evolution": "À chegada: anasarca, taquipneica, hipertensa, oligúrica. Após 6h de observação: PA 220/130 mmHg refratária, sonolência intermitente, mantém débito urinário <100 mL.",
+      "physicalExam": {
+        "vitals": "PA 218/128 mmHg · FC 112 bpm · FR 30 irpm · T 37,4 °C · SpO₂ 91% AA",
+        "findings": "MEG, anasarca importante, eritema malar poupando sulco nasolabial, alopécia. Estertores crepitantes bilaterais até terço médio de ambos os hemitóraces. Ictus desviado, B3 audível. Abdome com ascite moderada. Edema 4+/4+ em MMII, com cacifo até coxa. Sem déficit neurológico focal. Exame de fundo de olho: hemorragias em chama de vela e exsudatos algodonosos (retinopatia hipertensiva grau III–IV)."
+      },
+      "labs": [
+        {
+          "name": "Creatinina sérica",
+          "value": "5,2 mg/dL",
+          "refRange": "0,6–1,2 (basal estimada 0,8)",
+          "abnormal": true
+        },
+        {
+          "name": "Ureia",
+          "value": "186 mg/dL",
+          "refRange": "10–50",
+          "abnormal": true
+        },
+        {
+          "name": "TFGe (CKD-EPI)",
+          "value": "~11 mL/min/1,73m²",
+          "refRange": ">60",
+          "abnormal": true
+        },
+        {
+          "name": "Potássio",
+          "value": "6,2 mEq/L",
+          "refRange": "3,5–5,0",
+          "abnormal": true
+        },
+        {
+          "name": "Bicarbonato",
+          "value": "14 mEq/L",
+          "refRange": "22–26",
+          "abnormal": true
+        },
+        {
+          "name": "Hemograma",
+          "value": "Hb 7,8 / Leuco 2.900 (linfopenia 12%) / Plaquetas 95k",
+          "refRange": "Anemia + leuco/plaquetopenia",
+          "abnormal": true
+        },
+        {
+          "name": "Albumina",
+          "value": "2,2 g/dL",
+          "refRange": "3,5–5,2",
+          "abnormal": true
+        },
+        {
+          "name": "Proteinúria 24h",
+          "value": "5,8 g/24h",
+          "refRange": "<150 mg",
+          "abnormal": true
+        },
+        {
+          "name": "Urina 1",
+          "value": "Hematúria intensa, cilindros HEMÁTICOS, dismorfismo eritrocitário positivo, proteinúria 3+, leucocitúria moderada",
+          "abnormal": true
+        },
+        {
+          "name": "Complemento C3 / C4",
+          "value": "C3 38 (VR 90–180) / C4 4 (VR 10–40) — AMBOS CONSUMIDOS",
+          "abnormal": true
+        },
+        {
+          "name": "FAN",
+          "value": "1:1.280, padrão homogêneo (núcleo)",
+          "abnormal": true
+        },
+        {
+          "name": "Anti-DNA dupla fita / Anti-Sm",
+          "value": "Anti-DNA 1:320 (positivo) · Anti-Sm positivo",
+          "abnormal": true
+        },
+        {
+          "name": "ANCA",
+          "value": "Negativo"
+        },
+        {
+          "name": "Sorologias HIV, Hep B, Hep C",
+          "value": "Negativas"
+        }
+      ],
+      "imaging": "USG renal: rins de tamanho preservado, sem obstrução. Radiografia de tórax: cardiomegalia moderada, infiltrado intersticial bilateral (congestão). Ecocardiograma: FE 56%, sem derrame pericárdico, sem disfunção sistólica.",
+      "questions": [
+        {
+          "id": "F-q1",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "nefrologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Qual SÍNDROME RENAL melhor define o quadro APRESENTADO da paciente?",
+          "options": [
+            "Síndrome nefrótica pura",
+            "Alteração urinária assintomática",
+            "Glomerulonefrite rapidamente progressiva (GNRP) — perda rápida e progressiva da função renal (em dias a semanas) com hematúria glomerular, proteinúria, cilindros hemáticos e oligúria, frequentemente acompanhada de HAS e edema",
+            "Necrose tubular aguda isolada",
+            "Doença renal crônica avançada estável"
+          ],
+          "correctIndex": 2,
+          "feedback": "GNRP é definida por queda RÁPIDA e PROGRESSIVA da função renal (semanas), com achado urinário GLOMERULAR (hematúria, cilindros hemáticos, dismorfismo, proteinúria), HAS frequentemente grave e oligúria. A creatinina basal estimada de 0,8 saltando para 5,2 em poucos dias define o padrão. Síndrome nefrótica isolada teria proteinúria >3,5g + hipoalbuminemia + edema, sem hematúria glomerular nem deterioração tão rápida da função renal. NTA seria contexto de isquemia/tóxico com FENa elevado.",
+          "justification": "Reconhecer GNRP é EMERGÊNCIA — janela de tempo para preservar função renal é curta. Atraso na biópsia/imunossupressão = perda renal permanente.",
+          "references": [
+            {
+              "work": "Aula Doenças Glomerulares UNINOVE 5º M",
+              "professor": "Mariana Batista Pereira",
+              "sourcePdf": "Síndromes glomerulares-2026"
+            },
+            {
+              "work": "Nefrologia Essencial",
+              "authors": "Moura, Freitas, Moura-Neto",
+              "publisher": "Manole",
+              "year": 2024,
+              "chapter": "7 — Principais Síndromes Renais"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "GNRP corretamente caracterizada por queda rápida da função renal + sedimento nefrítico + cilindros hemáticos + dismorfismo."
+        },
+        {
+          "id": "F-q2",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "reumatologia",
+            "imunologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Considerando o conjunto clínico-laboratorial (rash malar, artralgia, alopécia, citopenias, C3 e C4 BAIXOS, FAN 1:1.280, anti-DNA e anti-Sm positivos), qual é o DIAGNÓSTICO ETIOLÓGICO mais provável da nefropatia?",
+          "options": [
+            "Glomerulonefrite pós-estreptocócica",
+            "Vasculite ANCA-associada (granulomatose com poliangeíte)",
+            "Nefrite lúpica — provavelmente classe III/IV (proliferativa)",
+            "Doença anti-membrana basal glomerular (Goodpasture)",
+            "Nefropatia por IgA"
+          ],
+          "correctIndex": 2,
+          "feedback": "Os critérios EULAR/ACR 2019 para LES somam >10 pontos com esses achados (FAN +, anti-DNA dupla fita +, anti-Sm +, rash malar, citopenias, artralgia, comprometimento renal). C3 E C4 BAIXOS (consumo via clássica) são típicos de LES (e crioglobulinemia/endocardite). ANCA negativo afasta vasculites pauci-imunes; ASLO/cultura positivos sustentariam pós-estreptocócica (que tipicamente tem só C3 baixo, sem C4); Goodpasture teria anti-MBG +. A apresentação como GNRP em LES sugere CLASSE PROLIFERATIVA (III focal ou IV difusa) — a CLASSE IV é a mais comum e a que mais cursa com GNRP.",
+          "justification": "C3 e C4 BAIXOS juntos são a assinatura imunológica do LES; é um detalhe muito cobrado em prova integrada de medicina.",
+          "references": [
+            {
+              "work": "Aula Doenças Glomerulares UNINOVE 5º M",
+              "professor": "Mariana Batista Pereira"
+            },
+            {
+              "work": "EULAR/ACR Classification Criteria for SLE",
+              "year": 2019
+            },
+            {
+              "work": "Harrison's Principles of Internal Medicine",
+              "edition": "21ª ed",
+              "publisher": "AMGH",
+              "year": 2024,
+              "chapter": "314 — Glomerular Diseases"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Assinatura imunológica LES (C3 e C4 baixos + FAN + anti-DNA + anti-Sm) impecável; classe IV proliferativa difusa coerente."
+        },
+        {
+          "id": "F-q3",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "nefrologia",
+            "reumatologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Sobre a indicação de BIÓPSIA RENAL nesta paciente, qual conduta é a CORRETA?",
+          "options": [
+            "Biópsia renal NÃO está indicada — tratar empiricamente com imunossupressor",
+            "Biópsia renal está INDICADA (síndrome nefrítica + GNRP em LES suspeito) — é o PADRÃO-OURO para definir classe (II–VI), índice de atividade e de cronicidade da nefrite lúpica, com impacto direto na escolha do imunossupressor e do prognóstico",
+            "Realizar apenas USG com Doppler renal, pois biópsia é contraindicada em LES",
+            "Aguardar pelo menos 6 meses antes de indicar biópsia",
+            "Biópsia somente se fizer hemodiálise primeiro"
+          ],
+          "correctIndex": 1,
+          "feedback": "Biópsia renal é PADRÃO-OURO em síndrome nefrítica, GNRP e síndrome nefrótica em adultos sem DM. Na nefrite lúpica, a CLASSE (ISN/RPS 2003: I mesangial mínima, II mesangial proliferativa, III focal, IV difusa, V membranosa, VI esclerose avançada) define o tratamento: classes III/IV são tratadas agressivamente com indução imunossupressora; classes II são geralmente conservadoras; classe V isolada (membranosa) pode ter abordagem diferenciada. Índices de atividade e cronicidade orientam intensidade e duração.",
+          "justification": "Indução cega sem classe pode SUBTRATAR (caso IV) ou EXAGERAR (caso II), com toxicidade evitável.",
+          "references": [
+            {
+              "work": "Aula Doenças Glomerulares UNINOVE 5º M",
+              "professor": "Mariana Batista Pereira"
+            },
+            {
+              "work": "ISN/RPS Classification of Lupus Nephritis",
+              "year": 2003
+            },
+            {
+              "work": "KDIGO Glomerular Diseases Guideline — Lupus Nephritis",
+              "year": 2024
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Biópsia renal indicada e factível mesmo com Cr 5,2 e plaquetas 95k; ISN/RPS 2003 para classificação."
+        },
+        {
+          "id": "F-q4",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "reumatologia",
+            "farmacologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Confirmada nefrite lúpica CLASSE IV (proliferativa difusa) com sinais de atividade, qual é a TERAPIA DE INDUÇÃO atual?",
+          "options": [
+            "Apenas prednisona 1 mg/kg/dia em monoterapia",
+            "Pulsoterapia com metilprednisolona (3 dias) + transição para corticoide oral em dose alta + IMUNOSSUPRESSOR (micofenolato mofetil 2–3 g/dia OU ciclofosfamida em pulsos), idealmente associado a BELIMUMABE ou VOCLOSPORINA conforme protocolos atuais (KDIGO 2024)",
+            "Apenas hidroxicloroquina como monoterapia",
+            "Plasmaférese em sessão única isolada, sem imunossupressor",
+            "Apenas IECA + iSGLT2, sem imunossupressor"
+          ],
+          "correctIndex": 1,
+          "feedback": "A indução em LN III/IV envolve TRÊS componentes (\"triplo\"): (1) corticoide — pulsoterapia EV (metilprednisolona 500–1000 mg por 3 dias) seguida de prednisona oral em dose alta, com desmame; (2) imunossupressor de indução — MMF (micofenolato 2–3 g/dia) ou CICLOFOSFAMIDA em pulsos (esquema EuroLupus baixa dose ou NIH alta dose); (3) terapia adicional adjuvante — belimumabe (anti-BLyS) ou voclosporina (inibidor calcineurina) mostraram benefício adicional em estudos recentes e foram incorporadas pelo KDIGO 2024. Hidroxicloroquina é mantida em TODOS os pacientes com LES (modificadora de doença, redução de mortalidade) — mas NÃO substitui imunossupressor em LN ativa.",
+          "justification": "Monoterapia com corticoide ou hidroxicloroquina é subtratamento clássico e perpetua o dano renal irreversível.",
+          "references": [
+            {
+              "work": "KDIGO Glomerular Diseases Guideline — Lupus Nephritis",
+              "year": 2024
+            },
+            {
+              "work": "Aula Doenças Glomerulares UNINOVE 5º M",
+              "professor": "Mariana Batista Pereira"
+            },
+            {
+              "work": "EULAR Recommendations for Lupus Nephritis Management",
+              "year": 2024
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Indução LN IV: pulso corticoide + MMF/ciclofosfamida + belimumabe/voclosporina (KDIGO 2024). Hidroxicloroquina mantida."
+        },
+        {
+          "id": "F-q5",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "nefrologia",
+            "cardiologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Sobre o MANEJO ADJUVANTE da proteinúria/HAS/edema nesta paciente nas próximas horas a dias, qual conduta é a CORRETA?",
+          "options": [
+            "Iniciar imediatamente iECA/BRA em dose plena e iSGLT2",
+            "Suspender IECA/BRA temporariamente (AKI grave + hipercalemia 6,2), corrigir hipercalemia (medidas farmacológicas + considerar diálise), iniciar diurético de alça em ALTA dose (com associação tiazídico se refratário), restringir sódio e água, considerar diálise para sobrecarga volumétrica refratária e hipercalemia; iECA/BRA e iSGLT2 ficam para QUANDO função renal estabilizar",
+            "Iniciar furosemida sem corrigir potássio",
+            "Apenas restrição hídrica, sem diurético nem diálise",
+            "Iniciar nifedipino sublingual para crise hipertensiva"
+          ],
+          "correctIndex": 1,
+          "feedback": "Em GNRP com AKI severa (TFGe 11) e hipercalemia 6,2: iECA/BRA aumentam K e podem piorar AKI hemodinâmica — suspender temporariamente. Hipercalemia 6,2 com bicarbonato 14 = emergência: gluconato de cálcio (proteção miocárdica), insulina + glicose, beta-2 agonista, bicarbonato (se acidose), resina trocadora, e hemodiálise se refratário ou outras indicações (sobrecarga refratária a diurético). Edema/sobrecarga: diurético de alça EV em alta dose, podendo associar tiazídico (bloqueio sequencial do néfron). Nifedipino sublingual em crise hipertensiva é CONTRAINDICADO (queda abrupta de PA, AVC isquêmico). Para crise hipertensiva use nitroprussiato/nicardipina/labetalol EV em UTI com monitorização.",
+          "justification": "Tratar o componente imunológico é essencial mas demora — o suporte clínico nas primeiras 24–48h evita morte por edema agudo de pulmão e arritmia hipercalêmica.",
+          "references": [
+            {
+              "work": "Aula Doenças Glomerulares UNINOVE 5º M",
+              "professor": "Mariana Batista Pereira"
+            },
+            {
+              "work": "KDIGO AKI Guideline",
+              "year": 2012
+            },
+            {
+              "work": "Diretriz BR de Crise Hipertensiva (SBC)",
+              "year": 2024
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Suspender IECA/BRA em AKI+hiperK; nifedipino SL CONTRAINDICADO em emergência hipertensiva; manejo de K 6,2 correto; AEIOU para diálise."
+        },
+        {
+          "id": "F-q6",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "nefrologia",
+            "farmacologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Descreva TRÊS MEDIDAS imediatas para manejo do EDEMA com sobrecarga volumétrica e congestão pulmonar nesta paciente, com justificativa.",
+          "expectedAnswer": "1) RESTRIÇÃO de sódio e líquidos — limitar sódio a <2 g/dia e oferta hídrica conforme balanço (~500 mL + diurese), enquanto se reduz progressivamente a sobrecarga; sem restrição, o diurético é insuficiente. 2) DIURÉTICO DE ALÇA endovenoso em dose ALTA — furosemida 80–160 mg EV em bolus inicial (em AKI/DRC, doses VO são insuficientes; doses precisam ser maiores que em paciente sem disfunção); se refratário, associar tiazídico (hidroclorotiazida ou clortalidona) para bloqueio sequencial do néfron, sob risco de hipocalemia (já corrigir potássio elevado primeiro), monitorização contínua de PA, diurese, eletrólitos e função renal. 3) Indicação de DIÁLISE (hemodiálise convencional ou TRRC se hemodinamicamente instável) por critérios AEIOU: Acidose (pH <7,1 ou Bic <12), Eletrólitos (K refratário >6,5), Intoxicação, Overload (sobrecarga refratária a diurético com edema agudo de pulmão), Uremia sintomática (encefalopatia, pericardite, hemorragia). A paciente tem AKI grave + sobrecarga + K 6,2 + acidose — provável indicação iminente de diálise.",
+          "rubric": [
+            {
+              "criterion": "Restrição de Na/líquidos com justificativa",
+              "points": 7
+            },
+            {
+              "criterion": "Diurético de alça EV em dose alta, bloqueio sequencial se refratário",
+              "points": 9
+            },
+            {
+              "criterion": "Critérios de diálise (AEIOU) e cenário desta paciente",
+              "points": 9
+            }
+          ],
+          "feedback": "Reconhecer falha de diurético e indicar diálise a tempo evita parada cardiorrespiratória por edema agudo de pulmão e hipercalemia.",
+          "justification": "Reposição precoce de albumina em casos selecionados (síndrome nefrótica grave com edema refratário) pode potencializar diurético — não é primeira linha aqui, mas pode entrar no algoritmo.",
+          "references": [
+            {
+              "work": "Aula Doenças Glomerulares UNINOVE 5º M",
+              "professor": "Mariana Batista Pereira"
+            },
+            {
+              "work": "KDIGO AKI Guideline",
+              "year": 2012
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Restrição Na/H2O + diurético alça com bloqueio sequencial + AEIOU. Rubrica auditável."
+        },
+        {
+          "id": "F-q7",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "imunologia",
+            "reumatologia",
+            "nefrologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Explique o padrão de IMUNOFLUORESCÊNCIA TÍPICO da nefrite lúpica na biópsia renal e por que ele é distinto de outras glomerulonefrites imunomediadas.",
+          "expectedAnswer": "Na nefrite lúpica, a imunofluorescência mostra o padrão clássico de \"FULL HOUSE\" — depósitos POSITIVOS de praticamente TODAS as imunoglobulinas e frações do complemento: IgG (++++), IgA, IgM, C3, C1q (este último particularmente característico do LES). O padrão é GRANULAR (não-linear), refletindo deposição de IMUNOCOMPLEXOS circulantes ou formados in situ. Distinção: glomerulopatia membranosa primária tem só IgG e C3 (sem IgA/IgM/C1q proeminentes); IgA tem dominância de IgA; pós-estreptocócica tem padrão \"céu estrelado\" com C3 dominante; vasculites ANCA-associadas são PAUCI-IMUNES (imunofluorescência tipicamente NEGATIVA — \"sem imunocomplexos\"); doença anti-MBG tem padrão LINEAR de IgG ao longo da membrana basal. Microscopia eletrônica também ajuda: depósitos subendoteliais, subepiteliais, intramembranosos e mesangiais coexistem em LES (\"em qualquer lugar\"), enquanto membranosa tem subepitelial, IgA tem mesangial, pós-estrep tem subepitelial em corcova.",
+          "rubric": [
+            {
+              "criterion": "Descreve padrão \"full house\" (IgG/IgA/IgM/C3/C1q) granular",
+              "points": 9
+            },
+            {
+              "criterion": "Diferencia das pauci-imunes (ANCA) e da linear (anti-MBG)",
+              "points": 8
+            },
+            {
+              "criterion": "Cita C1q como marcador particular de LES",
+              "points": 8
+            }
+          ],
+          "feedback": "A imunofluorescência diferencia mecanismo fisiopatológico (imunocomplexos vs pauci-imune vs anti-MBG) e direciona tratamento.",
+          "justification": "Confundir LES com pauci-imune (ANCA) levaria a esquema diferente (ciclofosfamida + corticoide ± plasmaférese em ANCA com hemorragia alveolar).",
+          "references": [
+            {
+              "work": "Aula Doenças Glomerulares UNINOVE 5º M",
+              "professor": "Mariana Batista Pereira"
+            },
+            {
+              "work": "Harrison's Principles of Internal Medicine",
+              "edition": "21ª ed",
+              "publisher": "AMGH",
+              "year": 2024,
+              "chapter": "Glomerular Diseases"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Padrão \"full house\" (IgG/IgA/IgM/C3/C1q) + diferencial com membranosa, IgA, GNPE, ANCA pauci-imune, anti-MBG linear."
+        },
+        {
+          "id": "F-q8",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "reumatologia",
+            "farmacologia",
+            "infectologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Cite TRÊS MEDIDAS de PREVENÇÃO de complicações em paciente que iniciará imunossupressão prolongada (corticoide + MMF/ciclofosfamida) por nefrite lúpica.",
+          "expectedAnswer": "1) PROFILAXIA contra Pneumocystis jirovecii (PCP) — sulfametoxazol-trimetoprima (800/160 mg 3x/semana ou 400/80 mg/dia) está indicada quando a paciente está em altas doses de corticoide (prednisona ≥20 mg/dia por >4 semanas) associada a imunossupressor, particularmente em quem tem linfopenia (caso desta paciente). Alternativas: dapsona, atovaquona, pentamidina inalatória. 2) VACINAÇÃO — atualizar calendário ANTES de iniciar imunossupressão sempre que possível: vacinas inativadas (influenza anual, pneumocócica conjugada 13-valente + polissacarídica 23-valente, hepatite B, COVID-19, HPV se idade). Vacinas vivas (febre amarela, tríplice viral, varicela) são CONTRAINDICADAS durante imunossupressão pesada — administrar pelo menos 4 semanas antes. 3) Monitorização de TOXICIDADE — hemograma seriado para detectar mielossupressão (MMF/ciclofosfamida), função hepática e renal, glicemia (corticoide), pressão arterial e densitometria óssea (corticoide → osteoporose, considerar cálcio + vit D + bisfosfonato se uso prolongado). 4) Rastreio infeccioso prévio — PPD/IGRA para tuberculose latente (tratar se positivo), sorologias para hepatites virais (HBV — risco de reativação com imunossupressão, considerar profilaxia), HIV, strongyloides em áreas endêmicas. Em mulheres em idade fértil, contracepção eficaz (MMF e ciclofosfamida são teratogênicos) e aconselhamento sobre planejamento reprodutivo.",
+          "rubric": [
+            {
+              "criterion": "Profilaxia PCP com SMX-TMP, indicação por dose de corticoide/linfopenia",
+              "points": 8
+            },
+            {
+              "criterion": "Vacinação inativada antes da indução, contraindicação de vacinas vivas",
+              "points": 8
+            },
+            {
+              "criterion": "Monitorização de toxicidade (hemograma, função renal/hep, osso, glicemia) e rastreio infeccioso prévio",
+              "points": 9
+            }
+          ],
+          "feedback": "Pacientes com LES em imunossupressão pesada têm INFECÇÃO como principal causa de morte. Profilaxia e vacinação são intervenções de mortalidade — não acessórias.",
+          "justification": "Esquecer profilaxia de PCP em paciente lúpica em pulsoterapia é erro fatal frequente. Vacinar APÓS imunossupressão pesada reduz resposta imune.",
+          "references": [
+            {
+              "work": "EULAR Recommendations for Vaccination in Adult Patients with Autoimmune Inflammatory Rheumatic Diseases",
+              "year": 2019
+            },
+            {
+              "work": "Recommendations for Pneumocystis jirovecii prophylaxis in non-HIV immunosuppressed patients (UpToDate / CDC-IDSA Opportunistic Infections in HSCT recipients)",
+              "year": 2023
+            },
+            {
+              "work": "ACR Reproductive Health Guideline in Rheumatic and Musculoskeletal Diseases",
+              "year": 2020
+            },
+            {
+              "work": "Aula Doenças Glomerulares UNINOVE 5º M",
+              "professor": "Mariana Batista Pereira"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Ajuste aplicado: referência ACR fictícia substituída por EULAR vaccination 2019 + recomendações reais (UpToDate/CDC-IDSA, ACR Reproductive Health 2020)."
+        }
+      ]
+    }
+  ]
+}

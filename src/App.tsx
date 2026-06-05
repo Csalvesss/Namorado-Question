@@ -1,6 +1,10 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
+import RequireAdmin from './components/RequireAdmin';
 import RequireAuth from './components/RequireAuth';
+import Admin from './pages/Admin';
+import PendingApproval from './pages/PendingApproval';
+import ProvaIntegrada from './pages/ProvaIntegrada';
 import Author from './pages/Author';
 import Bilhetes from './pages/Bilhetes';
 import Calculators from './pages/Calculators';
@@ -32,6 +36,15 @@ export default function App() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
+      <Route path="/aguardando" element={<PendingApproval />} />
+      <Route
+        path="/admin"
+        element={
+          <RequireAdmin>
+            <Admin />
+          </RequireAdmin>
+        }
+      />
       <Route
         element={
           <RequireAuth>
@@ -66,6 +79,7 @@ export default function App() {
         <Route path="/bilhetes" element={<Bilhetes />} />
         <Route path="/autor" element={<Author />} />
         <Route path="/perfil" element={<Profile />} />
+        <Route path="/prova-integrada" element={<ProvaIntegrada />} />
       </Route>
       <Route path="/" element={<Welcome />} />
       <Route path="*" element={<Navigate to="/" replace />} />
