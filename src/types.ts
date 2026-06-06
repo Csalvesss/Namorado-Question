@@ -527,7 +527,7 @@ export interface IntegratedExam {
   version: string;
   title: string;
   subtitle?: string;
-  totalPoints: 1000;
+  totalPoints: number;
   estimatedMinutes: number;
   cases: ExamCase[];
   /** Texto institucional/legal mostrado na abertura. */

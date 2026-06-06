@@ -15,6 +15,7 @@ import {
 } from 'firebase/firestore';
 import { firestore } from './firebase';
 import examV1 from '../data/prova-integrada/exam-v1.json';
+import examV2 from '../data/prova-integrada/exam-v2.json';
 import type {
   ExamAttempt,
   ExamAttemptAnswer,
@@ -27,6 +28,19 @@ import type {
 } from '../types';
 
 export const CURRENT_EXAM = examV1 as IntegratedExam;
+
+/**
+ * Lista de TODAS as provas disponíveis no app. Ordem importa — primeira é o
+ * default da tela. Pra adicionar uma nova: importe o JSON acima e empurre aqui.
+ */
+export const AVAILABLE_EXAMS: IntegratedExam[] = [
+  examV1 as IntegratedExam,
+  examV2 as IntegratedExam,
+];
+
+export function findExamById(id: string): IntegratedExam | undefined {
+  return AVAILABLE_EXAMS.find((e) => e.id === id);
+}
 
 export function listExamCases(exam: IntegratedExam = CURRENT_EXAM): ExamCase[] {
   return exam.cases;
