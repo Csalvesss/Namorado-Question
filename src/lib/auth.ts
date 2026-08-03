@@ -153,7 +153,42 @@ function mapAuthError(code: string): string {
   }
 }
 
+// Login/logout "de verdade" encerram qualquer impersonação anterior: limpa a
+// marca que o painel admin deixa no sessionStorage, pra não etiquetar as
+// páginas da próxima sessão como "acesso via admin".
+function clearImpersonationFlag() {
+  if (typeof sessionStorage !== 'undefined') {
+    sessionStorage.removeItem('guava:impersonatedBy');
+  }
+}
+
+// Marca "já registrei um acesso nesta sessão do navegador" — evita gravar vários
+// eventos de sessão a cada reload. Zerada no logout.
+const SESSION_LOGGED_KEY = 'guava:session-logged';
+
+function markSessionLogged() {
+  if (typeof sessionStorage !== 'undefined') sessionStorage.setItem(SESSION_LOGGED_KEY, '1');
+}
+
+function clearSessionLogged() {
+  if (typeof sessionStorage !== 'undefined') sessionStorage.removeItem(SESSION_LOGGED_KEY);
+}
+
+/**
+ * Grava UM evento 'session' por sessão do navegador — captura quem já entra com
+ * a sessão salva (sem passar pelo signIn, ex.: reabriu o app logado). Assim o log
+ * de acesso registra o acesso mesmo sem digitar a senha. Best-effort.
+ */
+function logSessionOnce(profile: UserProfile) {
+  if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem(SESSION_LOGGED_KEY)) return;
+  markSessionLogged();
+  void recordAccess({ uid: profile.uid, email: profile.email, kind: 'session' }).catch((err) =>
+    console.warn('[auth] recordAccess(session) falhou:', err),
+  );
+}
+
 export async function signIn({ email, password }: AuthInput): Promise<AuthResult> {
+  clearImpersonationFlag();
   const cleanEmail = email.trim().toLowerCase();
   if (!cleanEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
     return { ok: false, error: 'E-mail inválido.' };
@@ -161,6 +196,9 @@ export async function signIn({ email, password }: AuthInput): Promise<AuthResult
   if (!password) return { ok: false, error: 'Digita sua senha.' };
   try {
     const cred = await signInWithEmailAndPassword(firebaseAuth, cleanEmail, password);
+    // Login explícito já grava 'signin'; marca a sessão pra o onAuthChange não
+    // gravar um 'session' duplicado logo em seguida.
+    markSessionLogged();
     const profile = await ensureAdminFields(await ensureProfile(cred.user));
     try {
       await recordAccess({ uid: profile.uid, email: profile.email, kind: 'signin' });
@@ -251,6 +289,8 @@ export async function signUp({ email, password, name, track }: AuthInput): Promi
 }
 
 export async function signOutCurrentUser() {
+  clearImpersonationFlag();
+  clearSessionLogged();
   await fbSignOut(firebaseAuth);
   emitChange();
 }
@@ -297,6 +337,8 @@ export function onAuthChange(callback: (user: UserProfile | null) => void) {
     lastUid = fbUser.uid;
     const profile = await ensureAdminFields(await ensureProfile(fbUser));
     callback(profile);
+    // Registra o acesso de quem já vem logado (sessão salva), uma vez por sessão.
+    logSessionOnce(profile);
     void hydrateUserData(fbUser.uid, profile.track ?? 'medicina');
   });
 

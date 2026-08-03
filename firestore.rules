@@ -23,10 +23,29 @@ service cloud.firestore {
       return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
     }
 
+    // E-mails admin reconhecidos NO NÍVEL DAS REGRAS (fonte de verdade de
+    // segurança). Precisa espelhar ADMIN_EMAILS em src/lib/admin.ts e
+    // functions/src/index.ts. Usa o e-mail verificado do token de auth.
+    // Sem isso, um admin novo nunca consegue gravar role='admin' no próprio doc
+    // (safeUserWrite bloqueia auto-escalonamento) — e as leituras de admin
+    // falham com "Missing or insufficient permissions".
+    function isAdminEmail() {
+      return isSignedIn()
+        && request.auth.token.email in [
+          'ads.cesaralves@gmail.com',
+          'guavacodex@gmail.com'
+        ];
+    }
+
     function isAdmin() {
       return isSignedIn()
-        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
-        && selfUserDoc().get('role', 'user') == 'admin';
+        && (
+          isAdminEmail()
+          || (
+            exists(/databases/$(database)/documents/users/$(request.auth.uid))
+            && selfUserDoc().get('role', 'user') == 'admin'
+          )
+        );
     }
 
     // Status efetivo: ausência = approved (grandfathering).

@@ -132,6 +132,10 @@ export default function BilheteCard({
         {bilhete.body}
       </p>
 
+      {bilhete.author && (
+        <p className="mt-2 font-serif text-sm italic text-ink-soft">— {bilhete.author}</p>
+      )}
+
       {bilhete.care && (() => {
         const Icon = bilhete.careIcon ? CARE_ICONS[bilhete.careIcon] : Heart;
         return (

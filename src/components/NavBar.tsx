@@ -2,6 +2,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { ArrowLeftRight, LogOut } from 'lucide-react';
 import { logout } from '../lib/auth';
 import { useUser } from '../lib/useUser';
+import { isAdmin } from '../lib/admin';
 
 const NAV_ITEMS: Array<{ to: string; label: string; namoradoOnly?: boolean }> = [
   { to: '/app', label: 'Início' },
@@ -26,6 +27,7 @@ export default function NavBar() {
 
   const items = NAV_ITEMS.filter((i) => !i.namoradoOnly || !isDoutora);
   const firstName = user?.name?.split(' ')[0] ?? '';
+  const showAdmin = isAdmin(user);
 
   return (
     <header className="safe-top sticky top-0 z-30 border-b border-line bg-paper/85 backdrop-blur-md">
@@ -49,6 +51,7 @@ export default function NavBar() {
                 {i.label}
               </NavItem>
             ))}
+            {showAdmin && <NavItem to="/admin">Admin</NavItem>}
           </nav>
         )}
 
@@ -88,6 +91,7 @@ export default function NavBar() {
               {i.label}
             </NavItem>
           ))}
+          {showAdmin && <NavItem to="/admin">Admin</NavItem>}
         </nav>
       )}
     </header>

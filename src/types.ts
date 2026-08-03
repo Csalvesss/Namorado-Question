@@ -282,7 +282,15 @@ export interface AccessLog {
   ip?: string;
   geo?: AccessGeo;
   userAgent?: string;
-  kind: 'signin' | 'signup' | 'session' | 'impersonate';
+  // 'pageview' = navegou até uma tela; os demais são eventos de sessão/conta.
+  // 'cadastro' é SINTÉTICO: derivado de users.createdAt / signup_requests pra
+  // mostrar o histórico de quem entrou antes de existir o log de acesso — nunca
+  // é gravado em /access_logs.
+  kind: 'signin' | 'signup' | 'session' | 'impersonate' | 'pageview' | 'cadastro';
+  // Rota acessada (ex: '/cursos') — preenchido em kind='pageview'.
+  path?: string;
+  // Nome amigável da tela (ex: 'Cursos') — preenchido em kind='pageview'.
+  screen?: string;
   // Se um admin estava impersonando, uid dele.
   impersonatedBy?: string;
 }
@@ -527,7 +535,7 @@ export interface IntegratedExam {
   version: string;
   title: string;
   subtitle?: string;
-  totalPoints: number;
+  totalPoints: 1000;
   estimatedMinutes: number;
   cases: ExamCase[];
   /** Texto institucional/legal mostrado na abertura. */
