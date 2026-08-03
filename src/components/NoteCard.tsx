@@ -4,6 +4,9 @@ interface NoteCardProps {
   body: string;
   timeLabel: string;
   signature: string;
+  /** Autor do verso, quando o bilhete é um poema. Atribui a poesia e mostra
+   *  que quem escolheu foi o namorado ("via {signature}"). */
+  author?: string;
   highlighted?: boolean;
   onClick?: () => void;
 }
@@ -12,6 +15,7 @@ export default function NoteCard({
   body,
   timeLabel,
   signature,
+  author,
   highlighted = false,
   onClick,
 }: NoteCardProps) {
@@ -41,7 +45,16 @@ export default function NoteCard({
         <span className="font-display text-[11px] uppercase tracking-[0.22em] text-mute">
           {timeLabel}
         </span>
-        <span className="font-display text-base italic text-rose">— {signature}</span>
+        {author ? (
+          <span className="text-right leading-tight">
+            <span className="block font-display text-base italic text-rose">— {author}</span>
+            <span className="mt-0.5 block font-display text-[10px] uppercase tracking-[0.22em] text-mute">
+              via {signature}
+            </span>
+          </span>
+        ) : (
+          <span className="font-display text-base italic text-rose">— {signature}</span>
+        )}
       </div>
     </Wrapper>
   );

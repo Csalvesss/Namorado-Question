@@ -22,102 +22,490 @@ export interface Bilhete {
   mood: BilheteMood;
   care?: string;
   careIcon?: CareIcon;
+  /**
+   * Autor/origem quando o bilhete é um verso de poema (domínio público).
+   * Ausente = recado original dele pra ela (assina com o nome do namorado).
+   */
+  author?: string;
 }
 
-export const BILHETES: Bilhete[] = [
-  // amor (cartinhas curtas)
+// ===========================================================================
+// Bilhetes do namorado — recados originais dele + versos de poemas de amor.
+//
+// Dois tipos convivem:
+//   1. RECADOS  — palavras dele pra ela (sem `author`; assinam com o nome dele).
+//   2. VERSOS   — poesia de amor em DOMÍNIO PÚBLICO, com `author` creditado.
+//                 Camões, Florbela, Bilac, Castro Alves, Gonçalves Dias,
+//                 Casimiro de Abreu, Fernando Pessoa; e traduções livres e
+//                 fiéis de Shakespeare, Byron, E. B. Browning e Rossetti.
+//
+// Os blocos são intercalados por rodízio (ver `interleave`) pra que qualquer
+// janela do feed venha variada: recado, verso, recado, verso...
+// ===========================================================================
+
+// ---- CUIDADO À DISTÂNCIA --------------------------------------------------
+// O coração da coisa: "mesmo que eu não esteja aí, estou cuidando de você".
+const CUIDADO: Bilhete[] = [
+  {
+    id: 'cuidado-01',
+    title: 'meu amor,',
+    body: 'mesmo que eu não esteja aí do seu lado agora, eu estou. do meu jeito, à distância, cuidando de você.',
+    mood: 'amor',
+  },
+  {
+    id: 'cuidado-02',
+    title: 'vida,',
+    body: 'não estou aí pra fazer seu café hoje, então bebe uma água por mim. é a minha mão te lembrando de cuidar de você.',
+    mood: 'pausa',
+    care: 'um copo de água agora, antes de virar a página.',
+    careIcon: 'agua',
+  },
+  {
+    id: 'cuidado-03',
+    title: 'doutora,',
+    body: 'se a casa está silenciosa demais, respira e lembra: eu estou pensando em você exatamente agora.',
+    mood: 'amor',
+  },
+  {
+    id: 'cuidado-04',
+    title: 'amor,',
+    body: 'eu não preciso estar presente pra te amar. te amo daqui, inteiro, o dia todo.',
+    mood: 'amor',
+  },
+  {
+    id: 'cuidado-05',
+    title: 'minha doutora,',
+    body: 'quando bater o cansaço e eu não estiver por perto, lembra que alguém te ama e está torcendo por você em silêncio.',
+    mood: 'amor',
+  },
+  {
+    id: 'cuidado-06',
+    title: 'vida,',
+    body: 'queria estar aí pra pôr a mão na sua testa e dizer que vai dar certo. então digo daqui: vai dar certo, amor.',
+    mood: 'amor',
+  },
+  {
+    id: 'cuidado-07',
+    title: 'amor,',
+    body: 'por mais longe que eu esteja, você nunca estuda sozinha. eu vou junto, caladinho, do seu lado.',
+    mood: 'amor',
+  },
+  {
+    id: 'cuidado-08',
+    title: 'doutora,',
+    body: 'deixei esse bilhete pra você achar quando eu não puder estar aí. considera um abraço em forma de texto.',
+    mood: 'amor',
+  },
+  {
+    id: 'cuidado-09',
+    title: 'vida,',
+    body: 'a distância é só quilômetro. o cuidado não tem distância — ele chega em você agora, inteiro.',
+    mood: 'amor',
+  },
+  {
+    id: 'cuidado-10',
+    title: 'amor,',
+    body: 'come alguma coisa de verdade, viu? eu não estou aí pra insistir, mas insisto por escrito. cuida de você por mim.',
+    mood: 'pausa',
+    care: 'algo de verdade no prato — não café com bolacha.',
+    careIcon: 'comida',
+  },
+  {
+    id: 'cuidado-11',
+    title: 'minha doutora,',
+    body: 'à noite, quando fechar o livro, imagina que eu apago a luz e fico de guarda. pode dormir tranquila.',
+    mood: 'pausa',
+    care: 'se já rendeu hoje, dormir cedo também é estudar.',
+    careIcon: 'sono',
+  },
+  {
+    id: 'cuidado-12',
+    title: 'vida,',
+    body: 'onde quer que eu esteja, uma parte de mim fica aí do seu lado, torcendo por cada acerto seu.',
+    mood: 'amor',
+  },
+  {
+    id: 'cuidado-13',
+    title: 'amor,',
+    body: 'cuidar de você não depende de eu estar presente. depende de eu te amar. e disso eu não abro mão.',
+    mood: 'amor',
+  },
+  {
+    id: 'cuidado-14',
+    title: 'doutora,',
+    body: 'quando sentir minha falta, olha pro céu: a mesma lua que eu vejo está cuidando de você também.',
+    mood: 'amor',
+  },
+  {
+    id: 'cuidado-15',
+    title: 'vida,',
+    body: 'não estou aí pra segurar sua mão, então segura firme na ideia de que eu te amo. dá na mesma, prometo.',
+    mood: 'amor',
+  },
+  {
+    id: 'cuidado-16',
+    title: 'amor,',
+    body: 'se ninguém te disse hoje: você está indo bem, está sendo cuidada e é muito amada. fui eu quem disse, de longe.',
+    mood: 'amor',
+  },
+  {
+    id: 'cuidado-17',
+    title: 'minha doutora,',
+    body: 'mando um beijo pelo ar. ele demora um pouquinho pra chegar aí, mas chega. deixa chegar.',
+    mood: 'amor',
+  },
+  {
+    id: 'cuidado-18',
+    title: 'vida,',
+    body: 'levanta um instante e estica o corpo por mim. eu não estou aí pra puxar você da cadeira, então puxo daqui.',
+    mood: 'pausa',
+    care: 'de pé, ombros pra trás, pescoço solto. dez segundos.',
+    careIcon: 'alongar',
+  },
+  {
+    id: 'cuidado-19',
+    title: 'amor,',
+    body: 'eu não estou aí pra te abraçar agora, então guarda esse abraço pra quando eu chegar. tá reservado, com juros.',
+    mood: 'amor',
+  },
+  {
+    id: 'cuidado-20',
+    title: 'doutora,',
+    body: 'respira comigo daqui: devagar pra dentro, devagar pra fora. viu? a gente não precisa estar no mesmo lugar pra respirar junto.',
+    mood: 'pausa',
+    care: 'inspira contando 4, segura 4, solta em 6. três vezes.',
+    careIcon: 'respirar',
+  },
+  {
+    id: 'cuidado-21',
+    title: 'vida,',
+    body: 'hoje eu cuido de você de longe: descansa quando cansar, come quando tiver fome, e não esquece que é amada.',
+    mood: 'amor',
+  },
+  {
+    id: 'cuidado-22',
+    title: 'amor,',
+    body: 'se o dia apertar e eu estiver longe, lê de novo bem devagar: você é forte, é capaz, e não está sozinha.',
+    mood: 'amor',
+  },
+  {
+    id: 'cuidado-23',
+    title: 'minha doutora,',
+    body: 'toma um pouco de sol na janela por mim. eu não estou aí pra te chamar pro ar livre, então te chamo por escrito.',
+    mood: 'pausa',
+    care: 'cinco minutos de sol na pele já valem o dia.',
+    careIcon: 'sol',
+  },
+  {
+    id: 'cuidado-24',
+    title: 'vida,',
+    body: 'quando você não me sentir por perto, fecha o olho um segundo: eu estou exatamente aí, no meio do seu peito.',
+    mood: 'amor',
+  },
+];
+
+// ---- VERSOS (poesia de amor em domínio público) ---------------------------
+const VERSOS: Bilhete[] = [
+  {
+    id: 'verso-camoes-01',
+    body: 'Amor é fogo que arde sem se ver; é ferida que dói e não se sente; é um contentamento descontente; é dor que desatina sem doer.',
+    mood: 'poema',
+    author: 'Luís de Camões',
+  },
+  {
+    id: 'verso-camoes-02',
+    body: 'Transforma-se o amador na cousa amada, por virtude do muito imaginar.',
+    mood: 'poema',
+    author: 'Luís de Camões',
+  },
+  {
+    id: 'verso-camoes-03',
+    body: 'Sete anos de pastor Jacó servia; mas não servia ao pai, servia a ela, e a ela só por prêmio pretendia.',
+    mood: 'poema',
+    author: 'Luís de Camões',
+  },
+  {
+    id: 'verso-florbela-01',
+    body: "Minh'alma, de sonhar-te, anda perdida. Meus olhos andam cegos de te ver.",
+    mood: 'poema',
+    author: 'Florbela Espanca',
+  },
+  {
+    id: 'verso-florbela-02',
+    body: 'Não és sequer razão do meu viver, pois que tu és já toda a minha vida!',
+    mood: 'poema',
+    author: 'Florbela Espanca',
+  },
+  {
+    id: 'verso-florbela-03',
+    body: 'Eu quero amar, amar perdidamente! Amar só por amar: aqui... além...',
+    mood: 'poema',
+    author: 'Florbela Espanca',
+  },
+  {
+    id: 'verso-pessoa-01',
+    body: 'O amor é que é essencial. O sexo é só um acidente.',
+    mood: 'poema',
+    author: 'Fernando Pessoa',
+  },
+  {
+    id: 'verso-pessoa-02',
+    body: 'Não conheço outra razão para amar senão amar. Que queres que te diga, além de que te amo?',
+    mood: 'poema',
+    author: 'Fernando Pessoa',
+  },
+  {
+    id: 'verso-bilac-01',
+    body: 'Ora (direis) ouvir estrelas! Certo perdeste o senso! E eu vos direi, no entanto, que, para ouvi-las, muita vez desperto.',
+    mood: 'poema',
+    author: 'Olavo Bilac',
+  },
+  {
+    id: 'verso-bilac-02',
+    body: 'Cheguei. Chegaste. Vinhas fatigada e triste, e triste e fatigado eu vinha.',
+    mood: 'poema',
+    author: 'Olavo Bilac',
+  },
+  {
+    id: 'verso-castroalves-01',
+    body: 'Boa noite, Maria! Eu vou-me embora. A lua nas janelas bate em cheio.',
+    mood: 'poema',
+    author: 'Castro Alves',
+  },
+  {
+    id: 'verso-castroalves-02',
+    body: 'A primeira vez que eu vi Teresa, julguei ver a mais linda criatura.',
+    mood: 'poema',
+    author: 'Castro Alves',
+  },
+  {
+    id: 'verso-gdias-01',
+    body: 'Se se morre de amor! Não, não se morre, quando é fascinação que nos surpreende.',
+    mood: 'poema',
+    author: 'Gonçalves Dias',
+  },
+  {
+    id: 'verso-casimiro-01',
+    body: 'Tenho medo, mulher, de te querer tanto: medo mesmo de ver-te e de perder-te.',
+    mood: 'poema',
+    author: 'Casimiro de Abreu',
+  },
+  {
+    id: 'verso-shakespeare-01',
+    body: 'Meu amor é fundo como o mar. Quanto mais te dou, mais tenho para dar, pois ambos são sem fim.',
+    mood: 'poema',
+    author: 'Shakespeare, Romeu e Julieta',
+  },
+  {
+    id: 'verso-shakespeare-02',
+    body: 'Partir é uma dor tão doce que eu diria boa noite até o romper do dia.',
+    mood: 'poema',
+    author: 'Shakespeare, Romeu e Julieta',
+  },
+  {
+    id: 'verso-shakespeare-03',
+    body: 'Comparar-te a um dia de verão? Tu és mais doce e mais serena, amor.',
+    mood: 'poema',
+    author: 'Shakespeare, Soneto 18',
+  },
+  {
+    id: 'verso-shakespeare-04',
+    body: 'O amor não muda quando encontra mudança: é o marco firme que encara a tempestade e não se abala.',
+    mood: 'poema',
+    author: 'Shakespeare, Soneto 116',
+  },
+  {
+    id: 'verso-browning-01',
+    body: 'Como eu te amo? Deixa eu contar as formas: amo-te até onde a minha alma alcança, quando busca, às cegas, os confins do ser.',
+    mood: 'poema',
+    author: 'Elizabeth Barrett Browning',
+  },
+  {
+    id: 'verso-byron-01',
+    body: 'Ela caminha em beleza, como a noite de céu sem nuvens e de estrelas plenas.',
+    mood: 'poema',
+    author: 'Lord Byron',
+  },
+  {
+    id: 'verso-rossetti-01',
+    body: 'Lembra de mim quando eu estiver longe. Mas se me esqueceres um instante, não te entristeças: melhor esquecer e sorrir do que lembrar e chorar.',
+    mood: 'poema',
+    author: 'Christina Rossetti',
+  },
+];
+
+// ---- AMOR (declarações dele, adultas, sem açúcar demais) -------------------
+const AMOR: Bilhete[] = [
   {
     id: 'amor-01',
     title: 'minha doutora,',
-    body: 'hoje você é o melhor motivo do meu dia. amanhã também.',
+    body: 'de todas as coisas que eu já quis na vida, você é a única que eu escolheria de novo, todo dia.',
     mood: 'amor',
   },
   {
     id: 'amor-02',
     title: 'vida,',
-    body: 'te amo até onde sua paciência alcança. e ela alcança longe.',
+    body: 'você é o tipo de pessoa que eu levaria a vida inteira aprendendo, sem pressa e sem cansaço.',
     mood: 'amor',
   },
   {
     id: 'amor-03',
     title: 'doutora,',
-    body: 'minha pessoa favorita do mundo, com folga, é você.',
+    body: 'tem gente que a gente ama por costume. você eu amo por convicção.',
     mood: 'amor',
   },
   {
     id: 'amor-04',
     title: 'amor,',
-    body: 'sua cara estudando é a coisa mais bonita que eu vejo no dia.',
+    body: 'eu não te amo apesar dos dias difíceis. eu te amo mais por causa deles.',
     mood: 'amor',
   },
   {
     id: 'amor-05',
-    title: 'vida,',
-    body: 'eu te amo do tamanho do mundo. e ainda sobra.',
-    mood: 'amor',
-  },
-  {
-    id: 'amor-06',
     title: 'minha doutora,',
     body: 'no fim do dia, você é o meu lugar de chegar.',
     mood: 'amor',
   },
   {
+    id: 'amor-06',
+    title: 'vida,',
+    body: 'eu não sei fazer amor pela metade. é por isso que eu demoro tanto, e é por isso que dura.',
+    mood: 'amor',
+  },
+  {
     id: 'amor-07',
-    title: 'amor,',
-    body: 'quando você dorme, eu fico aqui pensando: que sorte a minha.',
+    title: 'doutora,',
+    body: 'você não é a mulher da minha vida por acaso. é porque eu olhei, escolhi, e escolheria mil vezes.',
     mood: 'amor',
   },
   {
     id: 'amor-08',
-    title: 'doutora,',
-    body: 'qualquer caminho que você escolher, eu vou junto. de mão dada.',
+    title: 'amor,',
+    body: 'minha pessoa favorita do mundo, com folga, é você.',
     mood: 'amor',
   },
   {
     id: 'amor-09',
     title: 'vida,',
-    body: 'eu te admiro tanto que dói um pouquinho. do bom tipo de dor.',
+    body: 'eu guardo você no lugar de mim onde não cabe mais ninguém. e nunca vai caber.',
     mood: 'amor',
   },
   {
     id: 'amor-10',
-    title: 'amor,',
-    body: 'meu coração faz tum-tum quando você passa estudando concentrada.',
+    title: 'minha doutora,',
+    body: 'tem dias que eu só quero te ver existindo. isso já me basta o dia inteiro.',
     mood: 'amor',
   },
   {
     id: 'amor-11',
-    title: 'minha doutora,',
-    body: 'eu não sei se Deus existe, mas você sim. e isso me basta.',
+    title: 'amor,',
+    body: 'amar você é a coisa mais fácil e mais séria que eu já fiz na vida.',
     mood: 'amor',
   },
   {
     id: 'amor-12',
     title: 'vida,',
-    body: 'te amo do jeito que você morde a caneta sem perceber.',
+    body: 'se um dia você esquecer alguma coisa no meio da prova, lembra só disto: eu te amo. o resto volta.',
     mood: 'amor',
   },
   {
     id: 'amor-13',
     title: 'doutora,',
-    body: 'se um dia você esquecer alguma coisa, lembra: eu te amo. esse é o lembrete.',
+    body: 'eu te admiro de um jeito calado, desses que não cabem em elogio. só cabem em ficar por perto.',
     mood: 'amor',
   },
   {
     id: 'amor-14',
     title: 'amor,',
-    body: 'eu sou o cachorrinho aqui do canto te esperando voltar para o café.',
+    body: 'você estudando concentrada é a coisa mais bonita que eu vejo no dia. e olha que eu vejo o dia inteiro.',
     mood: 'amor',
   },
   {
     id: 'amor-15',
     title: 'vida,',
-    body: 'saiu da prova, casou comigo. é assim que funciona, foi combinado.',
+    body: 'quando tudo isso passar e você for médica, eu vou continuar aqui, do mesmo jeito, te achando incrível.',
     mood: 'amor',
   },
+];
 
-  // pausa (descanso, autocuidado)
+// ---- ESTUDO (incentivo com pé no chão) ------------------------------------
+const ESTUDO: Bilhete[] = [
+  {
+    id: 'estudo-01',
+    title: 'amor,',
+    body: 'estudar cansa porque importa. o que não importa não cansa ninguém. segue, você está no caminho certo.',
+    mood: 'estudo',
+  },
+  {
+    id: 'estudo-02',
+    title: 'doutora,',
+    body: 'você não precisa saber tudo hoje. só um pouco mais do que ontem. isso já é vitória.',
+    mood: 'estudo',
+  },
+  {
+    id: 'estudo-03',
+    title: 'vida,',
+    body: 'cada questão que você erra agora é uma que você acerta no dia que conta. erra bonito, sem medo.',
+    mood: 'estudo',
+  },
+  {
+    id: 'estudo-04',
+    title: 'amor,',
+    body: 'a prova mede um dia. você vale todos os outros. não confunde as duas coisas.',
+    mood: 'estudo',
+  },
+  {
+    id: 'estudo-05',
+    title: 'doutora,',
+    body: 'não é sobre ser a melhor. é sobre virar médica. e você já está virando, aos poucos, todo dia.',
+    mood: 'estudo',
+  },
+  {
+    id: 'estudo-06',
+    title: 'vida,',
+    body: 'confia no que você já construiu por dentro. está tudo aí, é só deixar assentar com calma.',
+    mood: 'estudo',
+  },
+  {
+    id: 'estudo-07',
+    title: 'amor,',
+    body: 'devagar também é chegar. e você está chegando, mesmo quando não parece.',
+    mood: 'estudo',
+  },
+  {
+    id: 'estudo-08',
+    title: 'doutora,',
+    body: 'sua cabeça é mais organizada do que você acha. lê de novo com calma, o conteúdo é seu e vai aparecer.',
+    mood: 'estudo',
+  },
+  {
+    id: 'estudo-09',
+    title: 'vida,',
+    body: 'você é a prova viva de que dedicação funciona. eu tô vendo de perto, semana após semana.',
+    mood: 'estudo',
+  },
+  {
+    id: 'estudo-10',
+    title: 'amor,',
+    body: 'cada folha que você vira aproxima do dia em que a gente comemora tudo isso juntos.',
+    mood: 'estudo',
+  },
+  {
+    id: 'estudo-11',
+    title: 'doutora,',
+    body: 'estuda o que te dá prazer primeiro. o difícil vem depois, com energia melhor.',
+    mood: 'estudo',
+  },
+  {
+    id: 'estudo-12',
+    title: 'vida,',
+    body: 'ninguém memorizou a medicina inteira numa tarde. respeita o ritmo, ele é sábio.',
+    mood: 'estudo',
+  },
+];
+
+// ---- PAUSA (respira, descansa) --------------------------------------------
+const PAUSA: Bilhete[] = [
   {
     id: 'pausa-01',
     title: 'amor,',
@@ -127,214 +515,56 @@ export const BILHETES: Bilhete[] = [
   {
     id: 'pausa-02',
     title: 'doutora,',
-    body: 'fecha o olho, conta até dez. agora abre. eu ainda te amo.',
+    body: 'às vezes a melhor revisão é uma soneca curta. eu prometo, funciona.',
     mood: 'pausa',
   },
   {
     id: 'pausa-03',
     title: 'vida,',
-    body: 'tomar água também é estudo. é cuidar do cérebro que você precisa.',
+    body: 'se está cansando, não está rendendo. respeita seu corpo, ele te avisa antes de você.',
     mood: 'pausa',
   },
   {
     id: 'pausa-04',
     title: 'amor,',
-    body: 'ninguém memorizou a medicina inteira numa tarde. nem você consegue.',
+    body: 'faz um cafezinho, ou um chá. eu te amo mais feliz e descansada do que exausta e perfeita.',
     mood: 'pausa',
   },
   {
     id: 'pausa-05',
     title: 'doutora,',
-    body: 'às vezes a melhor revisão é uma soneca curta. eu prometo, funciona.',
+    body: 'dormir não é fugir do estudo. é parte dele. a parte mais importante, inclusive.',
     mood: 'pausa',
   },
   {
     id: 'pausa-06',
     title: 'vida,',
-    body: 'levanta da cadeira agora. o livro espera 5 minutos, eu garanto.',
+    body: 'levanta da cadeira agora e dá uma volta. o livro espera cinco minutos, eu garanto.',
     mood: 'pausa',
   },
   {
     id: 'pausa-07',
     title: 'amor,',
-    body: 'se está cansando, não está rendendo. respeita seu corpo, ele te avisa.',
+    body: 'fecha o olho, conta até dez, abre. eu ainda te amo, e o conteúdo ainda está aí. tudo em ordem.',
     mood: 'pausa',
-  },
-  {
-    id: 'pausa-08',
-    title: 'doutora,',
-    body: 'faz um cafezinho. ou um chá. te amo mais feliz e descansada.',
-    mood: 'pausa',
-  },
-  {
-    id: 'pausa-09',
-    title: 'vida,',
-    body: 'dormir não é fugir do estudo. é parte dele. parte mais importante.',
-    mood: 'pausa',
-  },
-  {
-    id: 'pausa-10',
-    title: 'amor,',
-    body: 'respira de novo. agora um sorriso, mesmo pequeno. assim, ó.',
-    mood: 'pausa',
-  },
-
-  // estudo (encorajamento)
-  {
-    id: 'estudo-01',
-    title: 'amor,',
-    body: 'cada erro é um acerto que ainda não chegou. continua.',
-    mood: 'estudo',
-  },
-  {
-    id: 'estudo-02',
-    title: 'doutora,',
-    body: 'você consegue tudo o que decide com calma. confia no método.',
-    mood: 'estudo',
-  },
-  {
-    id: 'estudo-03',
-    title: 'vida,',
-    body: 'eu te conheço. esse conteúdo é seu, só precisa pousar com paciência.',
-    mood: 'estudo',
-  },
-  {
-    id: 'estudo-04',
-    title: 'amor,',
-    body: 'prova passa. o que você construiu por dentro fica para sempre.',
-    mood: 'estudo',
-  },
-  {
-    id: 'estudo-05',
-    title: 'doutora,',
-    body: 'ninguém disse que ia ser fácil. mas é sua, e está dando.',
-    mood: 'estudo',
-  },
-  {
-    id: 'estudo-06',
-    title: 'vida,',
-    body: 'sua cabeça é mais organizada do que parece. confia no que já está lá.',
-    mood: 'estudo',
-  },
-  {
-    id: 'estudo-07',
-    title: 'amor,',
-    body: 'você sabe mais do que acha. lê de novo com calma, vai aparecer.',
-    mood: 'estudo',
-  },
-  {
-    id: 'estudo-08',
-    title: 'doutora,',
-    body: 'errar agora vale ouro no dia que importa. cada questão errada é uma certa garantida na prova.',
-    mood: 'estudo',
-  },
-  {
-    id: 'estudo-09',
-    title: 'vida,',
-    body: 'você é a prova viva de que dedicação funciona. tô vendo de perto.',
-    mood: 'estudo',
-  },
-  {
-    id: 'estudo-10',
-    title: 'amor,',
-    body: 'cada folha que você vira aproxima do dia que a gente comemora.',
-    mood: 'estudo',
-  },
-
-  // poema (adaptados de Vinicius, Drummond, Neruda, Mario Quintana, Cecilia)
-  {
-    id: 'poema-01',
-    title: 'minha doutora,',
-    body: 'que seja eterno enquanto dure. eu juro que vai. (com licença, Vinicius)',
-    mood: 'poema',
-  },
-  {
-    id: 'poema-02',
-    title: 'vida,',
-    body: 'eu te amo como certas coisas obscuras se amam: em segredo, entre a sombra e a alma. (Neruda achou que era para ele, mas é para você)',
-    mood: 'poema',
-  },
-  {
-    id: 'poema-03',
-    title: 'amor,',
-    body: 'no meio do caminho havia eu. e ainda estou. (Drummond me deixou usar)',
-    mood: 'poema',
-  },
-  {
-    id: 'poema-04',
-    title: 'doutora,',
-    body: 'eu não sei amar pela metade. é por isso que demoro tanto, e que dura tanto.',
-    mood: 'poema',
-  },
-  {
-    id: 'poema-05',
-    title: 'vida,',
-    body: 'o tempo é o que a gente faz dele. eu escolho fazer com você.',
-    mood: 'poema',
-  },
-  {
-    id: 'poema-06',
-    title: 'amor,',
-    body: 'se eu pudesse, te daria a coisa mais bonita do mundo. mas o mundo já é seu de qualquer jeito.',
-    mood: 'poema',
-  },
-  {
-    id: 'poema-07',
-    title: 'doutora,',
-    body: 'há livros que terminam e o tempo que sobra a gente lê de novo. com você é assim. te leio sempre.',
-    mood: 'poema',
-  },
-  {
-    id: 'poema-08',
-    title: 'vida,',
-    body: 'o mundo dá voltas. mas existe um lugar que não muda, e esse lugar é você.',
-    mood: 'poema',
-  },
-  {
-    id: 'poema-09',
-    title: 'amor,',
-    body: 'eu te quero do tamanho da minha falta. e a minha falta é grande.',
-    mood: 'poema',
-  },
-  {
-    id: 'poema-10',
-    title: 'minha doutora,',
-    body: 'te amo no presente, no pretérito que vivemos e no futuro que ainda vamos chamar nosso.',
-    mood: 'poema',
-  },
-
-  // mais (mistura)
-  {
-    id: 'mix-01',
-    title: 'vida,',
-    body: 'te amo até quando você tá brava comigo por motivo bobo. principalmente nessas horas.',
-    mood: 'amor',
-  },
-  {
-    id: 'mix-02',
-    title: 'amor,',
-    body: 'um conselho: estuda o que dá prazer primeiro. o difícil vem depois, com energia melhor.',
-    mood: 'estudo',
-  },
-  {
-    id: 'mix-03',
-    title: 'doutora,',
-    body: 'você é minha estrelinha. brilha calmo, brilha sempre.',
-    mood: 'amor',
-  },
-  {
-    id: 'mix-04',
-    title: 'vida,',
-    body: 'se você está cansada, fecha o app. eu cuido do dia, você cuida de você.',
-    mood: 'pausa',
-  },
-  {
-    id: 'mix-05',
-    title: 'amor,',
-    body: 'a gente comemora cada questão certa que nem cada gol. somos família simples assim.',
-    mood: 'amor',
   },
 ];
+
+// Intercala os blocos por rodízio: garante que qualquer janela do feed venha
+// misturada (recado → verso → recado → verso), mantendo ordem determinística
+// pra rotação de 5h continuar estável entre sessões e devices.
+function interleave(...pools: Bilhete[][]): Bilhete[] {
+  const out: Bilhete[] = [];
+  const max = pools.reduce((m, p) => Math.max(m, p.length), 0);
+  for (let i = 0; i < max; i++) {
+    for (const pool of pools) {
+      if (i < pool.length) out.push(pool[i]);
+    }
+  }
+  return out;
+}
+
+export const BILHETES: Bilhete[] = interleave(CUIDADO, VERSOS, AMOR, ESTUDO, PAUSA);
 
 export const GREETINGS: string[] = [
   'o que vamos estudar hoje, doutora?',

@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
+import PageViewLogger from './components/PageViewLogger';
 import RequireAdmin from './components/RequireAdmin';
 import RequireAuth from './components/RequireAuth';
 import Admin from './pages/Admin';
@@ -34,7 +35,9 @@ import Welcome from './pages/Welcome';
 
 export default function App() {
   return (
-    <Routes>
+    <>
+      <PageViewLogger />
+      <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/aguardando" element={<PendingApproval />} />
       <Route
@@ -83,6 +86,7 @@ export default function App() {
       </Route>
       <Route path="/" element={<Welcome />} />
       <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
+      </Routes>
+    </>
   );
 }
