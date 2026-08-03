@@ -102,7 +102,7 @@ export default function Bilhetes() {
         <p className="mt-4 max-w-xl font-body text-lg italic leading-relaxed text-mute">
           {isIrmao
             ? 'recados do irmão chato que torce de verdade. rolam a cada 5 horas.'
-            : 'recados do seu namorado para te dar forças, doutora.'}
+            : 'recados dele e versos que ele escolheu pra te dar forças, doutora. novos a cada 5 horas.'}
         </p>
 
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -112,6 +112,7 @@ export default function Bilhetes() {
               body={item.bilhete.body}
               timeLabel={item.timeLabel}
               signature={partner}
+              author={item.bilhete.author}
               highlighted={i % 2 === 0}
               onClick={
                 item.bilhete.id === current.id

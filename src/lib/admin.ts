@@ -9,6 +9,7 @@
 // e pra fazer o "self-heal" do role no doc.
 export const ADMIN_EMAILS: ReadonlyArray<string> = [
   'ads.cesaralves@gmail.com',
+  'guavacodex@gmail.com',
 ] as const;
 
 import type { UserProfile } from '../types';

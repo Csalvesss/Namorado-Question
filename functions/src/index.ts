@@ -19,7 +19,7 @@ import { logger } from 'firebase-functions/v2';
 admin.initializeApp();
 const db = admin.firestore();
 
-const ADMIN_EMAILS = ['ads.cesaralves@gmail.com'];
+const ADMIN_EMAILS = ['ads.cesaralves@gmail.com', 'guavacodex@gmail.com'];
 
 // ---------------------------------------------------------------------------
 // helpers

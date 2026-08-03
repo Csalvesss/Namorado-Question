@@ -6,9 +6,11 @@ depois, deploys futuros são só `firebase deploy`.
 
 ## Pré-requisitos
 
-1. **Conta admin**: o e-mail `ads.cesaralves@gmail.com` é o único reconhecido como
-   admin (ver `src/lib/admin.ts`). Pra adicionar outro admin no futuro, edita esse
-   arquivo + faz o deploy.
+1. **Conta admin**: os e-mails reconhecidos como admin ficam em `ADMIN_EMAILS`
+   (em `src/lib/admin.ts` **e** `functions/src/index.ts` — mantém os dois iguais).
+   Hoje: `ads.cesaralves@gmail.com` e `guavacodex@gmail.com`. Pra adicionar outro
+   admin no futuro, edita esses arquivos + faz o deploy. A primeira vez que o
+   e-mail logar, o cliente faz self-heal e grava `role: 'admin'` no doc.
 2. **Firebase CLI instalado localmente**: `npm install -g firebase-tools` e depois
    `firebase login` com a conta que tem acesso ao projeto `guava-education`.
 3. **Node 20** (requisito das Cloud Functions v2).
@@ -131,6 +133,28 @@ Aba **Usuárias** → botão **ver como**.
 - Pra voltar: faz logout normal e loga de novo como admin.
 - Toda impersonação grava em `/access_logs` com `kind: 'impersonate'` e o
   `impersonatedBy` do admin — fica rastreável.
+
+## Auditoria: quem entrou, quando e qual tela acessou
+
+Aba **logs de acesso** do painel `/admin`. Cada linha em `/access_logs` traz
+**quem** (e-mail), **quando** (data/hora), o **evento** e a **tela**:
+
+- `entrou` / `cadastro` / `sessão` — eventos de conta, com IP + localização
+  (capturados no login via ipapi.co).
+- `tela` — navegação: registrada automaticamente a cada troca de rota pelo
+  `PageViewLogger` (montado no `App`). Mostra o nome amigável da tela
+  (ex: *Cursos*, *Prova Integrada*) + o path (`/cursos`). Nomes vêm de
+  `src/lib/screens.ts`.
+- `via admin` — a linha aconteceu durante uma impersonação; o e-mail do admin
+  fica no `impersonatedBy`.
+
+Filtros na aba: **tudo / telas / logins** e busca por e-mail. Pra não encher o
+banco, visitas repetidas da mesma tela em sequência são deduplicadas (janela de
+3s) e o log de tela é enxuto (não refaz geolocalização a cada clique — a
+localização já fica no log de login).
+
+Regras: `/access_logs` só é **lido** por admin; qualquer usuária autenticada só
+**cria** logs pra si mesma (`uid == auth.uid`). Nada a mudar nas rules pra isso.
 
 ## Custos esperados
 
