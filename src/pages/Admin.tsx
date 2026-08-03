@@ -404,6 +404,7 @@ const KIND_LABELS: Record<AccessLog['kind'], string> = {
   session: 'sessão',
   impersonate: 'acesso admin',
   pageview: 'tela',
+  cadastro: 'conta criada',
 };
 
 type LogFilter = 'todos' | 'telas' | 'acessos';
@@ -419,9 +420,28 @@ function LogsTab() {
     let active = true;
     setLoading(true);
     setError(null);
-    listAccessLogs(500)
-      .then((l) => {
-        if (active) setLogs(l);
+    // Junta os logs REAIS (/access_logs) com o HISTÓRICO derivado de cada
+    // usuária: quem entrou antes de existir o log de acesso não tem evento
+    // gravado, então sintetizamos um "conta criada" a partir de users.createdAt
+    // (enriquecido com IP/geo/hora do signup_request quando houver).
+    Promise.all([listAccessLogs(500), listAllUsers(), listSignupRequests()])
+      .then(([realLogs, users, requests]) => {
+        if (!active) return;
+        const reqByUid = new Map(requests.map((r) => [r.uid, r]));
+        const synth: AccessLog[] = users.map((u) => {
+          const r = reqByUid.get(u.uid);
+          return {
+            id: `cadastro-${u.uid}`,
+            uid: u.uid,
+            email: u.email,
+            when: r?.requestedAt ?? u.createdAt,
+            kind: 'cadastro',
+            ip: r?.ip,
+            geo: r?.geo,
+            userAgent: r?.userAgent,
+          };
+        });
+        setLogs([...realLogs, ...synth].sort((a, b) => b.when - a.when));
       })
       .catch((e) => {
         if (active) setError(e instanceof Error ? e.message : 'erro');
