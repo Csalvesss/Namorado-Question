@@ -90,27 +90,12 @@ service cloud.firestore {
 
       allow delete: if isAdmin();
 
-      match /sessions/{sessionId} {
-        allow read: if selfAndApproved(userId) || isAdmin();
-        allow write: if selfAndApproved(userId);
-      }
-      match /srs/{cardId} {
-        allow read: if selfAndApproved(userId) || isAdmin();
-        allow write: if selfAndApproved(userId);
-      }
-      match /customCourses/{courseId} {
-        allow read: if selfAndApproved(userId) || isAdmin();
-        allow write: if selfAndApproved(userId);
-      }
-      match /subjects/{subjectId} {
-        allow read: if selfAndApproved(userId) || isAdmin();
-        allow write: if selfAndApproved(userId);
-      }
-      match /classes/{classId} {
-        allow read: if selfAndApproved(userId) || isAdmin();
-        allow write: if selfAndApproved(userId);
-      }
-      match /exams/{examId} {
+      // Subcoleções de progresso da usuária. Um curinga cobre TODAS as coleções
+      // que o app usa — inclusive as track-namespaced (sessions_medicina,
+      // sessions_odonto, srs_medicina, srs_odonto) e tasks, que os matches
+      // fixos antigos NÃO cobriam (por isso o sync de sessão falhava calado e o
+      // admin não conseguia ler). Dona aprovada lê/escreve a sua; admin lê tudo.
+      match /{sub}/{docId} {
         allow read: if selfAndApproved(userId) || isAdmin();
         allow write: if selfAndApproved(userId);
       }
