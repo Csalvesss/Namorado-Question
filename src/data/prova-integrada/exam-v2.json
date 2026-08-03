@@ -1,0 +1,748 @@
+{
+  "id": "prova-integrada-v2",
+  "version": "v2.0.0-draft",
+  "title": "Prova Integrada — Treino temático",
+  "subtitle": "Endocrinologia hipofisária & Geriatria integrada",
+  "totalPoints": 280,
+  "estimatedMinutes": 60,
+  "instructions": [
+    "Esta é uma prova de TREINO temática, mais curta que a Prova Integrada completa — 2 casos clínicos e 280 pontos no total.",
+    "Mantém o mesmo formato: objetivas de múltipla escolha (5 alternativas, 20 pts) e discursivas (25 pts com rubrica de pontuação parcial).",
+    "Foco: integração endócrino-cardio-farmaco em acromegalia (Caso G) e geriatria integrada — demência + lesão por pressão + ITU (Caso H).",
+    "Após enviar, cada questão mostra Feedback, Justificativa e Referência bibliográfica.",
+    "Para discursivas, auto-avaliação por rubrica como na prova principal."
+  ],
+  "cases": [
+    {
+      "id": "caso-G",
+      "title": "Caso G — Acromegalia com diabetes secundário, HAS resistente e cardiomiopatia",
+      "disciplines": [
+        "endocrinologia",
+        "cardiologia",
+        "farmacologia",
+        "neurocirurgia"
+      ],
+      "needsReview": false,
+      "patient": {
+        "age": 45,
+        "sex": "M",
+        "context": "Há 5 anos com mudança progressiva da fisionomia (prognatismo, mãos/pés maiores, mudou 3 números de calçado), HAS resistente em uso de 3 anti-hipertensivos, DM2 diagnosticado há 2 anos com controle ruim apesar de metformina+sulfonilureia. Sem cirurgias prévias. Refere ronco intenso e episódios de apneia testemunhada.",
+        "complaint": "Cefaleia frontal contínua há 4 meses + parestesias de mãos + sudorese intensa diária."
+      },
+      "history": "Cefaleia frontal/retro-orbitária diária há 4 meses, sem aura, refratária a analgésicos comuns. Há semanas associaram-se turvação visual periférica, parestesias bilaterais em mãos com piora noturna e fraqueza muscular proximal. Refere libido baixa há 1 ano. Esposa nota ronco crescente e pausas respiratórias durante o sono. Última oftalmoscopia: edema discreto de papila bilateral.",
+      "evolution": "Procura ambulatório por piora da cefaleia, com episódio único de turvação visual completa há 48h.",
+      "physicalExam": {
+        "vitals": "PA 162/98 mmHg · FC 88 bpm · FR 18 irpm · T 36,5 °C · SpO₂ 96% AA · IMC 31",
+        "findings": "Prognatismo, espessamento de tecidos moles facial (sobrancelhas, nariz, lábios), aumento de mãos e pés, dedos em salsicha. Sinal de Tinel e Phalen positivos bilateralmente em punhos. Pele oleosa, acrocórdons múltiplos no pescoço. Tireoide normopalpável. Auscultas cardio/pulmonar sem alterações relevantes. Sem déficit motor focal. Campimetria de confrontação: HEMIANOPSIA BITEMPORAL parcial. Reflexos profundos preservados."
+      },
+      "labs": [
+        {
+          "name": "GH basal (após jejum noturno)",
+          "value": "18 ng/mL",
+          "refRange": "<1 (homem adulto)",
+          "abnormal": true
+        },
+        {
+          "name": "IGF-1",
+          "value": "892 ng/mL",
+          "refRange": "115–290 (45a, M)",
+          "abnormal": true
+        },
+        {
+          "name": "TOTG com 75g + GH em 0/30/60/90/120 min",
+          "value": "GH nadir = 4,8 ng/mL (não suprimiu)",
+          "refRange": "Nadir <1 ng/mL (suprime em normais)",
+          "abnormal": true
+        },
+        {
+          "name": "Prolactina",
+          "value": "62 ng/mL",
+          "refRange": "4–15 (M)",
+          "abnormal": true
+        },
+        {
+          "name": "TSH / T4 livre",
+          "value": "TSH 0,3 / T4L 0,7",
+          "refRange": "Centro-hipotireoidismo leve",
+          "abnormal": true
+        },
+        {
+          "name": "Cortisol 8h / ACTH",
+          "value": "8,2 µg/dL / ACTH 18 pg/mL",
+          "refRange": "Suficiência preservada"
+        },
+        {
+          "name": "Testosterona total",
+          "value": "180 ng/dL",
+          "refRange": "300–900",
+          "abnormal": true
+        },
+        {
+          "name": "Glicemia jejum / HbA1c",
+          "value": "182 / 8,4%",
+          "refRange": "<99 / <5,7",
+          "abnormal": true
+        },
+        {
+          "name": "Perfil lipídico",
+          "value": "Trig 312 / HDL 32 / LDL 138 / CT 232",
+          "refRange": "Dislipidemia mista",
+          "abnormal": true
+        },
+        {
+          "name": "Cálcio / Fósforo / Vit D",
+          "value": "Ca 10,2 / P 4,8 / 25OH-D 22",
+          "refRange": "Limites"
+        }
+      ],
+      "imaging": "RM de sela túrcica com gadolíneo: macroadenoma hipofisário de 18 mm com extensão suprasselar e contato com quiasma óptico, sem invasão de seio cavernoso significativa (Knosp 2). Ecocardiograma transtorácico: hipertrofia concêntrica de VE, FE 58%, disfunção diastólica grau II, sem disfunção sistólica. Polissonografia: AHI 38/h (apneia obstrutiva grave).",
+      "questions": [
+        {
+          "id": "G-q1",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "endocrinologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Considerando a apresentação clínica, laboratorial e de imagem, qual é o DIAGNÓSTICO ENDOCRINOLÓGICO mais provável?",
+          "options": [
+            "Síndrome de Cushing por adenoma hipofisário (doença de Cushing)",
+            "Acromegalia por macroadenoma hipofisário secretor de GH, com hiperprolactinemia secundária e cardiomiopatia acromegálica",
+            "Hipotireoidismo central isolado",
+            "Síndrome dos ovários policísticos masculina",
+            "Hiperaldosteronismo primário (síndrome de Conn)"
+          ],
+          "correctIndex": 1,
+          "feedback": "Acromegalia em adultos é caracterizada por mudanças somáticas progressivas (prognatismo, aumento de extremidades), HAS, DM secundário, túnel do carpo, apneia obstrutiva e cardiomiopatia. Diagnóstico bioquímico: IGF-1 elevado para sexo/idade + falha de supressão do GH (<1 ng/mL) após TOTG. A RM confirma macroadenoma. Hiperprolactinemia (62) ocorre por (a) co-secreção de prolactina pelo tumor ou (b) compressão da haste hipofisária (\"efeito haste\" — desinibe lactotrofos). Cushing teria fácies em lua cheia, estrias violáceas; hipotireoidismo isolado não explica os achados; SOP é fenótipo feminino; Conn é HAS + hipocalemia.",
+          "justification": "TOTG com GH NÃO SUPRIMINDO é o padrão-ouro bioquímico — IGF-1 isolado pode ter falso positivo em gravidez/puberdade.",
+          "references": [
+            {
+              "work": "Aula Hipófise UNINOVE 5º M",
+              "professor": "Profa. Adriana Bosco / Profa. Luciana Brito / Prof. Matheus Salgado",
+              "sourcePdf": "5 Hipófise"
+            },
+            {
+              "work": "Vilar L. Endocrinologia Clínica",
+              "edition": "7ª ed",
+              "year": 2021,
+              "chapter": "Acromegalia"
+            },
+            {
+              "work": "Endocrine Society Clinical Practice Guideline — Acromegaly",
+              "year": 2014
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Diagnóstico de acromegalia impecável: IGF-1 elevado + GH não suprimindo no TOTG = padrão-ouro. RM confirma macroadenoma. Distratores discrimináveis."
+        },
+        {
+          "id": "G-q2",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "endocrinologia",
+            "neurocirurgia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Qual é o TRATAMENTO de PRIMEIRA LINHA para acromegalia por macroadenoma com compressão quiasmática (hemianopsia bitemporal)?",
+          "options": [
+            "Radioterapia hipofisária convencional como primeira opção",
+            "Cirurgia transesfenoidal por neurocirurgia experiente — tratamento de primeira linha em macroadenomas com efeito de massa (compressão quiasmática, neuropatia) e em microadenomas com chance de cura cirúrgica; análogos de somatostatina e agonistas dopaminérgicos ficam para tumores irressecáveis, doença persistente pós-cirúrgica ou contraindicação cirúrgica",
+            "Análogo de somatostatina (octreotida LAR ou lanreotida) como monoterapia primária, sem cirurgia",
+            "Pegvisomante (antagonista do receptor de GH) como primeira escolha sempre",
+            "Apenas controle dos sintomas (HAS, DM, AOS) sem tratar o tumor"
+          ],
+          "correctIndex": 1,
+          "feedback": "Em macroadenoma com efeito de massa (especialmente compressão quiasmática), a CIRURGIA TRANSESFENOIDAL por neurocirurgia experiente é a primeira escolha — alívio rápido da massa, possibilidade de cura bioquímica em ~50–60% dos casos. Análogos de somatostatina (octreotida LAR, lanreotida, pasireotida) reduzem GH/IGF-1 e podem reduzir o tumor; são primeira linha quando cirurgia é inviável ou em adjuvância pós-cirúrgica. Pegvisomante (antagonista periférico do receptor de GH) é altamente eficaz em normalizar IGF-1 mas NÃO reduz o tumor — usado em segunda/terceira linha. Cabergolina pode ser usada em tumores GH com componente prolactínico.",
+          "justification": "A presença de hemianopsia (déficit neurológico) torna a indicação cirúrgica URGENTE — atraso pode levar a perda visual permanente.",
+          "references": [
+            {
+              "work": "Aula Hipófise UNINOVE 5º M",
+              "professor": "Bosco / Brito / Salgado"
+            },
+            {
+              "work": "Endocrine Society Guideline — Acromegaly",
+              "year": 2014
+            },
+            {
+              "work": "Pituitary Society Consensus — Acromegaly Management",
+              "year": 2021
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Cirurgia transesfenoidal como 1ª linha em macroadenoma com hemianopsia — alinhado com Endocrine Society 2014 e Pituitary Society Consensus 2021."
+        },
+        {
+          "id": "G-q3",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "endocrinologia",
+            "farmacologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Sobre o DM SECUNDÁRIO à acromegalia, qual mecanismo fisiopatológico e qual conduta farmacológica são CORRETOS?",
+          "options": [
+            "Deficiência de insulina pura, com indicação de NPH+regular como primeira escolha sem corrigir a causa de base",
+            "Resistência insulínica grave por ação antagonista do GH no metabolismo glicídico (lipólise, gluconeogênese, redução de captação periférica de glicose); o controle do tumor reduz/normaliza a glicemia em muitos casos. Como tratamento farmacológico paralelo, metformina é base; análogos GLP-1 e iSGLT2 são opções razoáveis pelo perfil de proteção CV/renal; sulfonilureia em altas doses tende a falha precoce pelo grau de resistência insulínica",
+            "Deve-se sempre iniciar bomba de insulina, independente do controle tumoral",
+            "Apenas restrição calórica resolve, sem necessidade de medicação",
+            "Pioglitazona é primeira escolha e única classe eficaz"
+          ],
+          "correctIndex": 1,
+          "feedback": "GH em excesso causa RESISTÊNCIA INSULÍNICA marcante: estimula lipólise (eleva ácidos graxos livres → resistência hepática e muscular), gluconeogênese hepática e reduz captação periférica de glicose. O tratamento do tumor é o ponto-chave — em parte significativa dos pacientes a glicemia volta ao normal após controle do GH. Enquanto isso, metformina + GLP-1 ou iSGLT2 trazem maior benefício metabólico/cardiovascular do que sulfonilureia em doses crescentes (que falha precocemente).",
+          "justification": "Tratar o DM sem tratar o tumor é \"enxugar gelo\".",
+          "references": [
+            {
+              "work": "Aula Diabetes UNINOVE 5º M",
+              "professor": "Salgado / Brito / Bosco"
+            },
+            {
+              "work": "Aula Hipófise UNINOVE 5º M",
+              "professor": "Bosco / Brito / Salgado"
+            },
+            {
+              "work": "Diretrizes SBD",
+              "year": 2024
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Mecanismo de resistência insulínica pelo GH (lipólise, gluconeogênese, redução de captação) correto; tratamento do tumor pode normalizar a glicemia."
+        },
+        {
+          "id": "G-q4",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "cardiologia",
+            "endocrinologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Sobre a CARDIOMIOPATIA ACROMEGÁLICA, qual afirmação está CORRETA?",
+          "options": [
+            "É sempre uma cardiomiopatia DILATADA com FE reduzida desde o início",
+            "Tipicamente cursa com HIPERTROFIA CONCÊNTRICA do VE e disfunção DIASTÓLICA inicialmente, podendo evoluir para disfunção sistólica em fases avançadas; o controle do GH/IGF-1 pode reverter parcialmente a hipertrofia",
+            "Não tem relação com HAS e SAOS — é apenas efeito direto do GH",
+            "É indicação de transplante cardíaco precoce em todos os pacientes",
+            "Resolve apenas com tratamento da hipertensão, sem necessidade de tratar o tumor"
+          ],
+          "correctIndex": 1,
+          "feedback": "A cardiomiopatia acromegálica clássica: HIPERTROFIA CONCÊNTRICA biventricular (efeito anabólico direto do GH/IGF-1 no miocárdio) + disfunção DIASTÓLICA precoce + arritmias supraventriculares (FA). Em fases avançadas, evolução para disfunção sistólica e IC. Coexistem HAS, SAOS e DM como fatores agravantes. O controle do tumor pode REVERTER parcialmente a hipertrofia se feito precocemente — outro motivo para diagnóstico/tratamento sem atraso.",
+          "justification": "A cardiomiopatia é uma das principais causas de morte na acromegalia não tratada.",
+          "references": [
+            {
+              "work": "Aula Hipófise UNINOVE 5º M",
+              "professor": "Bosco / Brito / Salgado"
+            },
+            {
+              "work": "Aula Farmaco Anti-hipertensivos/IC (banco do app)",
+              "sourcePdf": "farmaco-p2-cardio-has"
+            },
+            {
+              "work": "Colao A et al. Endocr Rev — Acromegalic Heart Disease",
+              "year": 2004
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Cardiomiopatia acromegálica clássica: hipertrofia concêntrica + disfunção diastólica + reversibilidade parcial — alinhada com Colao 2004."
+        },
+        {
+          "id": "G-q5",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "endocrinologia",
+            "fisiopatologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Explique POR QUE o paciente apresenta HIPERPROLACTINEMIA (62 ng/mL) e centro-hipotireoidismo leve (TSH 0,3 / T4L 0,7), associados ao macroadenoma secretor de GH. Cite os DOIS mecanismos possíveis para a hiperprolactinemia e o mecanismo geral do hipopituitarismo neste paciente.",
+          "expectedAnswer": "HIPERPROLACTINEMIA — dois mecanismos a considerar: (1) Co-secreção tumoral: o tumor é, na verdade, um adenoma misto (somatomamotropo) que secreta GH E prolactina simultaneamente (~25% dos somatotropinomas); (2) Efeito haste (\"stalk effect\"): a compressão da haste hipofisária pelo macroadenoma INTERROMPE a chegada de dopamina hipotalâmica aos lactotrofos da hipófise anterior — como a dopamina é o principal INIBIDOR fisiológico da prolactina, sua falta DESINIBE os lactotrofos e eleva a prolactina (tipicamente para 30–150 ng/mL — níveis acima de 200 sugerem prolactinoma verdadeiro). HIPOPITUITARISMO PARCIAL — o mecanismo geral é COMPRESSÃO MECÂNICA do parênquima hipofisário normal pelo macroadenoma, com déficit de uma ou mais linhas hormonais (eixos mais sensíveis costumam ser GH/gonadotrofinas; depois TSH; ACTH é o mais resistente). Neste paciente há centro-hipotireoidismo (TSH baixo + T4L baixo — diferente do hipotireoidismo primário que tem TSH alto) e hipogonadismo hipogonadotrófico (testosterona baixa). A reserva de ACTH/cortisol está preservada (felizmente) — mas precisa ser reavaliada periodicamente. Após cirurgia pode haver melhora ou piora dos déficits — exige reavaliação completa.",
+          "rubric": [
+            {
+              "criterion": "Cita co-secreção tumoral (adenoma misto somatomamotropo) como mecanismo possível",
+              "points": 8
+            },
+            {
+              "criterion": "Cita efeito haste (compressão da haste interrompe dopamina inibidora dos lactotrofos)",
+              "points": 9
+            },
+            {
+              "criterion": "Explica hipopituitarismo por compressão mecânica do parênquima normal e o conceito de hipotireoidismo central (TSH não alto)",
+              "points": 8
+            }
+          ],
+          "feedback": "Distinguir prolactinoma puro de efeito haste muda o tratamento (cabergolina cura o primeiro; o segundo melhora após retirar a massa).",
+          "justification": "Integração fisiopatologia + farmaco + neuroanatomia hipotalâmica — clássico em prova integrada.",
+          "references": [
+            {
+              "work": "Aula Hipófise UNINOVE 5º M",
+              "professor": "Bosco / Brito / Salgado"
+            },
+            {
+              "work": "Williams Textbook of Endocrinology",
+              "edition": "14ª ed",
+              "publisher": "Elsevier",
+              "year": 2020,
+              "chapter": "Pituitary Masses and Hyperprolactinemia"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Ajuste cosmético aplicado: gênero \"neste paciente\" (paciente é homem). Conteúdo fisiopatológico (co-secreção vs efeito haste + hipopituitarismo) correto."
+        },
+        {
+          "id": "G-q6",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "endocrinologia",
+            "neurocirurgia",
+            "anestesiologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Descreva TRÊS cuidados PRÉ-OPERATÓRIOS específicos da cirurgia transesfenoidal de macroadenoma hipofisário em paciente com acromegalia. Justifique cada um.",
+          "expectedAnswer": "1) Avaliação CARDIOVASCULAR completa e otimização — paciente com cardiomiopatia acromegálica (hipertrofia concêntrica + disfunção diastólica) tem risco aumentado de eventos perioperatórios. Ecocardiograma, eletrocardiograma, controle de HAS (alvo PA <140/90), avaliação de FA/arritmias. Em IC manifesta, compensar antes do procedimento. 2) Avaliação e tratamento da APNEIA OBSTRUTIVA do SONO — o paciente tem AHI 38 (grave). AOS aumenta risco de via aérea difícil (macroglossia, hipertrofia de tecidos moles faríngeos), hipoxemia perioperatória e descompensação cardíaca. Idealmente, uso de CPAP no pré-operatório por algumas semanas reduz complicações; comunicar equipe anestésica sobre via aérea potencialmente difícil. 3) Avaliação do EIXO HIPOFISÁRIO COMPLETO — dosagem prévia de cortisol/ACTH para identificar insuficiência adrenal subclínica (caso não exista, NÃO administrar corticoide profilático rotineiro; alguns serviços fazem cobertura empírica com hidrocortisona 50 mg perioperatória se há suspeita); TSH/T4L, gonadotrofinas, prolactina. Preparo da equipe para reposição hormonal pós-operatória (cortisol é a mais crítica em curto prazo; reposição de hormônio tireoidiano e sexual a médio prazo). Outros: avaliação visual com campimetria computadorizada, ressecabilidade pela RM, otimização do DM (glicemia <180 perioperatório), profilaxia de tromboembolismo venoso.",
+          "rubric": [
+            {
+              "criterion": "Avaliação CV e otimização (cardiomiopatia/HAS/ECO) com justificativa",
+              "points": 8
+            },
+            {
+              "criterion": "Manejo de SAOS (via aérea difícil, CPAP, comunicar anestesia)",
+              "points": 8
+            },
+            {
+              "criterion": "Avaliação do eixo hipofisário (cortisol/ACTH em especial, T4L, sexuais) e plano de reposição",
+              "points": 9
+            }
+          ],
+          "feedback": "A cirurgia transesfenoidal moderna é segura em centros experientes, mas EXIGE preparo multidisciplinar (endócrino + neurocirurgia + anestesia + cardio + oto).",
+          "justification": "Esquecer SAOS no acromegálico é uma das causas mais frequentes de complicação anestésica.",
+          "references": [
+            {
+              "work": "Aula Hipófise UNINOVE 5º M",
+              "professor": "Bosco / Brito / Salgado"
+            },
+            {
+              "work": "Pituitary Society Consensus — Perioperative Management of Pituitary Tumors",
+              "year": 2021
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "3 cuidados pré-op (CV, SAOS com via aérea difícil, eixo hipofisário com cortisol) corretos e prioritários."
+        }
+      ]
+    },
+    {
+      "id": "caso-H",
+      "title": "Caso H — Idosa institucionalizada com Alzheimer moderado, lesão por pressão estágio III e ITU complicada",
+      "disciplines": [
+        "geriatria",
+        "neurologia",
+        "infectologia",
+        "dermatologia",
+        "farmacologia"
+      ],
+      "needsReview": false,
+      "patient": {
+        "age": 82,
+        "sex": "F",
+        "context": "Institucionalizada em ILPI há 3 anos. Doença de Alzheimer diagnosticada há 6 anos (MEEM atual 12/30). HAS, DM2 controlado com metformina, FA crônica em uso de varfarina (INR mantido ~2,5), fratura prévia de fêmur com mobilidade reduzida (acamada nos últimos 8 meses). Polifarmácia: 9 medicamentos diários incluindo donepezila 10 mg, memantina 20 mg, sertralina 50 mg, oxibutinina por incontinência.",
+        "complaint": "Piora cognitiva aguda, agitação intensa, recusa alimentar e febre nas últimas 48h."
+      },
+      "history": "A enfermeira da ILPI relata que há 48 horas a paciente apresenta REBAIXAMENTO do nível de consciência flutuante (períodos de letargia alternando com agitação intensa, gritaria noturna), recusa alimentar, febre 38,3 °C e urina turva com odor fétido. Apresenta lesão sacral conhecida de longa data, com aumento do diâmetro e drenagem purulenta nos últimos dias. Faz uso de fralda há 1 ano. Última avaliação cognitiva: MEEM 18/30 há 4 meses (hoje 12/30 — queda significativa). Não consegue verbalizar dor de forma confiável.",
+      "evolution": "Trazida ao PS após picos febris e agitação extrema. Família relata que \"ela não é assim — parece outra pessoa\".",
+      "physicalExam": {
+        "vitals": "PA 142/82 mmHg · FC 108 bpm · FR 24 irpm · T 38,4 °C · SpO₂ 94% AA · HGT 168 · Glasgow 13 (flutuante)",
+        "findings": "MEG, desidratada 2+/4+, agitada com períodos de sonolência. Caquética (perda ponderal evidente). Mucosas hipocoradas. Ausculta cardio: ritmo irregular (FA conhecida), sem sopros. Pulmões: estertores em base direita. Abdome flácido, doloroso à palpação suprapúbica. Giordano duvidoso (paciente não colabora). LESÃO sacral: área de ~8x6 cm, com perda total de tecido cutâneo, exposição de tecido subcutâneo, base com fibrina e tecido necrosado, bordas descoladas, secreção purulenta amarelada com odor — compatível com ESTÁGIO III (perda total do tecido cutâneo sem exposição óssea/tendínea/muscular). Exame neurológico: rebaixamento flutuante, sem déficit focal, sem rigidez de nuca. Escala CAM positiva para delirium."
+      },
+      "labs": [
+        {
+          "name": "Hemograma",
+          "value": "Hb 9,8 / Leuco 18.300 (15% bastões) / Plaquetas 290k",
+          "refRange": "Anemia + leucocitose com desvio",
+          "abnormal": true
+        },
+        {
+          "name": "PCR",
+          "value": "212 mg/L",
+          "refRange": "<5",
+          "abnormal": true
+        },
+        {
+          "name": "Creatinina / Ureia",
+          "value": "1,4 / 78 (basal 0,9)",
+          "refRange": "Cr 0,6–1,2",
+          "abnormal": true
+        },
+        {
+          "name": "Sódio / Potássio",
+          "value": "Na 147 / K 4,1",
+          "refRange": "Hipernatremia leve por desidratação",
+          "abnormal": true
+        },
+        {
+          "name": "Albumina",
+          "value": "2,4 g/dL",
+          "refRange": "3,5–5,2",
+          "abnormal": true
+        },
+        {
+          "name": "Glicemia capilar",
+          "value": "168 mg/dL",
+          "refRange": "—"
+        },
+        {
+          "name": "TSH / B12 / Fólico / VDRL / HIV",
+          "value": "Sem alterações",
+          "refRange": "Diferenciais de demência reversível negativos"
+        },
+        {
+          "name": "INR",
+          "value": "3,8",
+          "refRange": "Alvo 2–3 (FA)",
+          "abnormal": true
+        },
+        {
+          "name": "Urina 1",
+          "value": "Piúria intensa, nitrito +, leuco-esterase +, bacterioscopia GRAM negativos",
+          "abnormal": true
+        },
+        {
+          "name": "Urocultura / Hemoculturas",
+          "value": "Pendentes (coletadas antes do ATB)"
+        },
+        {
+          "name": "Swab da úlcera",
+          "value": "Pendente"
+        }
+      ],
+      "imaging": "Radiografia de tórax: opacidade em base direita compatível com broncopneumonia ou foco infeccioso. USG abdominal: bexiga distendida com sedimento, sem hidronefrose. Sem indicação de TC craniana de urgência (sem trauma, sem foco neurológico, mas pode ser feita se persistir rebaixamento após tratar foco infeccioso).",
+      "questions": [
+        {
+          "id": "H-q1",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "geriatria",
+            "neurologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Sobre a piora cognitiva aguda e flutuante observada na paciente, qual é o DIAGNÓSTICO MAIS PROVÁVEL e qual a sua relação com a demência prévia?",
+          "options": [
+            "Progressão natural do Alzheimer, sem necessidade de investigação adicional",
+            "DELIRIUM (estado confusional agudo) superposto à demência prévia, deflagrado por foco infeccioso (ITU + provável pneumonia + lesão por pressão infectada), desidratação e polifarmácia — emergência geriátrica com alta mortalidade se não reconhecido",
+            "AVC isquêmico agudo de território cortical anterior",
+            "Sobredosagem isolada de donepezila e memantina, sem componente infeccioso",
+            "Convulsão complexa parcial em demência avançada"
+          ],
+          "correctIndex": 1,
+          "feedback": "DELIRIUM em idoso com demência prévia é diagnóstico CLÍNICO (escala CAM): início agudo (horas-dias), curso FLUTUANTE, desatenção, pensamento desorganizado, alteração do nível de consciência. NÃO é progressão de Alzheimer (essa é insidiosa, em meses-anos). É uma EMERGÊNCIA geriátrica, com mortalidade hospitalar ~25–30% se não tratado. Causas comuns no idoso: infecção (a causa mais frequente — ITU + pneumonia aqui), desidratação, eletrólitos, dor, fecaloma, retenção urinária, drogas (especialmente anticolinérgicas — oxibutinina!), abstinência. O tratamento é da CAUSA + medidas ambientais; antipsicóticos só em agitação grave/risco de auto-agressão.",
+          "justification": "A regra: TODA piora cognitiva AGUDA em idoso com demência = pesquisar foco infeccioso/metabólico/medicamentoso antes de aceitar como \"progressão\".",
+          "references": [
+            {
+              "work": "Aula Demências UNINOVE 5º M",
+              "sourcePdf": "Aula_Demencias_Graduacao_Medicina"
+            },
+            {
+              "work": "Inouye SK et al. NEJM 2014 — Delirium in elderly people"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Delirium superposto à demência: CAM, curso flutuante, múltiplos focos infecciosos + polifarmácia anticolinérgica como causa. Mortalidade 25-30%."
+        },
+        {
+          "id": "H-q2",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "dermatologia",
+            "geriatria"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Quanto ao ESTADIAMENTO da lesão por pressão sacral (perda total do tecido cutâneo com exposição do subcutâneo, sem exposição de músculo/tendão/osso), qual é a classificação NPUAP/EPUAP CORRETA?",
+          "options": [
+            "Estágio I — eritema não-branqueável em pele íntegra",
+            "Estágio II — perda parcial da espessura da pele com derme exposta (flictena, abrasão)",
+            "Estágio III — perda TOTAL da espessura da pele, com tecido subcutâneo exposto, sem exposição de fáscia/músculo/tendão/osso",
+            "Estágio IV — perda total da espessura da pele e do tecido, com exposição de fáscia/músculo/tendão/osso",
+            "Lesão tissular profunda suspeita — descoloração localizada com pele íntegra ou bolha sanguinolenta"
+          ],
+          "correctIndex": 2,
+          "feedback": "Classificação NPUAP/EPUAP: Estágio I — eritema não-branqueável; Estágio II — perda parcial (derme exposta, flictena/abrasão); Estágio III — perda TOTAL da espessura da pele com tecido SUBCUTÂNEO exposto, SEM exposição de fáscia/músculo/tendão/osso, podendo ter granulação, esfacelo ou tecido necrótico; Estágio IV — perda total com EXPOSIÇÃO de fáscia, músculo, tendão ou osso. Categorias especiais: LP não-estagiável (base coberta por esfacelo/necrose impedindo visualização); LP de tecido profundo (eritema/bolha sanguínea persistente em pele íntegra).",
+          "justification": "O ESTAGIAMENTO orienta cuidado: estágios III/IV exigem desbridamento, antibioticoterapia se infectado, e podem precisar de cirurgia plástica para fechamento.",
+          "references": [
+            {
+              "work": "Aula Lesão por Pressão UNINOVE 5º M",
+              "sourcePdf": "Lesão por pressão"
+            },
+            {
+              "work": "NPUAP/EPUAP/PPPIA International Clinical Practice Guideline",
+              "year": 2019
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Lesão por pressão estágio III (NPUAP/EPUAP 2019): perda total da espessura cutânea com subcutâneo exposto, sem músculo/osso."
+        },
+        {
+          "id": "H-q3",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "infectologia",
+            "farmacologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Qual é a ESCOLHA INICIAL de antibioticoterapia empírica para esta paciente — ITU complicada por bactéria GRAM-NEGATIVA, com possível foco pneumônico associado e lesão por pressão infectada, em paciente idosa com AKI sobre função basal e PROVENIENTE DE ILPI?",
+          "options": [
+            "Nitrofurantoína VO ambulatorial",
+            "Sulfametoxazol-trimetoprima VO em monoterapia, sem cobertura adicional",
+            "Antibioticoterapia EMPÍRICA AMPLA EV cobrindo gram-negativos hospitalares (Pseudomonas, ESBL), gram-positivos (S. aureus, incluindo MRSA dada origem em ILPI) e anaeróbios (lesão por pressão profunda) — esquema típico piperacilina-tazobactam OU carbapenêmico + vancomicina OU linezolida; ajuste por TFGe e desescalonamento conforme culturas",
+            "Apenas ceftriaxona EV em monoterapia, sem cobertura para gram-positivo nem anaeróbio",
+            "Apenas tratamento tópico da úlcera sacral sem antibiótico sistêmico"
+          ],
+          "correctIndex": 2,
+          "feedback": "Paciente proveniente de ILPI com múltiplos focos infecciosos (urinário + pulmonar + ferida) exige cobertura AMPLA EV inicialmente: gram-negativos resistentes (ESBL/Pseudomonas) com piperacilina-tazobactam OU carbapenêmico (preferência em sepse e/ou ILPI com colonização prévia) — esses dois já cobrem anaeróbios, NÃO é preciso somar metronidazol — e gram-positivos incluindo MRSA com vancomicina ou linezolida (origem em instituição justifica cobertura empírica de MRSA). Após culturas e antibiograma, desescalonar. Em AKI ajustar doses (vancomicina por vancocinemia, carbapenêmico conforme ClCr). Nitrofurantoína em TFGe < 30 é contraindicada. Categoria HCAP foi descontinuada pela IDSA/ATS 2016 — abordagem atual é avaliação individual de fatores de risco para MDR.",
+          "justification": "Subtratar idosa em sepse de múltiplos focos = alta mortalidade. Excesso = colateral mas reversível.",
+          "references": [
+            {
+              "work": "Aula ITU UNINOVE 5º M",
+              "professor": "Mariana B. Pereira"
+            },
+            {
+              "work": "Aula Antibióticos (banco do app)",
+              "sourcePdf": "flashcards-antibioticos"
+            },
+            {
+              "work": "Hooton TM et al. IDSA International Clinical Practice Guidelines for ITU complicada",
+              "year": 2010
+            },
+            {
+              "work": "Stevens DL et al. IDSA Practice Guidelines for the Diagnosis and Management of Skin and Soft Tissue Infections",
+              "year": 2014
+            },
+            {
+              "work": "Kalil AC et al. IDSA/ATS Management of HAP/VAP",
+              "year": 2016
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Ajustes aplicados: feedback esclarece que pip-tazo/carbapenêmico já cobrem anaeróbios (sem adicionar metronidazol); refs IDSA específicas por foco (Hooton 2010 ITU, Stevens 2014 SSTI, Kalil 2016 HAP). HCAP descontinuada."
+        },
+        {
+          "id": "H-q4",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "farmacologia",
+            "geriatria"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Sobre a POLIFARMÁCIA da paciente, quais medicamentos devem ser CRITICAMENTE REVISADOS por risco de delirium/queda em idoso (critérios de BEERS)?",
+          "options": [
+            "Apenas a varfarina",
+            "Donepezila e memantina devem ser suspensas — são causas comuns de delirium em idosos",
+            "OXIBUTININA (anticolinérgico — alto risco de delirium e queda em idoso pelos critérios de Beers; substituir por mirabegrona ou medidas não-farmacológicas) e revisar TODOS os medicamentos sedativos/anticolinérgicos. Donepezila e memantina ficam mantidas (são tratamento de Alzheimer; sua suspensão piora cognição)",
+            "Metformina deve ser suspensa permanentemente, sem reavaliação",
+            "Apenas reduzir dose da sertralina, sem outras intervenções"
+          ],
+          "correctIndex": 2,
+          "feedback": "Critérios de BEERS 2023 (American Geriatrics Society) listam medicamentos potencialmente inadequados em idosos. OXIBUTININA é anticolinérgica com alta penetração no SNC — risco de delirium, queda, declínio cognitivo; substituir por mirabegrona ou medidas comportamentais. Outros sedativos comuns problemáticos: benzodiazepínicos (toda a classe), anti-histamínicos H1 de 1ª geração (difenidramina), antipsicóticos de 1ª geração. Donepezila e memantina são tratamento ESPECÍFICO de Alzheimer — manter (suspendê-las piora cognição). Sertralina em dose moderada é razoável, mas observar hiponatremia (SIADH em idosos com ISRS).",
+          "justification": "Anticolinérgicos no idoso são um dos principais geradores de delirium iatrogênico evitável.",
+          "references": [
+            {
+              "work": "AGS Beers Criteria for Potentially Inappropriate Medication Use in Older Adults",
+              "year": 2023
+            },
+            {
+              "work": "Aula Demências UNINOVE 5º M",
+              "sourcePdf": "Aula_Demencias_Graduacao_Medicina"
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Oxibutinina como alvo Beers 2023 (anticolinérgico → delirium); manter donepezila + memantina; alerta SIADH com ISRS no idoso."
+        },
+        {
+          "id": "H-q5",
+          "kind": "mc",
+          "points": 20,
+          "disciplines": [
+            "farmacologia",
+            "cardiologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Considerando INR 3,8 em uso de varfarina (alvo 2–3) em paciente com infecção aguda e sem sangramento, qual conduta é a CORRETA?",
+          "options": [
+            "Manter dose habitual, sem nenhuma intervenção",
+            "Aplicar PCC (concentrado de complexo protrombínico) EV imediatamente, independente de sangramento",
+            "Suspender 1 a 2 doses de varfarina, reavaliar INR em 24–48h, identificar causas (interações medicamentosas — vários antibióticos potencializam varfarina; sepse/redução de síntese de fatores; baixa ingesta de vit K na recusa alimentar); SOMENTE administrar vitamina K oral 1–2,5 mg se INR > 10 OU se houver fatores de risco aumentado para sangramento (idade muito avançada, plaquetopenia, comorbidades) OU sangramento ativo",
+            "Aplicar plasma fresco congelado em alta dose como rotina",
+            "Trocar varfarina por aspirina permanentemente"
+          ],
+          "correctIndex": 2,
+          "feedback": "INR supraterapêutico SEM sangramento: a conduta é suspender doses, identificar causa (frequentemente interação com ATB — claritromicina, ciprofloxacino, sulfa, metronidazol potencializam varfarina) e MONITORAR. Conforme atualização ACCP/CHEST 2018 (Witt et al.): INR 4,5–10 sem sangramento NÃO requer vitamina K de rotina (basta omitir doses); vit K oral 1–2,5 mg fica reservada para INR > 10 OU presença de fatores de risco aumentado para sangramento. PCC e plasma fresco congelado são para sangramento ATIVO ou cirurgia de emergência. Sepse aumenta sangramento por consumo de fatores e disfunção hepática — exige cautela e monitorização mais frequente.",
+          "justification": "Reversão excessiva de anticoagulação em paciente com FA pode reintroduzir risco embólico — equilíbrio é a chave.",
+          "references": [
+            {
+              "work": "Aula Farmaco Antiagregantes/Anticoag (banco do app)",
+              "sourcePdf": "farmaco-p2-cardio-coag"
+            },
+            {
+              "work": "Witt DM et al. American College of Chest Physicians — Antithrombotic Therapy for VTE Disease",
+              "publisher": "CHEST",
+              "year": 2018
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved_with_edits",
+          "reviewerNotes": "Ajuste OBRIGATÓRIO aplicado: corte de vitamina K atualizado conforme ACCP/CHEST 2018 (Witt) — INR 4,5-10 SEM vit K rotina; vit K só se INR > 10 OU fatores de risco de sangramento. Antes refletia diretriz 2008 (desatualizada)."
+        },
+        {
+          "id": "H-q6",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "geriatria",
+            "dermatologia"
+          ],
+          "semester": "sem1",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Cite CINCO medidas de PREVENÇÃO de lesão por pressão em idoso acamado de ILPI, com justificativa breve de cada.",
+          "expectedAnswer": "1) Mudança de DECÚBITO regular (a cada 2 horas em decúbito lateral ou supino) — reduz a pressão sustentada sobre proeminências ósseas (sacro, calcâneo, trocânter). Em pacientes em superfícies de redistribuição de pressão de alta especificação, intervalos podem ser maiores (até 4h), conforme avaliação. 2) Uso de superfícies de redistribuição de pressão (colchão pneumático, viscoelástico, alternating) — reduz pressão de contato; selecionar conforme risco (Braden ≤ 14 indica risco moderado/alto). 3) Avaliação periódica do RISCO com escalas (BRADEN ≤ 18 = risco; Norton, Waterlow são alternativas) e inspeção diária da pele, especialmente em proeminências ósseas. 4) Cuidados de PELE — higiene com produtos suaves, secagem cuidadosa, hidratação para evitar ressecamento, proteção contra incontinência (fralda absorvente trocada com frequência, barreira cutânea — óxido de zinco/silicona) — pele íntegra resiste mais à pressão. 5) NUTRIÇÃO adequada — proteínas ≥ 1,2–1,5 g/kg/dia, calorias ≥ 30 kcal/kg/dia, suplemento de proteína/calorias se desnutrição, micronutrientes (vitamina C, zinco). Albumina baixa (como nesta paciente, 2,4) é tanto causa quanto consequência. Outros válidos: mobilização precoce e fisioterapia motora, controle da umidade, educação da equipe e cuidadores.",
+          "rubric": [
+            {
+              "criterion": "1ª medida com justificativa breve",
+              "points": 5
+            },
+            {
+              "criterion": "2ª medida com justificativa breve",
+              "points": 5
+            },
+            {
+              "criterion": "3ª medida com justificativa breve",
+              "points": 5
+            },
+            {
+              "criterion": "4ª medida com justificativa breve",
+              "points": 5
+            },
+            {
+              "criterion": "5ª medida com justificativa breve",
+              "points": 5
+            }
+          ],
+          "feedback": "Lesão por pressão é EVITÁVEL na maioria dos casos. Prevenir é mais barato e ético do que tratar.",
+          "justification": "Pontuação individualizada por item (3 pts pela nomeação + 2 pela justificativa).",
+          "references": [
+            {
+              "work": "Aula Lesão por Pressão UNINOVE 5º M",
+              "sourcePdf": "Lesão por pressão"
+            },
+            {
+              "work": "NPUAP/EPUAP/PPPIA International Clinical Practice Guideline",
+              "year": 2019
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "5 medidas de prevenção de LP (decúbito 2h, superfícies, escala Braden, pele/umidade, nutrição) com pontuação 5x5. Rubrica auditável."
+        },
+        {
+          "id": "H-q7",
+          "kind": "discursive",
+          "points": 25,
+          "disciplines": [
+            "geriatria",
+            "neurologia",
+            "farmacologia"
+          ],
+          "semester": "mixed",
+          "status": "validated",
+          "needsReview": false,
+          "prompt": "Diferencie DELIRIUM, DEMÊNCIA e DEPRESSÃO no idoso (os \"3 Ds\") em termos de: início, curso, atenção, consciência, evolução e tratamento. Por que essa diferenciação é importante na prática clínica?",
+          "expectedAnswer": "DELIRIUM: início AGUDO (horas-dias), curso FLUTUANTE (com piora vespertina/noturna — \"sundowning\"), DESATENÇÃO marcante, consciência ALTERADA (rebaixada ou hiperalerta), pensamento desorganizado, alteração do ciclo sono-vigília. Causa subjacente quase sempre identificável (infecção, droga, metabólico, dor, fecaloma). Tratamento: causa + medidas ambientais (orientação, sono, mobilização, evitar contenção); antipsicóticos só em agitação grave. POTENCIALMENTE REVERSÍVEL. DEMÊNCIA: início INSIDIOSO (meses-anos), curso PROGRESSIVO e estável (sem flutuação rápida), atenção preservada nas fases iniciais (compromete com avanço), consciência PRESERVADA, déficit cognitivo persistente em ≥2 domínios (memória, função executiva, linguagem, etc), perda funcional. Tratamento: específico (anticolinesterásicos como donepezila/galantamina/rivastigmina em Alzheimer leve-moderado; memantina em moderado-grave; modificação de fatores de risco em vascular), apoio familiar, terapias não-farmacológicas. IRREVERSÍVEL. DEPRESSÃO: início mais GRADUAL (semanas), curso pode ser persistente, atenção preservada/diminuída por anedonia, consciência PRESERVADA, humor deprimido + anedonia + sintomas somáticos, queixas cognitivas subjetivas frequentemente ‘maiores que o real’ (pseudodemência depressiva — melhora com tratamento). Tratamento: antidepressivos (ISRS preferenciais — sertralina, escitalopram; evitar tricíclicos por anticolinérgico) + psicoterapia. REVERSÍVEL. IMPORTÂNCIA: confundir delirium com progressão de Alzheimer = não tratar a causa = óbito; confundir demência com depressão = não tratar adequadamente; confundir pseudodemência com Alzheimer = privar o paciente de tratamento da depressão e curabilidade do quadro.",
+          "rubric": [
+            {
+              "criterion": "Caracteriza delirium (agudo, flutuante, desatenção, consciência alterada) e tratamento da causa",
+              "points": 9
+            },
+            {
+              "criterion": "Caracteriza demência (insidiosa, progressiva, consciência preservada) e tratamento específico (anticolinesterásico/memantina)",
+              "points": 8
+            },
+            {
+              "criterion": "Caracteriza depressão (pseudodemência possível, ISRS preferenciais, reversível) e importância clínica da diferenciação",
+              "points": 8
+            }
+          ],
+          "feedback": "Os 3 Ds são confundidos com frequência — distinguir muda completamente o desfecho.",
+          "justification": "Conceito de altíssimo rendimento em prova de geriatria e em prova integrada.",
+          "references": [
+            {
+              "work": "Aula Demências UNINOVE 5º M",
+              "sourcePdf": "Aula_Demencias_Graduacao_Medicina"
+            },
+            {
+              "work": "Inouye SK et al. NEJM 2014 — Delirium"
+            },
+            {
+              "work": "Tratado de Geriatria e Gerontologia (Freitas, Py)",
+              "edition": "5ª ed",
+              "publisher": "Guanabara Koogan",
+              "year": 2022
+            }
+          ],
+          "reviewedBy": "Prof. Médico Sênior (agente revisor UNINOVE)",
+          "reviewedAt": 1780617600000,
+          "reviewerVerdict": "approved",
+          "reviewerNotes": "Comparação dos 3 Ds (delirium/demência/depressão) correta, incluindo pseudodemência depressiva, ressalvas sobre tricíclicos no idoso e demências potencialmente reversíveis afastadas pelos labs."
+        }
+      ]
+    }
+  ]
+}

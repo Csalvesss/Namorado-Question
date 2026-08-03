@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Eyebrow from '../components/ui/Eyebrow';
 import { useUser } from '../lib/useUser';
 import {
-  CURRENT_EXAM,
+  AVAILABLE_EXAMS,
   clearAttempt,
   countQuestions,
   countReadyCases,
@@ -22,28 +22,32 @@ import type {
   ExamMCQuestion,
   ExamQuestion,
   ExamReference,
+  IntegratedExam,
   ExamValidation,
 } from '../types';
 
-type Phase = 'intro' | 'exam' | 'identify' | 'confirm' | 'result';
+type Phase = 'select' | 'intro' | 'exam' | 'identify' | 'confirm' | 'result';
 
 export default function ProvaIntegrada() {
   const navigate = useNavigate();
   const { user } = useUser();
-  const [phase, setPhase] = useState<Phase>('intro');
+  // Tem mais de uma prova? Começa na seleção. Só uma? Pula direto pra intro.
+  const [phase, setPhase] = useState<Phase>(
+    AVAILABLE_EXAMS.length > 1 ? 'select' : 'intro',
+  );
+  const [selectedExam, setSelectedExam] = useState<IntegratedExam>(AVAILABLE_EXAMS[0]);
   const [attempt, setAttempt] = useState<ExamAttempt>(() => {
-    return loadAttempt() ?? newAttempt(CURRENT_EXAM.id, CURRENT_EXAM.version);
+    return loadAttempt() ?? newAttempt(AVAILABLE_EXAMS[0].id, AVAILABLE_EXAMS[0].version);
   });
   const [caseIdx, setCaseIdx] = useState(0);
   const [validations, setValidations] = useState<Map<string, ExamValidation>>(new Map());
 
-  // Carrega validações em background — só usado pra esconder questões 'rejected'
-  // ou exibir aviso "em validação" na intro. Falha silenciosa.
+  // Carrega validações da prova selecionada. Falha silenciosa.
   useEffect(() => {
-    loadValidations(CURRENT_EXAM.id)
+    loadValidations(selectedExam.id)
       .then(setValidations)
       .catch(() => {});
-  }, []);
+  }, [selectedExam.id]);
 
   // Persiste a cada mudança da tentativa enquanto não enviou.
   useEffect(() => {
@@ -53,8 +57,8 @@ export default function ProvaIntegrada() {
   }, [attempt, phase]);
 
   const visibleCases = useMemo(
-    () => CURRENT_EXAM.cases.filter((c) => c.questions.length > 0),
-    [],
+    () => selectedExam.cases.filter((c) => c.questions.length > 0),
+    [selectedExam],
   );
 
   function updateAnswer(qid: string, patch: Partial<ExamAttemptAnswer>) {
@@ -68,7 +72,7 @@ export default function ProvaIntegrada() {
   }
 
   function handleStart() {
-    const fresh = newAttempt(CURRENT_EXAM.id, CURRENT_EXAM.version);
+    const fresh = newAttempt(selectedExam.id, selectedExam.version);
     setAttempt(fresh);
     setCaseIdx(0);
     setPhase('exam');
@@ -80,7 +84,7 @@ export default function ProvaIntegrada() {
       completedAt: Date.now(),
       durationMs: Date.now() - attempt.startedAt,
     };
-    const { totalEarned } = scoreAttempt(completed);
+    const { totalEarned } = scoreAttempt(completed, selectedExam);
     completed.score = totalEarned;
     setAttempt(completed);
     saveAttempt(completed);
@@ -89,16 +93,31 @@ export default function ProvaIntegrada() {
 
   function handleReset() {
     clearAttempt();
-    setAttempt(newAttempt(CURRENT_EXAM.id, CURRENT_EXAM.version));
+    setAttempt(newAttempt(selectedExam.id, selectedExam.version));
+    setPhase(AVAILABLE_EXAMS.length > 1 ? 'select' : 'intro');
+  }
+
+  function handlePickExam(exam: IntegratedExam) {
+    setSelectedExam(exam);
+    // Se a tentativa local não é da prova escolhida, começa do zero.
+    if (attempt.examId !== exam.id) {
+      setAttempt(newAttempt(exam.id, exam.version));
+    }
+    setCaseIdx(0);
     setPhase('intro');
   }
 
+  if (phase === 'select') {
+    return <SelectPhase onPick={handlePickExam} />;
+  }
   if (phase === 'intro') {
     return (
       <IntroPhase
+        exam={selectedExam}
         validations={validations}
         onStart={() => setPhase('exam')}
         onClearExisting={handleStart}
+        onBack={AVAILABLE_EXAMS.length > 1 ? () => setPhase('select') : undefined}
         hasDraft={!attempt.completedAt && Object.keys(attempt.answers).length > 0}
       />
     );
@@ -106,6 +125,7 @@ export default function ProvaIntegrada() {
   if (phase === 'exam') {
     return (
       <ExamPhase
+        exam={selectedExam}
         attempt={attempt}
         cases={visibleCases}
         caseIdx={caseIdx}
@@ -141,6 +161,7 @@ export default function ProvaIntegrada() {
   }
   return (
     <ResultPhase
+      exam={selectedExam}
       attempt={attempt}
       cases={visibleCases}
       onAnswerUpdate={updateAnswer}
@@ -155,21 +176,25 @@ export default function ProvaIntegrada() {
 // ===========================================================================
 
 function IntroPhase({
+  exam,
   validations,
   onStart,
   onClearExisting,
+  onBack,
   hasDraft,
 }: {
+  exam: IntegratedExam;
   validations: Map<string, ExamValidation>;
   onStart: () => void;
   onClearExisting: () => void;
+  onBack?: () => void;
   hasDraft: boolean;
 }) {
   const [accepted, setAccepted] = useState(false);
-  const stats = countQuestions();
-  const readyCases = countReadyCases();
+  const stats = countQuestions(exam);
+  const readyCases = countReadyCases(exam);
   let pendingValidation = 0;
-  for (const c of CURRENT_EXAM.cases) {
+  for (const c of exam.cases) {
     for (const q of c.questions) {
       if (effectiveQuestionStatus(q, validations) !== 'validated') pendingValidation += 1;
     }
@@ -179,12 +204,21 @@ function IntroPhase({
   return (
     <section className="bg-paper">
       <div className="mx-auto w-full max-w-4xl px-6 py-12 sm:px-10 sm:py-20 lg:px-16">
+        {onBack && (
+          <button
+            type="button"
+            onClick={onBack}
+            className="mb-4 font-display text-xs italic text-mute underline-offset-4 hover:underline"
+          >
+            ← escolher outra prova
+          </button>
+        )}
         <Eyebrow>avaliação integrada</Eyebrow>
         <h1 className="mt-4 font-display font-light leading-[1.05] text-ink text-[clamp(2.5rem,7vw,4.5rem)]">
-          {CURRENT_EXAM.title}
+          {exam.title}
         </h1>
-        {CURRENT_EXAM.subtitle && (
-          <p className="mt-3 font-display text-xl italic text-mute">{CURRENT_EXAM.subtitle}</p>
+        {exam.subtitle && (
+          <p className="mt-3 font-display text-xl italic text-mute">{exam.subtitle}</p>
         )}
 
         {!allValidated && (
@@ -201,8 +235,8 @@ function IntroPhase({
         <div className="mt-10 grid gap-6 sm:grid-cols-4">
           <Stat label="casos clínicos" value={String(readyCases)} />
           <Stat label="questões" value={String(stats.total)} sub={`${stats.mc} obj · ${stats.discursive} disc`} />
-          <Stat label="pontos totais" value="1000" />
-          <Stat label="tempo sugerido" value={`${Math.round(CURRENT_EXAM.estimatedMinutes / 60)}h${CURRENT_EXAM.estimatedMinutes % 60 || ''}`} />
+          <Stat label="pontos totais" value={String(exam.totalPoints)} />
+          <Stat label="tempo sugerido" value={`${Math.round(exam.estimatedMinutes / 60)}h${exam.estimatedMinutes % 60 || ''}`} />
         </div>
 
         <div className="card mt-10 space-y-5 p-8 sm:p-10">
@@ -238,7 +272,7 @@ function IntroPhase({
         <div className="card mt-6 space-y-3 p-8 sm:p-10">
           <Eyebrow>orientações</Eyebrow>
           <ul className="ml-5 list-disc space-y-2 font-body text-base text-txt">
-            {CURRENT_EXAM.instructions.map((line, i) => (
+            {exam.instructions.map((line: string, i: number) => (
               <li key={i} className="text-mute">
                 {line}
               </li>
@@ -305,6 +339,7 @@ function Stat({ label, value, sub }: { label: string; value: string; sub?: strin
 // ===========================================================================
 
 function ExamPhase({
+  exam,
   attempt,
   cases,
   caseIdx,
@@ -313,6 +348,7 @@ function ExamPhase({
   onGoIdentify,
   validations,
 }: {
+  exam: IntegratedExam;
   attempt: ExamAttempt;
   cases: ExamCase[];
   caseIdx: number;
@@ -339,7 +375,7 @@ function ExamPhase({
 
   return (
     <section className="bg-paper">
-      <Cronometer startedAt={attempt.startedAt} estimatedMinutes={CURRENT_EXAM.estimatedMinutes} />
+      <Cronometer startedAt={attempt.startedAt} estimatedMinutes={exam.estimatedMinutes} />
       <div className="mx-auto w-full max-w-4xl px-6 pb-32 pt-8 sm:px-10 lg:px-16">
         <div className="flex items-center justify-between">
           <Eyebrow>
@@ -739,19 +775,21 @@ function ConfirmPhase({
 // ===========================================================================
 
 function ResultPhase({
+  exam,
   attempt,
   cases,
   onAnswerUpdate,
   onReset,
   onExit,
 }: {
+  exam: IntegratedExam;
   attempt: ExamAttempt;
   cases: ExamCase[];
   onAnswerUpdate: (qid: string, patch: Partial<ExamAttemptAnswer>) => void;
   onReset: () => void;
   onExit: () => void;
 }) {
-  const { totalEarned, totalMax, perQuestion } = scoreAttempt(attempt);
+  const { totalEarned, totalMax, perQuestion } = scoreAttempt(attempt, exam);
   const pct = totalMax > 0 ? Math.round((totalEarned / totalMax) * 100) : 0;
   return (
     <section className="bg-paper">
@@ -972,4 +1010,80 @@ function ReferenceLine({ r }: { r: ExamReference }) {
   if (r.professor) bits.push(`Prof.: ${r.professor}`);
   if (r.sourcePdf) bits.push(`PDF: ${r.sourcePdf}`);
   return <span>{bits.join(' · ')}</span>;
+}
+
+// ===========================================================================
+// FASE 0 — Seleção de prova (só aparece se houver mais de uma)
+// ===========================================================================
+
+function SelectPhase({ onPick }: { onPick: (exam: IntegratedExam) => void }) {
+  return (
+    <section className="bg-paper">
+      <div className="mx-auto w-full max-w-4xl px-6 py-12 sm:px-10 sm:py-20 lg:px-16">
+        <Eyebrow>avaliações disponíveis</Eyebrow>
+        <h1 className="mt-4 font-display font-light leading-[1.05] text-ink text-[clamp(2.5rem,7vw,4.5rem)]">
+          Prova Integrada
+        </h1>
+        <p className="mt-4 max-w-xl font-body text-base italic leading-relaxed text-mute">
+          Escolha qual prova você quer fazer. Cada uma tem casos clínicos
+          diferentes, mesmo formato (objetivas + discursivas com rubrica).
+        </p>
+
+        <div className="mt-10 grid gap-5">
+          {AVAILABLE_EXAMS.map((exam) => {
+            const stats = countQuestions(exam);
+            const readyCases = countReadyCases(exam);
+            return (
+              <button
+                key={exam.id}
+                type="button"
+                onClick={() => onPick(exam)}
+                className="card w-full p-7 text-left transition hover:border-wine sm:p-9"
+              >
+                <Eyebrow>{exam.id}</Eyebrow>
+                <h2 className="mt-2 font-display text-2xl text-ink sm:text-3xl">
+                  {exam.title}
+                </h2>
+                {exam.subtitle && (
+                  <p className="mt-1 font-display text-base italic text-mute">
+                    {exam.subtitle}
+                  </p>
+                )}
+                <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                  <MiniStat label="casos" value={String(readyCases)} />
+                  <MiniStat
+                    label="questões"
+                    value={String(stats.total)}
+                    sub={`${stats.mc} obj · ${stats.discursive} disc`}
+                  />
+                  <MiniStat label="pontos" value={String(exam.totalPoints)} />
+                  <MiniStat
+                    label="tempo sugerido"
+                    value={`~${Math.round(exam.estimatedMinutes / 60)}h${
+                      exam.estimatedMinutes % 60
+                        ? ` ${exam.estimatedMinutes % 60}min`
+                        : ''
+                    }`}
+                  />
+                </div>
+                <span className="mt-5 inline-flex items-center font-display text-sm italic text-wine">
+                  começar →
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function MiniStat({ label, value, sub }: { label: string; value: string; sub?: string }) {
+  return (
+    <div>
+      <p className="font-display text-[10px] uppercase tracking-[0.18em] text-mute">{label}</p>
+      <p className="mt-1 font-display text-xl text-ink">{value}</p>
+      {sub && <p className="mt-0.5 font-body text-[10px] text-mute">{sub}</p>}
+    </div>
+  );
 }
