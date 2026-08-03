@@ -127,6 +127,53 @@ export async function listMaterialsForUser(ownerUid: string): Promise<Material[]
   });
 }
 
+// ---- sessões (atividade) por usuária -------------------------------------
+// As sessões vivem em subcoleções da usuária. Lê TODAS as variantes: as
+// track-namespaced novas e a coleção 'sessions' legada. Cada leitura é isolada
+// num try/catch — coleção inexistente ou sem permissão não derruba as outras.
+
+export interface AdminUserSession {
+  id: string;
+  when: number; // startedAt
+  completedAt: number | null;
+  courseTitle: string;
+  mode: string;
+  score: number;
+  total: number;
+  track: 'medicina' | 'odonto' | 'legacy';
+}
+
+const SESSION_COLLECTIONS: ReadonlyArray<{ name: string; track: AdminUserSession['track'] }> = [
+  { name: 'sessions_medicina', track: 'medicina' },
+  { name: 'sessions_odonto', track: 'odonto' },
+  { name: 'sessions', track: 'legacy' },
+];
+
+export async function listUserSessions(uid: string): Promise<AdminUserSession[]> {
+  const out: AdminUserSession[] = [];
+  for (const col of SESSION_COLLECTIONS) {
+    try {
+      const snap = await getDocs(collection(firestore, 'users', uid, col.name));
+      snap.forEach((d) => {
+        const data = d.data() as Record<string, unknown>;
+        out.push({
+          id: `${col.name}:${d.id}`,
+          when: typeof data.startedAt === 'number' ? data.startedAt : 0,
+          completedAt: typeof data.completedAt === 'number' ? data.completedAt : null,
+          courseTitle: typeof data.courseTitle === 'string' ? data.courseTitle : '—',
+          mode: typeof data.mode === 'string' ? data.mode : 'standard',
+          score: typeof data.score === 'number' ? data.score : 0,
+          total: typeof data.total === 'number' ? data.total : 0,
+          track: col.track,
+        });
+      });
+    } catch {
+      // coleção inexistente / sem permissão — segue nas outras.
+    }
+  }
+  return out.sort((a, b) => b.when - a.when);
+}
+
 /**
  * Aprovação direta SEM código — usa privilégio admin via Firestore rules.
  * Flipa /users/{uid}.status e /signup_requests/{uid}.status pra approved.

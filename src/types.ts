@@ -283,7 +283,12 @@ export interface AccessLog {
   geo?: AccessGeo;
   userAgent?: string;
   // 'pageview' = navegou até uma tela; os demais são eventos de sessão/conta.
-  kind: 'signin' | 'signup' | 'session' | 'impersonate' | 'pageview';
+  // 'cadastro' é SINTÉTICO: derivado de users.createdAt / signup_requests pra
+  // mostrar o histórico de quem entrou antes de existir o log de acesso — nunca
+  // é gravado em /access_logs.
+  // 'atividade' também é SINTÉTICO: derivado das sessões de estudo da usuária
+  // (users/{uid}/sessions*), pra mostrar as datas em que ela usou o app.
+  kind: 'signin' | 'signup' | 'session' | 'impersonate' | 'pageview' | 'cadastro' | 'atividade';
   // Rota acessada (ex: '/cursos') — preenchido em kind='pageview'.
   path?: string;
   // Nome amigável da tela (ex: 'Cursos') — preenchido em kind='pageview'.
