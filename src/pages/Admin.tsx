@@ -10,6 +10,8 @@ import {
   listAllUsers,
   listMaterialsForUser,
   listSignupRequests,
+  listUserSessions,
+  type AdminUserSession,
 } from '../lib/admin-queries';
 import {
   approveSignupAndGenerateCode,
@@ -257,6 +259,7 @@ function UsersTab() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState('');
+  const [detail, setDetail] = useState<UserProfile | null>(null);
 
   const refresh = useCallback(async () => {
     setLoading(true);
@@ -357,11 +360,19 @@ function UsersTab() {
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={() => setDetail(u)}
+                  className="rounded-full bg-wine px-3 py-1.5 font-display text-xs italic text-paper"
+                >
+                  ver dados
+                </button>
                 {u.role !== 'admin' && (
                   <button
                     type="button"
                     onClick={() => void handleImpersonate(u)}
                     className="rounded-full border border-[var(--blush-stroke)] px-3 py-1.5 font-display text-xs italic text-ink"
+                    title="entra como a usuária (precisa das Cloud Functions deployadas)"
                   >
                     ver como
                   </button>
@@ -390,6 +401,164 @@ function UsersTab() {
           );
         })}
       </ul>
+
+      {detail && <UserDetail user={detail} onClose={() => setDetail(null)} />}
+    </div>
+  );
+}
+
+// ===========================================================================
+// Detalhe da usuária — visão SÓ-LEITURA (sem impersonar): perfil + atividade.
+// Lê as sessões direto do Firestore (o admin tem permissão pelas regras).
+// ===========================================================================
+
+function UserDetail({ user, onClose }: { user: UserProfile; onClose: () => void }) {
+  const [sessions, setSessions] = useState<AdminUserSession[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    setLoading(true);
+    setError(null);
+    listUserSessions(user.uid)
+      .then((s) => {
+        if (active) setSessions(s);
+      })
+      .catch((e) => {
+        if (active) setError(e instanceof Error ? e.message : 'erro ao ler sessões');
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, [user.uid]);
+
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') onClose();
+    }
+    window.addEventListener('keydown', onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [onClose]);
+
+  const totalQuestions = sessions.reduce((sum, s) => sum + s.total, 0);
+  const totalRight = sessions.reduce((sum, s) => sum + s.score, 0);
+  const first = sessions.length > 0 ? sessions[sessions.length - 1].when : null;
+  const last = sessions.length > 0 ? sessions[0].when : null;
+  const fmt = (t: number | null) => (t ? new Date(t).toLocaleString('pt-BR') : '—');
+
+  return (
+    <div
+      className="fixed inset-0 z-[70] flex justify-end bg-ink/30 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <div
+        className="h-full w-full max-w-2xl overflow-y-auto bg-paper p-6 shadow-lift sm:p-10"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <Eyebrow>dados da usuária</Eyebrow>
+            <h2 className="mt-2 font-display text-3xl italic text-ink">{user.name}</h2>
+            <p className="font-body text-sm text-mute">{user.email}</p>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="rounded-full border border-[var(--blush-stroke)] px-3 py-1.5 font-display text-xs italic text-mute hover:text-ink"
+          >
+            fechar
+          </button>
+        </div>
+
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
+          <MiniField label="papel" value={user.role ?? 'user'} />
+          <MiniField label="status" value={effectiveStatus(user)} />
+          <MiniField label="trilha" value={user.track ?? 'medicina'} />
+          <MiniField label="modo" value={user.displayMode} />
+          <MiniField label="criada em" value={new Date(user.createdAt).toLocaleDateString('pt-BR')} />
+          <MiniField label="meta diária" value={user.dailyGoal ? String(user.dailyGoal) : '—'} />
+        </div>
+
+        <div className="mt-8 grid grid-cols-3 gap-3">
+          <MiniField label="sessões" value={String(sessions.length)} />
+          <MiniField
+            label="acerto"
+            value={totalQuestions > 0 ? `${Math.round((totalRight / totalQuestions) * 100)}%` : '—'}
+            sub={`${totalRight}/${totalQuestions}`}
+          />
+          <MiniField label="questões" value={String(totalQuestions)} />
+        </div>
+
+        <div className="mt-6 rounded-2xl border border-[var(--blush-stroke)] bg-blush/40 p-4 font-body text-xs text-mute">
+          <p>
+            primeira atividade: <strong className="text-ink">{fmt(first)}</strong>
+          </p>
+          <p className="mt-1">
+            última atividade: <strong className="text-ink">{fmt(last)}</strong>
+          </p>
+        </div>
+
+        <h3 className="mt-8 font-display text-lg italic text-ink">
+          histórico de sessões {sessions.length > 0 && `(${sessions.length})`}
+        </h3>
+        {loading && <p className="mt-3 font-display italic text-mute">lendo o banco…</p>}
+        {error && (
+          <p className="mt-3 rounded-2xl border-l-2 border-red bg-red-soft px-4 py-3 font-body text-sm text-txt">
+            {error}
+          </p>
+        )}
+        {!loading && !error && sessions.length === 0 && (
+          <p className="mt-3 font-body text-sm italic text-mute">
+            nenhuma sessão encontrada no Firestore pra essa usuária. (o sync de sessão era
+            best-effort e podia falhar antes da correção das regras — daqui pra frente grava.)
+          </p>
+        )}
+        {sessions.length > 0 && (
+          <div className="mt-4 overflow-x-auto">
+            <table className="w-full font-body text-sm">
+              <thead>
+                <tr className="border-b border-[var(--blush-stroke)] text-left font-display text-[11px] uppercase tracking-[0.18em] text-mute">
+                  <th className="py-2 pr-4">quando</th>
+                  <th className="py-2 pr-4">curso</th>
+                  <th className="py-2 pr-4">modo</th>
+                  <th className="py-2 pr-4">nota</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sessions.map((s) => (
+                  <tr key={s.id} className="border-b border-[var(--blush-stroke)]">
+                    <td className="whitespace-nowrap py-2 pr-4 text-mute">{fmt(s.when)}</td>
+                    <td className="py-2 pr-4 text-ink">{s.courseTitle}</td>
+                    <td className="py-2 pr-4 text-mute">{s.mode}</td>
+                    <td className="py-2 pr-4 text-ink">
+                      {s.score}/{s.total}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function MiniField({ label, value, sub }: { label: string; value: string; sub?: string }) {
+  return (
+    <div className="rounded-xl border border-[var(--blush-stroke)] bg-paper p-3">
+      <p className="font-display text-[10px] uppercase tracking-[0.18em] text-mute">{label}</p>
+      <p className="mt-1 font-display text-base text-ink">{value}</p>
+      {sub && <p className="font-body text-[11px] text-mute">{sub}</p>}
     </div>
   );
 }
@@ -405,9 +574,10 @@ const KIND_LABELS: Record<AccessLog['kind'], string> = {
   impersonate: 'acesso admin',
   pageview: 'tela',
   cadastro: 'conta criada',
+  atividade: 'atividade',
 };
 
-type LogFilter = 'todos' | 'telas' | 'acessos';
+type LogFilter = 'todos' | 'telas' | 'acessos' | 'atividade';
 
 function LogsTab() {
   const [logs, setLogs] = useState<AccessLog[]>([]);
@@ -420,15 +590,19 @@ function LogsTab() {
     let active = true;
     setLoading(true);
     setError(null);
-    // Junta os logs REAIS (/access_logs) com o HISTÓRICO derivado de cada
-    // usuária: quem entrou antes de existir o log de acesso não tem evento
-    // gravado, então sintetizamos um "conta criada" a partir de users.createdAt
-    // (enriquecido com IP/geo/hora do signup_request quando houver).
-    Promise.all([listAccessLogs(500), listAllUsers(), listSignupRequests()])
-      .then(([realLogs, users, requests]) => {
-        if (!active) return;
+    // Timeline = logs REAIS (/access_logs) + HISTÓRICO derivado do banco:
+    //  · 'conta criada' por usuária (users.createdAt + IP/geo do signup_request);
+    //  · 'atividade' por sessão de estudo (users/{uid}/sessions*) — as datas em
+    //    que a usuária de fato usou o app, o mais próximo real de "quando logou".
+    (async () => {
+      try {
+        const [realLogs, users, requests] = await Promise.all([
+          listAccessLogs(500),
+          listAllUsers(),
+          listSignupRequests(),
+        ]);
         const reqByUid = new Map(requests.map((r) => [r.uid, r]));
-        const synth: AccessLog[] = users.map((u) => {
+        const cadastro: AccessLog[] = users.map((u) => {
           const r = reqByUid.get(u.uid);
           return {
             id: `cadastro-${u.uid}`,
@@ -441,14 +615,36 @@ function LogsTab() {
             userAgent: r?.userAgent,
           };
         });
-        setLogs([...realLogs, ...synth].sort((a, b) => b.when - a.when));
-      })
-      .catch((e) => {
+        const perUser = await Promise.all(
+          users.map((u) =>
+            listUserSessions(u.uid)
+              .then((s) => ({ u, s }))
+              .catch(() => ({ u, s: [] as AdminUserSession[] })),
+          ),
+        );
+        const atividade: AccessLog[] = [];
+        for (const { u, s } of perUser) {
+          // cap por usuária pra não estourar a tabela; a visão de detalhes mostra tudo.
+          for (const sess of s.slice(0, 100)) {
+            atividade.push({
+              id: `atividade-${sess.id}`,
+              uid: u.uid,
+              email: u.email,
+              when: sess.when,
+              kind: 'atividade',
+              screen: sess.courseTitle,
+              path: `${sess.mode} · ${sess.score}/${sess.total}`,
+            });
+          }
+        }
+        if (!active) return;
+        setLogs([...realLogs, ...cadastro, ...atividade].sort((a, b) => b.when - a.when));
+      } catch (e) {
         if (active) setError(e instanceof Error ? e.message : 'erro');
-      })
-      .finally(() => {
+      } finally {
         if (active) setLoading(false);
-      });
+      }
+    })();
     return () => {
       active = false;
     };
@@ -460,7 +656,8 @@ function LogsTab() {
     const q = search.trim().toLowerCase();
     return logs.filter((l) => {
       if (filter === 'telas' && l.kind !== 'pageview') return false;
-      if (filter === 'acessos' && l.kind === 'pageview') return false;
+      if (filter === 'atividade' && l.kind !== 'atividade') return false;
+      if (filter === 'acessos' && (l.kind === 'pageview' || l.kind === 'atividade')) return false;
       if (q && !l.email.toLowerCase().includes(q)) return false;
       return true;
     });
@@ -473,8 +670,9 @@ function LogsTab() {
           {(
             [
               ['todos', 'tudo'],
-              ['telas', 'telas'],
               ['acessos', 'logins'],
+              ['atividade', 'atividade'],
+              ['telas', 'telas'],
             ] as const
           ).map(([k, label]) => (
             <button
@@ -543,7 +741,11 @@ function LogsTab() {
                     <span
                       className={
                         'rounded-full px-2 py-0.5 text-xs ' +
-                        (l.kind === 'pageview' ? 'bg-blush text-ink' : 'bg-rose-soft text-wine')
+                        (l.kind === 'pageview'
+                          ? 'bg-blush text-ink'
+                          : l.kind === 'atividade'
+                            ? 'bg-emerald-50 text-emerald-800'
+                            : 'bg-rose-soft text-wine')
                       }
                     >
                       {KIND_LABELS[l.kind] ?? l.kind}
@@ -558,7 +760,7 @@ function LogsTab() {
                     )}
                   </td>
                   <td className="py-2 pr-4">
-                    {l.kind === 'pageview' ? (
+                    {l.kind === 'pageview' || l.kind === 'atividade' ? (
                       <div>
                         <span className="text-ink">{l.screen ?? '—'}</span>
                         {l.path && (
