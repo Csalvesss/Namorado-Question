@@ -398,15 +398,28 @@ function UsersTab() {
 // Logs de acesso
 // ===========================================================================
 
+const KIND_LABELS: Record<AccessLog['kind'], string> = {
+  signin: 'entrou',
+  signup: 'cadastro',
+  session: 'sessão',
+  impersonate: 'acesso admin',
+  pageview: 'tela',
+};
+
+type LogFilter = 'todos' | 'telas' | 'acessos';
+
 function LogsTab() {
   const [logs, setLogs] = useState<AccessLog[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [filter, setFilter] = useState<LogFilter>('todos');
+  const [search, setSearch] = useState('');
 
-  useEffect(() => {
+  const load = useCallback(() => {
     let active = true;
     setLoading(true);
-    listAccessLogs(300)
+    setError(null);
+    listAccessLogs(500)
       .then((l) => {
         if (active) setLogs(l);
       })
@@ -421,49 +434,133 @@ function LogsTab() {
     };
   }, []);
 
-  if (loading) return <p className="font-display italic text-mute">carregando…</p>;
-  if (error)
-    return (
-      <p className="rounded-2xl border-l-2 border-red bg-red-soft px-4 py-3 font-body text-sm text-txt">
-        {error}
-      </p>
-    );
+  useEffect(() => load(), [load]);
+
+  const filtered = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    return logs.filter((l) => {
+      if (filter === 'telas' && l.kind !== 'pageview') return false;
+      if (filter === 'acessos' && l.kind === 'pageview') return false;
+      if (q && !l.email.toLowerCase().includes(q)) return false;
+      return true;
+    });
+  }, [logs, filter, search]);
 
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full font-body text-sm">
-        <thead>
-          <tr className="border-b border-[var(--blush-stroke)] text-left font-display text-[11px] uppercase tracking-[0.18em] text-mute">
-            <th className="py-2 pr-4">quando</th>
-            <th className="py-2 pr-4">quem</th>
-            <th className="py-2 pr-4">tipo</th>
-            <th className="py-2 pr-4">IP</th>
-            <th className="py-2 pr-4">localização</th>
-          </tr>
-        </thead>
-        <tbody>
-          {logs.map((l) => (
-            <tr key={l.id} className="border-b border-[var(--blush-stroke)]">
-              <td className="py-2 pr-4 text-mute">
-                {new Date(l.when).toLocaleString('pt-BR')}
-              </td>
-              <td className="py-2 pr-4 text-ink">{l.email}</td>
-              <td className="py-2 pr-4">
-                <span className="rounded-full bg-blush px-2 py-0.5 text-xs">{l.kind}</span>
-                {l.impersonatedBy && (
-                  <span className="ml-2 rounded-full bg-wine px-2 py-0.5 text-xs text-paper">
-                    impersonate
-                  </span>
-                )}
-              </td>
-              <td className="py-2 pr-4 font-mono text-xs text-mute">{l.ip ?? '—'}</td>
-              <td className="py-2 pr-4 text-mute">
-                {[l.geo?.city, l.geo?.region, l.geo?.country].filter(Boolean).join(', ') || '—'}
-              </td>
-            </tr>
+    <div>
+      <div className="flex flex-wrap items-center gap-3">
+        <div className="flex gap-1 rounded-full border border-[var(--blush-stroke)] p-1">
+          {(
+            [
+              ['todos', 'tudo'],
+              ['telas', 'telas'],
+              ['acessos', 'logins'],
+            ] as const
+          ).map(([k, label]) => (
+            <button
+              key={k}
+              type="button"
+              onClick={() => setFilter(k)}
+              className={
+                'rounded-full px-3 py-1 font-display text-xs italic transition ' +
+                (filter === k ? 'bg-wine text-paper' : 'text-mute hover:text-ink')
+              }
+            >
+              {label}
+            </button>
           ))}
-        </tbody>
-      </table>
+        </div>
+        <input
+          type="text"
+          placeholder="filtrar por e-mail"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-full max-w-xs rounded-lg border border-[var(--blush-stroke)] bg-paper px-3 py-2 font-body text-sm text-ink outline-none focus:border-rose"
+        />
+        <button
+          type="button"
+          onClick={() => load()}
+          className="font-display text-sm italic text-mute underline-offset-4 hover:underline"
+        >
+          recarregar
+        </button>
+        <span className="ml-auto font-body text-xs text-mute">
+          {filtered.length} registro{filtered.length === 1 ? '' : 's'}
+        </span>
+      </div>
+
+      {loading && <p className="mt-6 font-display italic text-mute">carregando…</p>}
+      {error && (
+        <p className="mt-6 rounded-2xl border-l-2 border-red bg-red-soft px-4 py-3 font-body text-sm text-txt">
+          {error}
+        </p>
+      )}
+      {!loading && !error && filtered.length === 0 && (
+        <p className="mt-6 font-display italic text-mute">nada por aqui.</p>
+      )}
+
+      {!loading && !error && filtered.length > 0 && (
+        <div className="mt-6 overflow-x-auto">
+          <table className="w-full font-body text-sm">
+            <thead>
+              <tr className="border-b border-[var(--blush-stroke)] text-left font-display text-[11px] uppercase tracking-[0.18em] text-mute">
+                <th className="py-2 pr-4">quando</th>
+                <th className="py-2 pr-4">quem</th>
+                <th className="py-2 pr-4">evento</th>
+                <th className="py-2 pr-4">tela</th>
+                <th className="py-2 pr-4">IP</th>
+                <th className="py-2 pr-4">localização</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.map((l) => (
+                <tr key={l.id} className="border-b border-[var(--blush-stroke)] align-top">
+                  <td className="whitespace-nowrap py-2 pr-4 text-mute">
+                    {new Date(l.when).toLocaleString('pt-BR')}
+                  </td>
+                  <td className="py-2 pr-4 text-ink">{l.email}</td>
+                  <td className="whitespace-nowrap py-2 pr-4">
+                    <span
+                      className={
+                        'rounded-full px-2 py-0.5 text-xs ' +
+                        (l.kind === 'pageview' ? 'bg-blush text-ink' : 'bg-rose-soft text-wine')
+                      }
+                    >
+                      {KIND_LABELS[l.kind] ?? l.kind}
+                    </span>
+                    {l.impersonatedBy && (
+                      <span
+                        className="ml-2 rounded-full bg-wine px-2 py-0.5 text-xs text-paper"
+                        title={`admin: ${l.impersonatedBy}`}
+                      >
+                        via admin
+                      </span>
+                    )}
+                  </td>
+                  <td className="py-2 pr-4">
+                    {l.kind === 'pageview' ? (
+                      <div>
+                        <span className="text-ink">{l.screen ?? '—'}</span>
+                        {l.path && (
+                          <span className="ml-2 font-mono text-[11px] text-mute">{l.path}</span>
+                        )}
+                      </div>
+                    ) : (
+                      <span className="text-mute">—</span>
+                    )}
+                  </td>
+                  <td className="whitespace-nowrap py-2 pr-4 font-mono text-xs text-mute">
+                    {l.ip ?? '—'}
+                  </td>
+                  <td className="py-2 pr-4 text-mute">
+                    {[l.geo?.city, l.geo?.region, l.geo?.country].filter(Boolean).join(', ') || '—'}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }

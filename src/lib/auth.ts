@@ -153,7 +153,17 @@ function mapAuthError(code: string): string {
   }
 }
 
+// Login/logout "de verdade" encerram qualquer impersonação anterior: limpa a
+// marca que o painel admin deixa no sessionStorage, pra não etiquetar as
+// páginas da próxima sessão como "acesso via admin".
+function clearImpersonationFlag() {
+  if (typeof sessionStorage !== 'undefined') {
+    sessionStorage.removeItem('guava:impersonatedBy');
+  }
+}
+
 export async function signIn({ email, password }: AuthInput): Promise<AuthResult> {
+  clearImpersonationFlag();
   const cleanEmail = email.trim().toLowerCase();
   if (!cleanEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
     return { ok: false, error: 'E-mail inválido.' };
@@ -251,6 +261,7 @@ export async function signUp({ email, password, name, track }: AuthInput): Promi
 }
 
 export async function signOutCurrentUser() {
+  clearImpersonationFlag();
   await fbSignOut(firebaseAuth);
   emitChange();
 }

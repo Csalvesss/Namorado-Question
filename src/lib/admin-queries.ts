@@ -95,6 +95,8 @@ export async function listAccessLogs(max = 200): Promise<AccessLog[]> {
       geo: (data.geo as AccessLog['geo']) ?? undefined,
       userAgent: typeof data.userAgent === 'string' ? data.userAgent : undefined,
       kind: (data.kind as AccessLog['kind']) ?? 'signin',
+      path: typeof data.path === 'string' ? data.path : undefined,
+      screen: typeof data.screen === 'string' ? data.screen : undefined,
       impersonatedBy:
         typeof data.impersonatedBy === 'string' ? data.impersonatedBy : undefined,
     };

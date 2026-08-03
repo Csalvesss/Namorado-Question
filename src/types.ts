@@ -282,7 +282,12 @@ export interface AccessLog {
   ip?: string;
   geo?: AccessGeo;
   userAgent?: string;
-  kind: 'signin' | 'signup' | 'session' | 'impersonate';
+  // 'pageview' = navegou até uma tela; os demais são eventos de sessão/conta.
+  kind: 'signin' | 'signup' | 'session' | 'impersonate' | 'pageview';
+  // Rota acessada (ex: '/cursos') — preenchido em kind='pageview'.
+  path?: string;
+  // Nome amigável da tela (ex: 'Cursos') — preenchido em kind='pageview'.
+  screen?: string;
   // Se um admin estava impersonando, uid dele.
   impersonatedBy?: string;
 }
